@@ -1,4 +1,4 @@
-# Mathematics and Science {#math-sci}
+# Theoretical Framework {#rmd-thefra}
 
 <!-- Required to number equations in HTML files -->
 <script type="text/x-mathjax-config">
@@ -7,7 +7,7 @@ MathJax.Hub.Config({
 });
 </script>
 
-## Math
+## Probability Concepts
 
 \TeX\ is the best way to typeset mathematics. Donald Knuth designed \TeX\ when he got frustrated at how long it was taking the typesetters to finish his book, which contained a lot of mathematics.  One nice feature of _R Markdown_ is its ability to read LaTeX code directly.
 
@@ -69,7 +69,7 @@ $$
 $$
 -->
 
-## Chemistry 101: Symbols
+## Annual Excedance Probability - Pa
 
 Chemical formulas will look best if they are not italicized. Get around math mode's automatic italicizing in LaTeX by using the argument `$\mathrm{formula here}$`, with your formula inside the curly brackets.  (Notice the use of the backticks here which enclose text that acts as code.)
 
@@ -113,11 +113,29 @@ $\mathrm{NH_4Cl_{(s)}}$ $\rightleftharpoons$ $\mathrm{NH_{3(g)}+HCl_{(g)}}$
 
 \noindent $\mathrm{MeCH_2Br + Mg}$ $\xrightarrow[below]{above}$ $\mathrm{MeCH_2\bullet Mg \bullet Br}$
 
-## Physics
+## Return Period
 
 Many of the symbols you will need can be found on the math page <http://web.reed.edu/cis/help/latex/math.html> and the Comprehensive LaTeX Symbol Guide (<http://mirror.utexas.edu/ctan/info/symbols/comprehensive/symbols-letter.pdf>).
 
-## Biology
+## Compound Excedance Probability - Pn
 
 You will probably find the resources at <http://www.lecb.ncifcrf.gov/~toms/latex.html> helpful, particularly the links to bsts for various journals. You may also be interested in TeXShade for nucleotide typesetting (<http://homepages.uni-tuebingen.de/beitz/txe.html>).  Be sure to read the proceeding chapter on graphics and tables.
 
+## Extreme Value Analysis Overview
+
+### Main Methods
+
+#### Epochal methods
+
+#### Peak Over Threshold
+
+##### GPD
+##### Poisson Process
+
+### Commond Distributions for Extreme Values
+
+### Methods for parameters estimation
+
+### Return Period
+
+### Wind Speed at Return Period

@@ -20,9 +20,9 @@ flights <- read.csv("data/flights.csv")
 ```
 
 
-# Tables, Graphics, References, and Labels {#ref-labels}
+# Methodology {#rmd-method}
 
-## Tables
+## Input Data Selection and Standarization
 
 In addition to the tables that can be automatically generated from a data frame in **R** that you saw in [R Markdown Basics] using the `kable` function, you can also create tables using _pandoc_. (More information is available at <http://pandoc.org/README.html#tables>.)  This might be useful if you don't have values specifically stored in **R**, but you'd like to display them in table form.  Below is an example.  Pay careful attention to the alignment in the table and hyphens to create the rows and columns.
 
@@ -50,8 +50,38 @@ We can also create a link to the table by doing the following: Table \@ref(tab:i
 <!-- clearpage ends the page, and also dumps out all floats.
   Floats are things like tables and figures. -->
 
+### Data Selection
 
-## Figures
+### Data Standarization
+
+#### Anemometer height - 10 m
+#### Surface Roughness - 0.03 m
+#### Averaging Time - 3-s gust
+
+###Data Filterng 
+
+## Fit data to a POT - Poisson Process
+
+###Data Requirements
+
+###Exploratory Data Analysis and Data Preparation
+
+####Declustering of observations
+####Exclude no-data periods
+####Threshold selection
+
+###Parameters Estimation
+
+####Intensity function
+####Density function
+####Distribution function
+####Maximun likelihood estimation
+
+### Velocities at Return Periods
+
+## spatial Interpolation
+
+###
 
 If your thesis has a lot of figures, _R Markdown_ might behave better for you than that other word processor.  One perk is that it will automatically number the figures accordingly in each chapter.    You'll also be able to create a label for each figure, add a caption, and then reference the figure in a way similar to what we saw with tables earlier.  If you label your figures, you can move the figures around and _R Markdown_ will automatically adjust the numbering for you.  No need for you to remember!  So that you don't have to get too far into LaTeX to do this, a couple **R** functions have been created for you to assist.  You'll see their use below.
 
@@ -74,7 +104,7 @@ Here is a reference to the Reed logo: Figure \@ref(fig:reedlogo).  Note the use 
 
 <!-- starts a new page and stops trying to place floats such as tables and figures -->
 
-Below we will investigate how to save the output of an **R** plot and label it in a way similar to that done above.  Recall the `flights` dataset from Chapter \@ref(rmd-basics).  (Note that we've shown a different way to reference a section or chapter here.)  We will next explore a bar graph with the mean flight departure delays by airline from Portland for 2014.  Note also the use of the `scale` parameter which is discussed on the next page.
+Below we will investigate how to save the output of an **R** plot and label it in a way similar to that done above.  Recall the `flights` dataset from Chapter \@ref(rmd-data).  (Note that we've shown a different way to reference a section or chapter here.)  We will next explore a bar graph with the mean flight departure delays by airline from Portland for 2014.  Note also the use of the `scale` parameter which is discussed on the next page.
 
 ```{r delaysboxplot, warnings=FALSE, messages=FALSE, fig.cap="Mean Delays by Airline", fig.width=6}
 flights %>% group_by(carrier) %>%

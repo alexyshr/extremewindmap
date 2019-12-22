@@ -79,6 +79,13 @@ on chapters.
 
 # Introduction {.unnumbered}
 
+This research aims to create non-hurricane non-tornadic maps of extreme wind speeds for _three specific recurrence intervals_ (700, 1700, and 3000 years) covering the Colombian territory. These maps will be combined with existing hurricane wind speed studies, to be used as input loads due to wind for infrastructure desing.
+
+For each station with wind speeds time histories in the input data, extreme wind speed corresponding to each recurrence interval are calculated using a _Peaks Over Threshold - POT_ extreme value model, then wind velocities with the same recurrence interval are _spatially interpolated_ to generate continuous maps for the whole study area.
+
+A wind speed linked to a _mean recurrence interval - MRI_ of _N-years_ (N-years return value or return period) is interpreted as the highest probable wind speed along the period of N-years. The annual probability of equal or exceed that wind speed is 1/N. All velocity values in 700-years output map will have an annual excedance probability of 1/700 
+
+
 Welcome to the _R Markdown_ thesis template. This template is based on (and in many places copied directly from) the Reed College LaTeX template, but hopefully it will provide a nicer interface for those that have never used TeX or LaTeX before.  Using _R Markdown_ will also allow you to easily keep track of your analyses in **R** chunks of code, with the resulting plots and output included as well.  The hope is this _R Markdown_ template gets you in the habit of doing reproducible research, which benefits you long-term as a researcher, but also will greatly help anyone that is trying to reproduce or build onto your results down the road.
 
 Hopefully, you won't have much of a learning period to go through and you will reap the benefits of a nicely formatted thesis.  The use of LaTeX in combination with _Markdown_ is more consistent than the output of a word processor, much less prone to corruption or crashing, and the resulting file is smaller than a Word file. While you may have never had problems using Word in the past, your thesis is likely going to be about twice as large and complex as anything you've written before, taxing Word's capabilities.  After working with _Markdown_ and **R** together for a few weeks, we are confident this will be your reporting style of choice going forward.
