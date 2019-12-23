@@ -251,22 +251,12 @@ Please visit \href{https://bookdown.org/yihui/bookdown/}{the free online bookdow
 Input data is made up of three different sources a) IDEAM - Institute of Hydrology, Meteorology and Environmental Studies of Colombia \textless www.ideam.gov.co\textgreater, b) ISD - Integrated Surface Database \url{https://www.ncdc.noaa.gov/isd}, and c) ERA5 climate reanalysis \url{https://www.ecmwf.int/en/forecasts/datasets/reanalysis-datasets/era5}.
 
 Historical observed wind speeds
-\begin{verbatim}
-Warning in st_centroid.sf(world): st_centroid assumes attributes are constant
-over geometries of x
-\end{verbatim}
-\begin{verbatim}
-Warning in st_centroid.sfc(st_geometry(x), of_largest_polygon =
-of_largest_polygon): st_centroid does not give correct centroids for longitude/
-latitude data
-\end{verbatim}
-\begin{verbatim}
-Warning in st_centroid.sfc(world$geometry): st_centroid does not give correct
-centroids for longitude/latitude data
-\end{verbatim}
-\includegraphics{thesis_files/figure-latex/plot_ideam_stations-1.pdf} \includegraphics{thesis_files/figure-latex/plot_ideam_stations-2.pdf}
-
-referencia a la figura @ref(fig:plot\_ideam\_stations)
+\begin{figure}
+\centering
+\includegraphics{thesis_files/figure-latex/plotideamstations-1.pdf}
+\caption{\label{fig:plotideamstations}IDEAM Stations}
+\end{figure}
+referencia a la figura \ref{fig:plotideamstations}
 
 Here is a brief introduction into using \emph{R Markdown}. \emph{Markdown} is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. \emph{R Markdown} provides the flexibility of \emph{Markdown} with the implementation of \textbf{R} input and output. For more details on using \emph{R Markdown} see \url{http://rmarkdown.rstudio.com}.
 

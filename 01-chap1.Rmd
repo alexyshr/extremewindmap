@@ -12,11 +12,21 @@ Input data is made up of three different sources a) IDEAM - Institute of Hydrolo
 
 Historical observed wind speeds
 
-
-```{r plot_ideam_stations, echo=FALSE, cache=TRUE, warnings=FALSE, messages=FALSE, error=FALSE, fig.cap="IDEAM Stations"}
-#Conect PostgreSql
+```{r include=FALSE}
 library("dplyr")
 library("sf")
+library("ggplot2")
+library("rnaturalearth")
+library("rnaturalearthdata")
+library("ggspatial")
+```
+
+```{r plotideamstations, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="IDEAM Stations"}
+#message=FALSE, warning=FALSE
+#echo=FALSE, cache=TRUE, warnings=FALSE, messages=FALSE, error=FALSE
+#include=FALSE, echo=FALSE, cache=TRUE, warnings=FALSE, messages=FALSE, error=FALSE, results="hide"
+#Conect PostgreSql
+
 con1 = src_postgres(dbname = "winddata", host = "localhost", port = 5432, user = "user1", password = "user1")
 
 #Get Ideam Stations Table
@@ -32,14 +42,11 @@ ideam_stations = st_as_sf(as_tibble(ideam_stations), coords = c("longitud", "lat
 Encoding(ideam_stations$categoria) <- "UTF-8"
 
 #Maps of the World
-library("ggplot2")
 theme_set(theme_bw())
-library("rnaturalearth")
-library("rnaturalearthdata")
 world <- ne_countries(scale = "medium", returnclass = "sf")
 world_points<- st_centroid(world)
 world_points <- cbind(world, st_coordinates(st_centroid(world$geometry)))
-library("ggspatial")
+
 
 colombia = world_points$name == "Colombia"
 panama = world_points$name == "Panama"
@@ -70,7 +77,9 @@ ggplot(data = world) +
 ```
 
 
-referencia a la figura \@ref(fig:plot_ideam_stations)
+referencia a la figura \@ref(fig:plotideamstations)
+
+
 
 Here is a brief introduction into using _R Markdown_. _Markdown_ is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. _R Markdown_ provides the flexibility of _Markdown_ with the implementation of **R** input and output.  For more details on using _R Markdown_ see <http://rmarkdown.rstudio.com>.  
 
