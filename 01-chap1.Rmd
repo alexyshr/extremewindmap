@@ -8,6 +8,70 @@ The {#rmd-data} text after the chapter declaration will allow us to link through
 
 # Data {#rmd-data}
 
+Input data is made up of three different sources a) IDEAM - Institute of Hydrology, Meteorology and Environmental Studies of Colombia <www.ideam.gov.co>, b) ISD - Integrated Surface Database <https://www.ncdc.noaa.gov/isd>, and c) ERA5 climate reanalysis <https://www.ecmwf.int/en/forecasts/datasets/reanalysis-datasets/era5>. 
+
+Historical observed wind speeds
+
+
+```{r plot_ideam_stations, echo=FALSE, cache=TRUE, warnings=FALSE, messages=FALSE, error=FALSE, fig.cap="IDEAM Stations"}
+#Conect PostgreSql
+library("dplyr")
+library("sf")
+con1 = src_postgres(dbname = "winddata", host = "localhost", port = 5432, user = "user1", password = "user1")
+
+#Get Ideam Stations Table
+originalfields4 = c("objectid", "codigo1", "latitud", "longitud", "categoria")
+originalfields4 = paste(originalfields4, collapse= ", ", sep = "")
+query4 = paste("select", originalfields4, "from ideam_all_stations", "where inpqrs2 = 'YES'", sep=" ")
+ideam_stations = tbl(con1, sql(query4))
+
+
+              
+#Create simple features from Ideam Stations
+ideam_stations = st_as_sf(as_tibble(ideam_stations), coords = c("longitud", "latitud"), crs = 4326)
+Encoding(ideam_stations$categoria) <- "UTF-8"
+
+#Maps of the World
+library("ggplot2")
+theme_set(theme_bw())
+library("rnaturalearth")
+library("rnaturalearthdata")
+world <- ne_countries(scale = "medium", returnclass = "sf")
+world_points<- st_centroid(world)
+world_points <- cbind(world, st_coordinates(st_centroid(world$geometry)))
+library("ggspatial")
+
+colombia = world_points$name == "Colombia"
+panama = world_points$name == "Panama"
+peru= world_points$name == "Peru"
+brazil= world_points$name == "Brazil"
+venezuela= world_points$name == "Venezuela"
+ecuador= world_points$name == "Ecuador"
+
+ggplot(data = world) + 
+  geom_sf(fill= "antiquewhite") + 
+  #geom_text(data= world_points,aes(x=X, y=Y, label=name), color = "darkblue", fontface = "bold", check_overlap = FALSE) +
+  geom_text(data= world_points[venezuela,],aes(x=-67, y=8.5, label=name), color = "darkblue", fontface = "bold", check_overlap = FALSE) +
+  geom_text(data= world_points[panama,],aes(x=-79.2, y=9.2, label=name), color = "darkblue", fontface = "bold", check_overlap = FALSE) + 
+  geom_text(data= world_points[ecuador,],aes(x=-78.2, y=-1, label=name), color = "darkblue", fontface = "bold", check_overlap = FALSE) +
+  geom_text(data= world_points[peru,],aes(x=-75, y=-4, label=name), color = "darkblue", fontface = "bold", check_overlap = FALSE) +
+  geom_text(data= world_points[brazil,],aes(x=-67, y=-2, label=name), color = "darkblue", fontface = "bold", check_overlap = FALSE) + 
+  annotate(geom = "text", x = -77.5, y = 13, label = "Caribbean\nSea", fontface = "italic", color = "grey22", size = 4) + 
+  annotate(geom = "text", x = -80, y = 5, label = "Pacific\nSea", fontface = "italic", color = "grey22", size = 4) +
+  geom_sf(data = ideam_stations, size=1, aes(shape=categoria, color=categoria), show.legend = "point") + 
+  scale_color_discrete(name = 'Category', labels = c("Agrometeorological", "Ordinary Climatic", "Main Climatic", "Mareographic", "Special Meteorological", "Main Synoptic")) +
+  scale_shape_discrete(name = 'Category', labels = c("Agrometeorological", "Ordinary Climatic", "Main Climatic", "Mareographic", "Special Meteorological", "Main Synoptic")) +  
+  annotation_scale(location = "bl", width_hint = 0.5) + annotation_north_arrow(location = "br", which_north = "true", pad_x = unit(0.05, "in"), pad_y = unit(0.05, "in"), style = north_arrow_fancy_orienteering) + 
+  coord_sf(xlim = c(-82.1, -63.8), ylim = c(-7.5, 15.5), expand = FALSE) +
+  xlab("Longitude") + 
+  ylab("Latitude") + 
+  ggtitle("IDEAM Stations") + 
+  theme(panel.grid.major = element_line(color = gray(.5), linetype = "dashed", size = 0.5), panel.background = element_rect(fill = "aliceblue"))
+```
+
+
+referencia a la figura \@ref(fig:plot_ideam_stations)
+
 Here is a brief introduction into using _R Markdown_. _Markdown_ is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. _R Markdown_ provides the flexibility of _Markdown_ with the implementation of **R** input and output.  For more details on using _R Markdown_ see <http://rmarkdown.rstudio.com>.  
 
 Be careful with your spacing in _Markdown_ documents.  While white space largely is ignored, it does at times give _Markdown_ signals as to how to proceed.  As a habit, try to keep everything left aligned whenever possible, especially as you type a new paragraph.  In other words, there is no need to indent basic text in the Rmd document (in fact, it might cause your text to do funny things if you do).

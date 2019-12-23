@@ -222,6 +222,14 @@ Second paragraph of abstract starts here.
 \chapter*{Introduction}\label{introduction}}
 \addcontentsline{toc}{chapter}{Introduction}
 
+This research aims to create non-hurricane non-tornadic maps of extreme wind speeds for \emph{three specific recurrence intervals} (700, 1700, and 3000 years) covering the Colombian territory. These maps will be combined with existing hurricane wind speed studies, to be used as input loads due to wind for infrastructure desing.
+
+For each station with wind speeds time histories in the input data, extreme wind speed corresponding to each recurrence interval are calculated using a \emph{Peaks Over Threshold} onwards \emph{POT} extreme value model, then wind velocities with the same recurrence interval are \emph{spatially interpolated} to generate continuous maps for the whole study area.
+
+A wind speed linked to a \emph{mean recurrence interval - MRI} of \emph{N-years} (N-years return value or return period) is interpreted as the highest probable wind speed along the period of N-years. The annual probability of equal or exceed that wind speed is 1/N. The annual excedance probability for all velocity values in 700-years output map will be 1/700, for the 1700-years map will be 1/1700, and 1/3000 for the 3000-years final map.
+
+There are different methods to model extreme value data, among them are a) sample maxima using a \emph{Generalized Extreme Value Distribution} onwards \emph{GEVD} (traditional method), b) POT using a \emph{Generalized Pareto Distribution} onwards \emph{GPD}, c) POT using a two-dimensional Poisson Process, that can be homomegenos, non-homogeneous, stationary, and non-stationary (originally know as \emph{Point Process} approach), and d) POT Poisson-GPD. Following Pintar, Simiu, Lombardo, \& Levitan (2015) in this research a \emph{POT using a non-homogeneous non-stationary two-dimensional poisson proces} was selected, despide there is no R package available to apply this approach.
+
 Welcome to the \emph{R Markdown} thesis template. This template is based on (and in many places copied directly from) the Reed College LaTeX template, but hopefully it will provide a nicer interface for those that have never used TeX or LaTeX before. Using \emph{R Markdown} will also allow you to easily keep track of your analyses in \textbf{R} chunks of code, with the resulting plots and output included as well. The hope is this \emph{R Markdown} template gets you in the habit of doing reproducible research, which benefits you long-term as a researcher, but also will greatly help anyone that is trying to reproduce or build onto your results down the road.
 
 Hopefully, you won't have much of a learning period to go through and you will reap the benefits of a nicely formatted thesis. The use of LaTeX in combination with \emph{Markdown} is more consistent than the output of a word processor, much less prone to corruption or crashing, and the resulting file is smaller than a Word file. While you may have never had problems using Word in the past, your thesis is likely going to be about twice as large and complex as anything you've written before, taxing Word's capabilities. After working with \emph{Markdown} and \textbf{R} together for a few weeks, we are confident this will be your reporting style of choice going forward.
@@ -237,15 +245,35 @@ Anyone who needs to use data analysis, math, tables, a lot of figures, complex c
 \textbf{For additional help with bookdown}
 Please visit \href{https://bookdown.org/yihui/bookdown/}{the free online bookdown reference guide}.
 
-\hypertarget{rmd-basics}{%
-\chapter{R Markdown Basics}\label{rmd-basics}}
+\hypertarget{rmd-data}{%
+\chapter{Data}\label{rmd-data}}
+
+Input data is made up of three different sources a) IDEAM - Institute of Hydrology, Meteorology and Environmental Studies of Colombia \textless www.ideam.gov.co\textgreater, b) ISD - Integrated Surface Database \url{https://www.ncdc.noaa.gov/isd}, and c) ERA5 climate reanalysis \url{https://www.ecmwf.int/en/forecasts/datasets/reanalysis-datasets/era5}.
+
+Historical observed wind speeds
+\begin{verbatim}
+Warning in st_centroid.sf(world): st_centroid assumes attributes are constant
+over geometries of x
+\end{verbatim}
+\begin{verbatim}
+Warning in st_centroid.sfc(st_geometry(x), of_largest_polygon =
+of_largest_polygon): st_centroid does not give correct centroids for longitude/
+latitude data
+\end{verbatim}
+\begin{verbatim}
+Warning in st_centroid.sfc(world$geometry): st_centroid does not give correct
+centroids for longitude/latitude data
+\end{verbatim}
+\includegraphics{thesis_files/figure-latex/plot_ideam_stations-1.pdf} \includegraphics{thesis_files/figure-latex/plot_ideam_stations-2.pdf}
+
+referencia a la figura @ref(fig:plot\_ideam\_stations)
 
 Here is a brief introduction into using \emph{R Markdown}. \emph{Markdown} is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. \emph{R Markdown} provides the flexibility of \emph{Markdown} with the implementation of \textbf{R} input and output. For more details on using \emph{R Markdown} see \url{http://rmarkdown.rstudio.com}.
 
-Be careful with your spacing in \emph{Markdown} documents. While whitespace largely is ignored, it does at times give \emph{Markdown} signals as to how to proceed. As a habit, try to keep everything left aligned whenever possible, especially as you type a new paragraph. In other words, there is no need to indent basic text in the Rmd document (in fact, it might cause your text to do funny things if you do).
+Be careful with your spacing in \emph{Markdown} documents. While white space largely is ignored, it does at times give \emph{Markdown} signals as to how to proceed. As a habit, try to keep everything left aligned whenever possible, especially as you type a new paragraph. In other words, there is no need to indent basic text in the Rmd document (in fact, it might cause your text to do funny things if you do).
 
-\hypertarget{lists}{%
-\section{Lists}\label{lists}}
+\hypertarget{data-sources}{%
+\section{Data Sources}\label{data-sources}}
 
 It's easy to create a list. It can be unordered like
 \begin{itemize}
@@ -266,7 +294,7 @@ or it can be ordered like
 \end{enumerate}
 Notice that I intentionally mislabeled Item 2 as number 4. \emph{Markdown} automatically figures this out! You can put any numbers in the list and it will create the list. Check it out below.
 
-To create a sublist, just indent the values a bit (at least four spaces or a tab). (Here's one case where indentation is key!)
+To create a sub-list, just indent the values a bit (at least four spaces or a tab). (Here's one case where indentation is key!)
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \tightlist
@@ -284,8 +312,8 @@ To create a sublist, just indent the values a bit (at least four spaces or a tab
     Item 3b
   \end{itemize}
 \end{enumerate}
-\hypertarget{line-breaks}{%
-\section{Line breaks}\label{line-breaks}}
+\hypertarget{getting-data}{%
+\section{Getting Data}\label{getting-data}}
 
 Make sure to add white space between lines if you'd like to start a new paragraph. Look at what happens below in the outputted document if you don't:
 
@@ -298,8 +326,8 @@ Here is the first sentence. Here is another sentence. Here is the last sentence 
 
 This should be a new paragraph.
 
-\hypertarget{r-chunks}{%
-\section{R chunks}\label{r-chunks}}
+\hypertarget{data-organization}{%
+\section{Data Organization}\label{data-organization}}
 
 When you click the \textbf{Knit} button above a document will be generated that includes both content as well as the output of any embedded \textbf{R} code chunks within the document. You can embed an \textbf{R} code chunk like this (\texttt{cars} is a built-in \textbf{R} dataset):
 \begin{Shaded}
@@ -333,7 +361,7 @@ The standard deviation is less than 6.
 \end{quote}
 Note the use of \texttt{\textgreater{}} here, which signifies a quotation environment that will be indented.
 
-As you see with \texttt{\$2\ \textbackslash{}pi\$} above, mathematics can be added by surrounding the mathematical text with dollar signs. More examples of this are in \protect\hyperlink{math-sci}{Mathematics and Science} if you uncomment the code in \protect\hyperlink{math}{Math}.
+As you see with \texttt{\$2\ \textbackslash{}pi\$} above, mathematics can be added by surrounding the mathematical text with dollar signs. More examples of this are in {[}Mathematics and Science{]} if you uncomment the code in {[}Math{]}.
 
 \hypertarget{including-plots}{%
 \section{Including plots}\label{including-plots}}
@@ -486,18 +514,18 @@ We see that the flight occurred on March 3rd and departed a little after 2 PM on
 \item
   \texttt{ggplot2} Documentation - \url{http://docs.ggplot2.org/current/}
 \end{itemize}
-\hypertarget{math-sci}{%
-\chapter{Mathematics and Science}\label{math-sci}}
+\hypertarget{rmd-thefra}{%
+\chapter{Theoretical Framework}\label{rmd-thefra}}
 
-\hypertarget{math}{%
-\section{Math}\label{math}}
+\hypertarget{probability-concepts}{%
+\section{Probability Concepts}\label{probability-concepts}}
 
 \TeX~is the best way to typeset mathematics. Donald Knuth designed \TeX~when he got frustrated at how long it was taking the typesetters to finish his book, which contained a lot of mathematics. One nice feature of \emph{R Markdown} is its ability to read LaTeX code directly.
 
 If you are doing a thesis that will involve lots of math, you will want to read the following section which has been commented out. If you're not going to use math, skip over or delete this next commented section.
 
-\hypertarget{chemistry-101-symbols}{%
-\section{Chemistry 101: Symbols}\label{chemistry-101-symbols}}
+\hypertarget{annual-excedance-probability---pa}{%
+\section{Annual Excedance Probability - Pa}\label{annual-excedance-probability---pa}}
 
 Chemical formulas will look best if they are not italicized. Get around math mode's automatic italicizing in LaTeX by using the argument \texttt{\$\textbackslash{}mathrm\{formula\ here\}\$}, with your formula inside the curly brackets. (Notice the use of the backticks here which enclose text that acts as code.)
 
@@ -536,23 +564,53 @@ We can reference this combustion of glucose reaction via Equation \eqref{eq:reac
 
 \noindent \(\mathrm{MeCH_2Br + Mg}\) \(\xrightarrow[below]{above}\) \(\mathrm{MeCH_2\bullet Mg \bullet Br}\)
 
-\hypertarget{physics}{%
-\section{Physics}\label{physics}}
+\hypertarget{return-period}{%
+\section{Return Period}\label{return-period}}
 
 Many of the symbols you will need can be found on the math page \url{http://web.reed.edu/cis/help/latex/math.html} and the Comprehensive LaTeX Symbol Guide (\url{http://mirror.utexas.edu/ctan/info/symbols/comprehensive/symbols-letter.pdf}).
 
-\hypertarget{biology}{%
-\section{Biology}\label{biology}}
+\hypertarget{compound-excedance-probability---pn}{%
+\section{Compound Excedance Probability - Pn}\label{compound-excedance-probability---pn}}
 
 You will probably find the resources at \url{http://www.lecb.ncifcrf.gov/~toms/latex.html} helpful, particularly the links to bsts for various journals. You may also be interested in TeXShade for nucleotide typesetting (\url{http://homepages.uni-tuebingen.de/beitz/txe.html}). Be sure to read the proceeding chapter on graphics and tables.
 
-\hypertarget{ref-labels}{%
-\chapter{Tables, Graphics, References, and Labels}\label{ref-labels}}
+\hypertarget{extreme-value-analysis-overview}{%
+\section{Extreme Value Analysis Overview}\label{extreme-value-analysis-overview}}
 
-\hypertarget{tables}{%
-\section{Tables}\label{tables}}
+\hypertarget{main-methods}{%
+\subsection{Main Methods}\label{main-methods}}
 
-In addition to the tables that can be automatically generated from a data frame in \textbf{R} that you saw in \protect\hyperlink{rmd-basics}{R Markdown Basics} using the \texttt{kable} function, you can also create tables using \emph{pandoc}. (More information is available at \url{http://pandoc.org/README.html\#tables}.) This might be useful if you don't have values specifically stored in \textbf{R}, but you'd like to display them in table form. Below is an example. Pay careful attention to the alignment in the table and hyphens to create the rows and columns.
+\hypertarget{epochal-methods}{%
+\subsubsection{Epochal methods}\label{epochal-methods}}
+
+\hypertarget{peak-over-threshold}{%
+\subsubsection{Peak Over Threshold}\label{peak-over-threshold}}
+
+\hypertarget{gpd}{%
+\paragraph{GPD}\label{gpd}}
+
+\hypertarget{poisson-process}{%
+\paragraph{Poisson Process}\label{poisson-process}}
+
+\hypertarget{commond-distributions-for-extreme-values}{%
+\subsection{Commond Distributions for Extreme Values}\label{commond-distributions-for-extreme-values}}
+
+\hypertarget{methods-for-parameters-estimation}{%
+\subsection{Methods for parameters estimation}\label{methods-for-parameters-estimation}}
+
+\hypertarget{return-period-1}{%
+\subsection{Return Period}\label{return-period-1}}
+
+\hypertarget{wind-speed-at-return-period}{%
+\subsection{Wind Speed at Return Period}\label{wind-speed-at-return-period}}
+
+\hypertarget{rmd-method}{%
+\chapter{Methodology}\label{rmd-method}}
+
+\hypertarget{input-data-selection-and-standarization}{%
+\section{Input Data Selection and Standarization}\label{input-data-selection-and-standarization}}
+
+In addition to the tables that can be automatically generated from a data frame in \textbf{R} that you saw in {[}R Markdown Basics{]} using the \texttt{kable} function, you can also create tables using \emph{pandoc}. (More information is available at \url{http://pandoc.org/README.html\#tables}.) This might be useful if you don't have values specifically stored in \textbf{R}, but you'd like to display them in table form. Below is an example. Pay careful attention to the alignment in the table and hyphens to create the rows and columns.
 \begin{longtable}[]{@{}ccc@{}}
 \caption{\label{tab:inher} Correlation of Inheritance Factors for Parents and Child}\tabularnewline
 \toprule
@@ -616,8 +674,49 @@ We can also create a link to the table by doing the following: Table \ref{tab:in
 
 \clearpage
 
-\hypertarget{figures}{%
-\section{Figures}\label{figures}}
+\hypertarget{data-selection}{%
+\subsection{Data Selection}\label{data-selection}}
+
+\hypertarget{data-standarization}{%
+\subsection{Data Standarization}\label{data-standarization}}
+
+\hypertarget{anemometer-height---10-m}{%
+\subsubsection{Anemometer height - 10 m}\label{anemometer-height---10-m}}
+
+\hypertarget{surface-roughness---0.03-m}{%
+\subsubsection{Surface Roughness - 0.03 m}\label{surface-roughness---0.03-m}}
+
+\hypertarget{averaging-time---3-s-gust}{%
+\subsubsection{Averaging Time - 3-s gust}\label{averaging-time---3-s-gust}}
+
+\#\#\#Data Filterng
+
+\hypertarget{fit-data-to-a-pot---poisson-process}{%
+\section{Fit data to a POT - Poisson Process}\label{fit-data-to-a-pot---poisson-process}}
+
+\#\#\#Data Requirements
+
+\#\#\#Exploratory Data Analysis and Data Preparation
+
+\#\#\#\#Declustering of observations
+\#\#\#\#Exclude no-data periods
+\#\#\#\#Threshold selection
+
+\#\#\#Parameters Estimation
+
+\#\#\#\#Intensity function
+\#\#\#\#Density function
+\#\#\#\#Distribution function
+\#\#\#\#Maximun likelihood estimation
+
+\hypertarget{velocities-at-return-periods}{%
+\subsection{Velocities at Return Periods}\label{velocities-at-return-periods}}
+
+\hypertarget{spatial-interpolation}{%
+\section{spatial Interpolation}\label{spatial-interpolation}}
+
+\hypertarget{section}{%
+\subsection{}\label{section}}
 
 If your thesis has a lot of figures, \emph{R Markdown} might behave better for you than that other word processor. One perk is that it will automatically number the figures accordingly in each chapter. You'll also be able to create a label for each figure, add a caption, and then reference the figure in a way similar to what we saw with tables earlier. If you label your figures, you can move the figures around and \emph{R Markdown} will automatically adjust the numbering for you. No need for you to remember! So that you don't have to get too far into LaTeX to do this, a couple \textbf{R} functions have been created for you to assist. You'll see their use below.
 
@@ -634,7 +733,7 @@ Here is a reference to the Reed logo: Figure \ref{fig:reedlogo}. Note the use of
 
 \clearpage
 
-Below we will investigate how to save the output of an \textbf{R} plot and label it in a way similar to that done above. Recall the \texttt{flights} dataset from Chapter \ref{rmd-basics}. (Note that we've shown a different way to reference a section or chapter here.) We will next explore a bar graph with the mean flight departure delays by airline from Portland for 2014. Note also the use of the \texttt{scale} parameter which is discussed on the next page.
+Below we will investigate how to save the output of an \textbf{R} plot and label it in a way similar to that done above. Recall the \texttt{flights} dataset from Chapter \ref{rmd-data}. (Note that we've shown a different way to reference a section or chapter here.) We will next explore a bar graph with the mean flight departure delays by airline from Portland for 2014. Note also the use of the \texttt{scale} parameter which is discussed on the next page.
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{flights }\OperatorTok{%>%}\StringTok{ }\KeywordTok{group_by}\NormalTok{(carrier) }\OperatorTok{%>%}
@@ -735,7 +834,7 @@ This first appendix includes all of the R chunks of code that were hidden throug
 \KeywordTok{library}\NormalTok{(thesisdown)}
 \end{Highlighting}
 \end{Shaded}
-\textbf{In Chapter \ref{ref-labels}:}
+\textbf{In Chapter \ref{rmd-method}:}
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{# This chunk ensures that the thesisdown package is}
@@ -790,6 +889,9 @@ Molina, S. T., \& Borkovec, T. D. (1994). The Penn State worry questionnaire: Ps
 
 \leavevmode\hypertarget{ref-noble2002}{}%
 Noble, S. G. (2002). \emph{Turning images into simple line-art} (Undergraduate thesis). Reed College.
+
+\leavevmode\hypertarget{ref-Pintar2015}{}%
+Pintar, A. L., Simiu, E., Lombardo, F. T., \& Levitan, M. L. (2015). \emph{Simple guide for evaluating and expressing the uncertainty of NIST MeasuremenMaps of non-hurricane non-tornadic wind speeds with specified mean recurrence intervals for the contiguous united states using a two-dimensional poisson process extreme value model and local regressiont results}. National Institute of Standards; Technology.
 
 \leavevmode\hypertarget{ref-reedweb2007}{}%
 Reed~College. (2007). LaTeX your document. Retrieved from \url{http://web.reed.edu/cis/help/LaTeX/index.html}

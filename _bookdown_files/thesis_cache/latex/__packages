@@ -1,10 +1,4 @@
 base
-methods
-datasets
-utils
-grDevices
-graphics
-stats
 usethis
 devtools
 dplyr
@@ -12,3 +6,7 @@ ggplot2
 bookdown
 knitr
 thesisdown
+sf
+rnaturalearth
+rnaturalearthdata
+ggspatial
