@@ -250,14 +250,48 @@ Please visit \href{https://bookdown.org/yihui/bookdown/}{the free online bookdow
 
 Input data is made up of three different sources a) IDEAM - Institute of Hydrology, Meteorology and Environmental Studies of Colombia \textless www.ideam.gov.co\textgreater, b) ISD - Integrated Surface Database \url{https://www.ncdc.noaa.gov/isd}, and c) ERA5 climate reanalysis \url{https://www.ecmwf.int/en/forecasts/datasets/reanalysis-datasets/era5}.
 
-Historical observed wind speeds
+Historical observed wind speeds from 203 in Colombia are managed by the official environmental authority IDEAM. Table \ref{tab:tableideamstations} shows a sample of five IDEAM stations. Figure \ref{fig:plotideamstations} shows a map of IDEAM stations.
+\begin{longtable}[t]{lrr}
+\caption[IDEAM Stations]{\label{tab:tableideamstations}IDEAM Stations sample}\\
+\toprule
+Name[Code] & Latitud & Longitud\\
+\midrule
+EMAS - AUT [26155230] & 5.09 & -75.51\\
+SAN BENITO - AUT [25025380] & 9.16 & -75.04\\
+AEROPUERTO ALFONSO LOPEZ - [28025502] & 10.44 & -73.25\\
+TIBAITATA - AUT [21206990] & 4.69 & -74.21\\
+METROMEDELLIN - AUT [27015310] & 6.33 & -75.55\\
+\bottomrule
+\end{longtable}
 \begin{figure}
 \centering
 \includegraphics{thesis_files/figure-latex/plotideamstations-1.pdf}
 \caption{\label{fig:plotideamstations}IDEAM Stations}
 \end{figure}
-referencia a la figura \ref{fig:plotideamstations}
-
+ISD is a database with environmental variables among then extreme wind speeds. ISD has data for the whole planet, and is based on observed data at metereological stations in each country, which means that for Colombia is based on IDEAM data. Main advantage is data availability at neighbor countries and specialized postprocesing made by NOAA's National Centers for Environmental Information - NCEI in United States, which facilitates its use.Table \ref{tab:tableisdstations} shows a sample of five ISD stations. Figure \ref{fig:plotisdstations} shows a map of ISD stations.
+\begin{longtable}[t]{llrr}
+\caption[ISD Stations]{\label{tab:tableisdstations}ISD Stations sample}\\
+\toprule
+Code & Name & Latitud & Longitud\\
+\midrule
+804400 & BARINAS & 8.62 & -70.22\\
+800810 & ALTO CURICHE & 7.05 & -76.35\\
+801000 & BAHIA SOLANO / JOSE MUTIS & 6.18 & -77.40\\
+802590 & ALFONSO BONILLA ARAGON INTL & 3.54 & -76.38\\
+803150 & BENITO SALAS & 2.95 & -75.29\\
+\bottomrule
+\end{longtable}
+\begin{figure}
+\centering
+\includegraphics{thesis_files/figure-latex/plotisdstations-1.pdf}
+\caption{\label{fig:plotisdstations}ISD Stations}
+\end{figure}
+ERA5 is forecast reanalysis data procesed by the \emph{European Centre for Medium-Range Weather Forecasts} - ECMWF with wind speeds time series in square cells \emph{matrix of pixels} of 0.25 degrees (33 km) covering the whole plannet. For the study area was extracted a raster of 69 rows by 49 XXX columns in format NetCDF. Figure \ref{fig:plotera5stations} shows a map of ERA5 stations (cells centers).
+\begin{figure}
+\centering
+\includegraphics{thesis_files/figure-latex/plotera5stations-1.pdf}
+\caption{\label{fig:plotera5stations}ERA5 Stations (cells centers)}
+\end{figure}
 Here is a brief introduction into using \emph{R Markdown}. \emph{Markdown} is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. \emph{R Markdown} provides the flexibility of \emph{Markdown} with the implementation of \textbf{R} input and output. For more details on using \emph{R Markdown} see \url{http://rmarkdown.rstudio.com}.
 
 Be careful with your spacing in \emph{Markdown} documents. While white space largely is ignored, it does at times give \emph{Markdown} signals as to how to proceed. As a habit, try to keep everything left aligned whenever possible, especially as you type a new paragraph. In other words, there is no need to indent basic text in the Rmd document (in fact, it might cause your text to do funny things if you do).

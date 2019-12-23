@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/W32TeX) (preloaded format=pdflatex 2019.12.19)  23 DEC 2019 13:11
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/W32TeX) (preloaded format=pdflatex 2019.12.19)  23 DEC 2019 17:14
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -472,7 +472,7 @@ Package: kvsetkeys 2019/12/15 v1.18 Key value parser (HO)
 )
 (c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/kvdefinekeys/
 kvdefinekeys.sty
-Package: kvdefinekeys 2019/12/15 v1.5 Define keys (HO)
+Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
 )
 (c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/oberdiek/pdfe
 scape.sty
@@ -873,202 +873,233 @@ LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 2
 (c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-<thesis_files/figure-latex/plotideamstations-1.pdf, id=302, 469.755pt x 325.215
+<thesis_files/figure-latex/plotideamstations-1.pdf, id=312, 469.755pt x 325.215
 pt>
 File: thesis_files/figure-latex/plotideamstations-1.pdf Graphic file (type pdf)
 
 <use thesis_files/figure-latex/plotideamstations-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/plotideamstations-1.pdf  use
-d on input line 256.
+d on input line 268.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 
-Overfull \hbox (36.13387pt too wide) in paragraph at lines 256--257
+Overfull \hbox (36.13387pt too wide) in paragraph at lines 268--269
  [][] 
  []
 
 
-Underfull \vbox (badness 4634) has occurred while \output is active []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.3}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.261 H
-       ere is a brief introduction into using \emph{R Markdown}. \emph{Markd...
+l.271 I
+       SD is a database with environmental variables among then extreme wind...
 [3
 
- <./thesis_files/figure-latex/plotideamstations-1.pdf>]
-LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 2
-72.
-(c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/ts1lmr.fd
-File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
-)pdfTeX warning (ext4): destination with the same identifier (name{page.4}) has
- been already used, duplicate ignored
+]
+<thesis_files/figure-latex/plotisdstations-1.pdf, id=321, 469.755pt x 325.215pt
+>
+File: thesis_files/figure-latex/plotisdstations-1.pdf Graphic file (type pdf)
+<use thesis_files/figure-latex/plotisdstations-1.pdf>
+Package pdftex.def Info: thesis_files/figure-latex/plotisdstations-1.pdf  used 
+on input line 286.
+(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+
+Overfull \hbox (36.13387pt too wide) in paragraph at lines 286--287
+ [][] 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+pdfTeX warning (ext4): destination with the same identifier (name{page.4}) has 
+been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.323 \begin{Shaded}
-                     [4]
+l.289 E
+       RA5 is forecast reanalysis data procesed by the \emph{European Centre...
+[4 <./thesis_files/figure-latex/plotideamstations-1.pdf>]
+<thesis_files/figure-latex/plotera5stations-1.pdf, id=335, 469.755pt x 325.215p
+t>
+File: thesis_files/figure-latex/plotera5stations-1.pdf Graphic file (type pdf)
+<use thesis_files/figure-latex/plotera5stations-1.pdf>
+Package pdftex.def Info: thesis_files/figure-latex/plotera5stations-1.pdf  used
+ on input line 292.
+(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+
+Overfull \hbox (36.13387pt too wide) in paragraph at lines 292--293
+ [][] 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[5 <./thesis_files/figure-latex/plotisdstations-1.pdf>]
+LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 3
+06.
+(c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/ts1lmr.fd
+File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
+) [6 <./thesis_files/figure-latex/plotera5stations-1.pdf>]
 LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <12> not available
-(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 325.
-<thesis_files/figure-latex/pressure-1.pdf, id=332, 469.755pt x 325.215pt>
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 359.
+[7]
+<thesis_files/figure-latex/pressure-1.pdf, id=377, 469.755pt x 325.215pt>
 File: thesis_files/figure-latex/pressure-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/pressure-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/pressure-1.pdf  used on inpu
-t line 361.
+t line 395.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 
-Overfull \hbox (53.75868pt too wide) in paragraph at lines 361--362
+Overfull \hbox (53.75868pt too wide) in paragraph at lines 395--396
 [][] 
  []
 
-[5]
-Underfull \vbox (badness 1107) has occurred while \output is active []
-
-[6 <./thesis_files/figure-latex/pressure-1.pdf>]
+[8 <./thesis_files/figure-latex/pressure-1.pdf>] [9]
 LaTeX Font Info:    Trying to load font information for TS1+lmtt on input line 
-414.
+448.
 (c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/ts1lmtt.fd
 File: ts1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
-) [7] [8
+) [10] [11
 
 ]
-<thesis_files/figure-latex/march3plot-1.pdf, id=367, 433.62pt x 216.81pt>
+<thesis_files/figure-latex/march3plot-1.pdf, id=409, 433.62pt x 216.81pt>
 File: thesis_files/figure-latex/march3plot-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/march3plot-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/march3plot-1.pdf  used on in
-put line 493.
+put line 527.
 (pdftex.def)             Requested size: 433.61894pt x 216.80946pt.
 
-Overfull \hbox (17.62376pt too wide) in paragraph at lines 493--494
+Overfull \hbox (17.62376pt too wide) in paragraph at lines 527--528
 [][] 
  []
 
 
-Underfull \hbox (badness 1062) in paragraph at lines 501--503
+Underfull \hbox (badness 1062) in paragraph at lines 535--537
 []\T1/lmr/m/it/12 R Mark-down \T1/lmr/m/n/12 Ref-er-ence Guide - []$\T1/lmtt/m/
 n/12 https : / / www . rstudio . com / wp -[] content /
  []
 
-[9 <./thesis_files/figure-latex/march3plot-1.pdf>] [10
-
-]
+[12 <./thesis_files/figure-latex/march3plot-1.pdf>]
 Chapter 2.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[11]
-Underfull \hbox (badness 10000) in paragraph at lines 560--561
+[13
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 594--595
 \T1/lmr/m/n/12 ([]$\T1/lmtt/m/n/12 http : / / mirror . utexas . edu / ctan / in
 fo / symbols / comprehensive / symbols -[]
  []
 
 
-Underfull \hbox (badness 7030) in paragraph at lines 565--566
+Underfull \hbox (badness 7030) in paragraph at lines 599--600
 \T1/lmr/m/n/12 You will prob-a-bly find the re-sources at []$\T1/lmtt/m/n/12 ht
 tp : / / www . lecb . ncifcrf . gov /
  []
 
 
-Underfull \hbox (badness 2922) in paragraph at lines 565--566
+Underfull \hbox (badness 2922) in paragraph at lines 599--600
 \T1/lmtt/m/n/12 ~toms / latex . html$[] \T1/lmr/m/n/12 help-ful, par-tic-u-larl
 y the links to bsts for var-i-ous jour-
  []
 
 
-Underfull \hbox (badness 1742) in paragraph at lines 565--566
+Underfull \hbox (badness 1742) in paragraph at lines 599--600
 \T1/lmr/m/n/12 nals. You may also be in-ter-ested in TeXShade for nu-cleotide t
 ype-set-ting
  []
 
 
-Underfull \hbox (badness 4001) in paragraph at lines 565--566
+Underfull \hbox (badness 4001) in paragraph at lines 599--600
 \T1/lmr/m/n/12 ([]$\T1/lmtt/m/n/12 http : / / homepages . uni -[] tuebingen . d
 e / beitz / txe . html$[]\T1/lmr/m/n/12 ). Be sure to read
  []
 
-[12] [13] [14
+[14] [15] [16
 
 ]
 Chapter 3.
-[15]
-Overfull \hbox (10.9216pt too wide) in paragraph at lines 691--694
+[17]
+Overfull \hbox (10.9216pt too wide) in paragraph at lines 725--728
 []\T1/lmr/m/n/12 ####Declustering of ob-ser-va-tions ####Ex-clude no-data pe-ri
 -ods ####Thresh-
  []
 
-<figure/reed.jpg, id=453, 250.9375pt x 251.94125pt>
+<figure/reed.jpg, id=491, 250.9375pt x 251.94125pt>
 File: figure/reed.jpg Graphic file (type jpg)
 <use figure/reed.jpg>
-Package pdftex.def Info: figure/reed.jpg  used on input line 720.
+Package pdftex.def Info: figure/reed.jpg  used on input line 754.
 (pdftex.def)             Requested size: 250.77698pt x 251.79454pt.
 
 Underfull \vbox (badness 1521) has occurred while \output is active []
 
-[16
+[18
 
-] [17 <./figure/reed.jpg>]
-<thesis_files/figure-latex/delaysboxplot-1.pdf, id=476, 433.62pt x 325.215pt>
+] [19 <./figure/reed.jpg>]
+<thesis_files/figure-latex/delaysboxplot-1.pdf, id=515, 433.62pt x 325.215pt>
 File: thesis_files/figure-latex/delaysboxplot-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/delaysboxplot-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/delaysboxplot-1.pdf  used on
- input line 737.
+ input line 771.
 (pdftex.def)             Requested size: 433.61894pt x 325.2142pt.
-[18
+[20
 
  <./thesis_files/figure-latex/delaysboxplot-1.pdf>]
-<figure/subdivision.pdf, id=489, 220.825pt x 89.33376pt>
+<figure/subdivision.pdf, id=529, 220.825pt x 89.33376pt>
 File: figure/subdivision.pdf Graphic file (type pdf)
 <use figure/subdivision.pdf>
-Package pdftex.def Info: figure/subdivision.pdf  used on input line 748.
+Package pdftex.def Info: figure/subdivision.pdf  used on input line 782.
 (pdftex.def)             Requested size: 165.61833pt x 67.00014pt.
 File: figure/subdivision.pdf Graphic file (type pdf)
 <use figure/subdivision.pdf>
-Package pdftex.def Info: figure/subdivision.pdf  used on input line 756.
+Package pdftex.def Info: figure/subdivision.pdf  used on input line 790.
 (pdftex.def)             Requested size: 220.82445pt x 89.33353pt.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 763.
+(Font)              <10> on input line 797.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 763.
+(Font)              <7> on input line 797.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 763.
-[19
+(Font)              <5> on input line 797.
+[21
 
  <./figure/subdivision.pdf>]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[20] [21] [22
+[22] [23] [24
 
-] [23] [24
+] [25] [26
 
 ]
 Appendix A.
-[25] [26]
+[27] [28]
 Appendix B.
-[27
-
-] [28
-
-]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 892.
 [29
 
+] [30
+
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 892.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 926.
+[31
+
+]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 926.
 (./thesis.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 892.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 892.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 926.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 926.
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: EAE8CBBC0E4AFEADC71BD7C3BA9F902D;2522.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 892.
+(rerunfilecheck)             Checksum: 4A8F84E5A844B43E90D287418816FEF7;2522.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 926.
  ) 
 Here is how much of TeX's memory you used:
- 9496 strings out of 494107
- 147258 string characters out of 6172027
- 221796 words of memory out of 5000000
- 13173 multiletter control sequences out of 15000+600000
+ 9521 strings out of 494107
+ 148066 string characters out of 6172027
+ 222101 words of memory out of 5000000
+ 13190 multiletter control sequences out of 15000+600000
  75823 words of font info for 72 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 40i,12n,49p,830b,373s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 40i,12n,49p,830b,380s stack positions out of 5000i,500n,10000p,200000b,80000s
 {c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-e
 c.enc}{c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/
 lm-mathit.enc}{c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/d
@@ -1093,10 +1124,10 @@ ming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt12.pfb><c:/Users/alexyshr/App
 Data/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtti10.pfb><c:/Users/ale
 xyshr/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/symbols/ms
 am10.pfb>
-Output written on thesis.pdf (47 pages, 1027493 bytes).
+Output written on thesis.pdf (49 pages, 2226725 bytes).
 PDF statistics:
- 705 PDF objects out of 1000 (max. 8388607)
- 618 compressed objects within 7 object streams
- 163 named destinations out of 1000 (max. 500000)
- 327 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 745 PDF objects out of 1000 (max. 8388607)
+ 652 compressed objects within 7 object streams
+ 169 named destinations out of 1000 (max. 500000)
+ 337 words of extra memory for PDF output out of 10000 (max. 10000000)
 

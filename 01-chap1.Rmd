@@ -6,12 +6,6 @@ This is for including Chapter 1.  Notice that it's also good practice to name yo
 The {#rmd-data} text after the chapter declaration will allow us to link throughout the document back to the beginning of Chapter 1.  These labels will automatically be generated (if not specified) by changing the spaces to hyphens and capital letters to lowercase.  Look for the reference to this label at the beginning of Chapter 2.
 -->
 
-# Data {#rmd-data}
-
-Input data is made up of three different sources a) IDEAM - Institute of Hydrology, Meteorology and Environmental Studies of Colombia <www.ideam.gov.co>, b) ISD - Integrated Surface Database <https://www.ncdc.noaa.gov/isd>, and c) ERA5 climate reanalysis <https://www.ecmwf.int/en/forecasts/datasets/reanalysis-datasets/era5>. 
-
-Historical observed wind speeds
-
 ```{r include=FALSE}
 library("dplyr")
 library("sf")
@@ -19,9 +13,14 @@ library("ggplot2")
 library("rnaturalearth")
 library("rnaturalearthdata")
 library("ggspatial")
+#library("tibble")
+library("knitr")
+#library("kableExtra")
+library(ncdf4)
+library(stars)
 ```
 
-```{r plotideamstations, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="IDEAM Stations"}
+```{r include=FALSE}
 #message=FALSE, warning=FALSE
 #echo=FALSE, cache=TRUE, warnings=FALSE, messages=FALSE, error=FALSE
 #include=FALSE, echo=FALSE, cache=TRUE, warnings=FALSE, messages=FALSE, error=FALSE, results="hide"
@@ -30,16 +29,48 @@ library("ggspatial")
 con1 = src_postgres(dbname = "winddata", host = "localhost", port = 5432, user = "user1", password = "user1")
 
 #Get Ideam Stations Table
-originalfields4 = c("objectid", "codigo1", "latitud", "longitud", "categoria")
+originalfields4 = c("objectid", "codigo1", "nombre", "latitud", "longitud", "categoria")
 originalfields4 = paste(originalfields4, collapse= ", ", sep = "")
 query4 = paste("select", originalfields4, "from ideam_all_stations", "where inpqrs2 = 'YES'", sep=" ")
-ideam_stations = tbl(con1, sql(query4))
-
-
-              
-#Create simple features from Ideam Stations
-ideam_stations = st_as_sf(as_tibble(ideam_stations), coords = c("longitud", "latitud"), crs = 4326)
+ideam_stations = as_tibble(tbl(con1, sql(query4)))
 Encoding(ideam_stations$categoria) <- "UTF-8"
+Encoding(ideam_stations$nombre) <- "UTF-8"
+
+originalfields3 = c("id", "usaf", "station_name", "latitud", "longitud")
+originalfields3 = paste(originalfields3, collapse= ", ", sep = "")
+query3 = paste("select", originalfields3, "from isd_all_stations where usaf_isd_dataua != ''", sep=" ")
+isd_stations = as_tibble(tbl(con1, sql(query3)))
+```
+
+# Data {#rmd-data}
+
+Input data is made up of three different sources a) IDEAM - Institute of Hydrology, Meteorology and Environmental Studies of Colombia <www.ideam.gov.co>, b) ISD - Integrated Surface Database <https://www.ncdc.noaa.gov/isd>, and c) ERA5 climate reanalysis <https://www.ecmwf.int/en/forecasts/datasets/reanalysis-datasets/era5>. 
+
+Historical observed wind speeds from `r length(ideam_stations$codigo1)` in Colombia are managed by the official environmental authority IDEAM. Table \@ref(tab:tableideamstations) shows a sample of five IDEAM stations. Figure \@ref(fig:plotideamstations) shows a map of IDEAM stations.
+
+```{r tableideamstations, echo=FALSE, message=FALSE, warning=FALSE, results="asis"}
+tableideam =  ideam_stations[c(81,120,200,57,150), c("nombre", "latitud", "longitud")]
+tableideam$latitud = round(tableideam$latitud, 2)
+tableideam$longitud = round(tableideam$longitud, 2)
+
+#tableideamstations = 
+kable(tableideam, 
+      col.names = c("Name[Code]", "Latitud", "Longitud"),
+      caption = "IDEAM Stations sample",
+      caption.short = "IDEAM Stations",
+      longtable = TRUE,
+      booktabs = TRUE)
+
+#kable_styling(tableideamstations, font_size = 10)
+
+```
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+#Create simple features from Ideam Stations
+ideam_stations = st_as_sf(ideam_stations, coords = c("longitud", "latitud"), crs = 4326)
+```
+
+```{r plotideamstations, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="IDEAM Stations"}
 
 #Maps of the World
 theme_set(theme_bw())
@@ -58,11 +89,11 @@ ecuador= world_points$name == "Ecuador"
 ggplot(data = world) + 
   geom_sf(fill= "antiquewhite") + 
   #geom_text(data= world_points,aes(x=X, y=Y, label=name), color = "darkblue", fontface = "bold", check_overlap = FALSE) +
-  geom_text(data= world_points[venezuela,],aes(x=-67, y=8.5, label=name), color = "darkblue", fontface = "bold", check_overlap = FALSE) +
-  geom_text(data= world_points[panama,],aes(x=-79.2, y=9.2, label=name), color = "darkblue", fontface = "bold", check_overlap = FALSE) + 
-  geom_text(data= world_points[ecuador,],aes(x=-78.2, y=-1, label=name), color = "darkblue", fontface = "bold", check_overlap = FALSE) +
-  geom_text(data= world_points[peru,],aes(x=-75, y=-4, label=name), color = "darkblue", fontface = "bold", check_overlap = FALSE) +
-  geom_text(data= world_points[brazil,],aes(x=-67, y=-2, label=name), color = "darkblue", fontface = "bold", check_overlap = FALSE) + 
+  geom_text(data= world_points[venezuela,],aes(x=-67, y=8.5, label=name), color = "darkblue", fontface = "bold", size=3, check_overlap = FALSE) +
+  geom_text(data= world_points[panama,],aes(x=-79.2, y=9.2, label=name), color = "darkblue", fontface = "bold", size=3, check_overlap = FALSE) + 
+  geom_text(data= world_points[ecuador,],aes(x=-78.2, y=-1, label=name), color = "darkblue", fontface = "bold", size=3, check_overlap = FALSE) +
+  geom_text(data= world_points[peru,],aes(x=-75, y=-4, label=name), color = "darkblue", fontface = "bold", size=3, check_overlap = FALSE) +
+  geom_text(data= world_points[brazil,],aes(x=-67, y=-2, label=name), color = "darkblue", fontface = "bold", size=3, check_overlap = FALSE) +
   annotate(geom = "text", x = -77.5, y = 13, label = "Caribbean\nSea", fontface = "italic", color = "grey22", size = 4) + 
   annotate(geom = "text", x = -80, y = 5, label = "Pacific\nSea", fontface = "italic", color = "grey22", size = 4) +
   geom_sf(data = ideam_stations, size=1, aes(shape=categoria, color=categoria), show.legend = "point") + 
@@ -76,9 +107,142 @@ ggplot(data = world) +
   theme(panel.grid.major = element_line(color = gray(.5), linetype = "dashed", size = 0.5), panel.background = element_rect(fill = "aliceblue"))
 ```
 
+ISD is a database with environmental variables among then extreme wind speeds. ISD has data for the whole planet, and is based on observed data at metereological stations in each country, which means that for Colombia is based on IDEAM data. Main advantage is data availability at neighbor countries and specialized postprocesing made by NOAA's National Centers for Environmental Information - NCEI in United States, which facilitates its use.Table \@ref(tab:tableisdstations) shows a sample of five ISD stations. Figure \@ref(fig:plotisdstations) shows a map of ISD stations.
 
-referencia a la figura \@ref(fig:plotideamstations)
+```{r tableisdstations, echo=FALSE, message=FALSE, warning=FALSE, results="asis"}
+tableisd =  isd_stations[c(81,20,29,57,60), c("usaf", "station_name", "latitud", "longitud")]
+tableisd$latitud = round(tableisd$latitud, 2)
+tableisd$longitud = round(tableisd$longitud, 2)
 
+#tableideamstations = 
+kable(tableisd, 
+      col.names = c("Code", "Name", "Latitud", "Longitud"),
+      caption = "ISD Stations sample",
+      caption.short = "ISD Stations",
+      longtable = TRUE,
+      booktabs = TRUE)
+
+#kable_styling(tableideamstations, font_size = 10)
+
+```
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+#Create simple features from Ideam Stations
+isd_stations = st_as_sf(isd_stations, coords = c("longitud", "latitud"), crs = 4326)
+```
+
+```{r plotisdstations, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="ISD Stations"}
+
+#Maps of the World
+theme_set(theme_bw())
+world <- ne_countries(scale = "medium", returnclass = "sf")
+world_points<- st_centroid(world)
+world_points <- cbind(world, st_coordinates(st_centroid(world$geometry)))
+
+
+colombia = world_points$name == "Colombia"
+panama = world_points$name == "Panama"
+peru= world_points$name == "Peru"
+brazil= world_points$name == "Brazil"
+venezuela= world_points$name == "Venezuela"
+ecuador= world_points$name == "Ecuador"
+
+ggplot(data = world) + 
+  geom_sf(fill= "antiquewhite") + 
+  #geom_text(data= world_points,aes(x=X, y=Y, label=name), color = "darkblue", fontface = "bold", check_overlap = FALSE) +
+  geom_text(data= world_points[venezuela,],aes(x=-67, y=8.5, label=name), color = "darkblue", fontface = "bold", size=3, check_overlap = FALSE) +
+  geom_text(data= world_points[panama,],aes(x=-79.2, y=9.2, label=name), color = "darkblue", fontface = "bold", size=3, check_overlap = FALSE) + 
+  geom_text(data= world_points[ecuador,],aes(x=-78.2, y=-1, label=name), color = "darkblue", fontface = "bold", size=3, check_overlap = FALSE) +
+  geom_text(data= world_points[peru,],aes(x=-75, y=-4, label=name), color = "darkblue", fontface = "bold", size=3, check_overlap = FALSE) +
+  geom_text(data= world_points[brazil,],aes(x=-67, y=-2, label=name), color = "darkblue", fontface = "bold", size=3, check_overlap = FALSE) +
+  annotate(geom = "text", x = -77.5, y = 13, label = "Caribbean\nSea", fontface = "italic", color = "grey22", size = 4) + 
+  annotate(geom = "text", x = -80, y = 5, label = "Pacific\nSea", fontface = "italic", color = "grey22", size = 4) +
+  geom_sf(data = isd_stations, size=1, shape=2, color= "black", show.legend = "point") + 
+  annotation_scale(location = "bl", width_hint = 0.5) + annotation_north_arrow(location = "br", which_north = "true", pad_x = unit(0.05, "in"), pad_y = unit(0.05, "in"), style = north_arrow_fancy_orienteering) + 
+  coord_sf(xlim = c(-82.1, -63.8), ylim = c(-7.5, 15.5), expand = FALSE) +
+  xlab("Longitude") + 
+  ylab("Latitude") + 
+  ggtitle("ISD Stations") + 
+  theme(panel.grid.major = element_line(color = gray(.5), linetype = "dashed", size = 0.5), panel.background = element_rect(fill = "aliceblue"))
+```
+
+```{r include=FALSE}
+ncname <- "outfile_nc4c_zip9"
+filename <- paste("./data/", ncname, ".nc", sep = "")
+ncin <- nc_open(filename)
+#print (ncin)
+lon <- ncvar_get(ncin, "longitude")
+#lon
+nlon = dim(lon)
+#nlon
+lat <- ncvar_get(ncin, "latitude")
+#lat
+nlat = dim(lat)
+#nlat
+ntime <-  dim(ncvar_get(ncin, "time"))
+variablename <- "fg10"
+fg10.units <- ncatt_get(ncin, variablename, "units")
+fg10.units
+lonlat.unstack <- expand.grid(lon=as.numeric(lon), lat=as.numeric(lat))
+```
+
+
+```{r, include=FALSE}
+#Create point sf with lat and lon and value as cell index
+era5colpoints = st_as_sf(lonlat.unstack, coords=1:2, crs=st_crs(4326))
+era5colpoints$value = 1:(nlon*nlat)
+#str(era5colpoints)
+#plot(era5colpoints)
+```
+
+```{r, include=FALSE}
+pointsbbox = st_bbox(era5colpoints)
+cellsize = lonlat.unstack$lon[2]- lonlat.unstack$lon[1]
+mybbox = st_bbox(c(pointsbbox$xmin - (cellsize/2), pointsbbox$xmax + (cellsize/2), pointsbbox$ymax + (cellsize/2), pointsbbox$ymin - (cellsize/2)), crs = st_crs(4326))
+era5colraster.st = st_rasterize(era5colpoints, st_as_stars(mybbox, nx = nlon, ny = nlat, values = era5colpoints$value))
+```
+
+
+ERA5 is forecast reanalysis data procesed by the _European Centre for Medium-Range Weather Forecasts_ - ECMWF with wind speeds time series in square cells _matrix of pixels_ of 0.25 degrees (33 km) covering the whole plannet. For the study area was extracted a raster of `r (nlat)` rows by `r nlon` XXX columns in format NetCDF. Figure \@ref(fig:plotera5stations) shows a map of ERA5 stations (cells centers).
+
+```{r plotera5stations, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="ERA5 Stations (cells centers)"}
+
+#Maps of the World
+theme_set(theme_bw())
+world <- ne_countries(scale = "medium", returnclass = "sf")
+world_points<- st_centroid(world)
+world_points <- cbind(world, st_coordinates(st_centroid(world$geometry)))
+
+
+colombia = world_points$name == "Colombia"
+panama = world_points$name == "Panama"
+peru= world_points$name == "Peru"
+brazil= world_points$name == "Brazil"
+venezuela= world_points$name == "Venezuela"
+ecuador= world_points$name == "Ecuador"
+
+ggplot(data = world) + 
+  geom_sf(fill= "antiquewhite") +
+  geom_sf(data=era5colpoints, size=0.1, color = "black", shape=".")+
+  #geom_text(data= world_points,aes(x=X, y=Y, label=name), color = "darkblue", fontface = "bold", check_overlap = FALSE) +
+  #annotate("label", x = max(grossunits), y = meancbrate, label = "avg rate")
+  geom_text(data= world_points[venezuela,],aes(x=-66, y=8.5, label=name), color = "darkblue", fontface = "bold", size=3, check_overlap = FALSE) +
+  geom_text(data= world_points[panama,],aes(x=-80.5, y=9.2, label=name), color = "darkblue", fontface = "bold", size=3, check_overlap = FALSE) + 
+  geom_text(data= world_points[ecuador,],aes(x=-79.5, y=-1.5, label=name), color = "darkblue", fontface = "bold", size=3, check_overlap = FALSE) +
+  geom_text(data= world_points[peru,],aes(x=-75.5, y=-5.2, label=name), color = "darkblue", fontface = "bold", size=3, check_overlap = FALSE) +
+  geom_text(data= world_points[brazil,],aes(x=-65, y=-2, label=name), color = "darkblue", fontface = "bold", size=3, check_overlap = FALSE) +
+  #geom_text( x = -77.5, y = 13, label = "Caribbean Sea", fontface = "italic", color = "grey22", size = 4)+
+  annotate(geom = "text", x = -77.5, y = 14, label = "Caribbean\nSea", fontface = "italic", color = "grey22", size = 4) + 
+  #geom_text(x = -80, y = 5, label = "Pacific\nSea", fontface = "italic", color = "grey22", size = 4) + 
+  annotate(geom = "text", x = -80.5, y = 5, label = "Pacific\nSea", fontface = "italic", color = "grey22", size = 4) +
+#  geom_stars(data = era5colraster.st) + #, size=1, shape=2, color= "black", show.legend = "point") + 
+  annotation_scale(location = "bl", width_hint = 0.5) + annotation_north_arrow(location = "br", which_north = "true", pad_x = unit(0.05, "in"), pad_y = unit(0.05, "in"), style = north_arrow_fancy_orienteering) + 
+  coord_sf(xlim = c(-82.1, -63.8), ylim = c(-7.5, 15.5), expand = FALSE) +
+  xlab("Longitude") + 
+  ylab("Latitude") + 
+  ggtitle("ERA5 Stations") + 
+  theme(panel.grid.major = element_line(color = gray(.5), linetype = "dashed", size = 0.5), panel.background = element_rect(fill = "aliceblue"))
+```
 
 
 Here is a brief introduction into using _R Markdown_. _Markdown_ is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. _R Markdown_ provides the flexibility of _Markdown_ with the implementation of **R** input and output.  For more details on using _R Markdown_ see <http://rmarkdown.rstudio.com>.  
