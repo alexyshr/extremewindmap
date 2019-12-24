@@ -1,0 +1,5 @@
+Dataset,Variables,Description
+IDEAM,vvmx_aut_60,Hourly wind maximun velocity
+ISD,wind speed rate,Maximun hourly wind velocity. The rate of horizontal travel of air past a fixed point.
+ERA5,fg10,10 metre wind gust since previous post-processing
+,fsr,Forecast Surface Roughness
