@@ -179,6 +179,20 @@ The preface pretty much says it all.
 Second paragraph of abstract starts here.
 }
 
+	\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage[normalem]{ulem}
+\usepackage{makecell}
+\usepackage{xcolor}
 % End of CII addition
 %%
 %% End Preamble
@@ -223,21 +237,211 @@ Second paragraph of abstract starts here.
 \addcontentsline{toc}{chapter}{Introduction}
 
 Placeholder
-
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(knitr)}
+\NormalTok{hook_output =}\StringTok{ }\NormalTok{knit_hooks}\OperatorTok{$}\KeywordTok{get}\NormalTok{(}\StringTok{'output'}\NormalTok{)}
+\NormalTok{knit_hooks}\OperatorTok{$}\KeywordTok{set}\NormalTok{(}\DataTypeTok{output =} \ControlFlowTok{function}\NormalTok{(x, options) \{}
+  \CommentTok{# this hook is used only when the linewidth option is not NULL}
+  \ControlFlowTok{if}\NormalTok{ (}\OperatorTok{!}\KeywordTok{is.null}\NormalTok{(n <-}\StringTok{ }\NormalTok{options}\OperatorTok{$}\NormalTok{linewidth)) \{}
+\NormalTok{    x =}\StringTok{ }\NormalTok{knitr}\OperatorTok{:::}\KeywordTok{split_lines}\NormalTok{(x)}
+    \CommentTok{# any lines wider than n should be wrapped}
+    \ControlFlowTok{if}\NormalTok{ (}\KeywordTok{any}\NormalTok{(}\KeywordTok{nchar}\NormalTok{(x) }\OperatorTok{>}\StringTok{ }\NormalTok{n)) x =}\StringTok{ }\KeywordTok{strwrap}\NormalTok{(x, }\DataTypeTok{width =}\NormalTok{ n)}
+\NormalTok{    x =}\StringTok{ }\KeywordTok{paste}\NormalTok{(x, }\DataTypeTok{collapse =} \StringTok{'}\CharTok{\textbackslash{}n}\StringTok{'}\NormalTok{)}
+\NormalTok{  \}}
+  \KeywordTok{hook_output}\NormalTok{(x, options)}
+\NormalTok{\})}
+\end{Highlighting}
+\end{Shaded}
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# List of packages required for this analysis}
+\NormalTok{pkg <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"dplyr"}\NormalTok{, }\StringTok{"sf"}\NormalTok{, }\StringTok{"ggplot2"}\NormalTok{,}\StringTok{"rnaturalearth"}\NormalTok{, }\StringTok{"rnaturalearthdata"}\NormalTok{, }
+         \StringTok{"ggspatial"}\NormalTok{, }\StringTok{"kableExtra"}\NormalTok{, }\StringTok{"ncdf4"}\NormalTok{, }\StringTok{"stars"}\NormalTok{, }\StringTok{"magick"}\NormalTok{, }\StringTok{"RcmdrMisc"}\NormalTok{,}
+         \StringTok{"knitr"}\NormalTok{, }\StringTok{"bookdown"}\NormalTok{, }\StringTok{"devtools"}\NormalTok{)}
+\CommentTok{# Check if packages are not installed and assign the}
+\CommentTok{# names of the packages not installed to the variable new.pkg}
+\NormalTok{new.pkg <-}\StringTok{ }\NormalTok{pkg[}\OperatorTok{!}\NormalTok{(pkg }\OperatorTok{%in%}\StringTok{ }\KeywordTok{installed.packages}\NormalTok{())]}
+\CommentTok{# If there are any packages in the list that aren't installed,}
+\CommentTok{# install them}
+\ControlFlowTok{if}\NormalTok{ (}\KeywordTok{length}\NormalTok{(new.pkg))}
+  \KeywordTok{install.packages}\NormalTok{(new.pkg, }\DataTypeTok{repos =} \StringTok{"http://cran.rstudio.com"}\NormalTok{)}
+\CommentTok{# Load packages (thesisdown will load all of the packages as well)}
+\KeywordTok{library}\NormalTok{(}\StringTok{"thesisdown"}\NormalTok{)}
+\KeywordTok{library}\NormalTok{(}\StringTok{"dplyr"}\NormalTok{)}
+\KeywordTok{library}\NormalTok{(}\StringTok{"sf"}\NormalTok{)}
+\KeywordTok{library}\NormalTok{(}\StringTok{"ggplot2"}\NormalTok{)}
+\KeywordTok{library}\NormalTok{(}\StringTok{"rnaturalearth"}\NormalTok{)}
+\KeywordTok{library}\NormalTok{(}\StringTok{"rnaturalearthdata"}\NormalTok{)}
+\KeywordTok{library}\NormalTok{(}\StringTok{"ggspatial"}\NormalTok{)}
+\CommentTok{#library("tibble")}
+\KeywordTok{library}\NormalTok{(}\StringTok{"knitr"}\NormalTok{)}
+\KeywordTok{library}\NormalTok{(}\StringTok{"kableExtra"}\NormalTok{)}
+\KeywordTok{library}\NormalTok{(}\StringTok{"ncdf4"}\NormalTok{)}
+\KeywordTok{library}\NormalTok{(}\StringTok{"stars"}\NormalTok{)}
+\KeywordTok{library}\NormalTok{(}\StringTok{"magick"}\NormalTok{)}
+\KeywordTok{library}\NormalTok{(}\StringTok{"RcmdrMisc"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
 \hypertarget{rmd-data}{%
 \chapter{Data}\label{rmd-data}}
 
-Placeholder
+Input data is made up of three different sources a) IDEAM - Institute of Hydrology, Meteorology and Environmental Studies of Colombia \url{http://www.ideam.gov.co}, b) ISD - Integrated Surface Database \url{https://www.ncdc.noaa.gov/isd}, and c) ERA5 climate reanalysis \url{https://www.ecmwf.int/en/forecasts/datasets/reanalysis-datasets/era5}.
+
+\begingroup\fontsize{10}{12}\selectfont
+\begin{longtable}[t]{l>{\raggedright\arraybackslash}p{0.8in}>{\raggedright\arraybackslash}p{4in}}
+\caption[Datasets]{\label{tab:tabledatasources1}Datasets description}\\
+\toprule
+\multicolumn{1}{l}{Institution} & \multicolumn{1}{l}{Dataset} & \multicolumn{1}{l}{Details}\\
+\midrule
+IDEAM & Historical records at weather stations & IDEAM is responsible for the instalation, maintenance and management of all kind of weather stations located everywhere along the country\\
+NOAA & ISD & ISD (Integrated Surface Database. NOAA's National Centers for Environmental Information - NCEI) Lite: A subset from the full ISD dataset containing eight common surface parameters in a fixed-width format free of duplicate values, sub-hourly data, and complicated flags.\\
+ECMWF & ERA5 & ERA5 is a reanalysis dataset with hourly estimates of atmospheric variables with horizontal resolution of 0.25º (33 kilómeters), this is equally spaced cells every 0.25 degrees\\
+\bottomrule
+\end{longtable}
+\endgroup{}
+
+\begingroup\fontsize{10}{12}\selectfont
+\begin{longtable}[t]{l>{\raggedright\arraybackslash}p{1.2in}>{\raggedright\arraybackslash}p{3.5in}}
+\caption[Variables]{\label{tab:tabledatasources2}Datasets variables}\\
+\toprule
+\multicolumn{1}{l}{Dataset} & \multicolumn{1}{l}{Variables} & \multicolumn{1}{l}{Description}\\
+\midrule
+IDEAM & vvmx\_aut\_60 & Hourly wind maximun velocity\\
+ISD & wind speed rate & Maximun hourly wind velocity. The rate of horizontal travel of air past a fixed point.\\
+ERA5 & fg10 & 10 metre wind gust since previous post-processing\\
+ & fsr & Forecast Surface Roughness\\
+\bottomrule
+\end{longtable}
+\endgroup{}
+
+\begingroup\fontsize{10}{12}\selectfont
+\begin{longtable}[t]{l>{\raggedright\arraybackslash}p{0.8in}>{\raggedright\arraybackslash}p{3in}l}
+\caption[Units and Time]{\label{tab:tabledatasources3}Variables units and time}\\
+\toprule
+\multicolumn{1}{l}{Variable} & \multicolumn{1}{l}{Units} & \multicolumn{1}{l}{Time} & \multicolumn{1}{l}{Stations}\\
+\midrule
+vvmx\_aut\_60 & meters per second & Variable from 2001 until today. Irregular time series. & 203\\
+Wind speed & meters per second & Variable from 1941 until today. Note: There is too much variability in time (start, end, and time range) for each station. Irregutal time series. & 101\\
+fg10 & meters per second & 1979-Today & 3381\\
+fsr & meters per second & 1979-Today & 3381\\
+\bottomrule
+\end{longtable}
+\endgroup{}
+
+Ideal data source to create extreme wind speeds maps should be field observed data from IDEAM, but there are not enough number of stations around the study area to represent all the local wind variability in a huge country with multiple variety of climates and and changing thermal floors, but there are other important motivatios to include different sources trying to improve output results:
+\begin{itemize}
+\tightlist
+\item
+  As just mentioned, low quantity of IDEAM stations
+\item
+  There are uncertanties related to the way IDEAM anemometers are registering data, then comparison with other datasources are needed to be able to do appropriate data standardization, needed as a prerequisite to the analysis.
+\item
+  There is no time continuity in the registration of IDEAM data. Historical time series are different and variable in each station.
+\end{itemize}
+Importance of ISD database for this study is based on the fact that post-procesed ISD database has wind extreme values, and it was used to create extreme wind maps for United States. ISD allows comparison with IDEAM records to take better decitions in order to do needed data standarization.
+
+Despite that ERA5 data are not observed data, but forecast, its main advantage is data availability to assess the local climatic variance every 33 square kilometers.
 
 \hypertarget{ideam}{%
 \section{IDEAM}\label{ideam}}
 
+\textbf{R}
+\begin{itemize}
+\tightlist
+\item
+  Item 1
+\item
+  Item 2
+\end{itemize}
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Item 1
+\item
+  Item 2
+\item
+  Item 1
+\item
+  Item 2
+\item
+  Item 3
+  \begin{itemize}
+  \tightlist
+  \item
+    Item 3a
+  \item
+    Item 3b
+  \end{itemize}
+\end{enumerate}
+Historical observed wind speeds from 203 in Colombia are managed by the official environmental authority IDEAM. Table \ref{tab:tableideamstations} shows a sample of five IDEAM stations. Figure \ref{fig:plotideamstations} shows a map of IDEAM stations.
+\begin{longtable}[t]{lrr}
+\caption[IDEAM Stations]{\label{tab:tableideamstations}IDEAM Stations sample}\\
+\toprule
+Name[Code] & Latitud & Longitud\\
+\midrule
+EMAS - AUT [26155230] & 5.09 & -75.51\\
+SAN BENITO - AUT [25025380] & 9.16 & -75.04\\
+AEROPUERTO ALFONSO LOPEZ - [28025502] & 10.44 & -73.25\\
+TIBAITATA - AUT [21206990] & 4.69 & -74.21\\
+ELDORADO CATAM - AUT [21205791] & 4.71 & -74.15\\
+\bottomrule
+\end{longtable}
+\begin{figure}
+\centering
+\includegraphics{thesis_files/figure-latex/plotideamstations-1.pdf}
+\caption{\label{fig:plotideamstations}IDEAM Stations}
+\end{figure}
+Following, the time serie for the IDEAM station ``21205791'' will be displayed
+\begin{verbatim}
+select "mydatetime", "21205791" as "X21205791" from ideam_vvmx_60 where "21205791" IS NOT NULL
+\end{verbatim}
+\begin{figure}
+\centering
+\includegraphics{thesis_files/figure-latex/plotoneideamstation-1.pdf}
+\caption{\label{fig:plotoneideamstation}IDEAM Station}
+\end{figure}
+\begin{figure}
+\centering
+\includegraphics{thesis_files/figure-latex/plotoneideamstationacf-1.pdf}
+\caption{\label{fig:plotoneideamstationacf}IDEAM Station}
+\end{figure}
+\begin{figure}
+\centering
+\includegraphics{thesis_files/figure-latex/plotoneideamstationpacf-1.pdf}
+\caption{\label{fig:plotoneideamstationpacf}IDEAM Station}
+\end{figure}
 \hypertarget{isd}{%
 \section{ISD}\label{isd}}
 
+\emph{Now for the correct way:}
+ISD is a database with environmental variables among then extreme wind speeds. ISD has data for the whole planet, and is based on observed data at metereological stations in each country, which means that for Colombia is based on IDEAM data. Main advantage is data availability at neighbor countries and specialized postprocesing made by NOAA's National Centers for Environmental Information - NCEI in United States, which facilitates its use.Table \ref{tab:tableisdstations} shows a sample of five ISD stations. Figure \ref{fig:plotisdstations} shows a map of ISD stations.
+\begin{longtable}[t]{llrr}
+\caption[ISD Stations]{\label{tab:tableisdstations}ISD Stations sample}\\
+\toprule
+Code & Name & Latitud & Longitud\\
+\midrule
+804400 & BARINAS & 8.62 & -70.22\\
+800810 & ALTO CURICHE & 7.05 & -76.35\\
+801000 & BAHIA SOLANO / JOSE MUTIS & 6.18 & -77.40\\
+802590 & ALFONSO BONILLA ARAGON INTL & 3.54 & -76.38\\
+803150 & BENITO SALAS & 2.95 & -75.29\\
+\bottomrule
+\end{longtable}
+\begin{figure}
+\centering
+\includegraphics{thesis_files/figure-latex/plotisdstations-1.pdf}
+\caption{\label{fig:plotisdstations}ISD Stations}
+\end{figure}
 \hypertarget{era5}{%
 \section{ERA5}\label{era5}}
 
+ERA5 is forecast reanalysis data procesed by the \emph{European Centre for Medium-Range Weather Forecasts} - ECMWF with wind speeds time series in square cells \emph{matrix of pixels} of 0.25 degrees (33 km) covering the whole plannet. For the study area was extracted a raster of 69 rows by 49 XXX columns in format NetCDF. Figure \ref{fig:plotera5stations} shows a map of ERA5 stations (cells centers).
+\begin{figure}
+\centering
+\includegraphics{thesis_files/figure-latex/plotera5stations-1.pdf}
+\caption{\label{fig:plotera5stations}ERA5 Stations (cells centers)}
+\end{figure}
 \hypertarget{section}{%
 \section{}\label{section}}
 
@@ -247,338 +451,62 @@ Placeholder
 \hypertarget{data-standarzation}{%
 \section{Data Standarzation}\label{data-standarzation}}
 
+Analysis of extreme wind speeds requieres data standarizaton as initial step. All input data must be standarized to represent three important conditions: a) anemometer height of 10 meters, b) open space roughness, and c) averaging time of 3-seconds wind gust. Data for analysis must represent 3-s peak wind speeds 10 meters heigh above the surface, in open terrain.
+* 10 mts anemometer height
+* Open space terrain roughness
+* 3-s gust averaging time
+\begin{quote}
+The \texttt{cos} of \(2 \pi\) is 1.
+\end{quote}
+\begin{quote}
+The standard deviation of \texttt{speed} in \texttt{cars} is 5.2876444.
+\end{quote}
+\begin{quote}
+The standard deviation is less than 6.
+\end{quote}
+As you see with \texttt{\$2\ \textbackslash{}pi\$} above, mathematics can be added by surrounding the mathematical text with dollar signs. More examples of this are in {[}Mathematics and Science{]} if you uncomment the code in {[}Math{]}.
+
+\textbf{\emph{after}} you have run the \textbf{R}
+
+\clearpage
+
 \hypertarget{rmd-thefra}{%
 \chapter{Theoretical Framework}\label{rmd-thefra}}
+
+Placeholder
 
 \hypertarget{probability-concepts}{%
 \section{Probability Concepts}\label{probability-concepts}}
 
-Poisson process is an stochastic method that relies in the concepts of probability distributions. The main functions related to probability for extreme value analysis will be described below.
-
 \hypertarget{probability-density-function---pdf}{%
 \subsection{\texorpdfstring{Probability Density Function - \emph{pdf}}{Probability Density Function - pdf}}\label{probability-density-function---pdf}}
-
-Pdf defines the probability that a continuos variable falls between two points, this is, in \emph{pdf} the proability is related to the area below the curve (integral) between two points, as for continuos probability distributions the probability at a single point is zero. The term density is directly related to the probability of a portion of the curve, if the density function has high values the probability will be greater in comparison with the same portion of curve for low values.
-
-\[
-\int_a^b f(x)dx = Pr[a \leq X \leq b]
-\]
-
-Equation \eqref{eq:gumbelpdf} is the Gumbel \emph{pdf}.
-\begin{equation}
-  \mathrm{
-          f(x)=\frac{1}{\beta}
-          \exp\left\{
-            -\frac{x-\mu}{\beta}
-          \right\}
-          \exp\left\{
-            -\exp\left\{
-              -\left(
-                \frac{x-\mu}{\beta}
-              \right)
-            \right\}
-          \right\},
-          \quad -\infty < x < \infty
-         }
-  \label{eq:gumbelpdf}
-\end{equation}
-where \(\exp\left\{.\right\} \mapsto \mathrm{e}^{\left\{.\right\}}\), \(\beta\) is the scale parameter, and \(\mu\) is the location parameter. Location (\(\mu\)) has the effect to shift the \emph{pdf} to left or right along `x' axis, thus, if location value is changed the effect is a movement of \emph{pdf} to the left (small value for location), or to the right (big value for location). Scale has the effect to stretch (\(\beta > 1\)) of compress (\(0 < \beta< 1\)) the \emph{pdf}, if scale parameter is close to zero the pdf approaches a spike.
-
-Figure \ref{fig:plotgumbelpdffunction} shows \emph{pdf} with location (\(\mu\)) = 100 and scale (\(\beta\)) = 40, using equation \eqref{eq:gumbelpdf}.
-
-\footnotesize
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{location =}\StringTok{ }\DecValTok{100}
-\NormalTok{scale =}\StringTok{ }\DecValTok{40}
-\NormalTok{.x <-}\StringTok{ }\KeywordTok{seq}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{300}\NormalTok{, }\DataTypeTok{length.out=}\DecValTok{1000}\NormalTok{)}
-\NormalTok{pdfG <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(x) \{}
-  \DecValTok{1}\OperatorTok{/}\NormalTok{location }\OperatorTok{*}\KeywordTok{exp}\NormalTok{(}\OperatorTok{-}\NormalTok{(x}\OperatorTok{-}\NormalTok{location)}\OperatorTok{/}\NormalTok{scale)}\OperatorTok{*}\KeywordTok{exp}\NormalTok{(}\OperatorTok{-}\KeywordTok{exp}\NormalTok{(}\OperatorTok{-}\NormalTok{(x}\OperatorTok{-}\NormalTok{location)}\OperatorTok{/}\NormalTok{scale))}
-\NormalTok{  \}}
-\NormalTok{.y =}\StringTok{ }\KeywordTok{pdfG}\NormalTok{(.x)}
-\KeywordTok{plot}\NormalTok{(.x, .y, }\DataTypeTok{col=}\StringTok{"green"}\NormalTok{, }\DataTypeTok{lty=}\DecValTok{4}\NormalTok{, }
-     \DataTypeTok{xlab=}\StringTok{"Velocities Km/h"}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{"Density Function - Gumbel Distribution"}\NormalTok{, }
-     \DataTypeTok{main=}\KeywordTok{paste}\NormalTok{(}\StringTok{"Gumbel - Density Function Gumbel Distribution}\CharTok{\textbackslash{}n}\StringTok{"}\NormalTok{, }\StringTok{"Location="}\NormalTok{, }
-     \KeywordTok{round}\NormalTok{(location,}\DecValTok{2}\NormalTok{), }\StringTok{" Scale="}\NormalTok{, }\KeywordTok{round}\NormalTok{(scale,}\DecValTok{2}\NormalTok{)), }\DataTypeTok{type=}\StringTok{"l"}\NormalTok{, }
-     \DataTypeTok{cex.axis =} \FloatTok{0.5}\NormalTok{, }\DataTypeTok{cex.lab=} \FloatTok{0.6}\NormalTok{, }\DataTypeTok{cex.main=}\FloatTok{0.7}\NormalTok{, }\DataTypeTok{cex.sub=}\FloatTok{0.6}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-\begin{figure}
-\centering
-\includegraphics{thesis_files/figure-latex/plotgumbelpdffunction-1.pdf}
-\caption{\label{fig:plotgumbelpdffunction}Gumbel pdf}
-\end{figure}
-\normalsize
-
-Figure \ref{fig:plotgumbelpdf} shows \emph{pdf} with location (\(\mu\)) = 100 and scale (\(\beta\)) = 40, using function \texttt{dgumbel} of the package \texttt{RcmdrMisc}
-
-\footnotesize
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{location =}\StringTok{ }\DecValTok{100}
-\NormalTok{scale =}\StringTok{ }\DecValTok{40}
-\NormalTok{.x <-}\StringTok{ }\KeywordTok{seq}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{300}\NormalTok{, }\DataTypeTok{length.out=}\DecValTok{1000}\NormalTok{)}
-\NormalTok{dfG =}\StringTok{ }\KeywordTok{dgumbel}\NormalTok{(.x, }\DataTypeTok{location=}\NormalTok{location, }\DataTypeTok{scale=}\NormalTok{scale)}
-\KeywordTok{plot}\NormalTok{(.x, dfG, }\DataTypeTok{col=}\StringTok{"red"}\NormalTok{, }\DataTypeTok{lty=}\DecValTok{4}\NormalTok{, }
-     \DataTypeTok{xlab=}\StringTok{"Velocities Km/h"}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{"Density Function - Gumbel Distribution"}\NormalTok{, }
-     \DataTypeTok{main=}\KeywordTok{paste}\NormalTok{(}\StringTok{"Gumbel - Density Function Gumbel Distribution}\CharTok{\textbackslash{}n}\StringTok{"}\NormalTok{, }\StringTok{"Location="}\NormalTok{, }
-     \KeywordTok{round}\NormalTok{(location,}\DecValTok{2}\NormalTok{), }\StringTok{" Scale="}\NormalTok{, }\KeywordTok{round}\NormalTok{(scale,}\DecValTok{2}\NormalTok{)), }\DataTypeTok{type=}\StringTok{"l"}\NormalTok{, }
-     \DataTypeTok{cex.axis =} \FloatTok{0.5}\NormalTok{, }\DataTypeTok{cex.lab=} \FloatTok{0.6}\NormalTok{, }\DataTypeTok{cex.main=}\FloatTok{0.7}\NormalTok{, }\DataTypeTok{cex.sub=}\FloatTok{0.6}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-\begin{figure}
-\centering
-\includegraphics{thesis_files/figure-latex/plotgumbelpdf-1.pdf}
-\caption{\label{fig:plotgumbelpdf}Gumbel pdf - dgumbel function}
-\end{figure}
-\normalsize
 
 \hypertarget{cumulative-distribution-funtcion---cdf}{%
 \subsection{\texorpdfstring{Cumulative Distribution Funtcion - \emph{cdf}}{Cumulative Distribution Funtcion - cdf}}\label{cumulative-distribution-funtcion---cdf}}
 
-\emph{Cdf} is the probability of taking a value less than or equal to x. That is
-
-\[
-F(x) = Pr[X < x] = \alpha
-\]
-For a continuous variable, \emph{cdf} can be expressed as the integral of its \emph{pdf}.
-\[
-F(x) = \int_{-\infty}^x f(x)dx
-\]
-
-Equation \eqref{eq:gumbelcdf} is the Gumbel \emph{cdf}.
-\begin{equation}
-\mathrm{
-        F(x) = \exp\left\{-\exp\left[-\left(\frac{x-\mu}{\beta}\right)\right]\right\}, 
-        \quad -\infty < x < \infty
-        }
-  \label{eq:gumbelcdf}
-\end{equation}
-Figure \ref{fig:plotgumbelcdffunction} shows Gumbel \emph{cdf} with location (\(\mu\)) = 100 and scale (\(\beta\)) = 40, using equation \eqref{eq:gumbelcdf}. As previously done with \emph{pdf}, similar result can be achieved using function \texttt{pgumbel} of package \texttt{RcmdrMisc}.
-
-\footnotesize
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{location =}\StringTok{ }\DecValTok{100}
-\NormalTok{scale =}\StringTok{ }\DecValTok{40}
-\NormalTok{.x <-}\StringTok{ }\KeywordTok{seq}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{300}\NormalTok{, }\DataTypeTok{length.out=}\DecValTok{1000}\NormalTok{)}
-\NormalTok{cdfG <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(x) \{}
-  \KeywordTok{exp}\NormalTok{(}\OperatorTok{-}\KeywordTok{exp}\NormalTok{(}\OperatorTok{-}\NormalTok{(x}\OperatorTok{-}\NormalTok{location)}\OperatorTok{/}\NormalTok{scale))}
-\NormalTok{  \}}
-\NormalTok{.y =}\StringTok{ }\KeywordTok{cdfG}\NormalTok{(.x)}
-\KeywordTok{plot}\NormalTok{(.x, .y, }\DataTypeTok{col=}\StringTok{"green"}\NormalTok{, }\DataTypeTok{lty=}\DecValTok{4}\NormalTok{, }
-     \DataTypeTok{xlab=}\StringTok{"Velocities Km/h"}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{"Probability"}\NormalTok{, }
-     \DataTypeTok{main=}\KeywordTok{paste}\NormalTok{(}\StringTok{"Gumbel - Cumulative Distribution Function}\CharTok{\textbackslash{}n}\StringTok{"}\NormalTok{, }\StringTok{"Location="}\NormalTok{, }
-     \KeywordTok{round}\NormalTok{(location,}\DecValTok{2}\NormalTok{), }\StringTok{" Scale="}\NormalTok{, }\KeywordTok{round}\NormalTok{(scale,}\DecValTok{2}\NormalTok{)), }\DataTypeTok{type=}\StringTok{"l"}\NormalTok{, }
-     \DataTypeTok{cex.axis =} \FloatTok{0.5}\NormalTok{, }\DataTypeTok{cex.lab=} \FloatTok{0.6}\NormalTok{, }\DataTypeTok{cex.main=}\FloatTok{0.7}\NormalTok{, }\DataTypeTok{cex.sub=}\FloatTok{0.6}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-\begin{figure}
-\centering
-\includegraphics{thesis_files/figure-latex/plotgumbelcdffunction-1.pdf}
-\caption{\label{fig:plotgumbelcdffunction}Gumbel cdf}
-\end{figure}
-\normalsize
-
 \hypertarget{percent-point-function---ppf}{%
 \subsection{\texorpdfstring{Percent Point Function - \emph{ppf}}{Percent Point Function - ppf}}\label{percent-point-function---ppf}}
-
-\emph{Ppf} is the inverse of \emph{cdf}, also called the \emph{quantile} function. This is, from a specific probability get the corresponding value x of the variable.
-
-\[
-x = G(\alpha) = G(F(x))
-\]
-Equation \eqref{eq:gumbelppf} is the Gumbel \emph{ppf}.
-\begin{equation}
-\mathrm{
-        G(\alpha) = \mu-\beta ln(-ln(\alpha))
-        \quad 0 < \alpha < 1
-        }
-  \label{eq:gumbelppf}
-\end{equation}
-Figure \ref{fig:plotgumbelppffunction} shows Gumbel \emph{ppf}, using equation \eqref{eq:gumbelppf}. Similar result can be achieved using function \texttt{qgumbel} of package \texttt{RcmdrMisc}.
-
-\footnotesize
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{location =}\StringTok{ }\DecValTok{100}
-\NormalTok{scale =}\StringTok{ }\DecValTok{40}
-\NormalTok{.x <-}\StringTok{ }\KeywordTok{seq}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DataTypeTok{length.out=}\DecValTok{1000}\NormalTok{)}
-\NormalTok{ppfG <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(x) \{}
-\NormalTok{  location }\OperatorTok{-}\StringTok{ }\NormalTok{(scale}\OperatorTok{*}\KeywordTok{log}\NormalTok{(}\OperatorTok{-}\KeywordTok{log}\NormalTok{(x)))}
-\NormalTok{  \}}
-\NormalTok{.y =}\StringTok{ }\KeywordTok{ppfG}\NormalTok{(.x)}
-\KeywordTok{plot}\NormalTok{(.x, .y, }\DataTypeTok{col=}\StringTok{"green"}\NormalTok{, }\DataTypeTok{lty=}\DecValTok{4}\NormalTok{, }
-     \DataTypeTok{ylab=}\StringTok{"Velocities Km/h"}\NormalTok{, }\DataTypeTok{xlab=}\StringTok{"Probability"}\NormalTok{, }
-     \DataTypeTok{main=}\KeywordTok{paste}\NormalTok{(}\StringTok{"Gumbel - Percent Point Function}\CharTok{\textbackslash{}n}\StringTok{"}\NormalTok{, }\StringTok{"Location="}\NormalTok{, }
-     \KeywordTok{round}\NormalTok{(location,}\DecValTok{2}\NormalTok{), }\StringTok{" Scale="}\NormalTok{, }\KeywordTok{round}\NormalTok{(scale,}\DecValTok{2}\NormalTok{)), }\DataTypeTok{type=}\StringTok{"l"}\NormalTok{, }
-     \DataTypeTok{cex.axis =} \FloatTok{0.5}\NormalTok{, }\DataTypeTok{cex.lab=} \FloatTok{0.6}\NormalTok{, }\DataTypeTok{cex.main=}\FloatTok{0.7}\NormalTok{, }\DataTypeTok{cex.sub=}\FloatTok{0.6}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-\begin{figure}
-\centering
-\includegraphics{thesis_files/figure-latex/plotgumbelppffunction-1.pdf}
-\caption{\label{fig:plotgumbelppffunction}Gumbel cdf}
-\end{figure}
-\normalsize
 
 \hypertarget{hazard-function---hf}{%
 \subsection{\texorpdfstring{Hazard Function - \emph{hf}}{Hazard Function - hf}}\label{hazard-function---hf}}
 
-Using \(S(x) = 1 - F(x)\) as survival function -\emph{sf}, the probability that a variable takes a value greather than x \(S(x) = Pr[X > x] = 1 - F(x)\), the \emph{hf} is the ratio between \emph{pdf} and \emph{sf}.
-
-\[
-h(x) = \frac{f(x)}{S(x)} = \frac{f(x)}{1-F(x)}
-\]
-Equation \eqref{eq:gumbelhf} is the Gumbel \emph{ppf}.
-
-Figure \ref{fig:plotgumbelhfffunction} shows Gumbel \emph{hf}, using equation \eqref{eq:gumbelhf}.
-
-\footnotesize
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{location =}\StringTok{ }\DecValTok{100}
-\NormalTok{scale =}\StringTok{ }\DecValTok{40}
-\NormalTok{.x <-}\StringTok{ }\KeywordTok{seq}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{300}\NormalTok{, }\DataTypeTok{length.out=}\DecValTok{1000}\NormalTok{)}
-\NormalTok{hfG <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(x) \{}
-\NormalTok{  (}\DecValTok{1}\OperatorTok{/}\NormalTok{scale)}\OperatorTok{*}\NormalTok{(}\KeywordTok{exp}\NormalTok{(}\OperatorTok{-}\NormalTok{(x}\OperatorTok{-}\NormalTok{location)}\OperatorTok{/}\NormalTok{scale))}\OperatorTok{/}\NormalTok{(}\KeywordTok{exp}\NormalTok{(}\KeywordTok{exp}\NormalTok{(}\OperatorTok{-}\NormalTok{(x}\OperatorTok{-}\NormalTok{location)}\OperatorTok{/}\NormalTok{scale))}\OperatorTok{-}\DecValTok{1}\NormalTok{)}
-\NormalTok{  \}}
-\NormalTok{.y =}\StringTok{ }\KeywordTok{hfG}\NormalTok{(.x)}
-\KeywordTok{plot}\NormalTok{(.x, .y, }\DataTypeTok{col=}\StringTok{"green"}\NormalTok{, }\DataTypeTok{lty=}\DecValTok{4}\NormalTok{, }
-     \DataTypeTok{xlab=}\StringTok{"Velocities Km/h"}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{"Hazard"}\NormalTok{, }
-     \DataTypeTok{main=}\KeywordTok{paste}\NormalTok{(}\StringTok{"Gumbel - Hazard Function}\CharTok{\textbackslash{}n}\StringTok{"}\NormalTok{, }\StringTok{"Location="}\NormalTok{, }
-     \KeywordTok{round}\NormalTok{(location,}\DecValTok{2}\NormalTok{), }\StringTok{" Scale="}\NormalTok{, }\KeywordTok{round}\NormalTok{(scale,}\DecValTok{2}\NormalTok{)), }\DataTypeTok{type=}\StringTok{"l"}\NormalTok{, }
-     \DataTypeTok{cex.axis =} \FloatTok{0.5}\NormalTok{, }\DataTypeTok{cex.lab=} \FloatTok{0.6}\NormalTok{, }\DataTypeTok{cex.main=}\FloatTok{0.7}\NormalTok{, }\DataTypeTok{cex.sub=}\FloatTok{0.6}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-\begin{figure}
-\centering
-\includegraphics{thesis_files/figure-latex/plotgumbelhffunction-1.pdf}
-\caption{\label{fig:plotgumbelhffunction}Gumbel cdf}
-\end{figure}
-\normalsize
-
 \hypertarget{cumulative-hazard-function}{%
 \subsection{Cumulative Hazard Function}\label{cumulative-hazard-function}}
-
-\[
-\sum_{j=1}^n (\delta\theta_j)^2 \leq {{\beta_i^2}\over{\delta_i^2 + \rho_i^2}}
-\left[ 2\rho_i^2 + {\delta_i^2\beta_i^2\over{\delta_i^2 + \rho_i^2}} \right] \equiv \omega_i^2
-\]
-\begin{equation}
-  \mathrm{\sum_{j=1}^n (\delta\theta_j)^2 \leq {{\beta_i^2}\over{\delta_i^2 + \rho_i^2}}
-\left[ 2\rho_i^2 + {\delta_i^2\beta_i^2\over{\delta_i^2 + \rho_i^2}} \right] \equiv \omega_i^2}
-  \label{eq:gumbelpdf2}
-\end{equation}
-We can reference this combustion of glucose reaction via Equation \eqref{eq:gumbelpdf}.
-
-\[\sum_{j=1}^n (\delta\theta_j)^2 \leq {{\beta_i^2}\over{\delta_i^2 + \rho_i^2}}
-\left[ 2\rho_i^2 + {\delta_i^2\beta_i^2\over{\delta_i^2 + \rho_i^2}} \right] \equiv \omega_i^2
-\]
-
-\TeX~is the best way to typeset mathematics. Donald Knuth designed \TeX~when he got frustrated at how long it was taking the typesetters to finish his book, which contained a lot of mathematics. One nice feature of \emph{R Markdown} is its ability to read LaTeX code directly.
-
-If you are doing a thesis that will involve lots of math, you will want to read the following section which has been commented out. If you're not going to use math, skip over or delete this next commented section.
-
-\[\sum_{j=1}^n (\delta\theta_j)^2 \leq {{\beta_i^2}\over{\delta_i^2 + \rho_i^2}}
-\left[ 2\rho_i^2 + {\delta_i^2\beta_i^2\over{\delta_i^2 + \rho_i^2}} \right] \equiv \omega_i^2
-\]
-
-From Informational Dynamics, we have the following (Dave Braden):
-
-After \emph{n} such encounters the posterior density for \(\theta\) is
-
-\[
-\pi(\theta|X_1< y_1,\dots,X_n<y_n) \varpropto \pi(\theta) \prod_{i=1}^n\int_{-\infty}^{y_i}
-   \exp\left(-{(x-\theta)^2\over{2\sigma^2}}\right)\ dx
-\]
-
-Another equation:
-
-\[\det\left|\,\begin{matrix}%
-c_0&c_1\hfill&c_2\hfill&\ldots&c_n\hfill\cr
-c_1&c_2\hfill&c_3\hfill&\ldots&c_{n+1}\hfill\cr
-c_2&c_3\hfill&c_4\hfill&\ldots&c_{n+2}\hfill\cr
-\,\vdots\hfill&\,\vdots\hfill&
-  \,\vdots\hfill&&\,\vdots\hfill\cr
-c_n&c_{n+1}\hfill&c_{n+2}\hfill&\ldots&c_{2n}\hfill\cr
-\end{matrix}\right|>0\]
-Lapidus and Pindar, Numerical Solution of Partial Differential Equations in Science and
-Engineering. Page 54
-
-\[
-\int_t\left\{\sum_{j=1}^3 T_j \left({d\phi_j\over dt}+k\phi_j\right)-kT_e\right\}w_i(t)\ dt=0,
-   \qquad\quad i=1,2,3.
-\]
-
-L\&P Galerkin method weighting functions. Page 55
-
-\[
-\sum_{j=1}^3 T_j\int_0^1\left\{{d\phi_j\over dt} + k\phi_j\right\} \phi_i\ dt
-   = \int_{0}^1k\,T_e\phi_idt, \qquad i=1,2,3 \]
-
-Another L\&P (p145)
-
-\[
-\int_{-1}^1\!\int_{-1}^1\!\int_{-1}^1 f\big(\xi,\eta,\zeta\big)
-   = \sum_{k=1}^n\sum_{j=1}^n\sum_{i=1}^n w_i w_j w_k f\big( \xi,\eta,\zeta\big).
-\]
-
-Another L\&P (p126)
-
-\[
-\int_{A_e} (\,\cdot\,) dx dy = \int_{-1}^1\!\int_{-1}^1 (\,\cdot\,) \det[J] d\xi d\eta.
-\]
 
 \hypertarget{annual-excedance-probability---pa}{%
 \section{Annual Excedance Probability - Pa}\label{annual-excedance-probability---pa}}
 
-Chemical formulas will look best if they are not italicized. Get around math mode's automatic italicizing in LaTeX by using the argument \texttt{\$\textbackslash{}mathrm\{formula\ here\}\$}, with your formula inside the curly brackets. (Notice the use of the backticks here which enclose text that acts as code.)
-
-So, \(\mathrm{Fe_2^{2+}Cr_2O_4}\) is written \texttt{\$\textbackslash{}mathrm\{Fe\_2\^{}\{2+\}Cr\_2O\_4\}\$}.
-
-\noindent Exponent or Superscript: \(\mathrm{O^-}\)
-
-\noindent Subscript: \(\mathrm{CH_4}\)
-
-To stack numbers or letters as in \(\mathrm{Fe_2^{2+}}\), the subscript is defined first, and then the superscript is defined.
-
-\noindent Bullet: CuCl \(\bullet\) \(\mathrm{7H_{2}O}\)
-
-\noindent Delta: \(\Delta\)
-
-\noindent Reaction Arrows: \(\longrightarrow\) or \(\xrightarrow{solution}\)
-
-\noindent Resonance Arrows: \(\leftrightarrow\)
-
-\noindent Reversible Reaction Arrows: \(\rightleftharpoons\)
-
 \hypertarget{typesetting-reactions}{%
 \subsection{Typesetting reactions}\label{typesetting-reactions}}
-
-You may wish to put your reaction in an equation environment, which means that LaTeX will place the reaction where it fits and will number the equations for you.
-\begin{equation}
-  \mathrm{C_6H_{12}O_6  + 6O_2} \longrightarrow \mathrm{6CO_2 + 6H_2O}
-  \label{eq:reaction}
-\end{equation}
-We can reference this combustion of glucose reaction via Equation \eqref{eq:reaction}.
 
 \hypertarget{other-examples-of-reactions}{%
 \subsection{Other examples of reactions}\label{other-examples-of-reactions}}
 
-\(\mathrm{NH_4Cl_{(s)}}\) \(\rightleftharpoons\) \(\mathrm{NH_{3(g)}+HCl_{(g)}}\)
-
-\noindent \(\mathrm{MeCH_2Br + Mg}\) \(\xrightarrow[below]{above}\) \(\mathrm{MeCH_2\bullet Mg \bullet Br}\)
-
 \hypertarget{return-period}{%
 \section{Return Period}\label{return-period}}
 
-Many of the symbols you will need can be found on the math page \url{http://web.reed.edu/cis/help/latex/math.html} and the Comprehensive LaTeX Symbol Guide (\url{http://mirror.utexas.edu/ctan/info/symbols/comprehensive/symbols-letter.pdf}).
-
 \hypertarget{compound-excedance-probability---pn}{%
 \section{Compound Excedance Probability - Pn}\label{compound-excedance-probability---pn}}
-
-You will probably find the resources at \url{http://www.lecb.ncifcrf.gov/~toms/latex.html} helpful, particularly the links to bsts for various journals. You may also be interested in TeXShade for nucleotide typesetting (\url{http://homepages.uni-tuebingen.de/beitz/txe.html}). Be sure to read the proceeding chapter on graphics and tables.
 
 \hypertarget{extreme-value-analysis-overview}{%
 \section{Extreme Value Analysis Overview}\label{extreme-value-analysis-overview}}

@@ -185,20 +185,21 @@ h(x) = \frac{f(x)}{S(x)} = \frac{f(x)}{1-F(x)}
 $$
 Equation \@ref(eq:gumbelhf) is the Gumbel _ppf_.
 
-<!--
+
 \begin{equation}
 \mathrm{
-        h(x)= \frac{1}{\beta}\frac{\exp{(-(x-\mu)/\beta)}}{\exp{(\exp{(-(x-\mu)/\beta)})}-1}
+        h(x)= \frac{1}{\beta}\frac{\exp(-(x-\mu)/\beta)}{\exp(\exp(-(x-\mu)/\beta))-1}
+       }
   (\#eq:gumbelhf)
 \end{equation}
--->
 
-Figure \@ref(fig:plotgumbelhfffunction) shows Gumbel _hf_, using equation \@ref(eq:gumbelhf).
+
+Figure \@ref(fig:plotgumbelhffunction) shows Gumbel _hf_, using equation \@ref(eq:gumbelhf).
 
 ```{r plotgumbelhffunction, echo=T, message=FALSE, warning=FALSE, fig.cap="Gumbel cdf", size="footnotesize", fig.width= 4, fig.height= 3}
 location = 100
 scale = 40
-.x <- seq(0, 300, length.out=1000)
+.x <- seq(0, 3000, length.out=1000)
 hfG <- function(x) {
   (1/scale)*(exp(-(x-location)/scale))/(exp(exp(-(x-location)/scale))-1)
   }
@@ -208,6 +209,9 @@ plot(.x, .y, col="green", lty=4,
      main=paste("Gumbel - Hazard Function\n", "Location=", 
      round(location,2), " Scale=", round(scale,2)), type="l", 
      cex.axis = 0.5, cex.lab= 0.6, cex.main=0.7, cex.sub=0.6)
+#library(reliaR)
+#plot(.x, hgumbel(.x, mu=location, sigma=scale))
+#plot(.x, hra.gumbel(.x, mu=location, sigma=scale))
 ```
 
 

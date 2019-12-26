@@ -158,7 +158,7 @@ Despite that ERA5 data are not observed data, but forecast, its main advantage i
 Historical observed wind speeds from `r length(ideam_stations$codigo1)` in Colombia are managed by the official environmental authority IDEAM. Table \@ref(tab:tableideamstations) shows a sample of five IDEAM stations. Figure \@ref(fig:plotideamstations) shows a map of IDEAM stations.
 
 ```{r tableideamstations, echo=FALSE, message=FALSE, warning=FALSE, results="asis"}
-tableideam =  ideam_stations[c(81,120,200,57,150), c("nombre", "latitud", "longitud")]
+tableideam =  ideam_stations[c(81,120,200,57,179), c("nombre", "latitud", "longitud")]
 tableideam$latitud = round(tableideam$latitud, 2)
 tableideam$longitud = round(tableideam$longitud, 2)
 
@@ -215,6 +215,51 @@ ggplot(data = world) +
   ggtitle("IDEAM Stations") + 
   theme(panel.grid.major = element_line(color = gray(.5), linetype = "dashed", size = 0.5), panel.background = element_rect(fill = "aliceblue"))
 ```
+
+Following, the time serie, autocorrelation function, and partial autocorrelation function, for IDEAM station "21205791" will be displayed.
+
+```{r plotoneideamstation, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="IDEAM Station - Time Serie"}
+#originalfields = unique(era5_intersect_ideam["ideam",])
+originalfields = c("21205791")
+newfields = paste ("X", originalfields, sep="")
+originalfields = paste('"', originalfields, '"', sep = "")
+newfields = paste('"', newfields, '"', sep = "")
+#fiedls_query = paste("CASE WHEN", originalfields, "> 55.5", "THEN NULL ELSE", originalfields, "END", newfields, sep = " ")
+fiedls_query = paste(originalfields, "as", newfields, sep = " ")
+fiedls_query = c(paste('"', "mydatetime", '"', sep = ""), fiedls_query)
+fiedls_query = paste (fiedls_query, "", sep= "", collapse=", ")
+
+#wherestring = unique(era5_intersect_ideam["ideam",])
+wherestring = c("21205791")
+wherestring = paste('"', wherestring, '"', sep = "")
+wherestring = paste(wherestring, "IS NOT NULL", sep = " ")
+wherestring = paste(wherestring, collapse = " OR " , sep = " ")
+query = paste("select", fiedls_query, "from ideam_vvmx_60", "where", wherestring, sep=" ")
+#cat(query)
+all_vvmx_aut_60 = as_tibble(tbl(con1, sql(query)))
+timestamp_all_vvmx_aut_60 <- as.POSIXct(as_tibble(select(all_vvmx_aut_60, mydatetime))$mydatetime,format="%Y-%m-%d %H:%M:%S", tz="UTC")
+library(xts)
+statideam_xts = na.omit(xts(x=select(all_vvmx_aut_60, "X21205791"), order.by = timestamp_all_vvmx_aut_60))
+par(oma = c(2,0,0,0))
+plot.xts(statideam_xts, main = "Station ID: 21205791\nWind Velocity [m/s]", major.ticks="years", format.labels = "%b-%d\n%Y", legend.loc = "top", col="green", cex.main=0.2, xlab= "a")
+mtext(side = 1, text = "Station Name: ELDORADO CATAM - AUT", outer = TRUE)
+```
+
+```{r plotoneideamstationacf, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="IDEAM Station ACF"}
+par(oma = c(0,0,0,0))
+myacf = acf(statideam_xts[,1][!is.na(statideam_xts[,1])], plot=FALSE)
+titleacf = paste("Auto-Correlation Function - ACF", paste("IDEAM", "21205791", sep = ":"), sep = "\n")
+plot(myacf, main = titleacf)
+```
+
+```{r plotoneideamstationpacf, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="IDEAM Station PACF"}
+par(oma = c(0,0,0,0))
+mypacf = pacf(statideam_xts[,1][!is.na(statideam_xts[,1])], plot=FALSE)
+titlepacf = paste("Partial Auto-Correlation Function - PACF", paste("IDEAM", "21205791", sep = ":"), sep = "\n")
+plot(mypacf, main = titlepacf)
+```
+
+
 
 
 ## ISD
@@ -278,6 +323,50 @@ ggplot(data = world) +
   ggtitle("ISD Stations") + 
   theme(panel.grid.major = element_line(color = gray(.5), linetype = "dashed", size = 0.5), panel.background = element_rect(fill = "aliceblue"))
 ```
+
+Following, the time serie, autocorrelation function, and partial autocorrelation function, for ISD station "802590" will be displayed.
+
+```{r plotoneisdstation, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="ISD Station - Time Serie"}
+#originalfields1 = unique(era5_intersect_isd["usaf",])
+originalfields1 = c("802590")
+newfields1 = paste ("X", originalfields1, sep="")
+originalfields1 = paste('"', originalfields1, '"', sep = "")
+newfields1 = paste('"', newfields1, '"', sep = "")
+fiedls_query1 = paste(originalfields1, "as", newfields1, sep = " ")
+fiedls_query1 = c(paste('"', "mydatetime", '"', sep = ""), fiedls_query1)
+fiedls_query1 = paste (fiedls_query1, "", sep= "", collapse=", ")
+#wherestring1 = unique(era5_intersect_isd["usaf",])
+wherestring1 = c("802590")
+wherestring1 = paste('"', wherestring1, '"', sep = "")
+wherestring1 = paste(wherestring1, "IS NOT NULL", sep = " ")
+wherestring1 = paste(wherestring1, collapse = " OR " , sep = " ")
+query1 = paste("select", fiedls_query1, "from isd_lite_unstack", "where", wherestring1, sep=" ")
+cat(query1)
+
+isdlite = as_tibble(tbl(con1, sql(query1)))
+
+timestamp_isdlite <- as.POSIXct(as_tibble(select(isdlite, mydatetime))$mydatetime,format="%Y-%m-%d %H", tz="UTC")
+library(xts)
+statisd_xts = na.omit(xts(x=select(isdlite, "X802590"), order.by = timestamp_isdlite))
+par(oma = c(2,0,0,0))
+plot.xts(statisd_xts, main = "Station ID: 802590\nWind Velocity [m/s]", major.ticks="years", format.labels = "%b-%d\n%Y", legend.loc = "top", col="green", cex.main=0.2, xlab= "a")
+mtext(side = 1, text = "Station Name: ALFONSO BONILLA ARAGON INTL", outer = TRUE)
+```
+
+```{r plotoneisdstationacf, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="ISD Station ACF"}
+par(oma = c(0,0,0,0))
+myacf = acf(statisd_xts[,1][!is.na(statisd_xts[,1])], plot=FALSE)
+titleacf = paste("Auto-Correlation Function - ACF", paste("ISD", "802590", sep = ":"), sep = "\n")
+plot(myacf, main = titleacf)
+```
+
+```{r plotoneisdstationpacf, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="IDEAM Station PACF"}
+par(oma = c(0,0,0,0))
+mypacf = pacf(statisd_xts[,1][!is.na(statisd_xts[,1])], plot=FALSE)
+titlepacf = paste("Partial Auto-Correlation Function - PACF", paste("ISD", "802590", sep = ":"), sep = "\n")
+plot(mypacf, main = titlepacf)
+```
+
 
 ## ERA5
 
@@ -359,6 +448,28 @@ ggplot(data = world) +
   theme(panel.grid.major = element_line(color = gray(.5), linetype = "dashed", size = 0.5), panel.background = element_rect(fill = "aliceblue"))
 ```
 
+```{r, include=FALSE}
+t.units <- ncatt_get(ncin, "time", "units")
+t.units
+time.array <-  ncvar_get(ncin, "time")
+nt = dim(time.array)
+nt
+head(time.array, 1)
+tail(time.array, 1)
+tustr <- strsplit(t.units$value, " ")
+#tustr
+#Our data is in Gregorian Calendar: "hours"      "since"      "1900-01-01" "00:00:00.0"
+anio_mes_dia = unlist(tustr)[3]
+anio_mes_dia
+#Note that the dates are converted first to seconds!
+library(lubridate)
+timestamp = as_datetime(c(time.array*60*60),origin=anio_mes_dia)
+timestamp_string <- as.character(timestamp)
+#str(timestamp_string)
+  statera5_xts = na.omit(xts(x= ncvar_get(ncin, 'fg10', start=c(as.integer(era5_intersect_ideam["ideam_lon_index",i]),as.integer(era5_intersect_ideam["ideam_lat_index",i]),1), count=c(1,1,ntime)), order.by = timestamp))
+  colnames(statera5_xts) = paste0("ERA5_", era5_intersect_ideam["ideam_station",i])
+  
+```
 
 ## 
 
