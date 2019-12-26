@@ -7,7 +7,236 @@ MathJax.Hub.Config({
 });
 </script>
 
+```{r include=FALSE}
+library("RcmdrMisc")
+```
+
+```{r wrap-hook, include=FALSE}
+library(knitr)
+def.chunk.hook  <- knitr::knit_hooks$get("chunk")
+knitr::knit_hooks$set(chunk = function(x, options) {
+  x <- def.chunk.hook(x, options)
+  ifelse(options$size != "normalsize", paste0("\n \\", options$size,"\n\n", x, "\n\n \\normalsize"), x)
+})
+```
+
+
 ## Probability Concepts
+
+Poisson process is an stochastic method that relies in the concepts of probability distributions. The main functions related to probability for extreme value analysis will be described below.
+
+### Probability Density Function - _pdf_
+
+Pdf defines the probability that a continuos variable falls between two points, this is, in _pdf_ the proability is related to the area below the curve (integral) between two points, as for continuos probability distributions the probability at a single point is zero. The term density is directly related to the probability of a portion of the curve, if the density function has high values the probability will be greater in comparison with the same portion of curve for low values.
+
+$$
+\int_a^b f(x)dx = Pr[a \leq X \leq b]
+$$
+
+Equation \@ref(eq:gumbelpdf) is the Gumbel _pdf_.
+
+<!--
+\begin{equation}
+  \mathrm{
+    f(x)=\frac{1}{\beta}
+    e^{\left(-\frac{x-\mu}{\beta}\right)}
+    e^{\left(
+            -e^{\left(\frac{x-\mu}{\beta}\right)}
+      \right)}
+  }
+  (\#eq:gumbelpdf)
+\end{equation}
+-->
+
+\begin{equation}
+  \mathrm{
+          f(x)=\frac{1}{\beta}
+          \exp\left\{
+            -\frac{x-\mu}{\beta}
+          \right\}
+          \exp\left\{
+            -\exp\left\{
+              -\left(
+                \frac{x-\mu}{\beta}
+              \right)
+            \right\}
+          \right\},
+          \quad -\infty < x < \infty
+         }
+  (\#eq:gumbelpdf)
+\end{equation}
+
+where $\exp\left\{.\right\} \mapsto \mathrm{e}^{\left\{.\right\}}$, $\beta$ is the scale parameter, and $\mu$ is the location parameter. Location ($\mu$) has the effect to shift the _pdf_ to left or right along 'x' axis, thus, if location value is changed the effect is a movement of _pdf_ to the left (small value for location), or to the right (big value for location). Scale has the effect to stretch ($\beta > 1$) of compress  ($0 < \beta< 1$) the _pdf_, if scale parameter is close to zero the pdf approaches a spike.
+
+
+Figure \@ref(fig:plotgumbelpdffunction) shows _pdf_ with location ($\mu$) = 100 and scale ($\beta$) = 40, using equation \@ref(eq:gumbelpdf). 
+
+```{r plotgumbelpdffunction, echo=T, message=FALSE, warning=FALSE, fig.cap="Gumbel pdf", size="footnotesize", fig.width= 4, fig.height= 3}
+location = 100
+scale = 40
+.x <- seq(0, 300, length.out=1000)
+pdfG <- function(x) {
+  1/location *exp(-(x-location)/scale)*exp(-exp(-(x-location)/scale))
+  }
+.y = pdfG(.x)
+plot(.x, .y, col="green", lty=4, 
+     xlab="Velocities Km/h", ylab="Density Function - Gumbel Distribution", 
+     main=paste("Gumbel - Density Function Gumbel Distribution\n", "Location=", 
+     round(location,2), " Scale=", round(scale,2)), type="l", 
+     cex.axis = 0.5, cex.lab= 0.6, cex.main=0.7, cex.sub=0.6)
+```
+
+Figure \@ref(fig:plotgumbelpdf) shows _pdf_ with location ($\mu$) = 100 and scale ($\beta$) = 40, using function `dgumbel` of the package `RcmdrMisc`
+
+```{r plotgumbelpdf, echo=T, message=FALSE, warning=FALSE, fig.cap="Gumbel pdf - dgumbel function", size="footnotesize", fig.width= 4, fig.height= 3}
+location = 100
+scale = 40
+.x <- seq(0, 300, length.out=1000)
+dfG = dgumbel(.x, location=location, scale=scale)
+plot(.x, dfG, col="red", lty=4, 
+     xlab="Velocities Km/h", ylab="Density Function - Gumbel Distribution", 
+     main=paste("Gumbel - Density Function Gumbel Distribution\n", "Location=", 
+     round(location,2), " Scale=", round(scale,2)), type="l", 
+     cex.axis = 0.5, cex.lab= 0.6, cex.main=0.7, cex.sub=0.6)
+```
+
+### Cumulative Distribution Funtcion - _cdf_
+
+_Cdf_ is the probability of taking a value less than or equal to x. That is
+
+$$
+F(x) = Pr[X < x] = \alpha
+$$
+For a continuous variable, _cdf_ can be expressed as the integral of its _pdf_.
+$$
+F(x) = \int_{-\infty}^x f(x)dx
+$$
+
+Equation \@ref(eq:gumbelcdf) is the Gumbel _cdf_.
+
+\begin{equation}
+\mathrm{
+        F(x) = \exp\left\{-\exp\left[-\left(\frac{x-\mu}{\beta}\right)\right]\right\}, 
+        \quad -\infty < x < \infty
+        }
+  (\#eq:gumbelcdf)
+\end{equation}
+
+
+Figure \@ref(fig:plotgumbelcdffunction) shows Gumbel _cdf_ with location ($\mu$) = 100 and scale ($\beta$) = 40, using equation \@ref(eq:gumbelcdf). As previously done with _pdf_, similar result can be achieved using function `pgumbel` of package `RcmdrMisc`.
+
+```{r plotgumbelcdffunction, echo=T, message=FALSE, warning=FALSE, fig.cap="Gumbel cdf", size="footnotesize", fig.width= 4, fig.height= 3}
+location = 100
+scale = 40
+.x <- seq(0, 300, length.out=1000)
+cdfG <- function(x) {
+  exp(-exp(-(x-location)/scale))
+  }
+.y = cdfG(.x)
+plot(.x, .y, col="green", lty=4, 
+     xlab="Velocities Km/h", ylab="Probability", 
+     main=paste("Gumbel - Cumulative Distribution Function\n", "Location=", 
+     round(location,2), " Scale=", round(scale,2)), type="l", 
+     cex.axis = 0.5, cex.lab= 0.6, cex.main=0.7, cex.sub=0.6)
+```
+
+### Percent Point Function - _ppf_
+
+_Ppf_ is the inverse of _cdf_, also called the _quantile_ function. This is, from a specific probability get the corresponding value x of the variable.
+
+$$
+x = G(\alpha) = G(F(x))
+$$
+Equation \@ref(eq:gumbelppf) is the Gumbel _ppf_.
+
+\begin{equation}
+\mathrm{
+        G(\alpha) = \mu-\beta ln(-ln(\alpha))
+        \quad 0 < \alpha < 1
+        }
+  (\#eq:gumbelppf)
+\end{equation}
+
+
+Figure \@ref(fig:plotgumbelppffunction) shows Gumbel _ppf_, using equation \@ref(eq:gumbelppf). Similar result can be achieved using function `qgumbel` of package `RcmdrMisc`.
+
+```{r plotgumbelppffunction, echo=T, message=FALSE, warning=FALSE, fig.cap="Gumbel cdf", size="footnotesize", fig.width= 4, fig.height= 3}
+location = 100
+scale = 40
+.x <- seq(0, 1, length.out=1000)
+ppfG <- function(x) {
+  location - (scale*log(-log(x)))
+  }
+.y = ppfG(.x)
+plot(.x, .y, col="green", lty=4, 
+     ylab="Velocities Km/h", xlab="Probability", 
+     main=paste("Gumbel - Percent Point Function\n", "Location=", 
+     round(location,2), " Scale=", round(scale,2)), type="l", 
+     cex.axis = 0.5, cex.lab= 0.6, cex.main=0.7, cex.sub=0.6)
+```
+
+
+### Hazard Function - _hf_
+
+Using $S(x) = 1 - F(x)$ as survival function -_sf_, the probability that a variable takes a value greather than x $S(x) = Pr[X > x] = 1 - F(x)$, the _hf_ is the ratio between _pdf_ and _sf_.
+
+$$
+h(x) = \frac{f(x)}{S(x)} = \frac{f(x)}{1-F(x)}
+$$
+Equation \@ref(eq:gumbelhf) is the Gumbel _ppf_.
+
+<!--
+\begin{equation}
+\mathrm{
+        h(x)= \frac{1}{\beta}\frac{\exp{(-(x-\mu)/\beta)}}{\exp{(\exp{(-(x-\mu)/\beta)})}-1}
+  (\#eq:gumbelhf)
+\end{equation}
+-->
+
+Figure \@ref(fig:plotgumbelhfffunction) shows Gumbel _hf_, using equation \@ref(eq:gumbelhf).
+
+```{r plotgumbelhffunction, echo=T, message=FALSE, warning=FALSE, fig.cap="Gumbel cdf", size="footnotesize", fig.width= 4, fig.height= 3}
+location = 100
+scale = 40
+.x <- seq(0, 300, length.out=1000)
+hfG <- function(x) {
+  (1/scale)*(exp(-(x-location)/scale))/(exp(exp(-(x-location)/scale))-1)
+  }
+.y = hfG(.x)
+plot(.x, .y, col="green", lty=4, 
+     xlab="Velocities Km/h", ylab="Hazard", 
+     main=paste("Gumbel - Hazard Function\n", "Location=", 
+     round(location,2), " Scale=", round(scale,2)), type="l", 
+     cex.axis = 0.5, cex.lab= 0.6, cex.main=0.7, cex.sub=0.6)
+```
+
+
+### Cumulative Hazard Function
+
+
+
+
+$$
+\sum_{j=1}^n (\delta\theta_j)^2 \leq {{\beta_i^2}\over{\delta_i^2 + \rho_i^2}}
+\left[ 2\rho_i^2 + {\delta_i^2\beta_i^2\over{\delta_i^2 + \rho_i^2}} \right] \equiv \omega_i^2
+$$
+\begin{equation}
+  \mathrm{\sum_{j=1}^n (\delta\theta_j)^2 \leq {{\beta_i^2}\over{\delta_i^2 + \rho_i^2}}
+\left[ 2\rho_i^2 + {\delta_i^2\beta_i^2\over{\delta_i^2 + \rho_i^2}} \right] \equiv \omega_i^2}
+  (\#eq:gumbelpdf2)
+\end{equation}
+
+We can reference this combustion of glucose reaction via Equation \@ref(eq:gumbelpdf).
+
+
+$$\sum_{j=1}^n (\delta\theta_j)^2 \leq {{\beta_i^2}\over{\delta_i^2 + \rho_i^2}}
+\left[ 2\rho_i^2 + {\delta_i^2\beta_i^2\over{\delta_i^2 + \rho_i^2}} \right] \equiv \omega_i^2
+$$
+
+
+
+
+
 
 \TeX\ is the best way to typeset mathematics. Donald Knuth designed \TeX\ when he got frustrated at how long it was taking the typesetters to finish his book, which contained a lot of mathematics.  One nice feature of _R Markdown_ is its ability to read LaTeX code directly.
 
@@ -15,7 +244,7 @@ If you are doing a thesis that will involve lots of math, you will want to read 
 
 
 <!-- MATH and PHYSICS majors: Uncomment the following section -->
-<!--
+
 $$\sum_{j=1}^n (\delta\theta_j)^2 \leq {{\beta_i^2}\over{\delta_i^2 + \rho_i^2}}
 \left[ 2\rho_i^2 + {\delta_i^2\beta_i^2\over{\delta_i^2 + \rho_i^2}} \right] \equiv \omega_i^2
 $$
@@ -67,7 +296,7 @@ Another L\&P (p126)
 $$
 \int_{A_e} (\,\cdot\,) dx dy = \int_{-1}^1\!\int_{-1}^1 (\,\cdot\,) \det[J] d\xi d\eta.
 $$
--->
+
 
 ## Annual Excedance Probability - Pa
 
