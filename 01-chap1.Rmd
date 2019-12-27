@@ -241,7 +241,7 @@ timestamp_all_vvmx_aut_60 <- as.POSIXct(as_tibble(select(all_vvmx_aut_60, mydate
 library(xts)
 statideam_xts = na.omit(xts(x=select(all_vvmx_aut_60, "X21205791"), order.by = timestamp_all_vvmx_aut_60))
 par(oma = c(2,0,0,0))
-plot.xts(statideam_xts, main = "Station ID: 21205791\nWind Velocity [m/s]", major.ticks="years", format.labels = "%b-%d\n%Y", legend.loc = "top", col="green", cex.main=0.2, xlab= "a")
+plot.xts(statideam_xts, main = "Station ID: 21205791\nWind Velocity [m/s]", major.ticks="years", format.labels = "%b-%d\n%Y", legend.loc = "top", col="green", cex.main=0.2)
 mtext(side = 1, text = "Station Name: ELDORADO CATAM - AUT", outer = TRUE)
 ```
 
@@ -345,11 +345,11 @@ cat(query1)
 
 isdlite = as_tibble(tbl(con1, sql(query1)))
 
-timestamp_isdlite <- as.POSIXct(as_tibble(select(isdlite, mydatetime))$mydatetime,format="%Y-%m-%d %H", tz="UTC")
+timestamp_isdlite <- as.POSIXct(as_tibble(select(isdlite, mydatetime))$mydatetime,format="%Y-%m-%d %H:%M:%S", tz="UTC")
 library(xts)
 statisd_xts = na.omit(xts(x=select(isdlite, "X802590"), order.by = timestamp_isdlite))
 par(oma = c(2,0,0,0))
-plot.xts(statisd_xts, main = "Station ID: 802590\nWind Velocity [m/s]", major.ticks="years", format.labels = "%b-%d\n%Y", legend.loc = "top", col="green", cex.main=0.2, xlab= "a")
+plot.xts(statisd_xts, main = "Station ID: 802590\nWind Velocity [m/s]", major.ticks="years", format.labels = "%b-%d\n%Y", legend.loc = "top", col="green", cex.main=0.2)
 mtext(side = 1, text = "Station Name: ALFONSO BONILLA ARAGON INTL", outer = TRUE)
 ```
 
@@ -466,8 +466,8 @@ library(lubridate)
 timestamp = as_datetime(c(time.array*60*60),origin=anio_mes_dia)
 timestamp_string <- as.character(timestamp)
 #str(timestamp_string)
-  statera5_xts = na.omit(xts(x= ncvar_get(ncin, 'fg10', start=c(as.integer(era5_intersect_ideam["ideam_lon_index",i]),as.integer(era5_intersect_ideam["ideam_lat_index",i]),1), count=c(1,1,ntime)), order.by = timestamp))
-  colnames(statera5_xts) = paste0("ERA5_", era5_intersect_ideam["ideam_station",i])
+  statera5_xts = na.omit(xts(x= ncvar_get(ncin, 'fg10', start=c(1,1,1), count=c(1,1,ntime)), order.by = timestamp))
+  colnames(statera5_xts) = paste0("ERA5_", "1")
   
 ```
 

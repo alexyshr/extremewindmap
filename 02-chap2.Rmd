@@ -11,7 +11,8 @@ MathJax.Hub.Config({
 library("RcmdrMisc")
 ```
 
-```{r wrap-hook, include=FALSE}
+<!--
+```{r wrap-hook1, include=FALSE}
 library(knitr)
 def.chunk.hook  <- knitr::knit_hooks$get("chunk")
 knitr::knit_hooks$set(chunk = function(x, options) {
@@ -19,7 +20,7 @@ knitr::knit_hooks$set(chunk = function(x, options) {
   ifelse(options$size != "normalsize", paste0("\n \\", options$size,"\n\n", x, "\n\n \\normalsize"), x)
 })
 ```
-
+-->
 
 ## Probability Concepts
 
@@ -255,12 +256,7 @@ $$
 
 From Informational Dynamics, we have the following (Dave Braden):
 
-After _n_ such encounters the posterior density for $\theta$ is
 
-$$
-\pi(\theta|X_1< y_1,\dots,X_n<y_n) \varpropto \pi(\theta) \prod_{i=1}^n\int_{-\infty}^{y_i}
-   \exp\left(-{(x-\theta)^2\over{2\sigma^2}}\right)\ dx
-$$
 
 Another equation:
 
@@ -372,3 +368,85 @@ You will probably find the resources at <http://www.lecb.ncifcrf.gov/~toms/latex
 ### Return Period
 
 ### Wind Speed at Return Period
+
+## Peaks Over Threshold - Poisson Process
+
+
+\begin{equation}
+  \mathrm{
+    \lambda\left(y,t\right)
+    \begin{cases}
+      \lambda_s(y), for t in thunderstorm period
+      \lambda_ns(y), for t in non-thunderstorm period
+    \end{cases}
+  }
+  (\#eq:pplikelihood)
+\end{equation}
+
+
+
+### Data Requirements
+
+### Maximun Likelihood
+
+After _n_ such encounters the posterior density for $\theta$ is
+$$
+          f(x)=\frac{1}{\beta}
+          \exp\left\{
+            -\frac{x-\mu}{\beta}
+          \right\}
+          \exp\left\{
+            -\exp\left\{
+              -\left(
+                \frac{x-\mu}{\beta}
+              \right)
+            \right\}
+          \right\},
+          \quad -\infty < x < \infty
+$$
+$$
+          L(\eta)=\left( 
+                        \prod_{i=1}^I\lambda\left( y_i,t_i\right)  
+                  \right)
+                  \exp\left\{
+                            - \int_{{D}}\lambda\left( y,t\right)dydt
+                     \right\}
+$$
+$$
+\pi(\theta|X_1< y_1,\dots,X_n<y_n) \varpropto \pi(\theta) \prod_{i=1}^n\int_{-\infty}^{y_i}
+   \exp\left(-{(x-\theta)^2\over{2\sigma^2}}\right)\ dx
+$$
+
+\begin{equation}
+  \mathrm{
+          L(\eta)=\left( 
+                        \prod_{i=1}^I\lambda\left(y_i,t_i\right)  
+                  \right)
+                  \exp\left\{
+                            -\int_{{D}}\lambda\left(y,t\right)dydt
+                     \right\}
+         }
+  (\#eq:pplikelihood)
+\end{equation}
+
+where $\exp\left\{.\right\} \mapsto \mathrm{e}^{\left\{.\right\}}$, $\beta$ is the scale parameter, and $\mu$ is the location parameter. Location ($\mu$) has the effect to shift the _pdf_ to left or right along 'x' axis, thus, if location value is changed the effect is a movement of _pdf_ to the left (small value for location), or to the right (big value for location). Scale has the effect to stretch ($\beta > 1$) of compress  ($0 < \beta< 1$) the _pdf_, if scale parameter is close to zero the pdf approaches a spike.
+
+
+Figure \@ref(fig:pplikelihood) shows _pdf_ with location ($\mu$) = 100 and scale ($\beta$) = 40, using equation \@ref(eq:gumbelpdf). 
+
+### Recurrence Intervals
+
+\begin{equation}
+  \mathrm{
+          \int_{yN}^{\infty}\lambda\left( y,t\right)dydt = \frac{1}{N}
+         }
+  (\#eq:ppmri)
+\end{equation}
+
+###Declustering Samples
+###Threshold Selection
+
+$$U=F(Y)$$
+$$W = -log(1-U)$$
+
+###
