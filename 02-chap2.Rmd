@@ -1,3 +1,8 @@
+---
+output:
+  pdf_document: default
+  html_document: default
+---
 # Theoretical Framework {#rmd-thefra}
 
 <!-- Required to number equations in HTML files -->
@@ -214,208 +219,123 @@ plot(.x, .y, col="green", lty=4,
 #plot(.x, hgumbel(.x, mu=location, sigma=scale))
 #plot(.x, hra.gumbel(.x, mu=location, sigma=scale))
 ```
+## Introductory concepts for statistical analysis of extreme values
 
-
-### Cumulative Hazard Function
-
-
-
-
-$$
-\sum_{j=1}^n (\delta\theta_j)^2 \leq {{\beta_i^2}\over{\delta_i^2 + \rho_i^2}}
-\left[ 2\rho_i^2 + {\delta_i^2\beta_i^2\over{\delta_i^2 + \rho_i^2}} \right] \equiv \omega_i^2
-$$
-\begin{equation}
-  \mathrm{\sum_{j=1}^n (\delta\theta_j)^2 \leq {{\beta_i^2}\over{\delta_i^2 + \rho_i^2}}
-\left[ 2\rho_i^2 + {\delta_i^2\beta_i^2\over{\delta_i^2 + \rho_i^2}} \right] \equiv \omega_i^2}
-  (\#eq:gumbelpdf2)
-\end{equation}
-
-We can reference this combustion of glucose reaction via Equation \@ref(eq:gumbelpdf).
-
-
-$$\sum_{j=1}^n (\delta\theta_j)^2 \leq {{\beta_i^2}\over{\delta_i^2 + \rho_i^2}}
-\left[ 2\rho_i^2 + {\delta_i^2\beta_i^2\over{\delta_i^2 + \rho_i^2}} \right] \equiv \omega_i^2
-$$
-
-
-
-
-
-
-\TeX\ is the best way to typeset mathematics. Donald Knuth designed \TeX\ when he got frustrated at how long it was taking the typesetters to finish his book, which contained a lot of mathematics.  One nice feature of _R Markdown_ is its ability to read LaTeX code directly.
-
-If you are doing a thesis that will involve lots of math, you will want to read the following section which has been commented out. If you're not going to use math, skip over or delete this next commented section.
-
-
-<!-- MATH and PHYSICS majors: Uncomment the following section -->
-
-$$\sum_{j=1}^n (\delta\theta_j)^2 \leq {{\beta_i^2}\over{\delta_i^2 + \rho_i^2}}
-\left[ 2\rho_i^2 + {\delta_i^2\beta_i^2\over{\delta_i^2 + \rho_i^2}} \right] \equiv \omega_i^2
-$$
-
-From Informational Dynamics, we have the following (Dave Braden):
-
-
-
-Another equation:
-
-$$\det\left|\,\begin{matrix}%
-c_0&c_1\hfill&c_2\hfill&\ldots&c_n\hfill\cr
-c_1&c_2\hfill&c_3\hfill&\ldots&c_{n+1}\hfill\cr
-c_2&c_3\hfill&c_4\hfill&\ldots&c_{n+2}\hfill\cr
-\,\vdots\hfill&\,\vdots\hfill&
-  \,\vdots\hfill&&\,\vdots\hfill\cr
-c_n&c_{n+1}\hfill&c_{n+2}\hfill&\ldots&c_{2n}\hfill\cr
-\end{matrix}\right|>0$$
-
-
-Lapidus and Pindar, Numerical Solution of Partial Differential Equations in Science and
-Engineering.  Page 54
-
-$$
-\int_t\left\{\sum_{j=1}^3 T_j \left({d\phi_j\over dt}+k\phi_j\right)-kT_e\right\}w_i(t)\ dt=0,
-   \qquad\quad i=1,2,3.
-$$
-
-L\&P  Galerkin method weighting functions.  Page 55
-
-$$
-\sum_{j=1}^3 T_j\int_0^1\left\{{d\phi_j\over dt} + k\phi_j\right\} \phi_i\ dt
-   = \int_{0}^1k\,T_e\phi_idt, \qquad i=1,2,3 $$
-
-Another L\&P (p145)
-
-$$
-\int_{-1}^1\!\int_{-1}^1\!\int_{-1}^1 f\big(\xi,\eta,\zeta\big)
-   = \sum_{k=1}^n\sum_{j=1}^n\sum_{i=1}^n w_i w_j w_k f\big( \xi,\eta,\zeta\big).
-$$
-
-Another L\&P (p126)
-
-$$
-\int_{A_e} (\,\cdot\,) dx dy = \int_{-1}^1\!\int_{-1}^1 (\,\cdot\,) \det[J] d\xi d\eta.
-$$
-
-
-## Annual Excedance Probability - Pa
-
-Chemical formulas will look best if they are not italicized. Get around math mode's automatic italicizing in LaTeX by using the argument `$\mathrm{formula here}$`, with your formula inside the curly brackets.  (Notice the use of the backticks here which enclose text that acts as code.)
-
-So, $\mathrm{Fe_2^{2+}Cr_2O_4}$ is written `$\mathrm{Fe_2^{2+}Cr_2O_4}$`.
-
-<!--
-The \noindent command below does what you'd expect:  it forces the current line/paragraph to not indent. This was done here to match the format of the LaTeX thesis PDF.
--->
-
-\noindent Exponent or Superscript: $\mathrm{O^-}$
-
-\noindent Subscript: $\mathrm{CH_4}$
-
-To stack numbers or letters as in $\mathrm{Fe_2^{2+}}$, the subscript is defined first, and then the superscript is defined.
-
-\noindent Bullet: CuCl $\bullet$ $\mathrm{7H_{2}O}$
-
-
-\noindent Delta: $\Delta$
-
-\noindent Reaction Arrows: $\longrightarrow$ or  $\xrightarrow{solution}$
-
-\noindent Resonance Arrows: $\leftrightarrow$
-
-\noindent Reversible Reaction Arrows: $\rightleftharpoons$
-
-### Typesetting reactions
-
-You may wish to put your reaction in an equation environment, which means that LaTeX will place the reaction where it fits and will number the equations for you. 
-
-\begin{equation}
-  \mathrm{C_6H_{12}O_6  + 6O_2} \longrightarrow \mathrm{6CO_2 + 6H_2O}
-  (\#eq:reaction)
-\end{equation}
-
-We can reference this combustion of glucose reaction via Equation \@ref(eq:reaction).
-
-### Other examples of reactions
-
-$\mathrm{NH_4Cl_{(s)}}$ $\rightleftharpoons$ $\mathrm{NH_{3(g)}+HCl_{(g)}}$
-
-\noindent $\mathrm{MeCH_2Br + Mg}$ $\xrightarrow[below]{above}$ $\mathrm{MeCH_2\bullet Mg \bullet Br}$
-
-## Return Period
-
-Many of the symbols you will need can be found on the math page <http://web.reed.edu/cis/help/latex/math.html> and the Comprehensive LaTeX Symbol Guide (<http://mirror.utexas.edu/ctan/info/symbols/comprehensive/symbols-letter.pdf>).
-
-## Compound Excedance Probability - Pn
-
-You will probably find the resources at <http://www.lecb.ncifcrf.gov/~toms/latex.html> helpful, particularly the links to bsts for various journals. You may also be interested in TeXShade for nucleotide typesetting (<http://homepages.uni-tuebingen.de/beitz/txe.html>).  Be sure to read the proceeding chapter on graphics and tables.
-
-## Extreme Value Analysis Overview
-
-### Main Methods
-
-#### Epochal methods
-
-#### Peak Over Threshold
-
-##### GPD
-##### Poisson Process
-
-### Commond Distributions for Extreme Values
-
-### Methods for parameters estimation
+### Annual Excedance Probability - Pa
 
 ### Return Period
 
-### Wind Speed at Return Period
+### Compound Excedance Probability - Pn
+
+## Extreme Value Analysis Overview
 
 ## Peaks Over Threshold - Poisson Process
 
+According to @Pintar2015 the stochastic poisson process is mainly defined by its intensity function. As the intensity function is nos uniform over the domain, the poisson process considered here is non-homogeneous, and due to the intensity function dependance of magnitud and time, it is also bi-dimmensional. Poisson Process was described for the first time in @Pickands1971, then extended in @Smith1989.
 
 \begin{equation}
   \mathrm{
     \lambda\left(y,t\right)
     \begin{cases}
-      \lambda_s(y), for t in thunderstorm period
-      \lambda_ns(y), for t in non-thunderstorm period
+      \begin{split}
+            &\lambda_t(y),\;for\,t\,in\,thunderstorm\,period
+            \\
+            &\lambda_nt(y),\;for\,t\,in\,non-thunderstorm\,period      
+      \end{split}
     \end{cases}
   }
-  (\#eq:pplikelihood)
+  (\#eq:ppgenericintensityfunction)
+\end{equation}
+
+Generic equation \@ref(eq:ppintensityfunction) shows the intensity function, which is defined in the domain $D = D_t\,{\cup}\,D_{nt}$, and allow to fit the poisson process at each station to the observed data $\{t_i, y_i\}_{i=1}^I$ for al the times ($t_i$) of threshold crossing observations and its corresponding wind speeds magnitudes ($y_i$). Thus, only data above the threshold is used.
+
+Intensity function of the Poisson Process is defined in @Smith2004, 
+
+$$
+\frac{1}{\psi_t}\left(1+\zeta_t\frac{y-\omega_t}{\psi_t}\right)_+^{-\frac{1}{\zeta_t}-1}
+$$
+Where $\zeta_t$ controls the tail lengh of the intensity function at a given time $t$, but to facilitate the estimation of the parameters then $\zeta_t$ is taken to be zero, then doing the limit, the resulting intensity function is the same as the the GEV type I or Gumbel distribution,
+
+$$
+\frac{1}{\psi_t}\exp\left\{\frac{-(y-\omega_t)}{\psi_t}\right\}
+$$
+
+In this study, the used intensity functions are shown in ecuation \@ref(eq:ppspecificintensityfunction).
+
+\begin{equation}
+  \mathrm{
+    \lambda\left(y,t\right)
+    \begin{cases}
+      \begin{split}
+            &\frac{1}{\psi_s}\exp\left\{\frac{-(y-\omega_s)}{\psi_s}\right\},\;for\,t\,in\,thunderstorm\,period
+            \\
+            &\frac{1}{\psi_{nt}}\exp\left\{\frac{-(y-\omega_{nt})}{\psi_{nt}}\right\},\;for\,t\,in\,non-thunderstorm\,period      
+      \end{split}
+    \end{cases}
+  }
+  (\#eq:ppspecificintensityfunction)
 \end{equation}
 
 
+```{r plotdomainpp, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Domanin off the Poisson Process", size="footnotesize", fig.width= 4, fig.height= 4}
+plot(1, type="n", xlab="Time", ylab="Wind Speed", 
+     xlim=c(0,30), ylim= c(0,30), xaxt ="n", yaxt="n", bty="n")
+xpos=c(10,15,20,30)
+xtick<-c(c(expression(t[1]), expression(t[2]), expression(t[3]), expression(t[4])))
+text(x=xpos,  par("usr")[3], 
+     labels = xtick, srt = 0, pos = 1, xpd = TRUE)
 
-### Data Requirements
+ypos=c(3,6,10,30)
+ytick<-c(expression(b[nt]), expression(b[t]), expression(y[1]), expression(y[2]))
+text(y=ypos,  x=par("usr")[1], 
+     labels = ytick, srt = 0, pos = 2, xpd = TRUE)
 
-### Maximun Likelihood
+rect(10,10,30,30, density = 5, col= NA, border="black")
 
-After _n_ such encounters the posterior density for $\theta$ is
-$$
-          f(x)=\frac{1}{\beta}
-          \exp\left\{
-            -\frac{x-\mu}{\beta}
-          \right\}
-          \exp\left\{
-            -\exp\left\{
-              -\left(
-                \frac{x-\mu}{\beta}
-              \right)
-            \right\}
-          \right\},
-          \quad -\infty < x < \infty
-$$
-$$
-          L(\eta)=\left( 
-                        \prod_{i=1}^I\lambda\left( y_i,t_i\right)  
-                  \right)
-                  \exp\left\{
-                            - \int_{{D}}\lambda\left( y,t\right)dydt
-                     \right\}
-$$
-$$
-\pi(\theta|X_1< y_1,\dots,X_n<y_n) \varpropto \pi(\theta) \prod_{i=1}^n\int_{-\infty}^{y_i}
-   \exp\left(-{(x-\theta)^2\over{2\sigma^2}}\right)\ dx
-$$
+
+lines(x=c(10,10), y=c(0,10), lty="dashed", col = "gray")
+lines(x=c(30,30), y=c(0,10), lty="dashed", col = "gray")
+lines(x=c(0,10), y=c(10,10), lty="dashed", col = "gray")
+lines(x=c(0,10), y=c(30,30), lty="dashed", col = "gray")
+lines(x=c(15,15), y=c(10,30), col = "black")
+lines(x=c(15,15), y=c(0,10),  lty="dashed", col = "gray")
+
+lines(x=c(20,20), y=c(10,30),  col = "black")
+lines(x=c(20,20), y=c(0,10), lty="dashed", col = "gray")
+
+lines(x=c(10,15), y=c(3,3), col = "black")
+lines(x=c(20,30), y=c(3,3), col = "black")
+lines(x=c(0,10), y=c(3,3), lty="dashed", col = "gray")
+lines(x=c(15,20), y=c(3,3), lty="dashed", col = "gray")
+
+lines(x=c(15,20), y=c(6,6), col = "black")
+lines(x=c(20,30), y=c(6,6),  lty="dashed", col = "gray")
+lines(x=c(0,15), y=c(6,6), lty="dashed", col = "gray")
+
+rect(15,10,20,30, density = 5, angle=-45, col= NA, border="black")
+#x <- "\xD0"
+#Encoding(x) <- "latin1"
+text(28, 28, "D", cex=1.2)
+axis(1, labels=FALSE, tick=TRUE, col.axis="black", lwd.ticks=0)
+axis(2, labels=FALSE, tick=TRUE, col.axis="black", lwd.ticks=0)
+```
+
+Figure \@ref(fig:plotdomainpp) represent the domain $D$ of the Poisson process. In time, the domain represents the station service period from first sample $t_1$ to last sample $t_4$. $D$ is the union of all thunderstorm periods $D_t$ (from $t_2$ to $t_3$), and all non-thunderstorm periods $D_{nt}$ (periods $t_1$ to $t_2$ and $t_3$ to $t_4$). In magnitud, only thunderstorm data above its threshold $b_t$, and only non-tunderstorm data above its threshold $b_{nt}$ are used. 
+
+Thunderstoms and non-thunderstorms are modeled independently: 
+
+1. Observations in domain $D$ follow a Poisson distribution with mean $\int_D\lambda(t,y)\,dt\,dy$
+2. For each disjoint subdomain $D_1$ or $D_2$ inside $D$, the observations in $D_1$ or $D_2$ are independent random variables.
+
+Visual representation of the intensity function for the Poisson Process can be seen in figure \@ref(fig:plotdomain3dpp). In vertical axis, two surfaces were drawn representing independent intensity functions for thunderstorm $\lambda_t(y)$ and for non-thunderstorm $\lambda_{nt}(y)$. The volume under each surface for its corresponding time periods and peak (over threshold) velocities, is the mean of the Poisson Process.
+
+
+```{r plotdomain3dpp, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Volume under surfaces represents the mean of the Poisson process", size="footnotesize", fig.width= 5, fig.height= 5}
+include_graphics(path = "figure/domain3d.PNG")
+```
+
+
+The method of maximun likelihood es used to estimate the parameters of the Poisson process, the selected vector of parameters $\eta$ are the $\hat\eta$ values that maximizes the function
 
 \begin{equation}
   \mathrm{
@@ -423,30 +343,43 @@ $$
                         \prod_{i=1}^I\lambda\left(y_i,t_i\right)  
                   \right)
                   \exp\left\{
-                            -\int_{{D}}\lambda\left(y,t\right)dydt
+                            -\int_{{D}}\lambda\left(y,t\right)dy\,dt
                      \right\}
          }
   (\#eq:pplikelihood)
 \end{equation}
 
-where $\exp\left\{.\right\} \mapsto \mathrm{e}^{\left\{.\right\}}$, $\beta$ is the scale parameter, and $\mu$ is the location parameter. Location ($\mu$) has the effect to shift the _pdf_ to left or right along 'x' axis, thus, if location value is changed the effect is a movement of _pdf_ to the left (small value for location), or to the right (big value for location). Scale has the effect to stretch ($\beta > 1$) of compress  ($0 < \beta< 1$) the _pdf_, if scale parameter is close to zero the pdf approaches a spike.
+$\hat\eta$ values need to be calculated using a numericall approach because there is not analytical solution available.
+
+Once the Poisson process is fittet to the data, the model will provide extreme wind velocities (return levels), for different return periods (mean recurrence intervals). 
 
 
-Figure \@ref(fig:pplikelihood) shows _pdf_ with location ($\mu$) = 100 and scale ($\beta$) = 40, using equation \@ref(eq:gumbelpdf). 
+A $Y_N$ extreme wind velocity, called the return level (RL) belonging to the N-years return period, has a expected frequency to occur or to be exceeded (annual excedance probability)$P_e = \frac{1}{N}$, and also has a probability that the event does not occur (annual non-excedance probability) $P_{ne}=1-\frac{1}{N}$. $Y_N$ will be the resulting value of the $G$ (ppf or quantile) function using a probability equal to $P_{ne}$. $Y_N=quantile(y, p=P_{ne})=G(x,p=P_{ne})=ppf(x,p=P_{ne})$. As for this study $\zeta = 0$, the $G$ function to use is the Gumbel quantile function. $Y_N$ can be undestood as the wind extreme value expected to be exceeded on average once every N years.
 
-### Recurrence Intervals
+For different POT approaches, as POT-GPD described --, the value of the probability passed to the $G$ function, has to be modified with the $\lambda$ parameter, as is described in next equation. $\lambda$ is the number of wind speed over the threshold per year.
+
+$$
+Y_N =G\left(y, 1-\frac{1}{\lambda\,N}\right)
+$$
+
+ 
+
+For the Poisson process $Y_N$ is also the solution to the next equation, which is defined in terms of the intensity function,
+
 
 \begin{equation}
   \mathrm{
-          \int_{yN}^{\infty}\lambda\left( y,t\right)dydt = \frac{1}{N}
+          \int_{Y_N}^{\infty}\int_0^1\lambda\left( y,t\right)dydt = A_t\int_{Y_N}^{\infty}\lambda_t\left( y\right)\,dy + A_{nt}\int_{Y_N}^{\infty}\lambda_{nt}\left( y\right)\,dy = \frac{1}{N}
          }
   (\#eq:ppmri)
 \end{equation}
 
-###Declustering Samples
+where $A_t$, is the multiplication of the average number of thunderstorm per year and the average lengh of a thunderstorm (taken to be 1 hour as defined in @Pintar2015), and $A_{nt} = 1 - A_t$. The average length of a non-thunderstorm event is variable, and it is adjusted in each station to guarantee that $A_{nt} + A_t = 1$
+
+The same thunderstorm event in considered to occur if the time lag distance between sucesive thunderstorm samples is small than six hours, and for non-thunderstorm this time is 4 days. For the Poisson process, all the measurements belonging to the same event (thunderstorm or non tunderstorm), need to be declustered to leave only one maximun value. In other words, the number of thunderstorm in the time serie is the number of time lag distances grather than 6 hours, and for non-thunderstorm grather than 4 days.
+
 ###Threshold Selection
 
 $$U=F(Y)$$
 $$W = -log(1-U)$$
 
-###

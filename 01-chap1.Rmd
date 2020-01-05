@@ -138,23 +138,6 @@ Despite that ERA5 data are not observed data, but forecast, its main advantage i
 
 ## IDEAM
 
-**R**
-
-
-* Item 1
-* Item 2
-
-
-1. Item 1
-4. Item 2
-
-
-1. Item 1
-1. Item 2
-1. Item 3
-    - Item 3a
-    - Item 3b
-
 Historical observed wind speeds from `r length(ideam_stations$codigo1)` in Colombia are managed by the official environmental authority IDEAM. Table \@ref(tab:tableideamstations) shows a sample of five IDEAM stations. Figure \@ref(fig:plotideamstations) shows a map of IDEAM stations.
 
 ```{r tableideamstations, echo=FALSE, message=FALSE, warning=FALSE, results="asis"}
@@ -264,7 +247,6 @@ plot(mypacf, main = titlepacf)
 
 ## ISD
 
-*Now for the correct way:* 
 ISD is a database with environmental variables among then extreme wind speeds. ISD has data for the whole planet, and is based on observed data at metereological stations in each country, which means that for Colombia is based on IDEAM data. Main advantage is data availability at neighbor countries and specialized postprocesing made by NOAA's National Centers for Environmental Information - NCEI in United States, which facilitates its use.Table \@ref(tab:tableisdstations) shows a sample of five ISD stations. Figure \@ref(fig:plotisdstations) shows a map of ISD stations.
 
 ```{r tableisdstations, echo=FALSE, message=FALSE, warning=FALSE, results="asis"}
@@ -471,12 +453,6 @@ timestamp_string <- as.character(timestamp)
   
 ```
 
-## 
-
-
-
-
-
 ## Data Download and Organization
 
 
@@ -486,23 +462,5 @@ Analysis of extreme wind speeds requieres data standarizaton as initial step. Al
 * 10 mts anemometer height
 * Open space terrain roughness
 * 3-s gust averaging time
-
-> The `cos` of $2 \pi$ is `r cos(2*pi)`. 
-
-
-
-> The standard deviation of `speed` in `cars` is `r sd(cars$speed)`.
-
-
-> `r ifelse(sd(cars$speed) < 6, "The standard deviation is less than 6.", "The standard deviation is equal to or greater than 6.")`
-
-
-As you see with `$2 \pi$` above, mathematics can be added by surrounding the mathematical text with dollar signs.  More examples of this are in [Mathematics and Science] if you uncomment the code in [Math].  
-
-
-      
-
- **_after_** you have run the **R** 
  
 \clearpage
-
