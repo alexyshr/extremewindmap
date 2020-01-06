@@ -71,4 +71,36 @@
   url       = {https://www.amazon.com/Telecommunications-Environment-Monographs-Statistics-Probability/dp/1584884118?SubscriptionId=AKIAIOBINVZYXZQZ2U3A&tag=chimbori05-20&linkCode=xm2&camp=2025&creative=165953&creativeASIN=1584884118},
 }
 
+@Article{Kubler1994,
+  author        = {Kubler, Jurgen},
+  title         = {Parameter estimation in reliability and life span models: A. Clifford Cohen and Betty Jones Whitten (1988): New York, Marcel Dekker, 312 pages, ISBN 0-8247-7980-0, US-$ 99.75},
+  journal       = {Computational Statistics \&amp; Data Analysis},
+  year          = {1994},
+  volume        = {18},
+  number        = {4},
+  pages         = {473-474},
+  __markedentry = {[alexyshr:6]},
+  url           = {https://EconPapers.repec.org/RePEc:eee:csdana:v:18:y:1994:i:4:p:473-474},
+}
+
+@Book{Hosking1997,
+  title     = {Regional Frequency Analysis},
+  publisher = {Cambridge University Press},
+  year      = {1997},
+  author    = {J. R. M. Hosking and James R. Wallis},
+  month     = {apr},
+  doi       = {10.1017/cbo9780511529443},
+}
+
+@InCollection{Harris1994,
+  author    = {Harris, J.W. and Stocker, H.},
+  title     = {Maximum likelihood method},
+  booktitle = {Handbook of Mathematics and Computational Science},
+  publisher = {Springer-Verlag},
+  year      = {1998},
+  pages     = {824},
+  month     = {01},
+  journal   = {Handbook of Mathematics and Computational Science},
+}
+
 @Comment{jabref-meta: databaseType:bibtex;}

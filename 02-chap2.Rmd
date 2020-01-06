@@ -219,16 +219,75 @@ plot(.x, .y, col="green", lty=4,
 #plot(.x, hgumbel(.x, mu=location, sigma=scale))
 #plot(.x, hra.gumbel(.x, mu=location, sigma=scale))
 ```
+
 ## Introductory concepts for statistical analysis of extreme values
 
-### Annual Excedance Probability - Pa
+In order to approach the extreme value analysis, some statistical concepts are needed to understand the theoretical framework behind this knowledge area. In this section will be introduced the concepts annual excedance probability, mean recurrence interval - MRI, exposure time, and compound probability for any given exposure time and MRI.
 
-### Return Period
+As an hypotetical example, a simulated database of extreme wind speed will be used. This database is supposed to have 10.000 years of simulated wind speeds.
+
+### Annual Excedance Probability - Pe
+
+Using the previously described database, a question arises to calculate the probability to exceed the highest probable loss due to the simulated winds. It is possible to conclude that there is only one event grather or equal (in this case equal) to the higest probable causing loss in 10.000 years, and it is the _highest wind_. If we sort the database by wind magnitude in descending order (small winds last), the question is solved calculating the annual excedance probability _Pe_ with next formula 
+
+
+```{r , echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Gumbel cdf", size="footnotesize", fig.width= 4, fig.height= 3}
+par(pin = c(4, 1))
+plot(1, type="n", xlab="Event Index - Ordered Winds by Magnitud", ylab="Wind Speed", 
+     xlim=c(0,200), ylim= c(0,50), xaxt ="n", yaxt="n", bty="n", asp = 0.8)
+x1 = seq(from=10, to=100, by=10)
+y1 = c(45, 40, 30, 25, 20, 19, 15, 14, 13, 12)
+text(x=x1,  par("usr")[3], 
+     labels = x1/10, srt = 0, pos = 1, xpd = TRUE, cex=0.8)
+for (i in 1:10) lines(x=c(x1[i],x1[i]), y=c(0,y1[i]))
+lines(x=c(125,125), y=c(0,9))
+text(x=125,  par("usr")[3], 
+     labels = "..." , srt = 0, pos = 1, xpd = TRUE)
+x1 = seq(from=150, to=200, by=10)
+y1 = c(8, 7, 6, 5, 4, 3)
+for (i in 1:10) lines(x=c(x1[i],x1[i]), y=c(0,y1[i]))
+text(x=x1,  par("usr")[3], 
+     labels = "." , srt = 0, pos = 1, xpd = TRUE, cex=0.8)
+axis(1, labels=FALSE, tick=TRUE, col.axis="black", lwd.ticks=0)
+```
+
+$$
+P_e = \frac{Event\,index\,after\,descending\,sorting}{Years\,of\,simulations } = \frac{1}{10.000}=0.001=0.01\%
+$$
+because the highest wind will be the first in the sorted list. Same exercise can be done with all winds to construct the annual exedance probability curve, that in this case will represent the probability to equal or exceed different probable losses due to wind.
+
+### Return Period - Mean Recurrence Interval
+
+Continuing with the previous section, if the inverse of the excedance probability is taken, the return period is obtained. The return period or Mean Recurrence Interval - MRI.
+
 
 ### Compound Excedance Probability - Pn
 
 ## Extreme Value Analysis Overview
 
+Analysis of extreme values is related with statistical inference to calculate probabilities of extreme events. Main methods to analize extreme data are ephochal, Peaks Over Threshold - POT, and extreme index. The epochal method, also known as block maxima, uses the most extreme value for a specific frame of time, tipically, one year. POT is based in the selection of a single threshold value to do the analysis only with values above the threshold. But there are different POT aproaches, the most commond one is Generalized Paretto Distribution - POT-GPD, but also it is possible to use the Poisson process approach.
+
+In both methods (Epochal and POT), the first step is to fit the data to an appropiate probability distribution model, among them the most used are, - Extreme Value Type I (Gumbel), Extreme Value Type II (Frechet), Weibull, Generalized Pareto - GPD, and Generalized Extreme Value - GEV.
+
+Distribution models are fitted based in the estimation of its parameters, mommonly called location, scale and shape, nonetheless each model has its own parameters names. There are different methods to estimate parameters, among them, - method of moments (modified moments - see @Kubler1994, and L moments - see @Hosking1997), - method of maximum likelihood MLE, see @Harris1994, which is problematic for GPD and GEV, - probability plot correlation coeficient, and - elemental percentiles (for GPD and GEV)
+
+Once cadidate parameters are available, it is neccesary to assess the goodness of fit of the selected model, using one of the next methods, - Kolmogorov-Smirnov (KS) goodnes of fit test, and - Anderson-Darling goodness of fit test. Here a visual assesment is also useful using a probability plot or a kernel density plot with  the fitted _pdf_ overlaid.
+
+The main use of the fitted model is the estimation of mean return intervals - MRI, and extreme wind speeds (return levels),
+
+$$
+MRI=\frac{1}{1-F(y)}
+$$
+with $F(y)$ as the _cdf_. If $1-F(y)$ is the annual excedance probability, MRI is its inverse, see @Simiu1996 for more details about MRI. If $y$ is solved from previos equation using a given MRI of N-years, its value represents the $Y_N$ wind speed return level,
+
+$$
+Y_N = G\left(1-\frac{1}{\lambda\,N}\right)
+$$
+where $G$ is the _ppf_ (quantile function) and $\lambda$ is the number of wind spees over the threshold per year.
+
+The CRAN Task View "Extreme Value Analysis" <https://cran.r-project.org/web/views/ExtremeValue.html> shows available **R** for block maxima, POT by GPD, and external indexes estimation aproaches. Most important to consider are `evd`, `extremes`, `evir`, `POT`, `extremeStat`, `ismev`, and `Renext`.
+
+ 
 ## Peaks Over Threshold - Poisson Process
 
 According to @Pintar2015 the stochastic poisson process is mainly defined by its intensity function. As the intensity function is nos uniform over the domain, the poisson process considered here is non-homogeneous, and due to the intensity function dependance of magnitud and time, it is also bi-dimmensional. Poisson Process was described for the first time in @Pickands1971, then extended in @Smith1989.
