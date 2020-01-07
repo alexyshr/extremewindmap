@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 1 Data | thesis.utf8</title>
+  <meta name="description" content="" />
+  <meta name="generator" content="bookdown 0.16.5 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 1 Data | thesis.utf8" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 1 Data | thesis.utf8" />
+  
+  
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+<link rel="next" href="2-rmd-thefra.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./"></a></li>
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="1" data-path="1-rmd-data.html"><a href="1-rmd-data.html"><i class="fa fa-check"></i><b>1</b> Data</a><ul>
+<li class="chapter" data-level="1.1" data-path="1-rmd-data.html"><a href="1-rmd-data.html#ideam"><i class="fa fa-check"></i><b>1.1</b> IDEAM</a></li>
+<li class="chapter" data-level="1.2" data-path="1-rmd-data.html"><a href="1-rmd-data.html#isd"><i class="fa fa-check"></i><b>1.2</b> ISD</a></li>
+<li class="chapter" data-level="1.3" data-path="1-rmd-data.html"><a href="1-rmd-data.html#era5"><i class="fa fa-check"></i><b>1.3</b> ERA5</a></li>
+<li class="chapter" data-level="1.4" data-path="1-rmd-data.html"><a href="1-rmd-data.html#data-download-and-organization"><i class="fa fa-check"></i><b>1.4</b> Data Download and Organization</a></li>
+<li class="chapter" data-level="1.5" data-path="1-rmd-data.html"><a href="1-rmd-data.html#data-standarzation"><i class="fa fa-check"></i><b>1.5</b> Data Standarzation</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="2-rmd-thefra.html"><a href="2-rmd-thefra.html"><i class="fa fa-check"></i><b>2</b> Theoretical Framework</a><ul>
+<li class="chapter" data-level="2.1" data-path="2-rmd-thefra.html"><a href="2-rmd-thefra.html#probability-concepts"><i class="fa fa-check"></i><b>2.1</b> Probability Concepts</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="2-rmd-thefra.html"><a href="2-rmd-thefra.html#probability-density-function---pdf"><i class="fa fa-check"></i><b>2.1.1</b> Probability Density Function - <em>pdf</em></a></li>
+<li class="chapter" data-level="2.1.2" data-path="2-rmd-thefra.html"><a href="2-rmd-thefra.html#cumulative-distribution-funtcion---cdf"><i class="fa fa-check"></i><b>2.1.2</b> Cumulative Distribution Funtcion - <em>cdf</em></a></li>
+<li class="chapter" data-level="2.1.3" data-path="2-rmd-thefra.html"><a href="2-rmd-thefra.html#percent-point-function---ppf"><i class="fa fa-check"></i><b>2.1.3</b> Percent Point Function - <em>ppf</em></a></li>
+<li class="chapter" data-level="2.1.4" data-path="2-rmd-thefra.html"><a href="2-rmd-thefra.html#hazard-function---hf"><i class="fa fa-check"></i><b>2.1.4</b> Hazard Function - <em>hf</em></a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="2-rmd-thefra.html"><a href="2-rmd-thefra.html#statistical-concepts-for-extreme-analysis"><i class="fa fa-check"></i><b>2.2</b> Statistical Concepts For Extreme Analysis</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="2-rmd-thefra.html"><a href="2-rmd-thefra.html#annual-excedance-probability---pe"><i class="fa fa-check"></i><b>2.2.1</b> Annual Excedance Probability - Pe</a></li>
+<li class="chapter" data-level="2.2.2" data-path="2-rmd-thefra.html"><a href="2-rmd-thefra.html#return-period---mean-recurrence-interval"><i class="fa fa-check"></i><b>2.2.2</b> Return Period - Mean Recurrence Interval</a></li>
+<li class="chapter" data-level="2.2.3" data-path="2-rmd-thefra.html"><a href="2-rmd-thefra.html#compound-excedance-probability---pn"><i class="fa fa-check"></i><b>2.2.3</b> Compound Excedance Probability - Pn</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="2-rmd-thefra.html"><a href="2-rmd-thefra.html#extremeoverview"><i class="fa fa-check"></i><b>2.3</b> Extreme Value Analysis Overview</a></li>
+<li class="chapter" data-level="2.4" data-path="2-rmd-thefra.html"><a href="2-rmd-thefra.html#pot-pp"><i class="fa fa-check"></i><b>2.4</b> Peaks Over Threshold - Poisson Process</a></li>
+<li class="chapter" data-level="2.5" data-path="2-rmd-thefra.html"><a href="2-rmd-thefra.html#wind-loads-requirements"><i class="fa fa-check"></i><b>2.5</b> Wind Loads Requirements</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="3-rmd-method.html"><a href="3-rmd-method.html"><i class="fa fa-check"></i><b>3</b> Methodology</a><ul>
+<li class="chapter" data-level="3.1" data-path="3-rmd-method.html"><a href="3-rmd-method.html#input-data-selection-and-standarization"><i class="fa fa-check"></i><b>3.1</b> Input Data Selection and Standarization</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="3-rmd-method.html"><a href="3-rmd-method.html#data-selection"><i class="fa fa-check"></i><b>3.1.1</b> Data Selection</a></li>
+<li class="chapter" data-level="3.1.2" data-path="3-rmd-method.html"><a href="3-rmd-method.html#data-standarization"><i class="fa fa-check"></i><b>3.1.2</b> Data Standarization</a></li>
+<li class="chapter" data-level="3.1.3" data-path="3-rmd-method.html"><a href="3-rmd-method.html#data-filterng"><i class="fa fa-check"></i><b>3.1.3</b> Data Filterng</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="3-rmd-method.html"><a href="3-rmd-method.html#fit-data-to-a-pot---poisson-process"><i class="fa fa-check"></i><b>3.2</b> Fit data to a POT - Poisson Process</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="3-rmd-method.html"><a href="3-rmd-method.html#data-requirements"><i class="fa fa-check"></i><b>3.2.1</b> Data Requirements</a></li>
+<li class="chapter" data-level="3.2.2" data-path="3-rmd-method.html"><a href="3-rmd-method.html#exploratory-data-analysis-and-data-preparation"><i class="fa fa-check"></i><b>3.2.2</b> Exploratory Data Analysis and Data Preparation</a></li>
+<li class="chapter" data-level="3.2.3" data-path="3-rmd-method.html"><a href="3-rmd-method.html#parameters-estimation"><i class="fa fa-check"></i><b>3.2.3</b> Parameters Estimation</a></li>
+<li class="chapter" data-level="3.2.4" data-path="3-rmd-method.html"><a href="3-rmd-method.html#velocities-at-return-periods"><i class="fa fa-check"></i><b>3.2.4</b> Velocities at Return Periods</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="3-rmd-method.html"><a href="3-rmd-method.html#spatial-interpolation"><i class="fa fa-check"></i><b>3.3</b> spatial Interpolation</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i>Conclusion</a></li>
+<li class="appendix"><span><b>Appendix</b></span></li>
+<li class="chapter" data-level="A" data-path="A-the-first-appendix.html"><a href="A-the-first-appendix.html"><i class="fa fa-check"></i><b>A</b> The First Appendix</a></li>
+<li class="chapter" data-level="B" data-path="B-the-second-appendix-for-fun.html"><a href="B-the-second-appendix-for-fun.html"><i class="fa fa-check"></i><b>B</b> The Second Appendix, for Fun</a></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./"></a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="rmd-data" class="section level1">
+<h1><span class="header-section-number">Chapter 1</span> Data</h1>
+<p>Input data is made up of three different sources a) IDEAM - Institute of Hydrology, Meteorology and Environmental Studies of Colombia <a href="http://www.ideam.gov.co" class="uri">http://www.ideam.gov.co</a>, b) ISD - Integrated Surface Database <a href="https://www.ncdc.noaa.gov/isd" class="uri">https://www.ncdc.noaa.gov/isd</a>, and c) ERA5 climate reanalysis <a href="https://www.ecmwf.int/en/forecasts/datasets/reanalysis-datasets/era5" class="uri">https://www.ecmwf.int/en/forecasts/datasets/reanalysis-datasets/era5</a>.</p>
+<table class="table" style="font-size: 10px; margin-left: auto; margin-right: auto;">
+<caption style="font-size: initial !important;">
+<span id="tab:tabledatasources1">Table 1.1: </span>Datasets description
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;text-align: left;">
+Institution
+</th>
+<th style="text-align:left;text-align: left;">
+Dataset
+</th>
+<th style="text-align:left;text-align: left;">
+Details
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+IDEAM
+</td>
+<td style="text-align:left;width: 0.8in; ">
+Historical records at weather stations
+</td>
+<td style="text-align:left;width: 4in; ">
+IDEAM is responsible for the instalation, maintenance and management of all kind of weather stations located everywhere along the country
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+NOAA
+</td>
+<td style="text-align:left;width: 0.8in; ">
+ISD
+</td>
+<td style="text-align:left;width: 4in; ">
+ISD (Integrated Surface Database. NOAA’s National Centers for Environmental Information - NCEI) Lite: A subset from the full ISD dataset containing eight common surface parameters in a fixed-width format free of duplicate values, sub-hourly data, and complicated flags.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ECMWF
+</td>
+<td style="text-align:left;width: 0.8in; ">
+ERA5
+</td>
+<td style="text-align:left;width: 4in; ">
+ERA5 is a reanalysis dataset with hourly estimates of atmospheric variables with horizontal resolution of 0.25º (33 kilómeters), this is equally spaced cells every 0.25 degrees
+</td>
+</tr>
+</tbody>
+</table>
+<table class="table" style="font-size: 10px; margin-left: auto; margin-right: auto;">
+<caption style="font-size: initial !important;">
+<span id="tab:tabledatasources2">Table 1.2: </span>Datasets variables
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;text-align: left;">
+Dataset
+</th>
+<th style="text-align:left;text-align: left;">
+Variables
+</th>
+<th style="text-align:left;text-align: left;">
+Description
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+IDEAM
+</td>
+<td style="text-align:left;width: 1.2in; ">
+vvmx_aut_60
+</td>
+<td style="text-align:left;width: 3.5in; ">
+Hourly wind maximun velocity
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ISD
+</td>
+<td style="text-align:left;width: 1.2in; ">
+wind speed rate
+</td>
+<td style="text-align:left;width: 3.5in; ">
+Maximun hourly wind velocity. The rate of horizontal travel of air past a fixed point.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ERA5
+</td>
+<td style="text-align:left;width: 1.2in; ">
+fg10
+</td>
+<td style="text-align:left;width: 3.5in; ">
+10 metre wind gust since previous post-processing
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;width: 1.2in; ">
+fsr
+</td>
+<td style="text-align:left;width: 3.5in; ">
+Forecast Surface Roughness
+</td>
+</tr>
+</tbody>
+</table>
+<table class="table" style="font-size: 10px; margin-left: auto; margin-right: auto;">
+<caption style="font-size: initial !important;">
+<span id="tab:tabledatasources3">Table 1.3: </span>Variables units and time
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;text-align: left;">
+Variable
+</th>
+<th style="text-align:left;text-align: left;">
+Units
+</th>
+<th style="text-align:left;text-align: left;">
+Time
+</th>
+<th style="text-align:left;text-align: left;">
+Stations
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+vvmx_aut_60
+</td>
+<td style="text-align:left;width: 0.8in; ">
+meters per second
+</td>
+<td style="text-align:left;width: 3in; ">
+Variable from 2001 until today. Irregular time series.
+</td>
+<td style="text-align:left;">
+203
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Wind speed
+</td>
+<td style="text-align:left;width: 0.8in; ">
+meters per second
+</td>
+<td style="text-align:left;width: 3in; ">
+Variable from 1941 until today. Note: There is too much variability in time (start, end, and time range) for each station. Irregutal time series.
+</td>
+<td style="text-align:left;">
+101
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+fg10
+</td>
+<td style="text-align:left;width: 0.8in; ">
+meters per second
+</td>
+<td style="text-align:left;width: 3in; ">
+1979-Today
+</td>
+<td style="text-align:left;">
+3381
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+fsr
+</td>
+<td style="text-align:left;width: 0.8in; ">
+meters per second
+</td>
+<td style="text-align:left;width: 3in; ">
+1979-Today
+</td>
+<td style="text-align:left;">
+3381
+</td>
+</tr>
+</tbody>
+</table>
+<p>Ideal data source to create extreme wind speeds maps should be field observed data from IDEAM, but there are not enough number of stations around the study area to represent all the local wind variability in a huge country with multiple variety of climates and and changing thermal floors, but there are other important motivatios to include different sources trying to improve output results:</p>
+<ul>
+<li>As just mentioned, low quantity of IDEAM stations</li>
+<li>There are uncertanties related to the way IDEAM anemometers are registering data, then comparison with other datasources are needed to be able to do appropriate data standardization, needed as a prerequisite to the analysis.</li>
+<li>There is no time continuity in the registration of IDEAM data. Historical time series are different and variable in each station.</li>
+</ul>
+<p>Importance of ISD database for this study is based on the fact that post-procesed ISD database has wind extreme values, and it was used to create extreme wind maps for United States. ISD allows comparison with IDEAM records to take better decitions in order to do needed data standarization.</p>
+<p>Despite that ERA5 data are not observed data, but forecast, its main advantage is data availability to assess the local climatic variance every 33 square kilometers.</p>
+<div id="ideam" class="section level2">
+<h2><span class="header-section-number">1.1</span> IDEAM</h2>
+<p>Historical observed wind speeds from 203 in Colombia are managed by the official environmental authority IDEAM. Table <a href="1-rmd-data.html#tab:tableideamstations">1.4</a> shows a sample of five IDEAM stations. Figure <a href="1-rmd-data.html#fig:plotideamstations">1.1</a> shows a map of IDEAM stations.</p>
+<table>
+<caption>
+<span id="tab:tableideamstations">Table 1.4: </span>IDEAM Stations sample
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Name[Code]
+</th>
+<th style="text-align:right;">
+Latitud
+</th>
+<th style="text-align:right;">
+Longitud
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+EMAS - AUT [26155230]
+</td>
+<td style="text-align:right;">
+5.09
+</td>
+<td style="text-align:right;">
+-75.51
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+SAN BENITO - AUT [25025380]
+</td>
+<td style="text-align:right;">
+9.16
+</td>
+<td style="text-align:right;">
+-75.04
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+AEROPUERTO ALFONSO LOPEZ - [28025502]
+</td>
+<td style="text-align:right;">
+10.44
+</td>
+<td style="text-align:right;">
+-73.25
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+TIBAITATA - AUT [21206990]
+</td>
+<td style="text-align:right;">
+4.69
+</td>
+<td style="text-align:right;">
+-74.21
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+ELDORADO CATAM - AUT [21205791]
+</td>
+<td style="text-align:right;">
+4.71
+</td>
+<td style="text-align:right;">
+-74.15
+</td>
+</tr>
+</tbody>
+</table>
+<div class="figure" style="text-align: center"><span id="fig:plotideamstations"></span>
+<img src="thesis_files/figure-html/plotideamstations-1.png" alt="IDEAM Stations" width="672" />
+<p class="caption">
+Figure 1.1: IDEAM Stations
+</p>
+</div>
+<p>Following, the time serie, autocorrelation function, and partial autocorrelation function, for IDEAM station “21205791” will be displayed.</p>
+<div class="figure" style="text-align: center"><span id="fig:plotoneideamstation"></span>
+<img src="thesis_files/figure-html/plotoneideamstation-1.png" alt="IDEAM Station - Time Serie" width="672" />
+<p class="caption">
+Figure 1.2: IDEAM Station - Time Serie
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:plotoneideamstationacf"></span>
+<img src="thesis_files/figure-html/plotoneideamstationacf-1.png" alt="IDEAM Station ACF" width="672" />
+<p class="caption">
+Figure 1.3: IDEAM Station ACF
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:plotoneideamstationpacf"></span>
+<img src="thesis_files/figure-html/plotoneideamstationpacf-1.png" alt="IDEAM Station PACF" width="672" />
+<p class="caption">
+Figure 1.4: IDEAM Station PACF
+</p>
+</div>
+</div>
+<div id="isd" class="section level2">
+<h2><span class="header-section-number">1.2</span> ISD</h2>
+<p>ISD is a database with environmental variables among then extreme wind speeds. ISD has data for the whole planet, and is based on observed data at metereological stations in each country, which means that for Colombia is based on IDEAM data. Main advantage is data availability at neighbor countries and specialized postprocesing made by NOAA’s National Centers for Environmental Information - NCEI in United States, which facilitates its use.Table <a href="1-rmd-data.html#tab:tableisdstations">1.5</a> shows a sample of five ISD stations. Figure <a href="1-rmd-data.html#fig:plotisdstations">1.5</a> shows a map of ISD stations.</p>
+<table>
+<caption>
+<span id="tab:tableisdstations">Table 1.5: </span>ISD Stations sample
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Code
+</th>
+<th style="text-align:left;">
+Name
+</th>
+<th style="text-align:right;">
+Latitud
+</th>
+<th style="text-align:right;">
+Longitud
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+804400
+</td>
+<td style="text-align:left;">
+BARINAS
+</td>
+<td style="text-align:right;">
+8.62
+</td>
+<td style="text-align:right;">
+-70.22
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+800810
+</td>
+<td style="text-align:left;">
+ALTO CURICHE
+</td>
+<td style="text-align:right;">
+7.05
+</td>
+<td style="text-align:right;">
+-76.35
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+801000
+</td>
+<td style="text-align:left;">
+BAHIA SOLANO / JOSE MUTIS
+</td>
+<td style="text-align:right;">
+6.18
+</td>
+<td style="text-align:right;">
+-77.40
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+802590
+</td>
+<td style="text-align:left;">
+ALFONSO BONILLA ARAGON INTL
+</td>
+<td style="text-align:right;">
+3.54
+</td>
+<td style="text-align:right;">
+-76.38
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+803150
+</td>
+<td style="text-align:left;">
+BENITO SALAS
+</td>
+<td style="text-align:right;">
+2.95
+</td>
+<td style="text-align:right;">
+-75.29
+</td>
+</tr>
+</tbody>
+</table>
+<div class="figure" style="text-align: center"><span id="fig:plotisdstations"></span>
+<img src="thesis_files/figure-html/plotisdstations-1.png" alt="ISD Stations" width="672" />
+<p class="caption">
+Figure 1.5: ISD Stations
+</p>
+</div>
+<p>Following, the time serie, autocorrelation function, and partial autocorrelation function, for ISD station “802590” will be displayed.</p>
+<pre><code>select &quot;mydatetime&quot;, &quot;802590&quot; as &quot;X802590&quot; from isd_lite_unstack where &quot;802590&quot; IS NOT NULL</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:plotoneisdstation"></span>
+<img src="thesis_files/figure-html/plotoneisdstation-1.png" alt="ISD Station - Time Serie" width="672" />
+<p class="caption">
+Figure 1.6: ISD Station - Time Serie
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:plotoneisdstationacf"></span>
+<img src="thesis_files/figure-html/plotoneisdstationacf-1.png" alt="ISD Station ACF" width="672" />
+<p class="caption">
+Figure 1.7: ISD Station ACF
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:plotoneisdstationpacf"></span>
+<img src="thesis_files/figure-html/plotoneisdstationpacf-1.png" alt="IDEAM Station PACF" width="672" />
+<p class="caption">
+Figure 1.8: IDEAM Station PACF
+</p>
+</div>
+</div>
+<div id="era5" class="section level2">
+<h2><span class="header-section-number">1.3</span> ERA5</h2>
+<p>ERA5 is forecast reanalysis data procesed by the <em>European Centre for Medium-Range Weather Forecasts</em> - ECMWF with wind speeds time series in square cells <em>matrix of pixels</em> of 0.25 degrees (33 km) covering the whole plannet. For the study area was extracted a raster of 69 rows by 49 XXX columns in format NetCDF. Figure <a href="1-rmd-data.html#fig:plotera5stations">1.9</a> shows a map of ERA5 stations (cells centers).</p>
+<div class="figure" style="text-align: center"><span id="fig:plotera5stations"></span>
+<img src="thesis_files/figure-html/plotera5stations-1.png" alt="ERA5 Stations (cells centers)" width="672" />
+<p class="caption">
+Figure 1.9: ERA5 Stations (cells centers)
+</p>
+</div>
+</div>
+<div id="data-download-and-organization" class="section level2">
+<h2><span class="header-section-number">1.4</span> Data Download and Organization</h2>
+</div>
+<div id="data-standarzation" class="section level2">
+<h2><span class="header-section-number">1.5</span> Data Standarzation</h2>
+<p>Analysis of extreme wind speeds requieres data standarizaton as initial step. All input data must be standarized to represent three important conditions: a) anemometer height of 10 meters, b) open space roughness, and c) averaging time of 3-seconds wind gust. Data for analysis must represent 3-s peak wind speeds 10 meters heigh above the surface, in open terrain.
+* 10 mts anemometer height
+* Open space terrain roughness
+* 3-s gust averaging time</p>
+
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="2-rmd-thefra.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": [["thesis.pdf", "PDF"], ["thesis.epub", "EPUB"], ["thesis.docx", "Word"]],
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

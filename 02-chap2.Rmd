@@ -1,7 +1,7 @@
 ---
 output:
-  pdf_document: default
   html_document: default
+  pdf_document: default
 ---
 # Theoretical Framework {#rmd-thefra}
 
@@ -220,7 +220,7 @@ plot(.x, .y, col="green", lty=4,
 #plot(.x, hra.gumbel(.x, mu=location, sigma=scale))
 ```
 
-## Introductory concepts for statistical analysis of extreme values
+## Statistical Concepts For Extreme Analysis
 
 In order to approach the extreme value analysis, some statistical concepts are needed to understand the theoretical framework behind this knowledge area. In this section will be introduced the concepts annual excedance probability, mean recurrence interval - MRI, exposure time, and compound probability for any given exposure time and MRI.
 
@@ -231,9 +231,9 @@ As an hypotetical example, a simulated database of extreme wind speed will be us
 Using the previously described database, a question arises to calculate the probability to exceed the highest probable loss due to the simulated winds. It is possible to conclude that there is only one event grather or equal (in this case equal) to the higest probable causing loss in 10.000 years, and it is the _highest wind_. If we sort the database by wind magnitude in descending order (small winds last), the question is solved calculating the annual excedance probability _Pe_ with next formula 
 
 
-```{r , echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Gumbel cdf", size="footnotesize", fig.width= 4, fig.height= 3}
-par(pin = c(4, 1))
-plot(1, type="n", xlab="Event Index - Ordered Winds by Magnitud", ylab="Wind Speed", 
+```{r , echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Sorted Winds by Magnitud - wind simulation database", size="footnotesize", fig.width= 4, fig.height= 3}
+par(pin = c(3, 1))
+plot(1, type="n", xlab="Event Index", ylab="Wind Speed", 
      xlim=c(0,200), ylim= c(0,50), xaxt ="n", yaxt="n", bty="n", asp = 0.8)
 x1 = seq(from=10, to=100, by=10)
 y1 = c(45, 40, 30, 25, 20, 19, 15, 14, 13, 12)
@@ -258,12 +258,91 @@ because the highest wind will be the first in the sorted list. Same exercise can
 
 ### Return Period - Mean Recurrence Interval
 
-Continuing with the previous section, if the inverse of the excedance probability is taken, the return period is obtained. The return period or Mean Recurrence Interval - MRI.
+Continuing with the previous section, if the inverse of the excedance probability is taken, the return period (in years) is obtained. The return period or Mean Recurrence Interval - MRI is associated with an specific return level (wind extreme velocity). MRI is the numbers of years (N) needed to obtain 63% of change that the corresponding return level will occur at least one time in that period. The return level is expected to be exceeded on average once every N-years. The annual excedance probability of the return level corresponding to N-years of MRI, is $P_e=\frac{1}{MRI}=\frac{1}{N}$.
 
+For an specific wind extreme event A, the probability that the event will occur in a period equal to MRI years is 63%. If we analyse for the same period a strongest wind extreme event B, its orrurence probability will be lest than 67%. If the purpose of this researh is to design infrastructure considering wind loads, the structure will be more resistant to wind if we desing with stronger winds, this is high MRIs, and low annual excedance probability. Common approach for infrastructure design, considering any type of load (earthquake, wind, etc) is to choose high MRI according to the importance/use/risk/type of the structure. For highly important structures lik hospitals or coliseums, where the risk of collapse must be diminished, the MRI used to design is higher in comparison to common structures (for instance a normal house), which implies less risks for its use and importance.
+
+$$
+  \mathrm{
+    P_e = 
+    \begin{cases}
+      \begin{split}
+            &1-\exp\left(-\frac{1}{MRI}\right),\;for\,MRI\,<\,10\,years
+            \\
+            &\frac{1}{MRI},\;for\,MRI\,\geq\,10\,years      
+      \end{split}
+    \end{cases}
+  }
+$$
 
 ### Compound Excedance Probability - Pn
 
-## Extreme Value Analysis Overview
+If time of exposure is consider, understood as time the structure will be in use, it is possible to have a compound probability $P_n$, where $n$ is the exposure period. $P_n$ is the probability that the extreme wind speed will be equaled or exceeded at least one time in $n$ years, and is related with the occurrence probability, but also is posible to calculate the non-ocurrence compound probability (probability that the event will not occur).
+
+$$
+  \mathrm{
+    P_n = 
+    \begin{cases}
+      \begin{split}
+            &1-\left(1-\frac{1}{MRI}\right)^n,\;occurrence\,probability
+            \\
+            &\left(1-\frac{1}{MRI}\right)^n,\;non-occurrence\,probability
+      \end{split}
+    \end{cases}
+  }
+$$
+
+```{r compoundprobability, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Compound Probability", size="footnotesize", fig.width= 5, fig.height= 4}
+plot(1, type="n", xlab=expression(paste("Compound Probability ", P[n])), ylab="Exposure Time as a Multiple of MRI", 
+     xlim=c(0,1), ylim= c(0,2500), xaxt ="n", yaxt="n", bty="n", cex.lab=0.7)
+
+y1 = c(0, 500,1000,1500,2000,2500)
+text(y=y1,  x=par("usr")[1], 
+     labels = y1/500, srt = 0, pos = 2, xpd = TRUE, cex=0.8)
+y1 = 500*0.69
+text(y=y1,  x=par("usr")[1], 
+     labels = ".69", srt = 0, pos = 2, xpd = TRUE, cex=0.6)
+y1 = 2250
+text(y=y1,  x=par("usr")[1], 
+     labels = expression(paste("4",frac(1,2))), srt = 0, pos = 2, xpd = TRUE, cex=0.6)
+
+npn <- function(x) (1-(1/500))^x #Event will not occur
+n = seq(from=0, to=2500, by=1)
+mynpn = npn(n)
+
+lines(x=mynpn,y=n, col= "blue")
+
+pn <- function(x) 1-(1-(1/500))^x #Event will occur
+mypn= pn(n)
+lines(x=mypn,y=n, col= "green")
+
+text(x=c(0.01, 0.37,0.63, 0.99),  par("usr")[3], 
+     labels = c(".01",".37",".63",".99") , srt = 0, pos = 1, xpd = TRUE, cex=0.6)
+
+axis(1, at= seq(from=0, to=1, by= 0.1), labels=seq(from=0, to=1, by= 0.1), tick=TRUE, col.axis="black", cex=0.8)
+
+axis(2, at=c(0, 500,1000,1500,2000,2500),labels=FALSE, tick=TRUE, col.axis="black")
+axis(2, at=c(345, 2250),labels=FALSE, tick=TRUE, col.axis="black", tck=-0.015)
+axis(1, at=c(0.01,.37,.63,0.99),labels=FALSE, tick=TRUE, col.axis="black", tck=-0.015)
+
+abline(v=c(0.01, 0.37,0.5, 0.63,0.99), lty="dotted")
+abline(h=c(345,500, 2250), lty="dotted")
+text(x=0.15,  y=1800, 
+     labels = "chance event\nwill not occur", cex=0.7)
+text(x=0.85,  y=1800, 
+     labels = "chance event\nwill occur", cex=0.7)
+```
+
+If it is consider exposure time as a multiple of return period, the resulting figure  \@ref(fig:compoundprobability), shows that:
+
+* When exposure time is .69% of the return period, then probability (ocurrence and non-occurrence) will be 50%
+* As was stated previously, whe exposure time is equal to return period, then the probability that the extreme wind speed (return level) occur is 63%, and 37% for the non occurrence probability.
+* If exposure time is 4.5 times the return period, there is a 99% of change that the return level will occur.
+
+The example discused here was presented as an instrument to introduce important concepts, nonetheless,there are specialized approaches to deal with extreme value analysis which will be discussed in [Extreme Valua Analysis Overview](#extremeoverview) and more in detail in [Peaks Over Threshold - Poisson Process](#pot-pp). In summary, is neccesary to fit the data over a specific threshold to an extreme value distribution, and $P_e$ wil be $1-F(y)$, with F(y) as the _cdf_, and MRI as $\frac{1}{1-F(y)}$.
+
+
+## Extreme Value Analysis Overview {#extremeoverview}
 
 Analysis of extreme values is related with statistical inference to calculate probabilities of extreme events. Main methods to analize extreme data are ephochal, Peaks Over Threshold - POT, and extreme index. The epochal method, also known as block maxima, uses the most extreme value for a specific frame of time, tipically, one year. POT is based in the selection of a single threshold value to do the analysis only with values above the threshold. But there are different POT aproaches, the most commond one is Generalized Paretto Distribution - POT-GPD, but also it is possible to use the Poisson process approach.
 
@@ -288,7 +367,7 @@ where $G$ is the _ppf_ (quantile function) and $\lambda$ is the number of wind s
 The CRAN Task View "Extreme Value Analysis" <https://cran.r-project.org/web/views/ExtremeValue.html> shows available **R** for block maxima, POT by GPD, and external indexes estimation aproaches. Most important to consider are `evd`, `extremes`, `evir`, `POT`, `extremeStat`, `ismev`, and `Renext`.
 
  
-## Peaks Over Threshold - Poisson Process
+## Peaks Over Threshold - Poisson Process {#pot-pp}
 
 According to @Pintar2015 the stochastic poisson process is mainly defined by its intensity function. As the intensity function is nos uniform over the domain, the poisson process considered here is non-homogeneous, and due to the intensity function dependance of magnitud and time, it is also bi-dimmensional. Poisson Process was described for the first time in @Pickands1971, then extended in @Smith1989.
 
@@ -306,7 +385,7 @@ According to @Pintar2015 the stochastic poisson process is mainly defined by its
   (\#eq:ppgenericintensityfunction)
 \end{equation}
 
-Generic equation \@ref(eq:ppintensityfunction) shows the intensity function, which is defined in the domain $D = D_t\,{\cup}\,D_{nt}$, and allow to fit the poisson process at each station to the observed data $\{t_i, y_i\}_{i=1}^I$ for al the times ($t_i$) of threshold crossing observations and its corresponding wind speeds magnitudes ($y_i$). Thus, only data above the threshold is used.
+Generic equation \@ref(eq:ppgenericintensityfunction) shows the intensity function, which is defined in the domain $D = D_t\,{\cup}\,D_{nt}$, and allow to fit the poisson process at each station to the observed data $\{t_i, y_i\}_{i=1}^I$ for al the times ($t_i$) of threshold crossing observations and its corresponding wind speeds magnitudes ($y_i$). Thus, only data above the threshold is used.
 
 Intensity function of the Poisson Process is defined in @Smith2004, 
 
@@ -441,4 +520,26 @@ The same thunderstorm event in considered to occur if the time lag distance betw
 
 $$U=F(Y)$$
 $$W = -log(1-U)$$
+
+## Wind Loads Requirements
+
+Colombian norm that defines wind loads today is the Earth 
+
+
+As the output maps of this research will be used as input loads for infrastructure design, the methodology used for its creation, need to be consistent with Colombian official wind loads requirements. Today (2020), the Colombian norm that defines wind loads is the Seismic Resistant Standard 2010 - NSR-10 by its acronym of Spanish, see XXX. Chapter related to wind loads is B.6. NSR-10 was created and is maintained by the Colombian Association of Seismic Engineering - AIS. 
+
+
+NSR-10 is mainly based in the USA norm American Society of Civil Engineers 7-16, minimum design loads and associated criteria for buildings and other structures - ASCE7-16, see @Asce2017. Under these circumstances, ASCE7-16 defines the minimum requirements of the research products. Especially the chapter C26 - "wind loads - general requirements", C26.5 "wind hazard map", and C26.7 "Exposure" - pages 733 to 747. Wind speeds requirements of ASCE7-16 are based in the combination of independent non-hurricane analysis, and hurricane wind speeds simulations models. The focus of this research will be the analysis of non-hurricane wind data, however, existing results of hurricane studies will be used to present final maps with both components. In ASCE7-16, for non-hurricane wind speed, the procedure is mainly based on @Pintar2015.
+
+ 
+ASCE7-16 (page 734), requires the calculation of wind extreme return levels for specific return periods according to the risk category of the structure to be designed: risk category I - 300 years,  risk category II - 700 years,  risk category III - 1700 years,  risk category IV - 3000 years (NSR-10 only requires 700, 1700 and 3000 years). In addition, extreme wind speeds for those MRI need to correspond to: - 3 second gust speeds, - at 33 ft (10 meters) above the ground, and - exposure category C (open space). 
+
+ 
+To standarize wind speeds to gust speeds ASCE7-16 proposes the curve Durst (see @Durst1960, and figure \@ref(fig:durstcurve)). It is valid only for open terran conditions. Durst curve shows in axis $y$ the gust factor $\frac{V_t}{V_{3600}}$, a ration between any wind gust averaged at $t$ seconds, $V_t$, and the hourly averaged wind speed $V_{3600}$, and in the axis $x$ the duration $t$ of the gust.
+
+
+```{r durstcurve, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Maximun speeds averaged over t (sec), to hourly mean speed", size="footnotesize", fig.width= 5, fig.height= 5}
+include_graphics(path = "figure/durst.PNG")
+```
+
 
