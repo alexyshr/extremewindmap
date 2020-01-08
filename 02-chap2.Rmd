@@ -523,18 +523,19 @@ $$W = -log(1-U)$$
 
 ## Wind Loads Requirements
 
-Colombian norm that defines wind loads today is the Earth 
-
-
 As the output maps of this research will be used as input loads for infrastructure design, the methodology used for its creation, need to be consistent with Colombian official wind loads requirements. Today (2020), the Colombian norm that defines wind loads is the Seismic Resistant Standard 2010 - NSR-10 by its acronym of Spanish, see XXX. Chapter related to wind loads is B.6. NSR-10 was created and is maintained by the Colombian Association of Seismic Engineering - AIS. 
 
 
 NSR-10 is mainly based in the USA norm American Society of Civil Engineers 7-16, minimum design loads and associated criteria for buildings and other structures - ASCE7-16, see @Asce2017. Under these circumstances, ASCE7-16 defines the minimum requirements of the research products. Especially the chapter C26 - "wind loads - general requirements", C26.5 "wind hazard map", and C26.7 "Exposure" - pages 733 to 747. Wind speeds requirements of ASCE7-16 are based in the combination of independent non-hurricane analysis, and hurricane wind speeds simulations models. The focus of this research will be the analysis of non-hurricane wind data, however, existing results of hurricane studies will be used to present final maps with both components. In ASCE7-16, for non-hurricane wind speed, the procedure is mainly based on @Pintar2015.
 
  
-ASCE7-16 (page 734), requires the calculation of wind extreme return levels for specific return periods according to the risk category of the structure to be designed: risk category I - 300 years,  risk category II - 700 years,  risk category III - 1700 years,  risk category IV - 3000 years (NSR-10 only requires 700, 1700 and 3000 years). In addition, extreme wind speeds for those MRI need to correspond to: - 3 second gust speeds, - at 33 ft (10 meters) above the ground, and - exposure category C (open space). 
+ASCE7-16 (page 734), requires the calculation of wind extreme return levels for specific return periods according to the risk category of the structure to be designed: risk category I - 300 years,  risk category II - 700 years,  risk category III - 1700 years,  risk category IV - 3000 years. NSR-10 only requires 700, 1700 and 3000 years. In addition, extreme wind speeds for those MRI need to correspond to: - 3 second gust speeds, - at 33 ft (10 meters) above the ground, and - exposure category C (open space).
 
- 
+* Risk IV - This are 'indispensable buildings' that involve sustancial risk. This structures that can handle toxic or explosive substances.
+* Risk III - There is sustancial risk because this structures that can handle toxic or explosive substances, can cause a serious economical impact, or masive interruption of activities if they fail
+* Risk II - Category 'by default', and correspond to structures not classified in others categories.
+* Risk I - This structures represent low risk for people lifes
+
 To standarize wind speeds to gust speeds ASCE7-16 proposes the curve Durst (see @Durst1960, and figure \@ref(fig:durstcurve)). It is valid only for open terran conditions. Durst curve shows in axis $y$ the gust factor $\frac{V_t}{V_{3600}}$, a ration between any wind gust averaged at $t$ seconds, $V_t$, and the hourly averaged wind speed $V_{3600}$, and in the axis $x$ the duration $t$ of the gust.
 
 

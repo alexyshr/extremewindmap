@@ -25,12 +25,11 @@ abstract: |
 #like below, use a command like that for the abstract above.  Note that a tab is 
 #needed on the line after the `|`.
 acknowledgements: |
-  I want to thank a few people.
+  I would like to thank Prof. Dr. Edzer Pebesma, Prof. Dr. Juan C. Reyes and Prof. Dr. Sara Ribero for supervising my work and spending their valuable time for discussions and feedback. It was really a huge advantage for me to have this allways available support. It was a pleasure to work beside you. I want to thank Dr Adam Pintar and Engineer Juan David Sandoval for their support and contributions. My mother Ligia made possible all my achievements because she was allways there with love, support and valuable advice and contributions. I am grateful with all my heart. Thanks to my daughter Nicolle Chaely for its love, support, and always pleasant company. I would like to thank the European Union -'Erasmus Mundus Grant', because their funding allow me to fulfill this dream to go further with my accademic and professionals dreams. I especially want to thank to Dr. Joaquín Huerta Guijarro because he allways was available to help and he was very friendly and receptive. Likewise, I want to thank some family members as Elsa Manrique, Barbara Avellaneda, and Kevin Martinez because they were allways interested in my activities and also they were an important source of motivation and support. To all the beatuful people that shared with me different activities at the San Antonious church of Muenster, with special mention of father Alejandro Serrano Palacios and choir friends.
 dedication: |
-  You can have a dedication here if you wish. 
+  I put all my efforts in Jesus' hands. I dedicate this work to my mother Ligia, my beautiful daughter Nicolle Chaely and my beautiful daughter Lucesita
 preface: |
-  This is an example of a thesis setup to use the reed thesis document class
-  (for LaTeX) and the R bookdown package, in general.
+  This work in its teorethical and methodological component was directed by ASCE7-16 @Asce2017 considering that output products will be used to update the chapter B.6, wind forces, of the Colombian earthquake resistant standard - NSR-10, maintaided by the Colombian Association of Seismic Engineering - AIS by its spahish acronym. ASCE7-16, defines four risk categories, which implies the use of different wind loads (represented in wind extreme values for different mean recurrence intervals) for structures that belong to each category, 3000 years of MRI for risk IV, 1700 years for risk III, and 700 years for risk II and I. This research has a particularly new situation regarding to the input data, and it is that not only time series of field measurements from meteorological stations are used (IDEAM data source), but also post-procesed information comming from the Integrated Surface Database - ISD (USA database based on IDEAM data source), and forecast reanalysis data from ERA5. This condition demanded a comparison of the different data sources in order to verify the feasibility of using ERA5 and ISD, with a previous activitie of sdandarization of wind velocities to reach the needed requirement of 3-s wind gust speed, 10 meters anemometers high and open space condition. At each station the used method Peaks Over Threshold - Poisson Process, required to identfy all the non-thunderstorm events in the non-hurricane dataset through a process of declustering, choose a suitable threshold level to leave for the analysis only the most extreme availables values, and then fit to the data a Gumbel extreme value distributon using maximun likelihood to find optimal parameters with the best goodness of fit. With the fitted model, it was possible to calculate return levels for required mean return intervals. Next, a process of spatial interpolation was done using Kriging, what allowed to have three continuous maps for the whole study area.
 #Specify the location of the bibliography below
 bibliography: bib/thesis.bib
 #Download your specific csl file and refer to it in the line below.
@@ -87,3 +86,10 @@ A wind speed linked to a _mean recurrence interval - MRI_ of _N-years_ (N-years 
 
 There are different methods to model extreme value data, among them are a) sample maxima using a _Generalized Extreme Value Distribution_ onwards _GEVD_ (traditional method), b) POT using a _Generalized Pareto Distribution_ onwards _GPD_, c) POT using a two-dimensional Poisson Process, that can be homomegenos, non-homogeneous, stationary, and non-stationary (originally know as _Point Process_ approach), and d) POT Poisson-GPD. Following @Pintar2015 in this research a _POT using a non-homogeneous non-stationary two-dimensional poisson proces_ was selected, despide there is no R package available to apply this approach. 
 
+## Background
+
+## Research Aim and Objectives
+
+## Reseach Question
+
+## Thesis Document Structure

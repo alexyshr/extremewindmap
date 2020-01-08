@@ -160,24 +160,25 @@
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 
 \Acknowledgements{
-I want to thank a few people.
+I would like to thank Prof.~Dr.~Edzer Pebesma, Prof.~Dr.~Juan C. Reyes and Prof.~Dr.~Sara Ribero for supervising my work and spending their valuable time for discussions and feedback. It was really a huge advantage for me to have this allways available support. It was a pleasure to work beside you. I want to thank Dr Adam Pintar and Engineer Juan David Sandoval for their support and contributions. My mother Ligia made possible all my achievements because she was allways there with love, support and valuable advice and contributions. I am grateful with all my heart. Thanks to my daughter Nicolle Chaely for its love, support, and always pleasant company. I would like to thank the European Union -`Erasmus Mundus Grant', because their funding allow me to fulfill this dream to go further with my accademic and professionals dreams. I especially want to thank to Dr.~Joaquín Huerta Guijarro because he allways was available to help and he was very friendly and receptive. Likewise, I want to thank some family members as Elsa Manrique, Barbara Avellaneda, and Kevin Martinez because they were allways interested in my activities and also they were an important source of motivation and support. To all the beatuful people that shared with me different activities at the San Antonious church of Muenster, with special mention of father Alejandro Serrano Palacios and choir friends.
 }
 
 \Dedication{
-You can have a dedication here if you wish.
+I put all my efforts in Jesus' hands. I dedicate this work to my mother Ligia, my beautiful daughter Nicolle Chaely and my beautiful daughter Lucesita
 }
 
 \Preface{
-This is an example of a thesis setup to use the reed thesis document class
-(for LaTeX) and the R bookdown package, in general.
+This work in its teorethical and methodological component was directed by ASCE7-16 Engineers (2017) considering that output products will be used to update the chapter B.6, wind forces, of the Colombian earthquake resistant standard - NSR-10, maintaided by the Colombian Association of Seismic Engineering - AIS by its spahish acronym. ASCE7-16, defines four risk categories, which implies the use of different wind loads (represented in wind extreme values for different mean recurrence intervals) for structures that belong to each category, 3000 years of MRI for risk IV, 1700 years for risk III, and 700 years for risk II and I. This research has a particularly new situation regarding to the input data, and it is that not only time series of field measurements from meteorological stations are used (IDEAM data source), but also post-procesed information comming from the Integrated Surface Database - ISD (USA database based on IDEAM data source), and forecast reanalysis data from ERA5. This condition demanded a comparison of the different data sources in order to verify the feasibility of using ERA5 and ISD, with a previous activitie of sdandarization of wind velocities to reach the needed requirement of 3-s wind gust speed, 10 meters anemometers high and open space condition. At each station the used method Peaks Over Threshold - Poisson Process, required to identfy all the non-thunderstorm events in the non-hurricane dataset through a process of declustering, choose a suitable threshold level to leave for the analysis only the most extreme availables values, and then fit to the data a Gumbel extreme value distributon using maximun likelihood to find optimal parameters with the best goodness of fit. With the fitted model, it was possible to calculate return levels for required mean return intervals. Next, a process of spatial interpolation was done using Kriging, what allowed to have three continuous maps for the whole study area.
 }
 
 \Abstract{
-The preface pretty much says it all.
+For the input non-hurricane, non tornadic data in each available station of the study area (field measurement of forecast models), this research calculate extreme winds or return levels with three different mean recurrence intervals - MRI, 700, 1700, and 3000 years, with a change of being equaled or exceeded only one time in the corresponding MRI period. Then, continuous maps of wind extreme velocities are interpolated to cover the study area, which are mixed with existing wind extreme hurricane studies to be used as input loads for infrastructure desing.
 
 \par
 
-Second paragraph of abstract starts here.
+Spatio-temporal analysis of historical wind data for infrastructrure design, namely, \(-\) from wind time series represented in forecast models over rectangular areas or pixels with a virtual station at its center, or field measurements at weather stations in specific coordinates around the study area \(-\), calculate wind extreme magnitudes to be used as desing loads of structures of different risk categories (bridges, houses, buildings, hospitals, etc), requires the use of statistical extreme value analysis methodologies to create maps with different mean recurrence intervals (MRI), \(-\) short ones for less risky/important structures, and long ones for highly important structures.
+
+Method used to calculate the return levels at each station the Peaks Overt Threshold - POT, using a non-homogeneous, bidimensional Poisson Process described, recomended by Engineers (2017), and developed and implemented in Pintar, Simiu, Lombardo, \& Levitan (2015). To interpolate maps a geoestatistical procedure using Kriging was implemented, considering the model with the best goodness of fit from model parameters comparison.
 }
 
 	\usepackage{booktabs}
@@ -207,11 +208,10 @@ Second paragraph of abstract starts here.
 \frontmatter % this stuff will be roman-numbered
 \pagestyle{empty} % this removes page numbers from the frontmatter
   \begin{acknowledgements}
-    I want to thank a few people.
+    I would like to thank Prof.~Dr.~Edzer Pebesma, Prof.~Dr.~Juan C. Reyes and Prof.~Dr.~Sara Ribero for supervising my work and spending their valuable time for discussions and feedback. It was really a huge advantage for me to have this allways available support. It was a pleasure to work beside you. I want to thank Dr Adam Pintar and Engineer Juan David Sandoval for their support and contributions. My mother Ligia made possible all my achievements because she was allways there with love, support and valuable advice and contributions. I am grateful with all my heart. Thanks to my daughter Nicolle Chaely for its love, support, and always pleasant company. I would like to thank the European Union -`Erasmus Mundus Grant', because their funding allow me to fulfill this dream to go further with my accademic and professionals dreams. I especially want to thank to Dr.~Joaquín Huerta Guijarro because he allways was available to help and he was very friendly and receptive. Likewise, I want to thank some family members as Elsa Manrique, Barbara Avellaneda, and Kevin Martinez because they were allways interested in my activities and also they were an important source of motivation and support. To all the beatuful people that shared with me different activities at the San Antonious church of Muenster, with special mention of father Alejandro Serrano Palacios and choir friends.
   \end{acknowledgements}
   \begin{preface}
-    This is an example of a thesis setup to use the reed thesis document class
-    (for LaTeX) and the R bookdown package, in general.
+    This work in its teorethical and methodological component was directed by ASCE7-16 Engineers (2017) considering that output products will be used to update the chapter B.6, wind forces, of the Colombian earthquake resistant standard - NSR-10, maintaided by the Colombian Association of Seismic Engineering - AIS by its spahish acronym. ASCE7-16, defines four risk categories, which implies the use of different wind loads (represented in wind extreme values for different mean recurrence intervals) for structures that belong to each category, 3000 years of MRI for risk IV, 1700 years for risk III, and 700 years for risk II and I. This research has a particularly new situation regarding to the input data, and it is that not only time series of field measurements from meteorological stations are used (IDEAM data source), but also post-procesed information comming from the Integrated Surface Database - ISD (USA database based on IDEAM data source), and forecast reanalysis data from ERA5. This condition demanded a comparison of the different data sources in order to verify the feasibility of using ERA5 and ISD, with a previous activitie of sdandarization of wind velocities to reach the needed requirement of 3-s wind gust speed, 10 meters anemometers high and open space condition. At each station the used method Peaks Over Threshold - Poisson Process, required to identfy all the non-thunderstorm events in the non-hurricane dataset through a process of declustering, choose a suitable threshold level to leave for the analysis only the most extreme availables values, and then fit to the data a Gumbel extreme value distributon using maximun likelihood to find optimal parameters with the best goodness of fit. With the fitted model, it was possible to calculate return levels for required mean return intervals. Next, a process of spatial interpolation was done using Kriging, what allowed to have three continuous maps for the whole study area.
   \end{preface}
   \hypersetup{linkcolor=black}
   \setcounter{tocdepth}{2}
@@ -221,14 +221,16 @@ Second paragraph of abstract starts here.
 
   \listoffigures
   \begin{abstract}
-    The preface pretty much says it all.
+    For the input non-hurricane, non tornadic data in each available station of the study area (field measurement of forecast models), this research calculate extreme winds or return levels with three different mean recurrence intervals - MRI, 700, 1700, and 3000 years, with a change of being equaled or exceeded only one time in the corresponding MRI period. Then, continuous maps of wind extreme velocities are interpolated to cover the study area, which are mixed with existing wind extreme hurricane studies to be used as input loads for infrastructure desing.
     
     \par
     
-    Second paragraph of abstract starts here.
+    Spatio-temporal analysis of historical wind data for infrastructrure design, namely, \(-\) from wind time series represented in forecast models over rectangular areas or pixels with a virtual station at its center, or field measurements at weather stations in specific coordinates around the study area \(-\), calculate wind extreme magnitudes to be used as desing loads of structures of different risk categories (bridges, houses, buildings, hospitals, etc), requires the use of statistical extreme value analysis methodologies to create maps with different mean recurrence intervals (MRI), \(-\) short ones for less risky/important structures, and long ones for highly important structures.
+    
+    Method used to calculate the return levels at each station the Peaks Overt Threshold - POT, using a non-homogeneous, bidimensional Poisson Process described, recomended by Engineers (2017), and developed and implemented in Pintar, Simiu, Lombardo, \& Levitan (2015). To interpolate maps a geoestatistical procedure using Kriging was implemented, considering the model with the best goodness of fit from model parameters comparison.
   \end{abstract}
   \begin{dedication}
-    You can have a dedication here if you wish.
+    I put all my efforts in Jesus' hands. I dedicate this work to my mother Ligia, my beautiful daughter Nicolle Chaely and my beautiful daughter Lucesita
   \end{dedication}
 \mainmatter % here the regular arabic numbering starts
 \pagestyle{fancyplain} % turns page numbering back on
@@ -243,7 +245,19 @@ For each station with wind speeds time histories in the input data, extreme wind
 
 A wind speed linked to a \emph{mean recurrence interval - MRI} of \emph{N-years} (N-years return value or return period) is interpreted as the highest probable wind speed along the period of N-years. The annual probability of equal or exceed that wind speed is 1/N. The annual excedance probability for all velocity values in 700-years output map will be 1/700, for the 1700-years map will be 1/1700, and 1/3000 for the 3000-years final map.
 
-There are different methods to model extreme value data, among them are a) sample maxima using a \emph{Generalized Extreme Value Distribution} onwards \emph{GEVD} (traditional method), b) POT using a \emph{Generalized Pareto Distribution} onwards \emph{GPD}, c) POT using a two-dimensional Poisson Process, that can be homomegenos, non-homogeneous, stationary, and non-stationary (originally know as \emph{Point Process} approach), and d) POT Poisson-GPD. Following Pintar, Simiu, Lombardo, \& Levitan (2015) in this research a \emph{POT using a non-homogeneous non-stationary two-dimensional poisson proces} was selected, despide there is no R package available to apply this approach.
+There are different methods to model extreme value data, among them are a) sample maxima using a \emph{Generalized Extreme Value Distribution} onwards \emph{GEVD} (traditional method), b) POT using a \emph{Generalized Pareto Distribution} onwards \emph{GPD}, c) POT using a two-dimensional Poisson Process, that can be homomegenos, non-homogeneous, stationary, and non-stationary (originally know as \emph{Point Process} approach), and d) POT Poisson-GPD. Following Pintar et al. (2015) in this research a \emph{POT using a non-homogeneous non-stationary two-dimensional poisson proces} was selected, despide there is no R package available to apply this approach.
+
+\hypertarget{background}{%
+\section{Background}\label{background}}
+
+\hypertarget{research-aim-and-objectives}{%
+\section{Research Aim and Objectives}\label{research-aim-and-objectives}}
+
+\hypertarget{reseach-question}{%
+\section{Reseach Question}\label{reseach-question}}
+
+\hypertarget{thesis-document-structure}{%
+\section{Thesis Document Structure}\label{thesis-document-structure}}
 
 \hypertarget{rmd-data}{%
 \chapter{Data}\label{rmd-data}}
@@ -849,14 +863,22 @@ The same thunderstorm event in considered to occur if the time lag distance betw
 \hypertarget{wind-loads-requirements}{%
 \section{Wind Loads Requirements}\label{wind-loads-requirements}}
 
-Colombian norm that defines wind loads today is the Earth
-
 As the output maps of this research will be used as input loads for infrastructure design, the methodology used for its creation, need to be consistent with Colombian official wind loads requirements. Today (2020), the Colombian norm that defines wind loads is the Seismic Resistant Standard 2010 - NSR-10 by its acronym of Spanish, see XXX. Chapter related to wind loads is B.6. NSR-10 was created and is maintained by the Colombian Association of Seismic Engineering - AIS.
 
 NSR-10 is mainly based in the USA norm American Society of Civil Engineers 7-16, minimum design loads and associated criteria for buildings and other structures - ASCE7-16, see Engineers (2017). Under these circumstances, ASCE7-16 defines the minimum requirements of the research products. Especially the chapter C26 - ``wind loads - general requirements'', C26.5 ``wind hazard map'', and C26.7 ``Exposure'' - pages 733 to 747. Wind speeds requirements of ASCE7-16 are based in the combination of independent non-hurricane analysis, and hurricane wind speeds simulations models. The focus of this research will be the analysis of non-hurricane wind data, however, existing results of hurricane studies will be used to present final maps with both components. In ASCE7-16, for non-hurricane wind speed, the procedure is mainly based on Pintar et al. (2015).
 
-ASCE7-16 (page 734), requires the calculation of wind extreme return levels for specific return periods according to the risk category of the structure to be designed: risk category I - 300 years, risk category II - 700 years, risk category III - 1700 years, risk category IV - 3000 years (NSR-10 only requires 700, 1700 and 3000 years). In addition, extreme wind speeds for those MRI need to correspond to: - 3 second gust speeds, - at 33 ft (10 meters) above the ground, and - exposure category C (open space).
-
+ASCE7-16 (page 734), requires the calculation of wind extreme return levels for specific return periods according to the risk category of the structure to be designed: risk category I - 300 years, risk category II - 700 years, risk category III - 1700 years, risk category IV - 3000 years. NSR-10 only requires 700, 1700 and 3000 years. In addition, extreme wind speeds for those MRI need to correspond to: - 3 second gust speeds, - at 33 ft (10 meters) above the ground, and - exposure category C (open space).
+\begin{itemize}
+\tightlist
+\item
+  Risk IV - This are `indispensable buildings' that involve sustancial risk. This structures that can handle toxic or explosive substances.
+\item
+  Risk III - There is sustancial risk because this structures that can handle toxic or explosive substances, can cause a serious economical impact, or masive interruption of activities if they fail
+\item
+  Risk II - Category `by default', and correspond to structures not classified in others categories.
+\item
+  Risk I - This structures represent low risk for people lifes
+\end{itemize}
 To standarize wind speeds to gust speeds ASCE7-16 proposes the curve Durst (see C. S. Durst (1960), and figure \ref{fig:durstcurve}). It is valid only for open terran conditions. Durst curve shows in axis \(y\) the gust factor \(\frac{V_t}{V_{3600}}\), a ration between any wind gust averaged at \(t\) seconds, \(V_t\), and the hourly averaged wind speed \(V_{3600}\), and in the axis \(x\) the duration \(t\) of the gust.
 
 \footnotesize
@@ -942,8 +964,8 @@ And here's some other random info: the first paragraph after a chapter title or 
 
 \appendix
 
-\hypertarget{the-first-appendix}{%
-\chapter{The First Appendix}\label{the-first-appendix}}
+\hypertarget{r-code}{%
+\chapter{R Code}\label{r-code}}
 
 This first appendix includes all of the R chunks of code that were hidden throughout the document (using the \texttt{include\ =\ FALSE} chunk tag) to help with readibility and/or setup.
 
@@ -983,8 +1005,8 @@ This first appendix includes all of the R chunks of code that were hidden throug
 \NormalTok{flights <-}\StringTok{ }\KeywordTok{read.csv}\NormalTok{(}\StringTok{"data/flights.csv"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
-\hypertarget{the-second-appendix-for-fun}{%
-\chapter{The Second Appendix, for Fun}\label{the-second-appendix-for-fun}}
+\hypertarget{the-second-appendix}{%
+\chapter{The Second Appendix}\label{the-second-appendix}}
 
 \backmatter
 
