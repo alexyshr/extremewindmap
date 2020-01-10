@@ -128,7 +128,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul class="summary">
 <li><a href="./"></a></li>
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a><ul>
+<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#background"><i class="fa fa-check"></i><b>0.1</b> Background</a></li>
+<li class="chapter" data-level="0.2" data-path="index.html"><a href="index.html#research-aim-and-objectives"><i class="fa fa-check"></i><b>0.2</b> Research Aim and Objectives</a></li>
+<li class="chapter" data-level="0.3" data-path="index.html"><a href="index.html#reseach-question"><i class="fa fa-check"></i><b>0.3</b> Reseach Question</a></li>
+<li class="chapter" data-level="0.4" data-path="index.html"><a href="index.html#thesis-document-structure"><i class="fa fa-check"></i><b>0.4</b> Thesis Document Structure</a></li>
+</ul></li>
 <li class="chapter" data-level="1" data-path="1-rmd-data.html"><a href="1-rmd-data.html"><i class="fa fa-check"></i><b>1</b> Data</a><ul>
 <li class="chapter" data-level="1.1" data-path="1-rmd-data.html"><a href="1-rmd-data.html#ideam"><i class="fa fa-check"></i><b>1.1</b> IDEAM</a></li>
 <li class="chapter" data-level="1.2" data-path="1-rmd-data.html"><a href="1-rmd-data.html#isd"><i class="fa fa-check"></i><b>1.2</b> ISD</a></li>
@@ -168,8 +173,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="" data-path="conclusion.html"><a href="conclusion.html"><i class="fa fa-check"></i>Conclusion</a></li>
 <li class="appendix"><span><b>Appendix</b></span></li>
-<li class="chapter" data-level="A" data-path="A-the-first-appendix.html"><a href="A-the-first-appendix.html"><i class="fa fa-check"></i><b>A</b> The First Appendix</a></li>
-<li class="chapter" data-level="B" data-path="B-the-second-appendix-for-fun.html"><a href="B-the-second-appendix-for-fun.html"><i class="fa fa-check"></i><b>B</b> The Second Appendix, for Fun</a></li>
+<li class="chapter" data-level="A" data-path="A-r-code.html"><a href="A-r-code.html"><i class="fa fa-check"></i><b>A</b> R Code</a></li>
+<li class="chapter" data-level="B" data-path="B-the-second-appendix.html"><a href="B-the-second-appendix.html"><i class="fa fa-check"></i><b>B</b> The Second Appendix</a></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -578,10 +583,15 @@ Y_N =G\left(y, 1-\frac{1}{\lambda\,N}\right)
 </div>
 <div id="wind-loads-requirements" class="section level2">
 <h2><span class="header-section-number">2.5</span> Wind Loads Requirements</h2>
-<p>Colombian norm that defines wind loads today is the Earth</p>
 <p>As the output maps of this research will be used as input loads for infrastructure design, the methodology used for its creation, need to be consistent with Colombian official wind loads requirements. Today (2020), the Colombian norm that defines wind loads is the Seismic Resistant Standard 2010 - NSR-10 by its acronym of Spanish, see XXX. Chapter related to wind loads is B.6. NSR-10 was created and is maintained by the Colombian Association of Seismic Engineering - AIS.</p>
 <p>NSR-10 is mainly based in the USA norm American Society of Civil Engineers 7-16, minimum design loads and associated criteria for buildings and other structures - ASCE7-16, see <span class="citation">(<span class="citeproc-not-found" data-reference-id="Asce2017"><strong>???</strong></span>)</span>. Under these circumstances, ASCE7-16 defines the minimum requirements of the research products. Especially the chapter C26 - “wind loads - general requirements”, C26.5 “wind hazard map”, and C26.7 “Exposure” - pages 733 to 747. Wind speeds requirements of ASCE7-16 are based in the combination of independent non-hurricane analysis, and hurricane wind speeds simulations models. The focus of this research will be the analysis of non-hurricane wind data, however, existing results of hurricane studies will be used to present final maps with both components. In ASCE7-16, for non-hurricane wind speed, the procedure is mainly based on <span class="citation">(<span class="citeproc-not-found" data-reference-id="Pintar2015"><strong>???</strong></span>)</span>.</p>
-<p>ASCE7-16 (page 734), requires the calculation of wind extreme return levels for specific return periods according to the risk category of the structure to be designed: risk category I - 300 years, risk category II - 700 years, risk category III - 1700 years, risk category IV - 3000 years (NSR-10 only requires 700, 1700 and 3000 years). In addition, extreme wind speeds for those MRI need to correspond to: - 3 second gust speeds, - at 33 ft (10 meters) above the ground, and - exposure category C (open space).</p>
+<p>ASCE7-16 (page 734), requires the calculation of wind extreme return levels for specific return periods according to the risk category of the structure to be designed: risk category I - 300 years, risk category II - 700 years, risk category III - 1700 years, risk category IV - 3000 years. NSR-10 only requires 700, 1700 and 3000 years. In addition, extreme wind speeds for those MRI need to correspond to: - 3 second gust speeds, - at 33 ft (10 meters) above the ground, and - exposure category C (open space).</p>
+<ul>
+<li>Risk IV - This are ‘indispensable buildings’ that involve sustancial risk. This structures that can handle toxic or explosive substances.</li>
+<li>Risk III - There is sustancial risk because this structures that can handle toxic or explosive substances, can cause a serious economical impact, or masive interruption of activities if they fail</li>
+<li>Risk II - Category ‘by default’, and correspond to structures not classified in others categories.</li>
+<li>Risk I - This structures represent low risk for people lifes</li>
+</ul>
 <p>To standarize wind speeds to gust speeds ASCE7-16 proposes the curve Durst (see <span class="citation">(<span class="citeproc-not-found" data-reference-id="Durst1960"><strong>???</strong></span>)</span>, and figure <a href="2-rmd-thefra.html#fig:durstcurve">2.10</a>). It is valid only for open terran conditions. Durst curve shows in axis <span class="math inline">\(y\)</span> the gust factor <span class="math inline">\(\frac{V_t}{V_{3600}}\)</span>, a ration between any wind gust averaged at <span class="math inline">\(t\)</span> seconds, <span class="math inline">\(V_t\)</span>, and the hourly averaged wind speed <span class="math inline">\(V_{3600}\)</span>, and in the axis <span class="math inline">\(x\)</span> the duration <span class="math inline">\(t\)</span> of the gust.</p>
 
 <div class="figure" style="text-align: center"><span id="fig:durstcurve"></span>

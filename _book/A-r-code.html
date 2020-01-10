@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>References | thesis.utf8</title>
+  <title>A R Code | thesis.utf8</title>
   <meta name="description" content="" />
   <meta name="generator" content="bookdown 0.16.5 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="References | thesis.utf8" />
+  <meta property="og:title" content="A R Code | thesis.utf8" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="References | thesis.utf8" />
+  <meta name="twitter:title" content="A R Code | thesis.utf8" />
   
   
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="B-the-second-appendix.html"/>
-
+<link rel="prev" href="conclusion.html"/>
+<link rel="next" href="B-the-second-appendix.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -195,32 +195,45 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="references" class="section level1 unnumbered">
-<h1>References</h1>
-<!--
-This manually sets the header for this unnumbered chapter.
--->
-
-<!--
-To remove the indentation of the first entry.
--->
-<p></p>
-<!--
-To create a hanging indent and spacing between entries.  These three lines may need to be removed for styles that don't require the hanging indent.
--->
-
-<!--
-This is just for testing with more citations for the bibliography at the end.  Add other entries into the list here if you'd like them to appear in the bibliography even if they weren't explicitly cited in the document.
--->
-
+<div id="r-code" class="section level1">
+<h1><span class="header-section-number">A</span> R Code</h1>
+<p>This first appendix includes all of the R chunks of code that were hidden throughout the document (using the <code>include = FALSE</code> chunk tag) to help with readibility and/or setup.</p>
+<p><strong>In the main Rmd file</strong></p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" title="1"><span class="co"># This chunk ensures that the thesisdown package is</span></a>
+<a class="sourceLine" id="cb8-2" title="2"><span class="co"># installed and loaded. This thesisdown package includes</span></a>
+<a class="sourceLine" id="cb8-3" title="3"><span class="co"># the template files for the thesis.</span></a>
+<a class="sourceLine" id="cb8-4" title="4"><span class="cf">if</span>(<span class="op">!</span><span class="kw">require</span>(devtools))</a>
+<a class="sourceLine" id="cb8-5" title="5">  <span class="kw">install.packages</span>(<span class="st">&quot;devtools&quot;</span>, <span class="dt">repos =</span> <span class="st">&quot;http://cran.rstudio.com&quot;</span>)</a>
+<a class="sourceLine" id="cb8-6" title="6"><span class="cf">if</span>(<span class="op">!</span><span class="kw">require</span>(thesisdown))</a>
+<a class="sourceLine" id="cb8-7" title="7">  devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;ismayc/thesisdown&quot;</span>)</a>
+<a class="sourceLine" id="cb8-8" title="8"><span class="kw">library</span>(thesisdown)</a></code></pre></div>
+<p><strong>In Chapter <a href="3-rmd-method.html#rmd-method">3</a>:</strong></p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" title="1"><span class="co"># This chunk ensures that the thesisdown package is</span></a>
+<a class="sourceLine" id="cb9-2" title="2"><span class="co"># installed and loaded. This thesisdown package includes</span></a>
+<a class="sourceLine" id="cb9-3" title="3"><span class="co"># the template files for the thesis and also two functions</span></a>
+<a class="sourceLine" id="cb9-4" title="4"><span class="co"># used for labeling and referencing</span></a>
+<a class="sourceLine" id="cb9-5" title="5"><span class="cf">if</span>(<span class="op">!</span><span class="kw">require</span>(devtools))</a>
+<a class="sourceLine" id="cb9-6" title="6">  <span class="kw">install.packages</span>(<span class="st">&quot;devtools&quot;</span>, <span class="dt">repos =</span> <span class="st">&quot;http://cran.rstudio.com&quot;</span>)</a>
+<a class="sourceLine" id="cb9-7" title="7"><span class="cf">if</span>(<span class="op">!</span><span class="kw">require</span>(dplyr))</a>
+<a class="sourceLine" id="cb9-8" title="8">    <span class="kw">install.packages</span>(<span class="st">&quot;dplyr&quot;</span>, <span class="dt">repos =</span> <span class="st">&quot;http://cran.rstudio.com&quot;</span>)</a>
+<a class="sourceLine" id="cb9-9" title="9"><span class="cf">if</span>(<span class="op">!</span><span class="kw">require</span>(ggplot2))</a>
+<a class="sourceLine" id="cb9-10" title="10">    <span class="kw">install.packages</span>(<span class="st">&quot;ggplot2&quot;</span>, <span class="dt">repos =</span> <span class="st">&quot;http://cran.rstudio.com&quot;</span>)</a>
+<a class="sourceLine" id="cb9-11" title="11"><span class="cf">if</span>(<span class="op">!</span><span class="kw">require</span>(ggplot2))</a>
+<a class="sourceLine" id="cb9-12" title="12">    <span class="kw">install.packages</span>(<span class="st">&quot;bookdown&quot;</span>, <span class="dt">repos =</span> <span class="st">&quot;http://cran.rstudio.com&quot;</span>)</a>
+<a class="sourceLine" id="cb9-13" title="13"><span class="cf">if</span>(<span class="op">!</span><span class="kw">require</span>(thesisdown)){</a>
+<a class="sourceLine" id="cb9-14" title="14">  <span class="kw">library</span>(devtools)</a>
+<a class="sourceLine" id="cb9-15" title="15">  devtools<span class="op">::</span><span class="kw">install_github</span>(<span class="st">&quot;ismayc/thesisdown&quot;</span>)</a>
+<a class="sourceLine" id="cb9-16" title="16">  }</a>
+<a class="sourceLine" id="cb9-17" title="17"><span class="kw">library</span>(thesisdown)</a>
+<a class="sourceLine" id="cb9-18" title="18">flights &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;data/flights.csv&quot;</span>)</a></code></pre></div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="B-the-second-appendix.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="conclusion.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="B-the-second-appendix.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
