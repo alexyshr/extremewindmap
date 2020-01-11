@@ -129,7 +129,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./"></a></li>
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Introduction</a><ul>
-<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#background"><i class="fa fa-check"></i><b>0.1</b> Background</a></li>
+<li class="chapter" data-level="0.1" data-path="index.html"><a href="index.html#background"><i class="fa fa-check"></i><b>0.1</b> Background</a><ul>
+<li class="chapter" data-level="0.1.1" data-path="index.html"><a href="index.html#sample-maxima"><i class="fa fa-check"></i><b>0.1.1</b> Sample maxima</a></li>
+<li class="chapter" data-level="0.1.2" data-path="index.html"><a href="index.html#exceedances-over-threshold"><i class="fa fa-check"></i><b>0.1.2</b> Exceedances over threshold</a></li>
+</ul></li>
 <li class="chapter" data-level="0.2" data-path="index.html"><a href="index.html#research-aim-and-objectives"><i class="fa fa-check"></i><b>0.2</b> Research Aim and Objectives</a></li>
 <li class="chapter" data-level="0.3" data-path="index.html"><a href="index.html#reseach-question"><i class="fa fa-check"></i><b>0.3</b> Reseach Question</a></li>
 <li class="chapter" data-level="0.4" data-path="index.html"><a href="index.html#thesis-document-structure"><i class="fa fa-check"></i><b>0.4</b> Thesis Document Structure</a></li>
@@ -205,6 +208,33 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>There are different methods to model extreme value data, among them are a) sample maxima using a <em>Generalized Extreme Value Distribution</em> onwards <em>GEVD</em> (traditional method), b) POT using a <em>Generalized Pareto Distribution</em> onwards <em>GPD</em>, c) POT using a two-dimensional Poisson Process, that can be homomegenos, non-homogeneous, stationary, and non-stationary (originally know as <em>Point Process</em> approach), and d) POT Poisson-GPD. Following <span class="citation">(<span class="citeproc-not-found" data-reference-id="Pintar2015"><strong>???</strong></span>)</span> in this research a <em>POT using a non-homogeneous non-stationary two-dimensional poisson proces</em> was selected, despide there is no R package available to apply this approach.</p>
 <div id="background" class="section level2">
 <h2><span class="header-section-number">0.1</span> Background</h2>
+<p>To desing one structure, the horizontal forces wind and earthquake play an starring role. For the study area, Colombia, initially the wind force was considered with the decree 1984 as a fixed velocity <span class="math inline">\(100 \frac{Km}{h}\)</span>, later a continuos map with a return period of 50 years was included in the official design standard of the time (NSR-98), then, with the update to NSR-10, an additional map with return period of 700 yeas was included.</p>
+<p>Extreme wind analysis is concerned with statistical methods applied to very high values of wind as random variable in a stochastic process, to allow statistical inference from historical data. Classical reference in this matter is <span class="citation">(<span class="citeproc-not-found" data-reference-id="Coles2001"><strong>???</strong></span>)</span>, where a detailed study is done about classical extreme value theory and models and threshold models. There are four main approaches to deal with extreme value analysis: - sample maxima associated to a Generalized Extreme Value Distribution - GEV, - excedances over threshold associated to a Generalized Paretto Distribution - GPD, - the Poisson-GPD, an homogeneous Poisson process fot the number of excedancess and a GPD fot the excess values, and the exceedances over threshold associated to a non- homomeneous bi-dimensional Poisson process, a Point process approach also known as Peaks Over Threshold - POT - Poisson process. Main details will be disscused here for each method, but as the last one is recommended in Asce2017, a more indeep explanation will be provided in for <a href="2-rmd-thefra.html#pot-pp">POT-Poisson Process</a>.</p>
+<div id="sample-maxima" class="section level3">
+<h3><span class="header-section-number">0.1.1</span> Sample maxima</h3>
+<p>To work with random variables of sample maximun values, the used probability distribution function <em>pdf</em> is the GEV</p>
+<p><span class="math display">\[
+H(y) = \exp\left\{-\left(1+\xi\frac{y-\mu}{\psi}\right)_+^{-\frac{1}{\xi}}\right\},
+\]</span>
+<span class="math inline">\((y+=max(y,0))\)</span> where <span class="math inline">\(\mu\)</span> is the location parameter, <span class="math inline">\(\psi &gt; 0\)</span> is a scale parameter, and <span class="math inline">\(\xi\)</span> is a shape parameter. GEV can be seen as the integration in the same <em>psf</em> of the Gumbel distribution (limit <span class="math inline">\(\xi\rightarrow0\)</span>), Fréchet distribution (<span class="math inline">\(\xi&gt;0\)</span>), and Weibull distribution (<span class="math inline">\(\xi&lt;0\)</span>).</p>
+</div>
+<div id="exceedances-over-threshold" class="section level3">
+<h3><span class="header-section-number">0.1.2</span> Exceedances over threshold</h3>
+<p>If the researcher needs to work only with extreme values above an specific threshold, <span class="citation">(<span class="citeproc-not-found" data-reference-id="Pickands1971"><strong>???</strong></span>)</span> showed that the GEV has a GPD approximation where shape <span class="math inline">\(\xi\)</span> parameter in previous equation is the same parameter for next equation for GPD,</p>
+<p><span class="math display">\[
+G(y,\sigma, \xi) = 1-\left(1+\xi\frac{y}{\sigma}\right)_+^{-\frac{1}{\xi}},
+\]</span>
+### Poisson-GPD
+If a rescale of the variable indices above the threshold is performed, then the exceedances over threshold approach can be seen as a point process, namely, an homogeneous Poisson Process where:</p>
+<ol style="list-style-type: decimal">
+<li>The number of exceedances above the threshold has a Poisson distribution with mean <span class="math inline">\(\lambda\)</span></li>
+<li>The excees values follow a GPD with <span class="math inline">\(N\leq1\)</span></li>
+</ol>
+<p>Its cumulative distribution function <em>cdf</em> is</p>
+<p><span class="math display">\[
+F(y) = \exp\left\{-\lambda\left(1+\xi\frac{y-\mu}{\sigma}\right)_+^{-\frac{1}{\xi}}\right\},
+\]</span></p>
+</div>
 </div>
 <div id="research-aim-and-objectives" class="section level2">
 <h2><span class="header-section-number">0.2</span> Research Aim and Objectives</h2>

@@ -112,7 +112,7 @@
   \newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
 
 % To pass between YAML and LaTeX the dollar signs are added by CII
-\title{Spatio temporal analysis of extreme wind velocities for infrastructure desing. Case study Colombia}
+\title{Spatio-temporal analysis of extreme wind velocities for infrastructure desing}
 \author{Alexys Herleym Rodríguez Avellaneda}
 % The month and year that you submit your FINAL draft TO THE LIBRARY (May or December)
 \date{Jan 2020}
@@ -155,20 +155,55 @@
 \setlength{\parskip}{0pt}
 
 % Added by CII
+  %\setlength{\parskip}{\baselineskip}
+  \usepackage[parfill]{parskip}
 
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 
 \Acknowledgements{
-I would like to thank Prof.~Dr.~Edzer Pebesma, Prof.~Dr.~Juan C. Reyes and Prof.~Dr.~Sara Ribero for supervising my work and spending their valuable time for discussions and feedback. It was really a huge advantage for me to have this allways available support. It was a pleasure to work beside you. I want to thank Dr Adam Pintar and Engineer Juan David Sandoval for their support and contributions. My mother Ligia made possible all my achievements because she was allways there with love, support and valuable advice and contributions. I am grateful with all my heart. Thanks to my daughter Nicolle Chaely for its love, support, and always pleasant company. I would like to thank the European Union -`Erasmus Mundus Grant', because their funding allow me to fulfill this dream to go further with my accademic and professionals dreams. I especially want to thank to Dr.~Joaquín Huerta Guijarro because he allways was available to help and he was very friendly and receptive. Likewise, I want to thank some family members as Elsa Manrique, Barbara Avellaneda, and Kevin Martinez because they were allways interested in my activities and also they were an important source of motivation and support. To all the beatuful people that shared with me different activities at the San Antonious church of Muenster, with special mention of father Alejandro Serrano Palacios and choir friends.
+I would like to thank Prof.~Dr.~Edzer Pebesma, Prof.~Dr.~Juan C. Reyes and Prof.~Dr.~Sara Ribero for supervising my work and spending their valuable time for discussions and feedback. It was really a huge advantage for me to have this allways available support. It was a pleasure to work beside you. I want to thank Dr Adam Pintar and Engineer Juan David Sandoval for their support and contributions. My mother Ligia made possible all my achievements because she was allways there with love, support and valuable advice and contributions. I am grateful with all my heart. Thanks to my daughter Nicolle Chaely for its love, support, and always pleasant company. I would like to thank the European Union -`Erasmus Mundus Grant', because their funding allow me to fulfill this dream to go further with my accademic and professionals dreams.
+
+\par
+
+I especially want to thank to Dr.~Joaquín Huerta Guijarro because he allways was available to help and he was very friendly and receptive. Likewise, I want to thank some family members as Elsa Manrique, Barbara Avellaneda, and Kevin Martinez because they were allways interested in my activities and also they were an important source of motivation and support.
+
+\par
+
+To all the beatuful people that shared with me different activities at the San Antonious church of Muenster, with special mention of father Alejandro Serrano Palacios and choir friends.
 }
 
 \Dedication{
 I put all my efforts in Jesus' hands. I dedicate this work to my mother Ligia, my beautiful daughter Nicolle Chaely and my beautiful daughter Lucesita
+\begin{tabbing}
+ACF \hspace{3em} \=  Autocorrelation Function \\
+AIC \>  Aikake’s Information Criterion \\
+AR \> Autoregressive \\
+ARIMA \> Autoregressive Integrated Moving Average \\
+ARMA \> Autoregressive Moving Average \\
+DBAFS \> Dockless Bike Availability Forecasting System \\
+GPS \>  Global Positioning System \\
+ID \> Identification \\
+KPSS \>  Kwiatkowski-Phillips-Schmidt-Shin \\
+MA \> Moving Average \\
+MAE \> Mean Absolute Error \\
+MLE \> Maximum Likelihood Estimation \\
+NFS \> Naïve Forecasting System \\
+PACF \> Partial Autocorrelation Function \\
+PDT \>  Pacific Daylight Saving Time \\
+PST \> Pacific Standard Time \\
+PBSS \> Public Bike Sharing Systems \\
+RMSE \> Root Mean Squared Error \\
+RMSLE \> Root Mean Squared Logarithmic Error \\
+SFMTA \>  San Francisco Municipal Transportation Agency \\
+SQL \>  Structured Query Language \\
+STL \>  Seasonal Trend decomposition procedure based on Loess \\
+WGS84 \> World Geodetic System 1984
+\end{tabbing}
 }
 
 \Preface{
-This work in its teorethical and methodological component was directed by ASCE7-16 Engineers (2017) considering that output products will be used to update the chapter B.6, wind forces, of the Colombian earthquake resistant standard - NSR-10, maintaided by the Colombian Association of Seismic Engineering - AIS by its spahish acronym. ASCE7-16, defines four risk categories, which implies the use of different wind loads (represented in wind extreme values for different mean recurrence intervals) for structures that belong to each category, 3000 years of MRI for risk IV, 1700 years for risk III, and 700 years for risk II and I. This research has a particularly new situation regarding to the input data, and it is that not only time series of field measurements from meteorological stations are used (IDEAM data source), but also post-procesed information comming from the Integrated Surface Database - ISD (USA database based on IDEAM data source), and forecast reanalysis data from ERA5. This condition demanded a comparison of the different data sources in order to verify the feasibility of using ERA5 and ISD, with a previous activitie of sdandarization of wind velocities to reach the needed requirement of 3-s wind gust speed, 10 meters anemometers high and open space condition. At each station the used method Peaks Over Threshold - Poisson Process, required to identfy all the non-thunderstorm events in the non-hurricane dataset through a process of declustering, choose a suitable threshold level to leave for the analysis only the most extreme availables values, and then fit to the data a Gumbel extreme value distributon using maximun likelihood to find optimal parameters with the best goodness of fit. With the fitted model, it was possible to calculate return levels for required mean return intervals. Next, a process of spatial interpolation was done using Kriging, what allowed to have three continuous maps for the whole study area.
+Models of extreme values are used for designing against the effects of extreme events like earthquakes, winds, rainfall, floods of different types of physical processes, avoiding widespread destruction and loss of lifes. This research presents a applied case of univariate extreme value analysis applied to wind velocities for infrastructure desing, consequently, the main interest are probabile future extreme wind events that structures need to be able to resist. This work in its teorethical and methodological component was directed by ASCE7-16 Engineers (\protect\hyperlink{ref-Asce2017}{2017}) considering that output products will be used to update the chapter B.6, wind forces, of the Colombian earthquake resistant standard - NSR-10, maintaided by the Colombian Association of Seismic Engineering - AIS by its spahish acronym. ASCE7-16, defines four risk categories, which implies the use of different wind loads (represented in wind extreme values for different mean recurrence intervals) for structures that belong to each category, 3000 years of MRI for risk IV, 1700 years for risk III, and 700 years for risk II and I. This research has a particularly new situation regarding to the input data, and it is that not only time series of field measurements from meteorological stations are used (IDEAM data source), but also post-procesed information comming from the Integrated Surface Database - ISD (USA database based on IDEAM data source), and forecast reanalysis data from ERA5. This condition demanded a comparison of the different data sources in order to verify the feasibility of using ERA5 and ISD, with a previous activitie of sdandarization of wind velocities to reach the needed requirement of 3-s wind gust speed, 10 meters anemometers high and open space condition. At each station the used method Peaks Over Threshold - Poisson Process, required to identfy all the non-thunderstorm events in the non-hurricane dataset through a process of declustering, choose a suitable threshold level to leave for the analysis only the most extreme availables values, and then fit to the data a Gumbel extreme value distributon using maximun likelihood to find optimal parameters with the best goodness of fit. With the fitted model, it was possible to calculate return levels for required mean return intervals. Next, a process of spatial interpolation was done using Kriging, what allowed to have three continuous maps for the whole study area. Main interest writing this document, is help to readers to enter speedelly with the current details around wind extreme analysis.
 }
 
 \Abstract{
@@ -178,7 +213,7 @@ For the input non-hurricane, non tornadic data in each available station of the 
 
 Spatio-temporal analysis of historical wind data for infrastructrure design, namely, \(-\) from wind time series represented in forecast models over rectangular areas or pixels with a virtual station at its center, or field measurements at weather stations in specific coordinates around the study area \(-\), calculate wind extreme magnitudes to be used as desing loads of structures of different risk categories (bridges, houses, buildings, hospitals, etc), requires the use of statistical extreme value analysis methodologies to create maps with different mean recurrence intervals (MRI), \(-\) short ones for less risky/important structures, and long ones for highly important structures.
 
-Method used to calculate the return levels at each station the Peaks Overt Threshold - POT, using a non-homogeneous, bidimensional Poisson Process described, recomended by Engineers (2017), and developed and implemented in Pintar, Simiu, Lombardo, \& Levitan (2015). To interpolate maps a geoestatistical procedure using Kriging was implemented, considering the model with the best goodness of fit from model parameters comparison.
+Method used to calculate the return levels at each station the Peaks Overt Threshold - POT, using a non-homogeneous, bidimensional Poisson Process described, recomended by Engineers (\protect\hyperlink{ref-Asce2017}{2017}), and developed and implemented in Pintar, Simiu, Lombardo, \& Levitan (\protect\hyperlink{ref-Pintar2015}{2015}). To interpolate maps a geoestatistical procedure using Kriging was implemented, considering the model with the best goodness of fit from model parameters comparison.
 }
 
 	\usepackage{booktabs}
@@ -208,13 +243,21 @@ Method used to calculate the return levels at each station the Peaks Overt Thres
 \frontmatter % this stuff will be roman-numbered
 \pagestyle{empty} % this removes page numbers from the frontmatter
   \begin{acknowledgements}
-    I would like to thank Prof.~Dr.~Edzer Pebesma, Prof.~Dr.~Juan C. Reyes and Prof.~Dr.~Sara Ribero for supervising my work and spending their valuable time for discussions and feedback. It was really a huge advantage for me to have this allways available support. It was a pleasure to work beside you. I want to thank Dr Adam Pintar and Engineer Juan David Sandoval for their support and contributions. My mother Ligia made possible all my achievements because she was allways there with love, support and valuable advice and contributions. I am grateful with all my heart. Thanks to my daughter Nicolle Chaely for its love, support, and always pleasant company. I would like to thank the European Union -`Erasmus Mundus Grant', because their funding allow me to fulfill this dream to go further with my accademic and professionals dreams. I especially want to thank to Dr.~Joaquín Huerta Guijarro because he allways was available to help and he was very friendly and receptive. Likewise, I want to thank some family members as Elsa Manrique, Barbara Avellaneda, and Kevin Martinez because they were allways interested in my activities and also they were an important source of motivation and support. To all the beatuful people that shared with me different activities at the San Antonious church of Muenster, with special mention of father Alejandro Serrano Palacios and choir friends.
+    I would like to thank Prof.~Dr.~Edzer Pebesma, Prof.~Dr.~Juan C. Reyes and Prof.~Dr.~Sara Ribero for supervising my work and spending their valuable time for discussions and feedback. It was really a huge advantage for me to have this allways available support. It was a pleasure to work beside you. I want to thank Dr Adam Pintar and Engineer Juan David Sandoval for their support and contributions. My mother Ligia made possible all my achievements because she was allways there with love, support and valuable advice and contributions. I am grateful with all my heart. Thanks to my daughter Nicolle Chaely for its love, support, and always pleasant company. I would like to thank the European Union -`Erasmus Mundus Grant', because their funding allow me to fulfill this dream to go further with my accademic and professionals dreams.
+    
+    \par
+    
+    I especially want to thank to Dr.~Joaquín Huerta Guijarro because he allways was available to help and he was very friendly and receptive. Likewise, I want to thank some family members as Elsa Manrique, Barbara Avellaneda, and Kevin Martinez because they were allways interested in my activities and also they were an important source of motivation and support.
+    
+    \par
+    
+    To all the beatuful people that shared with me different activities at the San Antonious church of Muenster, with special mention of father Alejandro Serrano Palacios and choir friends.
   \end{acknowledgements}
   \begin{preface}
-    This work in its teorethical and methodological component was directed by ASCE7-16 Engineers (2017) considering that output products will be used to update the chapter B.6, wind forces, of the Colombian earthquake resistant standard - NSR-10, maintaided by the Colombian Association of Seismic Engineering - AIS by its spahish acronym. ASCE7-16, defines four risk categories, which implies the use of different wind loads (represented in wind extreme values for different mean recurrence intervals) for structures that belong to each category, 3000 years of MRI for risk IV, 1700 years for risk III, and 700 years for risk II and I. This research has a particularly new situation regarding to the input data, and it is that not only time series of field measurements from meteorological stations are used (IDEAM data source), but also post-procesed information comming from the Integrated Surface Database - ISD (USA database based on IDEAM data source), and forecast reanalysis data from ERA5. This condition demanded a comparison of the different data sources in order to verify the feasibility of using ERA5 and ISD, with a previous activitie of sdandarization of wind velocities to reach the needed requirement of 3-s wind gust speed, 10 meters anemometers high and open space condition. At each station the used method Peaks Over Threshold - Poisson Process, required to identfy all the non-thunderstorm events in the non-hurricane dataset through a process of declustering, choose a suitable threshold level to leave for the analysis only the most extreme availables values, and then fit to the data a Gumbel extreme value distributon using maximun likelihood to find optimal parameters with the best goodness of fit. With the fitted model, it was possible to calculate return levels for required mean return intervals. Next, a process of spatial interpolation was done using Kriging, what allowed to have three continuous maps for the whole study area.
+    Models of extreme values are used for designing against the effects of extreme events like earthquakes, winds, rainfall, floods of different types of physical processes, avoiding widespread destruction and loss of lifes. This research presents a applied case of univariate extreme value analysis applied to wind velocities for infrastructure desing, consequently, the main interest are probabile future extreme wind events that structures need to be able to resist. This work in its teorethical and methodological component was directed by ASCE7-16 Engineers (\protect\hyperlink{ref-Asce2017}{2017}) considering that output products will be used to update the chapter B.6, wind forces, of the Colombian earthquake resistant standard - NSR-10, maintaided by the Colombian Association of Seismic Engineering - AIS by its spahish acronym. ASCE7-16, defines four risk categories, which implies the use of different wind loads (represented in wind extreme values for different mean recurrence intervals) for structures that belong to each category, 3000 years of MRI for risk IV, 1700 years for risk III, and 700 years for risk II and I. This research has a particularly new situation regarding to the input data, and it is that not only time series of field measurements from meteorological stations are used (IDEAM data source), but also post-procesed information comming from the Integrated Surface Database - ISD (USA database based on IDEAM data source), and forecast reanalysis data from ERA5. This condition demanded a comparison of the different data sources in order to verify the feasibility of using ERA5 and ISD, with a previous activitie of sdandarization of wind velocities to reach the needed requirement of 3-s wind gust speed, 10 meters anemometers high and open space condition. At each station the used method Peaks Over Threshold - Poisson Process, required to identfy all the non-thunderstorm events in the non-hurricane dataset through a process of declustering, choose a suitable threshold level to leave for the analysis only the most extreme availables values, and then fit to the data a Gumbel extreme value distributon using maximun likelihood to find optimal parameters with the best goodness of fit. With the fitted model, it was possible to calculate return levels for required mean return intervals. Next, a process of spatial interpolation was done using Kriging, what allowed to have three continuous maps for the whole study area. Main interest writing this document, is help to readers to enter speedelly with the current details around wind extreme analysis.
   \end{preface}
   \hypersetup{linkcolor=black}
-  \setcounter{tocdepth}{2}
+  \setcounter{tocdepth}{4}
   \tableofcontents
 
   \listoftables
@@ -227,10 +270,35 @@ Method used to calculate the return levels at each station the Peaks Overt Thres
     
     Spatio-temporal analysis of historical wind data for infrastructrure design, namely, \(-\) from wind time series represented in forecast models over rectangular areas or pixels with a virtual station at its center, or field measurements at weather stations in specific coordinates around the study area \(-\), calculate wind extreme magnitudes to be used as desing loads of structures of different risk categories (bridges, houses, buildings, hospitals, etc), requires the use of statistical extreme value analysis methodologies to create maps with different mean recurrence intervals (MRI), \(-\) short ones for less risky/important structures, and long ones for highly important structures.
     
-    Method used to calculate the return levels at each station the Peaks Overt Threshold - POT, using a non-homogeneous, bidimensional Poisson Process described, recomended by Engineers (2017), and developed and implemented in Pintar, Simiu, Lombardo, \& Levitan (2015). To interpolate maps a geoestatistical procedure using Kriging was implemented, considering the model with the best goodness of fit from model parameters comparison.
+    Method used to calculate the return levels at each station the Peaks Overt Threshold - POT, using a non-homogeneous, bidimensional Poisson Process described, recomended by Engineers (\protect\hyperlink{ref-Asce2017}{2017}), and developed and implemented in Pintar, Simiu, Lombardo, \& Levitan (\protect\hyperlink{ref-Pintar2015}{2015}). To interpolate maps a geoestatistical procedure using Kriging was implemented, considering the model with the best goodness of fit from model parameters comparison.
   \end{abstract}
   \begin{dedication}
     I put all my efforts in Jesus' hands. I dedicate this work to my mother Ligia, my beautiful daughter Nicolle Chaely and my beautiful daughter Lucesita
+    \begin{tabbing}
+    ACF \hspace{3em} \=  Autocorrelation Function \\
+    AIC \>  Aikake’s Information Criterion \\
+    AR \> Autoregressive \\
+    ARIMA \> Autoregressive Integrated Moving Average \\
+    ARMA \> Autoregressive Moving Average \\
+    DBAFS \> Dockless Bike Availability Forecasting System \\
+    GPS \>  Global Positioning System \\
+    ID \> Identification \\
+    KPSS \>  Kwiatkowski-Phillips-Schmidt-Shin \\
+    MA \> Moving Average \\
+    MAE \> Mean Absolute Error \\
+    MLE \> Maximum Likelihood Estimation \\
+    NFS \> Naïve Forecasting System \\
+    PACF \> Partial Autocorrelation Function \\
+    PDT \>  Pacific Daylight Saving Time \\
+    PST \> Pacific Standard Time \\
+    PBSS \> Public Bike Sharing Systems \\
+    RMSE \> Root Mean Squared Error \\
+    RMSLE \> Root Mean Squared Logarithmic Error \\
+    SFMTA \>  San Francisco Municipal Transportation Agency \\
+    SQL \>  Structured Query Language \\
+    STL \>  Seasonal Trend decomposition procedure based on Loess \\
+    WGS84 \> World Geodetic System 1984
+    \end{tabbing}
   \end{dedication}
 \mainmatter % here the regular arabic numbering starts
 \pagestyle{fancyplain} % turns page numbering back on
@@ -245,10 +313,48 @@ For each station with wind speeds time histories in the input data, extreme wind
 
 A wind speed linked to a \emph{mean recurrence interval - MRI} of \emph{N-years} (N-years return value or return period) is interpreted as the highest probable wind speed along the period of N-years. The annual probability of equal or exceed that wind speed is 1/N. The annual excedance probability for all velocity values in 700-years output map will be 1/700, for the 1700-years map will be 1/1700, and 1/3000 for the 3000-years final map.
 
-There are different methods to model extreme value data, among them are a) sample maxima using a \emph{Generalized Extreme Value Distribution} onwards \emph{GEVD} (traditional method), b) POT using a \emph{Generalized Pareto Distribution} onwards \emph{GPD}, c) POT using a two-dimensional Poisson Process, that can be homomegenos, non-homogeneous, stationary, and non-stationary (originally know as \emph{Point Process} approach), and d) POT Poisson-GPD. Following Pintar et al. (2015) in this research a \emph{POT using a non-homogeneous non-stationary two-dimensional poisson proces} was selected, despide there is no R package available to apply this approach.
+There are different methods to model extreme value data, among them are a) sample maxima using a \emph{Generalized Extreme Value Distribution} onwards \emph{GEVD} (traditional method), b) POT using a \emph{Generalized Pareto Distribution} onwards \emph{GPD}, c) POT using a two-dimensional Poisson Process, that can be homomegenos, non-homogeneous, stationary, and non-stationary (originally know as \emph{Point Process} approach), and d) POT Poisson-GPD. Following Pintar et al. (\protect\hyperlink{ref-Pintar2015}{2015}) in this research a \emph{POT using a non-homogeneous non-stationary two-dimensional poisson proces} was selected, despide there is no R package available to apply this approach.
 
 \hypertarget{background}{%
 \section{Background}\label{background}}
+
+To desing one structure, the horizontal forces wind and earthquake play an starring role. For the study area, Colombia, initially the wind force was considered with the decree 1984 as a fixed velocity \(100 \frac{Km}{h}\), later a continuos map with a return period of 50 years was included in the official design standard of the time (NSR-98), then, with the update to NSR-10, an additional map with return period of 700 yeas was included.
+
+Extreme wind analysis is concerned with statistical methods applied to very high values of wind as random variable in a stochastic process, to allow statistical inference from historical data. Classical reference in this matter is Coles (\protect\hyperlink{ref-Coles2001}{2001}), where a detailed study is done about classical extreme value theory and models and threshold models. There are four main approaches to deal with extreme value analysis: - sample maxima associated to a Generalized Extreme Value Distribution - GEV, - excedances over threshold associated to a Generalized Paretto Distribution - GPD, - the Poisson-GPD, an homogeneous Poisson process fot the number of excedancess and a GPD fot the excess values, and the exceedances over threshold associated to a non- homomeneous bi-dimensional Poisson process, a Point process approach also known as Peaks Over Threshold - POT - Poisson process. Main details will be disscused here for each method, but as the last one is recommended in Asce2017, a more indeep explanation will be provided in for \protect\hyperlink{pot-pp}{POT-Poisson Process}.
+
+\hypertarget{sample-maxima}{%
+\subsection{Sample maxima}\label{sample-maxima}}
+
+To work with random variables of sample maximun values, the used probability distribution function \emph{pdf} is the GEV
+
+\[
+H(y) = \exp\left\{-\left(1+\xi\frac{y-\mu}{\psi}\right)_+^{-\frac{1}{\xi}}\right\},
+\]
+\((y+=max(y,0))\) where \(\mu\) is the location parameter, \(\psi > 0\) is a scale parameter, and \(\xi\) is a shape parameter. GEV can be seen as the integration in the same \emph{psf} of the Gumbel distribution (limit \(\xi\rightarrow0\)), Fréchet distribution (\(\xi>0\)), and Weibull distribution (\(\xi<0\)).
+
+\hypertarget{exceedances-over-threshold}{%
+\subsection{Exceedances over threshold}\label{exceedances-over-threshold}}
+
+If the researcher needs to work only with extreme values above an specific threshold, Pickands (\protect\hyperlink{ref-Pickands1971}{1971}) showed that the GEV has a GPD approximation where shape \(\xi\) parameter in previous equation is the same parameter for next equation for GPD,
+
+\[
+G(y,\sigma, \xi) = 1-\left(1+\xi\frac{y}{\sigma}\right)_+^{-\frac{1}{\xi}},
+\]
+\#\#\# Poisson-GPD
+If a rescale of the variable indices above the threshold is performed, then the exceedances over threshold approach can be seen as a point process, namely, an homogeneous Poisson Process where:
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  The number of exceedances above the threshold has a Poisson distribution with mean \(\lambda\)
+\item
+  The excees values follow a GPD with \(N\leq1\)
+\end{enumerate}
+Its cumulative distribution function \emph{cdf} is
+
+\[
+F(y) = \exp\left\{-\lambda\left(1+\xi\frac{y-\mu}{\sigma}\right)_+^{-\frac{1}{\xi}}\right\},
+\]
 
 \hypertarget{research-aim-and-objectives}{%
 \section{Research Aim and Objectives}\label{research-aim-and-objectives}}
@@ -731,7 +837,7 @@ Analysis of extreme values is related with statistical inference to calculate pr
 
 In both methods (Epochal and POT), the first step is to fit the data to an appropiate probability distribution model, among them the most used are, - Extreme Value Type I (Gumbel), Extreme Value Type II (Frechet), Weibull, Generalized Pareto - GPD, and Generalized Extreme Value - GEV.
 
-Distribution models are fitted based in the estimation of its parameters, mommonly called location, scale and shape, nonetheless each model has its own parameters names. There are different methods to estimate parameters, among them, - method of moments (modified moments - see Kubler (1994), and L moments - see Hosking \& Wallis (1997)), - method of maximum likelihood MLE, see Harris \& Stocker (1998), which is problematic for GPD and GEV, - probability plot correlation coeficient, and - elemental percentiles (for GPD and GEV)
+Distribution models are fitted based in the estimation of its parameters, mommonly called location, scale and shape, nonetheless each model has its own parameters names. There are different methods to estimate parameters, among them, - method of moments (modified moments - see Kubler (\protect\hyperlink{ref-Kubler1994}{1994}), and L moments - see Hosking \& Wallis (\protect\hyperlink{ref-Hosking1997}{1997})), - method of maximum likelihood MLE, see Harris \& Stocker (\protect\hyperlink{ref-Harris1994}{1998}), which is problematic for GPD and GEV, - probability plot correlation coeficient, and - elemental percentiles (for GPD and GEV)
 
 Once cadidate parameters are available, it is neccesary to assess the goodness of fit of the selected model, using one of the next methods, - Kolmogorov-Smirnov (KS) goodnes of fit test, and - Anderson-Darling goodness of fit test. Here a visual assesment is also useful using a probability plot or a kernel density plot with the fitted \emph{pdf} overlaid.
 
@@ -740,7 +846,7 @@ The main use of the fitted model is the estimation of mean return intervals - MR
 \[
 MRI=\frac{1}{1-F(y)}
 \]
-with \(F(y)\) as the \emph{cdf}. If \(1-F(y)\) is the annual excedance probability, MRI is its inverse, see Simiu \& Scanlan (1996) for more details about MRI. If \(y\) is solved from previos equation using a given MRI of N-years, its value represents the \(Y_N\) wind speed return level,
+with \(F(y)\) as the \emph{cdf}. If \(1-F(y)\) is the annual excedance probability, MRI is its inverse, see Simiu \& Scanlan (\protect\hyperlink{ref-Simiu1996}{1996}) for more details about MRI. If \(y\) is solved from previos equation using a given MRI of N-years, its value represents the \(Y_N\) wind speed return level,
 
 \[
 Y_N = G\left(1-\frac{1}{\lambda\,N}\right)
@@ -752,7 +858,7 @@ The CRAN Task View ``Extreme Value Analysis'' \url{https://cran.r-project.org/we
 \hypertarget{pot-pp}{%
 \section{Peaks Over Threshold - Poisson Process}\label{pot-pp}}
 
-According to Pintar et al. (2015) the stochastic poisson process is mainly defined by its intensity function. As the intensity function is nos uniform over the domain, the poisson process considered here is non-homogeneous, and due to the intensity function dependance of magnitud and time, it is also bi-dimmensional. Poisson Process was described for the first time in Pickands (1971), then extended in Smith (1989).
+According to Pintar et al. (\protect\hyperlink{ref-Pintar2015}{2015}) the stochastic poisson process is mainly defined by its intensity function. As the intensity function is nos uniform over the domain, the poisson process considered here is non-homogeneous, and due to the intensity function dependance of magnitud and time, it is also bi-dimmensional. Poisson Process was described for the first time in Pickands (\protect\hyperlink{ref-Pickands1971}{1971}), then extended in Smith (\protect\hyperlink{ref-Smith1989}{1989}).
 \begin{equation}
   \mathrm{
     \lambda\left(y,t\right)
@@ -768,7 +874,7 @@ According to Pintar et al. (2015) the stochastic poisson process is mainly defin
 \end{equation}
 Generic equation \eqref{eq:ppgenericintensityfunction} shows the intensity function, which is defined in the domain \(D = D_t\,{\cup}\,D_{nt}\), and allow to fit the poisson process at each station to the observed data \(\{t_i, y_i\}_{i=1}^I\) for al the times (\(t_i\)) of threshold crossing observations and its corresponding wind speeds magnitudes (\(y_i\)). Thus, only data above the threshold is used.
 
-Intensity function of the Poisson Process is defined in Smith (2004),
+Intensity function of the Poisson Process is defined in Smith (\protect\hyperlink{ref-Smith2004}{2004}),
 
 \[
 \frac{1}{\psi_t}\left(1+\zeta_t\frac{y-\omega_t}{\psi_t}\right)_+^{-\frac{1}{\zeta_t}-1}
@@ -851,7 +957,7 @@ For the Poisson process \(Y_N\) is also the solution to the next equation, which
          }
   \label{eq:ppmri}
 \end{equation}
-where \(A_t\), is the multiplication of the average number of thunderstorm per year and the average lengh of a thunderstorm (taken to be 1 hour as defined in Pintar et al. (2015)), and \(A_{nt} = 1 - A_t\). The average length of a non-thunderstorm event is variable, and it is adjusted in each station to guarantee that \(A_{nt} + A_t = 1\)
+where \(A_t\), is the multiplication of the average number of thunderstorm per year and the average lengh of a thunderstorm (taken to be 1 hour as defined in Pintar et al. (\protect\hyperlink{ref-Pintar2015}{2015})), and \(A_{nt} = 1 - A_t\). The average length of a non-thunderstorm event is variable, and it is adjusted in each station to guarantee that \(A_{nt} + A_t = 1\)
 
 The same thunderstorm event in considered to occur if the time lag distance between sucesive thunderstorm samples is small than six hours, and for non-thunderstorm this time is 4 days. For the Poisson process, all the measurements belonging to the same event (thunderstorm or non tunderstorm), need to be declustered to leave only one maximun value. In other words, the number of thunderstorm in the time serie is the number of time lag distances grather than 6 hours, and for non-thunderstorm grather than 4 days.
 
@@ -865,7 +971,7 @@ The same thunderstorm event in considered to occur if the time lag distance betw
 
 As the output maps of this research will be used as input loads for infrastructure design, the methodology used for its creation, need to be consistent with Colombian official wind loads requirements. Today (2020), the Colombian norm that defines wind loads is the Seismic Resistant Standard 2010 - NSR-10 by its acronym of Spanish, see XXX. Chapter related to wind loads is B.6. NSR-10 was created and is maintained by the Colombian Association of Seismic Engineering - AIS.
 
-NSR-10 is mainly based in the USA norm American Society of Civil Engineers 7-16, minimum design loads and associated criteria for buildings and other structures - ASCE7-16, see Engineers (2017). Under these circumstances, ASCE7-16 defines the minimum requirements of the research products. Especially the chapter C26 - ``wind loads - general requirements'', C26.5 ``wind hazard map'', and C26.7 ``Exposure'' - pages 733 to 747. Wind speeds requirements of ASCE7-16 are based in the combination of independent non-hurricane analysis, and hurricane wind speeds simulations models. The focus of this research will be the analysis of non-hurricane wind data, however, existing results of hurricane studies will be used to present final maps with both components. In ASCE7-16, for non-hurricane wind speed, the procedure is mainly based on Pintar et al. (2015).
+NSR-10 is mainly based in the USA norm American Society of Civil Engineers 7-16, minimum design loads and associated criteria for buildings and other structures - ASCE7-16, see Engineers (\protect\hyperlink{ref-Asce2017}{2017}). Under these circumstances, ASCE7-16 defines the minimum requirements of the research products. Especially the chapter C26 - ``wind loads - general requirements'', C26.5 ``wind hazard map'', and C26.7 ``Exposure'' - pages 733 to 747. Wind speeds requirements of ASCE7-16 are based in the combination of independent non-hurricane analysis, and hurricane wind speeds simulations models. The focus of this research will be the analysis of non-hurricane wind data, however, existing results of hurricane studies will be used to present final maps with both components. In ASCE7-16, for non-hurricane wind speed, the procedure is mainly based on Pintar et al. (\protect\hyperlink{ref-Pintar2015}{2015}).
 
 ASCE7-16 (page 734), requires the calculation of wind extreme return levels for specific return periods according to the risk category of the structure to be designed: risk category I - 300 years, risk category II - 700 years, risk category III - 1700 years, risk category IV - 3000 years. NSR-10 only requires 700, 1700 and 3000 years. In addition, extreme wind speeds for those MRI need to correspond to: - 3 second gust speeds, - at 33 ft (10 meters) above the ground, and - exposure category C (open space).
 \begin{itemize}
@@ -879,7 +985,7 @@ ASCE7-16 (page 734), requires the calculation of wind extreme return levels for 
 \item
   Risk I - This structures represent low risk for people lifes
 \end{itemize}
-To standarize wind speeds to gust speeds ASCE7-16 proposes the curve Durst (see C. S. Durst (1960), and figure \ref{fig:durstcurve}). It is valid only for open terran conditions. Durst curve shows in axis \(y\) the gust factor \(\frac{V_t}{V_{3600}}\), a ration between any wind gust averaged at \(t\) seconds, \(V_t\), and the hourly averaged wind speed \(V_{3600}\), and in the axis \(x\) the duration \(t\) of the gust.
+To standarize wind speeds to gust speeds ASCE7-16 proposes the curve Durst (see C. S. Durst (\protect\hyperlink{ref-Durst1960}{1960}), and figure \ref{fig:durstcurve}). It is valid only for open terran conditions. Durst curve shows in axis \(y\) the gust factor \(\frac{V_t}{V_{3600}}\), a ration between any wind gust averaged at \(t\) seconds, \(V_t\), and the hourly averaged wind speed \(V_{3600}\), and in the axis \(x\) the duration \(t\) of the gust.
 
 \footnotesize
 \begin{figure}
@@ -1023,6 +1129,9 @@ This first appendix includes all of the R chunks of code that were hidden throug
 \setlength{\parskip}{8pt}
 
 \hypertarget{refs}{}
+\leavevmode\hypertarget{ref-Coles2001}{}%
+Coles, S. (2001). \emph{An introduction to statistical modeling of extreme values}. Springer London. \url{http://doi.org/10.1007/978-1-4471-3675-0}
+
 \leavevmode\hypertarget{ref-Durst1960}{}%
 C. S. Durst, B. A., O. B.E. (1960). Wind speeds over short periods of time. \emph{The Meteorological Magazine}, \emph{89}(1056), 181--187. Retrieved from \url{https://www.depts.ttu.edu/nwi/Pubs/ReportsJournals/ReportsJournals/Windspeeds.pdf}
 

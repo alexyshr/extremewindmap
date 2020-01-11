@@ -9,12 +9,12 @@ altadvisor: 'Dr. Juan C. Reyes\\Dr. Sara Ribero'
 #altadvisor: 'Dr. Sara Ribero'
 department: 'Faculty of Geosciences'
 degree: 'Master of Science in Geospatial Technologies'
-title: 'Spatio temporal analysis of extreme wind velocities for infrastructure desing. Case study Colombia'
+title: 'Spatio-temporal analysis of extreme wind velocities for infrastructure desing'
 knit: "bookdown::render_book"
 site: bookdown::bookdown_site
 output: 
-  #thesisdown::thesis_pdf: default
-  thesisdown::thesis_gitbook: default
+  thesisdown::thesis_pdf: default
+  #thesisdown::thesis_gitbook: default
 #thesisdown::thesis_word: default
 #thesisdown::thesis_epub: default
 #If you are creating a PDF you'll need to write your preliminary content (e.g., abstract, acknowledgements) here or
@@ -25,17 +25,57 @@ abstract: |
 #like below, use a command like that for the abstract above.  Note that a tab is 
 #needed on the line after the `|`.
 acknowledgements: |
-  I would like to thank Prof. Dr. Edzer Pebesma, Prof. Dr. Juan C. Reyes and Prof. Dr. Sara Ribero for supervising my work and spending their valuable time for discussions and feedback. It was really a huge advantage for me to have this allways available support. It was a pleasure to work beside you. I want to thank Dr Adam Pintar and Engineer Juan David Sandoval for their support and contributions. My mother Ligia made possible all my achievements because she was allways there with love, support and valuable advice and contributions. I am grateful with all my heart. Thanks to my daughter Nicolle Chaely for its love, support, and always pleasant company. I would like to thank the European Union -'Erasmus Mundus Grant', because their funding allow me to fulfill this dream to go further with my accademic and professionals dreams. I especially want to thank to Dr. Joaquín Huerta Guijarro because he allways was available to help and he was very friendly and receptive. Likewise, I want to thank some family members as Elsa Manrique, Barbara Avellaneda, and Kevin Martinez because they were allways interested in my activities and also they were an important source of motivation and support. To all the beatuful people that shared with me different activities at the San Antonious church of Muenster, with special mention of father Alejandro Serrano Palacios and choir friends.
+  I would like to thank Prof. Dr. Edzer Pebesma, Prof. Dr. Juan C. Reyes and Prof. Dr. Sara Ribero for supervising my work and spending their valuable time for discussions and feedback. It was really a huge advantage for me to have this allways available support. It was a pleasure to work beside you. I want to thank Dr Adam Pintar and Engineer Juan David Sandoval for their support and contributions. My mother Ligia made possible all my achievements because she was allways there with love, support and valuable advice and contributions. I am grateful with all my heart. Thanks to my daughter Nicolle Chaely for its love, support, and always pleasant company. I would like to thank the European Union -'Erasmus Mundus Grant', because their funding allow me to fulfill this dream to go further with my accademic and professionals dreams.\par
+  I especially want to thank to Dr. Joaquín Huerta Guijarro because he allways was available to help and he was very friendly and receptive. Likewise, I want to thank some family members as Elsa Manrique, Barbara Avellaneda, and Kevin Martinez because they were allways interested in my activities and also they were an important source of motivation and support. \par
+  To all the beatuful people that shared with me different activities at the San Antonious church of Muenster, with special mention of father Alejandro Serrano Palacios and choir friends.
+  <!-- \clearpage -->
+  <!-- \shipout\null -->
+  <!-- \stepcounter{page} -->
 dedication: |
   I put all my efforts in Jesus' hands. I dedicate this work to my mother Ligia, my beautiful daughter Nicolle Chaely and my beautiful daughter Lucesita
+  \begin{tabbing}
+  ACF \hspace{3em} \=  Autocorrelation Function \\
+  AIC \>  Aikake’s Information Criterion \\
+  AR \> Autoregressive \\
+  ARIMA \> Autoregressive Integrated Moving Average \\
+  ARMA \> Autoregressive Moving Average \\
+  DBAFS \> Dockless Bike Availability Forecasting System \\
+  GPS \>  Global Positioning System \\
+  ID \> Identification \\
+  KPSS \>  Kwiatkowski-Phillips-Schmidt-Shin \\
+  MA \> Moving Average \\
+  MAE \> Mean Absolute Error \\
+  MLE \> Maximum Likelihood Estimation \\
+  NFS \> Naïve Forecasting System \\
+  PACF \> Partial Autocorrelation Function \\
+  PDT \>  Pacific Daylight Saving Time \\
+  PST \> Pacific Standard Time \\
+  PBSS \> Public Bike Sharing Systems \\
+  RMSE \> Root Mean Squared Error \\
+  RMSLE \> Root Mean Squared Logarithmic Error \\
+  SFMTA \>  San Francisco Municipal Transportation Agency \\
+  SQL \>  Structured Query Language \\
+  STL \>  Seasonal Trend decomposition procedure based on Loess \\
+  WGS84 \> World Geodetic System 1984
+  \end{tabbing}
+  <!-- \clearpage -->
+  <!-- \shipout\null -->
+  <!-- \stepcounter{page} -->  
 preface: |
-  This work in its teorethical and methodological component was directed by ASCE7-16 @Asce2017 considering that output products will be used to update the chapter B.6, wind forces, of the Colombian earthquake resistant standard - NSR-10, maintaided by the Colombian Association of Seismic Engineering - AIS by its spahish acronym. ASCE7-16, defines four risk categories, which implies the use of different wind loads (represented in wind extreme values for different mean recurrence intervals) for structures that belong to each category, 3000 years of MRI for risk IV, 1700 years for risk III, and 700 years for risk II and I. This research has a particularly new situation regarding to the input data, and it is that not only time series of field measurements from meteorological stations are used (IDEAM data source), but also post-procesed information comming from the Integrated Surface Database - ISD (USA database based on IDEAM data source), and forecast reanalysis data from ERA5. This condition demanded a comparison of the different data sources in order to verify the feasibility of using ERA5 and ISD, with a previous activitie of sdandarization of wind velocities to reach the needed requirement of 3-s wind gust speed, 10 meters anemometers high and open space condition. At each station the used method Peaks Over Threshold - Poisson Process, required to identfy all the non-thunderstorm events in the non-hurricane dataset through a process of declustering, choose a suitable threshold level to leave for the analysis only the most extreme availables values, and then fit to the data a Gumbel extreme value distributon using maximun likelihood to find optimal parameters with the best goodness of fit. With the fitted model, it was possible to calculate return levels for required mean return intervals. Next, a process of spatial interpolation was done using Kriging, what allowed to have three continuous maps for the whole study area.
+  Models of extreme values are used for designing against the effects of extreme events like earthquakes, winds, rainfall, floods of different types of physical processes, avoiding widespread destruction and loss of lifes. This research presents a applied case of univariate extreme value analysis applied to wind velocities for infrastructure desing, consequently, the main interest are probabile future extreme wind events that structures need to be able to resist. This work in its teorethical and methodological component was directed by ASCE7-16 @Asce2017 considering that output products will be used to update the chapter B.6, wind forces, of the Colombian earthquake resistant standard - NSR-10, maintaided by the Colombian Association of Seismic Engineering - AIS by its spahish acronym. ASCE7-16, defines four risk categories, which implies the use of different wind loads (represented in wind extreme values for different mean recurrence intervals) for structures that belong to each category, 3000 years of MRI for risk IV, 1700 years for risk III, and 700 years for risk II and I. This research has a particularly new situation regarding to the input data, and it is that not only time series of field measurements from meteorological stations are used (IDEAM data source), but also post-procesed information comming from the Integrated Surface Database - ISD (USA database based on IDEAM data source), and forecast reanalysis data from ERA5. This condition demanded a comparison of the different data sources in order to verify the feasibility of using ERA5 and ISD, with a previous activitie of sdandarization of wind velocities to reach the needed requirement of 3-s wind gust speed, 10 meters anemometers high and open space condition. At each station the used method Peaks Over Threshold - Poisson Process, required to identfy all the non-thunderstorm events in the non-hurricane dataset through a process of declustering, choose a suitable threshold level to leave for the analysis only the most extreme availables values, and then fit to the data a Gumbel extreme value distributon using maximun likelihood to find optimal parameters with the best goodness of fit. With the fitted model, it was possible to calculate return levels for required mean return intervals. Next, a process of spatial interpolation was done using Kriging, what allowed to have three continuous maps for the whole study area. Main interest writing this document, is help to readers to enter speedelly with the current details around wind extreme analysis.
+  <!-- \clearpage -->
+  <!-- \shipout\null -->
+  <!-- \stepcounter{page} -->  
 #Specify the location of the bibliography below
 bibliography: bib/thesis.bib
 #Download your specific csl file and refer to it in the line below.
 csl: csl/apa.csl
+link-citations: true
+toc: true
+toc-depth: 4
 lot: true
 lof: true
+space_between_paragraphs: true
 #If you prefer blank lines between paragraphs, un-silence lines  40-41 (this requires package tikz)
 #header-includes:
 #- \usepackage{tikz}
@@ -88,7 +128,40 @@ There are different methods to model extreme value data, among them are a) sampl
 
 ## Background
 
+To desing one structure, the horizontal forces wind and earthquake play an starring role. For the study area, Colombia, initially the wind force was considered with the decree 1984 as a fixed velocity $100  \frac{Km}{h}$, later a continuos map with a return period of 50 years was included in the official design standard of the time (NSR-98), then, with the update to NSR-10, an additional map with return period of 700 yeas was included.
+
+Extreme wind analysis is concerned with statistical methods applied to very high values of wind as random variable in a stochastic process, to allow statistical inference from historical data. Classical reference in this matter is @Coles2001, where a detailed study is done about classical extreme value theory and models and threshold models. There are four main approaches to deal with extreme value analysis: - sample maxima associated to a Generalized Extreme Value Distribution - GEV, - excedances over threshold associated to a Generalized Paretto Distribution - GPD, - the Poisson-GPD, an homogeneous Poisson process fot the number of excedancess and a GPD fot the excess values, and the exceedances over threshold associated to a non- homomeneous bi-dimensional Poisson process, a Point process approach also known as Peaks Over Threshold - POT - Poisson process. Main details will be disscused here for each method, but as the last one is recommended in Asce2017, a more indeep explanation will be provided in for [POT-Poisson Process](#pot-pp).
+
+### Sample maxima
+
+To work with random variables of sample maximun values, the used probability distribution function _pdf_ is the GEV
+
+$$
+H(y) = \exp\left\{-\left(1+\xi\frac{y-\mu}{\psi}\right)_+^{-\frac{1}{\xi}}\right\},
+$$
+$(y+=max(y,0))$ where $\mu$ is the location parameter, $\psi > 0$ is a scale parameter, and $\xi$ is a shape parameter. GEV can be seen as the integration in the same _psf_ of the Gumbel distribution (limit $\xi\rightarrow0$), Fréchet distribution ($\xi>0$), and Weibull distribution ($\xi<0$).
+
+### Exceedances over threshold
+
+If the researcher needs to work only with extreme values above an specific threshold, @Pickands1971 showed that the GEV has a GPD approximation where shape $\xi$ parameter in previous equation is the same parameter for next equation for GPD,
+
+$$
+G(y,\sigma, \xi) = 1-\left(1+\xi\frac{y}{\sigma}\right)_+^{-\frac{1}{\xi}},
+$$
+### Poisson-GPD
+If a rescale of the variable indices above the threshold is performed, then the exceedances over threshold approach can be seen as a point process, namely, an homogeneous Poisson Process where:
+
+1. The number of exceedances above the threshold has a Poisson distribution with mean $\lambda$
+2. The excees values follow a GPD with $N\leq1$
+
+Its cumulative distribution function _cdf_ is
+
+$$
+F(y) = \exp\left\{-\lambda\left(1+\xi\frac{y-\mu}{\sigma}\right)_+^{-\frac{1}{\xi}}\right\},
+$$
+
 ## Research Aim and Objectives
+
 
 ## Reseach Question
 

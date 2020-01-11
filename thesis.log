@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/W32TeX) (preloaded format=pdflatex 2020.1.7)  8 JAN 2020 12:44
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/W32TeX) (preloaded format=pdflatex 2020.1.7)  11 JAN 2020 21:54
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -67,6 +67,14 @@ Package: iftex 2019/11/07 v1.0c TeX engine tests
 x.sty
 Package: ifluatex 2019/10/25 v1.5 ifluatex legacy package. Use iftex instead.
 )
+(c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/fontawesome/fon
+tawesome.sty
+Package: fontawesome 2016/05/15 v4.6.3.1 font awesome icons
+
+(c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/fontawesome/fon
+tawesomesymbols-generic.tex)
+(c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/fontawesome/fon
+tawesomesymbols-pdftex.tex))
 (c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/fixltx2e.s
 ty
 Package: fixltx2e 2016/12/29 v2.1a fixes to LaTeX (obsolete)
@@ -681,6 +689,15 @@ Package caption Info: rotating package is loaded.
 )
 Package color Info: Redefining color shadecolor on input line 80.
 
+(c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/parskip/parskip
+.sty
+Package: parskip 2019-01-16 v2.0c non-zero parskip adjustments
+
+(c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/etoolbox/etoolb
+ox.sty
+Package: etoolbox 2019/09/21 v2.5h e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count127
+))
 (c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/array.sty
 Package: array 2019/08/31 v2.4l Tabular extension package (FMi)
 \col@sep=\dimen143
@@ -695,7 +712,7 @@ Package: array 2019/08/31 v2.4l Tabular extension package (FMi)
 ow.sty
 Package: multirow 2019/05/31 v2.5 Span multiple rows of a table
 \multirow@colwidth=\skip68
-\multirow@cntb=\count127
+\multirow@cntb=\count128
 \multirow@dima=\skip69
 \bigstrutjot=\dimen145
 )
@@ -703,7 +720,7 @@ Package: multirow 2019/05/31 v2.5 Span multiple rows of a table
 .sty
 \wrapoverhang=\dimen146
 \WF@size=\dimen147
-\c@WF@wrappedlines=\count128
+\c@WF@wrappedlines=\count129
 \WF@box=\box39
 \WF@everypar=\toks33
 Package: wrapfig 2003/01/31  v 3.6
@@ -734,16 +751,16 @@ Package: tabu 2019/01/11 v2.9 - flexible LaTeX tabulars (FC+tabu-fixed)
 th.sty
 Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
 \@vwid@box=\box40
-\sift@deathcycles=\count129
+\sift@deathcycles=\count130
 \@vwid@loff=\dimen148
 \@vwid@roff=\dimen149
 )
-\c@taburow=\count130
-\tabu@nbcols=\count131
-\tabu@cnt=\count132
-\tabu@Xcol=\count133
-\tabu@alloc=\count134
-\tabu@nested=\count135
+\c@taburow=\count131
+\tabu@nbcols=\count132
+\tabu@cnt=\count133
+\tabu@Xcol=\count134
+\tabu@alloc=\count135
+\tabu@nested=\count136
 \tabu@target=\dimen150
 \tabu@spreadtarget=\dimen151
 \tabu@naturalX=\dimen152
@@ -786,7 +803,7 @@ Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
 \UL@skip=\skip73
 \UL@hook=\toks37
 \UL@height=\dimen159
-\UL@pe=\count136
+\UL@pe=\count137
 \UL@pixel=\dimen160
 \ULC@box=\box48
 Package: ulem 2012/05/18
@@ -796,7 +813,7 @@ Package: ulem 2012/05/18
 ll.sty
 Package: makecell 2009/08/03 V0.1e Managing of Tab Column Heads and Cells
 \rotheadsize=\dimen162
-\c@nlinenum=\count137
+\c@nlinenum=\count138
 \TeXr@lab=\toks38
 )
 (c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/xcolor/xcolor.s
@@ -821,29 +838,29 @@ Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
 ) (./thesis.aux)
 \openout1 = `thesis.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 203.
-LaTeX Font Info:    ... okay on input line 203.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 203.
-LaTeX Font Info:    ... okay on input line 203.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 203.
-LaTeX Font Info:    ... okay on input line 203.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 203.
-LaTeX Font Info:    ... okay on input line 203.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 203.
-LaTeX Font Info:    ... okay on input line 203.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 203.
-LaTeX Font Info:    ... okay on input line 203.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 203.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 238.
+LaTeX Font Info:    ... okay on input line 238.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 238.
+LaTeX Font Info:    ... okay on input line 238.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 238.
+LaTeX Font Info:    ... okay on input line 238.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 238.
+LaTeX Font Info:    ... okay on input line 238.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 238.
+LaTeX Font Info:    ... okay on input line 238.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 238.
+LaTeX Font Info:    ... okay on input line 238.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 238.
 LaTeX Font Info:    Trying to load font information for TS1+cmr on input line 2
-03.
+38.
 (c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 203.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 203.
-LaTeX Font Info:    ... okay on input line 203.
-LaTeX Font Info:    Trying to load font information for T1+lmr on input line 20
-3.
+LaTeX Font Info:    ... okay on input line 238.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 238.
+LaTeX Font Info:    ... okay on input line 238.
+LaTeX Font Info:    Trying to load font information for T1+lmr on input line 23
+8.
 (c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/t1lmr.fd
 File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
@@ -868,7 +885,7 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 \AtBeginShipoutBox=\box49
-Package hyperref Info: Link coloring OFF on input line 203.
+Package hyperref Info: Link coloring OFF on input line 238.
 
 (c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/namere
 f.sty
@@ -882,11 +899,11 @@ Package: refcount 2016/05/16 v3.5 Data extraction from label references (HO)
 g/gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count138
+\c@section@level=\count139
 )
-LaTeX Info: Redefining \ref on input line 203.
-LaTeX Info: Redefining \pageref on input line 203.
-LaTeX Info: Redefining \nameref on input line 203.
+LaTeX Info: Redefining \ref on input line 238.
+LaTeX Info: Redefining \pageref on input line 238.
+LaTeX Info: Redefining \nameref on input line 238.
 (./thesis.out) (./thesis.out)
 \@outlinefile=\write4
 \openout4 = `thesis.out'.
@@ -895,51 +912,19 @@ Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: threeparttable package is loaded.
 Package caption Info: wrapfig package is loaded.
 Package caption Info: End \AtBeginDocument code.
-LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 2
-07.
-(c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/ot1lmr.fd
-File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
-)
-LaTeX Font Info:    Trying to load font information for OML+lmm on input line 2
-07.
-(c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/omllmm.fd
-File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
-)
-LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
-207.
-(c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/omslmsy.fd
-File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
-)
-LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
-207.
-(c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/omxlmex.fd
-File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
-)
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 207.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 207.
-LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 207.
-LaTeX Font Info:    Trying to load font information for U+lasy on input line 20
-7.
-(c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/ulasy.fd
-File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
-)
-LaTeX Font Info:    Trying to load font information for U+msa on input line 207
-.
+LaTeX Font Info:    Trying to load font information for U+fontawesometwo on inp
+ut line 242.
 
-(c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsa.f
-d
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+(c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/fontawesome/ufo
+ntawesometwo.fd
+File: ufontawesometwo.fd 2016/05/22 Font definitions for U/fontawesometwo.
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 207
-.
-
-(c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.f
-d
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) [1
+<Figure/logos.png, id=209, 859.2903pt x 125.0271pt>
+File: Figure/logos.png Graphic file (type png)
+<use Figure/logos.png>
+Package pdftex.def Info: Figure/logos.png  used on input line 242.
+(pdftex.def)             Requested size: 375.80542pt x 54.68013pt.
+[1
 Non-PDF special ignored!
 <special> !% Reed College LaTeX Thesis Class 2001/12/04 SN
 Non-PDF special ignored!
@@ -947,12 +932,23 @@ Non-PDF special ignored!
 
 
 {c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pd
-ftex.map}] [2
+ftex.map} <./figure/logos.png>] [2
 
-] [3] [4
+]
+Overfull \hbox (115.28351pt too wide) in paragraph at lines 242--242
+[]\T1/lmr/m/n/12 January 11, 2020[] 
+ []
+
+
+Overfull \hbox (115.28351pt too wide) in paragraph at lines 242--242
+[]\T1/lmr/m/n/12 January 11, 2020[] 
+ []
+
+[3
+
+] [4
 
 ] [1
-
 
 ] [2
 
@@ -960,7 +956,50 @@ ftex.map}] [2
 ] [3] [4
 
 
-] (./thesis.toc [5])
+] (./thesis.toc
+LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 1
+.
+(c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/ot1lmr.fd
+File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 1
+.
+(c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/omllmm.fd
+File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
+1.
+(c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/omslmsy.fd
+File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
+1.
+(c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/omxlmex.fd
+File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <12> on input line 1.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <8> on input line 1.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <6> on input line 1.
+LaTeX Font Info:    Trying to load font information for U+lasy on input line 1.
+
+(c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/ulasy.fd
+File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
+)
+LaTeX Font Info:    Trying to load font information for U+msa on input line 1.
+
+(c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsa.f
+d
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 1.
+
+(c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.f
+d
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+) [5])
 \tf@toc=\write5
 \openout5 = `thesis.toc'.
 
@@ -988,509 +1027,451 @@ ftex.map}] [2
  been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.263 \chapter{Data}\label{rmd-data}}
-                                      [1
-
-]pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has
- been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.263 \chapter{Data}\label{rmd-data}}
-                                      [2
+l.324 
+       [1
 
 ]
-Chapter 1.
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 2
-65.
-(c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/t1lmtt.fd
-File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
-)
-LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 2
-75.
-(c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/ts1lmr.fd
-File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
-)pdfTeX warning (ext4): destination with the same identifier (name{page.3}) has
- been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.305 \end{longtable}
-                      [3]
-<thesis_files/figure-latex/plotideamstations-1.pdf, id=360, 469.755pt x 325.215
-pt>
-File: thesis_files/figure-latex/plotideamstations-1.pdf Graphic file (type pdf)
-
-<use thesis_files/figure-latex/plotideamstations-1.pdf>
-Package pdftex.def Info: thesis_files/figure-latex/plotideamstations-1.pdf  use
-d on input line 340.
-(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-
-Overfull \hbox (36.13387pt too wide) in paragraph at lines 340--341
- [][] 
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
 Make it at least 14.49998pt.
 We now make it that large for the rest of the document.
 This may cause the page layout to be inconsistent, however.
 
-pdfTeX warning (ext4): destination with the same identifier (name{page.4}) has 
+pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.343 F
-       ollowing, the time serie, autocorrelation function, and partial autoc...
-[4]
-<thesis_files/figure-latex/plotoneideamstation-1.pdf, id=367, 469.755pt x 325.2
+l.369 \chapter{Data}\label{rmd-data}}
+                                      [2]pdfTeX warning (ext4): destination wit
+h the same identifier (name{page.3}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.369 \chapter{Data}\label{rmd-data}}
+                                      [3]pdfTeX warning (ext4): destination wit
+h the same identifier (name{page.4}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.369 \chapter{Data}\label{rmd-data}}
+                                      [4
+
+]
+Chapter 1.
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 3
+71.
+(c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/t1lmtt.fd
+File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 3
+81.
+(c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/ts1lmr.fd
+File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
+) [5]
+Overfull \vbox (1.6343pt too high) has occurred while \output is active []
+
+[6]
+<thesis_files/figure-latex/plotideamstations-1.pdf, id=462, 469.755pt x 325.215
+pt>
+File: thesis_files/figure-latex/plotideamstations-1.pdf Graphic file (type pdf)
+
+<use thesis_files/figure-latex/plotideamstations-1.pdf>
+Package pdftex.def Info: thesis_files/figure-latex/plotideamstations-1.pdf  use
+d on input line 446.
+(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+<thesis_files/figure-latex/plotoneideamstation-1.pdf, id=463, 469.755pt x 325.2
 15pt>
 File: thesis_files/figure-latex/plotoneideamstation-1.pdf Graphic file (type pd
 f)
 <use thesis_files/figure-latex/plotoneideamstation-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/plotoneideamstation-1.pdf  u
-sed on input line 346.
+sed on input line 452.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-
-Overfull \hbox (36.13387pt too wide) in paragraph at lines 346--347
- [][] 
- []
-
-<thesis_files/figure-latex/plotoneideamstationacf-1.pdf, id=368, 469.755pt x 32
+<thesis_files/figure-latex/plotoneideamstationacf-1.pdf, id=464, 469.755pt x 32
 5.215pt>
 File: thesis_files/figure-latex/plotoneideamstationacf-1.pdf Graphic file (type
  pdf)
 <use thesis_files/figure-latex/plotoneideamstationacf-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/plotoneideamstationacf-1.pdf
-  used on input line 351.
+  used on input line 457.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-
-Overfull \hbox (36.13387pt too wide) in paragraph at lines 351--352
- [][] 
- []
-
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[5 <./thesis_files/figure-latex/plotideamstations-1.pdf>]
-<thesis_files/figure-latex/plotoneideamstationpacf-1.pdf, id=381, 469.755pt x 3
+[7 <./thesis_files/figure-latex/plotideamstations-1.pdf>]
+<thesis_files/figure-latex/plotoneideamstationpacf-1.pdf, id=479, 469.755pt x 3
 25.215pt>
 File: thesis_files/figure-latex/plotoneideamstationpacf-1.pdf Graphic file (typ
 e pdf)
 <use thesis_files/figure-latex/plotoneideamstationpacf-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/plotoneideamstationpacf-1.pd
-f  used on input line 356.
+f  used on input line 462.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 
-Overfull \hbox (36.13387pt too wide) in paragraph at lines 356--357
- [][] 
- []
-
-
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[6 <./thesis_files/figure-latex/plotoneideamstation-1.pdf>]
+[8 <./thesis_files/figure-latex/plotoneideamstation-1.pdf>]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[7 <./thesis_files/figure-latex/plotoneideamstationacf-1.pdf>]
-<thesis_files/figure-latex/plotisdstations-1.pdf, id=405, 469.755pt x 325.215pt
+[9 <./thesis_files/figure-latex/plotoneideamstationacf-1.pdf>]
+<thesis_files/figure-latex/plotisdstations-1.pdf, id=502, 469.755pt x 325.215pt
 >
 File: thesis_files/figure-latex/plotisdstations-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/plotisdstations-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/plotisdstations-1.pdf  used 
-on input line 377.
+on input line 483.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-
-Overfull \hbox (36.13387pt too wide) in paragraph at lines 377--378
- [][] 
- []
-
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[8 <./thesis_files/figure-latex/plotoneideamstationpacf-1.pdf>]
-<thesis_files/figure-latex/plotoneisdstation-1.pdf, id=417, 469.755pt x 325.215
+[10 <./thesis_files/figure-latex/plotoneideamstationpacf-1.pdf>]
+<thesis_files/figure-latex/plotoneisdstation-1.pdf, id=514, 469.755pt x 325.215
 pt>
 File: thesis_files/figure-latex/plotoneisdstation-1.pdf Graphic file (type pdf)
 
 <use thesis_files/figure-latex/plotoneisdstation-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/plotoneisdstation-1.pdf  use
-d on input line 386.
+d on input line 492.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-
-Overfull \hbox (36.13387pt too wide) in paragraph at lines 386--387
- [][] 
- []
-
-<thesis_files/figure-latex/plotoneisdstationacf-1.pdf, id=418, 469.755pt x 325.
+<thesis_files/figure-latex/plotoneisdstationacf-1.pdf, id=515, 469.755pt x 325.
 215pt>
 File: thesis_files/figure-latex/plotoneisdstationacf-1.pdf Graphic file (type p
 df)
 <use thesis_files/figure-latex/plotoneisdstationacf-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/plotoneisdstationacf-1.pdf  
-used on input line 391.
+used on input line 497.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-
-Overfull \hbox (36.13387pt too wide) in paragraph at lines 391--392
- [][] 
- []
-
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[9 <./thesis_files/figure-latex/plotisdstations-1.pdf>]
-<thesis_files/figure-latex/plotoneisdstationpacf-1.pdf, id=431, 469.755pt x 325
+[11 <./thesis_files/figure-latex/plotisdstations-1.pdf>]
+<thesis_files/figure-latex/plotoneisdstationpacf-1.pdf, id=528, 469.755pt x 325
 .215pt>
 File: thesis_files/figure-latex/plotoneisdstationpacf-1.pdf Graphic file (type 
 pdf)
 <use thesis_files/figure-latex/plotoneisdstationpacf-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/plotoneisdstationpacf-1.pdf 
- used on input line 396.
+ used on input line 502.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 
-Overfull \hbox (36.13387pt too wide) in paragraph at lines 396--397
- [][] 
- []
-
-
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[10 <./thesis_files/figure-latex/plotoneisdstation-1.pdf>]
+[12 <./thesis_files/figure-latex/plotoneisdstation-1.pdf>]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[11 <./thesis_files/figure-latex/plotoneisdstationacf-1.pdf>]
-<thesis_files/figure-latex/plotera5stations-1.pdf, id=454, 469.755pt x 325.215p
+[13 <./thesis_files/figure-latex/plotoneisdstationacf-1.pdf>]
+<thesis_files/figure-latex/plotera5stations-1.pdf, id=551, 469.755pt x 325.215p
 t>
 File: thesis_files/figure-latex/plotera5stations-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/plotera5stations-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/plotera5stations-1.pdf  used
- on input line 405.
+ on input line 511.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-
-Overfull \hbox (36.13387pt too wide) in paragraph at lines 405--406
- [][] 
- []
-
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[12 <./thesis_files/figure-latex/plotoneisdstationpacf-1.pdf>] [13 <./thesis_fi
-les/figure-latex/plotera5stations-1.pdf>] [14
+[14 <./thesis_files/figure-latex/plotoneisdstationpacf-1.pdf>] [15 <./thesis_fi
+les/figure-latex/plotera5stations-1.pdf>] [16
 
 
 ]
 Chapter 2.
 
-Package xcolor Warning: Incompatible color definition on input line 461.
+Package xcolor Warning: Incompatible color definition on input line 567.
 
 LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <10> not available
-(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 465.
-[15]
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 571.
+[17]
 
-Package xcolor Warning: Incompatible color definition on input line 476.
+Package xcolor Warning: Incompatible color definition on input line 582.
 
 
-Package xcolor Warning: Incompatible color definition on input line 476.
+Package xcolor Warning: Incompatible color definition on input line 582.
 
-<thesis_files/figure-latex/plotgumbelpdffunction-1.pdf, id=502, 289.08pt x 216.
+<thesis_files/figure-latex/plotgumbelpdffunction-1.pdf, id=594, 289.08pt x 216.
 81pt>
 File: thesis_files/figure-latex/plotgumbelpdffunction-1.pdf Graphic file (type 
 pdf)
 <use thesis_files/figure-latex/plotgumbelpdffunction-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/plotgumbelpdffunction-1.pdf 
- used on input line 479.
+ used on input line 585.
 (pdftex.def)             Requested size: 289.07928pt x 216.80946pt.
 
-Package xcolor Warning: Incompatible color definition on input line 487.
+Package xcolor Warning: Incompatible color definition on input line 593.
 
 
-Package xcolor Warning: Incompatible color definition on input line 499.
+Package xcolor Warning: Incompatible color definition on input line 605.
 
 
-Package xcolor Warning: Incompatible color definition on input line 499.
+Package xcolor Warning: Incompatible color definition on input line 605.
 
-<thesis_files/figure-latex/plotgumbelpdf-1.pdf, id=504, 289.08pt x 216.81pt>
+<thesis_files/figure-latex/plotgumbelpdf-1.pdf, id=596, 289.08pt x 216.81pt>
 File: thesis_files/figure-latex/plotgumbelpdf-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/plotgumbelpdf-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/plotgumbelpdf-1.pdf  used on
- input line 502.
+ input line 608.
 (pdftex.def)             Requested size: 289.07928pt x 216.80946pt.
 
-Underfull \vbox (badness 6493) has occurred while \output is active []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[16 <./thesis_files/figure-latex/plotgumbelpdffunction-1.pdf>]
+[18 <./thesis_files/figure-latex/plotgumbelpdffunction-1.pdf>]
 
-Package xcolor Warning: Incompatible color definition on input line 531.
-
-
-Package xcolor Warning: Incompatible color definition on input line 546.
+Package xcolor Warning: Incompatible color definition on input line 637.
 
 
-Package xcolor Warning: Incompatible color definition on input line 546.
+Package xcolor Warning: Incompatible color definition on input line 652.
 
-<thesis_files/figure-latex/plotgumbelcdffunction-1.pdf, id=520, 289.08pt x 216.
+
+Package xcolor Warning: Incompatible color definition on input line 652.
+
+<thesis_files/figure-latex/plotgumbelcdffunction-1.pdf, id=612, 289.08pt x 216.
 81pt>
 File: thesis_files/figure-latex/plotgumbelcdffunction-1.pdf Graphic file (type 
 pdf)
 <use thesis_files/figure-latex/plotgumbelcdffunction-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/plotgumbelcdffunction-1.pdf 
- used on input line 549.
+ used on input line 655.
 (pdftex.def)             Requested size: 289.07928pt x 216.80946pt.
-[17 <./thesis_files/figure-latex/plotgumbelpdf-1.pdf>]
+[19 <./thesis_files/figure-latex/plotgumbelpdf-1.pdf>]
 
-Package xcolor Warning: Incompatible color definition on input line 573.
-
-
-Package xcolor Warning: Incompatible color definition on input line 588.
+Package xcolor Warning: Incompatible color definition on input line 679.
 
 
-Package xcolor Warning: Incompatible color definition on input line 588.
+Package xcolor Warning: Incompatible color definition on input line 694.
 
-<thesis_files/figure-latex/plotgumbelppffunction-1.pdf, id=536, 289.08pt x 216.
+
+Package xcolor Warning: Incompatible color definition on input line 694.
+
+<thesis_files/figure-latex/plotgumbelppffunction-1.pdf, id=629, 289.08pt x 216.
 81pt>
 File: thesis_files/figure-latex/plotgumbelppffunction-1.pdf Graphic file (type 
 pdf)
 <use thesis_files/figure-latex/plotgumbelppffunction-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/plotgumbelppffunction-1.pdf 
- used on input line 591.
+ used on input line 697.
 (pdftex.def)             Requested size: 289.07928pt x 216.80946pt.
 
-Underfull \vbox (badness 1721) has occurred while \output is active []
+Underfull \vbox (badness 1852) has occurred while \output is active []
 
-[18 <./thesis_files/figure-latex/plotgumbelcdffunction-1.pdf>]
+[20 <./thesis_files/figure-latex/plotgumbelcdffunction-1.pdf>]
 
-Package xcolor Warning: Incompatible color definition on input line 614.
-
-
-Package xcolor Warning: Incompatible color definition on input line 629.
+Package xcolor Warning: Incompatible color definition on input line 720.
 
 
-Package xcolor Warning: Incompatible color definition on input line 629.
+Package xcolor Warning: Incompatible color definition on input line 735.
 
-<thesis_files/figure-latex/plotgumbelhffunction-1.pdf, id=552, 289.08pt x 216.8
+
+Package xcolor Warning: Incompatible color definition on input line 735.
+
+<thesis_files/figure-latex/plotgumbelhffunction-1.pdf, id=645, 289.08pt x 216.8
 1pt>
 File: thesis_files/figure-latex/plotgumbelhffunction-1.pdf Graphic file (type p
 df)
 <use thesis_files/figure-latex/plotgumbelhffunction-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/plotgumbelhffunction-1.pdf  
-used on input line 632.
+used on input line 738.
 (pdftex.def)             Requested size: 289.07928pt x 216.80946pt.
-[19 <./thesis_files/figure-latex/plotgumbelppffunction-1.pdf>]
 
-Package xcolor Warning: Incompatible color definition on input line 635.
+Underfull \vbox (badness 1092) has occurred while \output is active []
+
+[21 <./thesis_files/figure-latex/plotgumbelppffunction-1.pdf>]
+
+Package xcolor Warning: Incompatible color definition on input line 741.
 
 
-Package xcolor Warning: Incompatible color definition on input line 641.
+Package xcolor Warning: Incompatible color definition on input line 747.
 
 
-Package xcolor Warning: Incompatible color definition on input line 641.
+Package xcolor Warning: Incompatible color definition on input line 747.
 
-<thesis_files/figure-latex/unnamed-chunk-9-1.pdf, id=567, 289.08pt x 216.81pt>
+<thesis_files/figure-latex/unnamed-chunk-9-1.pdf, id=658, 289.08pt x 216.81pt>
 File: thesis_files/figure-latex/unnamed-chunk-9-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/unnamed-chunk-9-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/unnamed-chunk-9-1.pdf  used 
-on input line 659.
+on input line 765.
 (pdftex.def)             Requested size: 289.07928pt x 216.80946pt.
 
-Underfull \vbox (badness 6792) has occurred while \output is active []
+Underfull \vbox (badness 6542) has occurred while \output is active []
 
-[20 <./thesis_files/figure-latex/plotgumbelhffunction-1.pdf>] [21 <./thesis_fil
-es/figure-latex/unnamed-chunk-9-1.pdf>]
-
-Package amsmath Warning: Cannot use `split' here;
-(amsmath)                trying to recover with `aligned' on input line 686.
-
+[22 <./thesis_files/figure-latex/plotgumbelhffunction-1.pdf>]
 
 Package amsmath Warning: Cannot use `split' here;
-(amsmath)                trying to recover with `aligned' on input line 704.
+(amsmath)                trying to recover with `aligned' on input line 792.
 
-<thesis_files/figure-latex/compoundprobability-1.pdf, id=592, 361.35pt x 289.08
+[23 <./thesis_files/figure-latex/unnamed-chunk-9-1.pdf>]
+
+Package amsmath Warning: Cannot use `split' here;
+(amsmath)                trying to recover with `aligned' on input line 810.
+
+<thesis_files/figure-latex/compoundprobability-1.pdf, id=682, 361.35pt x 289.08
 pt>
 File: thesis_files/figure-latex/compoundprobability-1.pdf Graphic file (type pd
 f)
 <use thesis_files/figure-latex/compoundprobability-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/compoundprobability-1.pdf  u
-sed on input line 710.
+sed on input line 816.
 (pdftex.def)             Requested size: 361.34912pt x 289.07928pt.
-[22 <./thesis_files/figure-latex/compoundprobability-1.pdf>]
-Underfull \vbox (badness 1552) has occurred while \output is active []
-
-[23]
+[24 <./thesis_files/figure-latex/compoundprobability-1.pdf>] [25]
 
 Package amsmath Warning: Cannot use `split' here;
-(amsmath)                trying to recover with `aligned' on input line 766.
+(amsmath)                trying to recover with `aligned' on input line 872.
 
 
 Package amsmath Warning: Cannot use `split' here;
-(amsmath)                trying to recover with `aligned' on input line 793.
+(amsmath)                trying to recover with `aligned' on input line 899.
 
-[24]
-<thesis_files/figure-latex/plotdomainpp-1.pdf, id=623, 289.08pt x 289.08pt>
+[26]
+<thesis_files/figure-latex/plotdomainpp-1.pdf, id=727, 289.08pt x 289.08pt>
 File: thesis_files/figure-latex/plotdomainpp-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/plotdomainpp-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/plotdomainpp-1.pdf  used on 
-input line 799.
+input line 905.
 (pdftex.def)             Requested size: 289.07928pt x 289.07928pt.
-
-Underfull \hbox (badness 3954) in paragraph at lines 811--813
-[]\T1/lmr/m/n/12 Observations in do-main $\OML/lmm/m/it/12 D$ \T1/lmr/m/n/12 fo
-l-low a Pois-son dis-tri-bu-tion with mean
- []
-
-<figure/domain3d.png, id=626, 344.03531pt x 328.97906pt>
+<figure/domain3d.png, id=730, 344.03531pt x 328.97906pt>
 File: figure/domain3d.png Graphic file (type png)
 <use figure/domain3d.png>
-Package pdftex.def Info: figure/domain3d.png  used on input line 819.
+Package pdftex.def Info: figure/domain3d.png  used on input line 925.
 (pdftex.def)             Requested size: 458.91493pt x 438.83177pt.
-
-Overfull \hbox (25.29494pt too wide) in paragraph at lines 819--819
-[][] 
- []
-
-[25 <./thesis_files/figure-latex/plotdomainpp-1.pdf>] [26 <./figure/domain3d.PN
-G>] [27]
-<figure/durst.png, id=654, 332.74312pt x 183.68625pt>
+[27 <./thesis_files/figure-latex/plotdomainpp-1.pdf>] [28 <./figure/domain3d.PN
+G>] [29]
+<figure/durst.png, id=760, 332.74312pt x 183.68625pt>
 File: figure/durst.png Graphic file (type png)
 <use figure/durst.png>
-Package pdftex.def Info: figure/durst.png  used on input line 886.
+Package pdftex.def Info: figure/durst.png  used on input line 992.
 (pdftex.def)             Requested size: 443.73775pt x 244.97508pt.
-
-Overfull \hbox (10.11775pt too wide) in paragraph at lines 886--886
-[][] 
- []
-
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[28] [29 <./figure/durst.PNG>] [30
+[30] [31 <./figure/durst.PNG>] [32
 
 ]
 Chapter 3.
-[31] [32
+[33] [34
 
-] [33
+] [35
 
-] [34
+] [36
 
 ]
 Appendix A.
 
-Package xcolor Warning: Incompatible color definition on input line 973.
+Package xcolor Warning: Incompatible color definition on input line 1079.
 
 LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <12> not available
-(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 978.
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 1084.
 
-Package xcolor Warning: Incompatible color definition on input line 984.
-
-
-Package xcolor Warning: Incompatible color definition on input line 984.
+Package xcolor Warning: Incompatible color definition on input line 1090.
 
 
-Package xcolor Warning: Incompatible color definition on input line 986.
+Package xcolor Warning: Incompatible color definition on input line 1090.
 
 
-Package xcolor Warning: Incompatible color definition on input line 1007.
+Package xcolor Warning: Incompatible color definition on input line 1092.
 
 
-Package xcolor Warning: Incompatible color definition on input line 1007.
+Package xcolor Warning: Incompatible color definition on input line 1113.
 
 
-Package xcolor Warning: Incompatible color definition on input line 1007.
-
-[35]
-
-Package xcolor Warning: Incompatible color definition on input line 1007.
+Package xcolor Warning: Incompatible color definition on input line 1113.
 
 
-Package xcolor Warning: Incompatible color definition on input line 1007.
+Package xcolor Warning: Incompatible color definition on input line 1113.
 
-[36]
+[37]
+
+Package xcolor Warning: Incompatible color definition on input line 1113.
+
+
+Package xcolor Warning: Incompatible color definition on input line 1113.
+
+[38]
 Appendix B.
-[37
-
-] [38
-
-]
-Underfull \hbox (badness 10000) in paragraph at lines 1029--1031
- \T1/lmr/m/n/12 Re-trieved from []$\T1/lmtt/m/n/12 https : / / www . ebook . de
- / de / product / 35017614 / american _
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1029--1031
- \T1/lmtt/m/n/12 society _ of _ civil _ engineers _ minimum _ design _ loads _ 
-and _ associated _
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1053--1055
- \T1/lmtt/m/n/12 Monographs -[] Statistics -[] Probability / dp / 1584884118 ? 
-SubscriptionId =
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1053--1055
- \T1/lmtt/m/n/12 AKIAIOBINVZYXZQZ2U3A & tag = chimbori05 -[] 20 & linkCode = xm
-2 & camp = 2025 &
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
 [39
 
+] [40
+
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1059.
-[40]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1059.
+Underfull \hbox (badness 10000) in paragraph at lines 1138--1140
+ \T1/lmr/m/n/12 from []$\T1/lmtt/m/n/12 https : / / www . ebook . de / de / pro
+duct / 35017614 / american _ society _ of _ civil _
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1138--1140
+ \T1/lmtt/m/n/12 engineers _ minimum _ design _ loads _ and _ associated _ crit
+eria _ for _ buildings _ and _
+ []
+
+[41
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 1162--1164
+ \T1/lmr/m/n/12 from []$\T1/lmtt/m/n/12 https : / / www . amazon . com / Teleco
+mmunications -[] Environment -[] Monographs -[]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1162--1164
+ \T1/lmtt/m/n/12 Statistics -[] Probability / dp / 1584884118 ? SubscriptionId 
+= AKIAIOBINVZYXZQZ2U3A &
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1162--1164
+ \T1/lmtt/m/n/12 tag = chimbori05 -[] 20 & linkCode = xm2 & camp = 2025 & creat
+ive = 165953 & creativeASIN =
+ []
+
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1168.
+[42]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1168.
 (./thesis.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1059.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1059.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1168.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1168.
 
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: 6AFE3A40EA37A2A2E92477A7A04F3E0C;2768.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1059.
+(rerunfilecheck)             Checksum: 1FC0E13ABF949CA4F49A80C6417169DC;3684.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1168.
  ) 
 Here is how much of TeX's memory you used:
- 11270 strings out of 494107
- 175929 string characters out of 6172029
- 266222 words of memory out of 5000000
- 14850 multiletter control sequences out of 15000+600000
- 58504 words of font info for 55 fonts, out of 8000000 for 9000
+ 13121 strings out of 494107
+ 201125 string characters out of 6172029
+ 294632 words of memory out of 5000000
+ 16668 multiletter control sequences out of 15000+600000
+ 61818 words of font info for 57 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 41i,17n,49p,1976b,460s stack positions out of 5000i,500n,10000p,200000b,80000s
-{c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-m
-athit.enc}{c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips
-/lm/lm-rm.enc}{c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/d
-vips/lm/lm-ec.enc}{c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/fonts/e
-nc/dvips/lm/lm-mathsy.enc}{c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist
-/fonts/enc/dvips/lm/lm-mathex.enc}{c:/Users/alexyshr/AppData/Roaming/TinyTeX/te
-xmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}<c:/Users/alexyshr/AppData/Roaming/TinyT
-eX/texmf-dist/fonts/type1/public/lm/lmbx12.pfb><c:/Users/alexyshr/AppData/Roami
-ng/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbxi10.pfb><c:/Users/alexyshr/AppD
-ata/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmex10.pfb><c:/Users/alexy
-shr/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi12.pfb><c:/Use
-rs/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi6.pfb>
-<c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmm
-i8.pfb><c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public
-/lm/lmr10.pfb><c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1
-/public/lm/lmr12.pfb><c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/font
-s/type1/public/lm/lmr6.pfb><c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dis
-t/fonts/type1/public/lm/lmr8.pfb><c:/Users/alexyshr/AppData/Roaming/TinyTeX/tex
-mf-dist/fonts/type1/public/lm/lmri12.pfb><c:/Users/alexyshr/AppData/Roaming/Tin
-yTeX/texmf-dist/fonts/type1/public/lm/lmro12.pfb><c:/Users/alexyshr/AppData/Roa
-ming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy10.pfb><c:/Users/alexyshr/App
-Data/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy8.pfb><c:/Users/alexy
-shr/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtk10.pfb><c:/Use
-rs/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt10.pfb
-><c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lm
-tt12.pfb><c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/publ
-ic/lm/lmtti10.pfb>
-Output written on thesis.pdf (58 pages, 3133198 bytes).
+ 41i,17n,49p,2625b,460s stack positions out of 5000i,500n,10000p,200000b,80000s
+{c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-e
+c.enc}{c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/
+lm-ts1.enc}{c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvip
+s/lm/lm-rm.enc}{c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/
+dvips/lm/lm-mathit.enc}{c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/fo
+nts/enc/dvips/lm/lm-mathsy.enc}{c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf
+-dist/fonts/enc/dvips/lm/lm-mathex.enc}{c:/Users/alexyshr/AppData/Roaming/TinyT
+eX/texmf-dist/fonts/enc/dvips/fontawesome/fontawesometwo.enc}<c:/Users/alexyshr
+/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/fontawesome/FontAwesome.
+pfb><c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm
+/lmbx12.pfb><c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/p
+ublic/lm/lmbxi10.pfb><c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/font
+s/type1/public/lm/lmex10.pfb><c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-d
+ist/fonts/type1/public/lm/lmmi12.pfb><c:/Users/alexyshr/AppData/Roaming/TinyTeX
+/texmf-dist/fonts/type1/public/lm/lmmi6.pfb><c:/Users/alexyshr/AppData/Roaming/
+TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi8.pfb><c:/Users/alexyshr/AppData/R
+oaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr10.pfb><c:/Users/alexyshr/Ap
+pData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/Users/alex
+yshr/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr6.pfb><c:/User
+s/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr8.pfb><c
+:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri1
+2.pfb><c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/
+lm/lmro12.pfb><c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1
+/public/lm/lmsy10.pfb><c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/fon
+ts/type1/public/lm/lmsy8.pfb><c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-d
+ist/fonts/type1/public/lm/lmtk10.pfb><c:/Users/alexyshr/AppData/Roaming/TinyTeX
+/texmf-dist/fonts/type1/public/lm/lmtt10.pfb><c:/Users/alexyshr/AppData/Roaming
+/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt12.pfb><c:/Users/alexyshr/AppData
+/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtti10.pfb>
+Output written on thesis.pdf (60 pages, 3544273 bytes).
 PDF statistics:
- 887 PDF objects out of 1000 (max. 8388607)
- 763 compressed objects within 8 object streams
- 205 named destinations out of 1000 (max. 500000)
- 408 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 983 PDF objects out of 1000 (max. 8388607)
+ 853 compressed objects within 9 object streams
+ 215 named destinations out of 1000 (max. 500000)
+ 509 words of extra memory for PDF output out of 10000 (max. 10000000)
 
