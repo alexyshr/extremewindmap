@@ -22,38 +22,72 @@ flights <- read.csv("data/flights.csv")
 
 # Methodology {#rmd-method}
 
-## Input Data Selection and Standarization
+Figure \@ref(fig:methodology) shows a graphic representation of the methodology. This thesis research is focus in non-hurricane data, with three main elements: - data, - temporal analysis with a POT- Poisson process, and - spatial analysis with probabilistic and deterministic methods to do spatial interpolation and create return levels (wind velocities) maps, for MRI of 700, 1700, and 3000 years. An additional element, is the integration with existing hurricane maps to produce final maps, that will be used as input loads for infrastructure design, and will be part of the NSR-10.
 
-\clearpage
+More representative and important steps of the methodology are identified by numbers, 1) standardization, 2) de-clustering, 3) thresholding, 4) fit intensity function, 5) hazard curve, 6) return levels, and 7) spatial interpolation. Steps 1 to 6, need to be done for each available station to get MRI wind velocities. With MRI wind velocities in each station, a continuous surface will be created, one for 700 years, next for 1700 years and finally 3000 years. Figure \@ref(fig:mainmethodology) schematize that iterative process.
 
-### Data Selection
+```{r methodology, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Methodology", size="footnotesize"}
+include_graphics(path = "figure/methodology.png")
+```
 
-### Data Standarization
+
+```{r mainmethodology, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Iterative process in methodology", size="footnotesize"}
+include_graphics(path = "figure/main_methodology.png")
+
+```
+
+## Data
+
+### Getting the data
+
+### Exploratory Data Analysis - EDA
+
+### Standardization
 
 #### Anemometer height - 10 m
+
+According to the protocol for field data collection and location of methodological stations - IDEAM, 2005 (XXX), the anemometer (wind sensor) in installed always to a fixed high of 10 meters from the surface, as is shown in figure XXX
+
 #### Surface Roughness - 0.03 m
+
 #### Averaging Time - 3-s gust
 
-### Data Filterng 
+To transform hourly mean wind velocity ($V_{3600}$), ASCE7-16 (XXX) recommended to use Durst 1960 (XXX).
 
-## Fit data to a POT - Poisson Process
+### Filtering 
 
-### Data Requirements
+### Separating 
 
-### Exploratory Data Analysis and Data Preparation
+### Comparison
 
-#### Declustering of observations
-#### Exclude no-data periods
-#### Threshold selection
+### Selection of input data
 
-### Parameters Estimation
+
+## POT - Poisson Process
+
+### De-clustering
+
+### Exclude no-data periods
+
+### Thresholding
+
+As the POT model requires to work only with the most extreme values in the time series, it is necessary to select a threshold to filter out small values. Selection of threshold value imply two effects in the model. Bias is high when a low threshold is selected (many exceedances) because the asymptotic support is weak. Opposite situation happens for high thresholds where variance is potentially high, so according to Davidson and Smith 1990 (XXX), it is needed to select a threshold value, consistent with model structure.
+
+### Fit Intensity Function
 
 #### Intensity function
 #### Density function
 #### Distribution function
-#### Maximun likelihood estimation
+#### Maximum likelihood estimation
 
-### Velocities at Return Periods
+### Hazard Curve
 
-## spatial Interpolation
+### Return Levels
 
+## Spatial Interpolation
+
+### Kriging
+### IDW
+### Local Polynomials
+
+## Integration with Non-Hurricane data

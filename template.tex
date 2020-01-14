@@ -24,7 +24,8 @@
 %% Preamble
 %%
 % \documentclass{<something>} must begin each LaTeX document
-\documentclass[12pt,twoside]{reedthesis}
+%\documentclass[12pt,twoside]{reedthesis}
+\documentclass[12pt,oneside]{reedthesis} 
 % Packages are extensions to the basic LaTeX functions. Whatever you
 % want to typeset, there is probably a package out there for it.
 % Chemistry (chemtex), screenplays, you name it.
@@ -38,7 +39,8 @@
 \usepackage[hyphens]{url}
 \usepackage[utf8]{inputenc}
 % Added by CII
-\usepackage{hyperref}
+\usepackage[hidelinks]{hyperref}  
+% \usepackage{hyperref}
 \usepackage{lmodern}
 \usepackage{float}
 \floatplacement{figure}{H}

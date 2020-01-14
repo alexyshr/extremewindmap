@@ -125,13 +125,13 @@ kable(data_sources_thesis_summary3, align=rep('l', 4),
 kable_styling(font_size = 10, latex_options="scale_down")
 ```
 
-Ideal data source to create extreme wind speeds maps should be field observed data from IDEAM, but there are not enough number of stations around the study area to represent all the local wind variability in a huge country with multiple variety of climates and and changing thermal floors, but there are other important motivatios to include different sources trying to improve output results:
+Ideal data source to create extreme wind speeds maps should be field observed data from IDEAM, but there are not enough number of stations around the study area to represent all the local wind variability in a huge country with multiple variety of climates and and changing thermal floors, but there are other important motivation to include different sources trying to improve output results:
 
 * As just mentioned, low quantity of IDEAM stations
-* There are uncertanties related to the way IDEAM anemometers are registering data, then comparison with other datasources are needed to be able to do appropriate data standardization, needed as a prerequisite to the analysis.
+* There are uncertainties related to the way IDEAM anemometers are registering data, then comparison with other data sources are needed to be able to do appropriate data standardization, needed as a prerequisite to the analysis.
 * There is no time continuity in the registration of IDEAM data. Historical time series are different and variable in each station.
 
-Importance of ISD database for this study is based on the fact that post-procesed ISD database has wind extreme values, and it was used to create extreme wind maps for United States. ISD allows comparison with IDEAM records to take better decitions in order to do needed data standarization.
+Importance of ISD database for this study is based on the fact that post-processed ISD database has wind extreme values, and it was used to create extreme wind maps for United States. ISD allows comparison with IDEAM records to take better decisions in order to do needed data standardization.
 
 Despite that ERA5 data are not observed data, but forecast, its main advantage is data availability to assess the local climatic variance every 33 square kilometers.
 
@@ -231,14 +231,14 @@ mtext(side = 1, text = "Station Name: ELDORADO CATAM - AUT", outer = TRUE)
 ```{r plotoneideamstationacf, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="IDEAM Station ACF"}
 par(oma = c(0,0,0,0))
 myacf = acf(statideam_xts[,1][!is.na(statideam_xts[,1])], plot=FALSE)
-titleacf = paste("Auto-Correlation Function - ACF", paste("IDEAM", "21205791", sep = ":"), sep = "\n")
+titleacf = paste("Autocorrelation Function - ACF", paste("IDEAM", "21205791", sep = ":"), sep = "\n")
 plot(myacf, main = titleacf)
 ```
 
 ```{r plotoneideamstationpacf, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="IDEAM Station PACF"}
 par(oma = c(0,0,0,0))
 mypacf = pacf(statideam_xts[,1][!is.na(statideam_xts[,1])], plot=FALSE)
-titlepacf = paste("Partial Auto-Correlation Function - PACF", paste("IDEAM", "21205791", sep = ":"), sep = "\n")
+titlepacf = paste("Partial Autocorrelation Function - PACF", paste("IDEAM", "21205791", sep = ":"), sep = "\n")
 plot(mypacf, main = titlepacf)
 ```
 
@@ -247,7 +247,7 @@ plot(mypacf, main = titlepacf)
 
 ## ISD
 
-ISD is a database with environmental variables among then extreme wind speeds. ISD has data for the whole planet, and is based on observed data at metereological stations in each country, which means that for Colombia is based on IDEAM data. Main advantage is data availability at neighbor countries and specialized postprocesing made by NOAA's National Centers for Environmental Information - NCEI in United States, which facilitates its use.Table \@ref(tab:tableisdstations) shows a sample of five ISD stations. Figure \@ref(fig:plotisdstations) shows a map of ISD stations.
+ISD is a database with environmental variables among then extreme wind speeds. ISD has data for the whole planet, and is based on observed data at meteorological stations in each country, which means that for Colombia is based on IDEAM data. Main advantage is data availability at neighbor countries and specialized post-processing made by NOAA's National Centers for Environmental Information - NCEI in United States, which facilitates its use.Table \@ref(tab:tableisdstations) shows a sample of five ISD stations. Figure \@ref(fig:plotisdstations) shows a map of ISD stations.
 
 ```{r tableisdstations, echo=FALSE, message=FALSE, warning=FALSE, results="asis"}
 tableisd =  isd_stations[c(81,20,29,57,60), c("usaf", "station_name", "latitud", "longitud")]
@@ -306,9 +306,9 @@ ggplot(data = world) +
   theme(panel.grid.major = element_line(color = gray(.5), linetype = "dashed", size = 0.5), panel.background = element_rect(fill = "aliceblue"))
 ```
 
-Following, the time serie, autocorrelation function, and partial autocorrelation function, for ISD station "802590" will be displayed.
+Following, the time series, autocorrelation function, and partial autocorrelation function, for ISD station "802590" will be displayed.
 
-```{r plotoneisdstation, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="ISD Station - Time Serie"}
+```{r plotoneisdstation, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="ISD Station - Time Series"}
 #originalfields1 = unique(era5_intersect_isd["usaf",])
 originalfields1 = c("802590")
 newfields1 = paste ("X", originalfields1, sep="")
@@ -338,14 +338,14 @@ mtext(side = 1, text = "Station Name: ALFONSO BONILLA ARAGON INTL", outer = TRUE
 ```{r plotoneisdstationacf, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="ISD Station ACF"}
 par(oma = c(0,0,0,0))
 myacf = acf(statisd_xts[,1][!is.na(statisd_xts[,1])], plot=FALSE)
-titleacf = paste("Auto-Correlation Function - ACF", paste("ISD", "802590", sep = ":"), sep = "\n")
+titleacf = paste("Autocorrelation Function - ACF", paste("ISD", "802590", sep = ":"), sep = "\n")
 plot(myacf, main = titleacf)
 ```
 
 ```{r plotoneisdstationpacf, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="IDEAM Station PACF"}
 par(oma = c(0,0,0,0))
 mypacf = pacf(statisd_xts[,1][!is.na(statisd_xts[,1])], plot=FALSE)
-titlepacf = paste("Partial Auto-Correlation Function - PACF", paste("ISD", "802590", sep = ":"), sep = "\n")
+titlepacf = paste("Partial Autocorrelation Function - PACF", paste("ISD", "802590", sep = ":"), sep = "\n")
 plot(mypacf, main = titlepacf)
 ```
 
@@ -389,7 +389,7 @@ era5colraster.st = st_rasterize(era5colpoints, st_as_stars(mybbox, nx = nlon, ny
 ```
 
 
-ERA5 is forecast reanalysis data procesed by the _European Centre for Medium-Range Weather Forecasts_ - ECMWF with wind speeds time series in square cells _matrix of pixels_ of 0.25 degrees (33 km) covering the whole plannet. For the study area was extracted a raster of `r (nlat)` rows by `r nlon` XXX columns in format NetCDF. Figure \@ref(fig:plotera5stations) shows a map of ERA5 stations (cells centers).
+ERA5 is forecast reanalysis data processed by the _European Center for Medium-Range Weather Forecasts_ - ECMWF with wind speeds time series in square cells _matrix of pixels_ of 0.25 degrees (33 km) covering the whole planet. For the study area was extracted a raster of `r (nlat)` rows by `r nlon` XXX columns in format NetCDF. Figure \@ref(fig:plotera5stations) shows a map of ERA5 stations (cells centers).
 
 ```{r plotera5stations, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="ERA5 Stations (cells centers)"}
 
@@ -456,10 +456,10 @@ timestamp_string <- as.character(timestamp)
 ## Data Download and Organization
 
 
-## Data Standarzation
+## Data Standardization
 
-Analysis of extreme wind speeds requieres data standarizaton as initial step. All input data must be standarized to represent three important conditions: a) anemometer height of 10 meters, b) open space roughness, and c) averaging time of 3-seconds wind gust. Data for analysis must represent 3-s peak wind speeds 10 meters heigh above the surface, in open terrain.
-* 10 mts anemometer height
+Analysis of extreme wind speeds requires data standardization as initial step. All input data must be standardized to represent three important conditions: a) anemometer height of 10 meters, b) open space roughness, and c) averaging time of 3-seconds wind gust. Data for analysis must represent 3-s peak wind speeds 10 meters height above the surface, in open terrain.
+* 10 meters anemometer height
 * Open space terrain roughness
 * 3-s gust averaging time
  
