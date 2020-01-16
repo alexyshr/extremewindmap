@@ -131,8 +131,9 @@ Do not include 00(two-hyphens)prelim.Rmd and 00-abstract.Rmd in the YAML file--t
 on chapters.
 -->
 
-# Introduction {.unnumbered}
+<!--# Introduction {.unnumbered}-->
 
+# Introduction
 
 This research aims to create non-hurricane non-tornadic maps of extreme wind speeds for _three specific recurrence intervals_ (700, 1700, and 3000 years) covering the Colombian territory. These maps will be combined with existing hurricane wind speed studies, to be used as input loads due to wind for infrastructure design.
 

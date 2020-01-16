@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/W32TeX) (preloaded format=pdflatex 2020.1.7)  14 JAN 2020 09:37
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/W32TeX) (preloaded format=pdflatex 2020.1.7)  16 JAN 2020 11:41
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -942,12 +942,12 @@ Non-PDF special ignored!
 {c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pd
 ftex.map} <./figure/logos.png>]
 Overfull \hbox (115.28351pt too wide) in paragraph at lines 259--259
-[]\T1/lmr/m/n/12 January 14, 2020[] 
+[]\T1/lmr/m/n/12 January 16, 2020[] 
  []
 
 
 Overfull \hbox (115.28351pt too wide) in paragraph at lines 259--259
-[]\T1/lmr/m/n/12 January 14, 2020[] 
+[]\T1/lmr/m/n/12 January 16, 2020[] 
  []
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
@@ -1031,12 +1031,15 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ] [8
 
 
-]pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
- been already used, duplicate ignored
+]
+Chapter 1.
+pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
+been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.356 
-       [1
+l.354 I
+       n the context of this study, extreme wind analysis is concerned with ...
+[1
 
 
 
@@ -1048,14 +1051,14 @@ We now make it that large for the rest of the document.
 This may cause the page layout to be inconsistent, however.
 
 [2] [3] [4]
-Chapter 1.
+Chapter 2.
 LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 4
-33.
+32.
 (c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 4
-43.
+42.
 (c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 ) [5
@@ -1070,7 +1073,7 @@ File: thesis_files/figure-latex/plotideamstations-1.pdf Graphic file (type pdf)
 
 <use thesis_files/figure-latex/plotideamstations-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/plotideamstations-1.pdf  use
-d on input line 508.
+d on input line 507.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 <thesis_files/figure-latex/plotoneideamstation-1.pdf, id=482, 469.755pt x 325.2
 15pt>
@@ -1078,7 +1081,7 @@ File: thesis_files/figure-latex/plotoneideamstation-1.pdf Graphic file (type pd
 f)
 <use thesis_files/figure-latex/plotoneideamstation-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/plotoneideamstation-1.pdf  u
-sed on input line 514.
+sed on input line 513.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 <thesis_files/figure-latex/plotoneideamstationacf-1.pdf, id=483, 469.755pt x 32
 5.215pt>
@@ -1086,7 +1089,7 @@ File: thesis_files/figure-latex/plotoneideamstationacf-1.pdf Graphic file (type
  pdf)
 <use thesis_files/figure-latex/plotoneideamstationacf-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/plotoneideamstationacf-1.pdf
-  used on input line 519.
+  used on input line 518.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 [7 <./thesis_files/figure-latex/plotideamstations-1.pdf>]
 <thesis_files/figure-latex/plotoneideamstationpacf-1.pdf, id=496, 469.755pt x 3
@@ -1095,7 +1098,7 @@ File: thesis_files/figure-latex/plotoneideamstationpacf-1.pdf Graphic file (typ
 e pdf)
 <use thesis_files/figure-latex/plotoneideamstationpacf-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/plotoneideamstationpacf-1.pd
-f  used on input line 524.
+f  used on input line 523.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 [8 <./thesis_files/figure-latex/plotoneideamstation-1.pdf>] [9 <./thesis_files/
 figure-latex/plotoneideamstationacf-1.pdf>]
@@ -1104,7 +1107,7 @@ figure-latex/plotoneideamstationacf-1.pdf>]
 File: thesis_files/figure-latex/plotisdstations-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/plotisdstations-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/plotisdstations-1.pdf  used 
-on input line 545.
+on input line 544.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 [10 <./thesis_files/figure-latex/plotoneideamstationpacf-1.pdf>]
 <thesis_files/figure-latex/plotoneisdstation-1.pdf, id=532, 469.755pt x 325.215
@@ -1113,7 +1116,7 @@ File: thesis_files/figure-latex/plotoneisdstation-1.pdf Graphic file (type pdf)
 
 <use thesis_files/figure-latex/plotoneisdstation-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/plotoneisdstation-1.pdf  use
-d on input line 554.
+d on input line 553.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 <thesis_files/figure-latex/plotoneisdstationacf-1.pdf, id=533, 469.755pt x 325.
 215pt>
@@ -1121,7 +1124,7 @@ File: thesis_files/figure-latex/plotoneisdstationacf-1.pdf Graphic file (type p
 df)
 <use thesis_files/figure-latex/plotoneisdstationacf-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/plotoneisdstationacf-1.pdf  
-used on input line 559.
+used on input line 558.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 [11 <./thesis_files/figure-latex/plotisdstations-1.pdf>]
 <thesis_files/figure-latex/plotoneisdstationpacf-1.pdf, id=546, 469.755pt x 325
@@ -1130,7 +1133,7 @@ File: thesis_files/figure-latex/plotoneisdstationpacf-1.pdf Graphic file (type
 pdf)
 <use thesis_files/figure-latex/plotoneisdstationpacf-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/plotoneisdstationpacf-1.pdf 
- used on input line 564.
+ used on input line 563.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 [12 <./thesis_files/figure-latex/plotoneisdstation-1.pdf>] [13 <./thesis_files/
 figure-latex/plotoneisdstationacf-1.pdf>]
@@ -1139,25 +1142,25 @@ t>
 File: thesis_files/figure-latex/plotera5stations-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/plotera5stations-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/plotera5stations-1.pdf  used
- on input line 573.
+ on input line 572.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 [14 <./thesis_files/figure-latex/plotoneisdstationpacf-1.pdf>] [15 <./thesis_fi
 les/figure-latex/plotera5stations-1.pdf>]
-Chapter 2.
+Chapter 3.
 
-Package xcolor Warning: Incompatible color definition on input line 629.
+Package xcolor Warning: Incompatible color definition on input line 628.
 
 LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <10> not available
-(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 633.
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 632.
 [16
 
 
 ]
 
-Package xcolor Warning: Incompatible color definition on input line 644.
+Package xcolor Warning: Incompatible color definition on input line 643.
 
 
-Package xcolor Warning: Incompatible color definition on input line 644.
+Package xcolor Warning: Incompatible color definition on input line 643.
 
 <thesis_files/figure-latex/plotgumbelpdffunction-1.pdf, id=608, 289.08pt x 216.
 81pt>
@@ -1165,32 +1168,32 @@ File: thesis_files/figure-latex/plotgumbelpdffunction-1.pdf Graphic file (type
 pdf)
 <use thesis_files/figure-latex/plotgumbelpdffunction-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/plotgumbelpdffunction-1.pdf 
- used on input line 647.
+ used on input line 646.
 (pdftex.def)             Requested size: 289.07928pt x 216.80946pt.
 
-Package xcolor Warning: Incompatible color definition on input line 655.
+Package xcolor Warning: Incompatible color definition on input line 654.
 
 
-Package xcolor Warning: Incompatible color definition on input line 667.
+Package xcolor Warning: Incompatible color definition on input line 666.
 
 
-Package xcolor Warning: Incompatible color definition on input line 667.
+Package xcolor Warning: Incompatible color definition on input line 666.
 
 <thesis_files/figure-latex/plotgumbelpdf-1.pdf, id=610, 289.08pt x 216.81pt>
 File: thesis_files/figure-latex/plotgumbelpdf-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/plotgumbelpdf-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/plotgumbelpdf-1.pdf  used on
- input line 670.
+ input line 669.
 (pdftex.def)             Requested size: 289.07928pt x 216.80946pt.
 [17 <./thesis_files/figure-latex/plotgumbelpdffunction-1.pdf>]
 
-Package xcolor Warning: Incompatible color definition on input line 699.
+Package xcolor Warning: Incompatible color definition on input line 698.
 
 
-Package xcolor Warning: Incompatible color definition on input line 714.
+Package xcolor Warning: Incompatible color definition on input line 713.
 
 
-Package xcolor Warning: Incompatible color definition on input line 714.
+Package xcolor Warning: Incompatible color definition on input line 713.
 
 <thesis_files/figure-latex/plotgumbelcdffunction-1.pdf, id=626, 289.08pt x 216.
 81pt>
@@ -1198,17 +1201,17 @@ File: thesis_files/figure-latex/plotgumbelcdffunction-1.pdf Graphic file (type
 pdf)
 <use thesis_files/figure-latex/plotgumbelcdffunction-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/plotgumbelcdffunction-1.pdf 
- used on input line 717.
+ used on input line 716.
 (pdftex.def)             Requested size: 289.07928pt x 216.80946pt.
 [18 <./thesis_files/figure-latex/plotgumbelpdf-1.pdf>]
 
-Package xcolor Warning: Incompatible color definition on input line 741.
+Package xcolor Warning: Incompatible color definition on input line 740.
 
 
-Package xcolor Warning: Incompatible color definition on input line 756.
+Package xcolor Warning: Incompatible color definition on input line 755.
 
 
-Package xcolor Warning: Incompatible color definition on input line 756.
+Package xcolor Warning: Incompatible color definition on input line 755.
 
 <thesis_files/figure-latex/plotgumbelppffunction-1.pdf, id=642, 289.08pt x 216.
 81pt>
@@ -1216,17 +1219,17 @@ File: thesis_files/figure-latex/plotgumbelppffunction-1.pdf Graphic file (type
 pdf)
 <use thesis_files/figure-latex/plotgumbelppffunction-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/plotgumbelppffunction-1.pdf 
- used on input line 759.
+ used on input line 758.
 (pdftex.def)             Requested size: 289.07928pt x 216.80946pt.
 [19 <./thesis_files/figure-latex/plotgumbelcdffunction-1.pdf>]
 
-Package xcolor Warning: Incompatible color definition on input line 782.
+Package xcolor Warning: Incompatible color definition on input line 781.
 
 
-Package xcolor Warning: Incompatible color definition on input line 798.
+Package xcolor Warning: Incompatible color definition on input line 797.
 
 
-Package xcolor Warning: Incompatible color definition on input line 798.
+Package xcolor Warning: Incompatible color definition on input line 797.
 
 <thesis_files/figure-latex/plotgumbelhffunction-1.pdf, id=658, 289.08pt x 216.8
 1pt>
@@ -1234,39 +1237,39 @@ File: thesis_files/figure-latex/plotgumbelhffunction-1.pdf Graphic file (type p
 df)
 <use thesis_files/figure-latex/plotgumbelhffunction-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/plotgumbelhffunction-1.pdf  
-used on input line 801.
+used on input line 800.
 (pdftex.def)             Requested size: 289.07928pt x 216.80946pt.
 [20 <./thesis_files/figure-latex/plotgumbelppffunction-1.pdf>]
 
-Package xcolor Warning: Incompatible color definition on input line 804.
+Package xcolor Warning: Incompatible color definition on input line 803.
 
 
-Package xcolor Warning: Incompatible color definition on input line 810.
+Package xcolor Warning: Incompatible color definition on input line 809.
 
 
-Package xcolor Warning: Incompatible color definition on input line 810.
+Package xcolor Warning: Incompatible color definition on input line 809.
 
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <14.4> on input line 821.
+(Font)              <14.4> on input line 820.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 821.
+(Font)              <10> on input line 820.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 821.
+(Font)              <7> on input line 820.
 <thesis_files/figure-latex/unnamed-chunk-9-1.pdf, id=671, 289.08pt x 216.81pt>
 File: thesis_files/figure-latex/unnamed-chunk-9-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/unnamed-chunk-9-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/unnamed-chunk-9-1.pdf  used 
-on input line 828.
+on input line 827.
 (pdftex.def)             Requested size: 289.07928pt x 216.80946pt.
 [21 <./thesis_files/figure-latex/plotgumbelhffunction-1.pdf>]
 
 Package amsmath Warning: Cannot use `split' here;
-(amsmath)                trying to recover with `aligned' on input line 855.
+(amsmath)                trying to recover with `aligned' on input line 854.
 
 [22 <./thesis_files/figure-latex/unnamed-chunk-9-1.pdf>]
 
 Package amsmath Warning: Cannot use `split' here;
-(amsmath)                trying to recover with `aligned' on input line 873.
+(amsmath)                trying to recover with `aligned' on input line 872.
 
 <thesis_files/figure-latex/compoundprobability-1.pdf, id=697, 361.35pt x 289.08
 pt>
@@ -1274,42 +1277,42 @@ File: thesis_files/figure-latex/compoundprobability-1.pdf Graphic file (type pd
 f)
 <use thesis_files/figure-latex/compoundprobability-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/compoundprobability-1.pdf  u
-sed on input line 879.
+sed on input line 878.
 (pdftex.def)             Requested size: 361.34912pt x 289.07928pt.
 [23 <./thesis_files/figure-latex/compoundprobability-1.pdf>] [24]
 
 Package amsmath Warning: Cannot use `split' here;
-(amsmath)                trying to recover with `aligned' on input line 935.
+(amsmath)                trying to recover with `aligned' on input line 934.
 
 
 Package amsmath Warning: Cannot use `split' here;
-(amsmath)                trying to recover with `aligned' on input line 962.
+(amsmath)                trying to recover with `aligned' on input line 961.
 
 [25]
 <thesis_files/figure-latex/plotdomainpp-1.pdf, id=741, 289.08pt x 289.08pt>
 File: thesis_files/figure-latex/plotdomainpp-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/plotdomainpp-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/plotdomainpp-1.pdf  used on 
-input line 968.
+input line 967.
 (pdftex.def)             Requested size: 289.07928pt x 289.07928pt.
 <figure/domain3d.png, id=744, 344.03531pt x 328.97906pt>
 File: figure/domain3d.png Graphic file (type png)
 <use figure/domain3d.png>
-Package pdftex.def Info: figure/domain3d.png  used on input line 988.
+Package pdftex.def Info: figure/domain3d.png  used on input line 987.
 (pdftex.def)             Requested size: 458.91493pt x 438.83177pt.
 [26 <./thesis_files/figure-latex/plotdomainpp-1.pdf>] [27 <./figure/domain3d.PN
 G>] [28]
 <figure/durst.png, id=776, 332.74312pt x 183.68625pt>
 File: figure/durst.png Graphic file (type png)
 <use figure/durst.png>
-Package pdftex.def Info: figure/durst.png  used on input line 1056.
+Package pdftex.def Info: figure/durst.png  used on input line 1055.
 (pdftex.def)             Requested size: 443.73775pt x 244.97508pt.
 [29] [30 <./figure/durst.PNG>]
-Chapter 3.
+Chapter 4.
 <figure/methodology.png, id=790, 350.81062pt x 493.0922pt>
 File: figure/methodology.png Graphic file (type png)
 <use figure/methodology.png>
-Package pdftex.def Info: figure/methodology.png  used on input line 1069.
+Package pdftex.def Info: figure/methodology.png  used on input line 1068.
 (pdftex.def)             Requested size: 467.58698pt x 657.27908pt.
 [31
 
@@ -1320,56 +1323,56 @@ Overfull \vbox (31.34908pt too high) has occurred while \output is active []
 <figure/main_methodology.png, id=800, 190.46156pt x 417.81094pt>
 File: figure/main_methodology.png Graphic file (type png)
 <use figure/main_methodology.png>
-Package pdftex.def Info: figure/main_methodology.png  used on input line 1075.
+Package pdftex.def Info: figure/main_methodology.png  used on input line 1074.
 (pdftex.def)             Requested size: 253.6673pt x 556.48486pt.
 [33 <./figure/main_methodology.png>] [34] [35] [36
 
 ]
 Appendix A.
 
-Package xcolor Warning: Incompatible color definition on input line 1184.
+Package xcolor Warning: Incompatible color definition on input line 1183.
 
 LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <12> not available
-(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 1189.
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 1188.
 
-Package xcolor Warning: Incompatible color definition on input line 1195.
-
-
-Package xcolor Warning: Incompatible color definition on input line 1195.
+Package xcolor Warning: Incompatible color definition on input line 1194.
 
 
-Package xcolor Warning: Incompatible color definition on input line 1197.
+Package xcolor Warning: Incompatible color definition on input line 1194.
 
 
-Package xcolor Warning: Incompatible color definition on input line 1218.
+Package xcolor Warning: Incompatible color definition on input line 1196.
 
 
-Package xcolor Warning: Incompatible color definition on input line 1218.
+Package xcolor Warning: Incompatible color definition on input line 1217.
 
 
-Package xcolor Warning: Incompatible color definition on input line 1218.
+Package xcolor Warning: Incompatible color definition on input line 1217.
+
+
+Package xcolor Warning: Incompatible color definition on input line 1217.
 
 [37
 
 ]
 
-Package xcolor Warning: Incompatible color definition on input line 1218.
+Package xcolor Warning: Incompatible color definition on input line 1217.
 
 
-Package xcolor Warning: Incompatible color definition on input line 1218.
+Package xcolor Warning: Incompatible color definition on input line 1217.
 
 [38]
 Appendix B.
 [39
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 1243--1245
+Underfull \hbox (badness 10000) in paragraph at lines 1242--1244
  \T1/lmr/m/n/12 from []$\T1/lmtt/m/n/12 https : / / www . ebook . de / de / pro
 duct / 35017614 / american _ society _ of _ civil _
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1243--1245
+Underfull \hbox (badness 10000) in paragraph at lines 1242--1244
  \T1/lmtt/m/n/12 engineers _ minimum _ design _ loads _ and _ associated _ crit
 eria _ for _ buildings _ and _
  []
@@ -1378,42 +1381,42 @@ eria _ for _ buildings _ and _
 
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 1267--1269
+Underfull \hbox (badness 10000) in paragraph at lines 1266--1268
  \T1/lmr/m/n/12 from []$\T1/lmtt/m/n/12 https : / / www . amazon . com / Teleco
 mmunications -[] Environment -[] Monographs -[]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1267--1269
+Underfull \hbox (badness 10000) in paragraph at lines 1266--1268
  \T1/lmtt/m/n/12 Statistics -[] Probability / dp / 1584884118 ? SubscriptionId 
 = AKIAIOBINVZYXZQZ2U3A &
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1267--1269
+Underfull \hbox (badness 10000) in paragraph at lines 1266--1268
  \T1/lmtt/m/n/12 tag = chimbori05 -[] 20 & linkCode = xm2 & camp = 2025 & creat
 ive = 165953 & creativeASIN =
  []
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1273.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1272.
 [41]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1273.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1272.
 (./thesis.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1273.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1273.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1272.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1272.
 
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: EBED1E7B684DADF04788136E886DC322;4137.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1273.
+(rerunfilecheck)             Checksum: 780B0D615A4C288A44109FAE2CCEDB0C;4075.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1272.
  ) 
 Here is how much of TeX's memory you used:
  13198 strings out of 494107
- 202272 string characters out of 6172029
- 294429 words of memory out of 5000000
+ 202269 string characters out of 6172029
+ 294428 words of memory out of 5000000
  16721 multiletter control sequences out of 15000+600000
  74185 words of font info for 75 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 41i,17n,49p,1360b,460s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 41i,17n,49p,1364b,460s stack positions out of 5000i,500n,10000p,200000b,80000s
 {c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-m
 athit.enc}{c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips
 /lm/lm-ec.enc}{c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/d
@@ -1444,7 +1447,7 @@ dist/fonts/type1/public/lm/lmsy8.pfb><c:/Users/alexyshr/AppData/Roaming/TinyTeX
 /TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt10.pfb><c:/Users/alexyshr/AppData
 /Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt12.pfb><c:/Users/alexyshr
 /AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtti10.pfb>
-Output written on thesis.pdf (51 pages, 3719191 bytes).
+Output written on thesis.pdf (51 pages, 3719032 bytes).
 PDF statistics:
  1021 PDF objects out of 1200 (max. 8388607)
  895 compressed objects within 9 object streams
