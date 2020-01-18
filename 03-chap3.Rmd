@@ -46,13 +46,48 @@ include_graphics(path = "figure/main_methodology.png")
 
 #### Anemometer height - 10 m
 
-According to the protocol for field data collection and location of methodological stations - IDEAM, 2005 (XXX), the anemometer (wind sensor) in installed always to a fixed high of 10 meters from the surface, as is shown in figure XXX
+According to the protocol for field data collection and location of methodological stations - @ideam2005, the anemometer (wind sensor) in installed always to a fixed high of 10 meters from the surface, as is shown in figure \@ref(fig:anemometer), ergo, no height correction.
+
+```{r anemometer, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Cross-sectional of multi-sensor automatic weather station, adapted from IDEAM (2005)", size="footnotesize"}
+include_graphics(path = "figure/anemometer.png")
+```
+
 
 #### Surface Roughness - 0.03 m
+Due to the effects that the terrain has on wind speed, a correction should be applied if the station is located in a geographical space considered "no open terrain". When terrain is open, the roughness corresponds to 0.03 meters. There are some alternative methodologies to calculate the roughness, @Masters2010 uses the station data, but the separation of the measurements should not exceed one minute, something difficult to obtain, and @Lettau1969 uses an empirical equation that is recommended in @Asce2017 (page 743, equation C26.7-1), which was used here,
+
+$$
+Roughness = z_0= 0.5 * H_{ob}*\frac{S_{ob}}{A_{ob}}
+$$
+Where $H_{ob}$ is the average height of the obstacles, $S_{ob}$ is the average vertical area perpendicular to the wind of the obstacle, and $A_{ob}$ is the average area of the terrain occupied by each obstruction. Then the empirical exponent $\alpha$, gradient height $z_g$, and exposure coefficient $K_z$, corresponding to equations C26.10-3, C26.10-4, and C26.10-1.si of @Asce2017, are used to calculate the correction factor $F_{exposition}$, verifying that $z_0$ units are in meters.
+
+$$
+\alpha =  5.65*z_0^{-0.133}
+$$
+
+$$
+z_g=450*z_0^{0.125}
+$$
+
+$$
+K_z= 2.01*\left(\frac{z}{z_g}\right)
+$$
+
+$$
+F_{exposition} = \frac{0.951434}{K_z}
+$$
+
 
 #### Averaging Time - 3-s gust
 
-To transform hourly mean wind velocity ($V_{3600}$), ASCE7-16 (XXX) recommended to use Durst 1960 (XXX).
+To transform hourly mean wind velocity $V_{3600}$ to 3-s gust velocity $V_3$, @Asce2017 recommends to use @Durst1960. See [Wind Loads Requirements](#windloadsrequirements). As the axis $x$ represents duration $t$ of the gust, what is done is to look there for the value 3 seconds, and read the corresponding gust factor $\frac{V_t}{V_{3600}}$, this is, the value in the axis $y$, then
+
+$$
+V_t = V_{3\,seconds} = (gust factor) * V_{3600\,seconds}
+$$
+
+It is valid only for open terrain conditions. Durst curve shows in axis $y$ the gust factor $\frac{V_t}{V_{3600}}$, a ration between any wind gust averaged at $t$ seconds, $V_t$, and the hourly averaged wind speed $V_{3600}$, and in the axis $x$ the duration $t$ of the gust.
+
 
 ### Filtering 
 

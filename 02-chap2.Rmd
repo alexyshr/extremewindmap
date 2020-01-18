@@ -522,7 +522,7 @@ The same thunderstorm event in considered to occur if the time lag distance betw
 $$U=F(Y)$$
 $$W = -log(1-U)$$
 
-## Wind Loads Requirements
+## Wind Loads Requirements {#windloadsrequirements}
 
 As the output maps of this research will be used as input loads for infrastructure design, the methodology used for its creation, need to be consistent with Colombian official wind loads requirements. Today (2020), the Colombian norm that defines wind loads is the Seismic Resistant Standard 2010 - NSR-10 by its acronym of Spanish, see XXX. Chapter related to wind loads is B.6. NSR-10 was created and is maintained by the Colombian Association of Seismic Engineering - AIS. 
 

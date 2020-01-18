@@ -1029,8 +1029,8 @@ The same thunderstorm event in considered to occur if the time lag distance betw
 \[U=F(Y)\]
 \[W = -log(1-U)\]
 
-\hypertarget{wind-loads-requirements}{%
-\section{Wind Loads Requirements}\label{wind-loads-requirements}}
+\hypertarget{windloadsrequirements}{%
+\section{Wind Loads Requirements}\label{windloadsrequirements}}
 
 As the output maps of this research will be used as input loads for infrastructure design, the methodology used for its creation, need to be consistent with Colombian official wind loads requirements. Today (2020), the Colombian norm that defines wind loads is the Seismic Resistant Standard 2010 - NSR-10 by its acronym of Spanish, see XXX. Chapter related to wind loads is B.6. NSR-10 was created and is maintained by the Colombian Association of Seismic Engineering - AIS.
 
@@ -1090,15 +1090,50 @@ More representative and important steps of the methodology are identified by num
 \hypertarget{anemometer-height---10-m}{%
 \subsubsection{Anemometer height - 10 m}\label{anemometer-height---10-m}}
 
-According to the protocol for field data collection and location of methodological stations - IDEAM, 2005 (XXX), the anemometer (wind sensor) in installed always to a fixed high of 10 meters from the surface, as is shown in figure XXX
+According to the protocol for field data collection and location of methodological stations - IDEAM (\protect\hyperlink{ref-ideam2005}{2005}), the anemometer (wind sensor) in installed always to a fixed high of 10 meters from the surface, as is shown in figure \ref{fig:anemometer}, ergo, no height correction.
+
+\footnotesize
+\begin{figure}
+\includegraphics[width=6.81in]{figure/anemometer} \caption{Cross-sectional of multi-sensor automatic weather station, adapted from IDEAM (2005)}\label{fig:anemometer}
+\end{figure}
+\normalsize
 
 \hypertarget{surface-roughness---0.03-m}{%
 \subsubsection{Surface Roughness - 0.03 m}\label{surface-roughness---0.03-m}}
 
+Due to the effects that the terrain has on wind speed, a correction should be applied if the station is located in a geographical space considered ``no open terrain''. When terrain is open, the roughness corresponds to 0.03 meters. There are some alternative methodologies to calculate the roughness, Masters, Vickery, Bacon, \& Rappaport (\protect\hyperlink{ref-Masters2010}{2010}) uses the station data, but the separation of the measurements should not exceed one minute, something difficult to obtain, and Lettau (\protect\hyperlink{ref-Lettau1969}{1969}) uses an empirical equation that is recommended in Engineers (\protect\hyperlink{ref-Asce2017}{2017}) (page 743, equation C26.7-1), which was used here,
+
+\[
+Roughness = z_0= 0.5 * H_{ob}*\frac{S_{ob}}{A_{ob}}
+\]
+Where \(H_{ob}\) is the average height of the obstacles, \(S_{ob}\) is the average vertical area perpendicular to the wind of the obstacle, and \(A_{ob}\) is the average area of the terrain occupied by each obstruction. Then the empirical exponent \(\alpha\), gradient height \(z_g\), and exposure coefficient \(K_z\), corresponding to equations C26.10-3, C26.10-4, and C26.10-1.si of Engineers (\protect\hyperlink{ref-Asce2017}{2017}), are used to calculate the correction factor \(F_{exposition}\), verifying that \(z_0\) units are in meters.
+
+\[
+\alpha =  5.65*z_0^{-0.133}
+\]
+
+\[
+z_g=450*z_0^{0.125}
+\]
+
+\[
+K_z= 2.01*\left(\frac{z}{z_g}\right)
+\]
+
+\[
+F_{exposition} = \frac{0.951434}{K_z}
+\]
+
 \hypertarget{averaging-time---3-s-gust}{%
 \subsubsection{Averaging Time - 3-s gust}\label{averaging-time---3-s-gust}}
 
-To transform hourly mean wind velocity (\(V_{3600}\)), ASCE7-16 (XXX) recommended to use Durst 1960 (XXX).
+To transform hourly mean wind velocity \(V_{3600}\) to 3-s gust velocity \(V_3\), Engineers (\protect\hyperlink{ref-Asce2017}{2017}) recommends to use C. S. Durst (\protect\hyperlink{ref-Durst1960}{1960}). See \protect\hyperlink{windloadsrequirements}{Wind Loads Requirements}. As the axis \(x\) represents duration \(t\) of the gust, what is done is to look there for the value 3 seconds, and read the corresponding gust factor \(\frac{V_t}{V_{3600}}\), this is, the value in the axis \(y\), then
+
+\[
+V_t = V_{3\,seconds} = (gust factor) * V_{3600\,seconds}
+\]
+
+It is valid only for open terrain conditions. Durst curve shows in axis \(y\) the gust factor \(\frac{V_t}{V_{3600}}\), a ration between any wind gust averaged at \(t\) seconds, \(V_t\), and the hourly averaged wind speed \(V_{3600}\), and in the axis \(x\) the duration \(t\) of the gust.
 
 \hypertarget{filtering}{%
 \subsection{Filtering}\label{filtering}}
@@ -1248,8 +1283,17 @@ Harris, J. W., \& Stocker, H. (1998). Maximum likelihood method. In \emph{Handbo
 \leavevmode\hypertarget{ref-Hosking1997}{}%
 Hosking, J. R. M., \& Wallis, J. R. (1997). \emph{Regional frequency analysis}. Cambridge University Press. \url{http://doi.org/10.1017/cbo9780511529443}
 
+\leavevmode\hypertarget{ref-ideam2005}{}%
+IDEAM. (2005). \emph{Protocolo toma de datos de campo y emplazamiento de estaciones meteorológicas}.
+
 \leavevmode\hypertarget{ref-Kubler1994}{}%
 Kubler, J. (1994). \emph{Computational Statistics \&Amp; Data Analysis}, \emph{18}(4), 473--474. Retrieved from \url{https://EconPapers.repec.org/RePEc:eee:csdana:v:18:y:1994:i:4:p:473-474}
+
+\leavevmode\hypertarget{ref-Lettau1969}{}%
+Lettau, H. (1969). Note on aerodynamic roughness-parameter estimation on the basis of roughness-element description. \emph{Journal of Applied Meteorology}, \emph{8}(5), 828--832. \url{http://doi.org/10.1175/1520-0450(1969)008\%3C0828:NOARPE\%3E2.0.CO;2}
+
+\leavevmode\hypertarget{ref-Masters2010}{}%
+Masters, F. J., Vickery, P. J., Bacon, P., \& Rappaport, E. N. (2010). Toward objective, standardized intensity estimates from surface wind speed observations. \emph{Bulletin of the American Meteorological Society}, \emph{91}(12), 1665--1682. \url{http://doi.org/10.1175/2010bams2942.1}
 
 \leavevmode\hypertarget{ref-Pickands1971}{}%
 Pickands, J. (1971). The two-dimensional poisson process and extremal processes. \emph{Journal of Applied Probability}, \emph{8}(4), 745--756. \url{http://doi.org/10.2307/3212238}
