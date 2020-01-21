@@ -1,0 +1,87 @@
+```{r include_packages_3, include = FALSE}
+# This chunk ensures that the thesisdown package is
+# installed and loaded. This thesisdown package includes
+# the template files for the thesis and also two functions
+# used for labeling and referencing
+if(!require(devtools))
+  install.packages("devtools", repos = "http://cran.rstudio.com")
+if(!require(dplyr))
+    install.packages("dplyr", repos = "http://cran.rstudio.com")
+if(!require(ggplot2))
+    install.packages("ggplot2", repos = "http://cran.rstudio.com")
+if(!require(ggplot2))
+    install.packages("bookdown", repos = "http://cran.rstudio.com")
+if(!require(thesisdown)){
+  library(devtools)
+  devtools::install_github("ismayc/thesisdown")
+  }
+library(thesisdown)
+flights <- read.csv("data/flights.csv")
+```
+
+```{r echo=FALSE, cache= F, include=FALSE}
+source('pp_one_station.r')
+```
+
+# Results {#rmd-results}
+
+
+```{r page1, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="test", size="footnotesize", fig.align="center"}
+replayPlot(myprint1)
+```
+
+```{r page2, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="test", size="footnotesize", fig.align="center"}
+replayPlot(myprint2)
+```
+
+```{r page3, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="test", size="footnotesize", fig.align="center"}
+replayPlot(myprint3)
+```
+
+```{r page4, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="test", size="footnotesize", fig.align="center"}
+replayPlot(myprint4)
+```
+
+```{r page5, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="test", size="footnotesize", fig.align="center"}
+replayPlot(myprint5)
+```
+
+```{r page6, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="test", size="footnotesize", fig.align="center"}
+replayPlot(myprint6)
+```
+
+```{r page7, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="test", size="footnotesize", fig.align="center"}
+replayPlot(myprint7)
+```
+
+```{r page8, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="test", size="footnotesize", fig.align="center"}
+replayPlot(myprint8)
+```
+
+```{r page9, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="test", size="footnotesize", fig.align="center"}
+replayPlot(myprint9)
+```
+
+```{r page10, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="test", size="footnotesize", fig.align="center"}
+replayPlot(myprint10)
+```
+
+```{r page11, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="test", size="footnotesize", fig.align="center"}
+replayPlot(myprint11)
+```
+
+```{r page12, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="test", size="footnotesize", fig.align="center"}
+replayPlot(myprint12)
+```
+
+```{r page13, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="test", size="footnotesize", fig.align="center"}
+replayPlot(myprint13)
+```
+
+```{r page14, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="test", size="footnotesize", fig.align="center"}
+replayPlot(myprint14)
+```
+
+```{r page15, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="test", size="footnotesize", fig.align="center"}
+replayPlot(myprint15)
+```
