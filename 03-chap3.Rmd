@@ -26,12 +26,12 @@ Figure \@ref(fig:methodology) shows a graphic representation of the methodology.
 
 More representative and important steps of the methodology are identified by numbers, 1) standardization, 2) de-clustering, 3) thresholding, 4) fit intensity function, 5) hazard curve, 6) return levels, and 7) spatial interpolation. Steps 1 to 6, need to be done for each available station to get MRI wind velocities. With MRI wind velocities in each station, a continuous surface will be created, one for 700 years, next for 1700 years and finally 3000 years. Figure \@ref(fig:mainmethodology) schematize that iterative process.
 
-```{r methodology, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Methodology", size="footnotesize"}
+```{r methodology, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Methodology", size="footnotesize", fig.align="center"}
 include_graphics(path = "figure/methodology.png")
 ```
 
 
-```{r mainmethodology, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Iterative process in methodology", size="footnotesize"}
+```{r mainmethodology, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Iterative process in methodology", size="footnotesize", fig.align="center"}
 include_graphics(path = "figure/main_methodology.png")
 
 ```
@@ -48,7 +48,7 @@ include_graphics(path = "figure/main_methodology.png")
 
 According to the protocol for field data collection and location of methodological stations - @ideam2005, the anemometer (wind sensor) in installed always to a fixed high of 10 meters from the surface, as is shown in figure \@ref(fig:anemometer), ergo, no height correction.
 
-```{r anemometer, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Cross-sectional of multi-sensor automatic weather station, adapted from IDEAM (2005)", size="footnotesize"}
+```{r anemometer, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Cross-sectional of multi-sensor automatic weather station. Source Triana (2019)", size="footnotesize", fig.align="center"}
 include_graphics(path = "figure/anemometer.png")
 ```
 
@@ -59,7 +59,7 @@ Due to the effects that the terrain has on wind speed, a correction should be ap
 $$
 Roughness = z_0= 0.5 * H_{ob}*\frac{S_{ob}}{A_{ob}}
 $$
-Where $H_{ob}$ is the average height of the obstacles, $S_{ob}$ is the average vertical area perpendicular to the wind of the obstacle, and $A_{ob}$ is the average area of the terrain occupied by each obstruction. Then the empirical exponent $\alpha$, gradient height $z_g$, and exposure coefficient $K_z$, corresponding to equations C26.10-3, C26.10-4, and C26.10-1.si of @Asce2017, are used to calculate the correction factor $F_{exposition}$, verifying that $z_0$ units are in meters.
+Where $H_{ob}$ is the average height of the obstacles, $S_{ob}$ is the average vertical area perpendicular to the wind of the obstacle, and $A_{ob}$ is the average area of the terrain occupied by each obstruction. Then, the empirical exponent $\alpha$, gradient height $z_g$, and exposure coefficient $K_z$, corresponding to equations C26.10-3, C26.10-4, and C26.10-1.si of @Asce2017, are used to calculate the correction factor $F_{exposition}$, verifying that $z_0$ units are in meters.
 
 $$
 \alpha =  5.65*z_0^{-0.133}
@@ -76,6 +76,26 @@ $$
 $$
 F_{exposition} = \frac{0.951434}{K_z}
 $$
+Calculation of roughness need to be weigthed according to the predominance of wind direction in eight directions (north, south, east, west, north-east, north-west, south-east, south/west), see  figure \@ref(fig:compassrose), using a detailed aerial photo or satellite image, as shown in figure \@ref(fig:lettaustation), with south direction highlighted. 
+
+```{r compassrose, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Wind rose for weather station of Colombia. Source IDEAM (1999)", size="footnotesize", fig.align="center"}
+include_graphics(path = "figure/viensanandres.png")
+```
+
+```{r lettaustation, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Aerial photo for station KBHM, with south 45 degree sector highlighted. Source NIST (2012)", size="footnotesize", fig.align="center"}
+include_graphics(path = "figure/aerial_photo_pintar.png")
+```
+
+Figure \@ref(fig:lettauexamples) shows extreme conditions for roughness, open space in left image, closed space in center image, and a typical example where Lettau procedure is needed. Lettau equation need to be applied to each direction and then the final $z_o$ value is the weighted average, using historical wind pertentage. See figure \@ref(fig:lettauvalues) showing the strokes made to calculate the different areas for two Colombian stations. Information about wind percentage per station were obtained in @ideam1999.
+
+
+```{r lettauexamples, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Roughness values: 0.05 for open space (left), 0.1 for closed space (center), and areas where Lettau equation is needed because roughness is different in each direction (right). From Triana (2019)", size="footnotesize", fig.align="center"}
+include_graphics(path = "figure/lettauexamples.PNG")
+```
+
+```{r lettauvalues, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Lettau calculation. In red the area occupied by the obstacles, and in blue the perpendicular area. Source Sandoval (2019)", size="footnotesize", fig.align="center"}
+include_graphics(path = "figure/lettauvalues.png")
+```
 
 
 #### Averaging Time - 3-s gust

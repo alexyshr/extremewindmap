@@ -1065,7 +1065,12 @@ More representative and important steps of the methodology are identified by num
 
 \footnotesize
 \begin{figure}
-\includegraphics[width=6.47in]{figure/methodology} \caption{Methodology}\label{fig:methodology}
+
+{\centering \includegraphics[width=6.47in]{figure/methodology} 
+
+}
+
+\caption{Methodology}\label{fig:methodology}
 \end{figure}
 \normalsize
 
@@ -1094,7 +1099,12 @@ According to the protocol for field data collection and location of methodologic
 
 \footnotesize
 \begin{figure}
-\includegraphics[width=6.81in]{figure/anemometer} \caption{Cross-sectional of multi-sensor automatic weather station, adapted from IDEAM (2005)}\label{fig:anemometer}
+
+{\centering \includegraphics[width=6.81in]{figure/anemometer} 
+
+}
+
+\caption{Cross-sectional of multi-sensor automatic weather station. Source Triana (2019)}\label{fig:anemometer}
 \end{figure}
 \normalsize
 
@@ -1106,7 +1116,7 @@ Due to the effects that the terrain has on wind speed, a correction should be ap
 \[
 Roughness = z_0= 0.5 * H_{ob}*\frac{S_{ob}}{A_{ob}}
 \]
-Where \(H_{ob}\) is the average height of the obstacles, \(S_{ob}\) is the average vertical area perpendicular to the wind of the obstacle, and \(A_{ob}\) is the average area of the terrain occupied by each obstruction. Then the empirical exponent \(\alpha\), gradient height \(z_g\), and exposure coefficient \(K_z\), corresponding to equations C26.10-3, C26.10-4, and C26.10-1.si of Engineers (\protect\hyperlink{ref-Asce2017}{2017}), are used to calculate the correction factor \(F_{exposition}\), verifying that \(z_0\) units are in meters.
+Where \(H_{ob}\) is the average height of the obstacles, \(S_{ob}\) is the average vertical area perpendicular to the wind of the obstacle, and \(A_{ob}\) is the average area of the terrain occupied by each obstruction. Then, the empirical exponent \(\alpha\), gradient height \(z_g\), and exposure coefficient \(K_z\), corresponding to equations C26.10-3, C26.10-4, and C26.10-1.si of Engineers (\protect\hyperlink{ref-Asce2017}{2017}), are used to calculate the correction factor \(F_{exposition}\), verifying that \(z_0\) units are in meters.
 
 \[
 \alpha =  5.65*z_0^{-0.133}
@@ -1123,6 +1133,53 @@ K_z= 2.01*\left(\frac{z}{z_g}\right)
 \[
 F_{exposition} = \frac{0.951434}{K_z}
 \]
+Calculation of roughness need to be weigthed according to the predominance of wind direction in eight directions (north, south, east, west, north-east, north-west, south-east, south/west), see figure \ref{fig:compassrose}, using a detailed aerial photo or satellite image, as shown in figure \ref{fig:lettaustation}, with south direction highlighted.
+
+\footnotesize
+\begin{figure}
+
+{\centering \includegraphics[width=4.78in]{figure/viensanandres} 
+
+}
+
+\caption{Wind rose for weather station of Colombia. Source IDEAM (1999)}\label{fig:compassrose}
+\end{figure}
+\normalsize
+
+\footnotesize
+\begin{figure}
+
+{\centering \includegraphics[width=3.56in]{figure/aerial_photo_pintar} 
+
+}
+
+\caption{Aerial photo for station KBHM, with south 45 degree sector highlighted. Source NIST (2012)}\label{fig:lettaustation}
+\end{figure}
+\normalsize
+
+Figure \ref{fig:lettauexamples} shows extreme conditions for roughness, open space in left image, closed space in center image, and a typical example where Lettau procedure is needed. Lettau equation need to be applied to each direction and then the final \(z_o\) value is the weighted average, using historical wind pertentage. See figure \ref{fig:lettauvalues} showing the strokes made to calculate the different areas for two Colombian stations. Information about wind percentage per station were obtained in IDEAM (\protect\hyperlink{ref-ideam1999}{1999}).
+
+\footnotesize
+\begin{figure}
+
+{\centering \includegraphics[width=6.15in]{figure/lettauexamples} 
+
+}
+
+\caption{Roughness values: 0.05 for open space (left), 0.1 for closed space (center), and areas where Lettau equation is needed because roughness is different in each direction (right). From Triana (2019)}\label{fig:lettauexamples}
+\end{figure}
+\normalsize
+
+\footnotesize
+\begin{figure}
+
+{\centering \includegraphics[width=6.18in]{figure/lettauvalues} 
+
+}
+
+\caption{Lettau calculation. In red the area occupied by the obstacles, and in blue the perpendicular area. Source Sandoval (2019)}\label{fig:lettauvalues}
+\end{figure}
+\normalsize
 
 \hypertarget{averaging-time---3-s-gust}{%
 \subsubsection{Averaging Time - 3-s gust}\label{averaging-time---3-s-gust}}
@@ -1282,6 +1339,9 @@ Harris, J. W., \& Stocker, H. (1998). Maximum likelihood method. In \emph{Handbo
 
 \leavevmode\hypertarget{ref-Hosking1997}{}%
 Hosking, J. R. M., \& Wallis, J. R. (1997). \emph{Regional frequency analysis}. Cambridge University Press. \url{http://doi.org/10.1017/cbo9780511529443}
+
+\leavevmode\hypertarget{ref-ideam1999}{}%
+IDEAM. (1999, June). Aeronautical information. Annual wind regime. Web Page. Retrieved from \url{http://bart.ideam.gov.co/cliciu/rosas/viento.htm}
 
 \leavevmode\hypertarget{ref-ideam2005}{}%
 IDEAM. (2005). \emph{Protocolo toma de datos de campo y emplazamiento de estaciones meteorológicas}.
