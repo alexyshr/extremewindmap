@@ -33,18 +33,19 @@ include_graphics(path = "figure/methodology.png")
 
 ```{r mainmethodology, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Iterative process in methodology", size="footnotesize", fig.align="center"}
 include_graphics(path = "figure/main_methodology.png")
-
 ```
 
-## Data
+## Data Standardization
 
-### Getting the data
+Parallel to the standardization activity described below (3-s gust, Roughness, and 10 mts heigh), it is also important to consider for all stations involved in the analysis:
 
-### Exploratory Data Analysis - EDA
+* _Separating_: As far as possible, identify in each record of the time series as thunderstorm (t) or non-thunderstorm (nt)
 
-### Standardization
+* _Filtering_: Remove wind speeds above $200 \frac{Km}{h}$ and data pertaining to hurricane events, because the procedure with hurricane data is different and is done independently
 
-#### Anemometer height - 10 m
+* Downscaling approach: As it happens in this study, where it is intended to complement the local wind analysis in the area under study, with data from ISD (output data of a model for extreme winds), and ERA5 reanalysis dataset (large scale forecast data), it is required to probe by means of _comparisons_ (exploratory data analysis and statistical measures) that modeled or forecast data at large scales are suitable as input to complement the study (local/regional scale).
+
+### Anemometer height - 10 m
 
 According to the protocol for field data collection and location of methodological stations - @ideam2005, the anemometer (wind sensor) in installed always to a fixed high of 10 meters from the surface, as is shown in figure \@ref(fig:anemometer), ergo, no height correction.
 
@@ -52,8 +53,7 @@ According to the protocol for field data collection and location of methodologic
 include_graphics(path = "figure/anemometer.png")
 ```
 
-
-#### Surface Roughness - 0.03 m
+### Surface Roughness at Open Space (0.03 m)
 Due to the effects that the terrain has on wind speed, a correction should be applied if the station is located in a geographical space considered "no open terrain". When terrain is open, the roughness corresponds to 0.03 meters. There are some alternative methodologies to calculate the roughness, @Masters2010 uses the station data, but the separation of the measurements should not exceed one minute, something difficult to obtain, and @Lettau1969 uses an empirical equation that is recommended in @Asce2017 (page 743, equation C26.7-1), which was used here,
 
 $$
@@ -98,7 +98,7 @@ include_graphics(path = "figure/lettauvalues.png")
 ```
 
 
-#### Averaging Time - 3-s gust
+### Averaging Time - 3-s gust
 
 To transform hourly mean wind velocity $V_{3600}$ to 3-s gust velocity $V_3$, @Asce2017 recommends to use @Durst1960. See [Wind Loads Requirements](#windloadsrequirements). As the axis $x$ represents duration $t$ of the gust, what is done is to look there for the value 3 seconds, and read the corresponding gust factor $\frac{V_t}{V_{3600}}$, this is, the value in the axis $y$, then
 
@@ -109,24 +109,78 @@ $$
 It is valid only for open terrain conditions. Durst curve shows in axis $y$ the gust factor $\frac{V_t}{V_{3600}}$, a ration between any wind gust averaged at $t$ seconds, $V_t$, and the hourly averaged wind speed $V_{3600}$, and in the axis $x$ the duration $t$ of the gust.
 
 
-### Filtering 
+## Peaks Over Thresold - Poisson Process (POT-PP)
 
-### Separating 
+Similar to how the adjustment of statistical data to a normal distribution works in order to make inferences considering deviations from the mean, here only some part of the data (those that are extreme - over a high threshold), need to be fitted to a PP considerng extreme deviations from the mean. While in the first case (normal distribution) the inferences are for events similar to the samples, in this case, when working with extreme value theory, the inferences will be for more extreme events than any previously observed or measured. In the [theoretical framework](#rmd-thefra) section are described the main elements of [POT - PP](#pot-pp). 
 
-### Comparison
+In summary, POT means only to work with extreme values, and PP means to adjust data to a _pdf_ which depends on an intensity function $\lambda(t,y)$, where $t$ is time, $y$ is wind extreme velocity, and $D$ is the domain (see Figure \@ref(fig:plotdomainpp)) where all the observations follow a Poisson distribution with mean $\int_D\lambda(t,y)\,dt\,dy$. Main advantage of POT-PP is that it is designed to consider storm and not storm events independently (for each disjoint sub-domain $D_1$ or $D_2$ inside $D$, the observations in $D_1$ or $D_2$ are independent random variables), but in the end use them both for the inferences,
 
-### Selection of input data
-
-
-## POT - Poisson Process
+$$
+pdf = f(t,y|\eta) = \frac{\lambda(t,y)}{\int_D\lambda(t,y)\,dt\,dy}
+$$
 
 ### De-clustering
 
+To make the assumptions of PP more justifiable, it  is important to have only one sample per event, the highest one. For instance, if a hypothetical storm started at 11:30 in the morning and ended at 12:30 in the afternoon, and the time series for that event has thirty wind measurements (one each two minutes), it is neccesary to leave only the stronger or maximun value, and this process is called de-clustering (see Figure \@ref(fig:declustering)). POT-PP defines that all the adjacent observations separeted by one hour (1) or less in the case of thunderstorm events, and four (4) days or less in the case of non-thunderstorm events belong to the same cluster.
+
+```{r declustering, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="De-clustering in PP. Two thunderstorm clusters are shown. Separation between adjacent observations inside the clusters are always equal or less than one hour. Distance between the last event in the first cluster and the first event in the second cluster is larger than one hour. Only red samples are used to fit the PP", size="footnotesize", fig.width= 3, fig.height= 3, fig.align="center"}
+par(bg=NA)
+par(xpd = NA)
+op <- par(mar = rep(0, 4))
+#par(pin = c(5, 1))
+plot(1, type="n", xlab="", ylab="",
+     xlim=c(0,4), ylim= c(0,0.5), xaxt ="n", yaxt="n", bty="n", bg = 'transparent')
+axis(1, labels=FALSE, tick=TRUE, col.axis="black", lwd.ticks=0.05, tck=0.04, lwd=0.1)
+#axis(2, labels=FALSE, tick=TRUE, col.axis="black", lwd.ticks=0.5)
+x=rnorm(8, mean = 1, sd = 0.5)
+y=rnorm(8, mean = 0.25, sd = 0.1)
+points(x, y, col="cornsilk4", pch=20)
+points(0.5, 0.5, col="red", pch=20, cex=1.3)
+abline(v=2, lty="dotted")
+
+x=rnorm(8, mean = 3, sd = 0.5)
+y=rnorm(8, mean = 0.25, sd = 0.1)
+points(x, y, col="cyan3", pch=15, cex=0.7)
+points(3.3, 0.4, col="red", pch=15, cex=0.9)
+```
+
+
+### Thresholding {#thresholding}
+
+As the POT model requires to work only with the most extreme values in the time series, it is necessary to select a threshold to filter out small values. Selection of threshold value imply two effects in the model. Bias is high when a low threshold is selected (many exceedances) because the asymptotic support is weak. Opposite situation happens for high thresholds where variance is potentially high, so according to @Davison1990, it is needed to select a threshold value, consistent with model structure.
+
+```{r thresholding, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="POT - Thresholding", size="footnotesize", fig.width= 3, fig.height= 3, fig.align="center"}
+par(bg=NA)
+par(xpd = NA)
+op <- par(mar = rep(0, 4))
+#par(pin = c(5, 1))
+plot(1, type="n", xlab="", ylab="",
+     xlim=c(0,4), ylim= c(0,1), xaxt ="n", yaxt="n", bty="n", bg = 'transparent')
+axis(1, labels=FALSE, tick=TRUE, col.axis="black", lwd.ticks=0.05, tck=0.04, lwd=0.1)
+#axis(2, labels=FALSE, tick=TRUE, col.axis="black", lwd.ticks=0.5)
+x=rnorm(7, mean = 2, sd = 1)
+y=rnorm(7, mean = 0.6, sd = 0.2)
+points(x, y, col="red", pch=15, cex = 0.7)
+
+abline(h=0.3, lty="dotted")
+x=rnorm(15, mean = 2, sd = 2)
+y=rnorm(15, mean = 0.2, sd = 0.03)
+points(x, y, col="black", pch=20, cex = 1)
+```
+
+Selection of the thresholds pairs, one for thunderstorm, and one for non-thunderstorm, is based in $W$ transformation described in [threshold selection section](#thresholdselection). W-statiscic is done comparing the ordered empirical result of applying $W = -log(1-U)$ to the data, axis $y$ in figure \@ref(fig:wstatistics), with the theoretical quantiles of an exponential variable with uniform distribution between 0 and 1, axis $x$ in same figure. W-statistic is the higest vertical distance between the 45º line and the points in the graphic. The best threshols pairs returns the minimum value for W-statistics after testing, in an iterative process, for many threshold pairs combinations.
+
+```{r wstatistics, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="POT - Thresholding", size="footnotesize", fig.align="center"}
+dat <- readRDS("data/myprint6.rds")
+dat
+points(x=3.1, y=3.8)
+lines(x=c(3.1, 3.1), y=c(3.1,3.8), col="green", lty=5)
+text(x = 3.1, y = 3.4, labels = c("Minimun W-statistic distance"), cex=0.7, pos = 2)
+```
+
 ### Exclude no-data periods
 
-### Thresholding
-
-As the POT model requires to work only with the most extreme values in the time series, it is necessary to select a threshold to filter out small values. Selection of threshold value imply two effects in the model. Bias is high when a low threshold is selected (many exceedances) because the asymptotic support is weak. Opposite situation happens for high thresholds where variance is potentially high, so according to Davidson and Smith 1990 (XXX), it is needed to select a threshold value, consistent with model structure.
+PP requieres to remove long periods of time when stations were not recording or failing. Propoded time is remove all the gaps from the time series larger than 180 days.
 
 ### Fit Intensity Function
 

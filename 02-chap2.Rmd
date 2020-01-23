@@ -517,10 +517,17 @@ where $A_t$, is the multiplication of the average number of thunderstorm per yea
 
 The same thunderstorm event in considered to occur if the time lag distance between successive thunderstorm samples is small than six hours, and for non-thunderstorm this time is 4 days. For the Poisson process, all the measurements belonging to the same event (thunderstorm or non-thunderstorm), need to be de-clustered to leave only one maximum value. In other words, the number of thunderstorm in the time series is the number of time lag distances grater than 6 hours, and for non-thunderstorm grater than 4 days.
 
-### Threshold Selection
+### Threshold Selection {#thresholdselection}
 
-$$U=F(Y)$$
-$$W = -log(1-U)$$
+Method need selection of the best threshold pairs $b_t$ and $b_{nt}$ (see figure \@ref(fig:plotdomainpp)) that produces the optimal fit. Measurement of this threshold fitting is done through $W$ statistics. If wind variable $Y$, in a POT-PP approach, has a $cdf = U = F(Y)$, then $F(Y)$ is distributed as Uniform between 0 and 1 - Uniform(0,1), meaning that the transformation $W = -log(1-U)$ is an exponential random variable with mean one (1).
+
+$$
+cdf = U= F(Y) = P(Y \leq y) = \frac{\int_b^y\lambda(y,t)\,dy}{\int_b^\infty\lambda(y,t)\,dy} 
+$$
+
+The procedure to choose the best thresholds pairs based in W transofrmation, is described in methodology, section [thresholding](#thresholding).
+
+
 
 ## Wind Loads Requirements {#windloadsrequirements}
 

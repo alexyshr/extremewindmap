@@ -116,14 +116,13 @@
 }
 
 @Book{nsr2010,
-  title         = {Reglamento colombiano de construcci{\'o}n sismo-resistente NSR-10: Estructuras met{\'a}licas ; Estructuras de madera y estructuras de guadua ; Estudios geot{\'e}cnicos ; Supervisi{\'o}n t{\'e}cnica ; Requisitos de protecci{\'o}n contra incendios en edificaciones ; Requisitos complementarios},
-  publisher     = {Temas Jur{\'\i}dicos},
-  year          = {2010},
-  author        = {Colombia. Ministerio de Ambiente, Vivienda y Desarrollo Territorial},
-  series        = {Reglamento colombiano de construcci{\'o}n sismo-resistente NSR-10},
-  isbn          = {9789583035739},
-  __markedentry = {[alexyshr:]},
-  url           = {https://books.google.de/books?id=Oxj5jgEACAAJ},
+  title     = {Reglamento colombiano de construcci{\'o}n sismo-resistente NSR-10: Estructuras met{\'a}licas ; Estructuras de madera y estructuras de guadua ; Estudios geot{\'e}cnicos ; Supervisi{\'o}n t{\'e}cnica ; Requisitos de protecci{\'o}n contra incendios en edificaciones ; Requisitos complementarios},
+  publisher = {Temas Jur{\'\i}dicos},
+  year      = {2010},
+  author    = {Colombia. Ministerio de Ambiente, Vivienda y Desarrollo Territorial},
+  series    = {Reglamento colombiano de construcci{\'o}n sismo-resistente NSR-10},
+  isbn      = {9789583035739},
+  url       = {https://books.google.de/books?id=Oxj5jgEACAAJ},
 }
 
 @Book{Coles2001,
@@ -161,7 +160,7 @@
   volume        = {8},
   number        = {5},
   pages         = {828-832},
-  __markedentry = {[alexyshr:6]},
+  __markedentry = {[alexyshr:]},
   abstract      = { Abstract },
   doi           = {10.1175/1520-0450(1969)008<0828:NOARPE>2.0.CO;2},
   eprint        = {https://doi.org/10.1175/1520-0450(1969)008<0828:NOARPE>2.0.CO;2},
@@ -193,7 +192,7 @@
   url          = {http://bart.ideam.gov.co/cliciu/rosas/viento.htm},
 }
 
-@Misc{sandoval2019,
+@Misc{triana2019,
   author       = {Juan David Sandoval Triana},
   title        = {Contrato no. 01-03-2019 AIS-JDST. Actividades profesionales necesarias para actualizar el mapa de velocidades básicas de viento para el documento AIS 100-19.},
   howpublished = {PDF},
@@ -201,6 +200,21 @@
   year         = {2019},
   note         = {Asociación Colombiana de Ingeniería Sísmica - AIS},
   timestamp    = {2019-12-10},
+}
+
+@Article{Davison1990,
+  author        = {A. C. Davison and R. L. Smith},
+  title         = {Models for Exceedances over High Thresholds},
+  journal       = {Journal of the Royal Statistical Society. Series B (Methodological)},
+  year          = {1990},
+  volume        = {52},
+  number        = {3},
+  pages         = {393--442},
+  issn          = {00359246},
+  __markedentry = {[alexyshr:6]},
+  abstract      = {We discuss the analysis of the extremes of data by modelling the sizes and occurrence of exceedances over high thresholds. The natural distribution for such exceedances, the generalized Pareto distribution, is described and its properties elucidated. Estimation and model-checking procedures for univariate and regression data are developed, and the influence of and information contained in the most extreme observations in a sample are studied. Models for seasonality and serial dependence in the point process of exceedances are described. Sets of data on river flows and wave heights are discussed, and an application to the siting of nuclear installations is described.},
+  publisher     = {[Royal Statistical Society, Wiley]},
+  url           = {http://www.jstor.org/stable/2345667},
 }
 
 @Comment{jabref-meta: databaseType:bibtex;}

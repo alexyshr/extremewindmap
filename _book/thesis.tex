@@ -1023,11 +1023,16 @@ where \(A_t\), is the multiplication of the average number of thunderstorm per y
 
 The same thunderstorm event in considered to occur if the time lag distance between successive thunderstorm samples is small than six hours, and for non-thunderstorm this time is 4 days. For the Poisson process, all the measurements belonging to the same event (thunderstorm or non-thunderstorm), need to be de-clustered to leave only one maximum value. In other words, the number of thunderstorm in the time series is the number of time lag distances grater than 6 hours, and for non-thunderstorm grater than 4 days.
 
-\hypertarget{threshold-selection}{%
-\subsection{Threshold Selection}\label{threshold-selection}}
+\hypertarget{thresholdselection}{%
+\subsection{Threshold Selection}\label{thresholdselection}}
 
-\[U=F(Y)\]
-\[W = -log(1-U)\]
+Method need selection of the best threshold pairs \(b_t\) and \(b_{nt}\) (see figure \ref{fig:plotdomainpp}) that produces the optimal fit. Measurement of this threshold fitting is done through \(W\) statistics. If wind variable \(Y\), in a POT-PP approach, has a \(cdf = U = F(Y)\), then \(F(Y)\) is distributed as Uniform between 0 and 1 - Uniform(0,1), meaning that the transformation \(W = -log(1-U)\) is an exponential random variable with mean one (1).
+
+\[
+cdf = U= F(Y) = P(Y \leq y) = \frac{\int_b^y\lambda(y,t)\,dy}{\int_b^\infty\lambda(y,t)\,dy} 
+\]
+
+The procedure to choose the best thresholds pairs based in W transofrmation, is described in methodology, section \protect\hyperlink{thresholding}{thresholding}.
 
 \hypertarget{windloadsrequirements}{%
 \section{Wind Loads Requirements}\label{windloadsrequirements}}
@@ -1085,20 +1090,20 @@ More representative and important steps of the methodology are identified by num
 \end{figure}
 \normalsize
 
-\hypertarget{data}{%
-\section{Data}\label{data}}
+\hypertarget{data-standardization-1}{%
+\section{Data Standardization}\label{data-standardization-1}}
 
-\hypertarget{getting-the-data}{%
-\subsection{Getting the data}\label{getting-the-data}}
-
-\hypertarget{exploratory-data-analysis---eda}{%
-\subsection{Exploratory Data Analysis - EDA}\label{exploratory-data-analysis---eda}}
-
-\hypertarget{standardization}{%
-\subsection{Standardization}\label{standardization}}
-
+Parallel to the standardization activity described below (3-s gust, Roughness, and 10 mts heigh), it is also important to consider for all stations involved in the analysis:
+\begin{itemize}
+\item
+  \emph{Separating}: As far as possible, identify in each record of the time series as thunderstorm (t) or non-thunderstorm (nt)
+\item
+  \emph{Filtering}: Remove wind speeds above \(200 \frac{Km}{h}\) and data pertaining to hurricane events, because the procedure with hurricane data is different and is done independently
+\item
+  Downscaling approach: As it happens in this study, where it is intended to complement the local wind analysis in the area under study, with data from ISD (output data of a model for extreme winds), and ERA5 reanalysis dataset (large scale forecast data), it is required to probe by means of \emph{comparisons} (exploratory data analysis and statistical measures) that modeled or forecast data at large scales are suitable as input to complement the study (local/regional scale).
+\end{itemize}
 \hypertarget{anemometer-height---10-m}{%
-\subsubsection{Anemometer height - 10 m}\label{anemometer-height---10-m}}
+\subsection{Anemometer height - 10 m}\label{anemometer-height---10-m}}
 
 According to the protocol for field data collection and location of methodological stations - IDEAM (\protect\hyperlink{ref-ideam2005}{2005}), the anemometer (wind sensor) in installed always to a fixed high of 10 meters from the surface, as is shown in figure \ref{fig:anemometer}, ergo, no height correction.
 
@@ -1113,8 +1118,8 @@ According to the protocol for field data collection and location of methodologic
 \end{figure}
 \normalsize
 
-\hypertarget{surface-roughness---0.03-m}{%
-\subsubsection{Surface Roughness - 0.03 m}\label{surface-roughness---0.03-m}}
+\hypertarget{surface-roughness-at-open-space-0.03-m}{%
+\subsection{Surface Roughness at Open Space (0.03 m)}\label{surface-roughness-at-open-space-0.03-m}}
 
 Due to the effects that the terrain has on wind speed, a correction should be applied if the station is located in a geographical space considered ``no open terrain''. When terrain is open, the roughness corresponds to 0.03 meters. There are some alternative methodologies to calculate the roughness, Masters, Vickery, Bacon, \& Rappaport (\protect\hyperlink{ref-Masters2010}{2010}) uses the station data, but the separation of the measurements should not exceed one minute, something difficult to obtain, and Lettau (\protect\hyperlink{ref-Lettau1969}{1969}) uses an empirical equation that is recommended in Engineers (\protect\hyperlink{ref-Asce2017}{2017}) (page 743, equation C26.7-1), which was used here,
 
@@ -1187,7 +1192,7 @@ Figure \ref{fig:lettauexamples} shows extreme conditions for roughness, open spa
 \normalsize
 
 \hypertarget{averaging-time---3-s-gust}{%
-\subsubsection{Averaging Time - 3-s gust}\label{averaging-time---3-s-gust}}
+\subsection{Averaging Time - 3-s gust}\label{averaging-time---3-s-gust}}
 
 To transform hourly mean wind velocity \(V_{3600}\) to 3-s gust velocity \(V_3\), Engineers (\protect\hyperlink{ref-Asce2017}{2017}) recommends to use C. S. Durst (\protect\hyperlink{ref-Durst1960}{1960}). See \protect\hyperlink{windloadsrequirements}{Wind Loads Requirements}. As the axis \(x\) represents duration \(t\) of the gust, what is done is to look there for the value 3 seconds, and read the corresponding gust factor \(\frac{V_t}{V_{3600}}\), this is, the value in the axis \(y\), then
 
@@ -1197,31 +1202,66 @@ V_t = V_{3\,seconds} = (gust factor) * V_{3600\,seconds}
 
 It is valid only for open terrain conditions. Durst curve shows in axis \(y\) the gust factor \(\frac{V_t}{V_{3600}}\), a ration between any wind gust averaged at \(t\) seconds, \(V_t\), and the hourly averaged wind speed \(V_{3600}\), and in the axis \(x\) the duration \(t\) of the gust.
 
-\hypertarget{filtering}{%
-\subsection{Filtering}\label{filtering}}
+\hypertarget{peaks-over-thresold---poisson-process-pot-pp}{%
+\section{Peaks Over Thresold - Poisson Process (POT-PP)}\label{peaks-over-thresold---poisson-process-pot-pp}}
 
-\hypertarget{separating}{%
-\subsection{Separating}\label{separating}}
+Similar to how the adjustment of statistical data to a normal distribution works in order to make inferences considering deviations from the mean, here only some part of the data (those that are extreme - over a high threshold), need to be fitted to a PP considerng extreme deviations from the mean. While in the first case (normal distribution) the inferences are for events similar to the samples, in this case, when working with extreme value theory, the inferences will be for more extreme events than any previously observed or measured. In the \protect\hyperlink{rmd-thefra}{theoretical framework} section are described the main elements of \protect\hyperlink{pot-pp}{POT - PP}.
 
-\hypertarget{comparison}{%
-\subsection{Comparison}\label{comparison}}
+In summary, POT means only to work with extreme values, and PP means to adjust data to a \emph{pdf} which depends on an intensity function \(\lambda(t,y)\), where \(t\) is time, \(y\) is wind extreme velocity, and \(D\) is the domain (see Figure \ref{fig:plotdomainpp}) where all the observations follow a Poisson distribution with mean \(\int_D\lambda(t,y)\,dt\,dy\). Main advantage of POT-PP is that it is designed to consider storm and not storm events independently (for each disjoint sub-domain \(D_1\) or \(D_2\) inside \(D\), the observations in \(D_1\) or \(D_2\) are independent random variables), but in the end use them both for the inferences,
 
-\hypertarget{selection-of-input-data}{%
-\subsection{Selection of input data}\label{selection-of-input-data}}
-
-\hypertarget{pot---poisson-process}{%
-\section{POT - Poisson Process}\label{pot---poisson-process}}
+\[
+pdf = f(t,y|\eta) = \frac{\lambda(t,y)}{\int_D\lambda(t,y)\,dt\,dy}
+\]
 
 \hypertarget{de-clustering}{%
 \subsection{De-clustering}\label{de-clustering}}
 
-\hypertarget{exclude-no-data-periods}{%
-\subsection{Exclude no-data periods}\label{exclude-no-data-periods}}
+To make the assumptions of PP more justifiable, it is important to have only one sample per event, the highest one. For instance, if a hypothetical storm started at 11:30 in the morning and ended at 12:30 in the afternoon, and the time series for that event has thirty wind measurements (one each two minutes), it is neccesary to leave only the stronger or maximun value, and this process is called de-clustering (see Figure \ref{fig:declustering}). POT-PP defines that all the adjacent observations separeted by one hour (1) or less in the case of thunderstorm events, and four (4) days or less in the case of non-thunderstorm events belong to the same cluster.
+
+\footnotesize
+\begin{figure}
+
+{\centering \includegraphics{thesis_files/figure-latex/declustering-1} 
+
+}
+
+\caption{De-clustering in PP. Two thunderstorm clusters are shown. Separation between adjacent observations inside the clusters are always equal or less than one hour. Distance between the last event in the first cluster and the first event in the second cluster is larger than one hour. Only red samples are used to fit the PP}\label{fig:declustering}
+\end{figure}
+\normalsize
 
 \hypertarget{thresholding}{%
 \subsection{Thresholding}\label{thresholding}}
 
-As the POT model requires to work only with the most extreme values in the time series, it is necessary to select a threshold to filter out small values. Selection of threshold value imply two effects in the model. Bias is high when a low threshold is selected (many exceedances) because the asymptotic support is weak. Opposite situation happens for high thresholds where variance is potentially high, so according to Davidson and Smith 1990 (XXX), it is needed to select a threshold value, consistent with model structure.
+As the POT model requires to work only with the most extreme values in the time series, it is necessary to select a threshold to filter out small values. Selection of threshold value imply two effects in the model. Bias is high when a low threshold is selected (many exceedances) because the asymptotic support is weak. Opposite situation happens for high thresholds where variance is potentially high, so according to Davison \& Smith (\protect\hyperlink{ref-Davison1990}{1990}), it is needed to select a threshold value, consistent with model structure.
+
+\footnotesize
+\begin{figure}
+
+{\centering \includegraphics{thesis_files/figure-latex/thresholding-1} 
+
+}
+
+\caption{POT - Thresholding}\label{fig:thresholding}
+\end{figure}
+\normalsize
+
+Selection of the thresholds pairs, one for thunderstorm, and one for non-thunderstorm, is based in \(W\) transformation described in \protect\hyperlink{thresholdselection}{threshold selection section}. W-statiscic is done comparing the ordered empirical result of applying \(W = -log(1-U)\) to the data, axis \(y\) in figure \ref{fig:wstatistics}, with the theoretical quantiles of an exponential variable with uniform distribution between 0 and 1, axis \(x\) in same figure. W-statistic is the higest vertical distance between the 45º line and the points in the graphic. The best threshols pairs returns the minimum value for W-statistics after testing, in an iterative process, for many threshold pairs combinations.
+
+\footnotesize
+\begin{figure}
+
+{\centering \includegraphics{thesis_files/figure-latex/wstatistics-1} 
+
+}
+
+\caption{POT - Thresholding}\label{fig:wstatistics}
+\end{figure}
+\normalsize
+
+\hypertarget{exclude-no-data-periods}{%
+\subsection{Exclude no-data periods}\label{exclude-no-data-periods}}
+
+PP requieres to remove long periods of time when stations were not recording or failing. Propoded time is remove all the gaps from the time series larger than 180 days.
 
 \hypertarget{fit-intensity-function}{%
 \subsection{Fit Intensity Function}\label{fit-intensity-function}}
@@ -1517,6 +1557,9 @@ Coles, S. (2001). \emph{An introduction to statistical modeling of extreme value
 
 \leavevmode\hypertarget{ref-Durst1960}{}%
 C. S. Durst, B. A., O. B.E. (1960). Wind speeds over short periods of time. \emph{The Meteorological Magazine}, \emph{89}(1056), 181--187. Retrieved from \url{https://www.depts.ttu.edu/nwi/Pubs/ReportsJournals/ReportsJournals/Windspeeds.pdf}
+
+\leavevmode\hypertarget{ref-Davison1990}{}%
+Davison, A. C., \& Smith, R. L. (1990). Models for exceedances over high thresholds. \emph{Journal of the Royal Statistical Society. Series B (Methodological)}, \emph{52}(3), 393--442. Retrieved from \url{http://www.jstor.org/stable/2345667}
 
 \leavevmode\hypertarget{ref-Asce2017}{}%
 Engineers, A. S. O. C. (2017). \emph{Minimum design loads and associated criteria for buildings and other structures (asce7-16)}. American Society of Civil Engineers. Retrieved from \url{https://www.ebook.de/de/product/35017614/american_society_of_civil_engineers_minimum_design_loads_and_associated_criteria_for_buildings_and_other_structures_7_16.html}
