@@ -367,10 +367,22 @@ where $G$ is the _ppf_ (quantile function) and $\lambda$ is the number of wind s
 
 The CRAN Task View "Extreme Value Analysis" <https://cran.r-project.org/web/views/ExtremeValue.html> shows available **R** for block maxima, POT by GPD, and external indexes estimation approaches. Most important to consider are `evd`, `extremes`, `evir`, `POT`, `extremeStat`, `ismev`, and `Renext`.
 
- 
-## Peaks Over Threshold - Poisson Process {#pot-pp}
+### POT-GPD {#pot-gpd}
 
-According to @Pintar2015 the stochastic Poisson process is mainly defined by its intensity function. As the intensity function is nos uniform over the domain, the Poisson process considered here is non-homogeneous, and due to the intensity function dependency of magnitude and time, it is also bi-dimensional. Poisson Process was described for the first time in @Pickands1971, then extended in @Smith1989.
+Short description of POT-GPD (this section need to be complemented)
+
+In POT-GPD, to calculate return levels (RL), $Y_N$, corresponding to the N-years return period, next equation is used,
+
+$$
+Y_N =G\left(y, 1-\frac{1}{\lambda\,N}\right)
+$$
+
+Where $G$ is the quantile function (_ppf_), and the value of the probability passed to the $G$ function, has to be modified with the $\lambda$ parameter. $\lambda$ is the number of wind speed events over the threshold per year.
+
+ 
+## Peaks Over Threshold Poisson Process POT-PP {#pot-pp}
+
+According to @Pintar2015 the stochastic Poisson Process - PP is mainly defined by its intensity function. As the intensity function is not uniform over the domain, the PP considered here is non-homogeneous, and due to the intensity function dependency of magnitude and time, it is also bi-dimensional. PP was described for the first time in @Pickands1971, then extended in @Smith1989.
 
 \begin{equation}
   \mathrm{
@@ -386,37 +398,21 @@ According to @Pintar2015 the stochastic Poisson process is mainly defined by its
   (\#eq:ppgenericintensityfunction)
 \end{equation}
 
-Generic equation \@ref(eq:ppgenericintensityfunction) shows the intensity function, which is defined in the domain $D = D_t\,{\cup}\,D_{nt}$, and allow to fit the Poisson process at each station to the observed data $\{t_i, y_i\}_{i=1}^I$ for all the times ($t_i$) of threshold crossing observations and its corresponding wind speeds magnitudes ($y_i$). Thus, only data above the threshold is used.
+Generic equation \@ref(eq:ppgenericintensityfunction) shows the intensity function, which is defined in the domain $D = D_t\,{\cup}\,D_{nt}$, and allow to fit the PP at each station to the observed data $\{t_i, y_i\}_{i=1}^I$, for all the times ($t_i$) of threshold crossing observations, and its corresponding wind speeds magnitudes ($y_i$). Thus, only data above the threshold (POT) are used.
 
-Intensity function of the Poisson Process is defined in @Smith2004, 
-
-$$
-\frac{1}{\psi_t}\left(1+\zeta_t\frac{y-\omega_t}{\psi_t}\right)_+^{-\frac{1}{\zeta_t}-1}
-$$
-Where $\zeta_t$ controls the tail length of the intensity function at a given time $t$, but to facilitate the estimation of the parameters then $\zeta_t$ is taken to be zero, then doing the limit, the resulting intensity function is the same as the the GEV type I or Gumbel distribution,
-
-$$
-\frac{1}{\psi_t}\exp\left\{\frac{-(y-\omega_t)}{\psi_t}\right\}
-$$
-
-In this study, the used intensity functions are shown in equation \@ref(eq:ppspecificintensityfunction).
+Intensity function of the PP is defined in @Smith2004, 
 
 \begin{equation}
   \mathrm{
-    \lambda\left(y,t\right)
-    \begin{cases}
-      \begin{split}
-            &\frac{1}{\psi_s}\exp\left\{\frac{-(y-\omega_s)}{\psi_s}\right\},\;for\,t\,in\,thunderstorm\,period
-            \\
-            &\frac{1}{\psi_{nt}}\exp\left\{\frac{-(y-\omega_{nt})}{\psi_{nt}}\right\},\;for\,t\,in\,non-thunderstorm\,period      
-      \end{split}
-    \end{cases}
+    \frac{1}{\psi_t}\left(1+\zeta_t\frac{y-\omega_t}{\psi_t}\right)_+^{-\frac{1}{\zeta_t}-1}
   }
-  (\#eq:ppspecificintensityfunction)
-\end{equation}
+  (\#eq:ppintensityfunction)
+\end{equation}  
+
+Where, at a given time $t$, parameter $shape = \zeta_t$ controls the tail length of the intensity function, and the other two parameters $\omega_t$ and $\psi_t$ define the location and scale of the intensity function.
 
 
-```{r plotdomainpp, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Domain off the Poisson Process", size="footnotesize", fig.width= 4, fig.height= 4}
+```{r plotdomainpp, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Domain off the Poisson Process - PP", size="footnotesize", fig.width= 4, fig.height= 4}
 plot(1, type="n", xlab="Time", ylab="Wind Speed", 
      xlim=c(0,30), ylim= c(0,30), xaxt ="n", yaxt="n", bty="n")
 xpos=c(10,15,20,30)
@@ -459,22 +455,21 @@ axis(1, labels=FALSE, tick=TRUE, col.axis="black", lwd.ticks=0)
 axis(2, labels=FALSE, tick=TRUE, col.axis="black", lwd.ticks=0)
 ```
 
-Figure \@ref(fig:plotdomainpp) represent the domain $D$ of the Poisson process. In time, the domain represents the station service period from first sample $t_1$ to last sample $t_4$. $D$ is the union of all thunderstorm periods $D_t$ (from $t_2$ to $t_3$), and all non-thunderstorm periods $D_{nt}$ (periods $t_1$ to $t_2$ and $t_3$ to $t_4$). In magnitude, only thunderstorm data above its threshold $b_t$, and only non-thunderstorm data above its threshold $b_{nt}$ are used. 
+Figure \@ref(fig:plotdomainpp) represent the domain $D$ of PP. In time, the domain represents the station service period from first sample $t_1$ to last sample $t_4$. $D$ is the union of all thunderstorm periods $D_t$ (from $t_2$ to $t_3$), and all non-thunderstorm periods $D_{nt}$ (periods $t_1$ to $t_2$ and $t_3$ to $t_4$). In magnitude, only thunderstorm data above its threshold $b_t$, and only non-thunderstorm data above its threshold $b_{nt}$ are used. 
 
 Thunderstorms and non-thunderstorms are modeled independently: 
 
 1. Observations in domain $D$ follow a Poisson distribution with mean $\int_D\lambda(t,y)\,dt\,dy$
 2. For each disjoint sub-domain $D_1$ or $D_2$ inside $D$, the observations in $D_1$ or $D_2$ are independent random variables.
 
-Visual representation of the intensity function for the Poisson Process can be seen in figure \@ref(fig:plotdomain3dpp). In vertical axis, two surfaces were drawn representing independent intensity functions for thunderstorm $\lambda_t(y)$ and for non-thunderstorm $\lambda_{nt}(y)$. The volume under each surface for its corresponding time periods and peak (over threshold) velocities, is the mean of the Poisson Process.
+Visual representation of the intensity function for PP can be seen in figure \@ref(fig:plotdomain3dpp). In vertical axis, two surfaces were drawn representing independent intensity functions for thunderstorm $\lambda_t(y)$ and for non-thunderstorm $\lambda_{nt}(y)$. The volume under each surface for its corresponding time periods and peak (over threshold) velocities, is the mean of PP.
 
 
-```{r plotdomain3dpp, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Volume under surfaces represents the mean of the Poisson process", size="footnotesize", fig.width= 5, fig.height= 5}
+```{r plotdomain3dpp, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Volume under surfaces represents the mean of PP", size="footnotesize", fig.width= 5, fig.height= 5}
 include_graphics(path = "figure/domain3d.PNG")
 ```
 
-
-The method of maximum likelihood es used to estimate the parameters of the Poisson process, the selected vector of parameters $\eta$ are the $\hat\eta$ values that maximizes the function
+To fit the intensity function to the data, the method of maximum likelihood is used to estimate its parameters, $scale = \psi$, $location = \omega$, and $shape = \zeta$, the selected vector of parameters $\eta$ are the $\hat\eta = (\hat\psi, \hat\omega, \hat\zeta)$ values that maximizes next function
 
 \begin{equation}
   \mathrm{
@@ -488,42 +483,36 @@ The method of maximum likelihood es used to estimate the parameters of the Poiss
   (\#eq:pplikelihood)
 \end{equation}
 
-$\hat\eta$ values need to be calculated using a numerical approach because there is not analytical solution available.
+The values of $\hat\eta$ need to be calculated using a numerical approach, because there is not analytical solution available.
 
-Once the Poisson process is fitted to the data, the model will provide extreme wind velocities (return levels), for different return periods (mean recurrence intervals). 
+Once the PP is fitted to the data, the model will provide extreme wind velocities (return levels), for different return periods (mean recurrence intervals). 
 
-
-A $Y_N$ extreme wind velocity, called the return level (RL) belonging to the N-years return period, has a expected frequency to occur or to be exceeded (annual exceedance probability)$P_e = \frac{1}{N}$, and also has a probability that the event does not occur (annual non-exceedance probability) $P_{ne}=1-\frac{1}{N}$. $Y_N$ will be the resulting value of the $G$ (ppf or quantile) function using a probability equal to $P_{ne}$. $Y_N=quantile(y, p=P_{ne})=G(x,p=P_{ne})=ppf(x,p=P_{ne})$. As for this study $\zeta = 0$, the $G$ function to use is the Gumbel quantile function. $Y_N$ can be understood as the wind extreme value expected to be exceeded on average once every N years.
-
-For different POT approaches, as POT-GPD described --, the value of the probability passed to the $G$ function, has to be modified with the $\lambda$ parameter, as is described in next equation. $\lambda$ is the number of wind speed over the threshold per year.
-
-$$
-Y_N =G\left(y, 1-\frac{1}{\lambda\,N}\right)
-$$
-
+A $Y_N$ extreme wind velocity, called the return level (RL) belonging to the N-years return period, has a expected frequency to occur or to be exceeded (annual exceedance probability)$P_e = \frac{1}{N}$, and also has a probability that the event does not occur (annual non-exceedance probability) $P_{ne}=1-\frac{1}{N}$. $Y_N$ will be the resulting value of the $G$ (ppf or quantile) function using a probability equal to $P_{ne}$. $Y_N=quantile(y, p=P_{ne})=G(y,p=P_{ne})=ppf(y,p=P_{ne})$. $Y_N$ can be understood as the wind extreme value expected to be exceeded on average once every N years.
  
 
-For the Poisson process $Y_N$ is also the solution to the next equation, which is defined in terms of the intensity function,
-
+For PP $Y_N$ is the solution to the next equation, which is defined in terms of the intensity function,
 
 \begin{equation}
   \mathrm{
           \int_{Y_N}^{\infty}\int_0^1\lambda\left( y,t\right)dydt = A_t\int_{Y_N}^{\infty}\lambda_t\left( y\right)\,dy + A_{nt}\int_{Y_N}^{\infty}\lambda_{nt}\left( y\right)\,dy = \frac{1}{N}
          }
-  (\#eq:ppmri)
+  (\#eq:pprl)
 \end{equation}
 
-where $A_t$, is the multiplication of the average number of thunderstorm per year and the average length of a thunderstorm (taken to be 1 hour as defined in @Pintar2015), and $A_{nt} = 1 - A_t$. The average length of a non-thunderstorm event is variable, and it is adjusted in each station to guarantee that $A_{nt} + A_t = 1$
+where $A_t$, is the multiplication of the average number of thunderstorm per year and the average length of a thunderstorm, taken to be 1 hour as defined in @Pintar2015, and $A_{nt} = 365 - A_t$. The average length of a non-thunderstorm event is variable, and it is adjusted for each station to guarantee that $A_{nt} + A_t = 365$. Value 365 is used only, if operations with time in the dataset are performed in days.
 
-The same thunderstorm event in considered to occur if the time lag distance between successive thunderstorm samples is small than six hours, and for non-thunderstorm this time is 4 days. For the Poisson process, all the measurements belonging to the same event (thunderstorm or non-thunderstorm), need to be de-clustered to leave only one maximum value. In other words, the number of thunderstorm in the time series is the number of time lag distances grater than 6 hours, and for non-thunderstorm grater than 4 days.
+The same thunderstorm event in considered to occur if the time lag distance between successive thunderstorm samples is small than six hours, and for non-thunderstorm this time is 4 days. For PP, all the measurements belonging to the same event (thunderstorm or non-thunderstorm), need to be de-clustered to leave only one maximum value. In other words, the number of thunderstorm in the time series is one plus the number of time lag distances grater than 6 hours, and for non-thunderstorm grater than 4 days.
 
 ### Threshold Selection {#thresholdselection}
 
-Method need selection of the best threshold pairs $b_t$ and $b_{nt}$ (see figure \@ref(fig:plotdomainpp)) that produces the optimal fit. Measurement of this threshold fitting is done through $W$ statistics. If wind variable $Y$, in a POT-PP approach, has a $cdf = U = F(Y)$, then $F(Y)$ is distributed as Uniform between 0 and 1 - Uniform(0,1), meaning that the transformation $W = -log(1-U)$ is an exponential random variable with mean one (1).
+POT-PP needs selection of the best threshold pairs $b_t$ and $b_{nt}$ (see figure \@ref(fig:plotdomainpp)) that produces the optimal fit. Measurement of this threshold fitting is done through $W$ statistics. If wind variable $Y$, in a POT-PP approach, has a $cdf = U = F(Y)$, then $F(Y)$ is distributed as Uniform between 0 and 1 - Uniform(0,1), meaning that the transformation $W = -log(1-U)$ is an exponential random variable with mean one (1).
 
-$$
-cdf = U= F(Y) = P(Y \leq y) = \frac{\int_b^y\lambda(y,t)\,dy}{\int_b^\infty\lambda(y,t)\,dy} 
-$$
+\begin{equation}
+  \mathrm{
+            cdf = U= F(Y) = P(Y \leq y) = \frac{\int_b^y\lambda(y,t)\,dy}{\int_b^\infty\lambda(y,t)\,dy} 
+         }
+  (\#eq:ppcdf)
+\end{equation}
 
 The procedure to choose the best thresholds pairs based in W transofrmation, is described in methodology, section [thresholding](#thresholding).
 
@@ -531,20 +520,18 @@ The procedure to choose the best thresholds pairs based in W transofrmation, is 
 
 ## Wind Loads Requirements {#windloadsrequirements}
 
-As the output maps of this research will be used as input loads for infrastructure design, the methodology used for its creation, need to be consistent with Colombian official wind loads requirements. Today (2020), the Colombian norm that defines wind loads is the Seismic Resistant Standard 2010 - NSR-10 by its acronym of Spanish, see XXX. Chapter related to wind loads is B.6. NSR-10 was created and is maintained by the Colombian Association of Seismic Engineering - AIS. 
+As the output maps of this research will be used as input loads for infrastructure design, the methodology used for its creation, need to be consistent with Colombian official wind loads requirements. Colombian structure design code, from now the design standard, was created and it maintained by the Colombian Association of Seismic Engineering - AIS. 
 
+The design standard is mainly based in _minimum design loads and associated criteria for buildings and other structures - ASCE7-16_ norm, see @Asce2017. Under these circumstances, ASCE7-16 defines the minimum requirements of the research products. Especially the chapter C26 - "wind loads - general requirements", C26.5 "wind hazard map", and C26.7 "Exposure" - pages 733 to 747. Wind speeds requirements of ASCE7-16 are based in the combination of independent non-hurricane analysis, and hurricane wind speeds simulations models. The focus of this research will be the analysis of non-hurricane wind data, however, existing results of hurricane studies will be used to present final maps with both components. In ASCE7-16, for non-hurricane wind speed, the procedure is mainly based on @Pintar2015.
 
-NSR-10 is mainly based in the USA norm American Society of Civil Engineers 7-16, minimum design loads and associated criteria for buildings and other structures - ASCE7-16, see @Asce2017. Under these circumstances, ASCE7-16 defines the minimum requirements of the research products. Especially the chapter C26 - "wind loads - general requirements", C26.5 "wind hazard map", and C26.7 "Exposure" - pages 733 to 747. Wind speeds requirements of ASCE7-16 are based in the combination of independent non-hurricane analysis, and hurricane wind speeds simulations models. The focus of this research will be the analysis of non-hurricane wind data, however, existing results of hurricane studies will be used to present final maps with both components. In ASCE7-16, for non-hurricane wind speed, the procedure is mainly based on @Pintar2015.
+ASCE7-16 (page 734), requires the calculation of wind extreme return levels for specific return periods according to the risk category of the structure to be designed: risk category I - 300 years,  risk category II - 700 years,  risk category III - 1700 years,  risk category IV - 3000 years. The design standard only requires 700, 1700 and 3000 years. In addition, extreme wind speeds for those MRI need to correspond to: - 3 second gust speeds, - at 33 ft (10 meters) above the ground, and - exposure category C (open space).
 
- 
-ASCE7-16 (page 734), requires the calculation of wind extreme return levels for specific return periods according to the risk category of the structure to be designed: risk category I - 300 years,  risk category II - 700 years,  risk category III - 1700 years,  risk category IV - 3000 years. NSR-10 only requires 700, 1700 and 3000 years. In addition, extreme wind speeds for those MRI need to correspond to: - 3 second gust speeds, - at 33 ft (10 meters) above the ground, and - exposure category C (open space).
-
-* Risk IV - This are 'indispensable buildings' that involve substantial risk. This structures that can handle toxic or explosive substances.
-* Risk III - There is substantial risk because this structures that can handle toxic or explosive substances, can cause a serious economical impact, or massive interruption of activities if they fail
+* Risk IV - This are 'indispensable buildings' that involve substantial risk. These structures that can handle toxic or explosive substances.
+* Risk III - There is substantial risk because these structures that can handle toxic or explosive substances, can cause a serious economical impact, or massive interruption of activities if they fail.
 * Risk II - Category 'by default', and correspond to structures not classified in others categories.
-* Risk I - This structures represent low risk for people lives
+* Risk I - This structures represent low risk for life of people.
 
-To standardize wind speeds to gust speeds ASCE7-16 proposes the curve Durst (see @Durst1960, and figure \@ref(fig:durstcurve)). It is valid only for open terrain conditions. Durst curve shows in axis $y$ the gust factor $\frac{V_t}{V_{3600}}$, a ration between any wind gust averaged at $t$ seconds, $V_t$, and the hourly averaged wind speed $V_{3600}$, and in the axis $x$ the duration $t$ of the gust.
+To standardize wind speeds to gust speeds ASCE7-16 proposes the curve Durst (see @Durst1960, and figure \@ref(fig:durstcurve)). Durst curve is only valid for open terrain conditions, and it shows in axis $y$ the gust factor $\frac{V_t}{V_{3600}}$, a ratio between any wind gust averaged at $t$ seconds, $V_t$, and the hourly averaged wind speed $V_{3600}$, and in the axis $x$ the duration $t$ of the gust in seconds.
 
 
 ```{r durstcurve, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Maximum speeds averaged over t (sec), to hourly mean speed", size="footnotesize", fig.width= 5, fig.height= 5}
