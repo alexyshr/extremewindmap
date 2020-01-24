@@ -514,7 +514,7 @@ POT-PP needs selection of the best threshold pairs $b_t$ and $b_{nt}$ (see figur
   (\#eq:ppcdf)
 \end{equation}
 
-The procedure to choose the best thresholds pairs based in W transofrmation, is described in methodology, section [thresholding](#thresholding).
+The procedure to choose the best thresholds pairs based in W transformation, is described in methodology, section [thresholding](#thresholding).
 
 
 

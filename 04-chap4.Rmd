@@ -25,13 +25,13 @@ source('pp_one_station.r')
 
 # Results {#rmd-results}
 
-First result to show will be the datasource comparison to face the downscaling issue by using ERA5 and ISD database, then, the resulting process of fitting a POT-PP in the station 801120 will be displayed, which includes revision of intensity function parameters, goodness of fit, hazard curve, return levels, and comparison with POT-GPD results, next, non-hurricane maps will be displayed, which includes results for ISD and ERA5 stations, using POT-PP and POT-GPD approaches, and finally, output maps combining hurricane and non-hurricane results will be displayed.
+In this section, first will be shown, the data source comparison to face the downscaling issue by using ERA5 and ISD database, then, the resulting process of fitting a POT-PP in the station 801120, which includes revision of intensity function parameters, goodness of fit, hazard curve, return levels, and comparison with POT-GPD results, next, non-hurricane maps outputs, which includes results for ISD and ERA5 stations, using POT-PP and POT-GPD approaches, and finally, output maps combining hurricane and non-hurricane results will be displayed.
 
-## Datasources comparison
+## Data sources comparison
 
-Looking for a statistical justification in the use of ISD (model) and ERA5 databases (forecast), as input data for this study, and considering the *downscaling approach* described in the [standartization process](#rmd-standartization) section of methodology, datasources ISD and IDEAM were standardized to enable comparison. Standardization consisted of transforming the data into 3-s gust $V_3$, 10 meters height, and open space roughness.
+Looking for a statistical justification in the use of ISD (model) and ERA5 databases (forecast), as input data for this study, and considering the *downscaling approach* described in the [standartization process](#rmd-standartization) section of methodology, data sources ISD and IDEAM were standardized to enable comparison. Standardization consisted of transforming the data into 3-s gust $V_3$, 10 meters height, and open space roughness.
 
-* Variable *10m wind gust - 10fg* of ERA5 datasource does not need standardization, because it comes standardized from the source
+* Variable *10m wind gust - 10fg* of ERA5 data source does not need standardization, because it comes standardized from the source
 
 * In order to obtain $V_3$ from Durst curve, it is required to start from $V_3600$ (average hourly speed), or from a different wind gust speed, for instance $V_6$.
 
@@ -64,133 +64,112 @@ kable_styling(font_size = 10, latex_options="scale_down")
 
 * VV_AUT_2 dataset from IDEAM was transformed to $V_{3600}$ (average hourly speed), averaging all 20 values available per hour.
 
+* Wind velocity $V_5$ from 74 ISD stations, was standardized station by station, using procedure described in [Surface Roughness at Open Space](#rmd-roughness) section, and [Averaging Time 3-s Gust](#rmd-gust) section
 
-* Wind velocity $V_5$ from 74 ISD stations, was standarized station by station, using procedure described in [Surface Roughness at Open Space](#rmd-roughness) section, and [Averaging Time 3-s Gust](#rmd-gust) section
+* Wind velocity from 12 $V_{3600}$ (transformation of VV_AUT_2) IDEAM stations, was standardized station by station, using procedure described in [Surface Roughness at Open Space](#rmd-roughness) section and [Averaging Time 3-s Gust](#rmd-gust)
 
-* Wind velocity from 12 $V_{3600}$ (transformation of VV_AUT_2) IDEAM stations, was standarized station by station, using procedure described in [Surface Roughness at Open Space](#rmd-roughness) section and [Averaging Time 3-s Gust](#rmd-gust)
-
-Twelve standarized stations from ISD and IDEAM (table \@ref(tab:table12stations)) were compared with corresponding ERA5 station (the corresponding cell in ERA5 that has whithin ISD and IDEAM locations). To make the use of ISD and ERA5 viable, its time series are expected to be as similar as possible to IDEAM. To verify this, two types of graphics were constructed:
+Twelve standardized stations from ISD and IDEAM (table \@ref(tab:table12stations)) were compared with corresponding ERA5 station (the corresponding cell in ERA5 that has within ISD and IDEAM locations). To make the use of ISD and ERA5 viable, its time series are expected to be as similar as possible to IDEAM. To verify this, two types of graphics were constructed:
 
 * Time series overlay for the three sources. Not very effective method due to the large amount of data that makes the graphics unreadable.
 
-* Scatterplot maps comparing two different sources. Matching values by time, were sorted ascendingly and put together on a scatter plot. The expected behavior in case of similarity in the data, is that all the points fall in a $45^\circ$ line
+* Scatter plot maps comparing two different sources. Matching values by time, were sorted in ascending order and put together on a scatter plot. The expected behavior in case of similarity in the data, is that all the points fall in a $45^\circ$ line
 
-Stations 28025502 from IDEAM, 800360 from ISD, and 416 (cell with center point in $-73.25^\circ$ longitude, and $10.5^\circ$ latitude) from ERA5, showed high correspondence. See figures \@ref(fig:s800360_timeseries), \@ref(fig:s800360_ideam_vs_era5)
+Stations 28025502 from IDEAM, 800360 from ISD, and 416 (cell with center point in $-73.25^\circ$ longitude, and $10.5^\circ$ latitude) from ERA5, showed high correspondence. See figures \@ref(fig:sideamera5), \@ref(fig:sisdvsera5), \@ref(fig:sideamvsisd).
 
+<!--
+#```{r stimeseries, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Stations comparison: 28025502 (IDEAM), 800360 (ISD), and 416 (ERA5). Time Series", size="footnotesize", fig.align="center"}
+#include_graphics(path = "figure/s800360_timeseries.png")
+#dat <- readRDS("data/comparison11.rds")
+#dat
+#```
+-->
 
-```{r s800360_timeseries, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Stations comparison: 28025502 (IDEAM), 800360 (ISD), and 416 (ERA5). Time Series", size="footnotesize", fig.align="center"}
-#replayPlot(comparison81)
+```{r sideamera5, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Scatter plot of IDEAM vs ERA5. Stations comparison: 28025502 (IDEAM), 800360 (ISD), and 416 (ERA5)", size="footnotesize", fig.align="center"}
+dat1 <- readRDS("data/comparison12.rds")
+dat1
+#include_graphics(path = "figure/s800360_ideam_vs_era5.png")
 ```
 
-```{r s800360_ideam_vs_era5, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Scatterplot of IDEAM vs ERA5. Stations comparison: 28025502 (IDEAM), 800360 (ISD), and 416 (ERA5)", size="footnotesize", fig.align="center"}
-#replayPlot(comparison82)
+```{r sisdvsera5, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Scatter plot of ISD vs ERA5. Stations comparison: 28025502 (IDEAM), 800360 (ISD), and 416 (ERA5)", size="footnotesize", fig.align="center"}
+dat2 <- readRDS("data/comparison13.rds")
+dat2
+#include_graphics(path = "figure/s800360_isd_vs_era5.png")
 ```
 
-```{r s800360_isd_vs_era5, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Scatterplot of ISD vs ERA5. Stations comparison: 28025502 (IDEAM), 800360 (ISD), and 416 (ERA5)", size="footnotesize", fig.align="center"}
-#replayPlot(comparison83)
+```{r sideamvsisd, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Scatter plot of IDEAM vs ISD. Stations comparison: 28025502 (IDEAM), 800360 (ISD), and 416 (ERA5)", size="footnotesize", fig.align="center"}
+dat3 <- readRDS("data/comparison14.rds")
+dat3
+#include_graphics(path = "figure/s800360_ideam_vs_isd.png")
 ```
 
-```{r s800360_ideam_vs_isd, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Scatterplot of IDEAM vs ISD. Stations comparison: 28025502 (IDEAM), 800360 (ISD), and 416 (ERA5)", size="footnotesize", fig.align="center"}
-#replayPlot(comparison84)
-```
 
 ## POT-PP in ISD Station 801120
 
-### Parameters
-
-### Goodness of Fit
-
-### Hazard Curve and Return Levels
-
-### Comparison with POT-GPD 
-
-## Non-Hurrican Maps
-
-### ISD
-
-#### POT-PP
-
-#### POT-GPD
-
-### ERA5
-
-#### POT-PP
-
-#### POT-GPD
-
-
-## Hurrican and Non-Hurrican Maps
-
-### ISD
-
-#### POT-PP
-
-#### POT-GPD
-
-### ERA5
-
-#### POT-PP
-
-#### POT-GPD
-
-
-
-```{r page1, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="test", size="footnotesize", fig.align="center"}
+```{r page1, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Time Series ISD. Station 801120", size="footnotesize", fig.align="center"}
 replayPlot(myprint1)
 ```
 
-```{r page2, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="test", size="footnotesize", fig.align="center"}
-replayPlot(myprint2)
-```
+### W-statiscis Plot
 
-```{r page3, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="test", size="footnotesize", fig.align="center"}
-replayPlot(myprint3)
-```
-
-```{r page4, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="test", size="footnotesize", fig.align="center"}
-replayPlot(myprint4)
-```
-
-```{r page5, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="test", size="footnotesize", fig.align="center"}
-replayPlot(myprint5)
-```
-
-```{r page6, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="test", size="footnotesize", fig.align="center"}
+```{r page6, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="W-Statiscics Plot. Best Threshold Pair. Station 801120", size="footnotesize", fig.align="center"}
 replayPlot(myprint6)
 ```
 
-```{r page7, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="test", size="footnotesize", fig.align="center"}
+### Parameters
+
+### Fitted pdf and cdf
+
+```{r page7, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="pdf POT-PP. Station 801120", size="footnotesize", fig.align="center"}
 replayPlot(myprint7)
 ```
 
-```{r page8, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="test", size="footnotesize", fig.align="center"}
-replayPlot(myprint8)
-```
 
-```{r page9, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="test", size="footnotesize", fig.align="center"}
+```{r page9, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="cdf POT-PP. Station 801120", size="footnotesize", fig.align="center"}
 replayPlot(myprint9)
 ```
 
-```{r page10, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="test", size="footnotesize", fig.align="center"}
+
+### Goodness of Fit
+
+```{r page8, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Graphic Diagnosis Of Goodness of Fit. Station 801120", size="footnotesize", fig.align="center"}
+replayPlot(myprint8)
+```
+
+### Hazard Curve and Return Levels
+
+```{r page10, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Hazard Curve. Station 801120", size="footnotesize", fig.align="center"}
 replayPlot(myprint10)
 ```
 
-```{r page11, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="test", size="footnotesize", fig.align="center"}
-replayPlot(myprint11)
-```
+### Comparison with POT-GPD 
 
-```{r page12, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="test", size="footnotesize", fig.align="center"}
-replayPlot(myprint12)
-```
+## Non-Hurricane Maps
 
-```{r page13, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="test", size="footnotesize", fig.align="center"}
-replayPlot(myprint13)
-```
+### ISD
 
-```{r page14, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="test", size="footnotesize", fig.align="center"}
-replayPlot(myprint14)
-```
+#### POT-PP
 
-```{r page15, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="test", size="footnotesize", fig.align="center"}
-replayPlot(myprint15)
-```
+#### POT-GPD
+
+### ERA5
+
+#### POT-PP
+
+#### POT-GPD
+
+
+## Hurricane and Non-Hurricane Maps
+
+### ISD
+
+#### POT-PP
+
+#### POT-GPD
+
+### ERA5
+
+#### POT-PP
+
+#### POT-GPD
+
+

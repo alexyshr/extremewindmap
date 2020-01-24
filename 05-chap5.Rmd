@@ -22,8 +22,3 @@ flights <- read.csv("data/flights.csv")
 
 # Discussion {#rmd-discussion}
 
-
-```{r test1, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="test", size="footnotesize", fig.align="center"}
-rp <- readRDS("figure/myprint1.rds")
-replayPlot(rp)
-```

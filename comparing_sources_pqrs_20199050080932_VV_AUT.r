@@ -1,14 +1,24 @@
 Sys.setenv(TZ='UTC')
 
 #Stations equivalence:
+#stationssample = data.frame(
+#  isd_usaf_id= as.character(
+#    c(803980, 803700, 802110, 802100, 801120, 801100, 800970, 800940, 800630, 800360, 800350, 800280)),
+#  ideam_id = as.character(
+#    c(48015050, 52055230, 26125061, 26125710, 23085270, 27015330, 16015501, 23195502, 13035501, 28025502, 15065180, 29045190)),
+#  fc_zo =
+#    c(1.197230052, 1.219771719, 1.102205474 , 1.18154867, 1.113341504, 1.29241596, 1.102205474, 1.177562503, 1.114968586, 1.184849704, 1.5, 1.224744381),
+#  stringsAsFactors=FALSE)
+
 stationssample = data.frame(
   isd_usaf_id= as.character(
-    c(803980, 803700, 802110, 802100, 801120, 801100, 800970, 800940, 800630, 800360, 800350, 800280)),
+    c(800360, 800350)),
   ideam_id = as.character(
-    c(48015050, 52055230, 26125061, 26125710, 23085270, 27015330, 16015501, 23195502, 13035501, 28025502, 15065180, 29045190)),
+    c(28025502, 15065180)),
   fc_zo =
-    c(1.197230052, 1.219771719, 1.102205474 , 1.18154867, 1.113341504, 1.29241596, 1.102205474, 1.177562503, 1.114968586, 1.184849704, 1.5, 1.224744381),
+    c(1.184849704, 1.5),
   stringsAsFactors=FALSE)
+
 
 #fc_zo =
 #  c(1.197230052, 1.219771719, 1.102205474 , 1.18154867, 1.113341504, 1.29241596, 1.102205474, 1.177562503, 1.114968586, 1.184849704, 1.143077647, 1.224744381),
@@ -18,13 +28,13 @@ stationssample = data.frame(
 
 #vv_aut_2 in mts/seg
 #
-path_vv_aut_2 = "E:/Thesis/ideamdata/PQRS_20199050080932/VV_AUT_2/"
+path_vv_aut_2 = "D:/book/index/data/"
 
 #path_vvag_media_d = "E:/Thesis/ideamdata/PQRS_20199050100232/"
 
 #myFile = read.table(paste0(path_vvag_media_d, "VVAG_MEDIA_D@11025010.data"), header=TRUE, sep="|", stringsAsFactors=FALSE) #this is for vvag_media_d
-myFile = read.table(paste0(path_vv_aut_2, "VV_AUT_2@13035501.data"), header=TRUE, sep="|", stringsAsFactors=FALSE)
-str(myFile)
+#myFile = read.table(paste0(path_vv_aut_2, "VV_AUT_2@13035501.data"), header=TRUE, sep="|", stringsAsFactors=FALSE)
+#str(myFile)
 
 #filenames = list.files(path_vv_aut_2, pattern = "VVAG_MEDIA_D@") #for vvag_media_d
 filenames = list.files(path_vv_aut_2, pattern = "VV_AUT_2@") #for VV_AUT_2
@@ -147,7 +157,7 @@ stationssample_ideam = ideam_stations
 #
 #
 #
-#source('code/comparing_sources_pqrs_20199050080932_VV_AUT_ERA5_1.r')
+source('code/comparing_sources_pqrs_20199050080932_VV_AUT_ERA5_1.r')
 
 
 
@@ -300,7 +310,7 @@ all_vvmx_aut_60_stationssample_xts = xts(x=as_tibble(all_vvmx_aut_60_stationssam
 #
 #
 #
-#source('code/comparing_sources_pqrs_20199050080932_VV_AUT_ERA5_2.r')
+source('code/comparing_sources_pqrs_20199050080932_VV_AUT_ERA5_2.r')
 
 
 #
@@ -378,7 +388,7 @@ for(i in 1:length(stationssample[,1]))
                     legend.names = c(paste0("IDEAM: ", stationssample[i, 2]), paste0("ISD: ", stationssample[i, 1]), "ERA5"), col=c("black", "red", "green"),
                     bg="white", bty="o", lty=c(1, 1, 1), lwd=c(2, 2, 2))
 	assign(paste0("comparison", i, "1"), recordPlot())
-	#saveRDS(eval(parse(text=paste0("comparison", i, "1"))), paste0("comparison", i, "1", ".rds"))
+	saveRDS(eval(parse(text=paste0("comparison", i, "1"))), paste0("comparison", i, "1", ".rds"))
 
     title1 = paste(
       paste("IDEAM: ", stationssample[i, 2], ". Lon: ", ideamlon, ". Lat: ", ideamlat, sep=""),
@@ -387,7 +397,7 @@ for(i in 1:length(stationssample[,1]))
     plot.zoo(xtsvar[,1], xtsvar[,3], xlab=paste0("IDEAM: ", stationssample[i, 2]), ylab="ERA5", main=title1)
     abline(coef=c(0,1), col="red")
 	assign(paste0("comparison", i, "2"), recordPlot())
-	#saveRDS(eval(parse(text=paste0("comparison", i, "2"))), paste0("comparison", i, "2", ".rds"))
+	saveRDS(eval(parse(text=paste0("comparison", i, "2"))), paste0("comparison", i, "2", ".rds"))
     title2 = paste(
       paste("ISD: ", stationssample[i, 1], ". Lon: ", isdlon, ". Lat: ", isdlat, sep=""),
       paste("ERA5.  Col: ", era5lonindex, ". Row: ", era5latindex, ". Station: ", era5station, sep= "")
@@ -395,7 +405,7 @@ for(i in 1:length(stationssample[,1]))
     plot.zoo(xtsvar[,2], xtsvar[,3], xlab=paste0("ISD: ", stationssample[i, 1]), ylab="ERA5", main=title2)
     abline(coef=c(0,1), col="red")
 	assign(paste0("comparison", i, "3"), recordPlot())
-	#saveRDS(eval(parse(text=paste0("comparison", i, "3"))), paste0("comparison", i, "3", ".rds"))
+	saveRDS(eval(parse(text=paste0("comparison", i, "3"))), paste0("comparison", i, "3", ".rds"))
     title3 = paste(
       paste("IDEAM: ", stationssample[i, 2], ". Lon: ", ideamlon, ". Lat: ", ideamlat, sep=""),
       paste("ISD: ", stationssample[i, 1], ". Lon: ", isdlon, ". Lat: ", isdlat, sep="")
@@ -404,7 +414,7 @@ for(i in 1:length(stationssample[,1]))
 	main=title3)
     abline(coef=c(0,1), col="red")
 	assign(paste0("comparison", i, "4"), recordPlot())
-	#saveRDS(eval(parse(text=paste0("comparison", i, "4"))), paste0("comparison", i, "4", ".rds"))
+	saveRDS(eval(parse(text=paste0("comparison", i, "4"))), paste0("comparison", i, "4", ".rds"))
     #dev.off()
   }
 }

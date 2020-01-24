@@ -199,7 +199,7 @@ ggplot(data = world) +
   theme(panel.grid.major = element_line(color = gray(.5), linetype = "dashed", size = 0.5), panel.background = element_rect(fill = "aliceblue"))
 ```
 
-Following, the time serie, autocorrelation function, and partial autocorrelation function, for IDEAM station "21205791" will be displayed.
+Following, the time series, autocorrelation function, and partial autocorrelation function, for IDEAM station "21205791" will be displayed.
 
 ```{r plotoneideamstation, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="IDEAM Station - Time Serie"}
 #originalfields = unique(era5_intersect_ideam["ideam",])
@@ -323,7 +323,7 @@ wherestring1 = paste('"', wherestring1, '"', sep = "")
 wherestring1 = paste(wherestring1, "IS NOT NULL", sep = " ")
 wherestring1 = paste(wherestring1, collapse = " OR " , sep = " ")
 query1 = paste("select", fiedls_query1, "from isd_lite_unstack", "where", wherestring1, sep=" ")
-cat(query1)
+#cat(query1)
 
 isdlite = as_tibble(tbl(con1, sql(query1)))
 

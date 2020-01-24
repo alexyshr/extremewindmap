@@ -507,7 +507,7 @@ ELDORADO CATAM - AUT [21205791] & 4.71 & -74.15\\
 \includegraphics{thesis_files/figure-latex/plotideamstations-1.pdf}
 \caption{\label{fig:plotideamstations}IDEAM Stations}
 \end{figure}
-Following, the time serie, autocorrelation function, and partial autocorrelation function, for IDEAM station ``21205791'' will be displayed.
+Following, the time series, autocorrelation function, and partial autocorrelation function, for IDEAM station ``21205791'' will be displayed.
 \begin{figure}
 \centering
 \includegraphics{thesis_files/figure-latex/plotoneideamstation-1.pdf}
@@ -545,9 +545,6 @@ Code & Name & Latitud & Longitud\\
 \caption{\label{fig:plotisdstations}ISD Stations}
 \end{figure}
 Following, the time series, autocorrelation function, and partial autocorrelation function, for ISD station ``802590'' will be displayed.
-\begin{verbatim}
-select "mydatetime", "802590" as "X802590" from isd_lite_unstack where "802590" IS NOT NULL
-\end{verbatim}
 \begin{figure}
 \centering
 \includegraphics{thesis_files/figure-latex/plotoneisdstation-1.pdf}
@@ -1024,7 +1021,7 @@ POT-PP needs selection of the best threshold pairs \(b_t\) and \(b_{nt}\) (see f
          }
   \label{eq:ppcdf}
 \end{equation}
-The procedure to choose the best thresholds pairs based in W transofrmation, is described in methodology, section \protect\hyperlink{thresholding}{thresholding}.
+The procedure to choose the best thresholds pairs based in W transformation, is described in methodology, section \protect\hyperlink{thresholding}{thresholding}.
 
 \hypertarget{windloadsrequirements}{%
 \section{Wind Loads Requirements}\label{windloadsrequirements}}
@@ -1056,7 +1053,7 @@ To standardize wind speeds to gust speeds ASCE7-16 proposes the curve Durst (see
 \hypertarget{rmd-method}{%
 \chapter{Methodology}\label{rmd-method}}
 
-Figure \ref{fig:methodology} shows a graphic representation of the methodology. This research is focus in non-hurricane data, with three main elements: - data, - temporal analysis with a POT-PP, and - spatial analysis with probabilistic and deterministic methods to do spatial interpolation and create return levels (wind velocities) maps, for MRI of 700, 1700, and 3000 years. An additional element, is the integration with existing hurricane maps to produce final maps, that will be used as input loads for infrastructure design, and will be part of the desing standard.
+Figure \ref{fig:methodology} shows a graphic representation of the methodology. This research is focus in non-hurricane data, with three main elements: - data, - temporal analysis with a POT-PP, and - spatial analysis with probabilistic and deterministic methods to do spatial interpolation and create return levels (wind velocities) maps, for MRI of 700, 1700, and 3000 years. An additional element, is the integration with existing hurricane maps to produce final maps, that will be used as input loads for infrastructure design, and will be part of the design standard.
 
 More representative and important steps of the methodology are identified by numbers in figure \ref{fig:methodology}, 1) standardization, 2) de-clustering, 3) thresholding, 4) fit intensity function, 5) hazard curve, 6) return levels, and 7) spatial interpolation. Steps 1 to 6, need to be done for each available station to get extreme wind velocities (return levels - RL) for MRI. With RL in each station, a continuous surface will be created, one for 700 years, next for 1700 years and finally for 3000 years. Figure \ref{fig:mainmethodology} schematize the iterative process in the methodology.
 
@@ -1085,12 +1082,12 @@ More representative and important steps of the methodology are identified by num
 \hypertarget{rmd-standartization}{%
 \section{Data Standardization}\label{rmd-standartization}}
 
-Parallel to the standardization activity described below (3-s gust, roughness, and 10 mts anemometer height), it is also important to consider for all stations involved in the analysis:
+Parallel to the standardization activity described below (3-s gust, roughness, and 10 meters anemometer height), it is also important to consider for all stations involved in the analysis:
 \begin{itemize}
 \item
   \emph{Separating}: As far as possible, identify each record of the time series, as thunderstorm (t) or non-thunderstorm (nt)
 \item
-  \emph{Filtering}: Remove wind speeds above \(200 \frac{Km}{h}\) and data pertaining to hurricane events, because the procedure with hurricane requieres a different aproach and need to be done independently
+  \emph{Filtering}: Remove wind speeds above \(200 \frac{Km}{h}\) and data pertaining to hurricane events, because the procedure with hurricane requires a different approach and need to be done independently
 \item
   Downscaling approach: As it happens in this study, where it is intended to complement the local/regional wind analysis, with data from ISD (output data of a model for extreme winds), and ERA5 reanalysis dataset (large scale forecast data), it is required to probe by means of \emph{comparisons} (exploratory data analysis and statistical measures) that modeled or forecast data are suitable to complement the study.
 \end{itemize}
@@ -1135,7 +1132,7 @@ K_z= 2.01*\left(\frac{z}{z_g}\right)
 \[
 F_{exposition} = \frac{0.951434}{K_z}
 \]
-Calculation of roughness need to be weigthed according to the predominance of wind magnitud in eight directions (north, south, east, west, north-east, north-west, south-east, and south-west), see figure \ref{fig:compassrose}, using a detailed aerial photo or satellite image, as shown in figure \ref{fig:lettaustation}, with south direction highlighted.
+Calculation of roughness need to be weighted according to the predominance of wind magnitude in eight directions (north, south, east, west, north-east, north-west, south-east, and south-west), see figure \ref{fig:compassrose}, using a detailed aerial photo or satellite image, as shown in figure \ref{fig:lettaustation}, with south direction highlighted.
 
 \footnotesize
 \begin{figure}
@@ -1159,7 +1156,7 @@ Calculation of roughness need to be weigthed according to the predominance of wi
 \end{figure}
 \normalsize
 
-Figure \ref{fig:lettauexamples} shows extreme conditions for roughness, open space in left image, closed space in center image, and a typical example where Lettau procedure is needed. Lettau equation need to be applied to each direction and then the final \(z_o\) value is the weighted average, using historical wind pertentage. See figure \ref{fig:lettauvalues} showing the strokes made to calculate the different areas for two Colombian stations. Information about wind percentage per direction at each station were obtained from IDEAM (\protect\hyperlink{ref-ideam1999}{1999}).
+Figure \ref{fig:lettauexamples} shows extreme conditions for roughness, open space in left image, closed space in center image, and a typical example where Lettau procedure is needed. Lettau equation need to be applied to each direction and then the final \(z_o\) value is the weighted average, using historical wind percentage. See figure \ref{fig:lettauvalues} showing the strokes made to calculate the different areas for two Colombian stations. Information about wind percentage per direction at each station were obtained from IDEAM (\protect\hyperlink{ref-ideam1999}{1999}).
 
 \footnotesize
 \begin{figure}
@@ -1194,10 +1191,10 @@ V_t = V_{3\,seconds} = (gust factor) * V_{3600\,seconds}
 
 It is valid only for open terrain conditions. Durst curve shows in axis \(y\) the gust factor \(\frac{V_t}{V_{3600}}\), a ration between any wind gust averaged at \(t\) seconds, \(V_t\), and the hourly averaged wind speed \(V_{3600}\), and in the axis \(x\) the duration \(t\) of the gust in seconds.
 
-\hypertarget{peaks-over-thresold---poisson-process-pot-pp}{%
-\section{Peaks Over Thresold - Poisson Process (POT-PP)}\label{peaks-over-thresold---poisson-process-pot-pp}}
+\hypertarget{peaks-over-threshold---poisson-process-pot-pp}{%
+\section{Peaks Over Threshold - Poisson Process (POT-PP)}\label{peaks-over-threshold---poisson-process-pot-pp}}
 
-Similar to how the adjustment of statistical data to a normal distribution works in order to make inferences considering deviations from the mean, here only some part of the data (those that are extreme - over a high threshold - POT), need to be fitted to a PP considerng extreme deviations from the mean. While in the first case (normal distribution) the inferences are for events similar to the samples, in this case, when working with extreme value theory, the inferences will be for more extreme events than any previously observed or measured. In the \protect\hyperlink{rmd-thefra}{theoretical framework} section are described the main elements of \protect\hyperlink{pot-pp}{POT-PP}.
+Similar to how the adjustment of statistical data to a normal distribution works in order to make inferences considering deviations from the mean, here only some part of the data (those that are extreme - over a high threshold - POT), need to be fitted to a PP considering extreme deviations from the mean. While in the first case (normal distribution) the inferences are for events similar to the samples, in this case, when working with extreme value theory, the inferences will be for more extreme events than any previously observed or measured. In the \protect\hyperlink{rmd-thefra}{theoretical framework} section are described the main elements of \protect\hyperlink{pot-pp}{POT-PP}.
 
 In summary, POT means only to work with extreme values, and PP means to adjust data to a \emph{pdf}, which depends on an intensity function \(\lambda(t,y)\), where \(t\) is time, \(y\) is wind extreme velocity. As is shown in figure \ref{fig:plotdomainpp}, in a POT-PP approach with domain \(D\), all the observations follow a Poisson distribution with mean \(\int_D\lambda(t,y)\,dt\,dy\). Main advantage of POT-PP is that it is designed to consider storm and not-storm events independently (for each disjoint sub-domain \(D_1\) or \(D_2\) inside \(D\), the observations in \(D_1\) or \(D_2\) are independent random variables), but in the end use them both for the inferences,
 \begin{equation}
@@ -1209,7 +1206,7 @@ In summary, POT means only to work with extreme values, and PP means to adjust d
 \hypertarget{de-clustering}{%
 \subsection{De-clustering}\label{de-clustering}}
 
-To make the assumptions of PP more justifiable, it is important to have only one sample per event, the highest one. For instance, if a hypothetical storm started at 11:30 in the morning and ended at 12:30 in the afternoon, and the time series for that event has thirty wind measurements (one each two minutes), it is neccesary to leave only the stronger or maximun value, and this process is called de-clustering (see Figure \ref{fig:declustering}). POT-PP defines that all the adjacent observations separeted by six hours (6) or less in the case of thunderstorm events, and four (4) days or less, in the case of non-thunderstorm events belong to the same cluster.
+To make the assumptions of PP more justifiable, it is important to have only one sample per event, the highest one. For instance, if a hypothetical storm started at 11:30 in the morning and ended at 12:30 in the afternoon, and the time series for that event has thirty wind measurements (one each two minutes), it is necessary to leave only the stronger or maximum value, and this process is called de-clustering (see Figure \ref{fig:declustering}). POT-PP defines that all the adjacent observations separated by six hours (6) or less in the case of thunderstorm events, and four (4) days or less, in the case of non-thunderstorm events belong to the same cluster.
 
 \footnotesize
 \begin{figure}
@@ -1238,7 +1235,7 @@ As the POT model requires to work only with the most extreme values in the time 
 \end{figure}
 \normalsize
 
-Selection of the thresholds pairs, one for thunderstorm, and one for non-thunderstorm, is based in \(W\) transformation described in \protect\hyperlink{thresholdselection}{threshold selection section}. W-statiscic is done comparing the ordered empirical result of applying \(W = -log(1-U)\) to the data, axis \(y\) in figure \ref{fig:wstatistics}, with the theoretical quantiles of an exponential variable with uniform distribution between 0 and 1, axis \(x\) in same figure. W-statistic is the higest vertical distance between the 45º line and the points in the graphic. The best threshols pairs returns the minimum value for W-statistics after testing, in an iterative process, with many threshold pairs combinations.
+Selection of the thresholds pairs, one for thunderstorm, and one for non-thunderstorm, is based in \(W\) transformation described in \protect\hyperlink{thresholdselection}{threshold selection section}. W-statistic is done comparing the ordered empirical result of applying \(W = -log(1-U)\) to the data, axis \(y\) in figure \ref{fig:wstatistics}, with the theoretical quantiles of an exponential variable with uniform distribution between 0 and 1, axis \(x\) in same figure. W-statistic is the highest vertical distance between the 45º line and the points in the graphic. The best thresholds pairs returns the minimum value for W-statistics after testing, in an iterative process, with many threshold pairs combinations.
 
 \footnotesize
 \begin{figure}
@@ -1254,7 +1251,7 @@ Selection of the thresholds pairs, one for thunderstorm, and one for non-thunder
 \hypertarget{exclude-no-data-periods}{%
 \subsection{Exclude no-data periods}\label{exclude-no-data-periods}}
 
-PP requieres to remove long periods of time when stations were not recording or failing. Proposed time in @\cite{Pintar2015} is 180 days, namely, to remove all the gaps from the time series larger than six months.
+PP requires to remove long periods of time when stations were not recording or failing. Proposed time in Pintar et al. (\protect\hyperlink{ref-Pintar2015}{2015}) is 180 days, namely, to remove all the gaps from the time series larger than six months.
 
 \hypertarget{fit-intensity-function}{%
 \subsection{Fit Intensity Function}\label{fit-intensity-function}}
@@ -1282,7 +1279,7 @@ In this study, the used intensity functions are shown in next equation \eqref{eq
   }
   \label{eq:ppspecificintensityfunction}
 \end{equation}
-As is shown in \ref{fig:fitif}, the fitting process involve finding the best group of parameters of the intensity function, in such a way that the red curve (\emph{pdf} of the PP, based in intensity function) be as tight as possible to the shape of the data histogram. As is described in \protect\hyperlink{pot-pp}{POT-PP}, optimal parameters to do the fitting process of the intensity function are calculated using \emph{maximun likelihood}.
+As is shown in \ref{fig:fitif}, the fitting process involve finding the best group of parameters of the intensity function, in such a way that the red curve (\emph{pdf} of the PP, based in intensity function) be as tight as possible to the shape of the data histogram. As is described in \protect\hyperlink{pot-pp}{POT-PP}, optimal parameters to do the fitting process of the intensity function are calculated using \emph{maximum likelihood}.
 
 \footnotesize
 \begin{figure}
@@ -1298,7 +1295,7 @@ As is shown in \ref{fig:fitif}, the fitting process involve finding the best gro
 \hypertarget{hazard-curve---return-levels---rl}{%
 \subsection{Hazard Curve - Return Levels - RL}\label{hazard-curve---return-levels---rl}}
 
-If equation \eqref{eq:pprl}, \(Y_N\) is solved using estimated parameters of the intensity function, and a hazard curve is constructed as shown in figure \ref{fig:hc}, where axis \(x\) represents annual excedance probability \(P_e = \frac{1}{N}\), and axis \(y\) represents the RL \(Y_N\) for the corresponding N-years return period, then it will be possible to have the extreme return wind velocity level for any given return period going from axis \(x\) to axis \(y\) through the curve.
+If equation \eqref{eq:pprl}, \(Y_N\) is solved using estimated parameters of the intensity function, and a hazard curve is constructed as shown in figure \ref{fig:hc}, where axis \(x\) represents annual exceedance probability \(P_e = \frac{1}{N}\), and axis \(y\) represents the RL \(Y_N\) for the corresponding N-years return period, then it will be possible to have the extreme return wind velocity level for any given return period going from axis \(x\) to axis \(y\) through the curve.
 
 \footnotesize
 \begin{figure}
@@ -1314,7 +1311,7 @@ If equation \eqref{eq:pprl}, \(Y_N\) is solved using estimated parameters of the
 \hypertarget{two-alternatives-approaches-for-rl}{%
 \subsubsection{Two alternatives approaches for RL}\label{two-alternatives-approaches-for-rl}}
 
-There is an equation that allows direct calculations of return levels, and also it is posible to use the quantile function of Gumbel when shape parameter equals to zero, but it is important to emphasize that equation \eqref{eq:pprv}, and the use of Gumbel quantile function for RL calculations, is only valid when the analysis of POT-PP includes only one type of event (thunderstorm or non-thunderstorm), and the average estimated duration time of the event in a year is considered to be one (independent of the units in which time is processed), namely, the values for parameters \(A_t\) or \(A_{nt}\) of equation \eqref{eq:pprl} are equal to one.
+There is an equation that allows direct calculations of return levels, and also it is possible to use the quantile function of Gumbel when shape parameter equals to zero, but it is important to emphasize that equation \eqref{eq:pprv}, and the use of Gumbel quantile function for RL calculations, is only valid when the analysis of POT-PP includes only one type of event (thunderstorm or non-thunderstorm), and the average estimated duration time of the event in a year is considered to be one (independent of the units in which time is processed), namely, the values for parameters \(A_t\) or \(A_{nt}\) of equation \eqref{eq:pprl} are equal to one.
 
 Instead of solving equation \eqref{eq:pprl}, next equation \eqref{eq:pprv} can be used replacing directly the PP parameters and the N return periods to create the hazard curve and get RL.
 \begin{equation}
@@ -1335,7 +1332,7 @@ Probabilistic (Kriging) and deterministic (IDW, local polynomials) techniques ar
 \item
   Semivariance Analysis: Use of available tools like cloud semivariogram, experimental semivariogram, directional semivariograms to verify isotropy or anisotropy, and different theoretical semivariograms, to ensure the best model of spatial autocorrelation, as a preliminary step to interpolation.
 \item
-  Kriging Predictions: Use of different types of kriging predictors, like simple, ordinary, universal, based on the results of the structural analysis.
+  Kriging Predictions: Use of different types of Kriging predictors, like simple, ordinary, universal, based on the results of the structural analysis.
 \item
   Cross Validation: Use of statistics like root mean square, average standard error, mean standardized, and root mean square standardized, that allow to measure the quality of the predictions and the magnitude of the errors.
 \end{itemize}
@@ -1360,15 +1357,15 @@ After the combined hazard curve is created, a new process of spatial interpolati
 \hypertarget{rmd-results}{%
 \chapter{Results}\label{rmd-results}}
 
-First result to show will be the datasource comparison to face the downscaling issue by using ERA5 and ISD database, then, the resulting process of fitting a POT-PP in the station 801120 will be displayed, which includes revision of intensity function parameters, goodness of fit, hazard curve, return levels, and comparison with POT-GPD results, next, non-hurricane maps will be displayed, which includes results for ISD and ERA5 stations, using POT-PP and POT-GPD approaches, and finally, output maps combining hurricane and non-hurricane results will be displayed.
+In this section, first will be shown, the data source comparison to face the downscaling issue by using ERA5 and ISD database, then, the resulting process of fitting a POT-PP in the station 801120, which includes revision of intensity function parameters, goodness of fit, hazard curve, return levels, and comparison with POT-GPD results, next, non-hurricane maps outputs, which includes results for ISD and ERA5 stations, using POT-PP and POT-GPD approaches, and finally, output maps combining hurricane and non-hurricane results will be displayed.
 
-\hypertarget{datasources-comparison}{%
-\section{Datasources comparison}\label{datasources-comparison}}
+\hypertarget{data-sources-comparison}{%
+\section{Data sources comparison}\label{data-sources-comparison}}
 
-Looking for a statistical justification in the use of ISD (model) and ERA5 databases (forecast), as input data for this study, and considering the \emph{downscaling approach} described in the \protect\hyperlink{rmd-standartization}{standartization process} section of methodology, datasources ISD and IDEAM were standardized to enable comparison. Standardization consisted of transforming the data into 3-s gust \(V_3\), 10 meters height, and open space roughness.
+Looking for a statistical justification in the use of ISD (model) and ERA5 databases (forecast), as input data for this study, and considering the \emph{downscaling approach} described in the \protect\hyperlink{rmd-standartization}{standartization process} section of methodology, data sources ISD and IDEAM were standardized to enable comparison. Standardization consisted of transforming the data into 3-s gust \(V_3\), 10 meters height, and open space roughness.
 \begin{itemize}
 \item
-  Variable \emph{10m wind gust - 10fg} of ERA5 datasource does not need standardization, because it comes standardized from the source
+  Variable \emph{10m wind gust - 10fg} of ERA5 data source does not need standardization, because it comes standardized from the source
 \item
   In order to obtain \(V_3\) from Durst curve, it is required to start from \(V_3600\) (average hourly speed), or from a different wind gust speed, for instance \(V_6\).
 \item
@@ -1403,52 +1400,141 @@ Looking for a statistical justification in the use of ISD (model) and ERA5 datab
 \item
   VV\_AUT\_2 dataset from IDEAM was transformed to \(V_{3600}\) (average hourly speed), averaging all 20 values available per hour.
 \item
-  Wind velocity \(V_5\) from 74 ISD stations, was standarized station by station, using procedure described in \protect\hyperlink{rmd-roughness}{Surface Roughness at Open Space} section, and \protect\hyperlink{rmd-gust}{Averaging Time 3-s Gust} section
+  Wind velocity \(V_5\) from 74 ISD stations, was standardized station by station, using procedure described in \protect\hyperlink{rmd-roughness}{Surface Roughness at Open Space} section, and \protect\hyperlink{rmd-gust}{Averaging Time 3-s Gust} section
 \item
-  Wind velocity from 12 \(V_{3600}\) (transformation of VV\_AUT\_2) IDEAM stations, was standarized station by station, using procedure described in \protect\hyperlink{rmd-roughness}{Surface Roughness at Open Space} section and \protect\hyperlink{rmd-gust}{Averaging Time 3-s Gust}
+  Wind velocity from 12 \(V_{3600}\) (transformation of VV\_AUT\_2) IDEAM stations, was standardized station by station, using procedure described in \protect\hyperlink{rmd-roughness}{Surface Roughness at Open Space} section and \protect\hyperlink{rmd-gust}{Averaging Time 3-s Gust}
 \end{itemize}
-Twelve standarized stations from ISD and IDEAM (table \ref{tab:table12stations}) were compared with corresponding ERA5 station (the corresponding cell in ERA5 that has whithin ISD and IDEAM locations). To make the use of ISD and ERA5 viable, its time series are expected to be as similar as possible to IDEAM. To verify this, two types of graphics were constructed:
+Twelve standardized stations from ISD and IDEAM (table \ref{tab:table12stations}) were compared with corresponding ERA5 station (the corresponding cell in ERA5 that has within ISD and IDEAM locations). To make the use of ISD and ERA5 viable, its time series are expected to be as similar as possible to IDEAM. To verify this, two types of graphics were constructed:
 \begin{itemize}
 \item
   Time series overlay for the three sources. Not very effective method due to the large amount of data that makes the graphics unreadable.
 \item
-  Scatterplot maps comparing two different sources. Matching values by time, were sorted ascendingly and put together on a scatter plot. The expected behavior in case of similarity in the data, is that all the points fall in a \(45^\circ\) line
+  Scatter plot maps comparing two different sources. Matching values by time, were sorted in ascending order and put together on a scatter plot. The expected behavior in case of similarity in the data, is that all the points fall in a \(45^\circ\) line
 \end{itemize}
-Stations 28025502 from IDEAM, 800360 from ISD, and 416 (cell with center point in \(-73.25^\circ\) longitude, and \(10.5^\circ\) latitude) from ERA5, showed high correspondence. See figures @ref(fig:s800360\_timeseries), @ref(fig:s800360\_ideam\_vs\_era5)
+Stations 28025502 from IDEAM, 800360 from ISD, and 416 (cell with center point in \(-73.25^\circ\) longitude, and \(10.5^\circ\) latitude) from ERA5, showed high correspondence. See figures \ref{fig:sideamera5}, \ref{fig:sisdvsera5}, \ref{fig:sideamvsisd}.
 
 \footnotesize
+\begin{figure}
 
+{\centering \includegraphics{thesis_files/figure-latex/sideamera5-1} 
+
+}
+
+\caption{Scatter plot of IDEAM vs ERA5. Stations comparison: 28025502 (IDEAM), 800360 (ISD), and 416 (ERA5)}\label{fig:sideamera5}
+\end{figure}
 \normalsize
 
 \footnotesize
+\begin{figure}
 
+{\centering \includegraphics{thesis_files/figure-latex/sisdvsera5-1} 
+
+}
+
+\caption{Scatter plot of ISD vs ERA5. Stations comparison: 28025502 (IDEAM), 800360 (ISD), and 416 (ERA5)}\label{fig:sisdvsera5}
+\end{figure}
 \normalsize
 
 \footnotesize
+\begin{figure}
 
-\normalsize
+{\centering \includegraphics{thesis_files/figure-latex/sideamvsisd-1} 
 
-\footnotesize
+}
 
+\caption{Scatter plot of IDEAM vs ISD. Stations comparison: 28025502 (IDEAM), 800360 (ISD), and 416 (ERA5)}\label{fig:sideamvsisd}
+\end{figure}
 \normalsize
 
 \hypertarget{pot-pp-in-isd-station-801120}{%
 \section{POT-PP in ISD Station 801120}\label{pot-pp-in-isd-station-801120}}
 
+\footnotesize
+\begin{figure}
+
+{\centering \includegraphics{thesis_files/figure-latex/page1-1} 
+
+}
+
+\caption{Time Series ISD. Station 801120}\label{fig:page1}
+\end{figure}
+\normalsize
+
+\hypertarget{w-statiscis-plot}{%
+\subsection{W-statiscis Plot}\label{w-statiscis-plot}}
+
+\footnotesize
+\begin{figure}
+
+{\centering \includegraphics{thesis_files/figure-latex/page6-1} 
+
+}
+
+\caption{W-Statiscics Plot. Best Threshold Pair. Station 801120}\label{fig:page6}
+\end{figure}
+\normalsize
+
 \hypertarget{parameters}{%
 \subsection{Parameters}\label{parameters}}
+
+\hypertarget{fitted-pdf-and-cdf}{%
+\subsection{Fitted pdf and cdf}\label{fitted-pdf-and-cdf}}
+
+\footnotesize
+\begin{figure}
+
+{\centering \includegraphics{thesis_files/figure-latex/page7-1} 
+
+}
+
+\caption{pdf POT-PP. Station 801120}\label{fig:page7}
+\end{figure}
+\normalsize
+
+\footnotesize
+\begin{figure}
+
+{\centering \includegraphics{thesis_files/figure-latex/page9-1} 
+
+}
+
+\caption{cdf POT-PP. Station 801120}\label{fig:page9}
+\end{figure}
+\normalsize
 
 \hypertarget{goodness-of-fit}{%
 \subsection{Goodness of Fit}\label{goodness-of-fit}}
 
+\footnotesize
+\begin{figure}
+
+{\centering \includegraphics{thesis_files/figure-latex/page8-1} 
+
+}
+
+\caption{Graphic Diagnosis Of Goodness of Fit. Station 801120}\label{fig:page8}
+\end{figure}
+\normalsize
+
 \hypertarget{hazard-curve-and-return-levels}{%
 \subsection{Hazard Curve and Return Levels}\label{hazard-curve-and-return-levels}}
+
+\footnotesize
+\begin{figure}
+
+{\centering \includegraphics{thesis_files/figure-latex/page10-1} 
+
+}
+
+\caption{Hazard Curve. Station 801120}\label{fig:page10}
+\end{figure}
+\normalsize
 
 \hypertarget{comparison-with-pot-gpd}{%
 \subsection{Comparison with POT-GPD}\label{comparison-with-pot-gpd}}
 
-\hypertarget{non-hurrican-maps}{%
-\section{Non-Hurrican Maps}\label{non-hurrican-maps}}
+\hypertarget{non-hurricane-maps}{%
+\section{Non-Hurricane Maps}\label{non-hurricane-maps}}
 
 \hypertarget{isd-1}{%
 \subsection{ISD}\label{isd-1}}
@@ -1468,8 +1554,8 @@ Stations 28025502 from IDEAM, 800360 from ISD, and 416 (cell with center point i
 \hypertarget{pot-gpd-2}{%
 \subsubsection{POT-GPD}\label{pot-gpd-2}}
 
-\hypertarget{hurrican-and-non-hurrican-maps}{%
-\section{Hurrican and Non-Hurrican Maps}\label{hurrican-and-non-hurrican-maps}}
+\hypertarget{hurricane-and-non-hurricane-maps}{%
+\section{Hurricane and Non-Hurricane Maps}\label{hurricane-and-non-hurricane-maps}}
 
 \hypertarget{isd-2}{%
 \subsection{ISD}\label{isd-2}}
@@ -1489,240 +1575,17 @@ Stations 28025502 from IDEAM, 800360 from ISD, and 416 (cell with center point i
 \hypertarget{pot-gpd-4}{%
 \subsubsection{POT-GPD}\label{pot-gpd-4}}
 
-\footnotesize
-\begin{figure}
-
-{\centering \includegraphics{thesis_files/figure-latex/page1-1} 
-
-}
-
-\caption{test}\label{fig:page1}
-\end{figure}
-\normalsize
-
-\footnotesize
-\begin{figure}
-
-{\centering \includegraphics{thesis_files/figure-latex/page2-1} 
-
-}
-
-\caption{test}\label{fig:page2}
-\end{figure}
-\normalsize
-
-\footnotesize
-\begin{figure}
-
-{\centering \includegraphics{thesis_files/figure-latex/page3-1} 
-
-}
-
-\caption{test}\label{fig:page3}
-\end{figure}
-\normalsize
-
-\footnotesize
-\begin{figure}
-
-{\centering \includegraphics{thesis_files/figure-latex/page4-1} 
-
-}
-
-\caption{test}\label{fig:page4}
-\end{figure}
-\normalsize
-
-\footnotesize
-\begin{figure}
-
-{\centering \includegraphics{thesis_files/figure-latex/page5-1} 
-
-}
-
-\caption{test}\label{fig:page5}
-\end{figure}
-\normalsize
-
-\footnotesize
-\begin{figure}
-
-{\centering \includegraphics{thesis_files/figure-latex/page6-1} 
-
-}
-
-\caption{test}\label{fig:page6}
-\end{figure}
-\normalsize
-
-\footnotesize
-\begin{figure}
-
-{\centering \includegraphics{thesis_files/figure-latex/page7-1} 
-
-}
-
-\caption{test}\label{fig:page7}
-\end{figure}
-\normalsize
-
-\footnotesize
-\begin{figure}
-
-{\centering \includegraphics{thesis_files/figure-latex/page8-1} 
-
-}
-
-\caption{test}\label{fig:page8}
-\end{figure}
-\normalsize
-
-\footnotesize
-\begin{figure}
-
-{\centering \includegraphics{thesis_files/figure-latex/page9-1} 
-
-}
-
-\caption{test}\label{fig:page9}
-\end{figure}
-\normalsize
-
-\footnotesize
-\begin{figure}
-
-{\centering \includegraphics{thesis_files/figure-latex/page10-1} 
-
-}
-
-\caption{test}\label{fig:page10}
-\end{figure}
-\normalsize
-
-\footnotesize
-\begin{figure}
-
-{\centering \includegraphics{thesis_files/figure-latex/page11-1} 
-
-}
-
-\caption{test}\label{fig:page11}
-\end{figure}
-\normalsize
-
-\footnotesize
-\begin{figure}
-
-{\centering \includegraphics{thesis_files/figure-latex/page12-1} 
-
-}
-
-\caption{test}\label{fig:page12}
-\end{figure}
-\normalsize
-
-\footnotesize
-\begin{figure}
-
-{\centering \includegraphics{thesis_files/figure-latex/page13-1} 
-
-}
-
-\caption{test}\label{fig:page13}
-\end{figure}
-\normalsize
-
-\footnotesize
-\begin{figure}
-
-{\centering \includegraphics{thesis_files/figure-latex/page14-1} 
-
-}
-
-\caption{test}\label{fig:page14}
-\end{figure}
-\normalsize
-
-\footnotesize
-\begin{figure}
-
-{\centering \includegraphics{thesis_files/figure-latex/page15-1} 
-
-}
-
-\caption{test}\label{fig:page15}
-\end{figure}
-\normalsize
-
 \hypertarget{rmd-discussion}{%
 \chapter{Discussion}\label{rmd-discussion}}
-
-\footnotesize
-\begin{figure}
-
-{\centering \includegraphics{thesis_files/figure-latex/test1-1} 
-
-}
-
-\caption{test}\label{fig:test1}
-\end{figure}
-\normalsize
 
 \hypertarget{conclusion}{%
 \chapter*{Conclusion}\label{conclusion}}
 \addcontentsline{toc}{chapter}{Conclusion}
 
-If we don't want Conclusion to have a chapter number next to it, we can add the \texttt{\{-\}} attribute.
-
-\textbf{More info}
-
-And here's some other random info: the first paragraph after a chapter title or section head \emph{shouldn't be} indented, because indents are to tell the reader that you're starting a new paragraph. Since that's obvious after a chapter or section title, proper typesetting doesn't add an indent there.
-
 \appendix
 
 \hypertarget{r-code}{%
 \chapter{R Code}\label{r-code}}
-
-This first appendix includes all of the R chunks of code that were hidden throughout the document (using the \texttt{include\ =\ FALSE} chunk tag) to help with readability and/or setup.
-
-\textbf{In the main Rmd file}
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{# This chunk ensures that the thesisdown package is}
-\CommentTok{# installed and loaded. This thesisdown package includes}
-\CommentTok{# the template files for the thesis.}
-\ControlFlowTok{if}\NormalTok{(}\OperatorTok{!}\KeywordTok{require}\NormalTok{(devtools))}
-  \KeywordTok{install.packages}\NormalTok{(}\StringTok{"devtools"}\NormalTok{, }\DataTypeTok{repos =} \StringTok{"http://cran.rstudio.com"}\NormalTok{)}
-\ControlFlowTok{if}\NormalTok{(}\OperatorTok{!}\KeywordTok{require}\NormalTok{(thesisdown))}
-\NormalTok{  devtools}\OperatorTok{::}\KeywordTok{install_github}\NormalTok{(}\StringTok{"ismayc/thesisdown"}\NormalTok{)}
-\KeywordTok{library}\NormalTok{(thesisdown)}
-\end{Highlighting}
-\end{Shaded}
-\textbf{In Chapter \ref{rmd-method}:}
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{# This chunk ensures that the thesisdown package is}
-\CommentTok{# installed and loaded. This thesisdown package includes}
-\CommentTok{# the template files for the thesis and also two functions}
-\CommentTok{# used for labeling and referencing}
-\ControlFlowTok{if}\NormalTok{(}\OperatorTok{!}\KeywordTok{require}\NormalTok{(devtools))}
-  \KeywordTok{install.packages}\NormalTok{(}\StringTok{"devtools"}\NormalTok{, }\DataTypeTok{repos =} \StringTok{"http://cran.rstudio.com"}\NormalTok{)}
-\ControlFlowTok{if}\NormalTok{(}\OperatorTok{!}\KeywordTok{require}\NormalTok{(dplyr))}
-    \KeywordTok{install.packages}\NormalTok{(}\StringTok{"dplyr"}\NormalTok{, }\DataTypeTok{repos =} \StringTok{"http://cran.rstudio.com"}\NormalTok{)}
-\ControlFlowTok{if}\NormalTok{(}\OperatorTok{!}\KeywordTok{require}\NormalTok{(ggplot2))}
-    \KeywordTok{install.packages}\NormalTok{(}\StringTok{"ggplot2"}\NormalTok{, }\DataTypeTok{repos =} \StringTok{"http://cran.rstudio.com"}\NormalTok{)}
-\ControlFlowTok{if}\NormalTok{(}\OperatorTok{!}\KeywordTok{require}\NormalTok{(ggplot2))}
-    \KeywordTok{install.packages}\NormalTok{(}\StringTok{"bookdown"}\NormalTok{, }\DataTypeTok{repos =} \StringTok{"http://cran.rstudio.com"}\NormalTok{)}
-\ControlFlowTok{if}\NormalTok{(}\OperatorTok{!}\KeywordTok{require}\NormalTok{(thesisdown))\{}
-  \KeywordTok{library}\NormalTok{(devtools)}
-\NormalTok{  devtools}\OperatorTok{::}\KeywordTok{install_github}\NormalTok{(}\StringTok{"ismayc/thesisdown"}\NormalTok{)}
-\NormalTok{  \}}
-\KeywordTok{library}\NormalTok{(thesisdown)}
-\NormalTok{flights <-}\StringTok{ }\KeywordTok{read.csv}\NormalTok{(}\StringTok{"data/flights.csv"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-\hypertarget{the-second-appendix}{%
-\chapter{The Second Appendix}\label{the-second-appendix}}
 
 \backmatter
 

@@ -9,6 +9,7 @@ If you feel it necessary to include an appendix, it goes here.
 
 # R Code
 
+<!--
 This first appendix includes all of the R chunks of code that were hidden throughout the document (using the `include = FALSE` chunk tag) to help with readability and/or setup.
 
 **In the main Rmd file**
@@ -23,3 +24,4 @@ This first appendix includes all of the R chunks of code that were hidden throug
 
 # The Second Appendix
 
+-->
