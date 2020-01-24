@@ -286,8 +286,33 @@ As for this research $\zeta = 0$, return levels $Y_N$ can be calculated using th
 
 ## Spatial Interpolation
 
-### Kriging
-### IDW
-### Local Polynomials
+Probabilistic (Kriging) and deterministic (IDW, local polynomials) techniques are used to create maps for return levels with same return period. Interpolation with Kriging requires verification of minimum procedures to ensure proper use of the method, for instance, 
+
+* Structural analysis, which includes data normality check, for example, with Kolmogorov Smirnov or Shapiro Wilk goodness of fit tests, and if needed, data transformation to ensure data normality, e.g. using Box-Cox, and in addition, trend analysis to verify the need for trend modeling, in subsequent steps
+
+* Semivariance Analysis: Use of available tools like cloud semivariogram, experimental semivariogram, directional semivariograms to verify isotropy or anisotropy, and different theoretical semivariograms, to ensure the best model of spatial autocorrelation, as a preliminary step to interpolation.
+
+* Kriging Predictions: Use of different types of kriging predictors, like simple, ordinary, universal, based on the results of the structural analysis.
+
+* Cross Validation: Use of statistics like root mean square, average standard error, mean standardized, and root mean square standardized, that allow to measure the quality of the predictions and the magnitude of the errors.
+
+Possible advantage of deterministic methods, is a better assessment of the local variability of spatial autocorrelation. It can also be considered with IDW or local polynomials a detailed assessment of structural analysis and cross validation. At the end of the spatial interpolation analysis all the predictions can be compared to select the most suitable result.
 
 ## Integration with Non-Hurricane data
+
+@Asce2017 propose the equation C26.5-2 for combination of statistically independent events, of non-hurricane and hurricane wind speed data. 
+
+\begin{equation}
+  \mathrm{
+          P_e(y>Y_N) = 1 - P_{NH}(y<Y_N)*P_{H}(y<Y_N)
+        }
+  (\#eq:combination)
+\end{equation} 
+
+Where $P_e(y>Y_N)$ is the annual exceedance probability for the combined wind hazards, $P_{NH}(y<Y_N)$ is the annual non-exceedance probability for non-hurricane winds, and $P_{H}(y<Y_N)$ is the annual non-exceedance probability for hurricane winds.
+
+To understand equation \@ref(eq:combination), it is important to remember that to calculate return level $Y_N$, for a given N-year return period, the exceedance probability $\frac{1}{N}$ of $Y_N$ is calculated. Then, the non-exceedance probability for $Y_N$ is $\left(1-\frac{1}{N}\right)$. The procedure consist in the creation of a new hazard curve, calculating all $P_e(y>Y_N)$ values for different $Y_N$ return levels, combining hazard curves from non-thunderstorm and thunderstorm data.
+
+After the combined hazard curve is created, a new process of spatial interpolation need to be accomplished. In case of absence of hazard curves for stations, but availability of return levels maps, it becomes necessary to recreate hazard curves cell by cell, to apply equation \@ref(eq:combination). In this case are required as many maps as possible for different return periods, in order to estimate detailed enough hazard curves from return level values (cell values).
+
+
