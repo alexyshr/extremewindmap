@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/W32TeX) (preloaded format=pdflatex 2020.1.21)  24 JAN 2020 11:07
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/W32TeX) (preloaded format=pdflatex 2020.1.21)  24 JAN 2020 17:34
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -455,7 +455,7 @@ Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
 (c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/hyperr
 ef.sty
-Package: hyperref 2019/11/10 v7.00c Hypertext links for LaTeX
+Package: hyperref 2020/01/14 v7.00d Hypertext links for LaTeX
 
 (c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/ltxcmds/ltxcm
 ds.sty
@@ -516,7 +516,7 @@ Package: kvoptions 2019/11/29 v3.13 Key value format for package options (HO)
 
 (c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/pd1enc
 .def
-File: pd1enc.def 2019/11/10 v7.00c Hyperref: PDFDocEncoding definition (HO)
+File: pd1enc.def 2020/01/14 v7.00d Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
 ... no UTF-8 mapping file for font encoding PD1
 )
@@ -529,20 +529,21 @@ cmds.sty
 Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
 )
 \Hy@SavedSpaceFactor=\count115
+\pdfmajorversion=\count116
 
 (c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/latexconfig/hyp
 erref.cfg
 File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
 )
-Package hyperref Info: Hyper figures OFF on input line 4535.
-Package hyperref Info: Link nesting OFF on input line 4540.
-Package hyperref Info: Hyper index ON on input line 4543.
-Package hyperref Info: Plain pages OFF on input line 4550.
-Package hyperref Info: Backreferencing OFF on input line 4555.
+Package hyperref Info: Hyper figures OFF on input line 4547.
+Package hyperref Info: Link nesting OFF on input line 4552.
+Package hyperref Info: Hyper index ON on input line 4555.
+Package hyperref Info: Plain pages OFF on input line 4562.
+Package hyperref Info: Backreferencing OFF on input line 4567.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
-Package hyperref Info: Bookmarks ON on input line 4788.
-\c@Hy@tempcnt=\count116
-LaTeX Info: Redefining \url on input line 5147.
+Package hyperref Info: Bookmarks ON on input line 4800.
+\c@Hy@tempcnt=\count117
+LaTeX Info: Redefining \url on input line 5159.
 \XeTeXLinkMargin=\dimen133
 
 (c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/bitset/bitset
@@ -554,40 +555,40 @@ gintcalc.sty
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
 )
 ))
-\Fld@menulength=\count117
+\Fld@menulength=\count118
 \Field@Width=\dimen134
 \Fld@charsize=\dimen135
-Package hyperref Info: Hyper figures OFF on input line 6418.
-Package hyperref Info: Link nesting OFF on input line 6423.
-Package hyperref Info: Hyper index ON on input line 6426.
-Package hyperref Info: backreferencing OFF on input line 6433.
-Package hyperref Info: Link coloring OFF on input line 6438.
-Package hyperref Info: Link coloring with OCG OFF on input line 6443.
-Package hyperref Info: PDF/A mode OFF on input line 6448.
-LaTeX Info: Redefining \ref on input line 6488.
-LaTeX Info: Redefining \pageref on input line 6492.
+Package hyperref Info: Hyper figures OFF on input line 6430.
+Package hyperref Info: Link nesting OFF on input line 6435.
+Package hyperref Info: Hyper index ON on input line 6438.
+Package hyperref Info: backreferencing OFF on input line 6445.
+Package hyperref Info: Link coloring OFF on input line 6450.
+Package hyperref Info: Link coloring with OCG OFF on input line 6455.
+Package hyperref Info: PDF/A mode OFF on input line 6460.
+LaTeX Info: Redefining \ref on input line 6500.
+LaTeX Info: Redefining \pageref on input line 6504.
 
 (c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/atbegshi/atbe
 gshi.sty
 Package: atbegshi 2019/12/05 v1.19 At begin shipout hook (HO)
 )
-\Hy@abspage=\count118
-\c@Item=\count119
-\c@Hfootnote=\count120
+\Hy@abspage=\count119
+\c@Item=\count120
+\c@Hfootnote=\count121
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
 
 (c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/hpdfte
 x.def
-File: hpdftex.def 2019/11/10 v7.00c Hyperref driver for pdfTeX
+File: hpdftex.def 2020/01/14 v7.00d Hyperref driver for pdfTeX
 
 (c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/atveryend/atver
 yend.sty
 Package: atveryend 2019-12-11 v1.11 Hooks at the very end of document (HO)
 Package atveryend Info: \enddocument detected (standard20110627).
 )
-\Fld@listcount=\count121
-\c@bookmark@seq@number=\count122
+\Fld@listcount=\count122
+\c@bookmark@seq@number=\count123
 
 (c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/oberdiek/rerunf
 ilecheck.sty
@@ -639,7 +640,7 @@ LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
 )
 (c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count123
+\c@float@type=\count124
 \float@exts=\toks29
 \float@box=\box34
 \@float@everytoks=\toks30
@@ -652,7 +653,7 @@ Package: rotating 2016/08/11 v2.16d rotated objects in LaTeX
 (c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/ifthen.sty
 Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
 )
-\c@r@tfl@t=\count124
+\c@r@tfl@t=\count125
 \rotFPtop=\skip64
 \rotFPbot=\skip65
 \rot@float@box=\box36
@@ -675,8 +676,8 @@ Package caption3 Info: TeX engine: e-TeX on input line 61.
 \caption@hangindent=\dimen142
 Package caption Info: Standard document class detected.
 )
-\c@caption@flags=\count125
-\c@continuedfloat=\count126
+\c@caption@flags=\count126
+\c@continuedfloat=\count127
 Package caption Info: float package is loaded.
 Package caption Info: hyperref package is loaded.
 Package caption Info: longtable package is loaded.
@@ -696,7 +697,7 @@ Package: parskip 2019-01-16 v2.0c non-zero parskip adjustments
 (c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/etoolbox/etoolb
 ox.sty
 Package: etoolbox 2019/09/21 v2.5h e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count127
+\etb@tempcnta=\count128
 ))
 (c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/array.sty
 Package: array 2019/08/31 v2.4l Tabular extension package (FMi)
@@ -712,7 +713,7 @@ Package: array 2019/08/31 v2.4l Tabular extension package (FMi)
 ow.sty
 Package: multirow 2019/05/31 v2.5 Span multiple rows of a table
 \multirow@colwidth=\skip68
-\multirow@cntb=\count128
+\multirow@cntb=\count129
 \multirow@dima=\skip69
 \bigstrutjot=\dimen145
 )
@@ -720,7 +721,7 @@ Package: multirow 2019/05/31 v2.5 Span multiple rows of a table
 .sty
 \wrapoverhang=\dimen146
 \WF@size=\dimen147
-\c@WF@wrappedlines=\count129
+\c@WF@wrappedlines=\count130
 \WF@box=\box39
 \WF@everypar=\toks33
 Package: wrapfig 2003/01/31  v 3.6
@@ -751,16 +752,16 @@ Package: tabu 2019/01/11 v2.9 - flexible LaTeX tabulars (FC+tabu-fixed)
 th.sty
 Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
 \@vwid@box=\box40
-\sift@deathcycles=\count130
+\sift@deathcycles=\count131
 \@vwid@loff=\dimen148
 \@vwid@roff=\dimen149
 )
-\c@taburow=\count131
-\tabu@nbcols=\count132
-\tabu@cnt=\count133
-\tabu@Xcol=\count134
-\tabu@alloc=\count135
-\tabu@nested=\count136
+\c@taburow=\count132
+\tabu@nbcols=\count133
+\tabu@cnt=\count134
+\tabu@Xcol=\count135
+\tabu@alloc=\count136
+\tabu@nested=\count137
 \tabu@target=\dimen150
 \tabu@spreadtarget=\dimen151
 \tabu@naturalX=\dimen152
@@ -803,7 +804,7 @@ Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
 \UL@skip=\skip73
 \UL@hook=\toks37
 \UL@height=\dimen159
-\UL@pe=\count137
+\UL@pe=\count138
 \UL@pixel=\dimen160
 \ULC@box=\box48
 Package: ulem 2019/11/18
@@ -813,7 +814,7 @@ Package: ulem 2019/11/18
 ll.sty
 Package: makecell 2009/08/03 V0.1e Managing of Tab Column Heads and Cells
 \rotheadsize=\dimen162
-\c@nlinenum=\count138
+\c@nlinenum=\count139
 \TeXr@lab=\toks38
 )
 (c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/xcolor/xcolor.s
@@ -907,7 +908,7 @@ Package: refcount 2016/05/16 v3.5 Data extraction from label references (HO)
 g/gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count139
+\c@section@level=\count140
 )
 LaTeX Info: Redefining \ref on input line 255.
 LaTeX Info: Redefining \pageref on input line 255.
@@ -927,7 +928,7 @@ ut line 259.
 ntawesometwo.fd
 File: ufontawesometwo.fd 2016/05/22 Font definitions for U/fontawesometwo.
 )
-<Figure/logos.png, id=196, 859.2903pt x 125.0271pt>
+<Figure/logos.png, id=277, 859.2903pt x 125.0271pt>
 File: Figure/logos.png Graphic file (type png)
 <use Figure/logos.png>
 Package pdftex.def Info: Figure/logos.png  used on input line 259.
@@ -1067,7 +1068,7 @@ File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 Overfull \vbox (1.6343pt too high) has occurred while \output is active []
 
 [6]
-<thesis_files/figure-latex/plotideamstations-1.pdf, id=490, 469.755pt x 325.215
+<thesis_files/figure-latex/plotideamstations-1.pdf, id=592, 469.755pt x 325.215
 pt>
 File: thesis_files/figure-latex/plotideamstations-1.pdf Graphic file (type pdf)
 
@@ -1075,7 +1076,7 @@ File: thesis_files/figure-latex/plotideamstations-1.pdf Graphic file (type pdf)
 Package pdftex.def Info: thesis_files/figure-latex/plotideamstations-1.pdf  use
 d on input line 507.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-<thesis_files/figure-latex/plotoneideamstation-1.pdf, id=491, 469.755pt x 325.2
+<thesis_files/figure-latex/plotoneideamstation-1.pdf, id=593, 469.755pt x 325.2
 15pt>
 File: thesis_files/figure-latex/plotoneideamstation-1.pdf Graphic file (type pd
 f)
@@ -1083,7 +1084,7 @@ f)
 Package pdftex.def Info: thesis_files/figure-latex/plotoneideamstation-1.pdf  u
 sed on input line 513.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-<thesis_files/figure-latex/plotoneideamstationacf-1.pdf, id=492, 469.755pt x 32
+<thesis_files/figure-latex/plotoneideamstationacf-1.pdf, id=594, 469.755pt x 32
 5.215pt>
 File: thesis_files/figure-latex/plotoneideamstationacf-1.pdf Graphic file (type
  pdf)
@@ -1092,7 +1093,7 @@ Package pdftex.def Info: thesis_files/figure-latex/plotoneideamstationacf-1.pdf
   used on input line 518.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 [7 <./thesis_files/figure-latex/plotideamstations-1.pdf>]
-<thesis_files/figure-latex/plotoneideamstationpacf-1.pdf, id=505, 469.755pt x 3
+<thesis_files/figure-latex/plotoneideamstationpacf-1.pdf, id=607, 469.755pt x 3
 25.215pt>
 File: thesis_files/figure-latex/plotoneideamstationpacf-1.pdf Graphic file (typ
 e pdf)
@@ -1102,7 +1103,7 @@ f  used on input line 523.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 [8 <./thesis_files/figure-latex/plotoneideamstation-1.pdf>] [9 <./thesis_files/
 figure-latex/plotoneideamstationacf-1.pdf>]
-<thesis_files/figure-latex/plotisdstations-1.pdf, id=529, 469.755pt x 325.215pt
+<thesis_files/figure-latex/plotisdstations-1.pdf, id=631, 469.755pt x 325.215pt
 >
 File: thesis_files/figure-latex/plotisdstations-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/plotisdstations-1.pdf>
@@ -1110,7 +1111,7 @@ Package pdftex.def Info: thesis_files/figure-latex/plotisdstations-1.pdf  used
 on input line 544.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 [10 <./thesis_files/figure-latex/plotoneideamstationpacf-1.pdf>]
-<thesis_files/figure-latex/plotoneisdstation-1.pdf, id=541, 469.755pt x 325.215
+<thesis_files/figure-latex/plotoneisdstation-1.pdf, id=644, 469.755pt x 325.215
 pt>
 File: thesis_files/figure-latex/plotoneisdstation-1.pdf Graphic file (type pdf)
 
@@ -1118,7 +1119,7 @@ File: thesis_files/figure-latex/plotoneisdstation-1.pdf Graphic file (type pdf)
 Package pdftex.def Info: thesis_files/figure-latex/plotoneisdstation-1.pdf  use
 d on input line 553.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-<thesis_files/figure-latex/plotoneisdstationacf-1.pdf, id=542, 469.755pt x 325.
+<thesis_files/figure-latex/plotoneisdstationacf-1.pdf, id=645, 469.755pt x 325.
 215pt>
 File: thesis_files/figure-latex/plotoneisdstationacf-1.pdf Graphic file (type p
 df)
@@ -1127,7 +1128,7 @@ Package pdftex.def Info: thesis_files/figure-latex/plotoneisdstationacf-1.pdf
 used on input line 558.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 [11 <./thesis_files/figure-latex/plotisdstations-1.pdf>]
-<thesis_files/figure-latex/plotoneisdstationpacf-1.pdf, id=555, 469.755pt x 325
+<thesis_files/figure-latex/plotoneisdstationpacf-1.pdf, id=658, 469.755pt x 325
 .215pt>
 File: thesis_files/figure-latex/plotoneisdstationpacf-1.pdf Graphic file (type 
 pdf)
@@ -1137,7 +1138,7 @@ Package pdftex.def Info: thesis_files/figure-latex/plotoneisdstationpacf-1.pdf
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 [12 <./thesis_files/figure-latex/plotoneisdstation-1.pdf>] [13 <./thesis_files/
 figure-latex/plotoneisdstationacf-1.pdf>]
-<thesis_files/figure-latex/plotera5stations-1.pdf, id=577, 469.755pt x 325.215p
+<thesis_files/figure-latex/plotera5stations-1.pdf, id=680, 469.755pt x 325.215p
 t>
 File: thesis_files/figure-latex/plotera5stations-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/plotera5stations-1.pdf>
@@ -1162,7 +1163,7 @@ Package xcolor Warning: Incompatible color definition on input line 643.
 
 Package xcolor Warning: Incompatible color definition on input line 643.
 
-<thesis_files/figure-latex/plotgumbelpdffunction-1.pdf, id=617, 289.08pt x 216.
+<thesis_files/figure-latex/plotgumbelpdffunction-1.pdf, id=719, 289.08pt x 216.
 81pt>
 File: thesis_files/figure-latex/plotgumbelpdffunction-1.pdf Graphic file (type 
 pdf)
@@ -1179,7 +1180,7 @@ Package xcolor Warning: Incompatible color definition on input line 666.
 
 Package xcolor Warning: Incompatible color definition on input line 666.
 
-<thesis_files/figure-latex/plotgumbelpdf-1.pdf, id=619, 289.08pt x 216.81pt>
+<thesis_files/figure-latex/plotgumbelpdf-1.pdf, id=721, 289.08pt x 216.81pt>
 File: thesis_files/figure-latex/plotgumbelpdf-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/plotgumbelpdf-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/plotgumbelpdf-1.pdf  used on
@@ -1195,7 +1196,7 @@ Package xcolor Warning: Incompatible color definition on input line 713.
 
 Package xcolor Warning: Incompatible color definition on input line 713.
 
-<thesis_files/figure-latex/plotgumbelcdffunction-1.pdf, id=635, 289.08pt x 216.
+<thesis_files/figure-latex/plotgumbelcdffunction-1.pdf, id=737, 289.08pt x 216.
 81pt>
 File: thesis_files/figure-latex/plotgumbelcdffunction-1.pdf Graphic file (type 
 pdf)
@@ -1213,7 +1214,7 @@ Package xcolor Warning: Incompatible color definition on input line 755.
 
 Package xcolor Warning: Incompatible color definition on input line 755.
 
-<thesis_files/figure-latex/plotgumbelppffunction-1.pdf, id=651, 289.08pt x 216.
+<thesis_files/figure-latex/plotgumbelppffunction-1.pdf, id=754, 289.08pt x 216.
 81pt>
 File: thesis_files/figure-latex/plotgumbelppffunction-1.pdf Graphic file (type 
 pdf)
@@ -1231,7 +1232,7 @@ Package xcolor Warning: Incompatible color definition on input line 797.
 
 Package xcolor Warning: Incompatible color definition on input line 797.
 
-<thesis_files/figure-latex/plotgumbelhffunction-1.pdf, id=667, 289.08pt x 216.8
+<thesis_files/figure-latex/plotgumbelhffunction-1.pdf, id=770, 289.08pt x 216.8
 1pt>
 File: thesis_files/figure-latex/plotgumbelhffunction-1.pdf Graphic file (type p
 df)
@@ -1255,7 +1256,7 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <10> on input line 820.
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <7> on input line 820.
-<thesis_files/figure-latex/unnamed-chunk-9-1.pdf, id=681, 289.08pt x 216.81pt>
+<thesis_files/figure-latex/unnamed-chunk-9-1.pdf, id=784, 289.08pt x 216.81pt>
 File: thesis_files/figure-latex/unnamed-chunk-9-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/unnamed-chunk-9-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/unnamed-chunk-9-1.pdf  used 
@@ -1271,7 +1272,7 @@ Package amsmath Warning: Cannot use `split' here;
 Package amsmath Warning: Cannot use `split' here;
 (amsmath)                trying to recover with `aligned' on input line 872.
 
-<thesis_files/figure-latex/compoundprobability-1.pdf, id=706, 361.35pt x 289.08
+<thesis_files/figure-latex/compoundprobability-1.pdf, id=809, 361.35pt x 289.08
 pt>
 File: thesis_files/figure-latex/compoundprobability-1.pdf Graphic file (type pd
 f)
@@ -1289,27 +1290,27 @@ Package amsmath Warning: Cannot use `split' here;
 (amsmath)                trying to recover with `aligned' on input line 947.
 
 [25]
-<thesis_files/figure-latex/plotdomainpp-1.pdf, id=749, 289.08pt x 289.08pt>
+<thesis_files/figure-latex/plotdomainpp-1.pdf, id=851, 289.08pt x 289.08pt>
 File: thesis_files/figure-latex/plotdomainpp-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/plotdomainpp-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/plotdomainpp-1.pdf  used on 
 input line 964.
 (pdftex.def)             Requested size: 289.07928pt x 289.07928pt.
 [26 <./thesis_files/figure-latex/plotdomainpp-1.pdf>]
-<figure/domain3d.png, id=766, 344.03531pt x 328.97906pt>
+<figure/domain3d.png, id=869, 344.03531pt x 328.97906pt>
 File: figure/domain3d.png Graphic file (type png)
 <use figure/domain3d.png>
 Package pdftex.def Info: figure/domain3d.png  used on input line 984.
 (pdftex.def)             Requested size: 458.91493pt x 438.83177pt.
 [27 <./figure/domain3d.PNG>] [28]
-<figure/durst.png, id=789, 332.74312pt x 183.68625pt>
+<figure/durst.png, id=892, 332.74312pt x 183.68625pt>
 File: figure/durst.png Graphic file (type png)
 <use figure/durst.png>
 Package pdftex.def Info: figure/durst.png  used on input line 1052.
 (pdftex.def)             Requested size: 443.73775pt x 244.97508pt.
 [29] [30 <./figure/durst.PNG>]
 Chapter 4.
-<figure/methodology.png, id=804, 350.81062pt x 493.0922pt>
+<figure/methodology.png, id=907, 350.81062pt x 493.0922pt>
 File: figure/methodology.png Graphic file (type png)
 <use figure/methodology.png>
 Package pdftex.def Info: figure/methodology.png  used on input line 1066.
@@ -1320,57 +1321,57 @@ Package pdftex.def Info: figure/methodology.png  used on input line 1066.
 Overfull \vbox (31.34908pt too high) has occurred while \output is active []
 
 [32 <./figure/methodology.png>]
-<figure/main_methodology.png, id=815, 190.46156pt x 417.81094pt>
+<figure/main_methodology.png, id=918, 190.46156pt x 417.81094pt>
 File: figure/main_methodology.png Graphic file (type png)
 <use figure/main_methodology.png>
 Package pdftex.def Info: figure/main_methodology.png  used on input line 1077.
 (pdftex.def)             Requested size: 253.6673pt x 556.48486pt.
 [33 <./figure/main_methodology.png>]
-<figure/anemometer.png, id=824, 331.99031pt x 353.06906pt>
+<figure/anemometer.png, id=927, 331.99031pt x 353.06906pt>
 File: figure/anemometer.png Graphic file (type png)
 <use figure/anemometer.png>
 Package pdftex.def Info: figure/anemometer.png  used on input line 1105.
 (pdftex.def)             Requested size: 442.29204pt x 470.40022pt.
 [34] [35 <./figure/anemometer.PNG>]
-<figure/viensanandres.png, id=846, 258.9675pt x 194.22563pt>
+<figure/viensanandres.png, id=948, 258.9675pt x 194.22563pt>
 File: figure/viensanandres.png Graphic file (type png)
 <use figure/viensanandres.png>
 Package pdftex.def Info: figure/viensanandres.png  used on input line 1143.
 (pdftex.def)             Requested size: 345.4505pt x 259.117pt.
 [36]
-<figure/aerial_photo_pintar.png, id=851, 192.72pt x 195.73125pt>
+<figure/aerial_photo_pintar.png, id=953, 192.72pt x 195.73125pt>
 File: figure/aerial_photo_pintar.png Graphic file (type png)
 <use figure/aerial_photo_pintar.png>
 Package pdftex.def Info: figure/aerial_photo_pintar.png  used on input line 115
 4.
 (pdftex.def)             Requested size: 257.28102pt x 261.30186pt.
 [37 <./figure/viensanandres.png> <./figure/aerial_photo_pintar.png>]
-<figure/lettauexamples.png, id=861, 333.49594pt x 108.405pt>
+<figure/lettauexamples.png, id=963, 333.49594pt x 108.405pt>
 File: figure/lettauexamples.png Graphic file (type png)
 <use figure/lettauexamples.png>
 Package pdftex.def Info: figure/lettauexamples.png  used on input line 1167.
 (pdftex.def)             Requested size: 444.46005pt x 144.48448pt.
-<figure/lettauvalues.png, id=862, 335.00156pt x 157.33781pt>
+<figure/lettauvalues.png, id=964, 335.00156pt x 157.33781pt>
 File: figure/lettauvalues.png Graphic file (type png)
 <use figure/lettauvalues.png>
 Package pdftex.def Info: figure/lettauvalues.png  used on input line 1178.
 (pdftex.def)             Requested size: 446.62807pt x 209.76321pt.
 [38 <./figure/lettauexamples.PNG> <./figure/lettauvalues.png>]
-<thesis_files/figure-latex/declustering-1.pdf, id=879, 216.81pt x 216.81pt>
+<thesis_files/figure-latex/declustering-1.pdf, id=981, 216.81pt x 216.81pt>
 File: thesis_files/figure-latex/declustering-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/declustering-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/declustering-1.pdf  used on 
 input line 1217.
 (pdftex.def)             Requested size: 216.80946pt x 216.80946pt.
 [39]
-<thesis_files/figure-latex/thresholding-1.pdf, id=888, 216.81pt x 216.81pt>
+<thesis_files/figure-latex/thresholding-1.pdf, id=991, 216.81pt x 216.81pt>
 File: thesis_files/figure-latex/thresholding-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/thresholding-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/thresholding-1.pdf  used on 
 input line 1233.
 (pdftex.def)             Requested size: 216.80946pt x 216.80946pt.
 [40 <./thesis_files/figure-latex/declustering-1.pdf>]
-<thesis_files/figure-latex/wstatistics-1.pdf, id=899, 469.755pt x 325.215pt>
+<thesis_files/figure-latex/wstatistics-1.pdf, id=1002, 469.755pt x 325.215pt>
 File: thesis_files/figure-latex/wstatistics-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/wstatistics-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/wstatistics-1.pdf  used on i
@@ -1385,13 +1386,13 @@ Package amsmath Warning: Cannot use `split' here;
 (amsmath)                trying to recover with `aligned' on input line 1282.
 
 [42 <./thesis_files/figure-latex/wstatistics-1.pdf>]
-<thesis_files/figure-latex/fitif-1.pdf, id=925, 216.81pt x 216.81pt>
+<thesis_files/figure-latex/fitif-1.pdf, id=1028, 216.81pt x 216.81pt>
 File: thesis_files/figure-latex/fitif-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/fitif-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/fitif-1.pdf  used on input l
 ine 1290.
 (pdftex.def)             Requested size: 216.80946pt x 216.80946pt.
-<thesis_files/figure-latex/hc-1.pdf, id=928, 289.08pt x 289.08pt>
+<thesis_files/figure-latex/hc-1.pdf, id=1031, 289.08pt x 289.08pt>
 File: thesis_files/figure-latex/hc-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/hc-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/hc-1.pdf  used on input line
@@ -1400,217 +1401,221 @@ Package pdftex.def Info: thesis_files/figure-latex/hc-1.pdf  used on input line
 [43 <./thesis_files/figure-latex/fitif-1.pdf>] [44 <./thesis_files/figure-latex
 /hc-1.pdf>] [45]
 Chapter 5.
-<thesis_files/figure-latex/page1-1.pdf, id=967, 469.755pt x 325.215pt>
+[46
+
+]
+<thesis_files/figure-latex/page1-1.pdf, id=1081, 469.755pt x 325.215pt>
 File: thesis_files/figure-latex/page1-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/page1-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/page1-1.pdf  used on input l
-ine 1365.
+ine 1495.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-<thesis_files/figure-latex/page2-1.pdf, id=968, 469.755pt x 325.215pt>
+[47] [48]
+Overfull \vbox (178.68423pt too high) has occurred while \output is active []
+
+[49 <./thesis_files/figure-latex/page1-1.pdf>]
+<thesis_files/figure-latex/page2-1.pdf, id=1122, 469.755pt x 325.215pt>
 File: thesis_files/figure-latex/page2-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/page2-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/page2-1.pdf  used on input l
-ine 1376.
+ine 1506.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[46
-
- <./thesis_files/figure-latex/page1-1.pdf>]
-<thesis_files/figure-latex/page3-1.pdf, id=979, 469.755pt x 325.215pt>
+<thesis_files/figure-latex/page3-1.pdf, id=1123, 469.755pt x 325.215pt>
 File: thesis_files/figure-latex/page3-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/page3-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/page3-1.pdf  used on input l
-ine 1387.
+ine 1517.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[47 <./thesis_files/figure-latex/page2-1.pdf>]
-<thesis_files/figure-latex/page4-1.pdf, id=990, 469.755pt x 325.215pt>
+[50 <./thesis_files/figure-latex/page2-1.pdf>]
+<thesis_files/figure-latex/page4-1.pdf, id=1135, 469.755pt x 325.215pt>
 File: thesis_files/figure-latex/page4-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/page4-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/page4-1.pdf  used on input l
-ine 1398.
+ine 1528.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[48 <./thesis_files/figure-latex/page3-1.pdf>]
-<thesis_files/figure-latex/page5-1.pdf, id=1001, 469.755pt x 325.215pt>
+[51 <./thesis_files/figure-latex/page3-1.pdf>]
+<thesis_files/figure-latex/page5-1.pdf, id=1146, 469.755pt x 325.215pt>
 File: thesis_files/figure-latex/page5-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/page5-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/page5-1.pdf  used on input l
-ine 1409.
+ine 1539.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[49 <./thesis_files/figure-latex/page4-1.pdf>]
-<thesis_files/figure-latex/page6-1.pdf, id=1012, 469.755pt x 325.215pt>
+[52 <./thesis_files/figure-latex/page4-1.pdf>]
+<thesis_files/figure-latex/page6-1.pdf, id=1157, 469.755pt x 325.215pt>
 File: thesis_files/figure-latex/page6-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/page6-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/page6-1.pdf  used on input l
-ine 1420.
+ine 1550.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[50 <./thesis_files/figure-latex/page5-1.pdf>]
-<thesis_files/figure-latex/page7-1.pdf, id=1024, 469.755pt x 325.215pt>
+[53 <./thesis_files/figure-latex/page5-1.pdf>]
+<thesis_files/figure-latex/page7-1.pdf, id=1168, 469.755pt x 325.215pt>
 File: thesis_files/figure-latex/page7-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/page7-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/page7-1.pdf  used on input l
-ine 1431.
+ine 1561.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[51 <./thesis_files/figure-latex/page6-1.pdf>]
-<thesis_files/figure-latex/page8-1.pdf, id=1034, 469.755pt x 325.215pt>
+[54 <./thesis_files/figure-latex/page6-1.pdf>]
+<thesis_files/figure-latex/page8-1.pdf, id=1178, 469.755pt x 325.215pt>
 File: thesis_files/figure-latex/page8-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/page8-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/page8-1.pdf  used on input l
-ine 1442.
+ine 1572.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[52 <./thesis_files/figure-latex/page7-1.pdf>]
-<thesis_files/figure-latex/page9-1.pdf, id=1045, 469.755pt x 325.215pt>
+[55 <./thesis_files/figure-latex/page7-1.pdf>]
+<thesis_files/figure-latex/page9-1.pdf, id=1190, 469.755pt x 325.215pt>
 File: thesis_files/figure-latex/page9-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/page9-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/page9-1.pdf  used on input l
-ine 1453.
+ine 1583.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[53 <./thesis_files/figure-latex/page8-1.pdf>]
-<thesis_files/figure-latex/page10-1.pdf, id=1056, 469.755pt x 325.215pt>
+[56 <./thesis_files/figure-latex/page8-1.pdf>]
+<thesis_files/figure-latex/page10-1.pdf, id=1202, 469.755pt x 325.215pt>
 File: thesis_files/figure-latex/page10-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/page10-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/page10-1.pdf  used on input 
-line 1464.
+line 1594.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[54 <./thesis_files/figure-latex/page9-1.pdf>]
-<thesis_files/figure-latex/page11-1.pdf, id=1067, 469.755pt x 325.215pt>
+[57 <./thesis_files/figure-latex/page9-1.pdf>]
+<thesis_files/figure-latex/page11-1.pdf, id=1213, 469.755pt x 325.215pt>
 File: thesis_files/figure-latex/page11-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/page11-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/page11-1.pdf  used on input 
-line 1475.
+line 1605.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[55 <./thesis_files/figure-latex/page10-1.pdf>]
-<thesis_files/figure-latex/page12-1.pdf, id=1079, 469.755pt x 325.215pt>
+[58 <./thesis_files/figure-latex/page10-1.pdf>]
+<thesis_files/figure-latex/page12-1.pdf, id=1224, 469.755pt x 325.215pt>
 File: thesis_files/figure-latex/page12-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/page12-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/page12-1.pdf  used on input 
-line 1486.
+line 1616.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[56 <./thesis_files/figure-latex/page11-1.pdf>]
-<thesis_files/figure-latex/page13-1.pdf, id=1091, 469.755pt x 325.215pt>
+[59 <./thesis_files/figure-latex/page11-1.pdf>]
+<thesis_files/figure-latex/page13-1.pdf, id=1235, 469.755pt x 325.215pt>
 File: thesis_files/figure-latex/page13-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/page13-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/page13-1.pdf  used on input 
-line 1497.
+line 1627.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[57 <./thesis_files/figure-latex/page12-1.pdf>]
-<thesis_files/figure-latex/page14-1.pdf, id=1102, 469.755pt x 325.215pt>
+[60 <./thesis_files/figure-latex/page12-1.pdf>]
+<thesis_files/figure-latex/page14-1.pdf, id=1246, 469.755pt x 325.215pt>
 File: thesis_files/figure-latex/page14-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/page14-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/page14-1.pdf  used on input 
-line 1508.
+line 1638.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[58 <./thesis_files/figure-latex/page13-1.pdf>]
-<thesis_files/figure-latex/page15-1.pdf, id=1113, 469.755pt x 325.215pt>
+[61 <./thesis_files/figure-latex/page13-1.pdf>]
+<thesis_files/figure-latex/page15-1.pdf, id=1257, 469.755pt x 325.215pt>
 File: thesis_files/figure-latex/page15-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/page15-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/page15-1.pdf  used on input 
-line 1519.
+line 1649.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[59 <./thesis_files/figure-latex/page14-1.pdf>] [60 <./thesis_files/figure-late
+[62 <./thesis_files/figure-latex/page14-1.pdf>] [63 <./thesis_files/figure-late
 x/page15-1.pdf>]
 Chapter 6.
-<thesis_files/figure-latex/test1-1.pdf, id=1135, 469.755pt x 325.215pt>
+<thesis_files/figure-latex/test1-1.pdf, id=1280, 469.755pt x 325.215pt>
 File: thesis_files/figure-latex/test1-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/test1-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/test1-1.pdf  used on input l
-ine 1533.
+ine 1663.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[61
+[64
 
- <./thesis_files/figure-latex/test1-1.pdf>] [62
+ <./thesis_files/figure-latex/test1-1.pdf>] [65
 
 ]
 Appendix A.
 
-Package xcolor Warning: Incompatible color definition on input line 1559.
+Package xcolor Warning: Incompatible color definition on input line 1689.
 
 LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <12> not available
-(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 1564.
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 1694.
 
-Package xcolor Warning: Incompatible color definition on input line 1570.
-
-
-Package xcolor Warning: Incompatible color definition on input line 1570.
+Package xcolor Warning: Incompatible color definition on input line 1700.
 
 
-Package xcolor Warning: Incompatible color definition on input line 1572.
+Package xcolor Warning: Incompatible color definition on input line 1700.
 
 
-Package xcolor Warning: Incompatible color definition on input line 1593.
+Package xcolor Warning: Incompatible color definition on input line 1702.
 
 
-Package xcolor Warning: Incompatible color definition on input line 1593.
+Package xcolor Warning: Incompatible color definition on input line 1723.
 
 
-Package xcolor Warning: Incompatible color definition on input line 1593.
+Package xcolor Warning: Incompatible color definition on input line 1723.
 
-[63
+
+Package xcolor Warning: Incompatible color definition on input line 1723.
+
+[66
 
 ]
 
-Package xcolor Warning: Incompatible color definition on input line 1593.
+Package xcolor Warning: Incompatible color definition on input line 1723.
 
 
-Package xcolor Warning: Incompatible color definition on input line 1593.
+Package xcolor Warning: Incompatible color definition on input line 1723.
 
-[64]
+[67]
 Appendix B.
-[65
+[68
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 1621--1623
+Underfull \hbox (badness 10000) in paragraph at lines 1751--1753
  \T1/lmr/m/n/12 from []$\T1/lmtt/m/n/12 https : / / www . ebook . de / de / pro
 duct / 35017614 / american _ society _ of _ civil _
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1621--1623
+Underfull \hbox (badness 10000) in paragraph at lines 1751--1753
  \T1/lmtt/m/n/12 engineers _ minimum _ design _ loads _ and _ associated _ crit
 eria _ for _ buildings _ and _
  []
 
-[66
+[69
 
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 1657--1659
+Underfull \hbox (badness 10000) in paragraph at lines 1787--1789
  \T1/lmr/m/n/12 from []$\T1/lmtt/m/n/12 https : / / www . amazon . com / Teleco
 mmunications -[] Environment -[] Monographs -[]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1657--1659
+Underfull \hbox (badness 10000) in paragraph at lines 1787--1789
  \T1/lmtt/m/n/12 Statistics -[] Probability / dp / 1584884118 ? SubscriptionId 
 = AKIAIOBINVZYXZQZ2U3A &
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1657--1659
+Underfull \hbox (badness 10000) in paragraph at lines 1787--1789
  \T1/lmtt/m/n/12 tag = chimbori05 -[] 20 & linkCode = xm2 & camp = 2025 & creat
 ive = 165953 & creativeASIN =
  []
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1663.
-[67]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1663.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1793.
+[70]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1793.
 (./thesis.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1663.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1663.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1793.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1793.
 
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: AF12960CA4F945829950F0EF0326A646;3350.
+(rerunfilecheck)             Checksum: 16B50FCF0DE9EF5906B0D8793BA3D4E6;4641.
 
 LaTeX Warning: There were undefined references.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1663.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1793.
  ) 
 Here is how much of TeX's memory you used:
- 13432 strings out of 494106
- 209785 string characters out of 6172014
- 297537 words of memory out of 5000000
- 16888 multiletter control sequences out of 15000+600000
+ 13523 strings out of 494106
+ 210984 string characters out of 6172014
+ 298587 words of memory out of 5000000
+ 16935 multiletter control sequences out of 15000+600000
  74185 words of font info for 75 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 41i,17n,49p,1364b,460s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 41i,17n,49p,1364b,464s stack positions out of 5000i,500n,10000p,200000b,80000s
 {c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-m
 athit.enc}{c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips
 /lm/lm-ec.enc}{c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/d
@@ -1641,10 +1646,10 @@ dist/fonts/type1/public/lm/lmsy8.pfb><c:/Users/alexyshr/AppData/Roaming/TinyTeX
 /TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt10.pfb><c:/Users/alexyshr/AppData
 /Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt12.pfb><c:/Users/alexyshr
 /AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtti10.pfb>
-Output written on thesis.pdf (78 pages, 4858927 bytes).
+Output written on thesis.pdf (81 pages, 4869486 bytes).
 PDF statistics:
- 1339 PDF objects out of 1440 (max. 8388607)
- 1131 compressed objects within 12 object streams
- 273 named destinations out of 1000 (max. 500000)
- 625 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1492 PDF objects out of 1728 (max. 8388607)
+ 1280 compressed objects within 13 object streams
+ 317 named destinations out of 1000 (max. 500000)
+ 785 words of extra memory for PDF output out of 10000 (max. 10000000)
 

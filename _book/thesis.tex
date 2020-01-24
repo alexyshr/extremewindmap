@@ -164,7 +164,7 @@
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 
 \Acknowledgements{
-I would like to thank Prof.~Dr.~Edzer Pebesma, Prof.~Dr.~Juan C. Reyes, and Prof.~Dr.~Sara Ribero, for supervising my work and spending their valuable time for discussions and feedback. It was really a huge advantage for me to have this always available support. It was a pleasure to work beside you. I want to thank Dr Adam Pintar and Engineer Juan David Sandoval for their support and contributions. My mother Ligia made possible all my achievements because she was always there with love, support and valuable advice and contributions. I am grateful with all my heart. Thanks to my daughter Nicolle Chaely for its love, support, and always pleasant company. I would like to thank the European Union -`Erasmus Mundus Grant', because their funding allow me to fulfill this dream to go further with my academic and professionals dreams.
+I would like to thank Prof.~Dr.~Edzer Pebesma, Prof.~Dr.~Juan C. Reyes, and Prof.~Dr.~Sara Ribero, for supervising my work and spending their valuable time for discussions and feedback. It was really a huge advantage for me to have this always available support. It was a pleasure to work beside you. I want to thank Dr Adam Pintar and Engineer Juan David Sandoval for their support and contributions. My mother Ligia made possible all my achievements, because she was always there with love, support, and valuable advice and contributions. I am grateful with all my heart. Thanks to my daughter Nicolle Chaely for its love, support, and always pleasant company. I would like to thank the European Union -`Erasmus Mundus Grant', because their funding allow me to fulfill this dream to go further with my academic and professionals dreams.
 
 \par
 
@@ -260,7 +260,7 @@ Method used to calculate the return levels at each station the Peaks Over Thresh
 \frontmatter % this stuff will be roman-numbered
 \pagestyle{empty} % this removes page numbers from the frontmatter
   \begin{acknowledgements}
-    I would like to thank Prof.~Dr.~Edzer Pebesma, Prof.~Dr.~Juan C. Reyes, and Prof.~Dr.~Sara Ribero, for supervising my work and spending their valuable time for discussions and feedback. It was really a huge advantage for me to have this always available support. It was a pleasure to work beside you. I want to thank Dr Adam Pintar and Engineer Juan David Sandoval for their support and contributions. My mother Ligia made possible all my achievements because she was always there with love, support and valuable advice and contributions. I am grateful with all my heart. Thanks to my daughter Nicolle Chaely for its love, support, and always pleasant company. I would like to thank the European Union -`Erasmus Mundus Grant', because their funding allow me to fulfill this dream to go further with my academic and professionals dreams.
+    I would like to thank Prof.~Dr.~Edzer Pebesma, Prof.~Dr.~Juan C. Reyes, and Prof.~Dr.~Sara Ribero, for supervising my work and spending their valuable time for discussions and feedback. It was really a huge advantage for me to have this always available support. It was a pleasure to work beside you. I want to thank Dr Adam Pintar and Engineer Juan David Sandoval for their support and contributions. My mother Ligia made possible all my achievements, because she was always there with love, support, and valuable advice and contributions. I am grateful with all my heart. Thanks to my daughter Nicolle Chaely for its love, support, and always pleasant company. I would like to thank the European Union -`Erasmus Mundus Grant', because their funding allow me to fulfill this dream to go further with my academic and professionals dreams.
     
     \par
     
@@ -489,7 +489,7 @@ Despite that ERA5 data are not observed data, but forecast, its main advantage i
 \hypertarget{ideam}{%
 \section{IDEAM}\label{ideam}}
 
-Historical observed wind speeds from 203 in Colombia are managed by the official environmental authority IDEAM. Table \ref{tab:tableideamstations} shows a sample of five IDEAM stations. Figure \ref{fig:plotideamstations} shows a map of IDEAM stations.
+Historical observed wind speeds from 203 stations in Colombia are managed by the official environmental authority IDEAM. Table \ref{tab:tableideamstations} shows a sample of five IDEAM stations. Figure \ref{fig:plotideamstations} shows a map of IDEAM stations.
 \begin{longtable}[t]{lrr}
 \caption[IDEAM Stations]{\label{tab:tableideamstations}IDEAM Stations sample}\\
 \toprule
@@ -1082,8 +1082,8 @@ More representative and important steps of the methodology are identified by num
 \end{figure}
 \normalsize
 
-\hypertarget{data-standardization-1}{%
-\section{Data Standardization}\label{data-standardization-1}}
+\hypertarget{rmd-standartization}{%
+\section{Data Standardization}\label{rmd-standartization}}
 
 Parallel to the standardization activity described below (3-s gust, roughness, and 10 mts anemometer height), it is also important to consider for all stations involved in the analysis:
 \begin{itemize}
@@ -1110,8 +1110,8 @@ According to the protocol for field data collection and location of methodologic
 \end{figure}
 \normalsize
 
-\hypertarget{surface-roughness-at-open-space-0.03-m}{%
-\subsection{Surface Roughness at Open Space (0.03 m)}\label{surface-roughness-at-open-space-0.03-m}}
+\hypertarget{rmd-roughness}{%
+\subsection{Surface Roughness at Open Space (0.03 m)}\label{rmd-roughness}}
 
 Due to the effects that the terrain has on wind speed, a correction should be applied if the station is located in a geographical space considered ``not open terrain''. When terrain is open, the roughness corresponds to 0.03 meters. There are some alternative methodologies to calculate the roughness, Masters, Vickery, Bacon, \& Rappaport (\protect\hyperlink{ref-Masters2010}{2010}) uses the station data, but the separation of the measurements should not exceed one minute, something difficult to obtain, and Lettau (\protect\hyperlink{ref-Lettau1969}{1969}) uses an empirical equation that is recommended in Engineers (\protect\hyperlink{ref-Asce2017}{2017}) (page 743, equation C26.7-1), which was used here,
 
@@ -1183,8 +1183,8 @@ Figure \ref{fig:lettauexamples} shows extreme conditions for roughness, open spa
 \end{figure}
 \normalsize
 
-\hypertarget{averaging-time---3-s-gust}{%
-\subsection{Averaging Time - 3-s gust}\label{averaging-time---3-s-gust}}
+\hypertarget{rmd-gust}{%
+\subsection{Averaging Time 3-s Gust}\label{rmd-gust}}
 
 To transform hourly mean wind velocity \(V_{3600}\), to 3-s gust velocity \(V_3\), Engineers (\protect\hyperlink{ref-Asce2017}{2017}) recommends to use C. S. Durst (\protect\hyperlink{ref-Durst1960}{1960}). See \protect\hyperlink{windloadsrequirements}{Wind Loads Requirements}. As the axis \(x\) represents duration \(t\) of the gust, what is done is to look there for the value 3 seconds, and read the corresponding gust factor \(\frac{V_t}{V_{3600}}\), this is, the value in the axis \(y\), then
 
@@ -1354,10 +1354,140 @@ Engineers (\protect\hyperlink{ref-Asce2017}{2017}) propose the equation C26.5-2 
 Where \(P_e(y>Y_N)\) is the annual exceedance probability for the combined wind hazards, \(P_{NH}(y<Y_N)\) is the annual non-exceedance probability for non-hurricane winds, and \(P_{H}(y<Y_N)\) is the annual non-exceedance probability for hurricane winds.
 
 To understand equation \eqref{eq:combination}, it is important to remember that to calculate return level \(Y_N\), for a given N-year return period, the exceedance probability \(\frac{1}{N}\) of \(Y_N\) is calculated. Then, the non-exceedance probability for \(Y_N\) is \(\left(1-\frac{1}{N}\right)\). The procedure consist in the creation of a new hazard curve, calculating all \(P_e(y>Y_N)\) values for different \(Y_N\) return levels, combining hazard curves from non-thunderstorm and thunderstorm data.
-After the combined hazard curve is created, a new process of spatial interpolation need to be accomplished. In case of absence of hazard curves for stations, but availability of return levels maps, it becomes necessary to recreate hazard curves cell by cell, to apply equation \eqref{eq:combination}. In this case are required as many maps as possible for different return periods, in order to estimate detailed enough hazard curves.
+
+After the combined hazard curve is created, a new process of spatial interpolation need to be accomplished. In case of absence of hazard curves for stations, but availability of return levels maps, it becomes necessary to recreate hazard curves cell by cell, to apply equation \eqref{eq:combination}. In this case are required as many maps as possible for different return periods, in order to estimate detailed enough hazard curves from return level values (cell values).
 
 \hypertarget{rmd-results}{%
 \chapter{Results}\label{rmd-results}}
+
+First result to show will be the datasource comparison to face the downscaling issue by using ERA5 and ISD database, then, the resulting process of fitting a POT-PP in the station 801120 will be displayed, which includes revision of intensity function parameters, goodness of fit, hazard curve, return levels, and comparison with POT-GPD results, next, non-hurricane maps will be displayed, which includes results for ISD and ERA5 stations, using POT-PP and POT-GPD approaches, and finally, output maps combining hurricane and non-hurricane results will be displayed.
+
+\hypertarget{datasources-comparison}{%
+\section{Datasources comparison}\label{datasources-comparison}}
+
+Looking for a statistical justification in the use of ISD (model) and ERA5 databases (forecast), as input data for this study, and considering the \emph{downscaling approach} described in the \protect\hyperlink{rmd-standartization}{standartization process} section of methodology, datasources ISD and IDEAM were standardized to enable comparison. Standardization consisted of transforming the data into 3-s gust \(V_3\), 10 meters height, and open space roughness.
+\begin{itemize}
+\item
+  Variable \emph{10m wind gust - 10fg} of ERA5 datasource does not need standardization, because it comes standardized from the source
+\item
+  In order to obtain \(V_3\) from Durst curve, it is required to start from \(V_3600\) (average hourly speed), or from a different wind gust speed, for instance \(V_6\).
+\item
+  Wind velocity from ISD comes from source as \(V_6\), that is, five seconds gust wind velocity.
+\item
+  From the different wind-related data obtained from IDEAM, the only one viable for transformation was the \emph{wind velocity each 2 seconds - VV\_AUT\_2}. VV\_AUT\_2 was available for 20 stations, of which only 12 were equivalent to ISD stations. See table \ref{tab:table12stations}
+\end{itemize}
+\begingroup\fontsize{10}{12}\selectfont
+\begin{longtable}[t]{>{\raggedright\arraybackslash}p{0.8in}>{\raggedright\arraybackslash}p{0.8in}}
+\caption[Twelve equivalent stations from ISD and IDEAM]{\label{tab:table12stations}Equivalent stations from ISD and IDEAM, representing the same weather station in the field}\\
+\toprule
+\multicolumn{1}{l}{ISD\_ID} & \multicolumn{1}{l}{IDEAM\_ID}\\
+\midrule
+803980 & 48015050\\
+803700 & 52055230\\
+802110 & 26125061\\
+802100 & 26125710\\
+801120 & 23085270\\
+\addlinespace
+801100 & 27015330\\
+800970 & 16015501\\
+800940 & 23195502\\
+800630 & 13035501\\
+800360 & 28025502\\
+\addlinespace
+800350 & 15065180\\
+800280 & 29045190\\
+\bottomrule
+\end{longtable}
+\endgroup{}
+\begin{itemize}
+\item
+  VV\_AUT\_2 dataset from IDEAM was transformed to \(V_{3600}\) (average hourly speed), averaging all 20 values available per hour.
+\item
+  Wind velocity \(V_5\) from 74 ISD stations, was standarized station by station, using procedure described in \protect\hyperlink{rmd-roughness}{Surface Roughness at Open Space} section, and \protect\hyperlink{rmd-gust}{Averaging Time 3-s Gust} section
+\item
+  Wind velocity from 12 \(V_{3600}\) (transformation of VV\_AUT\_2) IDEAM stations, was standarized station by station, using procedure described in \protect\hyperlink{rmd-roughness}{Surface Roughness at Open Space} section and \protect\hyperlink{rmd-gust}{Averaging Time 3-s Gust}
+\end{itemize}
+Twelve standarized stations from ISD and IDEAM (table \ref{tab:table12stations}) were compared with corresponding ERA5 station (the corresponding cell in ERA5 that has whithin ISD and IDEAM locations). To make the use of ISD and ERA5 viable, its time series are expected to be as similar as possible to IDEAM. To verify this, two types of graphics were constructed:
+\begin{itemize}
+\item
+  Time series overlay for the three sources. Not very effective method due to the large amount of data that makes the graphics unreadable.
+\item
+  Scatterplot maps comparing two different sources. Matching values by time, were sorted ascendingly and put together on a scatter plot. The expected behavior in case of similarity in the data, is that all the points fall in a \(45^\circ\) line
+\end{itemize}
+Stations 28025502 from IDEAM, 800360 from ISD, and 416 (cell with center point in \(-73.25^\circ\) longitude, and \(10.5^\circ\) latitude) from ERA5, showed high correspondence. See figures @ref(fig:s800360\_timeseries), @ref(fig:s800360\_ideam\_vs\_era5)
+
+\footnotesize
+
+\normalsize
+
+\footnotesize
+
+\normalsize
+
+\footnotesize
+
+\normalsize
+
+\footnotesize
+
+\normalsize
+
+\hypertarget{pot-pp-in-isd-station-801120}{%
+\section{POT-PP in ISD Station 801120}\label{pot-pp-in-isd-station-801120}}
+
+\hypertarget{parameters}{%
+\subsection{Parameters}\label{parameters}}
+
+\hypertarget{goodness-of-fit}{%
+\subsection{Goodness of Fit}\label{goodness-of-fit}}
+
+\hypertarget{hazard-curve-and-return-levels}{%
+\subsection{Hazard Curve and Return Levels}\label{hazard-curve-and-return-levels}}
+
+\hypertarget{comparison-with-pot-gpd}{%
+\subsection{Comparison with POT-GPD}\label{comparison-with-pot-gpd}}
+
+\hypertarget{non-hurrican-maps}{%
+\section{Non-Hurrican Maps}\label{non-hurrican-maps}}
+
+\hypertarget{isd-1}{%
+\subsection{ISD}\label{isd-1}}
+
+\hypertarget{pot-pp-1}{%
+\subsubsection{POT-PP}\label{pot-pp-1}}
+
+\hypertarget{pot-gpd-1}{%
+\subsubsection{POT-GPD}\label{pot-gpd-1}}
+
+\hypertarget{era5-1}{%
+\subsection{ERA5}\label{era5-1}}
+
+\hypertarget{pot-pp-2}{%
+\subsubsection{POT-PP}\label{pot-pp-2}}
+
+\hypertarget{pot-gpd-2}{%
+\subsubsection{POT-GPD}\label{pot-gpd-2}}
+
+\hypertarget{hurrican-and-non-hurrican-maps}{%
+\section{Hurrican and Non-Hurrican Maps}\label{hurrican-and-non-hurrican-maps}}
+
+\hypertarget{isd-2}{%
+\subsection{ISD}\label{isd-2}}
+
+\hypertarget{pot-pp-3}{%
+\subsubsection{POT-PP}\label{pot-pp-3}}
+
+\hypertarget{pot-gpd-3}{%
+\subsubsection{POT-GPD}\label{pot-gpd-3}}
+
+\hypertarget{era5-2}{%
+\subsection{ERA5}\label{era5-2}}
+
+\hypertarget{pot-pp-4}{%
+\subsubsection{POT-PP}\label{pot-pp-4}}
+
+\hypertarget{pot-gpd-4}{%
+\subsubsection{POT-GPD}\label{pot-gpd-4}}
 
 \footnotesize
 \begin{figure}

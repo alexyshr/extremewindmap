@@ -25,6 +25,115 @@ source('pp_one_station.r')
 
 # Results {#rmd-results}
 
+First result to show will be the datasource comparison to face the downscaling issue by using ERA5 and ISD database, then, the resulting process of fitting a POT-PP in the station 801120 will be displayed, which includes revision of intensity function parameters, goodness of fit, hazard curve, return levels, and comparison with POT-GPD results, next, non-hurricane maps will be displayed, which includes results for ISD and ERA5 stations, using POT-PP and POT-GPD approaches, and finally, output maps combining hurricane and non-hurricane results will be displayed.
+
+## Datasources comparison
+
+Looking for a statistical justification in the use of ISD (model) and ERA5 databases (forecast), as input data for this study, and considering the *downscaling approach* described in the [standartization process](#rmd-standartization) section of methodology, datasources ISD and IDEAM were standardized to enable comparison. Standardization consisted of transforming the data into 3-s gust $V_3$, 10 meters height, and open space roughness.
+
+* Variable *10m wind gust - 10fg* of ERA5 datasource does not need standardization, because it comes standardized from the source
+
+* In order to obtain $V_3$ from Durst curve, it is required to start from $V_3600$ (average hourly speed), or from a different wind gust speed, for instance $V_6$.
+
+* Wind velocity from ISD comes from source as $V_6$, that is, five seconds gust wind velocity.
+
+* From the different wind-related data obtained from IDEAM, the only one viable for transformation was the _wind velocity each 2 seconds - VV_AUT_2_.  VV_AUT_2 was available for 20 stations, of which only 12 were equivalent to ISD stations. See table \@ref(tab:table12stations)
+
+```{r table12stations, echo= F, echo=FALSE, message=FALSE, warning=FALSE, results="asis"}
+#data_sources_thesis_summary1 <-read.csv("./data/data_sources_thesis_summary1.csv",header=TRUE, stringsAsFactors = F)
+library("knitr")
+library("kableExtra")
+stationssample = data.frame(
+  ISD_ID= as.character(
+    c(803980, 803700, 802110, 802100, 801120, 801100, 800970, 800940, 800630, 800360, 800350, 800280)), 
+  IDEAM_ID = as.character(
+    c(48015050, 52055230, 26125061, 26125710, 23085270, 27015330, 16015501, 23195502, 13035501, 28025502, 15065180, 29045190)),  
+  stringsAsFactors=FALSE)
+
+kable(stationssample, align=rep('l', 2),
+      #col.names = c("Name[Code]", "Latitud", "Longitud"),
+      caption = "Equivalent stations from ISD and IDEAM, representing the same weather station in the field",
+      caption.short = "Twelve equivalent stations from ISD and IDEAM",
+      longtable = TRUE,
+      booktabs = TRUE) %>%
+      row_spec(0, align = "l") %>%
+      column_spec(1,width = "0.8in") %>%
+      column_spec(2,width = "0.8in") %>%
+kable_styling(font_size = 10, latex_options="scale_down")
+```
+
+* VV_AUT_2 dataset from IDEAM was transformed to $V_{3600}$ (average hourly speed), averaging all 20 values available per hour.
+
+
+* Wind velocity $V_5$ from 74 ISD stations, was standarized station by station, using procedure described in [Surface Roughness at Open Space](#rmd-roughness) section, and [Averaging Time 3-s Gust](#rmd-gust) section
+
+* Wind velocity from 12 $V_{3600}$ (transformation of VV_AUT_2) IDEAM stations, was standarized station by station, using procedure described in [Surface Roughness at Open Space](#rmd-roughness) section and [Averaging Time 3-s Gust](#rmd-gust)
+
+Twelve standarized stations from ISD and IDEAM (table \@ref(tab:table12stations)) were compared with corresponding ERA5 station (the corresponding cell in ERA5 that has whithin ISD and IDEAM locations). To make the use of ISD and ERA5 viable, its time series are expected to be as similar as possible to IDEAM. To verify this, two types of graphics were constructed:
+
+* Time series overlay for the three sources. Not very effective method due to the large amount of data that makes the graphics unreadable.
+
+* Scatterplot maps comparing two different sources. Matching values by time, were sorted ascendingly and put together on a scatter plot. The expected behavior in case of similarity in the data, is that all the points fall in a $45^\circ$ line
+
+Stations 28025502 from IDEAM, 800360 from ISD, and 416 (cell with center point in $-73.25^\circ$ longitude, and $10.5^\circ$ latitude) from ERA5, showed high correspondence. See figures \@ref(fig:s800360_timeseries), \@ref(fig:s800360_ideam_vs_era5)
+
+
+```{r s800360_timeseries, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Stations comparison: 28025502 (IDEAM), 800360 (ISD), and 416 (ERA5). Time Series", size="footnotesize", fig.align="center"}
+#replayPlot(comparison81)
+```
+
+```{r s800360_ideam_vs_era5, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Scatterplot of IDEAM vs ERA5. Stations comparison: 28025502 (IDEAM), 800360 (ISD), and 416 (ERA5)", size="footnotesize", fig.align="center"}
+#replayPlot(comparison82)
+```
+
+```{r s800360_isd_vs_era5, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Scatterplot of ISD vs ERA5. Stations comparison: 28025502 (IDEAM), 800360 (ISD), and 416 (ERA5)", size="footnotesize", fig.align="center"}
+#replayPlot(comparison83)
+```
+
+```{r s800360_ideam_vs_isd, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Scatterplot of IDEAM vs ISD. Stations comparison: 28025502 (IDEAM), 800360 (ISD), and 416 (ERA5)", size="footnotesize", fig.align="center"}
+#replayPlot(comparison84)
+```
+
+## POT-PP in ISD Station 801120
+
+### Parameters
+
+### Goodness of Fit
+
+### Hazard Curve and Return Levels
+
+### Comparison with POT-GPD 
+
+## Non-Hurrican Maps
+
+### ISD
+
+#### POT-PP
+
+#### POT-GPD
+
+### ERA5
+
+#### POT-PP
+
+#### POT-GPD
+
+
+## Hurrican and Non-Hurrican Maps
+
+### ISD
+
+#### POT-PP
+
+#### POT-GPD
+
+### ERA5
+
+#### POT-PP
+
+#### POT-GPD
+
+
 
 ```{r page1, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="test", size="footnotesize", fig.align="center"}
 replayPlot(myprint1)

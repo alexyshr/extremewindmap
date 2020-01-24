@@ -35,7 +35,7 @@ include_graphics(path = "figure/methodology.png")
 include_graphics(path = "figure/main_methodology.png")
 ```
 
-## Data Standardization
+## Data Standardization {#rmd-standartization}
 
 Parallel to the standardization activity described below (3-s gust, roughness, and 10 mts anemometer height), it is also important to consider for all stations involved in the analysis:
 
@@ -53,7 +53,8 @@ According to the protocol for field data collection and location of methodologic
 include_graphics(path = "figure/anemometer.png")
 ```
 
-### Surface Roughness at Open Space (0.03 m)
+### Surface Roughness at Open Space (0.03 m) {#rmd-roughness}
+
 Due to the effects that the terrain has on wind speed, a correction should be applied if the station is located in a geographical space considered "not open terrain". When terrain is open, the roughness corresponds to 0.03 meters. There are some alternative methodologies to calculate the roughness, @Masters2010 uses the station data, but the separation of the measurements should not exceed one minute, something difficult to obtain, and @Lettau1969 uses an empirical equation that is recommended in @Asce2017 (page 743, equation C26.7-1), which was used here,
 
 $$
@@ -97,8 +98,7 @@ include_graphics(path = "figure/lettauexamples.PNG")
 include_graphics(path = "figure/lettauvalues.png")
 ```
 
-
-### Averaging Time - 3-s gust
+### Averaging Time 3-s Gust {#rmd-gust}
 
 To transform hourly mean wind velocity $V_{3600}$, to 3-s gust velocity $V_3$, @Asce2017 recommends to use @Durst1960. See [Wind Loads Requirements](#windloadsrequirements). As the axis $x$ represents duration $t$ of the gust, what is done is to look there for the value 3 seconds, and read the corresponding gust factor $\frac{V_t}{V_{3600}}$, this is, the value in the axis $y$, then
 

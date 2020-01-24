@@ -138,7 +138,7 @@ Despite that ERA5 data are not observed data, but forecast, its main advantage i
 
 ## IDEAM
 
-Historical observed wind speeds from `r length(ideam_stations$codigo1)` in Colombia are managed by the official environmental authority IDEAM. Table \@ref(tab:tableideamstations) shows a sample of five IDEAM stations. Figure \@ref(fig:plotideamstations) shows a map of IDEAM stations.
+Historical observed wind speeds from `r length(ideam_stations$codigo1)` stations in Colombia are managed by the official environmental authority IDEAM. Table \@ref(tab:tableideamstations) shows a sample of five IDEAM stations. Figure \@ref(fig:plotideamstations) shows a map of IDEAM stations.
 
 ```{r tableideamstations, echo=FALSE, message=FALSE, warning=FALSE, results="asis"}
 tableideam =  ideam_stations[c(81,120,200,57,179), c("nombre", "latitud", "longitud")]
