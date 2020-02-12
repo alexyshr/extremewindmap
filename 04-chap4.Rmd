@@ -16,11 +16,10 @@ if(!require(thesisdown)){
   devtools::install_github("ismayc/thesisdown")
   }
 library(thesisdown)
-flights <- read.csv("data/flights.csv")
 ```
 
 ```{r echo=FALSE, cache= F, include=FALSE}
-source('pp_one_station.r')
+source('./code/pp_one_station.r')
 ```
 
 # Results {#rmd-results}

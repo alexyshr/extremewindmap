@@ -11,13 +11,15 @@ if (length(raw.data.nt$date.time) > 0) {
   #Search time differences in days between consecutive samples greather than threshold in days (last parameter next function)
   thresholdindays = 30
   holesindays = locate_holes_time_serie(raw.data.nt, "speed.kph", raw.data.nt$date.time, thresholdindays)
-
+  if (length(holesindays) == 0){
+    holesindays = "No holes!"
+  }
   write.xlsx(holesindays, file=statsfile, sheetName=paste0("nt_gaps",thresholdindays,"days"), append=TRUE, row.names=FALSE)
   #Plot time serie
   print(plotxts(data=raw.data.nt, variable="speed.kph", time=raw.data.nt$date.time, cex.main=0.2, major.ticks="years",
                 xlab=paste0("Page ",numberofplots, " - Time Series Plot for Non-Thunderstorm ('nt') - Station: ", number),
                 main = paste0("Station ID: ",  number, "\nWind Velocity [Km/h]")))
   assign(paste0("myprint", numberofplots), recordPlot())
-  #saveRDS(eval(parse(text=paste0("myprint", numberofplots))), paste0("myprint", numberofplots, ".rds"))
+  saveRDS(eval(parse(text=paste0("myprint", numberofplots))), paste0(outputpath, "myprint", numberofplots, ".rds"))
   numberofplots = numberofplots + 1
 }

@@ -31,7 +31,7 @@ include_graphics(path = "figure/methodology.png")
 ```
 
 
-```{r mainmethodology, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Iterative process in methodology", size="footnotesize", fig.align="center"}
+```{r mainmethodology, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Iterative process in methodology", size="footnotesize", fig.align="center", fig.width= 2}
 include_graphics(path = "figure/main_methodology.png")
 ```
 
@@ -49,11 +49,45 @@ Parallel to the standardization activity described below (3-s gust, roughness, a
 
 According to the protocol for field data collection and location of methodological stations - @ideam2005, the anemometer (wind sensor) in installed always to a fixed height of 10 meters from the surface, as is shown in figure \@ref(fig:anemometer), ergo, no height correction is needed.
 
-```{r anemometer, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Cross-sectional of multi-sensor automatic weather station. Source Triana (2019)", size="footnotesize", fig.align="center"}
-include_graphics(path = "figure/anemometer.png")
+```{r anemometer, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Anemometer height - 10 m", fig.align="center"}
+#include_graphics(path = "figure/anemometer.png")
+par(mar=c(0,0,0,0))
+par(oma=c(0,0,0,0))
+plot(1, type="n", xlab="", ylab="",
+     xlim=c(0,5), ylim= c(0,12), xaxt ="n", yaxt="n", bty="n", bg = 'transparent')
+lines (x=c(0.9,0.9), y=c(0,12))
+lines (x=c(1.1,1.1), y=c(0,12))
+lines (x=c(0.9, 1.1), y=c(12,12))
+lines (x=c(0, 4), y=c(0,0), lwd=2)
+rect(0.85, 9.7, 1.15, 10.3, col="white")
+lines (x=c(1.15, 2.5), y=c(9.85,9.85))
+lines (x=c(1.15, 2.5), y=c(10.15,10.15))
+lines (x=c(2.5,2.5), y=c(9.9,10.1))
+rect(2.4, 9.8, 2.6, 10.2, col="white")
+lines (x=c(2.45,2.45), y=c(10.2,10.9))
+lines (x=c(2.55,2.55), y=c(10.2,10.9))
+rect(2.4, 10.8, 2.6, 11.2, col="black")
+rect(2, 10.9, 2.5, 11.1, col="black")
+rect(2.5, 10.9, 3, 11.1, col="black")
+points(x=2, y=11, pch=19, cex = 3, col="black")
+points(x=3, y=11, pch=19, cex = 3, col="black")
+lines (x=c(3.5,3.5), y=c(0,11), lty=5)
+arrows(3.5, 0, 3.5, 0.5, length=0.1, code=1)
+arrows(3.5, 11, 3.5, 10.5, length=0.1, code=1)
+
+lines (x=c(2,4), y=c(11,11), lty=5)
+myx = seq(from=0, to=4, by=0.2) 
+for (i in myx) lines (x=c(i, i-0.2), y=c(0, -0.2))
+text(4,0, labels="Surface", pos=4, cex=0.8)
+text(3.5,5.5, labels="10 meters", pos=4, cex=0.8)
+text(4,11, labels="Anemometer", pos=4, cex=0.8)
+#box(which = "plot", col="red")
+#box(which = "figure", col="blue")
+#box(which = "inner", col="cyan")
+#box(which = "outer", col="orange")
 ```
 
-### Surface Roughness at Open Space (0.03 m) {#rmd-roughness}
+### Surface Roughness at Open Terrain (0.03 m) {#rmd-roughness}
 
 Due to the effects that the terrain has on wind speed, a correction should be applied if the station is located in a geographical space considered "not open terrain". When terrain is open, the roughness corresponds to 0.03 meters. There are some alternative methodologies to calculate the roughness, @Masters2010 uses the station data, but the separation of the measurements should not exceed one minute, something difficult to obtain, and @Lettau1969 uses an empirical equation that is recommended in @Asce2017 (page 743, equation C26.7-1), which was used here,
 
@@ -77,24 +111,102 @@ $$
 $$
 F_{exposition} = \frac{0.951434}{K_z}
 $$
-Calculation of roughness need to be weighted according to the predominance of wind magnitude in eight directions (north, south, east, west, north-east, north-west, south-east, and south-west), see  figure \@ref(fig:compassrose), using a detailed aerial photo or satellite image, as shown in figure \@ref(fig:lettaustation), with south direction highlighted. 
+Following @nist2012, calculation of roughness need to be weighted according to the predominance of wind magnitude in eight directions (north, south, east, west, north-east, north-west, south-east, and south-west), see  figure \@ref(fig:compassrose), using a detailed aerial photo or satellite image inside a radiuos of 800 meters around the station location, as shown in figure \@ref(fig:lettaustation), with south direction highlighted. 
 
-```{r compassrose, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Wind rose for weather station of Colombia. Source IDEAM (1999)", size="footnotesize", fig.align="center"}
-include_graphics(path = "figure/viensanandres.png")
+```{r compassrose, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Wind rose with wind percentages in eight directions, for a generic station", fig.align="center", fig.width= 3, fig.height= 3}
+#include_graphics(path = "figure/viensanandres.png")
+par(mar=c(0,0,0,0))
+par(oma=c(0,0,0,0))
+library(openair)
+data(mydata)
+#windRose(mydata)
+windRose(mydata, angle = 45, width = 1, 
+              grid.line = 12, ws.int=5, auto.text=F, annotate=F, key.header = NULL, key.footer = "", key=FALSE)
 ```
 
-```{r lettaustation, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Aerial photo for station KBHM, with south 45 degree sector highlighted. Source NIST (2012)", size="footnotesize", fig.align="center"}
-include_graphics(path = "figure/aerial_photo_pintar.png")
+```{r lettaustation, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Digital imagery for 'Vanguardia' ISD station (USAF:802340), located in Villavicencio airport. with four (south, north, east, and west) 45 degree sectors highlighted. Radious of the circular zone is 800 meters", size="footnotesize", fig.align="center", fig.width= 2.5, fig.height= 2.5}
+#include_graphics(path = "figure/aerial_photo_pintar.png")
+library(raster)
+library(rgdal)
+circle = readOGR(dsn = "data/circle.shp", layer = "circle")
+sectors = readOGR(dsn = "data/sectors.shp", layer = "sectors")
+#myraster = raster ("data/802340_img_nopoint_modified.tif")
+#myraster.crop = crop(myraster, extent(circle))
+#myraster.mask = mask(myraster.crop, circle)
+
+img_stack=stack("data/802340_img_nopoint_modified.tif")
+img_stack.crop = crop(img_stack, extent(circle))
+img_stack.mask = mask(img_stack.crop, circle)
+
+yellowtrans <- rgb(255, 255, 0, 30, maxColorValue=255)
+plotRGB(img_stack.mask)
+plot(sectors, add=T, col=yellowtrans)
+lines(sectors, col="black", lwd=2)
+lines(circle, col="black", lwd=2)
+points(x=-73.614, y=4.168, pch=17, cex=2, col="red")
+text(x=-73.614, y=4.168, labels="802340", pos=4, cex = 1.3, col="white")
+
 ```
 
-Figure \@ref(fig:lettauexamples) shows extreme conditions for roughness, open space in left image, closed space in center image, and a typical example where Lettau procedure is needed. Lettau equation need to be applied to each direction and then the final $z_o$ value is the weighted average, using historical wind percentage. See figure \@ref(fig:lettauvalues) showing the strokes made to calculate the different areas for two Colombian stations. Information about wind percentage per direction at each station were obtained from @ideam1999.
+Figure \@ref(fig:lettauexamples) shows extreme conditions for roughness, open space in left image (ISD Station 804070), closed space in center image (ISD Station 803000), and a typical example where Lettau procedure is needed. Lettau equation need to be applied to each direction and then the final $z_o$ value is the weighted average, using historical wind percentage. See figure \@ref(fig:lettauvalues) showing the strokes made to calculate the different areas for two Colombian stations. Information about wind percentage per direction at each station were obtained from @ideam1999.
 
 
-```{r lettauexamples, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Roughness values: 0.05 for open space (left), 0.1 for closed space (center), and areas where Lettau equation is needed because roughness is different in each direction (right). From Triana (2019)", size="footnotesize", fig.align="center"}
-include_graphics(path = "figure/lettauexamples.PNG")
+```{r lettauexamples, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Roughness values: 0.03 for open space (left), 0.1 for closed space (center), and areas where Lettau equation is needed because roughness is different in each direction (right). From Triana (2019)", size="footnotesize", fig.align="center", fig.width= 4.5, fig.height= 1}
+#include_graphics(path = "figure/lettauexamples.PNG")
+library(raster)
+library(rgdal)
+circle804070 = readOGR(dsn = "data/circle_804070.shp", layer = "circle_804070")
+sectors804070 = readOGR(dsn = "data/n_sector_804070.shp", layer = "n_sector_804070")
+img_stack804070=stack("data/804070_img_modified.tif")
+img_stack804070.crop = crop(img_stack804070, extent(circle804070))
+img_stack804070.mask = mask(img_stack804070.crop, circle804070)
+
+circle803000 = readOGR(dsn = "data/circle_803000.shp", layer = "circle_803000")
+sectors803000 = readOGR(dsn = "data/s_sector_803000.shp", layer = "s_sector_803000")
+img_stack803000=stack("data/803000_img_modified.tif")
+img_stack803000.crop = crop(img_stack803000, extent(circle803000))
+img_stack803000.mask = mask(img_stack803000.crop, circle803000)
+
+circle804380 = readOGR(dsn = "data/circle_804380.shp", layer = "circle_804380")
+sectors804380 = readOGR(dsn = "data/e_sector_804380.shp", layer = "e_sector_804380")
+img_stack804380=stack("data/804380_img_modified.tif")
+img_stack804380.crop = crop(img_stack804380, extent(circle804380))
+img_stack804380.mask = mask(img_stack804380.crop, circle804380)
+
+par(mfrow=c(1,3))
+par(pty="m")
+par(mar=c(0,0,0,0))
+par(oma=c(0,0,0,0))
+par(xpd = NA)
+
+yellowtrans <- rgb(255, 255, 0, 30, maxColorValue=255)
+plotRGB(img_stack804070.mask, pty="s")
+plot(sectors804070, add=T, col=yellowtrans)
+lines(sectors804070, col="black", lwd=1)
+lines(circle804070, col="black", lwd=1)
+points(x=-71.728, y=10.558, pch=17, cex=2, col="red")
+text(x=-71.728, y=10.558, labels="804070", pos=1, cex = 1.3, col="white")
+
+plotRGB(img_stack803000.mask, pty="s")
+plot(sectors803000, add=T, col=yellowtrans)
+lines(sectors803000, col="black", lwd=1)
+lines(circle803000, col="black", lwd=1)
+points(x=-77.9, y=2.583, pch=17, cex=2, col="red")
+text(x=-77.9, y=2.583, labels="803000", pos=3, cex = 1.3, col="white")
+
+plotRGB(img_stack804380.mask, pty="s")
+plot(sectors804380, add=T, col=yellowtrans)
+lines(sectors804380, col="black", lwd=1)
+lines(circle804380, col="black", lwd=1)
+points(x=-71.161, y=8.582, pch=17, cex=2, col="red")
+text(x=-71.161, y=8.582, labels="804380", pos=2, cex = 1.3, col="black")
+#box(which = "plot", col="red")
+#box(which = "figure", col="blue")
+#box(which = "inner", col="cyan")
+#box(which = "outer", col="orange")
 ```
 
-```{r lettauvalues, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Lettau calculation. In red the area occupied by the obstacles, and in blue the perpendicular area. Source Triana (2019)", size="footnotesize", fig.align="center"}
+```{r lettauvalues, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Lettau calculation. In red the area occupied by the obstacles, and in blue the perpendicular area. Source Triana (2019)", size="footnotesize", fig.align="center", fig.width= 3}
 include_graphics(path = "figure/lettauvalues.png")
 ```
 
@@ -159,7 +271,7 @@ par(xpd = NA)
 op <- par(mar = rep(0, 4))
 #par(pin = c(5, 1))
 plot(1, type="n", xlab="", ylab="",
-     xlim=c(0,4), ylim= c(0,1), xaxt ="n", yaxt="n", bty="n", bg = 'transparent')
+     xlim=c(0,4), ylim= c(0,0.8), xaxt ="n", yaxt="n", bty="n", bg = 'transparent')
 axis(1, labels=FALSE, tick=TRUE, col.axis="black", lwd.ticks=0.05, tck=0.04, lwd=0.1)
 #axis(2, labels=FALSE, tick=TRUE, col.axis="black", lwd.ticks=0.5)
 x=rnorm(7, mean = 2, sd = 1)
@@ -180,6 +292,10 @@ dat
 points(x=3.1, y=3.8)
 lines(x=c(3.1, 3.1), y=c(3.1,3.8), col="green", lty=5)
 text(x = 3.1, y = 3.4, labels = c("Minimum W-statistic distance"), cex=0.7, pos = 2)
+#box(which = "plot", col="red")
+#box(which = "figure", col="blue")
+#box(which = "inner", col="cyan")
+#box(which = "outer", col="orange")
 ```
 
 ### Exclude no-data periods
@@ -235,6 +351,8 @@ If equation \@ref(eq:pprl), $Y_N$ is solved using estimated parameters of the in
 
 
 ```{r hc, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="POT - PP fitting process", size="footnotesize", fig.width= 4, fig.height= 4, fig.align="center"}
+par(mar=c(4,2,0,0))
+par(oma=c(0,0,0,0))
 par(bg=NA)
 #par(xpd = NA)
 #op <- par(mar = rep(0, 4))

@@ -78,7 +78,7 @@ if (length(imp.vals$nt.series.dt) > 0) {
          pt.bg = c("cadetblue3", NA),
          pt.cex = 2)
   assign(paste0("myprint", numberofplots), recordPlot())
-  #saveRDS(eval(parse(text=paste0("myprint", numberofplots))), paste0("myprint", numberofplots, ".rds"))
+  saveRDS(eval(parse(text=paste0("myprint", numberofplots))), paste0(outputpath, "myprint", numberofplots, ".rds"))
   numberofplots = numberofplots + 1
 
   #Use package library(fitdistrplus)
@@ -91,7 +91,7 @@ if (length(imp.vals$nt.series.dt) > 0) {
                                 round(gumbel.fit$estimate["mu"], digits = 2), ". Scale: ", round(gumbel.fit$estimate["sigma"], digits = 2)),
         outer = TRUE)
   assign(paste0("myprint", numberofplots), recordPlot())
-  #saveRDS(eval(parse(text=paste0("myprint", numberofplots))), paste0("myprint", numberofplots, ".rds"))
+  saveRDS(eval(parse(text=paste0("myprint", numberofplots))), paste0(outputpath, "myprint", numberofplots, ".rds"))
   numberofplots = numberofplots + 1
   myfit = list(mu=gumbel.fit$estimate["mu"], sigma=gumbel.fit$estimate["sigma"])
   write.xlsx(myfit, file=fnfitted, sheetName="nt_fitdistrplus-fitdist", append=TRUE, row.names=TRUE)
@@ -170,6 +170,6 @@ if (length(imp.vals$nt.series.dt) > 0) {
                 xlab=paste0("Page ",numberofplots, " - Declustered Non-Thunderstorm ('nt') Time Series - Station: ", number),
                 main = paste0("Station ID: ",  number, "\nWind Velocity [Km/h]")))
   assign(paste0("myprint", numberofplots), recordPlot())
-  #saveRDS(eval(parse(text=paste0("myprint", numberofplots))), paste0("myprint", numberofplots, ".rds"))
+  saveRDS(eval(parse(text=paste0("myprint", numberofplots))), paste0(outputpath, "myprint", numberofplots, ".rds"))				
   numberofplots = numberofplots + 1
 }

@@ -513,16 +513,6 @@ Following, the time series, autocorrelation function, and partial autocorrelatio
 \includegraphics{thesis_files/figure-latex/plotoneideamstation-1.pdf}
 \caption{\label{fig:plotoneideamstation}IDEAM Station - Time Serie}
 \end{figure}
-\begin{figure}
-\centering
-\includegraphics{thesis_files/figure-latex/plotoneideamstationacf-1.pdf}
-\caption{\label{fig:plotoneideamstationacf}IDEAM Station ACF}
-\end{figure}
-\begin{figure}
-\centering
-\includegraphics{thesis_files/figure-latex/plotoneideamstationpacf-1.pdf}
-\caption{\label{fig:plotoneideamstationpacf}IDEAM Station PACF}
-\end{figure}
 \hypertarget{isd}{%
 \section{ISD}\label{isd}}
 
@@ -539,31 +529,17 @@ Code & Name & Latitud & Longitud\\
 803150 & BENITO SALAS & 2.95 & -75.29\\
 \bottomrule
 \end{longtable}
-\begin{figure}
-\centering
 \includegraphics{thesis_files/figure-latex/plotisdstations-1.pdf}
-\caption{\label{fig:plotisdstations}ISD Stations}
-\end{figure}
 Following, the time series, autocorrelation function, and partial autocorrelation function, for ISD station ``802590'' will be displayed.
 \begin{figure}
 \centering
 \includegraphics{thesis_files/figure-latex/plotoneisdstation-1.pdf}
 \caption{\label{fig:plotoneisdstation}ISD Station - Time Series}
 \end{figure}
-\begin{figure}
-\centering
-\includegraphics{thesis_files/figure-latex/plotoneisdstationacf-1.pdf}
-\caption{\label{fig:plotoneisdstationacf}ISD Station ACF}
-\end{figure}
-\begin{figure}
-\centering
-\includegraphics{thesis_files/figure-latex/plotoneisdstationpacf-1.pdf}
-\caption{\label{fig:plotoneisdstationpacf}IDEAM Station PACF}
-\end{figure}
 \hypertarget{era5}{%
 \section{ERA5}\label{era5}}
 
-ERA5 is forecast reanalysis data processed by the \emph{European Center for Medium-Range Weather Forecasts} - ECMWF with wind speeds time series in square cells \emph{matrix of pixels} of 0.25 degrees (33 km) covering the whole planet. For the study area was extracted a raster of 69 rows by 49 XXX columns in format NetCDF. Figure \ref{fig:plotera5stations} shows a map of ERA5 stations (cells centers).
+ERA5 is forecast reanalysis data processed by the \emph{European Center for Medium-Range Weather Forecasts} - ECMWF with wind speeds time series in square cells \emph{matrix of pixels} of 0.25 degrees (33 km) covering the whole planet. For the study area was extracted a raster of 69 rows by 49 columns in format NetCDF. Figure \ref{fig:plotera5stations} shows a map of ERA5 stations (cells centers).
 \begin{figure}
 \centering
 \includegraphics{thesis_files/figure-latex/plotera5stations-1.pdf}
@@ -624,6 +600,9 @@ Figure \ref{fig:plotgumbelpdffunction} shows \emph{pdf} with location (\(\mu\)) 
 \footnotesize
 \begin{Shaded}
 \begin{Highlighting}[]
+\KeywordTok{par}\NormalTok{(}\DataTypeTok{mar=}\KeywordTok{c}\NormalTok{(}\FloatTok{2.5}\NormalTok{,}\FloatTok{2.5}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{0}\NormalTok{))}
+\KeywordTok{par}\NormalTok{(}\DataTypeTok{oma=}\KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{0}\NormalTok{,}\DecValTok{0}\NormalTok{,}\DecValTok{0}\NormalTok{))}
+\KeywordTok{par}\NormalTok{(}\DataTypeTok{mgp=}\KeywordTok{c}\NormalTok{(}\FloatTok{1.5}\NormalTok{,}\FloatTok{0.5}\NormalTok{,}\DecValTok{0}\NormalTok{))}
 \NormalTok{location =}\StringTok{ }\DecValTok{100}
 \NormalTok{scale =}\StringTok{ }\DecValTok{40}
 \NormalTok{.x <-}\StringTok{ }\KeywordTok{seq}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{300}\NormalTok{, }\DataTypeTok{length.out=}\DecValTok{1000}\NormalTok{)}
@@ -636,6 +615,10 @@ Figure \ref{fig:plotgumbelpdffunction} shows \emph{pdf} with location (\(\mu\)) 
      \DataTypeTok{main=}\KeywordTok{paste}\NormalTok{(}\StringTok{"Gumbel - Density Function Gumbel Distribution}\CharTok{\textbackslash{}n}\StringTok{"}\NormalTok{, }\StringTok{"Location="}\NormalTok{, }
      \KeywordTok{round}\NormalTok{(location,}\DecValTok{2}\NormalTok{), }\StringTok{" Scale="}\NormalTok{, }\KeywordTok{round}\NormalTok{(scale,}\DecValTok{2}\NormalTok{)), }\DataTypeTok{type=}\StringTok{"l"}\NormalTok{, }
      \DataTypeTok{cex.axis =} \FloatTok{0.5}\NormalTok{, }\DataTypeTok{cex.lab=} \FloatTok{0.6}\NormalTok{, }\DataTypeTok{cex.main=}\FloatTok{0.7}\NormalTok{, }\DataTypeTok{cex.sub=}\FloatTok{0.6}\NormalTok{)}
+\KeywordTok{box}\NormalTok{(}\DataTypeTok{which =} \StringTok{"plot"}\NormalTok{, }\DataTypeTok{col=}\StringTok{"red"}\NormalTok{)}
+\KeywordTok{box}\NormalTok{(}\DataTypeTok{which =} \StringTok{"figure"}\NormalTok{, }\DataTypeTok{col=}\StringTok{"blue"}\NormalTok{)}
+\KeywordTok{box}\NormalTok{(}\DataTypeTok{which =} \StringTok{"inner"}\NormalTok{, }\DataTypeTok{col=}\StringTok{"cyan"}\NormalTok{)}
+\KeywordTok{box}\NormalTok{(}\DataTypeTok{which =} \StringTok{"outer"}\NormalTok{, }\DataTypeTok{col=}\StringTok{"orange"}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 \begin{figure}
@@ -789,7 +772,7 @@ Figure \ref{fig:plotgumbelhffunction} shows Gumbel \emph{hf}, using equation \eq
      \DataTypeTok{main=}\KeywordTok{paste}\NormalTok{(}\StringTok{"Gumbel - Hazard Function}\CharTok{\textbackslash{}n}\StringTok{"}\NormalTok{, }\StringTok{"Location="}\NormalTok{, }
      \KeywordTok{round}\NormalTok{(location,}\DecValTok{2}\NormalTok{), }\StringTok{" Scale="}\NormalTok{, }\KeywordTok{round}\NormalTok{(scale,}\DecValTok{2}\NormalTok{)), }\DataTypeTok{type=}\StringTok{"l"}\NormalTok{, }
      \DataTypeTok{cex.axis =} \FloatTok{0.5}\NormalTok{, }\DataTypeTok{cex.lab=} \FloatTok{0.6}\NormalTok{, }\DataTypeTok{cex.main=}\FloatTok{0.7}\NormalTok{, }\DataTypeTok{cex.sub=}\FloatTok{0.6}\NormalTok{, }
-     \DataTypeTok{xilm=}\KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{1500}\NormalTok{))}
+     \DataTypeTok{xlim=}\KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{500}\NormalTok{))}
 \end{Highlighting}
 \end{Shaded}
 \begin{figure}
@@ -1095,20 +1078,16 @@ Parallel to the standardization activity described below (3-s gust, roughness, a
 \subsection{Anemometer height - 10 m}\label{anemometer-height---10-m}}
 
 According to the protocol for field data collection and location of methodological stations - IDEAM (\protect\hyperlink{ref-ideam2005}{2005}), the anemometer (wind sensor) in installed always to a fixed height of 10 meters from the surface, as is shown in figure \ref{fig:anemometer}, ergo, no height correction is needed.
-
-\footnotesize
 \begin{figure}
 
-{\centering \includegraphics[width=6.12in]{figure/anemometer} 
+{\centering \includegraphics{thesis_files/figure-latex/anemometer-1} 
 
 }
 
-\caption{Cross-sectional of multi-sensor automatic weather station. Source Triana (2019)}\label{fig:anemometer}
+\caption{Anemometer height - 10 m}\label{fig:anemometer}
 \end{figure}
-\normalsize
-
 \hypertarget{rmd-roughness}{%
-\subsection{Surface Roughness at Open Space (0.03 m)}\label{rmd-roughness}}
+\subsection{Surface Roughness at Open Terrain (0.03 m)}\label{rmd-roughness}}
 
 Due to the effects that the terrain has on wind speed, a correction should be applied if the station is located in a geographical space considered ``not open terrain''. When terrain is open, the roughness corresponds to 0.03 meters. There are some alternative methodologies to calculate the roughness, Masters, Vickery, Bacon, \& Rappaport (\protect\hyperlink{ref-Masters2010}{2010}) uses the station data, but the separation of the measurements should not exceed one minute, something difficult to obtain, and Lettau (\protect\hyperlink{ref-Lettau1969}{1969}) uses an empirical equation that is recommended in Engineers (\protect\hyperlink{ref-Asce2017}{2017}) (page 743, equation C26.7-1), which was used here,
 
@@ -1132,40 +1111,84 @@ K_z= 2.01*\left(\frac{z}{z_g}\right)
 \[
 F_{exposition} = \frac{0.951434}{K_z}
 \]
-Calculation of roughness need to be weighted according to the predominance of wind magnitude in eight directions (north, south, east, west, north-east, north-west, south-east, and south-west), see figure \ref{fig:compassrose}, using a detailed aerial photo or satellite image, as shown in figure \ref{fig:lettaustation}, with south direction highlighted.
-
-\footnotesize
+Following NIST (\protect\hyperlink{ref-nist2012}{2012}), calculation of roughness need to be weighted according to the predominance of wind magnitude in eight directions (north, south, east, west, north-east, north-west, south-east, and south-west), see figure \ref{fig:compassrose}, using a detailed aerial photo or satellite image inside a radiuos of 800 meters around the station location, as shown in figure \ref{fig:lettaustation}, with south direction highlighted.
 \begin{figure}
 
-{\centering \includegraphics[width=4.78in]{figure/viensanandres} 
+{\centering \includegraphics{thesis_files/figure-latex/compassrose-1} 
 
 }
 
-\caption{Wind rose for weather station of Colombia. Source IDEAM (1999)}\label{fig:compassrose}
+\caption{Wind rose with wind percentages in eight directions, for a generic station}\label{fig:compassrose}
+\end{figure}
+\footnotesize
+\begin{verbatim}
+OGR data source with driver: ESRI Shapefile 
+Source: "D:\book\index\data\circle.shp", layer: "circle"
+with 1 features
+It has 0 fields
+\end{verbatim}
+\begin{verbatim}
+OGR data source with driver: ESRI Shapefile 
+Source: "D:\book\index\data\sectors.shp", layer: "sectors"
+with 4 features
+It has 0 fields
+\end{verbatim}
+\begin{figure}
+
+{\centering \includegraphics{thesis_files/figure-latex/lettaustation-1} 
+
+}
+
+\caption{Digital imagery for 'Vanguardia' ISD station (USAF:802340), located in Villavicencio airport. with four (south, north, east, and west) 45 degree sector highlighted. Radious of the circular zone is 800 meters}\label{fig:lettaustation}
 \end{figure}
 \normalsize
 
+Figure \ref{fig:lettauexamples} shows extreme conditions for roughness, open space in left image (ISD Station 804070), closed space in center image (ISD Station 803000), and a typical example where Lettau procedure is needed. Lettau equation need to be applied to each direction and then the final \(z_o\) value is the weighted average, using historical wind percentage. See figure \ref{fig:lettauvalues} showing the strokes made to calculate the different areas for two Colombian stations. Information about wind percentage per direction at each station were obtained from IDEAM (\protect\hyperlink{ref-ideam1999}{1999}).
+
 \footnotesize
+\begin{verbatim}
+OGR data source with driver: ESRI Shapefile 
+Source: "D:\book\index\data\circle_804070.shp", layer: "circle_804070"
+with 1 features
+It has 0 fields
+\end{verbatim}
+\begin{verbatim}
+OGR data source with driver: ESRI Shapefile 
+Source: "D:\book\index\data\n_sector_804070.shp", layer: "n_sector_804070"
+with 1 features
+It has 0 fields
+\end{verbatim}
+\begin{verbatim}
+OGR data source with driver: ESRI Shapefile 
+Source: "D:\book\index\data\circle_803000.shp", layer: "circle_803000"
+with 1 features
+It has 0 fields
+\end{verbatim}
+\begin{verbatim}
+OGR data source with driver: ESRI Shapefile 
+Source: "D:\book\index\data\s_sector_803000.shp", layer: "s_sector_803000"
+with 1 features
+It has 0 fields
+\end{verbatim}
+\begin{verbatim}
+OGR data source with driver: ESRI Shapefile 
+Source: "D:\book\index\data\circle_804380.shp", layer: "circle_804380"
+with 1 features
+It has 0 fields
+\end{verbatim}
+\begin{verbatim}
+OGR data source with driver: ESRI Shapefile 
+Source: "D:\book\index\data\e_sector_804380.shp", layer: "e_sector_804380"
+with 1 features
+It has 0 fields
+\end{verbatim}
 \begin{figure}
 
-{\centering \includegraphics[width=3.56in]{figure/aerial_photo_pintar} 
+{\centering \includegraphics{thesis_files/figure-latex/lettauexamples-1} 
 
 }
 
-\caption{Aerial photo for station KBHM, with south 45 degree sector highlighted. Source NIST (2012)}\label{fig:lettaustation}
-\end{figure}
-\normalsize
-
-Figure \ref{fig:lettauexamples} shows extreme conditions for roughness, open space in left image, closed space in center image, and a typical example where Lettau procedure is needed. Lettau equation need to be applied to each direction and then the final \(z_o\) value is the weighted average, using historical wind percentage. See figure \ref{fig:lettauvalues} showing the strokes made to calculate the different areas for two Colombian stations. Information about wind percentage per direction at each station were obtained from IDEAM (\protect\hyperlink{ref-ideam1999}{1999}).
-
-\footnotesize
-\begin{figure}
-
-{\centering \includegraphics[width=6.15in]{figure/lettauexamples} 
-
-}
-
-\caption{Roughness values: 0.05 for open space (left), 0.1 for closed space (center), and areas where Lettau equation is needed because roughness is different in each direction (right). From Triana (2019)}\label{fig:lettauexamples}
+\caption{Roughness values: 0.03 for open space (left), 0.1 for closed space (center), and areas where Lettau equation is needed because roughness is different in each direction (right). From Triana (2019)}\label{fig:lettauexamples}
 \end{figure}
 \normalsize
 
@@ -1634,6 +1657,9 @@ Lettau, H. (1969). Note on aerodynamic roughness-parameter estimation on the bas
 
 \leavevmode\hypertarget{ref-Masters2010}{}%
 Masters, F. J., Vickery, P. J., Bacon, P., \& Rappaport, E. N. (2010). Toward objective, standardized intensity estimates from surface wind speed observations. \emph{Bulletin of the American Meteorological Society}, \emph{91}(12), 1665--1682. \url{http://doi.org/10.1175/2010bams2942.1}
+
+\leavevmode\hypertarget{ref-nist2012}{}%
+NIST. (2012, February). Standardized extreme wind speed database for the united states. Web Page. Retrieved from \url{https://www.itl.nist.gov/div898/winds/NIST_TN/nist_tn.htm}
 
 \leavevmode\hypertarget{ref-Pickands1971}{}%
 Pickands, J. (1971). The two-dimensional poisson process and extremal processes. \emph{Journal of Applied Probability}, \emph{8}(4), 745--756. \url{http://doi.org/10.2307/3212238}

@@ -201,7 +201,7 @@ ggplot(data = world) +
 
 Following, the time series, autocorrelation function, and partial autocorrelation function, for IDEAM station "21205791" will be displayed.
 
-```{r plotoneideamstation, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="IDEAM Station - Time Serie"}
+```{r plotoneideamstation, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="IDEAM Station - Time Series"}
 #originalfields = unique(era5_intersect_ideam["ideam",])
 originalfields = c("21205791")
 newfields = paste ("X", originalfields, sep="")
@@ -228,18 +228,18 @@ plot.xts(statideam_xts, main = "Station ID: 21205791\nWind Velocity [m/s]", majo
 mtext(side = 1, text = "Station Name: ELDORADO CATAM - AUT", outer = TRUE)
 ```
 
-```{r plotoneideamstationacf, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="IDEAM Station ACF"}
-par(oma = c(0,0,0,0))
-myacf = acf(statideam_xts[,1][!is.na(statideam_xts[,1])], plot=FALSE)
-titleacf = paste("Autocorrelation Function - ACF", paste("IDEAM", "21205791", sep = ":"), sep = "\n")
-plot(myacf, main = titleacf)
+```{r plotoneideamstationacf, include=FALSE, fig.cap="IDEAM Station ACF"}
+# par(oma = c(0,0,0,0))
+# myacf = acf(statideam_xts[,1][!is.na(statideam_xts[,1])], plot=FALSE)
+# titleacf = paste("Autocorrelation Function - ACF", paste("IDEAM", "21205791", sep = ":"), sep = "\n")
+# plot(myacf, main = titleacf)
 ```
 
-```{r plotoneideamstationpacf, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="IDEAM Station PACF"}
-par(oma = c(0,0,0,0))
-mypacf = pacf(statideam_xts[,1][!is.na(statideam_xts[,1])], plot=FALSE)
-titlepacf = paste("Partial Autocorrelation Function - PACF", paste("IDEAM", "21205791", sep = ":"), sep = "\n")
-plot(mypacf, main = titlepacf)
+```{r plotoneideamstationpacf, include=FALSE, fig.cap="IDEAM Station PACF"}
+# par(oma = c(0,0,0,0))
+# mypacf = pacf(statideam_xts[,1][!is.na(statideam_xts[,1])], plot=FALSE)
+# titlepacf = paste("Partial Autocorrelation Function - PACF", paste("IDEAM", "21205791", sep = ":"), sep = "\n")
+# plot(mypacf, main = titlepacf)
 ```
 
 
@@ -263,7 +263,6 @@ kable(tableisd,
       booktabs = TRUE)
 
 #kable_styling(tableideamstations, font_size = 10)
-
 ```
 
 ```{r echo=FALSE, message=FALSE, warning=FALSE}
@@ -271,8 +270,8 @@ kable(tableisd,
 isd_stations = st_as_sf(isd_stations, coords = c("longitud", "latitud"), crs = 4326)
 ```
 
-```{r plotisdstations, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="ISD Stations"}
 
+```{r plotisdstations, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="ISD Stations"}
 #Maps of the World
 theme_set(theme_bw())
 world <- ne_countries(scale = "medium", returnclass = "sf")
@@ -305,7 +304,6 @@ ggplot(data = world) +
   ggtitle("ISD Stations") + 
   theme(panel.grid.major = element_line(color = gray(.5), linetype = "dashed", size = 0.5), panel.background = element_rect(fill = "aliceblue"))
 ```
-
 Following, the time series, autocorrelation function, and partial autocorrelation function, for ISD station "802590" will be displayed.
 
 ```{r plotoneisdstation, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="ISD Station - Time Series"}
@@ -335,18 +333,18 @@ plot.xts(statisd_xts, main = "Station ID: 802590\nWind Velocity [m/s]", major.ti
 mtext(side = 1, text = "Station Name: ALFONSO BONILLA ARAGON INTL", outer = TRUE)
 ```
 
-```{r plotoneisdstationacf, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="ISD Station ACF"}
-par(oma = c(0,0,0,0))
-myacf = acf(statisd_xts[,1][!is.na(statisd_xts[,1])], plot=FALSE)
-titleacf = paste("Autocorrelation Function - ACF", paste("ISD", "802590", sep = ":"), sep = "\n")
-plot(myacf, main = titleacf)
+```{r plotoneisdstationacf, include=FALSE, fig.cap="ISD Station ACF"}
+# par(oma = c(0,0,0,0))
+# myacf = acf(statisd_xts[,1][!is.na(statisd_xts[,1])], plot=FALSE)
+# titleacf = paste("Autocorrelation Function - ACF", paste("ISD", "802590", sep = ":"), sep = "\n")
+# plot(myacf, main = titleacf)
 ```
 
-```{r plotoneisdstationpacf, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="IDEAM Station PACF"}
-par(oma = c(0,0,0,0))
-mypacf = pacf(statisd_xts[,1][!is.na(statisd_xts[,1])], plot=FALSE)
-titlepacf = paste("Partial Autocorrelation Function - PACF", paste("ISD", "802590", sep = ":"), sep = "\n")
-plot(mypacf, main = titlepacf)
+```{r plotoneisdstationpacf, include=FALSE, fig.cap="IDEAM Station PACF"}
+# par(oma = c(0,0,0,0))
+# mypacf = pacf(statisd_xts[,1][!is.na(statisd_xts[,1])], plot=FALSE)
+# titlepacf = paste("Partial Autocorrelation Function - PACF", paste("ISD", "802590", sep = ":"), sep = "\n")
+# plot(mypacf, main = titlepacf)
 ```
 
 
@@ -389,7 +387,7 @@ era5colraster.st = st_rasterize(era5colpoints, st_as_stars(mybbox, nx = nlon, ny
 ```
 
 
-ERA5 is forecast reanalysis data processed by the _European Center for Medium-Range Weather Forecasts_ - ECMWF with wind speeds time series in square cells _matrix of pixels_ of 0.25 degrees (33 km) covering the whole planet. For the study area was extracted a raster of `r (nlat)` rows by `r nlon` XXX columns in format NetCDF. Figure \@ref(fig:plotera5stations) shows a map of ERA5 stations (cells centers).
+ERA5 is forecast reanalysis data processed by the _European Center for Medium-Range Weather Forecasts_ - ECMWF with wind speeds time series in square cells _matrix of pixels_ of 0.25 degrees (33 km) covering the whole planet. For the study area was extracted a raster of `r (nlat)` rows by `r nlon` columns in format NetCDF. Figure \@ref(fig:plotera5stations) shows a map of ERA5 stations (cells centers).
 
 ```{r plotera5stations, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="ERA5 Stations (cells centers)"}
 

@@ -2,8 +2,8 @@
 #with wind variable "10fg: 10-m Wind-Gust since previous postprocesing".
 
 library(ncdf4)
-(ncname <- "outfile_nc4c_zip9")
-(filename <- paste("data/", ncname, ".nc", sep = ""))
+(ncname <- "../data/outfile_nc4c_zip9")
+(filename <- paste(ncname, ".nc", sep = ""))
 ncin <- nc_open(filename)
 print (ncin)
 lon <- ncvar_get(ncin, "longitude")

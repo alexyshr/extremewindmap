@@ -172,7 +172,7 @@
 
 @Misc{nist2012,
   author       = {NIST},
-  title        = {Standardized extreme wind speed database for the United States)},
+  title        = {Standardized extreme wind speed database for the United States.},
   howpublished = {Web Page},
   month        = feb,
   year         = {2012},

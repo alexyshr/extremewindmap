@@ -17,13 +17,13 @@ returnlevelPP <- function (x, location, shape, scale){#x is MRI
 dgpd_pp <- function (x, location, shape, scale, threshold) { 
   sigma = (-shape)*((-scale/shape)+location-threshold)
   gamma = (-scale/(shape*((-scale/shape)+location-threshold)))^(1/shape)
-  evd::dgpd(x, loc=threshold, scale=sigma, shape=0.00001, log = FALSE)
+  evd::dgpd(x, loc=threshold, scale=sigma, shape=0.00000001, log = FALSE)
 }
 
 pgpd_pp <- function (x, location, shape, scale, threshold) { 
   sigma = (-shape)*((-scale/shape)+location-threshold)
   gamma = (-scale/(shape*((-scale/shape)+location-threshold)))^(1/shape)
-  evd::pgpd(x, loc=threshold, scale=sigma, shape=0.00001)
+  evd::pgpd(x, loc=threshold, scale=sigma, shape=0.00000001)
 }
 
 
@@ -202,6 +202,32 @@ ReadWindFile <- function (station.number, path) {
   return(value)
 }
 
+
+ReadWindISDStation <- function (ncin, lonindex, latindex, ntime, timestamp) {
+  
+  #statera5_xts = na.omit(xts(x= ncvar_get(ncin, 'fg10', start=c(lonindex, latindex,1), count=c(1,1,ntime)), order.by = timestamp))
+  statera5 = data.frame(ncvar_get(ncin, 'fg10', start=c(lonindex, latindex,1), count=c(1,1,ntime)))
+  
+  colnames(statera5) = "mps"
+  statera5$mps  = statera5$mps * 3.6  #from mts/seg to km/hour
+  statera5$thunder_flag = "nt"
+    
+  #filename <- paste(path, "raw_data_station_", station.number, ".txt", sep="")
+  #raw.data <- read.table(file=filename,
+  #                       header=TRUE,
+  #                       colClasses=c("character", "numeric", "character"))
+  #date.time <- as.POSIXct(raw.data[, "date_time"], tz="GMT", usetz=TRUE)
+  date.time <- timestamp
+  speed.kph <- statera5$mps
+  t.nt.flag <- statera5$thunder_flag
+  
+  value <- list(date.time=date.time,
+                speed.kph=speed.kph,
+                t.nt.flag=t.nt.flag)
+  return(value)
+}
+
+
 ## ####################################################
 ## AltDecluster is my version of the decluster
 ## function in the evir package.  I do not like
@@ -274,11 +300,15 @@ AltDecluster <- function (series, date.time, run, n) {
   ## find the maximum of the last cluster
   c.max <- max(cluster)
   if (is.null(maxes)) {
-
-    dt.maxes <- cluster.dt[cluster == c.max]
+      # if there are duplicate speeds, there may be more than one
+      # date and time that corresponds to the max, so just take
+      # the first one
+      dt.maxes <- cluster.dt[cluster == c.max][1]
   } else {
-
-    dt.maxes <- c(dt.maxes, cluster.dt[cluster == c.max])
+      # if there are duplicate speeds, there may be more than one
+      # date and time that corresponds to the max, so just take
+      # the first one
+      dt.maxes <- c(dt.maxes, (cluster.dt[cluster == c.max])[1])
   }
   maxes <- c(maxes, c.max)
 
@@ -923,7 +953,7 @@ WPlot <- function (t.series, nt.series,
     plot(x=exp1.quantiles, y=W,
          xlab="Exponential with mean 1 and pdf U(0,1) - quantiles",
          ylab="Ordered W-Statistics",
-         main=expression(paste("W-Statistic Plot for best pair of thresholds (", b[t], ", ", b[nt], ")")))
+         main=bquote(paste("W-Statistic Plot for best pair of thresholds (", b[t], "=", .(t.thresh), ", ", b[nt], "=", .(nt.thresh), ")")))
     if (BW) {
 
       abline(a=0, b=1, col="black")

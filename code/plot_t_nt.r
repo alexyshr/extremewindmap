@@ -41,7 +41,7 @@ if (length(imp.vals$t.series.dt) > 0) {
            pt.cex = c(0))
     box(lty = 1, col = 'black', lwd=0.5)
     assign(paste0("myprint", numberofplots), recordPlot())
-    #saveRDS(eval(parse(text=paste0("myprint", numberofplots))), paste0("myprint", numberofplots, ".rds"))
+    saveRDS(eval(parse(text=paste0("myprint", numberofplots))), paste0(outputpath, "myprint", numberofplots, ".rds"))	
     numberofplots = numberofplots + 1
   }
 }
