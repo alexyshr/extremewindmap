@@ -28,7 +28,7 @@ stationssample = data.frame(
 
 #vv_aut_2 in mts/seg
 #
-path_vv_aut_2 = "D:/book/index/data/"
+path_vv_aut_2 = "../data/"
 
 #path_vvag_media_d = "E:/Thesis/ideamdata/PQRS_20199050100232/"
 
@@ -157,7 +157,7 @@ stationssample_ideam = ideam_stations
 #
 #
 #
-source('code/comparing_sources_pqrs_20199050080932_VV_AUT_ERA5_1.r')
+source('comparing_sources_pqrs_20199050080932_VV_AUT_ERA5_1.r')
 
 
 
@@ -310,12 +310,12 @@ all_vvmx_aut_60_stationssample_xts = xts(x=as_tibble(all_vvmx_aut_60_stationssam
 #
 #
 #
-source('code/comparing_sources_pqrs_20199050080932_VV_AUT_ERA5_2.r')
+source('comparing_sources_pqrs_20199050080932_VV_AUT_ERA5_2.r')
 
 
 #
 #Join IDEAM and ISD to create a common plot
-
+dev.off()
 for(i in 1:length(stationssample[,1]))
   #for (i in 1:1)
 {
@@ -374,7 +374,7 @@ for(i in 1:length(stationssample[,1]))
     assign(paste("isdideamera5", i, isd_ideam_intersect["ideam_id",i], sep = "_"), xts(x=isdideamera5[, -1], order.by = mytimestamp))
 
     #Plot graphics
-    somePDFPath = paste(paste("isdideamera5", i, statideam, sep = "_"), "pdf", sep=".")
+    somePDFPath = paste(paste("../data/isdideamera5", i, statideam, sep = "_"), "pdf", sep=".")
     #pdf(file=somePDFPath,  paper="a4r", width = 0, height = 0)
     #par(mfrow = c(2,1))
     xtsvar = eval(parse(text = paste("isdideamera5", i, isd_ideam_intersect["ideam_id",i], sep = "_")))
@@ -383,10 +383,11 @@ for(i in 1:length(stationssample[,1]))
       paste("ISD: ", stationssample[i, 1], ". Lon: ", isdlon, ". Lat: ", isdlat, sep=""),
       paste("ERA5.  Col: ", era5lonindex, ". Row: ", era5latindex, ". Station: ", era5station, sep= "")
       , sep="\n")
-    plot.xts(xtsvar, main = title, major.ticks="years", format.labels = "%b-%d\n%Y")
-    addLegend("top",
+    #par(new = FALSE)
+    plot.xts(xtsvar, main = title, major.ticks="years", format.labels = "%b-%d\n%Y", add=FALSE)
+    print(addLegend("top",
                     legend.names = c(paste0("IDEAM: ", stationssample[i, 2]), paste0("ISD: ", stationssample[i, 1]), "ERA5"), col=c("black", "red", "green"),
-                    bg="white", bty="o", lty=c(1, 1, 1), lwd=c(2, 2, 2))
+                    bg="white", bty="o", lty=c(1, 1, 1), lwd=c(2, 2, 2)))
 	assign(paste0("comparison", i, "1"), recordPlot())
 	saveRDS(eval(parse(text=paste0("comparison", i, "1"))), paste0("comparison", i, "1", ".rds"))
 
@@ -394,6 +395,7 @@ for(i in 1:length(stationssample[,1]))
       paste("IDEAM: ", stationssample[i, 2], ". Lon: ", ideamlon, ". Lat: ", ideamlat, sep=""),
       paste("ERA5.  Col: ", era5lonindex, ". Row: ", era5latindex, ". Station: ", era5station, sep= "")
       , sep="\n")
+    par(new = FALSE)
     plot.zoo(xtsvar[,1], xtsvar[,3], xlab=paste0("IDEAM: ", stationssample[i, 2]), ylab="ERA5", main=title1)
     abline(coef=c(0,1), col="red")
 	assign(paste0("comparison", i, "2"), recordPlot())
@@ -402,6 +404,7 @@ for(i in 1:length(stationssample[,1]))
       paste("ISD: ", stationssample[i, 1], ". Lon: ", isdlon, ". Lat: ", isdlat, sep=""),
       paste("ERA5.  Col: ", era5lonindex, ". Row: ", era5latindex, ". Station: ", era5station, sep= "")
       , sep="\n")
+    par(new = FALSE)
     plot.zoo(xtsvar[,2], xtsvar[,3], xlab=paste0("ISD: ", stationssample[i, 1]), ylab="ERA5", main=title2)
     abline(coef=c(0,1), col="red")
 	assign(paste0("comparison", i, "3"), recordPlot())
@@ -410,6 +413,7 @@ for(i in 1:length(stationssample[,1]))
       paste("IDEAM: ", stationssample[i, 2], ". Lon: ", ideamlon, ". Lat: ", ideamlat, sep=""),
       paste("ISD: ", stationssample[i, 1], ". Lon: ", isdlon, ". Lat: ", isdlat, sep="")
       , sep="\n")
+    par(new = FALSE)
     plot.zoo(xtsvar[,1], xtsvar[,2], xlab=paste0("IDEAM: ", stationssample[i, 2]), ylab=paste0("ISD: ", stationssample[i, 1]),
 	main=title3)
     abline(coef=c(0,1), col="red")

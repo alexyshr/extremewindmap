@@ -2,7 +2,7 @@
 #with wind variable "10fg: 10-m Wind-Gust since previous postprocesing".
 
 library(ncdf4)
-(ncname <- "../data/outfile_nc4c_zip9")
+(ncname <- paste0(path_vv_aut_2, "outfile_nc4c_zip9"))
 (filename <- paste(ncname, ".nc", sep = ""))
 ncin <- nc_open(filename)
 print (ncin)
@@ -32,7 +32,7 @@ str(isdcolpoints)
 #Convert ERA5 sf points to stars object, but:
 #- each point at center of the cell
 #- as cell value an unique index (cell index), corresponding to the row index of lonlat.unstack
-#Cell shape for this netCDF file is a square: 0.25º x 0.25º
+#Cell shape for this netCDF file is a square: 0.25ï¿½ x 0.25ï¿½
 
 library(stars)
 pointsbbox = st_bbox(isdcolpoints)

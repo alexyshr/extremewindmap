@@ -1,9 +1,9 @@
-#For study area (Colombia), load ERA5 information (netCDF file: outfile_nc4c_zip9.nc) 
+#For study area (Colombia), load ERA5 information (netCDF file: outfile_nc4c_zip9.nc)
 #with wind variable "10fg: 10-m Wind-Gust since previous postprocesing".
 
 library(ncdf4)
 (ncname <- "outfile_nc4c_zip9")
-(filename <- paste("data/", ncname, ".nc", sep = ""))
+(filename <- paste("../data/", ncname, ".nc", sep = ""))
 ncin <- nc_open(filename)
 print (ncin)
 lon <- ncvar_get(ncin, "longitude")
@@ -20,7 +20,7 @@ fg10.units <- ncatt_get(ncin, variablename, "units")
 fg10.units
 lonlat.unstack <- expand.grid(lon=as.numeric(lon), lat=as.numeric(lat))
 
-#With unstacked array of ERA5 coordinates, create a rectangular array of sf points covering 
+#With unstacked array of ERA5 coordinates, create a rectangular array of sf points covering
 #study area (isdcolpoints), and representing ERA5 cell centers, or ERA5 stations.
 #Create point sf with lat and lon and value as cell index
 isdcolpoints = st_as_sf(lonlat.unstack, coords=1:2, crs=st_crs(4326))

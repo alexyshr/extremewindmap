@@ -20,6 +20,7 @@ library(thesisdown)
 
 ```{r echo=FALSE, cache= F, include=FALSE}
 source('./code/pp_one_station.r')
+source('./code/comparing_sources_pqrs_20199050080932_VV_AUT.r')
 ```
 
 # Results {#rmd-results}

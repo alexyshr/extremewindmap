@@ -1,5 +1,5 @@
 Sys.setenv(TZ='UTC')
-outputpath = "../data/"
+outputpath = "./data/"
 ggplotRegression <- function (fit, xlab, ylab) {
 
   require(ggplot2)
@@ -43,7 +43,7 @@ stationssample = data.frame(
 
 #vv_aut_2 in mts/seg
 #
-path_vv_aut_2 = "../data/"
+path_vv_aut_2 = "./data/"
 
 #path_vvag_media_d = "E:/Thesis/ideamdata/PQRS_20199050100232/"
 
@@ -172,7 +172,7 @@ stationssample_ideam = ideam_stations
 #
 #
 #
-source('comparing_sources_pqrs_20199050080932_VV_AUT_ERA5_1.r')
+source('./code/comparing_sources_pqrs_20199050080932_VV_AUT_ERA5_1.r')
 
 
 
@@ -328,12 +328,12 @@ all_vvmx_aut_60_stationssample_xts = xts(x=as_tibble(all_vvmx_aut_60_stationssam
 #
 #
 #
-source('comparing_sources_pqrs_20199050080932_VV_AUT_ERA5_2.r')
+source('./code/comparing_sources_pqrs_20199050080932_VV_AUT_ERA5_2.r')
 
 
 #
 #Join IDEAM and ISD to create a common plot
-
+dev.off()
 for(i in 1:length(stationssample[,1]))
   #for (i in 1:1)
 {
@@ -392,7 +392,7 @@ for(i in 1:length(stationssample[,1]))
     assign(paste("isdideamera5", i, isd_ideam_intersect["ideam_id",i], sep = "_"), xts(x=isdideamera5[, -1], order.by = mytimestamp))
 
     #Plot graphics
-    somePDFPath = paste(paste("isdideamera5", i, statideam, sep = "_"), "pdf", sep=".")
+    somePDFPath = paste(paste(paste0(outputpath,"isdideamera5"), i, statideam, sep = "_"), "pdf", sep=".")
     #pdf(file=somePDFPath,  paper="a4r", width = 0, height = 0)
     #par(mfrow = c(2,1))
     xtsvar = eval(parse(text = paste("isdideamera5", i, isd_ideam_intersect["ideam_id",i], sep = "_")))
@@ -401,64 +401,66 @@ for(i in 1:length(stationssample[,1]))
       paste("ISD: ", stationssample[i, 1], ". Lon: ", isdlon, ". Lat: ", isdlat, sep=""),
       paste("ERA5.  Col: ", era5lonindex, ". Row: ", era5latindex, ". Station: ", era5station, sep= "")
       , sep="\n")
-    plot.xts(xtsvar, main = title, major.ticks="years", format.labels = "%b-%d\n%Y")
-    #print(
-	addLegend("top",
+    plot.xts(xtsvar, main = title, major.ticks="years", format.labels = "%b-%d\n%Y", add=FALSE)
+	  print(addLegend("top",
                     legend.names = c(paste0("IDEAM: ", stationssample[i, 2]), paste0("ISD: ", stationssample[i, 1]), "ERA5"), col=c("black", "red", "green"),
-                    bg="white", bty="o", lty=c(1, 1, 1), lwd=c(2, 2, 2)) #)
-	assign(paste0("comparison", i, "1"), recordPlot())
-	saveRDS(eval(parse(text=paste0("comparison", i, "1"))), paste0(outputpath, "comparison", i, "1", ".rds"))
+                    bg="white", bty="o", lty=c(1, 1, 1), lwd=c(2, 2, 2)))
+	  assign(paste0("comparison", i, "1"), recordPlot())
+	  saveRDS(eval(parse(text=paste0("comparison", i, "1"))), paste0(outputpath, "comparison", i, "1", ".rds"))
 
 
     title1 = paste(
       paste("IDEAM: ", stationssample[i, 2], ". Lon: ", ideamlon, ". Lat: ", ideamlat, sep=""),
       paste("ERA5.  Col: ", era5lonindex, ". Row: ", era5latindex, ". Station: ", era5station, sep= "")
       , sep="\n")
+    par(new=FALSE)
     plot.zoo(xtsvar[,1], xtsvar[,3], pch='.', xlab=paste0("IDEAM: ", stationssample[i, 2]), ylab="ERA5", main=title1)
     #print(
-	abline(coef=c(0,1), col="red")#)
-	assign(paste0("comparison", i, "2"), recordPlot())
-	saveRDS(eval(parse(text=paste0("comparison", i, "2"))), paste0(outputpath, "comparison", i, "2", ".rds"))
+  	abline(coef=c(0,1), col="red")#)
+	  assign(paste0("comparison", i, "2"), recordPlot())
+  	saveRDS(eval(parse(text=paste0("comparison", i, "2"))), paste0(outputpath, "comparison", i, "2", ".rds"))
 
-	fit1 <- lm(xtsvar[,1]~xtsvar[,3])
-    #print(
-	ggplotRegression(fit1, xlab=paste("IDEAM: ", stationssample[i, 2], ". Lon: ", ideamlon, ". Lat: ", ideamlat, sep=""), ylab=paste("ERA5.  Col: ", era5lonindex, ". Row: ", era5latindex, ". Station: ", era5station, sep= "")) #)
-	assign(paste0("comparison", i, "3"), recordPlot())
-	saveRDS(eval(parse(text=paste0("comparison", i, "3"))), paste0(outputpath, "comparison", i, "3", ".rds"))
+	  fit1 <- lm(xtsvar[,1]~xtsvar[,3])
+    print(
+	  ggplotRegression(fit1, xlab=paste("IDEAM: ", stationssample[i, 2], ". Lon: ", ideamlon, ". Lat: ", ideamlat, sep=""), ylab=paste("ERA5.  Col: ", era5lonindex, ". Row: ", era5latindex, ". Station: ", era5station, sep= "")))
+	  assign(paste0("comparison", i, "3"), recordPlot())
+	  saveRDS(eval(parse(text=paste0("comparison", i, "3"))), paste0(outputpath, "comparison", i, "3", ".rds"))
 
 
     title2 = paste(
       paste("ISD: ", stationssample[i, 1], ". Lon: ", isdlon, ". Lat: ", isdlat, sep=""),
       paste("ERA5.  Col: ", era5lonindex, ". Row: ", era5latindex, ". Station: ", era5station, sep= "")
       , sep="\n")
+    par(new=FALSE)
     plot.zoo(xtsvar[,2], xtsvar[,3], pch='.', xlab=paste0("ISD: ", stationssample[i, 1]), ylab="ERA5", main=title2)
     #print(
-	abline(coef=c(0,1), col="red")#)
-	assign(paste0("comparison", i, "4"), recordPlot())
-	saveRDS(eval(parse(text=paste0("comparison", i, "4"))), paste0(outputpath, "comparison", i, "4", ".rds"))
+  	abline(coef=c(0,1), col="red")#)
+	  assign(paste0("comparison", i, "4"), recordPlot())
+	  saveRDS(eval(parse(text=paste0("comparison", i, "4"))), paste0(outputpath, "comparison", i, "4", ".rds"))
 
     fit1 <- lm(xtsvar[,2]~xtsvar[,3])
-    #print(
-	ggplotRegression(fit1, xlab=paste("ISD: ", stationssample[i, 1], ". Lon: ", isdlon, ". Lat: ", isdlat, sep=""), ylab=paste("ERA5.  Col: ", era5lonindex, ". Row: ", era5latindex, ". Station: ", era5station, sep= ""))#)
-	assign(paste0("comparison", i, "5"), recordPlot())
-	saveRDS(eval(parse(text=paste0("comparison", i, "5"))), paste0(outputpath, "comparison", i, "5", ".rds"))
+    par(new=FALSE)
+    print(
+  	ggplotRegression(fit1, xlab=paste("ISD: ", stationssample[i, 1], ". Lon: ", isdlon, ". Lat: ", isdlat, sep=""), ylab=paste("ERA5.  Col: ", era5lonindex, ". Row: ", era5latindex, ". Station: ", era5station, sep= "")))
+	  assign(paste0("comparison", i, "5"), recordPlot())
+	  saveRDS(eval(parse(text=paste0("comparison", i, "5"))), paste0(outputpath, "comparison", i, "5", ".rds"))
 
     title3 = paste(
       paste("IDEAM: ", stationssample[i, 2], ". Lon: ", ideamlon, ". Lat: ", ideamlat, sep=""),
       paste("ISD: ", stationssample[i, 1], ". Lon: ", isdlon, ". Lat: ", isdlat, sep="")
       , sep="\n")
+    par(new=FALSE)
     plot.zoo(xtsvar[,1], xtsvar[,2], pch='.', xlab=paste0("IDEAM: ", stationssample[i, 2]), ylab=paste0("ISD: ", stationssample[i, 1]), main=title3)
     #print(
-	abline(coef=c(0,1), col="red")#)
-	assign(paste0("comparison", i, "6"), recordPlot())
-	saveRDS(eval(parse(text=paste0("comparison", i, "6"))), paste0(outputpath, "comparison", i, "6", ".rds"))
+	  abline(coef=c(0,1), col="red")#)
+	  assign(paste0("comparison", i, "6"), recordPlot())
+  	saveRDS(eval(parse(text=paste0("comparison", i, "6"))), paste0(outputpath, "comparison", i, "6", ".rds"))
 
     fit1 <- lm(xtsvar[,1]~xtsvar[,2])
-    #print(
-	ggplotRegression(fit1, xlab=paste("IDEAM: ", stationssample[i, 2], ". Lon: ", ideamlon, ". Lat: ", ideamlat, sep=""), ylab=paste("ISD: ", stationssample[i, 1], ". Lon: ", isdlon, ". Lat: ", isdlat, sep=""))#)
-	assign(paste0("comparison", i, "7"), recordPlot())
-	saveRDS(eval(parse(text=paste0("comparison", i, "7"))), paste0(outputpath, "comparison", i, "7", ".rds"))
-
+    print(
+	  ggplotRegression(fit1, xlab=paste("IDEAM: ", stationssample[i, 2], ". Lon: ", ideamlon, ". Lat: ", ideamlat, sep=""), ylab=paste("ISD: ", stationssample[i, 1], ". Lon: ", isdlon, ". Lat: ", isdlat, sep="")))
+	  assign(paste0("comparison", i, "7"), recordPlot())
+  	saveRDS(eval(parse(text=paste0("comparison", i, "7"))), paste0(outputpath, "comparison", i, "7", ".rds"))
     #dev.off()
 
   }

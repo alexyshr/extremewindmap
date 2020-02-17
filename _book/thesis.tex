@@ -72,46 +72,6 @@
 % \usepackage{times} % other fonts are available like times, bookman, charter, palatino
 
 % Syntax highlighting #22
-  \usepackage{color}
-  \usepackage{fancyvrb}
-  \newcommand{\VerbBar}{|}
-  \newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
-  \DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
-  % Add ',fontsize=\small' for more characters per line
-  \usepackage{framed}
-  \definecolor{shadecolor}{RGB}{248,248,248}
-  \newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
-  \newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
-  \newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-  \newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
-  \newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
-  \newcommand{\BuiltInTok}[1]{#1}
-  \newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
-  \newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
-  \newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-  \newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
-  \newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
-  \newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
-  \newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
-  \newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-  \newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
-  \newcommand{\ExtensionTok}[1]{#1}
-  \newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
-  \newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
-  \newcommand{\ImportTok}[1]{#1}
-  \newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-  \newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
-  \newcommand{\NormalTok}[1]{#1}
-  \newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
-  \newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
-  \newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
-  \newcommand{\RegionMarkerTok}[1]{#1}
-  \newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
-  \newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
-  \newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
-  \newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
-  \newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
-  \newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
 
 % To pass between YAML and LaTeX the dollar signs are added by CII
 \title{Spatio-temporal analysis of extreme wind velocities for infrastructure design}
@@ -511,7 +471,7 @@ Following, the time series, autocorrelation function, and partial autocorrelatio
 \begin{figure}
 \centering
 \includegraphics{thesis_files/figure-latex/plotoneideamstation-1.pdf}
-\caption{\label{fig:plotoneideamstation}IDEAM Station - Time Serie}
+\caption{\label{fig:plotoneideamstation}IDEAM Station - Time Series}
 \end{figure}
 \hypertarget{isd}{%
 \section{ISD}\label{isd}}
@@ -598,29 +558,6 @@ where \(\exp\left\{.\right\} \mapsto \mathrm{e}^{\left\{.\right\}}\), \(\beta\) 
 Figure \ref{fig:plotgumbelpdffunction} shows \emph{pdf} with location (\(\mu\)) = 100 and scale (\(\beta\)) = 40, using equation \eqref{eq:gumbelpdf}.
 
 \footnotesize
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{par}\NormalTok{(}\DataTypeTok{mar=}\KeywordTok{c}\NormalTok{(}\FloatTok{2.5}\NormalTok{,}\FloatTok{2.5}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{0}\NormalTok{))}
-\KeywordTok{par}\NormalTok{(}\DataTypeTok{oma=}\KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{0}\NormalTok{,}\DecValTok{0}\NormalTok{,}\DecValTok{0}\NormalTok{))}
-\KeywordTok{par}\NormalTok{(}\DataTypeTok{mgp=}\KeywordTok{c}\NormalTok{(}\FloatTok{1.5}\NormalTok{,}\FloatTok{0.5}\NormalTok{,}\DecValTok{0}\NormalTok{))}
-\NormalTok{location =}\StringTok{ }\DecValTok{100}
-\NormalTok{scale =}\StringTok{ }\DecValTok{40}
-\NormalTok{.x <-}\StringTok{ }\KeywordTok{seq}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{300}\NormalTok{, }\DataTypeTok{length.out=}\DecValTok{1000}\NormalTok{)}
-\NormalTok{pdfG <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(x) \{}
-  \DecValTok{1}\OperatorTok{/}\NormalTok{location }\OperatorTok{*}\KeywordTok{exp}\NormalTok{(}\OperatorTok{-}\NormalTok{(x}\OperatorTok{-}\NormalTok{location)}\OperatorTok{/}\NormalTok{scale)}\OperatorTok{*}\KeywordTok{exp}\NormalTok{(}\OperatorTok{-}\KeywordTok{exp}\NormalTok{(}\OperatorTok{-}\NormalTok{(x}\OperatorTok{-}\NormalTok{location)}\OperatorTok{/}\NormalTok{scale))}
-\NormalTok{  \}}
-\NormalTok{.y =}\StringTok{ }\KeywordTok{pdfG}\NormalTok{(.x)}
-\KeywordTok{plot}\NormalTok{(.x, .y, }\DataTypeTok{col=}\StringTok{"green"}\NormalTok{, }\DataTypeTok{lty=}\DecValTok{4}\NormalTok{, }
-     \DataTypeTok{xlab=}\StringTok{"Velocities Km/h"}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{"Density Function - Gumbel Distribution"}\NormalTok{, }
-     \DataTypeTok{main=}\KeywordTok{paste}\NormalTok{(}\StringTok{"Gumbel - Density Function Gumbel Distribution}\CharTok{\textbackslash{}n}\StringTok{"}\NormalTok{, }\StringTok{"Location="}\NormalTok{, }
-     \KeywordTok{round}\NormalTok{(location,}\DecValTok{2}\NormalTok{), }\StringTok{" Scale="}\NormalTok{, }\KeywordTok{round}\NormalTok{(scale,}\DecValTok{2}\NormalTok{)), }\DataTypeTok{type=}\StringTok{"l"}\NormalTok{, }
-     \DataTypeTok{cex.axis =} \FloatTok{0.5}\NormalTok{, }\DataTypeTok{cex.lab=} \FloatTok{0.6}\NormalTok{, }\DataTypeTok{cex.main=}\FloatTok{0.7}\NormalTok{, }\DataTypeTok{cex.sub=}\FloatTok{0.6}\NormalTok{)}
-\KeywordTok{box}\NormalTok{(}\DataTypeTok{which =} \StringTok{"plot"}\NormalTok{, }\DataTypeTok{col=}\StringTok{"red"}\NormalTok{)}
-\KeywordTok{box}\NormalTok{(}\DataTypeTok{which =} \StringTok{"figure"}\NormalTok{, }\DataTypeTok{col=}\StringTok{"blue"}\NormalTok{)}
-\KeywordTok{box}\NormalTok{(}\DataTypeTok{which =} \StringTok{"inner"}\NormalTok{, }\DataTypeTok{col=}\StringTok{"cyan"}\NormalTok{)}
-\KeywordTok{box}\NormalTok{(}\DataTypeTok{which =} \StringTok{"outer"}\NormalTok{, }\DataTypeTok{col=}\StringTok{"orange"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
 \begin{figure}
 \centering
 \includegraphics{thesis_files/figure-latex/plotgumbelpdffunction-1.pdf}
@@ -631,19 +568,6 @@ Figure \ref{fig:plotgumbelpdffunction} shows \emph{pdf} with location (\(\mu\)) 
 Figure \ref{fig:plotgumbelpdf} shows \emph{pdf} with location (\(\mu\)) = 100 and scale (\(\beta\)) = 40, using function \texttt{dgumbel} of the package \texttt{RcmdrMisc}
 
 \footnotesize
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{location =}\StringTok{ }\DecValTok{100}
-\NormalTok{scale =}\StringTok{ }\DecValTok{40}
-\NormalTok{.x <-}\StringTok{ }\KeywordTok{seq}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{300}\NormalTok{, }\DataTypeTok{length.out=}\DecValTok{1000}\NormalTok{)}
-\NormalTok{dfG =}\StringTok{ }\KeywordTok{dgumbel}\NormalTok{(.x, }\DataTypeTok{location=}\NormalTok{location, }\DataTypeTok{scale=}\NormalTok{scale)}
-\KeywordTok{plot}\NormalTok{(.x, dfG, }\DataTypeTok{col=}\StringTok{"red"}\NormalTok{, }\DataTypeTok{lty=}\DecValTok{4}\NormalTok{, }
-     \DataTypeTok{xlab=}\StringTok{"Velocities Km/h"}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{"Density Function - Gumbel Distribution"}\NormalTok{, }
-     \DataTypeTok{main=}\KeywordTok{paste}\NormalTok{(}\StringTok{"Gumbel - Density Function Gumbel Distribution}\CharTok{\textbackslash{}n}\StringTok{"}\NormalTok{, }\StringTok{"Location="}\NormalTok{, }
-     \KeywordTok{round}\NormalTok{(location,}\DecValTok{2}\NormalTok{), }\StringTok{" Scale="}\NormalTok{, }\KeywordTok{round}\NormalTok{(scale,}\DecValTok{2}\NormalTok{)), }\DataTypeTok{type=}\StringTok{"l"}\NormalTok{, }
-     \DataTypeTok{cex.axis =} \FloatTok{0.5}\NormalTok{, }\DataTypeTok{cex.lab=} \FloatTok{0.6}\NormalTok{, }\DataTypeTok{cex.main=}\FloatTok{0.7}\NormalTok{, }\DataTypeTok{cex.sub=}\FloatTok{0.6}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
 \begin{figure}
 \centering
 \includegraphics{thesis_files/figure-latex/plotgumbelpdf-1.pdf}
@@ -675,22 +599,6 @@ Equation \eqref{eq:gumbelcdf} is the Gumbel \emph{cdf}.
 Figure \ref{fig:plotgumbelcdffunction} shows Gumbel \emph{cdf} with location (\(\mu\)) = 100 and scale (\(\beta\)) = 40, using equation \eqref{eq:gumbelcdf}. As previously done with \emph{pdf}, similar result can be achieved using function \texttt{pgumbel} of package \texttt{RcmdrMisc}.
 
 \footnotesize
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{location =}\StringTok{ }\DecValTok{100}
-\NormalTok{scale =}\StringTok{ }\DecValTok{40}
-\NormalTok{.x <-}\StringTok{ }\KeywordTok{seq}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{300}\NormalTok{, }\DataTypeTok{length.out=}\DecValTok{1000}\NormalTok{)}
-\NormalTok{cdfG <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(x) \{}
-  \KeywordTok{exp}\NormalTok{(}\OperatorTok{-}\KeywordTok{exp}\NormalTok{(}\OperatorTok{-}\NormalTok{(x}\OperatorTok{-}\NormalTok{location)}\OperatorTok{/}\NormalTok{scale))}
-\NormalTok{  \}}
-\NormalTok{.y =}\StringTok{ }\KeywordTok{cdfG}\NormalTok{(.x)}
-\KeywordTok{plot}\NormalTok{(.x, .y, }\DataTypeTok{col=}\StringTok{"green"}\NormalTok{, }\DataTypeTok{lty=}\DecValTok{4}\NormalTok{, }
-     \DataTypeTok{xlab=}\StringTok{"Velocities Km/h"}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{"Probability"}\NormalTok{, }
-     \DataTypeTok{main=}\KeywordTok{paste}\NormalTok{(}\StringTok{"Gumbel - Cumulative Distribution Function}\CharTok{\textbackslash{}n}\StringTok{"}\NormalTok{, }\StringTok{"Location="}\NormalTok{, }
-     \KeywordTok{round}\NormalTok{(location,}\DecValTok{2}\NormalTok{), }\StringTok{" Scale="}\NormalTok{, }\KeywordTok{round}\NormalTok{(scale,}\DecValTok{2}\NormalTok{)), }\DataTypeTok{type=}\StringTok{"l"}\NormalTok{, }
-     \DataTypeTok{cex.axis =} \FloatTok{0.5}\NormalTok{, }\DataTypeTok{cex.lab=} \FloatTok{0.6}\NormalTok{, }\DataTypeTok{cex.main=}\FloatTok{0.7}\NormalTok{, }\DataTypeTok{cex.sub=}\FloatTok{0.6}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
 \begin{figure}
 \centering
 \includegraphics{thesis_files/figure-latex/plotgumbelcdffunction-1.pdf}
@@ -717,22 +625,6 @@ Equation \eqref{eq:gumbelppf} is the Gumbel \emph{ppf}.
 Figure \ref{fig:plotgumbelppffunction} shows Gumbel \emph{ppf}, using equation \eqref{eq:gumbelppf}. Similar result can be achieved using function \texttt{qgumbel} of package \texttt{RcmdrMisc}.
 
 \footnotesize
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{location =}\StringTok{ }\DecValTok{100}
-\NormalTok{scale =}\StringTok{ }\DecValTok{40}
-\NormalTok{.x <-}\StringTok{ }\KeywordTok{seq}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DataTypeTok{length.out=}\DecValTok{1000}\NormalTok{)}
-\NormalTok{ppfG <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(x) \{}
-\NormalTok{  location }\OperatorTok{-}\StringTok{ }\NormalTok{(scale}\OperatorTok{*}\KeywordTok{log}\NormalTok{(}\OperatorTok{-}\KeywordTok{log}\NormalTok{(x)))}
-\NormalTok{  \}}
-\NormalTok{.y =}\StringTok{ }\KeywordTok{ppfG}\NormalTok{(.x)}
-\KeywordTok{plot}\NormalTok{(.x, .y, }\DataTypeTok{col=}\StringTok{"green"}\NormalTok{, }\DataTypeTok{lty=}\DecValTok{4}\NormalTok{, }
-     \DataTypeTok{ylab=}\StringTok{"Velocities Km/h"}\NormalTok{, }\DataTypeTok{xlab=}\StringTok{"Probability"}\NormalTok{, }
-     \DataTypeTok{main=}\KeywordTok{paste}\NormalTok{(}\StringTok{"Gumbel - Percent Point Function}\CharTok{\textbackslash{}n}\StringTok{"}\NormalTok{, }\StringTok{"Location="}\NormalTok{, }
-     \KeywordTok{round}\NormalTok{(location,}\DecValTok{2}\NormalTok{), }\StringTok{" Scale="}\NormalTok{, }\KeywordTok{round}\NormalTok{(scale,}\DecValTok{2}\NormalTok{)), }\DataTypeTok{type=}\StringTok{"l"}\NormalTok{, }
-     \DataTypeTok{cex.axis =} \FloatTok{0.5}\NormalTok{, }\DataTypeTok{cex.lab=} \FloatTok{0.6}\NormalTok{, }\DataTypeTok{cex.main=}\FloatTok{0.7}\NormalTok{, }\DataTypeTok{cex.sub=}\FloatTok{0.6}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
 \begin{figure}
 \centering
 \includegraphics{thesis_files/figure-latex/plotgumbelppffunction-1.pdf}
@@ -758,35 +650,11 @@ Equation \eqref{eq:gumbelhf} is the Gumbel \emph{ppf}.
 Figure \ref{fig:plotgumbelhffunction} shows Gumbel \emph{hf}, using equation \eqref{eq:gumbelhf}.
 
 \footnotesize
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{location =}\StringTok{ }\DecValTok{100}
-\NormalTok{scale =}\StringTok{ }\DecValTok{40}
-\NormalTok{.x <-}\StringTok{ }\KeywordTok{seq}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{1500}\NormalTok{, }\DataTypeTok{length.out=}\DecValTok{1000}\NormalTok{)}
-\NormalTok{hfG <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(x) \{}
-\NormalTok{  (}\DecValTok{1}\OperatorTok{/}\NormalTok{scale)}\OperatorTok{*}\NormalTok{(}\KeywordTok{exp}\NormalTok{(}\OperatorTok{-}\NormalTok{(x}\OperatorTok{-}\NormalTok{location)}\OperatorTok{/}\NormalTok{scale))}\OperatorTok{/}\NormalTok{(}\KeywordTok{exp}\NormalTok{(}\KeywordTok{exp}\NormalTok{(}\OperatorTok{-}\NormalTok{(x}\OperatorTok{-}\NormalTok{location)}\OperatorTok{/}\NormalTok{scale))}\OperatorTok{-}\DecValTok{1}\NormalTok{)}
-\NormalTok{  \}}
-\NormalTok{.y =}\StringTok{ }\KeywordTok{hfG}\NormalTok{(.x)}
-\KeywordTok{plot}\NormalTok{(.x, .y, }\DataTypeTok{col=}\StringTok{"green"}\NormalTok{, }\DataTypeTok{lty=}\DecValTok{4}\NormalTok{, }
-     \DataTypeTok{xlab=}\StringTok{"Velocities Km/h"}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{"Hazard"}\NormalTok{, }
-     \DataTypeTok{main=}\KeywordTok{paste}\NormalTok{(}\StringTok{"Gumbel - Hazard Function}\CharTok{\textbackslash{}n}\StringTok{"}\NormalTok{, }\StringTok{"Location="}\NormalTok{, }
-     \KeywordTok{round}\NormalTok{(location,}\DecValTok{2}\NormalTok{), }\StringTok{" Scale="}\NormalTok{, }\KeywordTok{round}\NormalTok{(scale,}\DecValTok{2}\NormalTok{)), }\DataTypeTok{type=}\StringTok{"l"}\NormalTok{, }
-     \DataTypeTok{cex.axis =} \FloatTok{0.5}\NormalTok{, }\DataTypeTok{cex.lab=} \FloatTok{0.6}\NormalTok{, }\DataTypeTok{cex.main=}\FloatTok{0.7}\NormalTok{, }\DataTypeTok{cex.sub=}\FloatTok{0.6}\NormalTok{, }
-     \DataTypeTok{xlim=}\KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{500}\NormalTok{))}
-\end{Highlighting}
-\end{Shaded}
 \begin{figure}
 \centering
 \includegraphics{thesis_files/figure-latex/plotgumbelhffunction-1.pdf}
 \caption{\label{fig:plotgumbelhffunction}Gumbel cdf}
 \end{figure}
-\begin{Shaded}
-\begin{Highlighting}[]
-\CommentTok{#library(reliaR)}
-\CommentTok{#plot(.x, hgumbel(.x, mu=location, sigma=scale))}
-\CommentTok{#plot(.x, hra.gumbel(.x, mu=location, sigma=scale))}
-\end{Highlighting}
-\end{Shaded}
 \normalsize
 
 \hypertarget{statistical-concepts-for-extreme-analysis}{%
@@ -1029,7 +897,9 @@ To standardize wind speeds to gust speeds ASCE7-16 proposes the curve Durst (see
 
 \footnotesize
 \begin{figure}
-\includegraphics[width=6.14in]{figure/durst} \caption{Maximum speeds averaged over t (sec), to hourly mean speed}\label{fig:durstcurve}
+\centering
+\includegraphics{thesis_files/figure-latex/durstcurve-1.pdf}
+\caption{\label{fig:durstcurve}Maximum speeds averaged over t (sec), to hourly mean speed}
 \end{figure}
 \normalsize
 
@@ -1139,7 +1009,7 @@ It has 0 fields
 
 }
 
-\caption{Digital imagery for 'Vanguardia' ISD station (USAF:802340), located in Villavicencio airport. with four (south, north, east, and west) 45 degree sector highlighted. Radious of the circular zone is 800 meters}\label{fig:lettaustation}
+\caption{Digital imagery for 'Vanguardia' ISD station (USAF:802340), located in Villavicencio airport. with four (south, north, east, and west) 45 degree sectors highlighted. Radious of the circular zone is 800 meters}\label{fig:lettaustation}
 \end{figure}
 \normalsize
 
@@ -1437,36 +1307,15 @@ Twelve standardized stations from ISD and IDEAM (table \ref{tab:table12stations}
 Stations 28025502 from IDEAM, 800360 from ISD, and 416 (cell with center point in \(-73.25^\circ\) longitude, and \(10.5^\circ\) latitude) from ERA5, showed high correspondence. See figures \ref{fig:sideamera5}, \ref{fig:sisdvsera5}, \ref{fig:sideamvsisd}.
 
 \footnotesize
-\begin{figure}
 
-{\centering \includegraphics{thesis_files/figure-latex/sideamera5-1} 
-
-}
-
-\caption{Scatter plot of IDEAM vs ERA5. Stations comparison: 28025502 (IDEAM), 800360 (ISD), and 416 (ERA5)}\label{fig:sideamera5}
-\end{figure}
 \normalsize
 
 \footnotesize
-\begin{figure}
 
-{\centering \includegraphics{thesis_files/figure-latex/sisdvsera5-1} 
-
-}
-
-\caption{Scatter plot of ISD vs ERA5. Stations comparison: 28025502 (IDEAM), 800360 (ISD), and 416 (ERA5)}\label{fig:sisdvsera5}
-\end{figure}
 \normalsize
 
 \footnotesize
-\begin{figure}
 
-{\centering \includegraphics{thesis_files/figure-latex/sideamvsisd-1} 
-
-}
-
-\caption{Scatter plot of IDEAM vs ISD. Stations comparison: 28025502 (IDEAM), 800360 (ISD), and 416 (ERA5)}\label{fig:sideamvsisd}
-\end{figure}
 \normalsize
 
 \hypertarget{pot-pp-in-isd-station-801120}{%
