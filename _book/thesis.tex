@@ -489,7 +489,11 @@ Code & Name & Latitud & Longitud\\
 803150 & BENITO SALAS & 2.95 & -75.29\\
 \bottomrule
 \end{longtable}
+\begin{figure}
+\centering
 \includegraphics{thesis_files/figure-latex/plotisdstations-1.pdf}
+\caption{\label{fig:plotisdstations}ISD Stations}
+\end{figure}
 Following, the time series, autocorrelation function, and partial autocorrelation function, for ISD station ``802590'' will be displayed.
 \begin{figure}
 \centering
@@ -628,7 +632,7 @@ Figure \ref{fig:plotgumbelppffunction} shows Gumbel \emph{ppf}, using equation \
 \begin{figure}
 \centering
 \includegraphics{thesis_files/figure-latex/plotgumbelppffunction-1.pdf}
-\caption{\label{fig:plotgumbelppffunction}Gumbel cdf}
+\caption{\label{fig:plotgumbelppffunction}Gumbel ppf}
 \end{figure}
 \normalsize
 
@@ -653,7 +657,7 @@ Figure \ref{fig:plotgumbelhffunction} shows Gumbel \emph{hf}, using equation \eq
 \begin{figure}
 \centering
 \includegraphics{thesis_files/figure-latex/plotgumbelhffunction-1.pdf}
-\caption{\label{fig:plotgumbelhffunction}Gumbel cdf}
+\caption{\label{fig:plotgumbelhffunction}Gumbel hf}
 \end{figure}
 \normalsize
 
@@ -805,15 +809,11 @@ Intensity function of the PP is defined in Smith (\protect\hyperlink{ref-Smith20
   \label{eq:ppintensityfunction}
 \end{equation}
 Where, at a given time \(t\), parameter \(shape = \zeta_t\) controls the tail length of the intensity function, and the other two parameters \(\omega_t\) and \(\psi_t\) define the location and scale of the intensity function.
-
-\footnotesize
 \begin{figure}
 \centering
 \includegraphics{thesis_files/figure-latex/plotdomainpp-1.pdf}
 \caption{\label{fig:plotdomainpp}Domain off the Poisson Process - PP}
 \end{figure}
-\normalsize
-
 Figure \ref{fig:plotdomainpp} represent the domain \(D\) of PP. In time, the domain represents the station service period from first sample \(t_1\) to last sample \(t_4\). \(D\) is the union of all thunderstorm periods \(D_t\) (from \(t_2\) to \(t_3\)), and all non-thunderstorm periods \(D_{nt}\) (periods \(t_1\) to \(t_2\) and \(t_3\) to \(t_4\)). In magnitude, only thunderstorm data above its threshold \(b_t\), and only non-thunderstorm data above its threshold \(b_{nt}\) are used.
 
 Thunderstorms and non-thunderstorms are modeled independently:
@@ -826,13 +826,14 @@ Thunderstorms and non-thunderstorms are modeled independently:
   For each disjoint sub-domain \(D_1\) or \(D_2\) inside \(D\), the observations in \(D_1\) or \(D_2\) are independent random variables.
 \end{enumerate}
 Visual representation of the intensity function for PP can be seen in figure \ref{fig:plotdomain3dpp}. In vertical axis, two surfaces were drawn representing independent intensity functions for thunderstorm \(\lambda_t(y)\) and for non-thunderstorm \(\lambda_{nt}(y)\). The volume under each surface for its corresponding time periods and peak (over threshold) velocities, is the mean of PP.
-
-\footnotesize
 \begin{figure}
-\includegraphics[width=6.35in]{figure/domain3d} \caption{Volume under surfaces represents the mean of PP}\label{fig:plotdomain3dpp}
-\end{figure}
-\normalsize
 
+{\centering \includegraphics[width=4.07in]{figure/domain3d} 
+
+}
+
+\caption{Volume under surfaces represents the mean of PP}\label{fig:plotdomain3dpp}
+\end{figure}
 To fit the intensity function to the data, the method of maximum likelihood is used to estimate its parameters, \(scale = \psi\), \(location = \omega\), and \(shape = \zeta\), the selected vector of parameters \(\eta\) are the \(\hat\eta = (\hat\psi, \hat\omega, \hat\zeta)\) values that maximizes next function
 \begin{equation}
   \mathrm{
@@ -894,33 +895,25 @@ ASCE7-16 (page 734), requires the calculation of wind extreme return levels for 
   Risk I - This structures represent low risk for life of people.
 \end{itemize}
 To standardize wind speeds to gust speeds ASCE7-16 proposes the curve Durst (see C. S. Durst (\protect\hyperlink{ref-Durst1960}{1960}), and figure \ref{fig:durstcurve}). Durst curve is only valid for open terrain conditions, and it shows in axis \(y\) the gust factor \(\frac{V_t}{V_{3600}}\), a ratio between any wind gust averaged at \(t\) seconds, \(V_t\), and the hourly averaged wind speed \(V_{3600}\), and in the axis \(x\) the duration \(t\) of the gust in seconds.
-
-\footnotesize
 \begin{figure}
 \centering
 \includegraphics{thesis_files/figure-latex/durstcurve-1.pdf}
-\caption{\label{fig:durstcurve}Maximum speeds averaged over t (sec), to hourly mean speed}
+\caption{\label{fig:durstcurve}Maximum speeds averaged over t (sec), to hourly mean speed. Note: curve values taken visually from the original (use original curve for calculations!)}
 \end{figure}
-\normalsize
-
 \hypertarget{rmd-method}{%
 \chapter{Methodology}\label{rmd-method}}
 
 Figure \ref{fig:methodology} shows a graphic representation of the methodology. This research is focus in non-hurricane data, with three main elements: - data, - temporal analysis with a POT-PP, and - spatial analysis with probabilistic and deterministic methods to do spatial interpolation and create return levels (wind velocities) maps, for MRI of 700, 1700, and 3000 years. An additional element, is the integration with existing hurricane maps to produce final maps, that will be used as input loads for infrastructure design, and will be part of the design standard.
 
 More representative and important steps of the methodology are identified by numbers in figure \ref{fig:methodology}, 1) standardization, 2) de-clustering, 3) thresholding, 4) fit intensity function, 5) hazard curve, 6) return levels, and 7) spatial interpolation. Steps 1 to 6, need to be done for each available station to get extreme wind velocities (return levels - RL) for MRI. With RL in each station, a continuous surface will be created, one for 700 years, next for 1700 years and finally for 3000 years. Figure \ref{fig:mainmethodology} schematize the iterative process in the methodology.
-
-\footnotesize
 \begin{figure}
 
-{\centering \includegraphics[width=6.47in]{figure/methodology} 
+{\centering \includegraphics[width=6.26in]{figure/methodology} 
 
 }
 
 \caption{Methodology}\label{fig:methodology}
 \end{figure}
-\normalsize
-
 \footnotesize
 \begin{figure}
 
@@ -991,88 +984,33 @@ Following NIST (\protect\hyperlink{ref-nist2012}{2012}), calculation of roughnes
 \caption{Wind rose with wind percentages in eight directions, for a generic station}\label{fig:compassrose}
 \end{figure}
 \footnotesize
-\begin{verbatim}
-OGR data source with driver: ESRI Shapefile 
-Source: "D:\book\index\data\circle.shp", layer: "circle"
-with 1 features
-It has 0 fields
-\end{verbatim}
-\begin{verbatim}
-OGR data source with driver: ESRI Shapefile 
-Source: "D:\book\index\data\sectors.shp", layer: "sectors"
-with 4 features
-It has 0 fields
-\end{verbatim}
 \begin{figure}
 
-{\centering \includegraphics{thesis_files/figure-latex/lettaustation-1} 
+{\centering \includegraphics{thesis_files/figure-latex/lettaustation2-1} 
 
 }
 
-\caption{Digital imagery for 'Vanguardia' ISD station (USAF:802340), located in Villavicencio airport. with four (south, north, east, and west) 45 degree sectors highlighted. Radious of the circular zone is 800 meters}\label{fig:lettaustation}
+\caption{Digital imagery for 'Vanguardia' ISD station (USAF:802340), located in Villavicencio airport. with four (south, north, east, and west) 45 degree sectors highlighted. Radious of the circular zone is 800 meters}\label{fig:lettaustation2}
 \end{figure}
 \normalsize
 
 Figure \ref{fig:lettauexamples} shows extreme conditions for roughness, open space in left image (ISD Station 804070), closed space in center image (ISD Station 803000), and a typical example where Lettau procedure is needed. Lettau equation need to be applied to each direction and then the final \(z_o\) value is the weighted average, using historical wind percentage. See figure \ref{fig:lettauvalues} showing the strokes made to calculate the different areas for two Colombian stations. Information about wind percentage per direction at each station were obtained from IDEAM (\protect\hyperlink{ref-ideam1999}{1999}).
-
-\footnotesize
-\begin{verbatim}
-OGR data source with driver: ESRI Shapefile 
-Source: "D:\book\index\data\circle_804070.shp", layer: "circle_804070"
-with 1 features
-It has 0 fields
-\end{verbatim}
-\begin{verbatim}
-OGR data source with driver: ESRI Shapefile 
-Source: "D:\book\index\data\n_sector_804070.shp", layer: "n_sector_804070"
-with 1 features
-It has 0 fields
-\end{verbatim}
-\begin{verbatim}
-OGR data source with driver: ESRI Shapefile 
-Source: "D:\book\index\data\circle_803000.shp", layer: "circle_803000"
-with 1 features
-It has 0 fields
-\end{verbatim}
-\begin{verbatim}
-OGR data source with driver: ESRI Shapefile 
-Source: "D:\book\index\data\s_sector_803000.shp", layer: "s_sector_803000"
-with 1 features
-It has 0 fields
-\end{verbatim}
-\begin{verbatim}
-OGR data source with driver: ESRI Shapefile 
-Source: "D:\book\index\data\circle_804380.shp", layer: "circle_804380"
-with 1 features
-It has 0 fields
-\end{verbatim}
-\begin{verbatim}
-OGR data source with driver: ESRI Shapefile 
-Source: "D:\book\index\data\e_sector_804380.shp", layer: "e_sector_804380"
-with 1 features
-It has 0 fields
-\end{verbatim}
 \begin{figure}
 
-{\centering \includegraphics{thesis_files/figure-latex/lettauexamples-1} 
+{\centering \includegraphics{thesis_files/figure-latex/lettauexamples2-1} 
 
 }
 
-\caption{Roughness values: 0.03 for open space (left), 0.1 for closed space (center), and areas where Lettau equation is needed because roughness is different in each direction (right). From Triana (2019)}\label{fig:lettauexamples}
+\caption{Roughness values: 0.03 for open space (left), 0.1 for closed space (center), and areas where Lettau equation is needed because roughness is different in each direction (right).}\label{fig:lettauexamples2}
 \end{figure}
-\normalsize
-
-\footnotesize
 \begin{figure}
 
-{\centering \includegraphics[width=6.18in]{figure/lettauvalues} 
+{\centering \includegraphics[width=3.71in]{figure/lettauvalues} 
 
 }
 
 \caption{Lettau calculation. In red the area occupied by the obstacles, and in blue the perpendicular area. Source Triana (2019)}\label{fig:lettauvalues}
 \end{figure}
-\normalsize
-
 \hypertarget{rmd-gust}{%
 \subsection{Averaging Time 3-s Gust}\label{rmd-gust}}
 

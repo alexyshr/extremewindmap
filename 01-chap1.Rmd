@@ -242,9 +242,6 @@ mtext(side = 1, text = "Station Name: ELDORADO CATAM - AUT", outer = TRUE)
 # plot(mypacf, main = titlepacf)
 ```
 
-
-
-
 ## ISD
 
 ISD is a database with environmental variables among then extreme wind speeds. ISD has data for the whole planet, and is based on observed data at meteorological stations in each country, which means that for Colombia is based on IDEAM data. Main advantage is data availability at neighbor countries and specialized post-processing made by NOAA's National Centers for Environmental Information - NCEI in United States, which facilitates its use.Table \@ref(tab:tableisdstations) shows a sample of five ISD stations. Figure \@ref(fig:plotisdstations) shows a map of ISD stations.
@@ -272,6 +269,7 @@ isd_stations = st_as_sf(isd_stations, coords = c("longitud", "latitud"), crs = 4
 
 
 ```{r plotisdstations, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="ISD Stations"}
+
 #Maps of the World
 theme_set(theme_bw())
 world <- ne_countries(scale = "medium", returnclass = "sf")
@@ -304,6 +302,7 @@ ggplot(data = world) +
   ggtitle("ISD Stations") + 
   theme(panel.grid.major = element_line(color = gray(.5), linetype = "dashed", size = 0.5), panel.background = element_rect(fill = "aliceblue"))
 ```
+
 Following, the time series, autocorrelation function, and partial autocorrelation function, for ISD station "802590" will be displayed.
 
 ```{r plotoneisdstation, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="ISD Station - Time Series"}

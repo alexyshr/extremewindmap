@@ -949,11 +949,13 @@ WPlot <- function (t.series, nt.series,
   exp1.quantiles <- qexp(p=quantiles)
 
   if (tf.plot) {
-
+    par(oma = c(0,0,0,0))
+    par(mar = c(4,4,1,0))
     plot(x=exp1.quantiles, y=W,
          xlab="Exponential with mean 1 and pdf U(0,1) - quantiles",
          ylab="Ordered W-Statistics",
-         main=bquote(paste("W-Statistic Plot for best pair of thresholds (", b[t], "=", .(t.thresh), ", ", b[nt], "=", .(nt.thresh), ")")))
+         main=bquote(paste("W-Statistic Plot for best pair of thresholds (", b[t], "=", .(t.thresh), ", ", b[nt], "=", .(nt.thresh), ")")),
+         cex.lab=0.7, cex.axis=0.7, cex.main=0.8, cex.sub=0.7, pch=".")
     if (BW) {
 
       abline(a=0, b=1, col="black")

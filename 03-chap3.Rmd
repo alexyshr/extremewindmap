@@ -26,7 +26,7 @@ Figure \@ref(fig:methodology) shows a graphic representation of the methodology.
 
 More representative and important steps of the methodology are identified by numbers in figure \@ref(fig:methodology), 1) standardization, 2) de-clustering, 3) thresholding, 4) fit intensity function, 5) hazard curve, 6) return levels, and 7) spatial interpolation. Steps 1 to 6, need to be done for each available station to get extreme wind velocities (return levels - RL) for MRI. With RL in each station, a continuous surface will be created, one for 700 years, next for 1700 years and finally for 3000 years. Figure \@ref(fig:mainmethodology) schematize the iterative process in the methodology.
 
-```{r methodology, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Methodology", size="footnotesize", fig.align="center"}
+```{r methodology, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Methodology", fig.align="center", dpi=300}
 include_graphics(path = "figure/methodology.png")
 ```
 
@@ -49,7 +49,7 @@ Parallel to the standardization activity described below (3-s gust, roughness, a
 
 According to the protocol for field data collection and location of methodological stations - @ideam2005, the anemometer (wind sensor) in installed always to a fixed height of 10 meters from the surface, as is shown in figure \@ref(fig:anemometer), ergo, no height correction is needed.
 
-```{r anemometer, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Anemometer height - 10 m", fig.align="center"}
+```{r anemometer, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Anemometer height - 10 m", fig.align="center", fig.width=3, fig.height=3, }
 #include_graphics(path = "figure/anemometer.png")
 par(mar=c(0,0,0,0))
 par(oma=c(0,0,0,0))
@@ -78,9 +78,9 @@ arrows(3.5, 11, 3.5, 10.5, length=0.1, code=1)
 lines (x=c(2,4), y=c(11,11), lty=5)
 myx = seq(from=0, to=4, by=0.2) 
 for (i in myx) lines (x=c(i, i-0.2), y=c(0, -0.2))
-text(4,0, labels="Surface", pos=4, cex=0.8)
-text(3.5,5.5, labels="10 meters", pos=4, cex=0.8)
-text(4,11, labels="Anemometer", pos=4, cex=0.8)
+text(4,0, labels="Surface", pos=4, cex=0.5)
+text(3.5,5.5, labels="10 meters", pos=4, cex=0.5)
+text(4,11, labels="Anemometer", pos=4, cex=0.5)
 #box(which = "plot", col="red")
 #box(which = "figure", col="blue")
 #box(which = "inner", col="cyan")
@@ -113,7 +113,7 @@ F_{exposition} = \frac{0.951434}{K_z}
 $$
 Following @nist2012, calculation of roughness need to be weighted according to the predominance of wind magnitude in eight directions (north, south, east, west, north-east, north-west, south-east, and south-west), see  figure \@ref(fig:compassrose), using a detailed aerial photo or satellite image inside a radiuos of 800 meters around the station location, as shown in figure \@ref(fig:lettaustation), with south direction highlighted. 
 
-```{r compassrose, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Wind rose with wind percentages in eight directions, for a generic station", fig.align="center", fig.width= 3, fig.height= 3}
+```{r compassrose, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Wind rose with wind percentages in eight directions, for a generic station", fig.align="center", fig.width= 2.5, fig.height= 2.5}
 #include_graphics(path = "figure/viensanandres.png")
 par(mar=c(0,0,0,0))
 par(oma=c(0,0,0,0))
@@ -124,7 +124,7 @@ windRose(mydata, angle = 45, width = 1,
               grid.line = 12, ws.int=5, auto.text=F, annotate=F, key.header = NULL, key.footer = "", key=FALSE)
 ```
 
-```{r lettaustation, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Digital imagery for 'Vanguardia' ISD station (USAF:802340), located in Villavicencio airport. with four (south, north, east, and west) 45 degree sectors highlighted. Radious of the circular zone is 800 meters", size="footnotesize", fig.align="center", fig.width= 2.5, fig.height= 2.5}
+```{r lettaustation1, include = FALSE}
 #include_graphics(path = "figure/aerial_photo_pintar.png")
 library(raster)
 library(rgdal)
@@ -137,21 +137,23 @@ sectors = readOGR(dsn = "data/sectors.shp", layer = "sectors")
 img_stack=stack("data/802340_img_nopoint_modified.tif")
 img_stack.crop = crop(img_stack, extent(circle))
 img_stack.mask = mask(img_stack.crop, circle)
+```
+
+```{r lettaustation2, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Digital imagery for 'Vanguardia' ISD station (USAF:802340), located in Villavicencio airport. with four (south, north, east, and west) 45 degree sectors highlighted. Radious of the circular zone is 800 meters", size="footnotesize", fig.align="center", fig.width= 2, fig.height= 2}
 
 yellowtrans <- rgb(255, 255, 0, 30, maxColorValue=255)
 plotRGB(img_stack.mask)
 plot(sectors, add=T, col=yellowtrans)
-lines(sectors, col="black", lwd=2)
-lines(circle, col="black", lwd=2)
-points(x=-73.614, y=4.168, pch=17, cex=2, col="red")
-text(x=-73.614, y=4.168, labels="802340", pos=4, cex = 1.3, col="white")
+lines(sectors, col="black", lwd=0.5)
+lines(circle, col="black", lwd=0.8)
+points(x=-73.614, y=4.168, pch=17, cex=1, col="red")
+text(x=-73.614, y=4.168, labels="802340", pos=4, cex = 0.8, col="white")
 
 ```
 
 Figure \@ref(fig:lettauexamples) shows extreme conditions for roughness, open space in left image (ISD Station 804070), closed space in center image (ISD Station 803000), and a typical example where Lettau procedure is needed. Lettau equation need to be applied to each direction and then the final $z_o$ value is the weighted average, using historical wind percentage. See figure \@ref(fig:lettauvalues) showing the strokes made to calculate the different areas for two Colombian stations. Information about wind percentage per direction at each station were obtained from @ideam1999.
 
-
-```{r lettauexamples, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Roughness values: 0.03 for open space (left), 0.1 for closed space (center), and areas where Lettau equation is needed because roughness is different in each direction (right). From Triana (2019)", size="footnotesize", fig.align="center", fig.width= 4.5, fig.height= 1}
+```{r lettauexamples1, include=FALSE}
 #include_graphics(path = "figure/lettauexamples.PNG")
 library(raster)
 library(rgdal)
@@ -172,6 +174,10 @@ sectors804380 = readOGR(dsn = "data/e_sector_804380.shp", layer = "e_sector_8043
 img_stack804380=stack("data/804380_img_modified.tif")
 img_stack804380.crop = crop(img_stack804380, extent(circle804380))
 img_stack804380.mask = mask(img_stack804380.crop, circle804380)
+```
+
+
+```{r lettauexamples2, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Roughness values: 0.03 for open space (left), 0.1 for closed space (center), and areas where Lettau equation is needed because roughness is different in each direction (right).", fig.align="center", fig.height=1.5}
 
 par(mfrow=c(1,3))
 par(pty="m")
@@ -182,31 +188,31 @@ par(xpd = NA)
 yellowtrans <- rgb(255, 255, 0, 30, maxColorValue=255)
 plotRGB(img_stack804070.mask, pty="s")
 plot(sectors804070, add=T, col=yellowtrans)
-lines(sectors804070, col="black", lwd=1)
-lines(circle804070, col="black", lwd=1)
-points(x=-71.728, y=10.558, pch=17, cex=2, col="red")
+lines(sectors804070, col="black", lwd=0.5)
+lines(circle804070, col="black", lwd=0.5)
+points(x=-71.728, y=10.558, pch=17, cex=1, col="red")
 text(x=-71.728, y=10.558, labels="804070", pos=1, cex = 1.3, col="white")
 
 plotRGB(img_stack803000.mask, pty="s")
 plot(sectors803000, add=T, col=yellowtrans)
-lines(sectors803000, col="black", lwd=1)
-lines(circle803000, col="black", lwd=1)
-points(x=-77.9, y=2.583, pch=17, cex=2, col="red")
+lines(sectors803000, col="black", lwd=0.5)
+lines(circle803000, col="black", lwd=0.5)
+points(x=-77.9, y=2.583, pch=17, cex=1, col="red")
 text(x=-77.9, y=2.583, labels="803000", pos=3, cex = 1.3, col="white")
 
 plotRGB(img_stack804380.mask, pty="s")
 plot(sectors804380, add=T, col=yellowtrans)
-lines(sectors804380, col="black", lwd=1)
-lines(circle804380, col="black", lwd=1)
-points(x=-71.161, y=8.582, pch=17, cex=2, col="red")
-text(x=-71.161, y=8.582, labels="804380", pos=2, cex = 1.3, col="black")
+lines(sectors804380, col="black", lwd=0.5)
+lines(circle804380, col="black", lwd=0.5)
+points(x=-71.161, y=8.582, pch=17, cex=1, col="red")
+text(x=-71.161, y=8.582, labels="804380", pos=2, cex = 1.3, col="white", halo=TRUE, hc="black", hw=0.2)
 #box(which = "plot", col="red")
 #box(which = "figure", col="blue")
 #box(which = "inner", col="cyan")
 #box(which = "outer", col="orange")
 ```
 
-```{r lettauvalues, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Lettau calculation. In red the area occupied by the obstacles, and in blue the perpendicular area. Source Triana (2019)", size="footnotesize", fig.align="center", fig.width= 3}
+```{r lettauvalues, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Lettau calculation. In red the area occupied by the obstacles, and in blue the perpendicular area. Source Triana (2019)", fig.align="center", dpi=120}
 include_graphics(path = "figure/lettauvalues.png")
 ```
 
@@ -239,7 +245,7 @@ In summary, POT means only to work with extreme values, and PP means to adjust d
 
 To make the assumptions of PP more justifiable, it  is important to have only one sample per event, the highest one. For instance, if a hypothetical storm started at 11:30 in the morning and ended at 12:30 in the afternoon, and the time series for that event has thirty wind measurements (one each two minutes), it is necessary to leave only the stronger or maximum value, and this process is called de-clustering (see Figure \@ref(fig:declustering)). POT-PP defines that all the adjacent observations separated by six hours (6) or less in the case of thunderstorm events, and four (4) days or less, in the case of non-thunderstorm events belong to the same cluster.
 
-```{r declustering, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="De-clustering in PP. Two thunderstorm clusters are shown. Separation between adjacent observations inside the clusters are always equal or less than six hours. Distance between the last event in the first cluster and the first event in the second cluster is larger than six hours. Only red samples are used to fit the PP, but in addition a POT (thresholding) process is needed", size="footnotesize", fig.width= 3, fig.height= 3, fig.align="center"}
+```{r declustering, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="De-clustering in PP. Two thunderstorm clusters are shown. Separation between adjacent observations inside the clusters are always equal or less than six hours. Distance between the last event in the first cluster and the first event in the second cluster is larger than six hours. Only red samples are used to fit the PP, but in addition a POT (thresholding) process is needed", size="footnotesize", fig.width= 2, fig.height= 2, fig.align="center"}
 par(bg=NA)
 par(xpd = NA)
 op <- par(mar = rep(0, 4))
@@ -265,7 +271,7 @@ points(3.3, 0.4, col="red", pch=15, cex=0.9)
 
 As the POT model requires to work only with the most extreme values in the time series, it is necessary to select a threshold to filter out small values. Selection of threshold value imply two effects in the model. Bias is high when a low threshold is selected (many exceedances) because the asymptotic support is weak. Opposite situation happens for high thresholds where variance is potentially high, so according to @Davison1990, it is needed to select a threshold value, consistent with model structure.
 
-```{r thresholding, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="POT - Thresholding", size="footnotesize", fig.width= 3, fig.height= 3, fig.align="center"}
+```{r thresholding, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="POT - Thresholding", size="footnotesize", fig.width= 2, fig.height= 2, fig.align="center"}
 par(bg=NA)
 par(xpd = NA)
 op <- par(mar = rep(0, 4))
@@ -289,9 +295,9 @@ Selection of the thresholds pairs, one for thunderstorm, and one for non-thunder
 ```{r wstatistics, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="POT - Thresholding", size="footnotesize", fig.align="center"}
 dat <- readRDS("data/myprint6.rds")
 dat
-points(x=3.1, y=3.8)
 lines(x=c(3.1, 3.1), y=c(3.1,3.8), col="green", lty=5)
-text(x = 3.1, y = 3.4, labels = c("Minimum W-statistic distance"), cex=0.7, pos = 2)
+points(x=3.1, y=3.8, pch=".")
+text(x = 3.1, y = 3.4, labels = c("Minimum W-statistic distance"), cex=0.6, pos = 2)
 #box(which = "plot", col="red")
 #box(which = "figure", col="blue")
 #box(which = "inner", col="cyan")
@@ -334,7 +340,7 @@ In this study, the used intensity functions are shown in next equation \@ref(eq:
 As is shown in \@ref(fig:fitif), the fitting process involve finding the best group of parameters of the intensity function, in such a way that the red curve (_pdf_ of the PP, based in intensity function) be as tight as possible to the shape of the data histogram. As is described in [POT-PP](#pot-pp), optimal parameters to do the fitting process of the intensity function are calculated using *maximum likelihood*.
 
 
-```{r fitif, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="POT - PP intensity function fitting process", size="footnotesize", fig.width= 3, fig.height= 3, fig.align="center"}
+```{r fitif, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="POT - PP intensity function fitting process", size="footnotesize", fig.width= 2, fig.height= 2, fig.align="center"}
 par(bg=NA)
 par(xpd = NA)
 op <- par(mar = rep(0, 4))
@@ -350,8 +356,8 @@ curve(evd::dgumbel(x, loc=2, scale=1), col = "red", add=TRUE, lwd=2)
 If equation \@ref(eq:pprl), $Y_N$ is solved using estimated parameters of the intensity function, and a hazard curve is constructed as shown in figure \@ref(fig:hc), where axis $x$ represents annual exceedance probability $P_e = \frac{1}{N}$, and axis $y$ represents the RL $Y_N$ for the corresponding N-years return period, then it will be possible to have the extreme return wind velocity level for any given return period going from axis $x$ to axis $y$ through the curve.
 
 
-```{r hc, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="POT - PP fitting process", size="footnotesize", fig.width= 4, fig.height= 4, fig.align="center"}
-par(mar=c(4,2,0,0))
+```{r hc, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="POT - PP fitting process", size="footnotesize", fig.width= 2, fig.height= 2, fig.align="center"}
+par(mar=c(2,1,0,0))
 par(oma=c(0,0,0,0))
 par(bg=NA)
 #par(xpd = NA)
@@ -360,19 +366,19 @@ par(bg=NA)
 plot(1, xlab='', ylab='', type='n', yaxt='n', xaxt='n', tck=0,
      xlim=c(0,300), ylim=c(0,0.025), bg = 'transparent')
 
-text(x = 150,  y = par("usr")[3] - 0.004,
+text(x = 150,  y = par("usr")[3] - 0.003,
      labels = expression(frac(1, N)),
      xpd = NA,
      ## Rotate the labels by 35 degrees.
      srt = 0,
-     cex = 1.2)
+     cex = 0.7)
 
 text(x = par("usr")[4] - 30,  y = 0.0215,
      labels = expression(Y[N]),
      xpd = NA,
      ## Rotate the labels by 35 degrees.
      srt = 0,
-     cex = 1.2)
+     cex = 0.7)
 
 location = 100
 scale = 40
@@ -385,6 +391,10 @@ curve(hfG, add=T, col="red", lwd=2)
 library(shape)
 Arrows (x0=150, y0=0, x1=150, y1=(hfG(150)-0.003), arr.type="triangle", arr.width=0.08, lwd=0.1)
 Arrows (x0=150, y0=hfG(150), x1=10, y1=hfG(150) , arr.type="triangle", arr.width=0.08, lwd=0.1)
+#box(which = "plot", col="red")
+#box(which = "figure", col="blue")
+#box(which = "inner", col="cyan")
+#box(which = "outer", col="orange")
 ```
 
 #### Two alternatives approaches for RL

@@ -235,7 +235,7 @@ WPlot(t.series=imp.vals$t.series,
       tf.plot=TRUE,
       BW=FALSE,
       details=FALSE)
-mtext(side = 1, text = paste0("Page ", numberofplots), outer = TRUE)
+mtext(side = 1, line=2, text = paste0("Output graphics PDF file: Page ", numberofplots), outer = FALSE, cex=0.5)
 #
 assign(paste0("myprint", numberofplots), recordPlot())
 saveRDS(eval(parse(text=paste0("myprint", numberofplots))), paste0(outputpath, "myprint", numberofplots, ".rds"))
