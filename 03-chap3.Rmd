@@ -31,7 +31,7 @@ include_graphics(path = "figure/methodology.png")
 ```
 
 
-```{r mainmethodology, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Iterative process in methodology", size="footnotesize", fig.align="center", fig.width= 2}
+```{r mainmethodology, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Iterative process in methodology", fig.align="center", dpi=200}
 include_graphics(path = "figure/main_methodology.png")
 ```
 

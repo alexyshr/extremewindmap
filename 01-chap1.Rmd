@@ -162,7 +162,7 @@ kable(tableideam,
 ideam_stations = st_as_sf(ideam_stations, coords = c("longitud", "latitud"), crs = 4326)
 ```
 
-```{r plotideamstations, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="IDEAM Stations"}
+```{r plotideamstations, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="IDEAM Stations. Colombia"}
 
 #Maps of the World
 theme_set(theme_bw())
@@ -268,7 +268,7 @@ isd_stations = st_as_sf(isd_stations, coords = c("longitud", "latitud"), crs = 4
 ```
 
 
-```{r plotisdstations, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="ISD Stations"}
+```{r plotisdstations, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="ISD Stations. Colombia and surroundings"}
 
 #Maps of the World
 theme_set(theme_bw())
@@ -388,7 +388,7 @@ era5colraster.st = st_rasterize(era5colpoints, st_as_stars(mybbox, nx = nlon, ny
 
 ERA5 is forecast reanalysis data processed by the _European Center for Medium-Range Weather Forecasts_ - ECMWF with wind speeds time series in square cells _matrix of pixels_ of 0.25 degrees (33 km) covering the whole planet. For the study area was extracted a raster of `r (nlat)` rows by `r nlon` columns in format NetCDF. Figure \@ref(fig:plotera5stations) shows a map of ERA5 stations (cells centers).
 
-```{r plotera5stations, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="ERA5 Stations (cells centers)"}
+```{r plotera5stations, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="ERA5 Stations (cells centers). Colombia bounding box"}
 
 #Maps of the World
 theme_set(theme_bw())

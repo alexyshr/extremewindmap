@@ -312,7 +312,7 @@ $$
   }
 $$
 
-```{r compoundprobability, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Compound Probability", size="footnotesize", fig.width= 5}
+```{r compoundprobability, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Compound Probability", size="footnotesize", fig.width= 5, fig.height= 2.5}
 par(mar=c(3,3,0,0))
 par(oma=c(0,0,0,0))
 par(mgp=c(2,1,0))

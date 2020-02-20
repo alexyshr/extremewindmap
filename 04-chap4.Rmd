@@ -16,33 +16,77 @@ if(!require(thesisdown)){
   devtools::install_github("ismayc/thesisdown")
   }
 library(thesisdown)
+library(stars)
+library(sf)
+library("rnaturalearth")
+library("rnaturalearthdata")
+library("ggspatial")
+library(RColorBrewer)
+library("knitr")
+library("kableExtra")
+library(raster)
+library(RStoolbox)
+library(gridExtra)
+library(ggrepel)
+library(dplyr)
 ```
 
 ```{r echo=FALSE, cache= F, include=FALSE}
 source('./code/pp_one_station.r')
-source('./code/comparing_sources_pqrs_20199050080932_VV_AUT.r')
+```
+
+```{r echo=FALSE, cache= F, include=FALSE}
+#source('./code/comparing_sources_pqrs_20199050080932_VV_AUT.r')
 ```
 
 # Results {#rmd-results}
 
-In this section, first will be shown, the data source comparison to face the downscaling issue by using ERA5 and ISD database, then, the resulting process of fitting a POT-PP in the station 801120, which includes revision of intensity function parameters, goodness of fit, hazard curve, return levels, and comparison with POT-GPD results, next, non-hurricane maps outputs, which includes results for ISD and ERA5 stations, using POT-PP and POT-GPD approaches, and finally, output maps combining hurricane and non-hurricane results will be displayed.
+In this section, will be shown first, the data source comparison to face the downscaling issue by using ERA5 and ISD database, then, the resulting process of fitting a POT-PP in the station 801120, which includes revision of intensity function parameters, goodness of fit, hazard curve, return levels, and comparison with POT-GPD results, next, non-hurricane maps outputs, which includes results for ISD and ERA5 stations, using POT-PP and POT-GPD approaches, and finally, output maps combining hurricane and non-hurricane results will be displayed.
 
-## Data sources comparison
+## Data Standardization and Downscaling Support
 
-Looking for a statistical justification in the use of ISD (model) and ERA5 databases (forecast), as input data for this study, and considering the *downscaling approach* described in the [standartization process](#rmd-standartization) section of methodology, data sources ISD and IDEAM were standardized to enable comparison. Standardization consisted of transforming the data into 3-s gust $V_3$, 10 meters height, and open space roughness.
+Looking for a statistical justification in the use of ISD (model) and ERA5 databases (forecast), as input data for this study, and considering the *downscaling approach* described in the [standartization process](#rmd-standartization) section of methodology, data sources ISD and IDEAM were standardized to enable comparison. Standardization consisted of transforming the data to be equivalent to 3-s gust $V_3$, 10 meters anemometer height, and open space roughness. In the comparison process, for coincident stations by spatial location, it was checked if the velocity values (standardized) in the three sources, for equal dates, were similar in magnitude.
 
-* Variable *10m wind gust - 10fg* of ERA5 data source does not need standardization, because it comes standardized from the source
+### Data Standardization
 
-* In order to obtain $V_3$ from Durst curve, it is required to start from $V_3600$ (average hourly speed), or from a different wind gust speed, for instance $V_6$.
+None of the sources required anemometer height standardization. @Lettau1969 was used for roughness standardization of ISD and IDEAM, applying the method station by station. Gust velocities standardization was done using Durst cuve, and in order to obtain $V_3$ from Durst curve, it is required to start from $V_{3600}$ (average hourly speed), or from a different wind gust speed, for instance $V_5$.
 
-* Wind velocity from ISD comes from source as $V_6$, that is, five seconds gust wind velocity.
+For ERA5:
 
-* From the different wind-related data obtained from IDEAM, the only one viable for transformation was the _wind velocity each 2 seconds - VV_AUT_2_.  VV_AUT_2 was available for 20 stations, of which only 12 were equivalent to ISD stations. See table \@ref(tab:table12stations)
+* Variable *10m wind gust - 10fg* of ERA5 data source does not need any standardization, because it comes standardized from the source
 
-```{r table12stations, echo= F, echo=FALSE, message=FALSE, warning=FALSE, results="asis"}
+For ISD:
+
+* Wind velocity from ISD comes from source as $V_5$, that is, five seconds gust wind velocity. To standardize from $V_5$ to $V_3$, using Durst curve, the correction factor is 1.03.
+
+* Wind velocity $V_5$ from 74 ISD stations, was standardized station by station, using procedure described in [Surface Roughness at Open Space](#rmd-roughness) section, and [Averaging Time 3-s Gust](#rmd-gust) section
+
+For IDEAM:
+
+* As the original variables obtained from IDEAM, do not represent gust speeds, it is necessary to start from _average hourly speed_ $V_{3600}$, to obtain 3-s gust $V_3$. To standardize from $V_{3600}$ to $V_3$, using Durst curve, the correction factor is 1.51.
+
+* It was not possible to obtain the _average hourly speed_ $V_{3600}$ from IDEAM, see table \@ref(tab:tabledatasources2), but from _instantaneous wind velocity each 2 minutes - VV_AUT_2_ it is possible to obtain a **good** estimator of $V_{3600}$, and from _instantateous wind velocity each 10 minutes - VV_AUT_10_ it is possible to obtain a **poor** estimator of $V_{3600}$. 
+
+
+### Data Comparison
+
+The available IDEAM data allowed two comparison processes, with quality data for a few stations, and with low quality data, but available for all stations. 
+
+In both cases, to make the use of ISD and ERA5 viable, its time series are expected to be as similar as possible to IDEAM. To verify this, two types of graphics were constructed:
+
+* Time series overlay for the three sources. Not very effective method due to the large amount of data that makes the graphics unreadable.
+
+* Scatter plot maps comparing two different sources. Matching values by time, were sorted in ascending order and put together on a scatter plot. The expected behavior in case of similarity in the data, is that all the points fall in a $45^\circ$ line
+
+
+#### Quality data available in some IDEAM stations
+
+IDEAM VV_AUT_2 was available for twenty (20) stations, of which only twelve (12) were _perfectly equivalent_ to ISD stations (see table \@ref(tab:table12stations)). VV_AUT_2 dataset was transformed to $V_{3600}$ (average hourly speed), averaging all 20 values available per hour. For twelve matching  stations, wind velocity $V_{3600}$ (transformation of VV_AUT_2), was standardized station by station, using procedure described in [Surface Roughness at Open Space](#rmd-roughness) section and [Averaging Time 3-s Gust](#rmd-gust), and finally, for the same twelve ISD and IDEAM standardized stations, a comparison was done against matching ERA5 stations (the corresponding cell in ERA5 that has within ISD and IDEAM locations).
+
+
+```{r table12stations, echo=FALSE, message=FALSE, warning=FALSE, paged.print=TRUE, results="asis"}
 #data_sources_thesis_summary1 <-read.csv("./data/data_sources_thesis_summary1.csv",header=TRUE, stringsAsFactors = F)
-library("knitr")
-library("kableExtra")
+
 stationssample = data.frame(
   ISD_ID= as.character(
     c(803980, 803700, 802110, 802100, 801120, 801100, 800970, 800940, 800630, 800360, 800350, 800280)), 
@@ -62,46 +106,263 @@ kable(stationssample, align=rep('l', 2),
 kable_styling(font_size = 10, latex_options="scale_down")
 ```
 
-* VV_AUT_2 dataset from IDEAM was transformed to $V_{3600}$ (average hourly speed), averaging all 20 values available per hour.
+Stations 28025502 from IDEAM, 800360 from ISD, and 416 (cell with center point in $-73.25^\circ$ longitude, and $10.5^\circ$ latitude) from ERA5, showed high correspondence. See figures \@ref(fig:sideamera5). Unfortunately, in the other eleven stations, there was no high equivalence between sources.
 
-* Wind velocity $V_5$ from 74 ISD stations, was standardized station by station, using procedure described in [Surface Roughness at Open Space](#rmd-roughness) section, and [Averaging Time 3-s Gust](#rmd-gust) section
+```{r qualitycomparison1, message=FALSE, warning=FALSE, include=FALSE}
 
-* Wind velocity from 12 $V_{3600}$ (transformation of VV_AUT_2) IDEAM stations, was standardized station by station, using procedure described in [Surface Roughness at Open Space](#rmd-roughness) section and [Averaging Time 3-s Gust](#rmd-gust)
+con1 = src_postgres(dbname = "winddata", host = "localhost", port = 5432, user = "user1", password = "user1")
 
-Twelve standardized stations from ISD and IDEAM (table \@ref(tab:table12stations)) were compared with corresponding ERA5 station (the corresponding cell in ERA5 that has within ISD and IDEAM locations). To make the use of ISD and ERA5 viable, its time series are expected to be as similar as possible to IDEAM. To verify this, two types of graphics were constructed:
+#Get Ideam Stations Table
+originalfields4 = c("objectid", "codigo1", "nombre", "latitud", "longitud", "latitud", "longitud", "categoria")
+newnames4 = c("objectid", "codigo1", "nombre", "latitud", "longitud", "y", "x", "categoria")
+originalfields4 = paste(originalfields4, " as ", newnames4, sep="")
 
-* Time series overlay for the three sources. Not very effective method due to the large amount of data that makes the graphics unreadable.
+originalfields4 = paste(originalfields4, collapse= ", ", sep = "")
+#query4 = paste("select", originalfields4, "from ideam_all_stations", "where inpqrs2 = 'YES'", sep=" ")
+query4 = paste("select", originalfields4, "from ideam_all_stations", "where codigo1 IN (48015050, 52055230, 26125061, 26125710, 23085270, 27015330, 16015501, 23195502, 13035501, 28025502, 15065180, 29045190)", sep=" ")
+ideam_stations = as_tibble(tbl(con1, sql(query4)))
+Encoding(ideam_stations$categoria) <- "UTF-8"
+Encoding(ideam_stations$nombre) <- "UTF-8"
+originalfields3 = c("id", "usaf", "station_name", "latitud", "longitud", "latitud", "longitud")
+newnames3 = c("id", "usaf", "station_name", "latitud", "longitud", "y", "x")
+originalfields3 = paste(originalfields3, " as ", newnames3, sep="")
+originalfields3 = paste(originalfields3, collapse= ", ", sep = "")
+#query3 = paste("select", originalfields3, "from isd_all_stations where usaf_isd_dataua != ''", sep=" ")
+query3 = paste("select", originalfields3, "from isd_all_stations where usaf IN ('803980', '803700', '802110', '802100', '801120', '801100', '800970', '800940', '800630', '800360', '800350', '800280')", sep=" ")
 
-* Scatter plot maps comparing two different sources. Matching values by time, were sorted in ascending order and put together on a scatter plot. The expected behavior in case of similarity in the data, is that all the points fall in a $45^\circ$ line
+isd_stations = as_tibble(tbl(con1, sql(query3)))
 
-Stations 28025502 from IDEAM, 800360 from ISD, and 416 (cell with center point in $-73.25^\circ$ longitude, and $10.5^\circ$ latitude) from ERA5, showed high correspondence. See figures \@ref(fig:sideamera5), \@ref(fig:sisdvsera5), \@ref(fig:sideamvsisd).
 
-<!--
-#```{r stimeseries, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Stations comparison: 28025502 (IDEAM), 800360 (ISD), and 416 (ERA5). Time Series", size="footnotesize", fig.align="center"}
-#include_graphics(path = "figure/s800360_timeseries.png")
-#dat <- readRDS("data/comparison11.rds")
-#dat
-#```
--->
+ideam_stations = st_as_sf(ideam_stations, coords = c("longitud", "latitud"), crs = 4326)
+isd_stations = st_as_sf(isd_stations, coords = c("longitud", "latitud"), crs = 4326)
 
-```{r sideamera5, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Scatter plot of IDEAM vs ERA5. Stations comparison: 28025502 (IDEAM), 800360 (ISD), and 416 (ERA5)", size="footnotesize", fig.align="center"}
-dat1 <- readRDS("data/comparison12.rds")
+ideam_stations3 <- ideam_stations %>% filter(codigo1 %in% c(15065180, 29045190, 28025502)) 
+
+ideam_stationso <- ideam_stations %>% filter(codigo1 %in% c(48015050, 52055230, 26125061, 26125710, 23085270, 27015330, 16015501, 23195502, 13035501))
+
+isd_stations3 <- isd_stations %>% filter(usaf %in% c('800350', '800280', '800360'))
+
+isd_stationso <- isd_stations %>% filter(usaf %in% c('803980', '803700', '802110', '802100', '801120', '801100', '800970', '800940', '800630'))
+
+
+file_era5_st = "./data/era5grid_left_right.tif"
+era5_4326_st = read_stars(file_era5_st)
+era5_4326_st = setNames(era5_4326_st, "Station")
+
+file_col_st = "./data/col2.tif"
+col_4326_st = read_stars(file_col_st)
+col_4326_st = setNames(col_4326_st, "col_4326_st")
+
+file_era5_sf_point = "./data/era5grid_left_right.shp"
+era5_4326_sf_point = st_read(dsn=file_era5_sf_point)
+
+file_era5_sf_pol = "./data/era5grid_left_right_pol.shp"
+era5_4326_sf_pol = st_read(dsn=file_era5_sf_pol)
+
+file_col_sf_pol = "./data/COLOMBIA.shp"
+col_4326_sf_pol = st_read(dsn=file_col_sf_pol)
+
+img_stack_col=stack(file_col_st)
+img_stack_col.crop = crop(img_stack_col, extent(col_4326_sf_pol))
+img_stack_col.mask = mask(img_stack_col.crop, col_4326_sf_pol)
+```
+
+
+```{r qualitycomparison2, echo=FALSE, fig.cap="Left: Twelve matching stations \nfrom IDEAM and ISD. Right: Stations 28025502 from IDEAM, 800360 from ISD, and 416 from ERA5", message=FALSE, warning=FALSE}
+
+myPalette <- colorRampPalette(rev(brewer.pal(11, "YlGn")))
+sc <- scale_fill_gradientn(colours = myPalette(100), limits=c(0, 255))
+
+
+theme_set(theme_bw())
+world <- ne_countries(scale = "medium", returnclass = "sf")
+world_points<- st_centroid(world)
+world_points <- cbind(world, st_coordinates(st_centroid(world$geometry)))
+
+
+colombia = world_points$name == "Colombia"
+panama = world_points$name == "Panama"
+peru= world_points$name == "Peru"
+brazil= world_points$name == "Brazil"
+venezuela= world_points$name == "Venezuela"
+ecuador= world_points$name == "Ecuador"
+
+#Final map - predictions
+k = era5_4326_sf_pol
+#st_crs(k) = st_crs(3116)
+#k = st_warp(k, crs=st_crs(4326))
+#mid <- mean(k$var1.pred, na.rm = TRUE)
+
+#myfilename = paste0("D:/jd/01 Códigos de programación/02 Ajuste con R/rasters/combinedok/", "combined_700.tif")
+#write_stars(k, myfilename)
+
+
+big <-ggplot(data = world) + 
+  geom_sf(fill= "antiquewhite",  size=0.1) + 
+  #geom_stars(data = col_4326_st[col_4326_sf_pol][,,,1], aes(fill = col_4326_st, x = x, y = y)) +
+  #ggRGB(img_stack_col.mask, r = 1, g = 2, b = 3, ggLayer = TRUE)+
+  #sc+
+  #geom_sf(data = k, colour="black", fill=NA) + 
+  #scale_fill_gradientn(colors = sf.colors(20)) + 
+  #sc2 + 
+  #sc+
+  geom_text(data= world_points[venezuela,],aes(x=-68.5, y=8.5, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) +
+  geom_text(data= world_points[panama,],aes(x=-80.5, y=9.2, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) + 
+  geom_text(data= world_points[ecuador,],aes(x=-78, y=-1, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) +
+  geom_text(data= world_points[peru,],aes(x=-75, y=-3.7, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) +
+  geom_text(data= world_points[brazil,],aes(x=-68, y=-2, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) +
+  geom_text(data= world_points[colombia,],aes(x=-71, y=4, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) +
+  annotate(geom = "text", x = -77.5, y = 14, label = "Caribbean\nSea", fontface = "italic", color = "grey22", size = 4) + 
+  annotate(geom = "text", x = -80.5, y = 5, label = "Pacific\nSea", fontface = "italic", color = "grey22", size = 4) +
+  geom_sf(data = st_cast(world, "MULTILINESTRING"), size=0.1)+
+  geom_rect(mapping=aes(xmin=-73.7, xmax=-72.8, ymin=10.1, ymax=10.9), color="red", alpha=0, size=0.1) +
+  geom_sf(data = ideam_stations, size=2, shape=23, color= "red", show.legend = "point") + 
+  #geom_sf_text(data = ideam_stations, aes(label = codigo1), size=3, position = position_nudge(x = -1.5)) +
+  geom_text_repel(data = ideam_stationso, size=2, aes(x=x, y=y, label = codigo1), direction="x", segment.size=0.1) +
+  geom_text_repel(data = ideam_stations3, size=2, aes(x=x, y=y, label = codigo1), direction="x", segment.size=0.1, nudge_x=-0.5) +
+  geom_sf(data = isd_stations, size=2, shape=3, color= "blue", show.legend = "point") +
+  #geom_sf_text(data = isd_stations, aes(label = usaf), size=3, position = position_nudge(x = +1.5)) +
+  geom_text_repel(data = isd_stationso, size=2, aes(x=x, y=y, label = usaf), direction="y", segment.size=0.1) +
+  geom_text_repel(data = isd_stations3, size=2, aes(x=x, y=y, label = usaf), direction="x", segment.size=0.1, nudge_x=0.5) +
+  #geom_sf_label(data = k, aes(label = DN), size=3) +
+  #geom_sf(data = era5colpoints3116, size=1, shape=2, color= "black", show.legend = "point") + 
+  annotation_scale(location = "bl", width_hint = 0.5, height = unit(0.2, "cm"), line_width = 0.5, text_cex = 0.5) + annotation_north_arrow(location = "br", which_north = "true", pad_x = unit(0.05, "in"), pad_y = unit(0.05, "in"), height = unit(1, "cm"), width = unit(1, "cm"), style = north_arrow_fancy_orienteering) +
+  coord_sf(xlim = c(-79.5, -66.5), ylim = c(-5.4, 12.3), expand = FALSE) +
+  #coord_sf(xlim = c(-73.7, -72.8), ylim = c(10.1, 10.9), expand = FALSE) +
+  xlab("") + 
+  ylab("") + 
+  ggtitle("Twelve matching stations \nfrom IDEAM and ISD") + 
+  theme(plot.title = element_text(size=8)) +
+  theme(axis.text.x= element_text(size=7)) + 
+  theme(axis.text.y= element_text(size=7)) +
+  theme(panel.grid.major = element_line(color = gray(.5), linetype = "dashed", size = 0.1), panel.background = element_rect(fill = "aliceblue"))
+
+
+small <- ggplot(data = world) + 
+  geom_sf(fill= "antiquewhite",  size=0.1) + 
+  #ggRGB(img_stack_col.mask, r = 1, g = 2, b = 3, ggLayer = TRUE)+
+  #geom_stars(data = col_4326_st[col_4326_sf_pol][,,,1], aes(fill = col_4326_st, x = x, y = y)) +
+  #sc+
+  geom_sf(data = k, colour="black", fill=NA, size=0.1) + 
+  #scale_fill_gradientn(colors = sf.colors(20)) + 
+  #sc2 + 
+  #sc+
+  geom_text(data= world_points[venezuela,],aes(x=-66.5, y=8.5, label=name), color = "darkblue", fontface = "bold", size=3, check_overlap = FALSE) +
+  geom_text(data= world_points[panama,],aes(x=-80.5, y=9.2, label=name), color = "darkblue", fontface = "bold", size=3, check_overlap = FALSE) + 
+  geom_text(data= world_points[ecuador,],aes(x=-79.2, y=-1, label=name), color = "darkblue", fontface = "bold", size=3, check_overlap = FALSE) +
+  geom_text(data= world_points[peru,],aes(x=-75, y=-6, label=name), color = "darkblue", fontface = "bold", size=3, check_overlap = FALSE) +
+  geom_text(data= world_points[brazil,],aes(x=-68, y=-6, label=name), color = "darkblue", fontface = "bold", size=3, check_overlap = FALSE) +
+  geom_text(data= world_points[colombia,],aes(x=-71, y=4, label=name), color = "darkblue", fontface = "bold", size=3, check_overlap = FALSE) +
+  annotate(geom = "text", x = -77.5, y = 14, label = "Caribbean\nSea", fontface = "italic", color = "grey22", size = 4) + 
+  annotate(geom = "text", x = -80.5, y = 5, label = "Pacific\nSea", fontface = "italic", color = "grey22", size = 4) +
+  geom_sf(data = st_cast(world, "MULTILINESTRING"),  size=0.1)+
+  geom_sf(data = ideam_stations, size=3, shape=23, color= "red", show.legend = "point") + 
+  geom_sf_text(data = ideam_stations, aes(label = codigo1), size=2, position = position_nudge(x = -0.11)) +
+  geom_sf(data = isd_stations, size=3, shape=3, color= "blue", show.legend = "point") +
+  geom_sf_text(data = isd_stations, aes(label = usaf), size=2, position = position_nudge(x = +0.09)) +
+  geom_sf_label(data = k, aes(label = DN), size=2) +
+  #geom_sf(data = era5colpoints3116, size=1, shape=2, color= "black", show.legend = "point") + 
+  annotation_scale(location = "bl", width_hint = 0.5, height = unit(0.2, "cm")) + annotation_north_arrow(location = "br", which_north = "true", pad_x = unit(0.05, "in"), pad_y = unit(0.05, "in"), height = unit(1, "cm"), width = unit(1, "cm"), style = north_arrow_fancy_orienteering) +
+  #coord_sf(xlim = c(-82.1, -63.8), ylim = c(-7.5, 15.5), expand = FALSE) +
+  coord_sf(xlim = c(-73.7, -72.8), ylim = c(10.1, 10.9), expand = FALSE) +
+  xlab("") + 
+  ylab("") + 
+  ggtitle("Stations 28025502 from IDEAM, \n800360 from ISD, \nand 416 from ERA5") +
+  theme(plot.title = element_text(size=8)) +
+  theme(axis.text.x= element_text(size=7)) + 
+  theme(axis.text.y= element_text(size=7)) + 
+  theme(panel.grid.major = element_line(color = gray(.5), linetype = "dashed", size = 0.5), panel.background = element_rect(fill = "aliceblue"))
+
+grid.arrange(big, small, ncol=2)
+```
+
+
+```{r sideamera5, echo=FALSE, fig.align="center", fig.cap="Scatter plot of IDEAM vs ERA5. Stations comparison: 28025502 (IDEAM), and 416 (ERA5)", message=FALSE, warning=FALSE, fig.width=4, fig.height=3}
+#saveRDS(comparison13, "data/comparison13.rds")
+dat1 <- readRDS("data/comparison13.rds")
 dat1
+#box(which = "plot", col="black")
 #include_graphics(path = "figure/s800360_ideam_vs_era5.png")
 ```
 
-```{r sisdvsera5, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Scatter plot of ISD vs ERA5. Stations comparison: 28025502 (IDEAM), 800360 (ISD), and 416 (ERA5)", size="footnotesize", fig.align="center"}
-dat2 <- readRDS("data/comparison13.rds")
-dat2
-#include_graphics(path = "figure/s800360_isd_vs_era5.png")
-```
 
-```{r sideamvsisd, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Scatter plot of IDEAM vs ISD. Stations comparison: 28025502 (IDEAM), 800360 (ISD), and 416 (ERA5)", size="footnotesize", fig.align="center"}
-dat3 <- readRDS("data/comparison14.rds")
-dat3
-#include_graphics(path = "figure/s800360_ideam_vs_isd.png")
-```
+#### Poor data available in all IDEAM stations
 
+VV_AUT_10 was available for 204 stations, and despide that $V_{3600}$ calculated from this source, is not an accurate or quality estimator, the standarization process was done to allow a comparison process.
+
+
+```{r poorcomparison, echo=FALSE, fig.cap="Left: Twelve matching stations \nfrom IDEAM and ISD. Right: Stations 28025502 from IDEAM, 800360 from ISD, and 416 from ERA5", message=FALSE, warning=FALSE}
+
+myPalette <- colorRampPalette(rev(brewer.pal(11, "YlGn")))
+sc <- scale_fill_gradientn(colours = myPalette(100), limits=c(0, 255))
+
+theme_set(theme_bw())
+world <- ne_countries(scale = "medium", returnclass = "sf")
+world_points<- st_centroid(world)
+world_points <- cbind(world, st_coordinates(st_centroid(world$geometry)))
+
+colombia = world_points$name == "Colombia"
+panama = world_points$name == "Panama"
+peru= world_points$name == "Peru"
+brazil= world_points$name == "Brazil"
+venezuela= world_points$name == "Venezuela"
+ecuador= world_points$name == "Ecuador"
+
+
+pts <- do.call(rbind, st_centroid(st_geometry(era5_4326_sf_pol)))
+x = pts[,1]
+y = pts[,2]
+
+era5_4326_sf_pol$x = x
+era5_4326_sf_pol$y = y
+
+era5_4326_sf_pol_filter = era5_4326_sf_pol %>% filter(DN %in% c(2261, 1971,2066,2020,2260,1875,2213,2637,1442,1583,1501,1582,1381,1493,1485,1397,1338,1055,511,1644,515,221,78,1038,2213,265,360,416,78,312,416))
+
+era5_4326_sf_pol_col1 = era5_4326_sf_pol %>% filter(DN %in% c(1, 50, 148, 246, 344, 442, 540, 638, 736, 834, 932, 1030, 1128, 1226, 1324, 1422, 1520, 1618, 1716, 1814, 1912, 2010, 2108, 2206, 2304, 2402, 2500, 2598, 2696, 2794, 2892, 2990, 3088, 3186, 3284, 3333))
+
+era5_4326_sf_pol_col49 = era5_4326_sf_pol %>% filter(DN %in% c(49, 147, 245, 343, 441, 539, 637, 735, 833, 931, 1029, 1127, 1225, 1323, 1421, 1519, 1617, 1715, 1813, 1911, 2009, 2107, 2205, 2303, 2401, 2499, 2597, 2695, 2793, 2891, 2989, 3087, 3185, 3283, 3381))
+
+ggplot(data = world) + 
+  geom_sf(fill= "antiquewhite",  size=0.1, alpha=0.7) + 
+  #geom_stars(data = col_4326_st[col_4326_sf_pol][,,,1], aes(fill = col_4326_st, x = x, y = y)) +
+  ggRGB(img_stack_col.mask, r = 1, g = 2, b = 3, ggLayer = TRUE, alpha=0.8)+
+  sc+
+  geom_sf(data = era5_4326_sf_pol, colour="grey", fill=NA, size=0.1) + 
+  geom_sf(data = era5_4326_sf_pol_filter, colour="black", fill="yellow", size=0.1, alpha=1) +
+  #scale_fill_gradientn(colors = sf.colors(20)) + 
+  #sc2 + 
+  #sc+
+  #geom_text(data= world_points[venezuela,],aes(x=-68.5, y=8.5, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) +
+  #geom_text(data= world_points[panama,],aes(x=-80.5, y=9.2, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) + 
+  #geom_text(data= world_points[ecuador,],aes(x=-78, y=-1, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) +
+  #geom_text(data= world_points[peru,],aes(x=-75, y=-3.7, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) +
+  #geom_text(data= world_points[brazil,],aes(x=-68, y=-2, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) +
+  #geom_text(data= world_points[colombia,],aes(x=-71, y=4, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) +
+  #annotate(geom = "text", x = -77.5, y = 14, label = "Caribbean\nSea", fontface = "italic", color = "grey22", size = 4) + 
+  #annotate(geom = "text", x = -80.5, y = 5, label = "Pacific\nSea", fontface = "italic", color = "grey22", size = 4) +
+  geom_sf(data = st_cast(world, "MULTILINESTRING"), size=0.1)+
+  #geom_rect(mapping=aes(xmin=-73.7, xmax=-72.8, ymin=10.1, ymax=10.9), color="red", alpha=0, size=0.1) +
+  #geom_sf(data = ideam_stations, size=2, shape=23, color= "red", show.legend = "point") + 
+  #geom_sf_text(data = ideam_stations, aes(label = codigo1), size=3, position = position_nudge(x = -1.5)) +
+  geom_text_repel(data = era5_4326_sf_pol_col1, size=2, aes(x=x, y=y, label = DN), direction="y", segment.size=0.1, segment.color= "grey50", color="grey50", nudge_x=-1, hjust=1, box.padding=0.1) +
+  geom_text_repel(data = era5_4326_sf_pol_col49, size=2, aes(x=x, y=y, label = DN), direction="y", segment.size=0.1, segment.color= "grey50", color="grey50", nudge_x=+1, hjust=0, box.padding=0.1) +
+  #geom_sf(data = isd_stations, size=2, shape=3, color= "blue", show.legend = "point") +
+  #geom_sf_text(data = isd_stations, aes(label = usaf), size=3, position = position_nudge(x = +1.5)) +
+  #geom_text_repel(data = isd_stationso, size=2, aes(x=x, y=y, label = usaf), direction="y", segment.size=0.1) +
+  #geom_text_repel(data = isd_stations3, size=2, aes(x=x, y=y, label = usaf), direction="x", segment.size=0.1, nudge_x=0.5) +
+  #geom_sf_label(data = k, aes(label = DN), size=1) +
+  #geom_sf(data = era5colpoints3116, size=1, shape=2, color= "black", show.legend = "point") + 
+  #annotation_scale(location = "bl", width_hint = 0.5, height = unit(0.2, "cm"), line_width = 0.5, text_cex = 0.5) + annotation_north_arrow(location = "br", which_north = "true", pad_x = unit(0.05, "in"), pad_y = unit(0.05, "in"), height = unit(1, "cm"), width = unit(1, "cm"), style = north_arrow_fancy_orienteering) +
+  coord_sf(xlim = c(-81.25, -64.75), ylim = c(-5, 13), expand = FALSE) +
+  #coord_sf(xlim = c(-73.7, -72.8), ylim = c(10.1, 10.9), expand = FALSE) +
+  xlab("") + 
+  ylab("") + 
+  ggtitle("ISD-IDEAM-ERA5 poor comparison \n25 cells good match\n5 cells very good match") + 
+  theme(plot.title = element_text(size=8)) +
+  theme(axis.text.x= element_text(size=7)) + 
+  theme(axis.text.y= element_text(size=7)) +
+  theme(panel.grid.major = element_line(color = gray(.5), linetype = "dashed", size = 0.1), panel.background = element_rect(fill = "aliceblue"))
+```
 
 ## POT-PP in ISD Station 801120
 

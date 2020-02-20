@@ -397,9 +397,9 @@ for(i in 1:length(stationssample[,1]))
     #par(mfrow = c(2,1))
     xtsvar = eval(parse(text = paste("isdideamera5", i, isd_ideam_intersect["ideam_id",i], sep = "_")))
     title = paste(
-      paste("IDEAM: ", stationssample[i, 2], ". Lon: ", ideamlon, ". Lat: ", ideamlat, sep=""),
-      paste("ISD: ", stationssample[i, 1], ". Lon: ", isdlon, ". Lat: ", isdlat, sep=""),
-      paste("ERA5.  Col: ", era5lonindex, ". Row: ", era5latindex, ". Station: ", era5station, sep= "")
+      paste("IDEAM: ", stationssample[i, 2], sep=""),# ". Lon: ", ideamlon, ". Lat: ", ideamlat, ),
+      paste("ISD: ", stationssample[i, 1], sep=""),# ". Lon: ", isdlon, ". Lat: ", isdlat, sep=""),
+      paste("ERA5.  Col: ", era5lonindex, ". Row: ", era5latindex, ". Station: ", era5station, ". Lon: ", ideamlon, ". Lat: ", ideamlat, sep= "")
       , sep="\n")
     plot.xts(xtsvar, main = title, major.ticks="years", format.labels = "%b-%d\n%Y", add=FALSE)
 	  print(addLegend("top",
@@ -410,57 +410,54 @@ for(i in 1:length(stationssample[,1]))
 
 
     title1 = paste(
-      paste("IDEAM: ", stationssample[i, 2], ". Lon: ", ideamlon, ". Lat: ", ideamlat, sep=""),
-      paste("ERA5.  Col: ", era5lonindex, ". Row: ", era5latindex, ". Station: ", era5station, sep= "")
+      paste("IDEAM: ", stationssample[i, 2], sep=""),# ". Lon: ", ideamlon, ". Lat: ", ideamlat, sep=""),
+      paste("ERA5.  Col: ", era5lonindex, ". Row: ", era5latindex, ". Station: ", era5station, ". Lon: ", ideamlon, ". Lat: ", ideamlat, sep= "")
       , sep="\n")
     par(new=FALSE)
     plot.zoo(xtsvar[,1], xtsvar[,3], pch='.', xlab=paste0("IDEAM: ", stationssample[i, 2]), ylab="ERA5", main=title1)
-    #print(
-  	abline(coef=c(0,1), col="red")#)
+  	abline(coef=c(0,1), col="red")
 	  assign(paste0("comparison", i, "2"), recordPlot())
   	saveRDS(eval(parse(text=paste0("comparison", i, "2"))), paste0(outputpath, "comparison", i, "2", ".rds"))
 
 	  fit1 <- lm(xtsvar[,1]~xtsvar[,3])
     print(
-	  ggplotRegression(fit1, xlab=paste("IDEAM: ", stationssample[i, 2], ". Lon: ", ideamlon, ". Lat: ", ideamlat, sep=""), ylab=paste("ERA5.  Col: ", era5lonindex, ". Row: ", era5latindex, ". Station: ", era5station, sep= "")))
+	  ggplotRegression(fit1, xlab=paste("IDEAM: ", stationssample[i, 2], sep=""), ylab=paste("ERA5.  Col: ", era5lonindex, ". Row: ", era5latindex, ". Station: ", era5station, ". Lon: ", ideamlon, ". Lat: ", ideamlat, sep= "")))
 	  assign(paste0("comparison", i, "3"), recordPlot())
-	  saveRDS(eval(parse(text=paste0("comparison", i, "3"))), paste0(outputpath, "comparison", i, "3", ".rds"))
+	  saveRDS(eval(parse(text=paste0("comparison", i, "3"))), paste0(outputpath, "comparison", i, "3", ".rds"), compress=TRUE)
 
 
     title2 = paste(
-      paste("ISD: ", stationssample[i, 1], ". Lon: ", isdlon, ". Lat: ", isdlat, sep=""),
-      paste("ERA5.  Col: ", era5lonindex, ". Row: ", era5latindex, ". Station: ", era5station, sep= "")
+      paste("ISD: ", stationssample[i, 1], sep=""),
+      paste("ERA5.  Col: ", era5lonindex, ". Row: ", era5latindex, ". Station: ", era5station, ". Lon: ", isdlon, ". Lat: ", isdlat, sep= "")
       , sep="\n")
     par(new=FALSE)
     plot.zoo(xtsvar[,2], xtsvar[,3], pch='.', xlab=paste0("ISD: ", stationssample[i, 1]), ylab="ERA5", main=title2)
-    #print(
-  	abline(coef=c(0,1), col="red")#)
+  	abline(coef=c(0,1), col="red")
 	  assign(paste0("comparison", i, "4"), recordPlot())
-	  saveRDS(eval(parse(text=paste0("comparison", i, "4"))), paste0(outputpath, "comparison", i, "4", ".rds"))
+	  saveRDS(eval(parse(text=paste0("comparison", i, "4"))), paste0(outputpath, "comparison", i, "4", ".rds"), compress=TRUE)
 
     fit1 <- lm(xtsvar[,2]~xtsvar[,3])
     par(new=FALSE)
     print(
-  	ggplotRegression(fit1, xlab=paste("ISD: ", stationssample[i, 1], ". Lon: ", isdlon, ". Lat: ", isdlat, sep=""), ylab=paste("ERA5.  Col: ", era5lonindex, ". Row: ", era5latindex, ". Station: ", era5station, sep= "")))
+  	ggplotRegression(fit1, xlab=paste("ISD: ", stationssample[i, 1], sep=""), ylab=paste("ERA5.  Col: ", era5lonindex, ". Row: ", era5latindex, ". Station: ", era5station, ". Lon: ", isdlon, ". Lat: ", isdlat, sep= "")))
 	  assign(paste0("comparison", i, "5"), recordPlot())
-	  saveRDS(eval(parse(text=paste0("comparison", i, "5"))), paste0(outputpath, "comparison", i, "5", ".rds"))
+	  saveRDS(eval(parse(text=paste0("comparison", i, "5"))), paste0(outputpath, "comparison", i, "5", ".rds"), compress=TRUE)
 
     title3 = paste(
-      paste("IDEAM: ", stationssample[i, 2], ". Lon: ", ideamlon, ". Lat: ", ideamlat, sep=""),
-      paste("ISD: ", stationssample[i, 1], ". Lon: ", isdlon, ". Lat: ", isdlat, sep="")
+      paste("IDEAM: ", stationssample[i, 2], sep=""),#, ". Lon: ", ideamlon, ". Lat: ", ideamlat, ),
+      paste("ISD: ", stationssample[i, 1], sep="")#, ". Lon: ", isdlon, ". Lat: ", isdlat, )
       , sep="\n")
     par(new=FALSE)
     plot.zoo(xtsvar[,1], xtsvar[,2], pch='.', xlab=paste0("IDEAM: ", stationssample[i, 2]), ylab=paste0("ISD: ", stationssample[i, 1]), main=title3)
-    #print(
-	  abline(coef=c(0,1), col="red")#)
+	  abline(coef=c(0,1), col="red")
 	  assign(paste0("comparison", i, "6"), recordPlot())
-  	saveRDS(eval(parse(text=paste0("comparison", i, "6"))), paste0(outputpath, "comparison", i, "6", ".rds"))
+  	saveRDS(eval(parse(text=paste0("comparison", i, "6"))), paste0(outputpath, "comparison", i, "6", ".rds"), compress=TRUE)
 
     fit1 <- lm(xtsvar[,1]~xtsvar[,2])
     print(
-	  ggplotRegression(fit1, xlab=paste("IDEAM: ", stationssample[i, 2], ". Lon: ", ideamlon, ". Lat: ", ideamlat, sep=""), ylab=paste("ISD: ", stationssample[i, 1], ". Lon: ", isdlon, ". Lat: ", isdlat, sep="")))
+	  ggplotRegression(fit1, xlab=paste("IDEAM: ", stationssample[i, 2], sep=""), ylab=paste("ISD: ", stationssample[i, 1], sep="")))
 	  assign(paste0("comparison", i, "7"), recordPlot())
-  	saveRDS(eval(parse(text=paste0("comparison", i, "7"))), paste0(outputpath, "comparison", i, "7", ".rds"))
+  	saveRDS(eval(parse(text=paste0("comparison", i, "7"))), paste0(outputpath, "comparison", i, "7", ".rds"), compress=TRUE)
     #dev.off()
 
   }
