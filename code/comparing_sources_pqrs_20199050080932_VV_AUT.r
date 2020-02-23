@@ -13,7 +13,14 @@ ggplotRegression <- function (fit, xlab, ylab) {
                        " P =",signif(summary(fit)$coef[2,4], 5))) +
     xlab(xlab)+
     ylab(ylab)+
-    geom_abline(slope=1, intercept=0, colour="red")
+    geom_abline(slope=1, intercept=0, colour="red") +
+    theme(axis.text.x = element_text(size=6)) +
+    theme(axis.text.y = element_text(size=6)) +
+    theme(axis.title.y = element_text(size=6)) +
+    theme(axis.title.x = element_text(size=6)) +
+    theme(plot.title = element_text(size=7)) +
+    theme(plot.subtitle = element_text(size=6)) 
+    #theme(text = element_text(size = 15))
 }
 
 # #Stations equivalence:
@@ -132,6 +139,7 @@ for(station in ldf){
 
 #
 library('RPostgreSQL')
+library('dplyr')
 pg = dbDriver("PostgreSQL")
 con1 = dbConnect(pg, user="user1", password="user1", host="localhost", port=5432, dbname="winddata")
 
@@ -401,7 +409,7 @@ for(i in 1:length(stationssample[,1]))
       paste("ISD: ", stationssample[i, 1], sep=""),# ". Lon: ", isdlon, ". Lat: ", isdlat, sep=""),
       paste("ERA5.  Col: ", era5lonindex, ". Row: ", era5latindex, ". Station: ", era5station, ". Lon: ", ideamlon, ". Lat: ", ideamlat, sep= "")
       , sep="\n")
-    plot.xts(xtsvar, main = title, major.ticks="years", format.labels = "%b-%d\n%Y", add=FALSE)
+    plot.xts(xtsvar, main = title, major.ticks="years", format.labels = "%b-%d\n%Y", add=FALSE, cex=0.5, cex.axis=0.8)
 	  print(addLegend("top",
                     legend.names = c(paste0("IDEAM: ", stationssample[i, 2]), paste0("ISD: ", stationssample[i, 1]), "ERA5"), col=c("black", "red", "green"),
                     bg="white", bty="o", lty=c(1, 1, 1), lwd=c(2, 2, 2)))
@@ -414,7 +422,7 @@ for(i in 1:length(stationssample[,1]))
       paste("ERA5.  Col: ", era5lonindex, ". Row: ", era5latindex, ". Station: ", era5station, ". Lon: ", ideamlon, ". Lat: ", ideamlat, sep= "")
       , sep="\n")
     par(new=FALSE)
-    plot.zoo(xtsvar[,1], xtsvar[,3], pch='.', xlab=paste0("IDEAM: ", stationssample[i, 2]), ylab="ERA5", main=title1)
+    plot.zoo(xtsvar[,1], xtsvar[,3], pch='.', xlab=paste0("IDEAM: ", stationssample[i, 2]), ylab="ERA5", main=title1, cex.lab=0.7, cex.axis=0.7, cex.main=0.8, cex.sub=0.7)
   	abline(coef=c(0,1), col="red")
 	  assign(paste0("comparison", i, "2"), recordPlot())
   	saveRDS(eval(parse(text=paste0("comparison", i, "2"))), paste0(outputpath, "comparison", i, "2", ".rds"))
@@ -431,7 +439,7 @@ for(i in 1:length(stationssample[,1]))
       paste("ERA5.  Col: ", era5lonindex, ". Row: ", era5latindex, ". Station: ", era5station, ". Lon: ", isdlon, ". Lat: ", isdlat, sep= "")
       , sep="\n")
     par(new=FALSE)
-    plot.zoo(xtsvar[,2], xtsvar[,3], pch='.', xlab=paste0("ISD: ", stationssample[i, 1]), ylab="ERA5", main=title2)
+    plot.zoo(xtsvar[,2], xtsvar[,3], pch='.', xlab=paste0("ISD: ", stationssample[i, 1]), ylab="ERA5", main=title2, cex.lab=0.7, cex.axis=0.7, cex.main=0.8, cex.sub=0.7)
   	abline(coef=c(0,1), col="red")
 	  assign(paste0("comparison", i, "4"), recordPlot())
 	  saveRDS(eval(parse(text=paste0("comparison", i, "4"))), paste0(outputpath, "comparison", i, "4", ".rds"), compress=TRUE)
@@ -448,7 +456,7 @@ for(i in 1:length(stationssample[,1]))
       paste("ISD: ", stationssample[i, 1], sep="")#, ". Lon: ", isdlon, ". Lat: ", isdlat, )
       , sep="\n")
     par(new=FALSE)
-    plot.zoo(xtsvar[,1], xtsvar[,2], pch='.', xlab=paste0("IDEAM: ", stationssample[i, 2]), ylab=paste0("ISD: ", stationssample[i, 1]), main=title3)
+    plot.zoo(xtsvar[,1], xtsvar[,2], pch='.', xlab=paste0("IDEAM: ", stationssample[i, 2]), ylab=paste0("ISD: ", stationssample[i, 1]), main=title3, cex.lab=0.7, cex.axis=0.7, cex.main=0.8, cex.sub=0.7)
 	  abline(coef=c(0,1), col="red")
 	  assign(paste0("comparison", i, "6"), recordPlot())
   	saveRDS(eval(parse(text=paste0("comparison", i, "6"))), paste0(outputpath, "comparison", i, "6", ".rds"), compress=TRUE)

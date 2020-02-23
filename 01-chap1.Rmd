@@ -49,6 +49,10 @@ library("ncdf4")
 library("stars")
 library("magick")
 library("RcmdrMisc")
+library(ggrepel)
+library(grid)
+library(gridExtra)
+library(cowplot)
 ```
 
 
@@ -294,12 +298,13 @@ ggplot(data = world) +
   geom_text(data= world_points[brazil,],aes(x=-67, y=-2, label=name), color = "darkblue", fontface = "bold", size=3, check_overlap = FALSE) +
   annotate(geom = "text", x = -77.5, y = 13, label = "Caribbean\nSea", fontface = "italic", color = "grey22", size = 4) + 
   annotate(geom = "text", x = -80, y = 5, label = "Pacific\nSea", fontface = "italic", color = "grey22", size = 4) +
-  geom_sf(data = isd_stations, size=1, shape=2, color= "black", show.legend = "point") + 
+  geom_sf(data = isd_stations, size=1, aes(color= "ISD Stations"), shape=2, show.legend = "point") + 
+  scale_color_manual(values = c("ISD Stations" = "black"), name="") +
   annotation_scale(location = "bl", width_hint = 0.5) + annotation_north_arrow(location = "br", which_north = "true", pad_x = unit(0.05, "in"), pad_y = unit(0.05, "in"), style = north_arrow_fancy_orienteering) + 
   coord_sf(xlim = c(-82.1, -63.8), ylim = c(-7.5, 15.5), expand = FALSE) +
   xlab("Longitude") + 
   ylab("Latitude") + 
-  ggtitle("ISD Stations") + 
+  ggtitle("Integrated Surface Database - ISD") + 
   theme(panel.grid.major = element_line(color = gray(.5), linetype = "dashed", size = 0.5), panel.background = element_rect(fill = "aliceblue"))
 ```
 
@@ -388,7 +393,28 @@ era5colraster.st = st_rasterize(era5colpoints, st_as_stars(mybbox, nx = nlon, ny
 
 ERA5 is forecast reanalysis data processed by the _European Center for Medium-Range Weather Forecasts_ - ECMWF with wind speeds time series in square cells _matrix of pixels_ of 0.25 degrees (33 km) covering the whole planet. For the study area was extracted a raster of `r (nlat)` rows by `r nlon` columns in format NetCDF. Figure \@ref(fig:plotera5stations) shows a map of ERA5 stations (cells centers).
 
-```{r plotera5stations, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="ERA5 Stations (cells centers). Colombia bounding box"}
+
+```{r era5pols, message=FALSE, warning=FALSE, include=FALSE}
+
+file_era5_sf_pol = "./data/era5grid_left_right_pol.shp"
+era5_4326_sf_pol = st_read(dsn=file_era5_sf_pol)
+
+pts <- do.call(rbind, st_centroid(st_geometry(era5_4326_sf_pol)))
+x = pts[,1]
+y = pts[,2]
+
+era5_4326_sf_pol$x = x
+era5_4326_sf_pol$y = y
+
+era5_4326_sf_pol_filter_corners = era5_4326_sf_pol %>% filter(DN %in% c(1, 49, 3333, 3381))
+era5_4326_sf_pol_filter_corners_left = era5_4326_sf_pol %>% filter(DN %in% c(1, 3333))
+era5_4326_sf_pol_filter_corners_right = era5_4326_sf_pol %>% filter(DN %in% c(49, 3381))
+```
+
+
+```{r plotera5stations, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="ERA5 Cells and Stations (cells centers). 49 cols by 69 rows. Cell size 0.25 decimal degrees (aprox 28 km in Colombia). Station IDs from 1 (lon=-79, lat=12.5) to 3381 (lon=-67, lat=-4.5)", fig.height=4.05}
+
+
 
 #Maps of the World
 theme_set(theme_bw())
@@ -404,27 +430,254 @@ brazil= world_points$name == "Brazil"
 venezuela= world_points$name == "Venezuela"
 ecuador= world_points$name == "Ecuador"
 
-ggplot(data = world) + 
+big = ggplot(data = world) + 
   geom_sf(fill= "antiquewhite") +
-  geom_sf(data=era5colpoints, size=0.1, color = "black", shape=".")+
+  geom_sf(data=era5colpoints, size=0.1, aes(color = "Stations"), shape=".",  show.legend = "point")+
+  scale_color_manual(values = c("Stations" = "black"), name="ERA5", guide = guide_legend(override.aes = list(fill= c(NA), linetype = c("blank"), shape = c(".")))) +
+  geom_sf(data = era5_4326_sf_pol_filter_corners, color = "black", aes(fill="Cells"), size=0.1, alpha=1, show.legend = "polygon") +
+  scale_fill_manual(values = c("Cells" = NA), name="", guide = guide_legend(override.aes = list(fill = c(NA), shape = c(NA), size=0.1))) +
+geom_rect(mapping=aes(xmin=-79.252968100, xmax=-78.247031900, ymin=11.832846362, ymax=12.667153638), color="red", alpha=0, size=0.1) +
+  geom_rect(mapping=aes(xmin=-67.752968100, xmax=-66.747031900, ymin=11.832846362, ymax=12.667153638), color="red", alpha=0, size=0.1) +
+  geom_rect(mapping=aes(xmin=-79.258632089, xmax=-78.241367911, ymin=-4.671851259, ymax=-3.828148741), color="red", alpha=0, size=0.1) +
+  geom_rect(mapping=aes(xmin=-67.758632089, xmax=-66.741367911, ymin=-4.671851259, ymax=-3.828148741), color="red", alpha=0, size=0.1) +
   #geom_text(data= world_points,aes(x=X, y=Y, label=name), color = "darkblue", fontface = "bold", check_overlap = FALSE) +
   #annotate("label", x = max(grossunits), y = meancbrate, label = "avg rate")
-  geom_text(data= world_points[venezuela,],aes(x=-66, y=8.5, label=name), color = "darkblue", fontface = "bold", size=3, check_overlap = FALSE) +
-  geom_text(data= world_points[panama,],aes(x=-80.5, y=9.2, label=name), color = "darkblue", fontface = "bold", size=3, check_overlap = FALSE) + 
-  geom_text(data= world_points[ecuador,],aes(x=-79.5, y=-1.5, label=name), color = "darkblue", fontface = "bold", size=3, check_overlap = FALSE) +
-  geom_text(data= world_points[peru,],aes(x=-75.5, y=-5.2, label=name), color = "darkblue", fontface = "bold", size=3, check_overlap = FALSE) +
-  geom_text(data= world_points[brazil,],aes(x=-65, y=-2, label=name), color = "darkblue", fontface = "bold", size=3, check_overlap = FALSE) +
+  geom_text(data= world_points[venezuela,],aes(x=-66.3, y=8.5, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) +
+  geom_text(data= world_points[panama,],aes(x=-79.7, y=9.2, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) + 
+  geom_text(data= world_points[ecuador,],aes(x=-79.5, y=-1.5, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) +
+  geom_text(data= world_points[peru,],aes(x=-75.5, y=-5.2, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) +
+  geom_text(data= world_points[brazil,],aes(x=-66, y=-2, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) +
   #geom_text( x = -77.5, y = 13, label = "Caribbean Sea", fontface = "italic", color = "grey22", size = 4)+
-  annotate(geom = "text", x = -77.5, y = 14, label = "Caribbean\nSea", fontface = "italic", color = "grey22", size = 4) + 
+  annotate(geom = "text", x = -77.5, y = 14, label = "Caribbean\nSea", fontface = "italic", color = "grey22", size = 2) + 
   #geom_text(x = -80, y = 5, label = "Pacific\nSea", fontface = "italic", color = "grey22", size = 4) + 
-  annotate(geom = "text", x = -80.5, y = 5, label = "Pacific\nSea", fontface = "italic", color = "grey22", size = 4) +
+  annotate(geom = "text", x = -80, y = 5, label = "Pacific\nSea", fontface = "italic", color = "grey22", size = 2) +
+  geom_text_repel(data = era5_4326_sf_pol_filter_corners_left, size=2, aes(x=x, y=y, label = DN), direction="y", segment.size=0.1, segment.color= "grey50", color="grey50", nudge_x=-1, hjust=1, box.padding=0.1) +
+  geom_text_repel(data = era5_4326_sf_pol_filter_corners_right, size=2, aes(x=x, y=y, label = DN), direction="y", segment.size=0.1, segment.color= "grey50", color="grey50", nudge_x=+1, hjust=0, box.padding=0.1) +
 #  geom_stars(data = era5colraster.st) + #, size=1, shape=2, color= "black", show.legend = "point") + 
-  annotation_scale(location = "bl", width_hint = 0.5) + annotation_north_arrow(location = "br", which_north = "true", pad_x = unit(0.05, "in"), pad_y = unit(0.05, "in"), style = north_arrow_fancy_orienteering) + 
-  coord_sf(xlim = c(-82.1, -63.8), ylim = c(-7.5, 15.5), expand = FALSE) +
-  xlab("Longitude") + 
-  ylab("Latitude") + 
-  ggtitle("ERA5 Stations") + 
-  theme(panel.grid.major = element_line(color = gray(.5), linetype = "dashed", size = 0.5), panel.background = element_rect(fill = "aliceblue"))
+  #annotation_scale(location = "bl", width_hint = 0.5) + annotation_north_arrow(location = "br", which_north = "true", pad_x = unit(0.02, "in"), pad_y = unit(0.02, "in"), height = unit(1, "cm"), width = unit(1, "cm"), style = north_arrow_fancy_orienteering) + 
+  coord_sf(xlim = c(-81.1, -64.8), ylim = c(-5, 13), expand = FALSE) +
+  xlab("") + 
+  ylab("") + 
+  ggtitle("ERA5 Reanalysis - Forecast") +
+  theme(plot.title = element_text(size=8)) +
+  theme(axis.text.x= element_text(size=7)) + 
+  theme(axis.text.y= element_text(size=7)) +
+  theme(panel.grid.major = element_line(color = gray(.5), linetype = "dashed", size = 0.1)) +
+  theme(panel.background = element_rect(fill = "aliceblue")) +
+  theme(legend.title = element_text(size=8)) +
+  theme(legend.text=element_text(size=8)) +
+  theme(legend.key.size = unit(0.5,"line")) +
+  theme(plot.margin=unit(c(0,0,0,0),"cm")) +
+  #theme(plot.background = element_rect(color = "black"))+
+  theme(axis.text.x = element_text(margin =  margin(t =2, b = -10))) + 
+  theme(axis.text.y = element_text(margin =  margin(r =2, l = -10)))
+  
+corner1lt = ggplot(data = world) + 
+  geom_sf(fill= "antiquewhite",  size=0.1) + 
+  #ggRGB(img_stack_col.mask, r = 1, g = 2, b = 3, ggLayer = TRUE)+
+  #geom_stars(data = col_4326_st[col_4326_sf_pol][,,,1], aes(fill = col_4326_st, x = x, y = y)) +
+  #sc+
+  geom_sf(data = era5_4326_sf_pol, colour="black", fill=NA, size=0.1) +
+  #scale_fill_gradientn(colors = sf.colors(20)) + 
+  #sc2 + 
+  #sc+
+  geom_text(data= world_points[venezuela,],aes(x=-66.5, y=8.5, label=name), color = "darkblue", fontface = "bold", size=3, check_overlap = FALSE) +
+  geom_text(data= world_points[panama,],aes(x=-80.5, y=9.2, label=name), color = "darkblue", fontface = "bold", size=3, check_overlap = FALSE) + 
+  geom_text(data= world_points[ecuador,],aes(x=-79.2, y=-1, label=name), color = "darkblue", fontface = "bold", size=3, check_overlap = FALSE) +
+  geom_text(data= world_points[peru,],aes(x=-75, y=-6, label=name), color = "darkblue", fontface = "bold", size=3, check_overlap = FALSE) +
+  geom_text(data= world_points[brazil,],aes(x=-68, y=-6, label=name), color = "darkblue", fontface = "bold", size=3, check_overlap = FALSE) +
+  geom_text(data= world_points[colombia,],aes(x=-71, y=4, label=name), color = "darkblue", fontface = "bold", size=3, check_overlap = FALSE) +
+  annotate(geom = "text", x = -77.5, y = 14, label = "Caribbean\nSea", fontface = "italic", color = "grey22", size = 4) + 
+  annotate(geom = "text", x = -80.5, y = 5, label = "Pacific\nSea", fontface = "italic", color = "grey22", size = 4) +
+  geom_sf(data = st_cast(world, "MULTILINESTRING"),  size=0.1)+
+  geom_sf_text(data = era5_4326_sf_pol, aes(label = DN), size=2) +
+  #geom_sf(data = era5colpoints3116, size=1, shape=2, color= "black", show.legend = "point") + 
+  #annotation_scale(location = "bl", width_hint = 0.5, height = unit(0.2, "cm")) + annotation_north_arrow(location = "br", which_north = "true", pad_x = unit(0.05, "in"), pad_y = unit(0.05, "in"), height = unit(1, "cm"), width = unit(1, "cm"), style = north_arrow_fancy_orienteering) +
+  #coord_sf(xlim = c(-82.1, -63.8), ylim = c(-7.5, 15.5), expand = FALSE) +
+  coord_sf(xlim = c(-79.252968100, -78.247031900), ylim = c(11.832846362, 12.667153638), expand = FALSE) +
+  xlab("") + 
+  ylab("") + 
+  ggtitle("") +
+  #theme(plot.title = element_text(size=8)) +
+  #theme(axis.text.x= element_text(size=7)) + 
+  #theme(axis.text.y= element_text(size=7)) + 
+  #theme(panel.grid.major = element_line(color = gray(.5), linetype = "dashed", size = 0.5)) +
+  theme(panel.grid = element_blank()) + 
+  theme(panel.background = element_rect(fill = "aliceblue")) +
+  theme(axis.text.x = element_blank(), axis.text.y = element_blank()) +
+  theme(axis.ticks = element_blank()) +
+  #t = 0, r = 0, b = 0, l = 0, unit = "pt"
+  theme(plot.margin=grid::unit(c(0,0.2,0,0),"cm")) + 
+  theme(panel.border = element_rect(colour = "red"))+
+  #theme(plot.background = element_rect(color = "black")) +
+  theme(axis.ticks.length=unit(0, "null")) +
+  #theme(axis.ticks.margin=unit(0, "null")) +
+  theme(axis.title.x=element_blank()) +
+  theme(axis.title.y=element_blank()) +
+  theme(plot.title = element_blank())
+  #labs(x=NULL)#, y=NULL)
+  
+  #theme(axis.text.x = element_text(margin =  margin(t =0, b = -20))) + 
+  #theme(axis.text.y = element_text(margin =  margin(r =0, l = -40))) +
+  #theme(axis.text.x =   element_blank())
+  
+  
+corner2rt = ggplot(data = world) + 
+  geom_sf(fill= "antiquewhite",  size=0.1) + 
+  #ggRGB(img_stack_col.mask, r = 1, g = 2, b = 3, ggLayer = TRUE)+
+  #geom_stars(data = col_4326_st[col_4326_sf_pol][,,,1], aes(fill = col_4326_st, x = x, y = y)) +
+  #sc+
+  geom_sf(data = era5_4326_sf_pol, colour="black", fill=NA, size=0.1) + 
+  #scale_fill_gradientn(colors = sf.colors(20)) + 
+  #sc2 + 
+  #sc+
+  geom_text(data= world_points[venezuela,],aes(x=-66.5, y=8.5, label=name), color = "darkblue", fontface = "bold", size=3, check_overlap = FALSE) +
+  geom_text(data= world_points[panama,],aes(x=-80.5, y=9.2, label=name), color = "darkblue", fontface = "bold", size=3, check_overlap = FALSE) + 
+  geom_text(data= world_points[ecuador,],aes(x=-79.2, y=-1, label=name), color = "darkblue", fontface = "bold", size=3, check_overlap = FALSE) +
+  geom_text(data= world_points[peru,],aes(x=-75, y=-6, label=name), color = "darkblue", fontface = "bold", size=3, check_overlap = FALSE) +
+  geom_text(data= world_points[brazil,],aes(x=-68, y=-6, label=name), color = "darkblue", fontface = "bold", size=3, check_overlap = FALSE) +
+  geom_text(data= world_points[colombia,],aes(x=-71, y=4, label=name), color = "darkblue", fontface = "bold", size=3, check_overlap = FALSE) +
+  annotate(geom = "text", x = -77.5, y = 14, label = "Caribbean\nSea", fontface = "italic", color = "grey22", size = 4) + 
+  annotate(geom = "text", x = -80.5, y = 5, label = "Pacific\nSea", fontface = "italic", color = "grey22", size = 4) +
+  geom_sf(data = st_cast(world, "MULTILINESTRING"),  size=0.1)+
+  geom_sf_text(data = era5_4326_sf_pol, aes(label = DN), size=2) +
+  #geom_sf(data = era5colpoints3116, size=1, shape=2, color= "black", show.legend = "point") + 
+  #annotation_scale(location = "bl", width_hint = 0.5, height = unit(0.2, "cm")) + annotation_north_arrow(location = "br", which_north = "true", pad_x = unit(0.05, "in"), pad_y = unit(0.05, "in"), height = unit(1, "cm"), width = unit(1, "cm"), style = north_arrow_fancy_orienteering) +
+  #coord_sf(xlim = c(-82.1, -63.8), ylim = c(-7.5, 15.5), expand = FALSE) +
+  coord_sf(xlim = c(-67.752968100, -66.747031900), ylim = c(11.832846362, 12.667153638), expand = FALSE) +
+  xlab("") + 
+  ylab("") + 
+  ggtitle("") +
+  #theme(plot.title = element_text(size=8)) +
+  #theme(axis.text.x= element_text(size=7)) + 
+  #theme(axis.text.y= element_text(size=7)) + 
+  #theme(panel.grid.major = element_line(color = gray(.5), linetype = "dashed", size = 0.5)) +
+  theme(panel.grid = element_blank()) +
+  theme(panel.background = element_rect(fill = "aliceblue")) +
+  theme(axis.text.x = element_blank(), axis.text.y = element_blank()) +
+  theme(axis.ticks = element_blank()) +
+  #t = 0, r = 0, b = 0, l = 0, unit = "pt"
+  theme(plot.margin=grid::unit(c(0,0,0,0.2),"cm")) + 
+  theme(panel.border = element_rect(colour = "red"))+
+  #theme(plot.background = element_rect(color = "black")) +
+  theme(axis.ticks.length=unit(0, "null")) +
+  #theme(axis.ticks.margin=unit(0, "null")) +
+  theme(axis.title.x=element_blank()) +
+  theme(axis.title.y=element_blank()) +
+  theme(plot.title = element_blank())
+  #labs(x=NULL)#, y=NULL)
+
+corner3lb = ggplot(data = world) + 
+  geom_sf(fill= "antiquewhite",  size=0.1) + 
+  #ggRGB(img_stack_col.mask, r = 1, g = 2, b = 3, ggLayer = TRUE)+
+  #geom_stars(data = col_4326_st[col_4326_sf_pol][,,,1], aes(fill = col_4326_st, x = x, y = y)) +
+  #sc+
+  geom_sf(data = era5_4326_sf_pol, colour="black", fill=NA, size=0.1) + 
+  #scale_fill_gradientn(colors = sf.colors(20)) + 
+  #sc2 + 
+  #sc+
+  geom_text(data= world_points[venezuela,],aes(x=-66.5, y=8.5, label=name), color = "darkblue", fontface = "bold", size=3, check_overlap = FALSE) +
+  geom_text(data= world_points[panama,],aes(x=-80.5, y=9.2, label=name), color = "darkblue", fontface = "bold", size=3, check_overlap = FALSE) + 
+  geom_text(data= world_points[ecuador,],aes(x=-79.2, y=-1, label=name), color = "darkblue", fontface = "bold", size=3, check_overlap = FALSE) +
+  geom_text(data= world_points[peru,],aes(x=-75, y=-6, label=name), color = "darkblue", fontface = "bold", size=3, check_overlap = FALSE) +
+  geom_text(data= world_points[brazil,],aes(x=-68, y=-6, label=name), color = "darkblue", fontface = "bold", size=3, check_overlap = FALSE) +
+  geom_text(data= world_points[colombia,],aes(x=-71, y=4, label=name), color = "darkblue", fontface = "bold", size=3, check_overlap = FALSE) +
+  annotate(geom = "text", x = -77.5, y = 14, label = "Caribbean\nSea", fontface = "italic", color = "grey22", size = 4) + 
+  annotate(geom = "text", x = -80.5, y = 5, label = "Pacific\nSea", fontface = "italic", color = "grey22", size = 4) +
+  geom_sf(data = st_cast(world, "MULTILINESTRING"),  size=0.1)+
+  geom_sf_text(data = era5_4326_sf_pol, aes(label = DN), size=2) +
+  #geom_sf(data = era5colpoints3116, size=1, shape=2, color= "black", show.legend = "point") + 
+  #annotation_scale(location = "bl", width_hint = 0.5, height = unit(0.2, "cm")) + annotation_north_arrow(location = "br", which_north = "true", pad_x = unit(0.05, "in"), pad_y = unit(0.05, "in"), height = unit(1, "cm"), width = unit(1, "cm"), style = north_arrow_fancy_orienteering) +
+  #coord_sf(xlim = c(-82.1, -63.8), ylim = c(-7.5, 15.5), expand = FALSE) +
+  coord_sf(xlim = c(-79.258632089, -78.241367911), ylim = c(-4.671851259, -3.828148741), expand = FALSE) +
+  xlab("") + 
+  ylab("") + 
+  ggtitle("") +
+  #theme(plot.title = element_text(size=8)) +
+  #theme(axis.text.x= element_text(size=7)) + 
+  #theme(axis.text.y= element_text(size=7)) + 
+  #theme(panel.grid.major = element_line(color = gray(.5), linetype = "dashed", size = 0.5)) +
+  theme(panel.background = element_rect(fill = "aliceblue")) +
+  theme(axis.text.x = element_blank(), axis.text.y = element_blank()) +
+  theme(axis.ticks = element_blank()) +
+  #t = 0, r = 0, b = 0, l = 0, unit = "pt"
+  theme(plot.margin=grid::unit(c(0,0.2,0,0),"cm")) + 
+  theme(panel.border = element_rect(colour = "red"))+
+  #theme(plot.background = element_rect(color = "black")) +
+  theme(axis.ticks.length=unit(0, "null")) +
+  #theme(axis.ticks.margin=unit(0, "null")) +
+  theme(axis.title.x=element_blank()) +
+  theme(axis.title.y=element_blank()) +
+  theme(plot.title = element_blank())
+  #labs(x=NULL)#, y=NULL)
+
+corner4rb = ggplot(data = world) + 
+  geom_sf(fill= "antiquewhite",  size=0.1) + 
+  #ggRGB(img_stack_col.mask, r = 1, g = 2, b = 3, ggLayer = TRUE)+
+  #geom_stars(data = col_4326_st[col_4326_sf_pol][,,,1], aes(fill = col_4326_st, x = x, y = y)) +
+  #sc+
+  geom_sf(data = era5_4326_sf_pol, colour="black", fill=NA, size=0.1) + 
+  #scale_fill_gradientn(colors = sf.colors(20)) + 
+  #sc2 + 
+  #sc+
+  geom_text(data= world_points[venezuela,],aes(x=-66.5, y=8.5, label=name), color = "darkblue", fontface = "bold", size=3, check_overlap = FALSE) +
+  geom_text(data= world_points[panama,],aes(x=-80.5, y=9.2, label=name), color = "darkblue", fontface = "bold", size=3, check_overlap = FALSE) + 
+  geom_text(data= world_points[ecuador,],aes(x=-79.2, y=-1, label=name), color = "darkblue", fontface = "bold", size=3, check_overlap = FALSE) +
+  geom_text(data= world_points[peru,],aes(x=-75, y=-6, label=name), color = "darkblue", fontface = "bold", size=3, check_overlap = FALSE) +
+  geom_text(data= world_points[brazil,],aes(x=-68, y=-6, label=name), color = "darkblue", fontface = "bold", size=3, check_overlap = FALSE) +
+  geom_text(data= world_points[colombia,],aes(x=-71, y=4, label=name), color = "darkblue", fontface = "bold", size=3, check_overlap = FALSE) +
+  annotate(geom = "text", x = -77.5, y = 14, label = "Caribbean\nSea", fontface = "italic", color = "grey22", size = 4) + 
+  annotate(geom = "text", x = -80.5, y = 5, label = "Pacific\nSea", fontface = "italic", color = "grey22", size = 4) +
+  geom_sf(data = st_cast(world, "MULTILINESTRING"),  size=0.1)+
+  geom_sf_text(data = era5_4326_sf_pol, aes(label = DN), size=2) +
+  #geom_sf(data = era5colpoints3116, size=1, shape=2, color= "black", show.legend = "point") + 
+  #annotation_scale(location = "bl", width_hint = 0.5, height = unit(0.2, "cm")) + annotation_north_arrow(location = "br", which_north = "true", pad_x = unit(0.05, "in"), pad_y = unit(0.05, "in"), height = unit(1, "cm"), width = unit(1, "cm"), style = north_arrow_fancy_orienteering) +
+  #coord_sf(xlim = c(-82.1, -63.8), ylim = c(-7.5, 15.5), expand = FALSE) +
+  coord_sf(xlim = c(-67.758632089, -66.741367911), ylim = c(-4.671851259, -3.828148741), expand = FALSE) +
+  xlab("") + 
+  ylab("") + 
+  ggtitle("") +
+  #theme(plot.title = element_text(size=8)) +
+  #theme(axis.text.x= element_text(size=7)) + 
+  #theme(axis.text.y= element_text(size=7)) + 
+  #theme(panel.grid.major = element_line(color = gray(.5), linetype = "dashed", size = 0.5)) +
+  theme(panel.background = element_rect(fill = "aliceblue")) +
+  theme(axis.text.x = element_blank(), axis.text.y = element_blank()) +
+  theme(axis.ticks = element_blank()) +
+  #t = 0, r = 0, b = 0, l = 0, unit = "pt"
+  theme(plot.margin=grid::unit(c(0,0,0,0.2),"cm")) + 
+  theme(panel.border = element_rect(colour = "red"))+
+  #theme(plot.background = element_rect(color = "black")) +
+  theme(axis.ticks.length=unit(0, "null")) +
+  theme(axis.ticks.margin=unit(0, "null")) +
+  theme(axis.title.x=element_blank()) +
+  theme(axis.title.y=element_blank()) +
+  theme(plot.title = element_blank())
+  #labs(x=NULL)#, y=NULL)
+
+#pl = replicate(5, ggplot(), FALSE)
+#margin = theme(plot.margin = unit(c(0,0,0,0), "cm"))
+#lay <- rbind(c(1,1,1,2,3),c(1,1,1,4,5))
+
+#gs <- lapply(1:5, function(ii) 
+#  grobTree(rectGrob(gp=gpar(fill=NA))))
+
+# plot_grid(
+#   # row 1
+#   plot_grid(big, nrow = 1, labels = c('A')) +
+#     theme(plot.background = element_rect(color = "black")),
+# 
+#   # row 2
+#   plot_grid(corner1lt, corner2rt, corner3lb, corner4rb, nrow = 2, ncol=2, labels = c('B', 'C', 'D', 'E')) +
+#     theme(plot.background = element_rect(color = "black")), 
+# 
+#   ncol = 2)
+
+#grid.arrange(big, corner1lt, corner2rt, corner3lb, corner4rb, layout_matrix = lay)
+
+grid.arrange(big, arrangeGrob(corner1lt, corner2rt, corner3lb, corner4rb), ncol=2, widths=c(2.2,1))
+#grid.arrange(big, arrangeGrob(corner1lt, corner2rt, corner3lb, corner4rb, ncol=2, heights=c(1, 1), widths=c(1,1)), ncol=2, widths=c(1.7,1), heights=c(1))#, grobs = lapply(pl, "+", margin))
+#grid.rect(gp=gpar(fill=NA))
 ```
 
 ```{r, include=FALSE}

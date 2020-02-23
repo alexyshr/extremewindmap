@@ -29,6 +29,8 @@ library(RStoolbox)
 library(gridExtra)
 library(ggrepel)
 library(dplyr)
+library(grid)
+library(gridExtra)
 ```
 
 ```{r echo=FALSE, cache= F, include=FALSE}
@@ -94,15 +96,36 @@ stationssample = data.frame(
     c(48015050, 52055230, 26125061, 26125710, 23085270, 27015330, 16015501, 23195502, 13035501, 28025502, 15065180, 29045190)),  
   stringsAsFactors=FALSE)
 
-kable(stationssample, align=rep('l', 2),
-      #col.names = c("Name[Code]", "Latitud", "Longitud"),
-      caption = "Equivalent stations from ISD and IDEAM, representing the same weather station in the field",
-      caption.short = "Twelve equivalent stations from ISD and IDEAM",
+stationssamplewithera5 = data.frame(
+  ISD_ID= as.character(
+    c(803980, 803700, 802110, 802100, 801120, 801100, 800970, 800940, 800630, 800360, 800350, 800280)), 
+  IDEAM_ID = as.character(
+    c(48015050, 52055230, 26125061, 26125710, 23085270, 27015330, 16015501, 23195502, 13035501, 28025502, 15065180, 29045190)),
+  ERA5_STATION = c("3320. Col:37. Row:68. Lon:−70. Lat:−4.25",
+           "2309. Col:6. Row:48. Lon:−77.75. Lat:0.75",
+           "1582. Col:14. Row:33. Lon:−75.75. Lat:4.5",
+           "1533. Col:14. Row:32. Lon:−75.75. Lat:4.75",
+           "1240. Col:15. Row:26. Lon:−75.5. Lat:6.25",
+           "1240. Col:15. Row:26. Lon:−75.5. Lat:6.25",
+           "909. Col:27. Row:19. Lon:−72.5. Lat:8",
+           "1102. Col:24. Row:23. Lon:−73.25. Lat:7",
+           "749. Col:14. Row:16. Lon:−75.75. Lat:8.75",
+           "416. Col:24. Row:9. Lon:−73.25. Lat:10.5",
+           "221. Col:25. Row:5. Lon:−73. Lat:11.5",
+           "312. Col:18. Row:7. Lon:−74.75. Lat:11"
+           ),
+  stringsAsFactors=FALSE)
+
+kable(stationssamplewithera5, align=rep('l', 3),
+      col.names = c("ISD ID", "IDEAM ID", "ERA5 ID"),
+      caption = "Equivalent stations from ISD and IDEAM and ERA5, representing the same weather station in the field",
+      caption.short = "Twelve equivalent stations from ISD, IDEAM and ERA5",
       longtable = TRUE,
       booktabs = TRUE) %>%
       row_spec(0, align = "l") %>%
-      column_spec(1,width = "0.8in") %>%
-      column_spec(2,width = "0.8in") %>%
+      column_spec(1,width = "0.6in") %>%
+      column_spec(2,width = "0.6in") %>%
+      column_spec(3,width = "2.7in") %>%
 kable_styling(font_size = 10, latex_options="scale_down")
 ```
 
@@ -168,7 +191,7 @@ img_stack_col.mask = mask(img_stack_col.crop, col_4326_sf_pol)
 ```
 
 
-```{r qualitycomparison2, echo=FALSE, fig.cap="Left: Twelve matching stations \nfrom IDEAM and ISD. Right: Stations 28025502 from IDEAM, 800360 from ISD, and 416 from ERA5", message=FALSE, warning=FALSE}
+```{r qualitycomparison2, echo=FALSE, fig.cap="Quality Data Comparison\nLeft: Twelve matching stations \nfrom IDEAM and ISD. Right: Stations 28025502 from IDEAM, 800360 from ISD, and 416 from ERA5", message=FALSE, warning=FALSE}
 
 myPalette <- colorRampPalette(rev(brewer.pal(11, "YlGn")))
 sc <- scale_fill_gradientn(colours = myPalette(100), limits=c(0, 255))
@@ -231,12 +254,20 @@ big <-ggplot(data = world) +
   #coord_sf(xlim = c(-73.7, -72.8), ylim = c(10.1, 10.9), expand = FALSE) +
   xlab("") + 
   ylab("") + 
-  ggtitle("Twelve matching stations \nfrom IDEAM and ISD") + 
+  ggtitle("Quality Data Comparison\nTwelve matching stations from IDEAM and ISD") + 
   theme(plot.title = element_text(size=8)) +
   theme(axis.text.x= element_text(size=7)) + 
   theme(axis.text.y= element_text(size=7)) +
-  theme(panel.grid.major = element_line(color = gray(.5), linetype = "dashed", size = 0.1), panel.background = element_rect(fill = "aliceblue"))
-
+  theme(panel.grid.major = element_line(color = gray(.5), linetype = "dashed", size = 0.1)) +
+  theme(panel.background = element_rect(fill = "aliceblue")) +
+  #theme(legend.title = element_text(size=8)) +
+  #theme(legend.text=element_text(size=8)) +
+  #theme(legend.key.size = unit(0.5,"line")) +
+  theme(plot.margin=unit(c(0,0,0,0),"cm")) +
+  #theme(plot.background = element_rect(color = "black"))+
+  theme(axis.text.x = element_text(margin =  margin(t =2, b = -10))) + 
+  theme(axis.text.y = element_text(margin =  margin(r =2, l = -10)))
+  
 
 small <- ggplot(data = world) + 
   geom_sf(fill= "antiquewhite",  size=0.1) + 
@@ -267,13 +298,16 @@ small <- ggplot(data = world) +
   coord_sf(xlim = c(-73.7, -72.8), ylim = c(10.1, 10.9), expand = FALSE) +
   xlab("") + 
   ylab("") + 
-  ggtitle("Stations 28025502 from IDEAM, \n800360 from ISD, \nand 416 from ERA5") +
+  ggtitle("Quality Data Comparison\nStations 28025502 from IDEAM, \n800360 from ISD, and 416 from ERA5") +
   theme(plot.title = element_text(size=8)) +
   theme(axis.text.x= element_text(size=7)) + 
   theme(axis.text.y= element_text(size=7)) + 
+  theme(panel.border = element_rect(colour = "red"))+
+  #theme(plot.background = element_rect(color = "black")) +
   theme(panel.grid.major = element_line(color = gray(.5), linetype = "dashed", size = 0.5), panel.background = element_rect(fill = "aliceblue"))
 
 grid.arrange(big, small, ncol=2)
+#grid.rect(gp=gpar(fill=NA))
 ```
 
 
@@ -291,7 +325,7 @@ dat1
 VV_AUT_10 was available for 204 stations, and despide that $V_{3600}$ calculated from this source, is not an accurate or quality estimator, the standarization process was done to allow a comparison process.
 
 
-```{r poorcomparison, echo=FALSE, fig.cap="Left: Twelve matching stations \nfrom IDEAM and ISD. Right: Stations 28025502 from IDEAM, 800360 from ISD, and 416 from ERA5", message=FALSE, warning=FALSE}
+```{r poorcomparison, echo=FALSE, fig.cap="'Poor Data' Comparison: ERA5 vs ISD vs IDEAM. Downscaling Support: 'Good' in 23 ERA5 stations (2261, 1971, 2066, 2020, 2260, 1875, 2213, 2637, 1442, 1583, 1501, 1582, 1381, 1493, 1485, 1397, 1338, 1055, 511, 1644, 515, 221, 1038), and 'Very Good' in 5 (265, 360, 78, 312, 416)", message=FALSE, warning=FALSE}
 
 myPalette <- colorRampPalette(rev(brewer.pal(11, "YlGn")))
 sc <- scale_fill_gradientn(colours = myPalette(100), limits=c(0, 255))
@@ -316,7 +350,9 @@ y = pts[,2]
 era5_4326_sf_pol$x = x
 era5_4326_sf_pol$y = y
 
-era5_4326_sf_pol_filter = era5_4326_sf_pol %>% filter(DN %in% c(2261, 1971,2066,2020,2260,1875,2213,2637,1442,1583,1501,1582,1381,1493,1485,1397,1338,1055,511,1644,515,221,78,1038,2213,265,360,416,78,312,416))
+era5_4326_sf_pol_filter_good = era5_4326_sf_pol %>% filter(DN %in% c(2261, 1971,2066,2020,2260,1875,2213,2637,1442,1583,1501,1582,1381,1493,1485,1397,1338,1055,511,1644,515,221,1038))
+
+era5_4326_sf_pol_filter_very_good = era5_4326_sf_pol %>% filter(DN %in% c(265,360,78,312,416))
 
 era5_4326_sf_pol_col1 = era5_4326_sf_pol %>% filter(DN %in% c(1, 50, 148, 246, 344, 442, 540, 638, 736, 834, 932, 1030, 1128, 1226, 1324, 1422, 1520, 1618, 1716, 1814, 1912, 2010, 2108, 2206, 2304, 2402, 2500, 2598, 2696, 2794, 2892, 2990, 3088, 3186, 3284, 3333))
 
@@ -328,7 +364,9 @@ ggplot(data = world) +
   ggRGB(img_stack_col.mask, r = 1, g = 2, b = 3, ggLayer = TRUE, alpha=0.8)+
   sc+
   geom_sf(data = era5_4326_sf_pol, colour="grey", fill=NA, size=0.1) + 
-  geom_sf(data = era5_4326_sf_pol_filter, colour="black", fill="yellow", size=0.1, alpha=1) +
+  geom_sf(data = era5_4326_sf_pol_filter_good, aes(fill = "Good: 23"), colour="black", size=0.1, alpha=1, show.legend = "polygon") +
+  geom_sf(data = era5_4326_sf_pol_filter_very_good, aes(fill = "Very Good: 5"), colour="black", size=0.1, alpha=1, show.legend = "polygon") +
+  scale_fill_manual(values = c("Good: 23" = "yellow", "Very Good: 5" = "orange"), name="Downscaling Support") + #, label=c("dd")) +  
   #scale_fill_gradientn(colors = sf.colors(20)) + 
   #sc2 + 
   #sc+
@@ -357,11 +395,21 @@ ggplot(data = world) +
   #coord_sf(xlim = c(-73.7, -72.8), ylim = c(10.1, 10.9), expand = FALSE) +
   xlab("") + 
   ylab("") + 
-  ggtitle("ISD-IDEAM-ERA5 poor comparison \n25 cells good match\n5 cells very good match") + 
+  ggtitle("ERA5 grid, cells IDs from 1 to 3381 (49 cols, 69 rows)\nISD-IDEAM-ERA5 'poor data' comparison") + 
   theme(plot.title = element_text(size=8)) +
   theme(axis.text.x= element_text(size=7)) + 
   theme(axis.text.y= element_text(size=7)) +
-  theme(panel.grid.major = element_line(color = gray(.5), linetype = "dashed", size = 0.1), panel.background = element_rect(fill = "aliceblue"))
+  theme(panel.grid.major = element_line(color = gray(.5), linetype = "dashed", size = 0.1)) +
+  theme(panel.background = element_rect(fill = "aliceblue")) +
+  #theme(legend.title = element_text(size=8)) +
+  #theme(legend.text=element_text(size=8)) +
+  #theme(legend.key.size = unit(0.5,"line")) +
+  theme(plot.margin=unit(c(0,0,0,0),"cm")) +
+  #theme(plot.background = element_rect(color = "black"))+
+  theme(axis.text.x = element_text(margin =  margin(t =2, b = -10))) + 
+  theme(axis.text.y = element_text(margin =  margin(r =2, l = -10)))
+
+#grid.rect(gp=gpar(fill=NA))  
 ```
 
 ## POT-PP in ISD Station 801120

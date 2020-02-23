@@ -508,7 +508,7 @@ ERA5 is forecast reanalysis data processed by the \emph{European Center for Medi
 \begin{figure}
 \centering
 \includegraphics{thesis_files/figure-latex/plotera5stations-1.pdf}
-\caption{\label{fig:plotera5stations}ERA5 Stations (cells centers). Colombia bounding box}
+\caption{\label{fig:plotera5stations}ERA5 Cells and Stations (cells centers). 49 cols by 69 rows. Cell size 0.25 decimal degrees (aprox 28 km in Colombia). Station IDs from 1 (lon=-79, lat=12.5) to 3381 (lon=-67, lat=-4.5)}
 \end{figure}
 \hypertarget{data-download-and-organization}{%
 \section{Data Download and Organization}\label{data-download-and-organization}}
@@ -1236,25 +1236,25 @@ In both cases, to make the use of ISD and ERA5 viable, its time series are expec
 IDEAM VV\_AUT\_2 was available for twenty (20) stations, of which only twelve (12) were \emph{perfectly equivalent} to ISD stations (see table \ref{tab:table12stations}). VV\_AUT\_2 dataset was transformed to \(V_{3600}\) (average hourly speed), averaging all 20 values available per hour. For twelve matching stations, wind velocity \(V_{3600}\) (transformation of VV\_AUT\_2), was standardized station by station, using procedure described in \protect\hyperlink{rmd-roughness}{Surface Roughness at Open Space} section and \protect\hyperlink{rmd-gust}{Averaging Time 3-s Gust}, and finally, for the same twelve ISD and IDEAM standardized stations, a comparison was done against matching ERA5 stations (the corresponding cell in ERA5 that has within ISD and IDEAM locations).
 
 \begingroup\fontsize{10}{12}\selectfont
-\begin{longtable}[t]{>{\raggedright\arraybackslash}p{0.8in}>{\raggedright\arraybackslash}p{0.8in}}
-\caption[Twelve equivalent stations from ISD and IDEAM]{\label{tab:table12stations}Equivalent stations from ISD and IDEAM, representing the same weather station in the field}\\
+\begin{longtable}[t]{>{\raggedright\arraybackslash}p{0.6in}>{\raggedright\arraybackslash}p{0.6in}>{\raggedright\arraybackslash}p{2.7in}}
+\caption[Twelve equivalent stations from ISD, IDEAM and ERA5]{\label{tab:table12stations}Equivalent stations from ISD and IDEAM and ERA5, representing the same weather station in the field}\\
 \toprule
-\multicolumn{1}{l}{ISD\_ID} & \multicolumn{1}{l}{IDEAM\_ID}\\
+\multicolumn{1}{l}{ISD ID} & \multicolumn{1}{l}{IDEAM ID} & \multicolumn{1}{l}{ERA5 ID}\\
 \midrule
-803980 & 48015050\\
-803700 & 52055230\\
-802110 & 26125061\\
-802100 & 26125710\\
-801120 & 23085270\\
+803980 & 48015050 & 3320. Col:37. Row:68. Lon:-70. Lat:-4.25\\
+803700 & 52055230 & 2309. Col:6. Row:48. Lon:-77.75. Lat:0.75\\
+802110 & 26125061 & 1582. Col:14. Row:33. Lon:-75.75. Lat:4.5\\
+802100 & 26125710 & 1533. Col:14. Row:32. Lon:-75.75. Lat:4.75\\
+801120 & 23085270 & 1240. Col:15. Row:26. Lon:-75.5. Lat:6.25\\
 \addlinespace
-801100 & 27015330\\
-800970 & 16015501\\
-800940 & 23195502\\
-800630 & 13035501\\
-800360 & 28025502\\
+801100 & 27015330 & 1240. Col:15. Row:26. Lon:-75.5. Lat:6.25\\
+800970 & 16015501 & 909. Col:27. Row:19. Lon:-72.5. Lat:8\\
+800940 & 23195502 & 1102. Col:24. Row:23. Lon:-73.25. Lat:7\\
+800630 & 13035501 & 749. Col:14. Row:16. Lon:-75.75. Lat:8.75\\
+800360 & 28025502 & 416. Col:24. Row:9. Lon:-73.25. Lat:10.5\\
 \addlinespace
-800350 & 15065180\\
-800280 & 29045190\\
+800350 & 15065180 & 221. Col:25. Row:5. Lon:-73. Lat:11.5\\
+800280 & 29045190 & 312. Col:18. Row:7. Lon:-74.75. Lat:11\\
 \bottomrule
 \end{longtable}
 \endgroup{}
@@ -1263,7 +1263,8 @@ Stations 28025502 from IDEAM, 800360 from ISD, and 416 (cell with center point i
 \begin{figure}
 \centering
 \includegraphics{thesis_files/figure-latex/qualitycomparison2-1.pdf}
-\caption{\label{fig:qualitycomparison2}Left: Twelve matching stations
+\caption{\label{fig:qualitycomparison2}Quality Data Comparison
+Left: Twelve matching stations
 from IDEAM and ISD. Right: Stations 28025502 from IDEAM, 800360 from ISD, and 416 from ERA5}
 \end{figure}
 \begin{figure}
@@ -1281,8 +1282,7 @@ VV\_AUT\_10 was available for 204 stations, and despide that \(V_{3600}\) calcul
 \begin{figure}
 \centering
 \includegraphics{thesis_files/figure-latex/poorcomparison-1.pdf}
-\caption{\label{fig:poorcomparison}Left: Twelve matching stations
-from IDEAM and ISD. Right: Stations 28025502 from IDEAM, 800360 from ISD, and 416 from ERA5}
+\caption{\label{fig:poorcomparison}`Poor Data' Comparison: ERA5 vs ISD vs IDEAM. Downscaling Support: `Good' in 23 ERA5 stations (2261, 1971, 2066, 2020, 2260, 1875, 2213, 2637, 1442, 1583, 1501, 1582, 1381, 1493, 1485, 1397, 1338, 1055, 511, 1644, 515, 221, 1038), and `Very Good' in 5 (265, 360, 78, 312, 416)}
 \end{figure}
 \hypertarget{pot-pp-in-isd-station-801120}{%
 \section{POT-PP in ISD Station 801120}\label{pot-pp-in-isd-station-801120}}
