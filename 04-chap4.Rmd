@@ -412,6 +412,56 @@ ggplot(data = world) +
 #grid.rect(gp=gpar(fill=NA))  
 ```
 
+```{r verygoodxts, echo=FALSE, fig.cap="'Poor Data' Comparison: ERA5 vs ISD vs IDEAM. Downscaling Support: Graphics for 'Very Good'", message=FALSE, warning=FALSE, fig.height=3}
+tl = readRDS(file="./data/eracomparisonideam_188_78_plotxts.rds")
+#tr = readRDS(file="./data/eracomparisonideam_19812_416_plotzoo.rds")
+tl
+#box(which="figure")
+```
+
+Hola
+
+```{r verygood, echo=FALSE, fig.cap="'Poor Data' Comparison: ERA5 vs ISD vs IDEAM. Downscaling Support: Graphics for 'Very Good'", message=FALSE, warning=FALSE}
+par(mfrow=c(3,2))
+par(mar=c(0,0,0,0))
+par(oma=c(0,0,0,0))
+
+cl = readRDS(file="./data/eracomparisonideam_129_1_2_265_plotgg.rds")
+cr = readRDS(file="./data/eracomparisonideam_195_1_2_312_plotgg.rds")
+bl = readRDS(file="./data/eracomparisonideam_188_1_3_78_plotgg.rds")
+br = readRDS(file="./data/eracomparisonideam_188_1_2_78_plotgg.rds")
+
+
+#layout(matrix(c(1,2,3,4,5,6), 2, 3, byrow = TRUE))
+
+library(cowplot)
+#plot_grid(tl, tr, ncol = 2, labels=c("A", "B"), label_size = 7, label_colour = "red")#, 
+
+
+
+
+# ggdraw() +
+#    draw_plot(tl, 0, 0, 0.7, 1) +
+#    draw_plot(tr, 0.7, 0.3, 0.3, 0.3)
+
+#plot_grid(cl, cr, bl, br, ncol = 2, labels=c("C", "D", "E", "F"), label_size = 7, label_colour = "red")#,  align = c("hv")
+
+plot_grid(cl, cr, bl, br, ncol = 2, labels=c("A", "B", "C", "D"), label_size = 7, label_colour = "red")#,  align = c("hv")
+
+#grid.arrange(tl, tr, cl, cr, bl, br, ncol=2)
+
+
+# ggdraw() +
+#   draw_plot(tl, 0, 1, 0.7, .5) +
+#   draw_plot(tr, 0.7, 1, 0.3, .5) +
+#   draw_plot(cl, 0, .5, 0.5, .5) +
+#   draw_plot(cr, 0.5, .5, 0.5, .5) +
+#   draw_plot(bl, 0, 0, .5, .5) +
+#   draw_plot(br, .5, 0, .5, .5) +
+#   draw_plot_label(c("A", "B", "C", "D", "E", "F"), c(0, 0.7, 0, 0.5, 0, 0.5), c(1.5, 1.5, 1, 1, 0.5, 0.5), size = 7)
+```
+
+
 ## POT-PP in ISD Station 801120
 
 ```{r page1, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Time Series ISD. Station 801120", size="footnotesize", fig.align="center"}

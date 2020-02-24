@@ -954,8 +954,8 @@ WPlot <- function (t.series, nt.series,
     plot(x=exp1.quantiles, y=W,
          xlab="Exponential with mean 1 and pdf U(0,1) - quantiles",
          ylab="Ordered W-Statistics",
-         main=bquote(paste("W-Statistic Plot for best pair of thresholds (", b[t], "=", .(t.thresh), ", ", b[nt], "=", .(nt.thresh), ")")),
-         cex.lab=0.7, cex.axis=0.7, cex.main=0.8, cex.sub=0.7, pch=".")
+         main=bquote(paste("WPlot. Best thresholds pair (", b[t], "=", .(t.thresh), ", ", b[nt], "=", .(nt.thresh), ")")),
+         cex.lab=0.5, cex.axis=0.6, cex.main=0.7, cex.sub=0.6, pch=".")
     if (BW) {
 
       abline(a=0, b=1, col="black")

@@ -292,7 +292,7 @@ points(x, y, col="black", pch=20, cex = 1)
 
 Selection of the thresholds pairs, one for thunderstorm, and one for non-thunderstorm, is based in $W$ transformation described in [threshold selection section](#thresholdselection). W-statistic is done comparing the ordered empirical result of applying $W = -log(1-U)$ to the data, axis $y$ in figure \@ref(fig:wstatistics), with the theoretical quantiles of an exponential variable with uniform distribution between 0 and 1, axis $x$ in same figure. W-statistic is the highest vertical distance between the 45º line and the points in the graphic. The best thresholds pairs returns the minimum value for W-statistics after testing, in an iterative process, with many threshold pairs combinations.
 
-```{r wstatistics, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="POT - Thresholding", size="footnotesize", fig.align="center"}
+```{r wstatistics, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="POT - Thresholding", size="footnotesize", fig.align="center", fig.width=3.5, fig.asp=1}
 dat <- readRDS("data/myprint6.rds")
 dat
 lines(x=c(3.1, 3.1), y=c(3.1,3.8), col="green", lty=5)
