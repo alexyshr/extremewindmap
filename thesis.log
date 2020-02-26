@@ -1,11 +1,11 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/W32TeX) (preloaded format=pdflatex 2020.2.12)  24 FEB 2020 21:30
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/W32TeX) (preloaded format=pdflatex 2020.2.25)  26 FEB 2020 08:45
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **thesis.tex
 (./thesis.tex
-LaTeX2e <2020-02-02> patch level 1
-L3 programming layer <2020-02-08> (./reedthesis.cls
+LaTeX2e <2020-02-02> patch level 3
+L3 programming layer <2020-02-21> (./reedthesis.cls
 Document Class: reedthesis 2004/01/27 The Reed College Thesis Class
 (c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/book.cls
 Document Class: book 2019/12/20 v1.4l Standard LaTeX document class
@@ -88,7 +88,7 @@ Already applied: [0000/00/00] Old fixltx2e package on input line 53.
 )
 (c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/fontenc.st
 y
-Package: fontenc 2020/01/25 v2.0m Standard LaTeX package
+Package: fontenc 2020/02/11 v2.0o Standard LaTeX package
 )
 (c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/inputenc.s
 ty
@@ -665,7 +665,7 @@ Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
 )
 (c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/l3backend/l3bac
 kend-pdfmode.def
-File: l3backend-pdfmode.def 2020-02-03 L3 backend support: PDF mode
+File: l3backend-pdfmode.def 2020-02-21 L3 backend support: PDF mode
 \l__kernel_color_stack_int=\count293
 \l__pdf_internal_box=\box67
 ) (./thesis.aux)
@@ -770,12 +770,12 @@ Non-PDF special ignored!
 {c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pd
 ftex.map} <./figure/logos.png>]
 Overfull \hbox (120.17911pt too wide) in paragraph at lines 219--219
-[]\T1/lmr/m/n/12 February 24, 2020[] 
+[]\T1/lmr/m/n/12 February 26, 2020[] 
  []
 
 
 Overfull \hbox (120.17911pt too wide) in paragraph at lines 219--219
-[]\T1/lmr/m/n/12 February 24, 2020[] 
+[]\T1/lmr/m/n/12 February 26, 2020[] 
  []
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
@@ -1147,157 +1147,169 @@ Package pdftex.def Info: thesis_files/figure-latex/hc-1.pdf  used on input line
  1132.
 (pdftex.def)             Requested size: 144.53963pt x 144.53963pt.
 [34 <./thesis_files/figure-latex/fitif-1.pdf> <./thesis_files/figure-latex/hc-1
-.pdf>] [35] [36]
+.pdf>] [35]
+<thesis_files/figure-latex/combinedhc-1.pdf, id=1049, 361.35pt x 180.675pt>
+File: thesis_files/figure-latex/combinedhc-1.pdf Graphic file (type pdf)
+<use thesis_files/figure-latex/combinedhc-1.pdf>
+Package pdftex.def Info: thesis_files/figure-latex/combinedhc-1.pdf  used on in
+put line 1187.
+(pdftex.def)             Requested size: 361.34912pt x 180.67455pt.
+[36 <./thesis_files/figure-latex/combinedhc-1.pdf>]
 Chapter 5.
 
-Underfull \hbox (badness 4981) in paragraph at lines 1192--1192
+Underfull \hbox (badness 4981) in paragraph at lines 1201--1201
 []\T1/lmr/bx/n/17.28 Data Stan-dard-iza-tion and Down-scal-ing Sup-
  []
 
 [37
 
-] [38]
-<thesis_files/figure-latex/qualitycomparison2-1.pdf, id=1076, 469.755pt x 325.2
+]
+
+LaTeX Warning: Reference `fig:qualitycomparison1' on page 38 undefined on input
+ line 1246.
+
+[38]
+<thesis_files/figure-latex/qualitycomparison2-1.pdf, id=1088, 469.755pt x 325.2
 15pt>
 File: thesis_files/figure-latex/qualitycomparison2-1.pdf Graphic file (type pdf
 )
 <use thesis_files/figure-latex/qualitycomparison2-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/qualitycomparison2-1.pdf  us
-ed on input line 1265.
+ed on input line 1273.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-<thesis_files/figure-latex/sideamera5-1.pdf, id=1077, 289.08pt x 216.81pt>
+<thesis_files/figure-latex/sideamera5-1.pdf, id=1092, 289.08pt x 216.81pt>
 File: thesis_files/figure-latex/sideamera5-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/sideamera5-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/sideamera5-1.pdf  used on in
-put line 1272.
+put line 1279.
 (pdftex.def)             Requested size: 289.07928pt x 216.80946pt.
-[39] [40 <./thesis_files/figure-latex/qualitycomparison2-1.pdf>]
-<thesis_files/figure-latex/poorcomparison-1.pdf, id=1095, 469.755pt x 325.215pt
+[39 <./thesis_files/figure-latex/qualitycomparison2-1.pdf>]
+<thesis_files/figure-latex/poorcomparison-1.pdf, id=1109, 469.755pt x 325.215pt
 >
 File: thesis_files/figure-latex/poorcomparison-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/poorcomparison-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/poorcomparison-1.pdf  used o
-n input line 1284.
+n input line 1301.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-<thesis_files/figure-latex/verygoodxts-1.pdf, id=1096, 469.755pt x 216.81pt>
+[40 <./thesis_files/figure-latex/sideamera5-1.pdf>]
+<thesis_files/figure-latex/verygoodxts-1.pdf, id=1124, 469.755pt x 216.81pt>
 File: thesis_files/figure-latex/verygoodxts-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/verygoodxts-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/verygoodxts-1.pdf  used on i
-nput line 1289.
+nput line 1327.
 (pdftex.def)             Requested size: 469.75386pt x 216.80946pt.
-[41 <./thesis_files/figure-latex/sideamera5-1.pdf>] [42 <./thesis_files/figure-
-latex/poorcomparison-1.pdf>]
-<thesis_files/figure-latex/verygood-1.pdf, id=1126, 469.755pt x 325.215pt>
+<thesis_files/figure-latex/verygood-1.pdf, id=1125, 469.755pt x 325.215pt>
 File: thesis_files/figure-latex/verygood-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/verygood-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/verygood-1.pdf  used on inpu
-t line 1295.
+t line 1332.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[43 <./thesis_files/figure-latex/verygoodxts-1.pdf>]
-<thesis_files/figure-latex/page1-1.pdf, id=1138, 469.755pt x 325.215pt>
+[41 <./thesis_files/figure-latex/poorcomparison-1.pdf>]
+<thesis_files/figure-latex/page1-1.pdf, id=1142, 469.755pt x 325.215pt>
 File: thesis_files/figure-latex/page1-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/page1-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/page1-1.pdf  used on input l
-ine 1304.
+ine 1341.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[44 <./thesis_files/figure-latex/verygood-1.pdf>]
-<thesis_files/figure-latex/page6-1.pdf, id=1153, 469.755pt x 325.215pt>
+[42 <./thesis_files/figure-latex/verygoodxts-1.pdf> <./thesis_files/figure-late
+x/verygood-1.pdf>]
+<thesis_files/figure-latex/page6-1.pdf, id=1163, 469.755pt x 325.215pt>
 File: thesis_files/figure-latex/page6-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/page6-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/page6-1.pdf  used on input l
-ine 1318.
+ine 1355.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[45 <./thesis_files/figure-latex/page1-1.pdf>]
-<thesis_files/figure-latex/page7-1.pdf, id=1164, 469.755pt x 325.215pt>
+[43 <./thesis_files/figure-latex/page1-1.pdf>]
+<thesis_files/figure-latex/page7-1.pdf, id=1175, 469.755pt x 325.215pt>
 File: thesis_files/figure-latex/page7-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/page7-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/page7-1.pdf  used on input l
-ine 1335.
+ine 1372.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[46 <./thesis_files/figure-latex/page6-1.pdf>]
-<thesis_files/figure-latex/page9-1.pdf, id=1175, 469.755pt x 325.215pt>
+[44 <./thesis_files/figure-latex/page6-1.pdf>]
+<thesis_files/figure-latex/page9-1.pdf, id=1186, 469.755pt x 325.215pt>
 File: thesis_files/figure-latex/page9-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/page9-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/page9-1.pdf  used on input l
-ine 1346.
+ine 1383.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[47 <./thesis_files/figure-latex/page7-1.pdf>]
-<thesis_files/figure-latex/page8-1.pdf, id=1188, 469.755pt x 325.215pt>
+[45 <./thesis_files/figure-latex/page7-1.pdf>]
+<thesis_files/figure-latex/page8-1.pdf, id=1200, 469.755pt x 325.215pt>
 File: thesis_files/figure-latex/page8-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/page8-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/page8-1.pdf  used on input l
-ine 1360.
+ine 1397.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[48 <./thesis_files/figure-latex/page9-1.pdf>]
-<thesis_files/figure-latex/page10-1.pdf, id=1200, 469.755pt x 325.215pt>
+[46 <./thesis_files/figure-latex/page9-1.pdf>]
+<thesis_files/figure-latex/page10-1.pdf, id=1211, 469.755pt x 325.215pt>
 File: thesis_files/figure-latex/page10-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/page10-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/page10-1.pdf  used on input 
-line 1374.
+line 1411.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[49 <./thesis_files/figure-latex/page8-1.pdf>] [50 <./thesis_files/figure-latex
-/page10-1.pdf>] [51]
+[47 <./thesis_files/figure-latex/page8-1.pdf>] [48 <./thesis_files/figure-latex
+/page10-1.pdf>] [49]
 Chapter 6.
-[52
+[50
 
-] [53
+] [51
 
 ]
 Appendix A.
-[54
+[52
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 1463--1465
+Underfull \hbox (badness 10000) in paragraph at lines 1500--1502
  \T1/lmr/m/n/12 from []$\T1/lmtt/m/n/12 https : / / www . ebook . de / de / pro
 duct / 35017614 / american _ society _ of _ civil _
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1463--1465
+Underfull \hbox (badness 10000) in paragraph at lines 1500--1502
  \T1/lmtt/m/n/12 engineers _ minimum _ design _ loads _ and _ associated _ crit
 eria _ for _ buildings _ and _
  []
 
-[55
+[53
 
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 1502--1504
+Underfull \hbox (badness 10000) in paragraph at lines 1539--1541
  \T1/lmr/m/n/12 from []$\T1/lmtt/m/n/12 https : / / www . amazon . com / Teleco
 mmunications -[] Environment -[] Monographs -[]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1502--1504
+Underfull \hbox (badness 10000) in paragraph at lines 1539--1541
  \T1/lmtt/m/n/12 Statistics -[] Probability / dp / 1584884118 ? SubscriptionId 
 = AKIAIOBINVZYXZQZ2U3A &
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1502--1504
+Underfull \hbox (badness 10000) in paragraph at lines 1539--1541
  \T1/lmtt/m/n/12 tag = chimbori05 -[] 20 & linkCode = xm2 & camp = 2025 & creat
 ive = 165953 & creativeASIN =
  []
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1508.
-[56]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1508.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1545.
+[54]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1545.
 (./thesis.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1508.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1508.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1545.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1545.
 
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: D84AE4F4ACB423885C15A27C1FB3FF80;5092.
+(rerunfilecheck)             Checksum: 0BA3E8D4B225988703320D530086C36E;5139.
 
 LaTeX Warning: There were undefined references.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1508.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1545.
  ) 
 Here is how much of TeX's memory you used:
- 12987 strings out of 483192
- 203866 string characters out of 5964630
- 476555 words of memory out of 5000000
- 27328 multiletter control sequences out of 15000+600000
+ 13003 strings out of 483172
+ 204357 string characters out of 5963959
+ 477158 words of memory out of 5000000
+ 27361 multiletter control sequences out of 15000+600000
  601290 words of font info for 80 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  41i,17n,49p,1364b,449s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1328,10 +1340,10 @@ lm/lmri12.pfb><c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1
 ts/type1/public/lm/lmsy10.pfb><c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-
 dist/fonts/type1/public/lm/lmsy8.pfb><c:/Users/alexyshr/AppData/Roaming/TinyTeX
 /texmf-dist/fonts/type1/public/lm/lmtt12.pfb>
-Output written on thesis.pdf (68 pages, 13260171 bytes).
+Output written on thesis.pdf (66 pages, 13268695 bytes).
 PDF statistics:
- 1429 PDF objects out of 1440 (max. 8388607)
- 1246 compressed objects within 13 object streams
- 306 named destinations out of 1000 (max. 500000)
- 780 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1440 PDF objects out of 1440 (max. 8388607)
+ 1257 compressed objects within 13 object streams
+ 308 named destinations out of 1000 (max. 500000)
+ 785 words of extra memory for PDF output out of 10000 (max. 10000000)
 

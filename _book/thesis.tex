@@ -1181,40 +1181,49 @@ Where \(P_e(y>Y_N)\) is the annual exceedance probability for the combined wind 
 
 To understand equation \eqref{eq:combination}, it is important to remember that to calculate return level \(Y_N\), for a given N-year return period, the exceedance probability \(\frac{1}{N}\) of \(Y_N\) is calculated. Then, the non-exceedance probability for \(Y_N\) is \(\left(1-\frac{1}{N}\right)\). The procedure consist in the creation of a new hazard curve, calculating all \(P_e(y>Y_N)\) values for different \(Y_N\) return levels, combining hazard curves from non-thunderstorm and thunderstorm data.
 
+Equation \eqref{eq:combination} can be expressed in terms of only exceedance probabilities, \(P_{e} = 1 - (1 -P_{nh}) * (1 - P_{h})\), where \(P_{nh}\) is the the annual exceedance probability for non-hurricane winds, and \(P_{h}\) is the annual exceedance probability for hurricane winds. A graphical explanation of the procedure to calculate the combined \(P_e\) for the return level \(30\frac{Km}{h}\), is shown in next figure \ref{fig:combinedhc}. For each cell in the study area, it is neccesary to calculate a new combined hazard curve, this is, all the \(P_e\) values corresponding all different return levels (see right table in figure \ref{fig:combinedhc}).
+\begin{figure}
+
+{\centering \includegraphics{thesis_files/figure-latex/combinedhc-1} 
+
+}
+
+\caption{Integration Hurricane and Non-Hurricane Data}\label{fig:combinedhc}
+\end{figure}
 After the combined hazard curve is created, a new process of spatial interpolation need to be accomplished. In case of absence of hazard curves for stations, but availability of return levels maps, it becomes necessary to recreate hazard curves cell by cell, to apply equation \eqref{eq:combination}. In this case are required as many maps as possible for different return periods, in order to estimate detailed enough hazard curves from return level values (cell values).
 
 \hypertarget{rmd-results}{%
 \chapter{Results}\label{rmd-results}}
 
-In this section, will be shown first, the data source comparison to face the downscaling issue by using ERA5 and ISD database, then, the resulting process of fitting a POT-PP in the station 801120, which includes revision of intensity function parameters, goodness of fit, hazard curve, return levels, and comparison with POT-GPD results, next, non-hurricane maps outputs, which includes results for ISD and ERA5 stations, using POT-PP and POT-GPD approaches, and finally, output maps combining hurricane and non-hurricane results will be displayed.
+In this section, will be shown first, the data source comparison (post standardization process) to face the downscaling issue by using ERA5 and ISD database, then, the resulting process of fitting a POT-PP in the ISD station 801120, which includes revision of intensity function parameters, goodness of fit, hazard curve, return levels, and comparison with POT-GPD results, next, non-hurricane maps outputs, which includes results for ISD and ERA5 stations, and finally, output maps combining hurricane and non-hurricane results will be displayed.
 
 \hypertarget{data-standardization-and-downscaling-support}{%
 \section{Data Standardization and Downscaling Support}\label{data-standardization-and-downscaling-support}}
 
-Looking for a statistical justification in the use of ISD (model) and ERA5 databases (forecast), as input data for this study, and considering the \emph{downscaling approach} described in the \protect\hyperlink{rmd-standartization}{standartization process} section of methodology, data sources ISD and IDEAM were standardized to enable comparison. Standardization consisted of transforming the data to be equivalent to 3-s gust \(V_3\), 10 meters anemometer height, and open space roughness. In the comparison process, for coincident stations by spatial location, it was checked if the velocity values (standardized) in the three sources, for equal dates, were similar in magnitude.
+Looking for a statistical justification in the use of ISD (model) and ERA5 databases (forecast), as input data for this study, and considering the \emph{downscaling approach} described in the \protect\hyperlink{rmd-standartization}{standartization process} section of methodology, data sources ISD and IDEAM were standardized to enable comparison. Standardization consisted of transforming the data to be equivalent to \(V_3\) 3-s gust, 10 meters anemometer height, and open space roughness. In the comparison process, for coincident stations by spatial location, it was checked if the velocity values (standardized) in the three sources, for equal dates, were similar in magnitude.
 
 \hypertarget{data-standardization-1}{%
 \subsection{Data Standardization}\label{data-standardization-1}}
 
-None of the sources required anemometer height standardization. Lettau (\protect\hyperlink{ref-Lettau1969}{1969}) was used for roughness standardization of ISD and IDEAM, applying the method station by station. Gust velocities standardization was done using Durst cuve, and in order to obtain \(V_3\) from Durst curve, it is required to start from \(V_{3600}\) (average hourly speed), or from a different wind gust speed, for instance \(V_5\).
+None of the sources required anemometer height standardization. Lettau (\protect\hyperlink{ref-Lettau1969}{1969}) was used for roughness standardization of ISD and IDEAM, applying the method station by station. Gust velocities standardization was done using Durst cuve, and in order to obtain \(V_3\) from Durst curve, it was required to start from \(V_{3600}\) (average hourly speed), or from a different wind gust speed, for instance \(V_5\) 5-s gust.
 
 For ERA5:
 \begin{itemize}
 \tightlist
 \item
-  Variable \emph{10m wind gust - 10fg} of ERA5 data source does not need any standardization, because it comes standardized from the source
+  Variable \emph{10m wind gust - 10fg} of ERA5 data source does not need any standardization, because it comes standardized from the source.
 \end{itemize}
 For ISD:
 \begin{itemize}
 \item
   Wind velocity from ISD comes from source as \(V_5\), that is, five seconds gust wind velocity. To standardize from \(V_5\) to \(V_3\), using Durst curve, the correction factor is 1.03.
 \item
-  Wind velocity \(V_5\) from 74 ISD stations, was standardized station by station, using procedure described in \protect\hyperlink{rmd-roughness}{Surface Roughness at Open Space} section, and \protect\hyperlink{rmd-gust}{Averaging Time 3-s Gust} section
+  Wind velocity \(V_5\) from 74 ISD stations, was standardized station by station, using procedure described in \protect\hyperlink{rmd-roughness}{Surface Roughness at Open Space} section, and \protect\hyperlink{rmd-gust}{Averaging Time 3-s Gust} section.
 \end{itemize}
 For IDEAM:
 \begin{itemize}
 \item
-  As the original variables obtained from IDEAM, do not represent gust speeds, it is necessary to start from \emph{average hourly speed} \(V_{3600}\), to obtain 3-s gust \(V_3\). To standardize from \(V_{3600}\) to \(V_3\), using Durst curve, the correction factor is 1.51.
+  As the original variables obtained from IDEAM, do not represent gust speeds, it was necessary to start from \emph{average hourly speed} \(V_{3600}\), to obtain 3-s gust \(V_3\). To standardize from \(V_{3600}\) to \(V_3\), using Durst curve, the correction factor is 1.51.
 \item
   It was not possible to obtain the \emph{average hourly speed} \(V_{3600}\) from IDEAM, see table \ref{tab:tabledatasources2}, but from \emph{instantaneous wind velocity each 2 minutes - VV\_AUT\_2} it is possible to obtain a \textbf{good} estimator of \(V_{3600}\), and from \emph{instantateous wind velocity each 10 minutes - VV\_AUT\_10} it is possible to obtain a \textbf{poor} estimator of \(V_{3600}\).
 \end{itemize}
@@ -1223,77 +1232,105 @@ For IDEAM:
 
 The available IDEAM data allowed two comparison processes, with quality data for a few stations, and with low quality data, but available for all stations.
 
-In both cases, to make the use of ISD and ERA5 viable, its time series are expected to be as similar as possible to IDEAM. To verify this, two types of graphics were constructed:
-\begin{itemize}
+In both cases, to make the use of ISD and ERA5 viable, its time series are expected to be as similar as possible to IDEAM (field measurements). To verify this, two types of graphics were constructed:
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
 \item
-  Time series overlay for the three sources. Not very effective method due to the large amount of data that makes the graphics unreadable.
+  \textbf{Time series overlay} for the three sources. Not very effective method due to the large amount of data that makes the graphics unreadable.
 \item
-  Scatter plot maps comparing two different sources. Matching values by time, were sorted in ascending order and put together on a scatter plot. The expected behavior in case of similarity in the data, is that all the points fall in a \(45^\circ\) line
-\end{itemize}
-\hypertarget{quality-data-available-in-some-ideam-stations}{%
-\subsubsection{Quality data available in some IDEAM stations}\label{quality-data-available-in-some-ideam-stations}}
+  \textbf{Scatter plot graphics} comparing two different sources. Matching values by time, were sorted in ascending order, and put together on a scatter plot. The expected behavior in case of similarity in the data, is that all the points fall in a \(45^\circ\) line
+\end{enumerate}
+\hypertarget{ideam-vv_aut_2---quality-data-comparison}{%
+\subsubsection{IDEAM VV\_AUT\_2 - Quality Data Comparison}\label{ideam-vv_aut_2---quality-data-comparison}}
 
-IDEAM VV\_AUT\_2 was available for twenty (20) stations, of which only twelve (12) were \emph{perfectly equivalent} to ISD stations (see table \ref{tab:table12stations}). VV\_AUT\_2 dataset was transformed to \(V_{3600}\) (average hourly speed), averaging all 20 values available per hour. For twelve matching stations, wind velocity \(V_{3600}\) (transformation of VV\_AUT\_2), was standardized station by station, using procedure described in \protect\hyperlink{rmd-roughness}{Surface Roughness at Open Space} section and \protect\hyperlink{rmd-gust}{Averaging Time 3-s Gust}, and finally, for the same twelve ISD and IDEAM standardized stations, a comparison was done against matching ERA5 stations (the corresponding cell in ERA5 that has within ISD and IDEAM locations).
+IDEAM VV\_AUT\_2 was available for twenty (20) stations, of which only twelve (12) were \emph{perfectly equivalent} to ISD stations, see table \ref{tab:table12stations}, and map in left panel of figure \ref{fig:qualitycomparison1}. VV\_AUT\_2 dataset was transformed to \(V_{3600}\) (average hourly speed), averaging all 20 values available per hour. For twelve matching stations, wind velocity \(V_{3600}\) (transformation of VV\_AUT\_2), was standardized station by station, using procedure described in \protect\hyperlink{rmd-roughness}{Surface Roughness at Open Space} section and \protect\hyperlink{rmd-gust}{Averaging Time 3-s Gust}, and finally, for the same twelve ISD and IDEAM standardized stations, a comparison was done against matching ERA5 stations (the corresponding cell in ERA5 that has within ISD and IDEAM locations).
 
 \begingroup\fontsize{10}{12}\selectfont
-\begin{longtable}[t]{>{\raggedright\arraybackslash}p{0.6in}>{\raggedright\arraybackslash}p{0.6in}>{\raggedright\arraybackslash}p{2.7in}}
-\caption[Twelve equivalent stations from ISD, IDEAM and ERA5]{\label{tab:table12stations}Equivalent stations from ISD and IDEAM and ERA5, representing the same weather station in the field}\\
+\begin{longtable}[t]{>{\raggedright\arraybackslash}p{0.6in}>{\raggedright\arraybackslash}p{0.6in}>{\raggedright\arraybackslash}p{1.8in}}
+\caption[quality]{\label{tab:table12stations}Quality Data Comparison}\\
 \toprule
-\multicolumn{1}{l}{ISD ID} & \multicolumn{1}{l}{IDEAM ID} & \multicolumn{1}{l}{ERA5 ID}\\
+\multicolumn{1}{l}{ISD ID} & \multicolumn{1}{l}{IDEAM ID} & \multicolumn{1}{l}{ERA5 ID, (col,row), [lon,lat]}\\
 \midrule
-803980 & 48015050 & 3320. Col:37. Row:68. Lon:-70. Lat:-4.25\\
-803700 & 52055230 & 2309. Col:6. Row:48. Lon:-77.75. Lat:0.75\\
-802110 & 26125061 & 1582. Col:14. Row:33. Lon:-75.75. Lat:4.5\\
-802100 & 26125710 & 1533. Col:14. Row:32. Lon:-75.75. Lat:4.75\\
-801120 & 23085270 & 1240. Col:15. Row:26. Lon:-75.5. Lat:6.25\\
+803980 & 48015050 & 3320, (37, 68), [-70, -4.25]\\
+803700 & 52055230 & 2309, (6, 48), [-77.75, 0.75]\\
+802110 & 26125061 & 1582, (14, 33), [-75.75, 4.5]\\
+802100 & 26125710 & 1533, (14, 32), [-75.75, 4.75\\
+801120 & 23085270 & 1240, (15, 26), [-75.5, 6.25]\\
 \addlinespace
-801100 & 27015330 & 1240. Col:15. Row:26. Lon:-75.5. Lat:6.25\\
-800970 & 16015501 & 909. Col:27. Row:19. Lon:-72.5. Lat:8\\
-800940 & 23195502 & 1102. Col:24. Row:23. Lon:-73.25. Lat:7\\
-800630 & 13035501 & 749. Col:14. Row:16. Lon:-75.75. Lat:8.75\\
-800360 & 28025502 & 416. Col:24. Row:9. Lon:-73.25. Lat:10.5\\
+801100 & 27015330 & 1240, (15, 26), [-75.5, 6.25]\\
+800970 & 16015501 & 909, (27, 19), [-72.5, 8]\\
+800940 & 23195502 & 1102, (24, 23), [-73.25, 7]\\
+800630 & 13035501 & 749, (14, 16), [-75.75, 8.75]\\
+800360 & 28025502 & 416, (24, 9), [-73.25, 10.5]\\
 \addlinespace
-800350 & 15065180 & 221. Col:25. Row:5. Lon:-73. Lat:11.5\\
-800280 & 29045190 & 312. Col:18. Row:7. Lon:-74.75. Lat:11\\
+800350 & 15065180 & 221, (25, 5), [-73, 11.5]\\
+800280 & 29045190 & 312, (18, 7), [-74.75, 11]\\
 \bottomrule
 \end{longtable}
 \endgroup{}
-
-Stations 28025502 from IDEAM, 800360 from ISD, and 416 (cell with center point in \(-73.25^\circ\) longitude, and \(10.5^\circ\) latitude) from ERA5, showed high correspondence. See figures \ref{fig:sideamera5}. Unfortunately, in the other eleven stations, there was no high equivalence between sources.
 \begin{figure}
 \centering
 \includegraphics{thesis_files/figure-latex/qualitycomparison2-1.pdf}
-\caption{\label{fig:qualitycomparison2}Quality Data Comparison
-Left: Twelve matching stations
-from IDEAM and ISD. Right: Stations 28025502 from IDEAM, 800360 from ISD, and 416 from ERA5}
+\caption{\label{fig:qualitycomparison2}IDEAM VV\_AUT\_2 - Quality Data Comparison.}
 \end{figure}
+The stations described in each row of the previous table \ref{tab:table12stations}, were compared by generating scatter plots and common time series graphics. Stations 28025502 from IDEAM, 800360 from ISD, and 416 (cell with center point in \(-73.25^\circ\) longitude, and \(10.5^\circ\) latitude) from ERA5, see map in right panel of figure \ref{fig:qualitycomparison2}, showed high correspondence, see figure \ref{fig:sideamera5}, because green regression line (empirical) is very similar to \(45^\circ\) line (theoretical). Unfortunately, in the other eleven stations, there was no high equivalence between sources.
 \begin{figure}
 
 {\centering \includegraphics{thesis_files/figure-latex/sideamera5-1} 
 
 }
 
-\caption{Scatter plot of IDEAM vs ERA5. Stations comparison: 28025502 (IDEAM), and 416 (ERA5)}\label{fig:sideamera5}
+\caption{Quality Data Comparison. High similarity between sources}\label{fig:sideamera5}
 \end{figure}
-\hypertarget{poor-data-available-in-all-ideam-stations}{%
-\subsubsection{Poor data available in all IDEAM stations}\label{poor-data-available-in-all-ideam-stations}}
+\hypertarget{ideam-vv_aut_10---non-quality-data-comparison-available-in-all-ideam-stations}{%
+\subsubsection{IDEAM VV\_AUT\_10 - Non Quality Data Comparison (available in all IDEAM stations)}\label{ideam-vv_aut_10---non-quality-data-comparison-available-in-all-ideam-stations}}
 
-VV\_AUT\_10 was available for 204 stations, and despide that \(V_{3600}\) calculated from this source, is not an accurate or quality estimator, the standarization process was done to allow a comparison process.
+VV\_AUT\_10 was available for 204 stations, and despide that \(V_{3600}\) calculated from this source, is not an accurate or quality estimator, the standarization procedure was done to allow an additional comparison process, whose results are shown in the map displayed in figure \ref{fig:poorcomparison}. Downscaling support was `Good' comparing IDEAM and/or ISD stations with twenty-three (23) ERA5 stations (2261, 1971, 2066, 2020, 2260, 1875, 2213, 2637, 1442, 1583, 1501, 1582, 1381, 1493, 1485, 1397, 1338, 1055, 511, 1644, 515, 221, 1038), and `Very Good' comparing IDEAM and/or ISD with five (5) ERA5 stations (265, 360, 78, 312, 416).
+
+`Very Good' downscaling results for this non quality data comparison, are shown bellow:
+\begin{itemize}
+\item
+  Table \ref{tab:tableverygood}, shows in each row compared stations.
+\item
+  Figure \ref{fig:verygoodxts}, shows an example of a very good time series plot for the ERA5 station 78 vs IDEAM stations 15075501 and 15079010.
+\item
+  Figure \ref{fig:verygood}, shows four different very good scatter plots, a) IDEAM 15015120 vs ERA5 265, b) IDEAM 29004520 vs ERA5 312, c) IDEAM 15079010 vs ERA5 78, and d) IDEAM 15075501 vs ERA5 78. Red line in each graphic represent the desired \(45^\circ\) line, where all points should fall, if the data sources would be exactly the same (theoretical behavior when there is equivalence of sources), and green line represents the linear regression line (empirical or real behavior when making the comparison).
+\end{itemize}
 \begin{figure}
 \centering
 \includegraphics{thesis_files/figure-latex/poorcomparison-1.pdf}
-\caption{\label{fig:poorcomparison}`Poor Data' Comparison: ERA5 vs ISD vs IDEAM. Downscaling Support: `Good' in 23 ERA5 stations (2261, 1971, 2066, 2020, 2260, 1875, 2213, 2637, 1442, 1583, 1501, 1582, 1381, 1493, 1485, 1397, 1338, 1055, 511, 1644, 515, 221, 1038), and `Very Good' in 5 (265, 360, 78, 312, 416)}
+\caption{\label{fig:poorcomparison}IDEAM VV\_AUT\_10 - Non Quality Data Comparison. Two different types of downscaling support: `Good' and `Very Good'}
 \end{figure}
+\begingroup\fontsize{10}{12}\selectfont
+\begin{longtable}[t]{>{\raggedright\arraybackslash}p{0.6in}>{\raggedright\arraybackslash}p{0.6in}>{\raggedright\arraybackslash}p{1.8in}}
+\caption[non-quality]{\label{tab:tableverygood}Non quality data comparison. 'Very Good' downscaling support.}\\
+\toprule
+\multicolumn{1}{l}{ISD ID} & \multicolumn{1}{l}{IDEAM ID} & \multicolumn{1}{l}{ERA5: ID, (col,row), [lon,lat]}\\
+\midrule
+NA & 16015501 & 78, (29, 2), [-72, 12.25]\\
+NA & 15079010 & 78, (29, 2), [-72, 12.25]\\
+NA & 15075501 & 78, (29, 2), [-72, 12.25]\\
+NA & 15015120 & 265, (20, 6), [-74.25,  11.25]\\
+NA & 29004520 & 312, (18, 7), [-74.75, 11]\\
+\addlinespace
+800280 & 29045190 & 312, (18, 7), [-74.75, 11]\\
+NA & 29045000 & 360, (17, 8), [-75, 10.75]\\
+NA & 28025502 & 416, (24, 9), [-73.25, 10.5]\\
+800360 & 28035060 & 416, (24, 9), [-73.25, 10.5]\\
+\bottomrule
+\end{longtable}
+\endgroup{}
+
+For some ISD stations in previous table \ref{tab:tableverygood}, the value `NA' means that for the corresponding ERA5 and IDEAM station (same row), there is not a ISD station located inside the ERA5 cell space (\(0.25^\circ * 0.25^\circ\)).
 \begin{figure}
 \centering
 \includegraphics{thesis_files/figure-latex/verygoodxts-1.pdf}
-\caption{\label{fig:verygoodxts}`Poor Data' Comparison: ERA5 vs ISD vs IDEAM. Downscaling Support: Graphics for `Very Good'}
+\caption{\label{fig:verygoodxts}Non Quality Data Comparison. Time Series Graphic for `Very Good' Downscaling Support}
 \end{figure}
-Hola
 \begin{figure}
 \centering
 \includegraphics{thesis_files/figure-latex/verygood-1.pdf}
-\caption{\label{fig:verygood}`Poor Data' Comparison: ERA5 vs ISD vs IDEAM. Downscaling Support: Graphics for `Very Good'}
+\caption{\label{fig:verygood}Non Quality Data Comparison: Scatter plots for `Very Good' Downscaling Support}
 \end{figure}
 \hypertarget{pot-pp-in-isd-station-801120}{%
 \section{POT-PP in ISD Station 801120}\label{pot-pp-in-isd-station-801120}}

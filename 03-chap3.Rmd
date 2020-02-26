@@ -441,6 +441,165 @@ Where $P_e(y>Y_N)$ is the annual exceedance probability for the combined wind ha
 
 To understand equation \@ref(eq:combination), it is important to remember that to calculate return level $Y_N$, for a given N-year return period, the exceedance probability $\frac{1}{N}$ of $Y_N$ is calculated. Then, the non-exceedance probability for $Y_N$ is $\left(1-\frac{1}{N}\right)$. The procedure consist in the creation of a new hazard curve, calculating all $P_e(y>Y_N)$ values for different $Y_N$ return levels, combining hazard curves from non-thunderstorm and thunderstorm data.
 
+Equation \@ref(eq:combination) can be expressed in terms of only exceedance probabilities, $P_{e} = 1 - (1 -P_{nh}) * (1 - P_{h})$, where $P_{nh}$ is the the annual exceedance probability for non-hurricane winds, and $P_{h}$ is the annual exceedance probability for hurricane winds. A graphical explanation of the procedure to calculate the combined $P_e$ for the return level $30\frac{Km}{h}$, is shown in next figure \@ref(fig:combinedhc). For each cell in the study area, it is neccesary to calculate a new combined hazard curve, this is, all the $P_e$ values corresponding all different return levels (see right table in figure \@ref(fig:combinedhc)).
+
+
+```{r combinedhc, echo=FALSE, fig.align="center", fig.cap="Integration Hurricane and Non-Hurricane Data", message=FALSE, warning=FALSE, fig.height=2.5, fig.width=5}
+library(shape)
+#par(xpd = NA)
+#op <- par(mar = rep(0, 4))
+
+plotit<-function(){
+
+  par(mar=c(2,2,0,0))
+  par(oma=c(0,0,0,0))
+  par(bg=NA)
+  plot(1, xlab='', ylab='', type='n', yaxt='n', xaxt='n', tck=0,
+     xlim=c(0,200), ylim=c(0,0.05), bg = 'transparent', bty="n")
+  
+  arrows(0,0,0,0.05, length=0.04)
+   arrows(0,0,200,0, length=0.04)
+  
+  text(x = par("usr")[2] - 5,  y = par("usr")[3] - 0.005,
+       labels = expression(frac(1, N)),
+       xpd = NA,
+       ## Rotate the labels by 35 degrees.
+       srt = 0,
+       cex = 0.7)
+  
+  text(x = par("usr")[1] - 6,  y = 0.05,
+       labels = expression(Y[N]),
+       xpd = NA,
+       ## Rotate the labels by 35 degrees.
+       srt = 0,
+       cex = 0.7)
+  
+  text(x = 50.2,  y = par("usr")[3] - 0.003,
+       labels = "?",
+       xpd = NA,
+       ## Rotate the labels by 35 degrees.
+       srt = 0,
+       cex = 0.7)
+  
+  text(x = 68.5,  y = par("usr")[3] - 0.003,
+       labels = "0.02",
+       xpd = NA,
+       ## Rotate the labels by 35 degrees.
+       srt = 0,
+       cex = 0.7)
+  
+  text(x = 100,  y = par("usr")[3] - 0.003,
+       labels = "0.03",
+       xpd = NA,
+       ## Rotate the labels by 35 degrees.
+       srt = 0,
+       cex = 0.7)
+  
+  text(x = par("usr")[1] - 10,  y = 0.015,
+       labels = expression(paste("30 ", frac(Km, h))),
+       xpd = NA,
+       ## Rotate the labels by 35 degrees.
+       srt = 0,
+       cex = 0.7)
+  
+  text(x = par("usr")[2] - 2,  y = 0.048,
+       labels = "Combined",
+       xpd = NA,
+       ## Rotate the labels by 35 degrees.
+       srt = 0,
+       pos = 2, 
+       cex = 0.6)
+  
+  text(x = par("usr")[2] - 2,  y = 0.031,
+       labels = "Hurricanes",
+       xpd = NA,
+       ## Rotate the labels by 35 degrees.
+       pos = 2,
+       srt = 0,
+       cex = 0.6)
+  
+  text(x = par("usr")[2] - 2,  y = 0.021,
+       labels = "Non-Hurricanes",
+       xpd = NA,
+       ## Rotate the labels by 35 degrees.
+       pos = 2,
+       srt = 0,
+       cex = 0.6)
+  
+  myexp = expression(paste(P[e], " = 1 - (1 -", P[nh], ") * (1 - ", P[h], ")"))
+  
+  text(x = par("usr")[1] + 60,  y = 0.049,
+       #labels = "? = 1- (1 – 0.03)(1-0.02)",
+       labels = myexp,
+       xpd = NA,
+       ## Rotate the labels by 35 degrees.
+       srt = 0,
+       cex = 0.7)
+
+  text(x = par("usr")[1] + 60,  y = 0.045,
+       labels = "? = 1- (1 – 0.03)(1-0.02)",
+       xpd = NA,
+       ## Rotate the labels by 35 degrees.
+       srt = 0,
+       cex = 0.6)
+    
+  location = 65
+  scale = 20
+  .x <- seq(0, 1500, length.out=1000)
+  hfG <- function(x) {
+    (1/scale)*(exp(-(x-location)/scale))/(exp(exp(-(x-location)/scale))-1)
+  }
+  curve(hfG, add=T, col="red", lwd=1, lty=5)
+  Arrows (x0=50.2, y0=0, x1=50.2, y1=(hfG(50.2)-0.003), arr.type="triangle", arr.width=0.04, lwd=0.1)
+  
+  location = 80
+  scale = 30
+  .x <- seq(0, 1500, length.out=1000)
+  curve(hfG, add=T, col="red", lwd=1)
+  Arrows (x0=68.5, y0=0, x1=68.5, y1=(hfG(68.5)-0.003), arr.type="triangle", arr.width=0.04, lwd=0.1)
+  
+  location = 100
+  scale = 40
+  .x <- seq(0, 1500, length.out=1000)
+  curve(hfG, add=T, col="red", lwd=1)
+  Arrows (x0=100, y0=0, x1=100, y1=(hfG(100)-0.003), arr.type="triangle", arr.width=0.04, lwd=0.1)
+  Arrows (x0=100, y0=hfG(100), x1=7, y1=hfG(100) , arr.type="triangle", arr.width=0.04, lwd=0.1)
+  #box(which = "plot", col="red")
+  #box(which = "figure", col="blue")
+  #box(which = "inner", col="cyan")
+  #box(which = "outer", col="orange")
+}
+
+z.plot1<-function(){plotit()}
+
+
+
+mydataframe = data.frame(v = c(10, 20, 30, "...", 350, "..."), Pe = c("...", "...", "?", "...", "...", "..."))
+
+
+names(mydataframe) <- c(expression(Y[N]), expression(P[e]))
+
+library(gridExtra)
+library(grid)
+library(cowplot)
+#mytable = grid.table(mydataframe)
+
+# Set theme to allow for plotmath expressions
+tt <- ttheme_default(base_size = 7, colhead=list(fg_params = list(parse=TRUE)))
+tbl <- tableGrob(mydataframe, rows=NULL, theme=tt)
+
+#grid.arrange(z.plot1, tbl, nrow=2, as.table=TRUE, heights=c(3,1))
+
+
+#plot_grid(z.plot1, mytable)
+
+
+plot_grid(z.plot1, tbl, ncol = 2, rel_widths = c(4,1), labels=c("", "Combined Curve"), label_size = 7, hjust=-0.13)
+
+#grid.rect(gp=gpar(fill=NA))
+
+```
+
 After the combined hazard curve is created, a new process of spatial interpolation need to be accomplished. In case of absence of hazard curves for stations, but availability of return levels maps, it becomes necessary to recreate hazard curves cell by cell, to apply equation \@ref(eq:combination). In this case are required as many maps as possible for different return periods, in order to estimate detailed enough hazard curves from return level values (cell values).
 
 
