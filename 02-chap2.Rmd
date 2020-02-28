@@ -406,7 +406,7 @@ $$
 Where $G$ is the quantile function (_ppf_), and the value of the probability passed to the $G$ function, has to be modified with the $\lambda$ parameter. $\lambda$ is the number of wind speed events over the threshold per year.
 
  
-## Peaks Over Threshold Poisson Process POT-PP {#pot-pp}
+## Peaks Over Threshold Poisson Process POT-PP {#method-pot-pp}
 
 According to @Pintar2015 the stochastic Poisson Process - PP is mainly defined by its intensity function. As the intensity function is not uniform over the domain, the PP considered here is non-homogeneous, and due to the intensity function dependency of magnitude and time, it is also bi-dimensional. PP was described for the first time in @Pickands1971, then extended in @Smith1989.
 
@@ -417,7 +417,7 @@ According to @Pintar2015 the stochastic Poisson Process - PP is mainly defined b
       \begin{split}
             &\lambda_t(y),\;for\,t\,in\,thunderstorm\,period
             \\
-            &\lambda_nt(y),\;for\,t\,in\,non-thunderstorm\,period      
+            &\lambda_{nt}(y),\;for\,t\,in\,non-thunderstorm\,period      
       \end{split}
     \end{cases}
   }
@@ -539,11 +539,11 @@ The same thunderstorm event in considered to occur if the time lag distance betw
 
 ### Threshold Selection {#thresholdselection}
 
-POT-PP needs selection of the best threshold pairs $b_t$ and $b_{nt}$ (see figure \@ref(fig:plotdomainpp)) that produces the optimal fit. Measurement of this threshold fitting is done through $W$ statistics. If wind variable $Y$, in a POT-PP approach, has a $cdf = U = F(Y)$, then $F(Y)$ is distributed as Uniform between 0 and 1 - Uniform(0,1), meaning that the transformation $W = -log(1-U)$ is an exponential random variable with mean one (1).
+POT-PP needs selection of the best threshold pairs $b_t$ and $b_{nt}$ (see figure \@ref(fig:plotdomainpp)) that produces the optimal fit. Measurement of this threshold fitting is done through $W$ statistics. If wind variable $y$, in a POT-PP approach, has a $cdf = U = F(y)$, then $F(y)$ is distributed as Uniform between 0 and 1 - Uniform(0,1), meaning that the transformation $W = -log(1-U)$ is an exponential random variable with mean one (1).
 
 \begin{equation}
   \mathrm{
-            cdf = U= F(Y) = P(Y \leq y) = \frac{\int_b^y\lambda(y,t)\,dy}{\int_b^\infty\lambda(y,t)\,dy} 
+            cdf = U= F(y) = P(y \leq Y) = \frac{\int_b^Y\lambda(y,t)\,dy}{\int_b^\infty\lambda(y,t)\,dy} 
          }
   (\#eq:ppcdf)
 \end{equation}

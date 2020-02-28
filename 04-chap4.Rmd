@@ -489,33 +489,118 @@ plot_grid(cl, cr, bl, br, ncol = 2, labels=c("A", "B", "C", "D"), label_size = 7
 
 ## POT-PP in ISD Station 801120
 
-```{r page1, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Time Series ISD. Station 801120", size="footnotesize", fig.align="center"}
-replayPlot(myprint1)
-```
+Figure \@ref(fig:station801120) shows the satellite image (source Google Earth) of ISD station 801120, located in the international airport 'José María Córdova', municipality of Rio Negro (Antioquia, Colombia), with latitud $6.125^\circ$, and longitud $-75.423^\circ$ WGS84 coordinates.  Red circle represents an influence radius of 800 meters. Table \@ref(tab:cf801120) shows different calculations related to correction factors applied to this station, using procedure described in sections [Surface Roughness at Open Space](#rmd-roughness), and [Averaging Time 3-s Gust](#rmd-gust).
 
-### W-statiscis Plot
-
-```{r page6, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="W-Statiscics Plot. Best Threshold Pair. Station 801120", size="footnotesize", fig.align="center"}
-replayPlot(myprint6)
-```
-
-### Parameters
-
-### Fitted pdf and cdf
-
-```{r page7, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="pdf POT-PP. Station 801120", size="footnotesize", fig.align="center"}
-replayPlot(myprint7)
+```{r station801120, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Location of ISD station 801120", fig.align="center", dpi=420}
+include_graphics(path = "figure/801120.jpg")
 ```
 
 
-```{r page9, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="cdf POT-PP. Station 801120", size="footnotesize", fig.align="center"}
-replayPlot(myprint9)
+
+```{r cf801120, echo=FALSE, message=FALSE, warning=FALSE, paged.print=TRUE, results="asis"}
+cf  = data.frame (Variable = c("Roughness - $Z_o$", "Empirical exponent - $\\alpha$", "Gradient height - $z_g$", "Exposure coefficient - $K_z$", "$F_{exposition}$", "Gust factor for $V_3$" ), Value=c(0.051, 8.38, 310.56, 0.88, 1.07, 1.03))
+
+kable(cf, align=c('l', 'c'),  digits = c(1, 2), format = "latex", escape = FALSE,
+      col.names = c("Variable", "Value"),
+      caption = "Corrections factors for ISD station 801120",
+      caption.short = "corrections factors",
+      longtable = TRUE,
+      booktabs = TRUE) %>%
+      row_spec(0, align = "l") %>%
+      column_spec(1,width = "2in") %>%
+      column_spec(2,width = "0.6in") %>%
+      #column_spec(3,width = "1.8in") %>%
+kable_styling(font_size = 10, latex_options="scale_down")
 ```
 
+### Raw data, declustering, and thresholding
 
-### Goodness of Fit
+As storm information is not available for any of the data sources, all the data for the station was classified as *non-thunderstorm*. According to [POT-PP](#pot-pp) method described in [methodology](#rmd-method), the first process aplied to original time series -raw data-, is [declustering](#decluster), and then, [thresholding](#thresholding). 
 
-```{r page8, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Graphic Diagnosis Of Goodness of Fit. Station 801120", size="footnotesize", fig.align="center"}
+Non-thunderstorm raw data for ISD station 801120 has `r sum(years_all$count)` records, from `r index(years_all)[1]` to `r index(years_all)[length(years_all$count)]`, corresponding to a total amount time in days of `r format(imp.vals$nt.length.time, scientific=F, digits = 0)`, and to an average number of events per year of `r round(imp.vals$n.nthunders.per.year, 1)`, which means that the average duration of an event is `r round(365/imp.vals$n.nthunders.per.year, 1)` days (average size in days of a cluster). After [declustering](#decluster), and [thresholding](#thresholding) processes, the number of records decreases to `r sum(years_declu_nt$count)`. Time series graphics are shown in figure \@ref(fig:ts), showing the data before (left) and after (right) applying the mentioned processes. Detailed yearly statistics are reported in table \@ref(tab:years801120), also including summary for before (left), and after (right). 
+
+It can be seen in the table \@ref(tab:years801120), that declustered data has zero records for some years. This situation is due to that all the data for each one of those years (2001, 2007, 2011, 2013, 2018, and 2019), belonged to a cluster that started the previous year, or finished the next year, and the unique chosen maximun value (the value representative for the cluster) was found in the previous or next year, but not in mentioned years of zero records.
+
+
+```{r ts, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Non-Thunderstorm Time Series for ISD station 801120. Left: Raw Data. Right: Declustered Data",  fig.align="center", fig.height=2, fig.width=4.5}
+plot_grid(myprint1, NULL, myprint5, ncol = 3,  rel_widths = c(1,0.25,1))
+#grid.rect(gp=gpar(fill=NA))
+#grid.arrange(myprint1, myprint5, ncol=2)
+```
+
+```{r years801120, echo=FALSE, message=FALSE, warning=FALSE, paged.print=TRUE, results="asis"}
+#years_declu_nt
+#years_all
+
+labelyears_all = year(years_all)
+years_all_1 = as.data.frame(years_all)
+rownames(years_all_1) = labelyears_all
+
+labelyears_declu_nt = year(years_declu_nt)
+years_declu_nt_1 = as.data.frame(years_declu_nt)
+rownames(years_declu_nt_1) = labelyears_declu_nt
+
+
+years_both <- merge(years_all_1, years_declu_nt_1, by=0, all=TRUE, suffixes = c(".rd",".dc")) 
+
+years_both$count.dc[is.na(years_both$count.dc)] <- 0  
+
+#years1$Year = labelyears
+kable(years_both, align=rep('l', 9),  digits = c(0,0,1,1,1,0,1,1,1), 
+      col.names = c("Year", "Count", "Mean", "Min", "Max","Count", "Mean", "Min", "Max"),
+      caption = "Yearly statistics of raw data and declustered data for ISD station 801120",
+      caption.short = "yearly statistics",
+      longtable = TRUE,
+      booktabs = TRUE) %>%
+      row_spec(0, align = "l") %>%
+      column_spec(1,width = "0.3in") %>%
+      column_spec(2,width = "0.3in") %>%
+      column_spec(3,width = "0.3in") %>%
+      column_spec(4,width = "0.3in") %>%
+      column_spec(5,width = "0.3in") %>%
+      column_spec(6,width = "0.3in") %>%
+      column_spec(7,width = "0.3in") %>%
+      column_spec(8,width = "0.3in") %>%
+      column_spec(9,width = "0.3in") %>%
+      kable_styling(font_size = 9, latex_options="scale_down") %>%
+      add_header_above(c(" ", "Raw Data" = 4, "Declustered Data" = 4))
+```
+
+Using declustered data, and considering that it is only neccesary to calculate optimal threshold for non-thunderstorm data, because there is no records classified as thunderstorm in any data source, many non-thunderstomr thresholds were tested, to choose the best one using the W statistic, as described in section [thresholding](#thresholding) of the [methodology](#rmd-method). Figure \@ref(fig:page6) shows a very good fit in resulting W-Statistic plot, for optimal non-thunderstorm threshold $b_{nt} =$ _`r z5`_$\frac{Km}{h}$, with a maximun W distance of `r format(z8, scientific=F, digits = 2)`, for ISD station 801120, where empirical values (black points) are very close or similar to theoretical values (red line).
+
+
+```{r page6, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="POT - Thresholding", size="footnotesize", fig.align="center", fig.width=2.5, fig.asp=1}
+#replayPlot(myprint6)
+dat <- readRDS("data/myprint6.rds")
+dat
+#lines(x=c(3.1, 3.1), y=c(3.1,3.8), col="green", lty=5)
+#points(x=3.1, y=3.8, pch=".")
+#text(x = 3.1, y = 3.4, labels = c("Minimum W-statistic distance"), cex=0.6, pos = 2)
+#box(which = "plot", col="red")
+#box(which = "figure", col="blue")
+#box(which = "inner", col="cyan")
+#box(which = "outer", col="orange")
+
+```
+
+### Fitted pdf and cdf and Goodness of Fit
+
+Equation \@ref(eq:ppintensityfunction), defined in section [POT-PP](#method-pot-pp) of the [methodological framework](#rmd-thefra), was used as intensity function, $\lambda(t, y) = \lambda_{nt}(y)$, for POT-PP. When shape $\zeta_t$ is equal to zero, as it is in this study, an equivalent intensity function is described in equation \@ref(eq:ppspecificintensityfunction) defined in terrms of the parameters location ($\omega_t$), and scale ($\psi_t$). Related _pdf_ and _cdf_ functions are referenced in equations \@ref(eq:pppdf), where the domain $D$ constraint the data above the threshold _b_, and the time to a non-thunderstorm period, and \@ref(eq:ppcdf) respectively.
+
+* Intensity function: $\frac{1}{\psi_{nt}}\exp\left(\frac{-(y-\omega_{nt})}{\psi_{nt}}\right)$
+
+* pdf: $f(t,y) = \frac{\lambda(t,y)}{\int_D\lambda(t,y)\,dt\,dy}$
+
+* cdf: $F(t,y) = P(y \leq Y) = \frac{\int_b^Y\lambda(y,t)\,dy}{\int_b^\infty\lambda(y,t)\,dy}$
+
+After fitting the instensity function to the domain $D$, the resulting parameters for ISD station 801120, are shown bellow:
+
+* Location $\omega_t$ equal to `r format(z6, scientific=F, digits = 2)`, and 
+
+* Scale $\psi_t$ equal to `r format(z7, scientific=F, digits = 2)`.
+
+
+```{r page8, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Graphic Diagnosis Of Goodness of Fit. Station 801120", fig.align="center", fig.width=5, fig.height=4}
 replayPlot(myprint8)
 ```
 

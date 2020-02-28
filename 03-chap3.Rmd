@@ -227,7 +227,7 @@ $$
 It is valid only for open terrain conditions. Durst curve shows in axis $y$ the gust factor $\frac{V_t}{V_{3600}}$, a ration between any wind gust averaged at $t$ seconds, $V_t$, and the hourly averaged wind speed $V_{3600}$, and in the axis $x$ the duration $t$ of the gust in seconds.
 
 
-## Peaks Over Threshold - Poisson Process (POT-PP)
+## Peaks Over Threshold - Poisson Process (POT-PP) {#pot-pp}
 
 Similar to how the adjustment of statistical data to a normal distribution works in order to make inferences considering deviations from the mean, here only some part of the data (those that are extreme - over a high threshold - POT), need to be fitted to a PP considering extreme deviations from the mean. While in the first case (normal distribution) the inferences are for events similar to the samples, in this case, when working with extreme value theory, the inferences will be for more extreme events than any previously observed or measured. In the [theoretical framework](#rmd-thefra) section are described the main elements of [POT-PP](#pot-pp). 
 
@@ -241,9 +241,9 @@ In summary, POT means only to work with extreme values, and PP means to adjust d
 \end{equation}
 
 
-### De-clustering
+### Declustering {#decluster}
 
-To make the assumptions of PP more justifiable, it  is important to have only one sample per event, the highest one. For instance, if a hypothetical storm started at 11:30 in the morning and ended at 12:30 in the afternoon, and the time series for that event has thirty wind measurements (one each two minutes), it is necessary to leave only the stronger or maximum value, and this process is called de-clustering (see Figure \@ref(fig:declustering)). POT-PP defines that all the adjacent observations separated by six hours (6) or less in the case of thunderstorm events, and four (4) days or less, in the case of non-thunderstorm events belong to the same cluster.
+To make the assumptions of PP more justifiable, it  is important to have only one sample per event, the highest one. For instance, if a hypothetical storm started at 11:30 in the morning and ended at 12:30 in the afternoon, and the time series for that event has thirty wind measurements (one each two minutes), it is necessary to leave only the stronger or maximum value, and this process is called declustering (see Figure \@ref(fig:declustering)). POT-PP defines that all the adjacent observations separated by six hours (6) or less in the case of thunderstorm events, and four (4) days or less, in the case of non-thunderstorm events belong to the same cluster.
 
 ```{r declustering, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="De-clustering in PP. Two thunderstorm clusters are shown. Separation between adjacent observations inside the clusters are always equal or less than six hours. Distance between the last event in the first cluster and the first event in the second cluster is larger than six hours. Only red samples are used to fit the PP, but in addition a POT (thresholding) process is needed", size="footnotesize", fig.width= 2, fig.height= 2, fig.align="center"}
 par(bg=NA)
@@ -292,12 +292,12 @@ points(x, y, col="black", pch=20, cex = 1)
 
 Selection of the thresholds pairs, one for thunderstorm, and one for non-thunderstorm, is based in $W$ transformation described in [threshold selection section](#thresholdselection). W-statistic is done comparing the ordered empirical result of applying $W = -log(1-U)$ to the data, axis $y$ in figure \@ref(fig:wstatistics), with the theoretical quantiles of an exponential variable with uniform distribution between 0 and 1, axis $x$ in same figure. W-statistic is the highest vertical distance between the 45º line and the points in the graphic. The best thresholds pairs returns the minimum value for W-statistics after testing, in an iterative process, with many threshold pairs combinations.
 
-```{r wstatistics, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="POT - Thresholding", size="footnotesize", fig.align="center", fig.width=3.5, fig.asp=1}
+```{r wstatistics, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="POT - Thresholding", size="footnotesize", fig.align="center", fig.width=2.5, fig.asp=1}
 dat <- readRDS("data/myprint6.rds")
 dat
 lines(x=c(3.1, 3.1), y=c(3.1,3.8), col="green", lty=5)
 points(x=3.1, y=3.8, pch=".")
-text(x = 3.1, y = 3.4, labels = c("Minimum W-statistic distance"), cex=0.6, pos = 2)
+text(x = 3.1, y = 3.4, labels = c("Minimum W distance"), cex=0.6, pos = 2)
 #box(which = "plot", col="red")
 #box(which = "figure", col="blue")
 #box(which = "inner", col="cyan")

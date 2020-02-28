@@ -163,10 +163,13 @@ if (length(imp.vals$t.series.dt) > 0) {
 
   write.xlsx(holesindays, file=statsfile, sheetName=paste0("declu_t_gaps",thresholdindays,"days"), append=TRUE, row.names=FALSE)
   #Plot time serie
+  opar <- par(no.readonly = TRUE)
   print(plotxts(data=tds, variable="t.series", time=tds$t.series.dt, cex.main=0.2, major.ticks="years",
                 xlab=paste0("Page ", numberofplots, " - Declustered Thunderstorm ('t') Time Series - Station: ", number),
                 main = paste0("Station ID: ",  number, "\nWind Velocity [Km/h]")))
   assign(paste0("myprint", numberofplots), recordPlot())
   saveRDS(eval(parse(text=paste0("myprint", numberofplots))), paste0(outputpath, "myprint", numberofplots, ".rds"))								
   numberofplots = numberofplots + 1
+  #dev.off()
+  par(opar)
 }

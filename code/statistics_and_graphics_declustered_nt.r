@@ -155,7 +155,7 @@ if (length(imp.vals$nt.series.dt) > 0) {
   years = generate_stats_time_serie(ntds, "nt.series", ntds$nt.series.dt, "years")
   months = generate_stats_time_serie(ntds, "nt.series", ntds$nt.series.dt, "months")
   weeks = generate_stats_time_serie(ntds, "nt.series", ntds$nt.series.dt, "weeks")
-
+  years_declu_nt = years
   write.xlsx(years, file=statsfile, sheetName="declu_nt_years", append=TRUE, row.names=TRUE)
   write.xlsx(months, file=statsfile, sheetName="declu_nt_months", append=TRUE, row.names=TRUE)
   write.xlsx(weeks, file=statsfile, sheetName="declu_nt_weeks", append=TRUE, row.names=TRUE)
@@ -166,10 +166,12 @@ if (length(imp.vals$nt.series.dt) > 0) {
 
   write.xlsx(holesindays, file=statsfile, sheetName=paste0("declu_nt_gaps",thresholdindays,"days"), append=TRUE, row.names=FALSE)
   #Plot time serie
+  opar <- par(no.readonly = TRUE)
   print(plotxts(data=ntds, variable="nt.series", time=ntds$nt.series.dt, cex.main=0.2, major.ticks="years",
                 xlab=paste0("Page ",numberofplots, " - Declustered Non-Thunderstorm ('nt') Time Series - Station: ", number),
                 main = paste0("Station ID: ",  number, "\nWind Velocity [Km/h]")))
   assign(paste0("myprint", numberofplots), recordPlot())
   saveRDS(eval(parse(text=paste0("myprint", numberofplots))), paste0(outputpath, "myprint", numberofplots, ".rds"))				
   numberofplots = numberofplots + 1
+  par(opar)
 }

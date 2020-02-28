@@ -15,6 +15,7 @@ if (length(raw.data.tibble$date.time) > 0) {
   #statistics[[2]] = months
   #statistics[[3]] = weeks
   #lapply(statistics, write, statsfile, append=TRUE)
+  years_all = years
 
   library(xlsx)
   write.xlsx(years, file=statsfile, sheetName="all_years", row.names=TRUE)
@@ -37,6 +38,7 @@ if (length(raw.data.tibble$date.time) > 0) {
   #print(plot.xts(myxts, main=main, major.ticks="year", format.labels = "%b-%d\n%Y",
   #         col="green", legend.loc = "top", cex.main=0.2))
   #mtext(side = 1, text = paste0("Page ",numberofplots, " - Time Series Plot for Raw.Data - Station: ", number), outer = TRUE)
+  opar <- par(no.readonly = TRUE)
   print(plotxts(data=raw.data.tibble, variable="speed.kph", time=raw.data.tibble$date.time,
                 cex.main=0.2, major.ticks="years",
                 xlab=paste0("Page ",numberofplots, " - Time Series Plot for Raw.Data - Station: ", number),
@@ -44,4 +46,6 @@ if (length(raw.data.tibble$date.time) > 0) {
   assign(paste0("myprint", numberofplots), recordPlot())
   saveRDS(eval(parse(text=paste0("myprint", numberofplots))), paste0(outputpath, "myprint", numberofplots, ".rds"))				
   numberofplots = numberofplots + 1
+  #dev.off()
+  par(opar)
 }

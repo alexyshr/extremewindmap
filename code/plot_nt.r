@@ -90,16 +90,29 @@ if (length(imp.vals$nt.series.dt) > 0) {
   mygof= fitdistrplus::gofstat(fpnt, discrete=FALSE) # goodness-of-fit statistics
   mykstest = stats::ks.test(imp.vals$nt.series, y="pmygpd", location=gpdLocation, scale=gpdScale, shape=0.00001, dummy=1)
   
-  par(cex=1.2, bg="white")
-  plot(fpnt, lwd=2, col="cadetblue3")
-  
+  #par(cex=1.2, bg="white")
+  opar <- par(no.readonly = TRUE)
+  #par(opar)
+  par(pty='m')
+  par(bg="white")
+  #plot(fpnt, lwd=2, col="cadetblue3")
+  par(mar=c(2,2,1,0))
+  par(oma=c(0,0,0,0))
+  par(mgp=c(1,0.4,0))
+  #par(bty="n") #remove plot box
+  plot(fpnt, lwd=0.5, col="cadetblue3", cex=0.5, cex.main=0.6, cex.axis=0.5, cex.lab=0.5, pch='.', tck=-0.02)
+  #par(bty="o") #add plot box
+  #box(which="figure", lwd=0.1)
+  #box(which="inner", lwd=0.1)
+
   mtext(side = 1, text = paste0("Page ", numberofplots, " - Declustered - Non-Thunderstorm - POT-GPD Equivalent. Location: ",
                                 round(fpnt$fix.arg$location, digits = 2), ". Scale: ", round(fpnt$fix.arg$scale, digits = 2),
                                 ". Shape: ", round(fpnt$fix.arg$shape, digits = 2)), outer = TRUE)
   assign(paste0("myprint", numberofplots), recordPlot())
   saveRDS(eval(parse(text=paste0("myprint", numberofplots))), paste0(outputpath, "myprint", numberofplots, ".rds"))								
   numberofplots = numberofplots + 1
-  
+  par(opar)
+
   #RMSE
   mx <- seq(min(imp.vals$nt.series), max(imp.vals$nt.series), length = 10000)
   empCDF <- stats::ecdf(imp.vals$nt.series)

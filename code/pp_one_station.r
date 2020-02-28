@@ -224,6 +224,7 @@ yvels = 1:600 #Velocities from 1 to 600
 
 
 #Plot: Page 1: W-Statistics Plot for best threshold pair
+opar <- par(no.readonly = TRUE)
 WPlot(t.series=imp.vals$t.series,
       nt.series=imp.vals$nt.series,
       t.thresh=t.thresh,
@@ -241,6 +242,7 @@ assign(paste0("myprint", numberofplots), recordPlot())
 saveRDS(eval(parse(text=paste0("myprint", numberofplots))), paste0(outputpath, "myprint", numberofplots, ".rds"))
 #
 numberofplots = numberofplots + 1
+par(opar)
 
 #Plots for thunderstorm
 source('./code/plot_t.r')

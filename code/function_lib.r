@@ -132,18 +132,56 @@ fGumbel <- function(x) {
 }
 
 
-plotxts <- function(data, variable, time, xlab, cex.main, main, major.ticks){
+plotxtsoriginal <- function(data, variable, time, xlab, cex.main, main, major.ticks){
   library(xts)
   library(dplyr)
   select <- dplyr::select
   myxts = na.omit(xts(x=select(data, variable), order.by = time))
   #plot.new()
   #par(new=FALSE)
-  par(oma = c(2,0,0,0))
-  print(plot.xts(myxts, main=main, major.ticks=major.ticks, format.labels = "%b-%d\n%Y", 
-           col="green", legend.loc = "top", cex.main=cex.main, add=FALSE))
-  mtext(side = 1, text = xlab, outer = TRUE)
+  #par(mar = c(0,0,0,0))
   #par(oma = c(0,0,0,0))
+  print(plot.xts(myxts, main=main, major.ticks=major.ticks, format.labels = "%b-%d\n%Y", 
+           col="green", legend.loc = "top", cex.main=cex.main, add=FALSE, cex=0.3, cex.axis=0.9,
+           mar = c(0,0,0,0), oma = c(0,0,0,0)
+           ))#, yaxis.right=FALSE))
+  #axis(1, at=xy.coords(.index(myxts), myxts[, 1])$x[axTicksByTime(myxts)],
+  #label=names(axTicksByTime(myxts)), mgp = c(2, 1, 0))
+  #mtext(side = 1, text = xlab, outer = TRUE)
+  #par(oma = c(0,0,0,0))
+  #box(which = "plot", col="red")
+  #box(which = "figure", col="blue")
+  #box(which = "inner", col="cyan")
+  #box(which = "outer", col="orange")
+}
+
+plotxts <- function(data, variable, time, xlab, cex.main, main, major.ticks){ #Be aware that is using plot.zoo
+  library(xts)
+  library(dplyr)
+  select <- dplyr::select
+  myxts = na.omit(xts(x=select(data, variable), order.by = time))  
+  par(mar=c(1,1,0,0))
+  par(oma=c(0,0,0,0))
+  par(mgp=c(0,0.5,0))
+  par(pty='s')
+  #par(bty="n") #remove plot box
+  title = ""
+  plot.zoo(myxts, main="", xy.labels=TRUE, xy.lines=TRUE, 
+  yaxt="n", xaxt="n", xlab="", ylab="", cex.axis=0.5, cex.main=0.6, col="green", 
+  mar=c(1,1,0,0), oma=c(0,0,0,0), mgp=c(0,0.5,0), bty="n")
+  #dateTicks(myxts)
+  #axTicksByTime(myxts)
+  #axis.Date(1, at = axTicks(1), format= "%m-%y", las = 1)
+  library(lubridate)
+  lab = year(as.POSIXct(axTicks(1), origin = "1970-01-01"))
+  axis(1, at = axTicks(1), labels=lab, cex.axis=0.5, lwd.ticks=0.1, tck=-0.02, lwd=0.1, mgp=c(0,0.1,0))
+  axis(2, at = axTicks(2), labels=axTicks(2), cex.axis=0.5, lwd.ticks=0.1, tck=-0.02, las=1, lwd=0.1, mgp=c(0,0.4,0))
+  grid()
+  legend(x = "top", legend="Wind Speed. Kph", col="green", lty=1, bg="white", box.col="white", cex=0.5)
+  #box(which="figure", lwd=0.1)
+  par(bty="o") #add plot box
+  print(box(which="plot", lwd=0.1))
+  par(pty='m')
 }
 
 generate_stats_time_serie <- function (data, variable, time, index) {
@@ -950,12 +988,13 @@ WPlot <- function (t.series, nt.series,
 
   if (tf.plot) {
     par(oma = c(0,0,0,0))
-    par(mar = c(4,4,1,0))
+    par(mar = c(2,2,1,0))
+    par(mgp=c(1,0.4,0))
     plot(x=exp1.quantiles, y=W,
          xlab="Exponential with mean 1 and pdf U(0,1) - quantiles",
          ylab="Ordered W-Statistics",
          main=bquote(paste("WPlot. Best thresholds pair (", b[t], "=", .(t.thresh), ", ", b[nt], "=", .(nt.thresh), ")")),
-         cex.lab=0.5, cex.axis=0.6, cex.main=0.7, cex.sub=0.6, pch=".")
+         cex.lab=0.6, cex.axis=0.5, cex.main=0.7, cex.sub=0.6, pch=".", tck=-0.02)
     if (BW) {
 
       abline(a=0, b=1, col="black")
