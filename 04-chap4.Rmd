@@ -519,15 +519,6 @@ As storm information is not available for any of the data sources, all the data 
 
 Non-thunderstorm raw data for ISD station 801120 has `r sum(years_all$count)` records, from `r index(years_all)[1]` to `r index(years_all)[length(years_all$count)]`, corresponding to a total amount time in days of `r format(imp.vals$nt.length.time, scientific=F, digits = 0)`, and to an average number of events per year of `r round(imp.vals$n.nthunders.per.year, 1)`, which means that the average duration of an event is `r round(365/imp.vals$n.nthunders.per.year, 1)` days (average size in days of a cluster). After [declustering](#decluster), and [thresholding](#thresholding) processes, the number of records decreases to `r sum(years_declu_nt$count)`. Time series graphics are shown in figure \@ref(fig:ts), showing the data before (left) and after (right) applying the mentioned processes. Detailed yearly statistics are reported in table \@ref(tab:years801120), also including summary for before (left), and after (right). 
 
-It can be seen in the table \@ref(tab:years801120), that declustered data has zero records for some years. This situation is due to that all the data for each one of those years (2001, 2007, 2011, 2013, 2018, and 2019), belonged to a cluster that started the previous year, or finished the next year, and the unique chosen maximun value (the value representative for the cluster) was found in the previous or next year, but not in mentioned years of zero records.
-
-
-```{r ts, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Non-Thunderstorm Time Series for ISD station 801120. Left: Raw Data. Right: Declustered Data",  fig.align="center", fig.height=2, fig.width=4.5}
-plot_grid(myprint1, NULL, myprint5, ncol = 3,  rel_widths = c(1,0.25,1))
-#grid.rect(gp=gpar(fill=NA))
-#grid.arrange(myprint1, myprint5, ncol=2)
-```
-
 ```{r years801120, echo=FALSE, message=FALSE, warning=FALSE, paged.print=TRUE, results="asis"}
 #years_declu_nt
 #years_all
@@ -566,6 +557,15 @@ kable(years_both, align=rep('l', 9),  digits = c(0,0,1,1,1,0,1,1,1),
       add_header_above(c(" ", "Raw Data" = 4, "Declustered Data" = 4))
 ```
 
+It can be seen in the table \@ref(tab:years801120), that declustered data has zero records for some years. This situation is due to that all the data for each one of those years (2001, 2007, 2011, 2013, 2018, and 2019), belonged to a cluster that started the previous year, or finished the next year, and the unique chosen maximun value (the value representative for the cluster) was found in the previous or next year, but not in mentioned years of zero records.
+
+
+```{r ts, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Non-Thunderstorm Time Series for ISD station 801120. Left: Raw Data. Right: Declustered Data",  fig.align="center", fig.height=2, fig.width=4.5}
+plot_grid(myprint1, NULL, myprint5, ncol = 3,  rel_widths = c(1,0.26,1))
+#grid.rect(gp=gpar(fill=NA))
+#grid.arrange(myprint1, myprint5, ncol=2)
+```
+
 Using declustered data, and considering that it is only neccesary to calculate optimal threshold for non-thunderstorm data, because there is no records classified as thunderstorm in any data source, many non-thunderstomr thresholds were tested, to choose the best one using the W statistic, as described in section [thresholding](#thresholding) of the [methodology](#rmd-method). Figure \@ref(fig:page6) shows a very good fit in resulting W-Statistic plot, for optimal non-thunderstorm threshold $b_{nt} =$ _`r z5`_$\frac{Km}{h}$, with a maximun W distance of `r format(z8, scientific=F, digits = 2)`, for ISD station 801120, where empirical values (black points) are very close or similar to theoretical values (red line).
 
 
@@ -593,22 +593,155 @@ Equation \@ref(eq:ppintensityfunction), defined in section [POT-PP](#method-pot-
 
 * cdf: $F(t,y) = P(y \leq Y) = \frac{\int_b^Y\lambda(y,t)\,dy}{\int_b^\infty\lambda(y,t)\,dy}$
 
-After fitting the instensity function to the domain $D$, the resulting parameters for ISD station 801120, are shown bellow:
-
-* Location $\omega_t$ equal to `r format(z6, scientific=F, digits = 2)`, and 
-
-* Scale $\psi_t$ equal to `r format(z7, scientific=F, digits = 2)`.
+After fitting the instensity function to the domain $D$, the resulting parameters for ISD station 801120, are location $\omega_t$ equal to `r format(z6, scientific=F, digits = 4)`, and scale $\psi_t$ equal to `r format(z7, scientific=F, digits = 4)`. Figure \@ref(fig:page8) shows the histogram and fitted pdf in panel A, Q-Q plot (theoretical quantiles against empirical ones) in panel B,  empirical cumulative distribution against fitted cdf in panel C, and P-P plot (theoretical probabilities against empirical ones) in panel D. In all four panels, it can be seen that there is a very good visual correspondence between empirical data (points and histogram) and theoretical adjustment (lines). 
 
 
 ```{r page8, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Graphic Diagnosis Of Goodness of Fit. Station 801120", fig.align="center", fig.width=5, fig.height=4}
 replayPlot(myprint8)
+add_label <- function(xfrac, yfrac, label, pos = 4, ...) {
+  
+  u <- par("usr")
+  x <- u[1] + xfrac * (u[2] - u[1])
+  y <- u[4] - yfrac * (u[4] - u[3])
+  text(x, y, label, pos = pos, ...)
+}
+par(xpd = TRUE)
+add_label(-0.06, 0.01, "A", cex=0.6, col="red")
+add_label(0.47, 0.01, "B", cex=0.6, col="red")
+add_label(-0.06, 0.54, "C", cex=0.6, col="red")
+add_label(0.47, 0.54, "D", cex=0.6, col="red")
 ```
+
+Results of formal goodness of fit statistics for 'Kolmogorov-Smirnov D', 'Cramer-von Mises T' and 'Anderson-Darling A' are `r format(mygof$ks, scientific=F, digits = 2)`, `r format(mygof$cvm, scientific=F, digits = 2)`, and `r format(mygof$ad, scientific=F, digits = 3)` respectively. For a proposed null hypothesis, which indicates that the data conforms to a POT-PP, all resulting p-values using statistics D, T and A, confirm that there is no statistical evidence to to reject stated hypothesis. Resulting p-value for statistic D is `r format(mykstest$p.value, scientific=F, digits = 2)`. Another available criteria to measure the quality of the fitted process are  'Akaike's Information Criterion', and 'Bayesian Information Criterion', with values `r format(mygof$aic, scientific=F, digits = 5)`, and `r format(mygof$bic, scientific=F, digits = 5)` respectively. The Root Mean Square Error (RMSE), calculated using theoretical versus empirical cdf, is `r format(rmse, scientific=F, digits = 2)`.
+
+```{r fitpp, eval=FALSE, fig.align="center", fig.cap="Graphic Diagnosis Of Goodness of Fit. Station 801120", fig.height=4, fig.width=5, message=FALSE, warning=FALSE, include=FALSE}
+opar <- par(no.readonly = TRUE)
+#par(opar)
+
+
+plotpdf<-function(){
+  par(pty='m')
+  par(bg="white")
+  #plot(fpnt, lwd=2, col="cadetblue3")
+  par(mar=c(2,2,1,0))
+  par(oma=c(0,0,0,0))
+  par(mgp=c(1,0.4,0))
+  denscomp(fpnt, lwd=0.5, cex=0.5, cex.main=0.6, cex.axis=0.5, cex.lab=0.5, tck=-0.02, addlegend = FALSE)
+}
+
+plotpdfqqplot<-function(){
+  par(pty='m')
+  par(bg="white")
+  #plot(fpnt, lwd=2, col="cadetblue3")
+  par(mar=c(2,2,1,0))
+  par(oma=c(0,0,0,0))
+  par(mgp=c(1,0.4,0))
+  qqcomp(fpnt, lwd=0.5, cex=0.5, cex.main=0.6, cex.axis=0.5, cex.lab=0.5, tck=-0.02, addlegend = FALSE)
+}
+
+plotcdf<-function(){
+  par(pty='m')
+  par(bg="white")
+  #plot(fpnt, lwd=2, col="cadetblue3")
+  par(mar=c(2,2,1,0))
+  par(oma=c(0,0,0,0))
+  par(mgp=c(1,0.4,0))
+  cdfcomp(fpnt, lwd=0.5, cex=0.5, cex.main=0.6, cex.axis=0.5, cex.lab=0.5, tck=-0.02, addlegend = FALSE)
+}
+
+plotppplot<-function(){
+  par(pty='m')
+  par(bg="white")
+  #plot(fpnt, lwd=2, col="cadetblue3")
+  par(mar=c(2,2,1,0))
+  par(oma=c(0,0,0,0))
+  par(mgp=c(1,0.4,0))
+  ppcomp(fpnt, lwd=0.5, cex=0.5, cex.main=0.6, cex.axis=0.5, cex.lab=0.5, tck=-0.02, addlegend = FALSE)
+
+}
+
+z.plot1<-function(){plotpdf()}
+z.plot2<-function(){plotpdfqqplot()}
+z.plot3<-function(){plotcdf()}
+z.plot4<-function(){plotppplot()}
+
+plot_grid(z.plot1, z.plot2, z.plot3, z.plot4, ncol=2, labels=c("A", "B", "C", "D"), label_size = 7, label_colour = "red")
+
+par(opar)
+
+```
+
 
 ### Hazard Curve and Return Levels
 
-```{r page10, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Hazard Curve. Station 801120", size="footnotesize", fig.align="center"}
-replayPlot(myprint10)
+```{r page10, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Hazard Curve. Station 801120" , fig.align="center", fig.height=2.5, fig.width=3.5}
+#replayPlot(myprint10)
+# library(RColorBrewer)
+# cols <- brewer.pal(9,"Set1")
+# maxy = max(veocitiesfortypicalreturnperiodsP) + 0.15*max(veocitiesfortypicalreturnperiodsP)
+# plot(x= 1/paP, y=yvels, xlab="Return Periods (Years) - Poisson Process Intensity Function",
+#      ylab="Velocities Km/h", main=paste("Declustered - Non-Thunderstorms - Hazard Curve", "\n", "Location=", round(z6,2), " Scale=", round(z7,2), "\n",
+#      "Station:", number, sep=" "),
+#      xlim=c(0,8500), ylim=c(100, maxy), type="l", col=cols[3], lwd=3)
+# 
+# points(x= tipicalReturnPeriods, y= veocitiesfortypicalreturnperiodsP, col=cols[9], pch=20)
+# text(x = tipicalReturnPeriods, y = veocitiesfortypicalreturnperiodsP, labels = paste0("(",tipicalReturnPeriods,",",round(veocitiesfortypicalreturnperiodsP, digits=1),")"), cex=0.8, pos = 4)
+# mtext(side = 1, text = paste0("Page ", numberofplots), outer = TRUE)
+# legend("bottomright", c("POT-PP (Intensity Function)"),
+#        bty = "n",
+#        col = cols[3:3],
+#        lty = c(1), lwd = c(3),
+#        pch = c(NA),
+#        pt.bg = c(NA),
+#        pt.cex = c(0))
+# box(lty = 1, col = 'black', lwd=0.5)
+  
+library(ggplot2)
+x= 1/paP 
+y= yvels
+df = data.frame(x = x, y = y)
+
+x1= tipicalReturnPeriods
+y1= veocitiesfortypicalreturnperiodsP
+
+df2 = data.frame(x = x1, y = y1)
+library(dplyr)
+df2_more1700 <- df2 %>% filter(x >= c(1700))
+df2_less1700 <- df2 %>% filter(x < c(1700))
+
+ggplot(data=df, aes(x=x, y=y, group=1)) +
+  geom_line(color="red")+
+  geom_point(data=df2, aes(x=x, y=y, group=1), shape = 18, color = "black", fill="lightgray") +
+  xlim(0,8500) + 
+  ylim(125, 300) +
+  geom_text_repel(data=df2_more1700, size=2, aes(x=x, y=y, label = paste0("(",x,",",round(y, digits=1),")")),  direction="y", segment.size=0.1, nudge_y=15) + # ,
+  geom_text_repel(data=df2_less1700, size=2, aes(x=x, y=y, label = paste0("(",x,",",round(y, digits=1),")")),  direction="x", segment.size=0.1, nudge_x=1) +
+  xlab("Return Periods (Years) - POT-PP Intensity Function") + 
+  ylab("Velocities Km/h") + 
+  ggtitle(paste("Declustered - Non-Thunderstorms - Hazard Curve", "\n", "Location=", round(z6,2),  "Scale=", round(z7,2))) + 
+  theme(plot.title = element_text(size=8)) +
+  theme(axis.text.x= element_text(size=6)) + 
+  theme(axis.text.y= element_text(size=6)) +
+  theme(axis.title =element_text(size=7))
 ```
+
+```{r rl, echo=FALSE, message=FALSE, warning=FALSE, paged.print=TRUE, results="asis"}
+mdf = data.frame(MRI=tipicalReturnPeriods, RL=veocitiesfortypicalreturnperiodsP)
+
+kable(mdf, align=c('l', 'c'),  digits = c(1, 2),
+      col.names = c("MRI", "Return Level"),
+      caption = "Return Levels -RL for typical Mean Return Intervals - MRI. ISD station 801120",
+      caption.short = "RL",
+      longtable = TRUE,
+      booktabs = TRUE) %>%
+      row_spec(0, align = "l") %>%
+      column_spec(1,width = "0.3in") %>%
+      column_spec(2,width = "0.7in") %>%
+      #column_spec(3,width = "1.8in") %>%
+kable_styling(font_size = 10, latex_options="scale_down")
+
+```
+
 
 ### Comparison with POT-GPD 
 

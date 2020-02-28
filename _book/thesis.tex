@@ -1094,7 +1094,7 @@ To facilitate the estimation of the parameters for the PP intensity function, pa
          }
   \label{eq:ppusedif}
 \end{equation}
-In this study, the used intensity functions are shown in next equation \eqref{eq:ppspecificintensityfunction}.
+In this study, used intensity functions are shown in next equation \eqref{eq:ppspecificintensityfunction}.
 \begin{equation}
   \mathrm{
     \lambda\left(y,t\right)
@@ -1102,7 +1102,7 @@ In this study, the used intensity functions are shown in next equation \eqref{eq
       \begin{split}
             &\frac{1}{\psi_s}\exp\left(\frac{-(y-\omega_s)}{\psi_s}\right),\;for\;t\;in\;thunderstorm\;period
             \\
-            &\frac{1}{\psi_{nt}}\exp\left(\frac{-(y-\omega_{nt})}{\psi_{nt}}\right),\;for\;t\;in\;non\-thunderstorm\;period      
+            &\frac{1}{\psi_{nt}}\exp\left(\frac{-(y-\omega_{nt})}{\psi_{nt}}\right),\;for\;t\;in\;non--thunderstorm\;period      
       \end{split}
     \end{cases}
   }
@@ -1338,7 +1338,7 @@ For some ISD stations in previous table \ref{tab:tableverygood}, the value `NA' 
 Figure \ref{fig:station801120} shows the satellite image (source Google Earth) of ISD station 801120, located in the international airport `José María Córdova', municipality of Rio Negro (Antioquia, Colombia), with latitud \(6.125^\circ\), and longitud \(-75.423^\circ\) WGS84 coordinates. Red circle represents an influence radius of 800 meters. Table \ref{tab:cf801120} shows different calculations related to correction factors applied to this station, using procedure described in sections \protect\hyperlink{rmd-roughness}{Surface Roughness at Open Space}, and \protect\hyperlink{rmd-gust}{Averaging Time 3-s Gust}.
 \begin{figure}
 
-{\centering \includegraphics[width=2.46in]{figure/801120} 
+{\centering \includegraphics[width=2.23in]{figure/801120} 
 
 }
 
@@ -1368,15 +1368,6 @@ As storm information is not available for any of the data sources, all the data 
 
 Non-thunderstorm raw data for ISD station 801120 has 2931 records, from 1986-12-06 12:00:00 to 2019-03-01 12:00:00, corresponding to a total amount time in days of 11739, and to an average number of events per year of 18.9, which means that the average duration of an event is 19.3 days (average size in days of a cluster). After \protect\hyperlink{decluster}{declustering}, and \protect\hyperlink{thresholding}{thresholding} processes, the number of records decreases to 181. Time series graphics are shown in figure \ref{fig:ts}, showing the data before (left) and after (right) applying the mentioned processes. Detailed yearly statistics are reported in table \ref{tab:years801120}, also including summary for before (left), and after (right).
 
-It can be seen in the table \ref{tab:years801120}, that declustered data has zero records for some years. This situation is due to that all the data for each one of those years (2001, 2007, 2011, 2013, 2018, and 2019), belonged to a cluster that started the previous year, or finished the next year, and the unique chosen maximun value (the value representative for the cluster) was found in the previous or next year, but not in mentioned years of zero records.
-\begin{figure}
-
-{\centering \includegraphics{thesis_files/figure-latex/ts-1} 
-
-}
-
-\caption{Non-Thunderstorm Time Series for ISD station 801120. Left: Raw Data. Right: Declustered Data}\label{fig:ts}
-\end{figure}
 \begingroup\fontsize{9}{11}\selectfont
 \begin{longtable}[t]{>{\raggedright\arraybackslash}p{0.3in}>{\raggedright\arraybackslash}p{0.3in}>{\raggedright\arraybackslash}p{0.3in}>{\raggedright\arraybackslash}p{0.3in}>{\raggedright\arraybackslash}p{0.3in}>{\raggedright\arraybackslash}p{0.3in}>{\raggedright\arraybackslash}p{0.3in}>{\raggedright\arraybackslash}p{0.3in}>{\raggedright\arraybackslash}p{0.3in}}
 \caption[yearly statistics]{\label{tab:years801120}Yearly statistics of raw data and declustered data for ISD station 801120}\\
@@ -1429,6 +1420,15 @@ It can be seen in the table \ref{tab:years801120}, that declustered data has zer
 \end{longtable}
 \endgroup{}
 
+It can be seen in the table \ref{tab:years801120}, that declustered data has zero records for some years. This situation is due to that all the data for each one of those years (2001, 2007, 2011, 2013, 2018, and 2019), belonged to a cluster that started the previous year, or finished the next year, and the unique chosen maximun value (the value representative for the cluster) was found in the previous or next year, but not in mentioned years of zero records.
+\begin{figure}
+
+{\centering \includegraphics{thesis_files/figure-latex/ts-1} 
+
+}
+
+\caption{Non-Thunderstorm Time Series for ISD station 801120. Left: Raw Data. Right: Declustered Data}\label{fig:ts}
+\end{figure}
 Using declustered data, and considering that it is only neccesary to calculate optimal threshold for non-thunderstorm data, because there is no records classified as thunderstorm in any data source, many non-thunderstomr thresholds were tested, to choose the best one using the W statistic, as described in section \protect\hyperlink{thresholding}{thresholding} of the \protect\hyperlink{rmd-method}{methodology}. Figure \ref{fig:page6} shows a very good fit in resulting W-Statistic plot, for optimal non-thunderstorm threshold \(b_{nt} =\) \emph{42}\(\frac{Km}{h}\), with a maximun W distance of 0.47, for ISD station 801120, where empirical values (black points) are very close or similar to theoretical values (red line).
 
 \footnotesize
@@ -1454,13 +1454,7 @@ Equation \eqref{eq:ppintensityfunction}, defined in section \protect\hyperlink{m
 \item
   cdf: \(F(t,y) = P(y \leq Y) = \frac{\int_b^Y\lambda(y,t)\,dy}{\int_b^\infty\lambda(y,t)\,dy}\)
 \end{itemize}
-After fitting the instensity function to the domain \(D\), the resulting parameters for ISD station 801120, are shown bellow:
-\begin{itemize}
-\item
-  Location \(\omega_t\) equal to -56, and
-\item
-  Scale \(\psi_t\) equal to 23.
-\end{itemize}
+After fitting the instensity function to the domain \(D\), the resulting parameters for ISD station 801120, are location \(\omega_t\) equal to -55.62, and scale \(\psi_t\) equal to 23.4. Figure \ref{fig:page8} shows the histogram and fitted pdf in panel A, Q-Q plot (theoretical quantiles against empirical ones) in panel B, empirical cumulative distribution against fitted cdf in panel C, and P-P plot (theoretical probabilities against empirical ones) in panel D. In all four panels, it can be seen that there is a very good visual correspondence between empirical data (points and histogram) and theoretical adjustment (lines).
 \begin{figure}
 
 {\centering \includegraphics{thesis_files/figure-latex/page8-1} 
@@ -1469,10 +1463,10 @@ After fitting the instensity function to the domain \(D\), the resulting paramet
 
 \caption{Graphic Diagnosis Of Goodness of Fit. Station 801120}\label{fig:page8}
 \end{figure}
+Results of formal goodness of fit statistics for `Kolmogorov-Smirnov D', `Cramer-von Mises T' and `Anderson-Darling A' are 0.089, 0.21, and 1.68 respectively. For a proposed null hypothesis, which indicates that the data conforms to a POT-PP, all resulting p-values using statistics D, T and A, confirm that there is no statistical evidence to to reject stated hypothesis. Resulting p-value for statistic D is 0.11. Another available criteria to measure the quality of the fitted process are `Akaike's Information Criterion', and `Bayesian Information Criterion', with values 1505.2, and 1508.4 respectively. The Root Mean Square Error (RMSE), calculated using theoretical versus empirical cdf, is 0.023.
+
 \hypertarget{hazard-curve-and-return-levels}{%
 \subsection{Hazard Curve and Return Levels}\label{hazard-curve-and-return-levels}}
-
-\footnotesize
 \begin{figure}
 
 {\centering \includegraphics{thesis_files/figure-latex/page10-1} 
@@ -1481,7 +1475,28 @@ After fitting the instensity function to the domain \(D\), the resulting paramet
 
 \caption{Hazard Curve. Station 801120}\label{fig:page10}
 \end{figure}
-\normalsize
+\begingroup\fontsize{10}{12}\selectfont
+\begin{longtable}[t]{>{\raggedright\arraybackslash}p{0.3in}>{\centering\arraybackslash}p{0.7in}}
+\caption[RL]{\label{tab:rl}Return Levels -RL for typical Mean Return Intervals - MRI. ISD station 801120}\\
+\toprule
+\multicolumn{1}{l}{MRI} & \multicolumn{1}{l}{Return Level}\\
+\midrule
+10 & 136.30\\
+20 & 152.48\\
+50 & 174.10\\
+100 & 190.32\\
+250 & 211.76\\
+\addlinespace
+500 & 227.98\\
+700 & 235.85\\
+1000 & 244.20\\
+1700 & 256.61\\
+3000 & 269.90\\
+\addlinespace
+7000 & 289.73\\
+\bottomrule
+\end{longtable}
+\endgroup{}
 
 \hypertarget{comparison-with-pot-gpd}{%
 \subsection{Comparison with POT-GPD}\label{comparison-with-pot-gpd}}

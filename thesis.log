@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/W32TeX) (preloaded format=pdflatex 2020.2.26)  28 FEB 2020 11:08
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/W32TeX) (preloaded format=pdflatex 2020.2.26)  28 FEB 2020 17:59
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -892,7 +892,7 @@ File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 ) [5
 
 ] [6]
-<thesis_files/figure-latex/plotideamstations-1.pdf, id=604, 469.755pt x 325.215
+<thesis_files/figure-latex/plotideamstations-1.pdf, id=606, 469.755pt x 325.215
 pt>
 File: thesis_files/figure-latex/plotideamstations-1.pdf Graphic file (type pdf)
 
@@ -900,7 +900,7 @@ File: thesis_files/figure-latex/plotideamstations-1.pdf Graphic file (type pdf)
 Package pdftex.def Info: thesis_files/figure-latex/plotideamstations-1.pdf  use
 d on input line 468.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-<thesis_files/figure-latex/plotoneideamstation-1.pdf, id=605, 469.755pt x 325.2
+<thesis_files/figure-latex/plotoneideamstation-1.pdf, id=607, 469.755pt x 325.2
 15pt>
 File: thesis_files/figure-latex/plotoneideamstation-1.pdf Graphic file (type pd
 f)
@@ -909,7 +909,7 @@ Package pdftex.def Info: thesis_files/figure-latex/plotoneideamstation-1.pdf  u
 sed on input line 474.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 [7 <./thesis_files/figure-latex/plotideamstations-1.pdf>]
-<thesis_files/figure-latex/plotisdstations-1.pdf, id=620, 469.755pt x 325.215pt
+<thesis_files/figure-latex/plotisdstations-1.pdf, id=622, 469.755pt x 325.215pt
 >
 File: thesis_files/figure-latex/plotisdstations-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/plotisdstations-1.pdf>
@@ -917,7 +917,7 @@ Package pdftex.def Info: thesis_files/figure-latex/plotisdstations-1.pdf  used
 on input line 495.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 [8 <./thesis_files/figure-latex/plotoneideamstation-1.pdf>]
-<thesis_files/figure-latex/plotoneisdstation-1.pdf, id=634, 469.755pt x 325.215
+<thesis_files/figure-latex/plotoneisdstation-1.pdf, id=636, 469.755pt x 325.215
 pt>
 File: thesis_files/figure-latex/plotoneisdstation-1.pdf Graphic file (type pdf)
 
@@ -926,7 +926,7 @@ Package pdftex.def Info: thesis_files/figure-latex/plotoneisdstation-1.pdf  use
 d on input line 501.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 [9 <./thesis_files/figure-latex/plotisdstations-1.pdf>]
-<thesis_files/figure-latex/plotera5stations-1.pdf, id=648, 469.755pt x 292.0912
+<thesis_files/figure-latex/plotera5stations-1.pdf, id=650, 469.755pt x 292.0912
 5pt>
 File: thesis_files/figure-latex/plotera5stations-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/plotera5stations-1.pdf>
@@ -936,7 +936,7 @@ Package pdftex.def Info: thesis_files/figure-latex/plotera5stations-1.pdf  used
 [10 <./thesis_files/figure-latex/plotoneisdstation-1.pdf>] [11 <./thesis_files/
 figure-latex/plotera5stations-1.pdf>]
 Chapter 3.
-<thesis_files/figure-latex/plotgumbelpdffunction-1.pdf, id=677, 289.08pt x 216.
+<thesis_files/figure-latex/plotgumbelpdffunction-1.pdf, id=679, 289.08pt x 216.
 81pt>
 File: thesis_files/figure-latex/plotgumbelpdffunction-1.pdf Graphic file (type 
 pdf)
@@ -948,7 +948,7 @@ Package pdftex.def Info: thesis_files/figure-latex/plotgumbelpdffunction-1.pdf
 
 
 ]
-<thesis_files/figure-latex/plotgumbelpdf-1.pdf, id=688, 289.08pt x 216.81pt>
+<thesis_files/figure-latex/plotgumbelpdf-1.pdf, id=690, 289.08pt x 216.81pt>
 File: thesis_files/figure-latex/plotgumbelpdf-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/plotgumbelpdf-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/plotgumbelpdf-1.pdf  used on
@@ -956,7 +956,7 @@ Package pdftex.def Info: thesis_files/figure-latex/plotgumbelpdf-1.pdf  used on
 (pdftex.def)             Requested size: 289.07928pt x 216.80946pt.
 [13 <./thesis_files/figure-latex/plotgumbelpdffunction-1.pdf> <./thesis_files/f
 igure-latex/plotgumbelpdf-1.pdf>]
-<thesis_files/figure-latex/plotgumbelcdffunction-1.pdf, id=709, 289.08pt x 216.
+<thesis_files/figure-latex/plotgumbelcdffunction-1.pdf, id=711, 289.08pt x 216.
 81pt>
 File: thesis_files/figure-latex/plotgumbelcdffunction-1.pdf Graphic file (type 
 pdf)
@@ -964,7 +964,7 @@ pdf)
 Package pdftex.def Info: thesis_files/figure-latex/plotgumbelcdffunction-1.pdf 
  used on input line 609.
 (pdftex.def)             Requested size: 289.07928pt x 216.80946pt.
-<thesis_files/figure-latex/plotgumbelppffunction-1.pdf, id=713, 289.08pt x 216.
+<thesis_files/figure-latex/plotgumbelppffunction-1.pdf, id=715, 289.08pt x 216.
 81pt>
 File: thesis_files/figure-latex/plotgumbelppffunction-1.pdf Graphic file (type 
 pdf)
@@ -973,7 +973,7 @@ Package pdftex.def Info: thesis_files/figure-latex/plotgumbelppffunction-1.pdf
  used on input line 635.
 (pdftex.def)             Requested size: 289.07928pt x 216.80946pt.
 [14 <./thesis_files/figure-latex/plotgumbelcdffunction-1.pdf>]
-<thesis_files/figure-latex/plotgumbelhffunction-1.pdf, id=731, 289.08pt x 216.8
+<thesis_files/figure-latex/plotgumbelhffunction-1.pdf, id=733, 289.08pt x 216.8
 1pt>
 File: thesis_files/figure-latex/plotgumbelhffunction-1.pdf Graphic file (type p
 df)
@@ -988,7 +988,7 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <10> on input line 673.
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <7> on input line 673.
-<thesis_files/figure-latex/unnamed-chunk-9-1.pdf, id=745, 216.81pt x 72.27pt>
+<thesis_files/figure-latex/unnamed-chunk-9-1.pdf, id=747, 216.81pt x 72.27pt>
 File: thesis_files/figure-latex/unnamed-chunk-9-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/unnamed-chunk-9-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/unnamed-chunk-9-1.pdf  used 
@@ -1004,7 +1004,7 @@ Package amsmath Warning: Cannot use `split' here;
 Package amsmath Warning: Cannot use `split' here;
 (amsmath)                trying to recover with `aligned' on input line 725.
 
-<thesis_files/figure-latex/compoundprobability-1.pdf, id=764, 361.35pt x 180.67
+<thesis_files/figure-latex/compoundprobability-1.pdf, id=766, 361.35pt x 180.67
 5pt>
 File: thesis_files/figure-latex/compoundprobability-1.pdf Graphic file (type pd
 f)
@@ -1021,20 +1021,20 @@ Underfull \hbox (badness 1681) in paragraph at lines 787--787
 Package amsmath Warning: Cannot use `split' here;
 (amsmath)                trying to recover with `aligned' on input line 800.
 
-<thesis_files/figure-latex/plotdomainpp-1.pdf, id=805, 252.945pt x 144.54pt>
+<thesis_files/figure-latex/plotdomainpp-1.pdf, id=807, 252.945pt x 144.54pt>
 File: thesis_files/figure-latex/plotdomainpp-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/plotdomainpp-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/plotdomainpp-1.pdf  used on 
 input line 815.
 (pdftex.def)             Requested size: 252.94438pt x 144.53963pt.
 [20 <./thesis_files/figure-latex/plotdomainpp-1.pdf>]
-<figure/domain3d.png, id=823, 489.62926pt x 457.71pt>
+<figure/domain3d.png, id=825, 489.62926pt x 457.71pt>
 File: figure/domain3d.png Graphic file (type png)
 <use figure/domain3d.png>
 Package pdftex.def Info: figure/domain3d.png  used on input line 832.
 (pdftex.def)             Requested size: 294.13942pt x 274.96336pt.
 [21 <./figure/domain3d.PNG>] [22]
-<thesis_files/figure-latex/durstcurve-1.pdf, id=848, 361.35pt x 180.675pt>
+<thesis_files/figure-latex/durstcurve-1.pdf, id=850, 361.35pt x 180.675pt>
 File: thesis_files/figure-latex/durstcurve-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/durstcurve-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/durstcurve-1.pdf  used on in
@@ -1042,12 +1042,12 @@ put line 901.
 (pdftex.def)             Requested size: 361.34912pt x 180.67455pt.
 [23] [24 <./thesis_files/figure-latex/durstcurve-1.pdf>]
 Chapter 4.
-<figure/methodology.png, id=868, 1131.0255pt x 1592.349pt>
+<figure/methodology.png, id=870, 1131.0255pt x 1592.349pt>
 File: figure/methodology.png Graphic file (type png)
 <use figure/methodology.png>
 Package pdftex.def Info: figure/methodology.png  used on input line 912.
 (pdftex.def)             Requested size: 452.40979pt x 636.92833pt.
-<figure/main_methodology.png, id=869, 376.40625pt x 599.23875pt>
+<figure/main_methodology.png, id=871, 376.40625pt x 599.23875pt>
 File: figure/main_methodology.png Graphic file (type png)
 <use figure/main_methodology.png>
 Package pdftex.def Info: figure/main_methodology.png  used on input line 920.
@@ -1058,7 +1058,7 @@ Package pdftex.def Info: figure/main_methodology.png  used on input line 920.
 Overfull \vbox (10.99832pt too high) has occurred while \output is active []
 
 [26 <./figure/methodology.png>]
-<thesis_files/figure-latex/anemometer-1.pdf, id=881, 216.81pt x 216.81pt>
+<thesis_files/figure-latex/anemometer-1.pdf, id=883, 216.81pt x 216.81pt>
 File: thesis_files/figure-latex/anemometer-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/anemometer-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/anemometer-1.pdf  used on in
@@ -1070,13 +1070,13 @@ r-1.pdf>]
 LaTeX Warning: Reference `fig:lettaustation' on page 29 undefined on input line
  975.
 
-<thesis_files/figure-latex/compassrose-1.pdf, id=908, 180.675pt x 180.675pt>
+<thesis_files/figure-latex/compassrose-1.pdf, id=910, 180.675pt x 180.675pt>
 File: thesis_files/figure-latex/compassrose-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/compassrose-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/compassrose-1.pdf  used on i
 nput line 978.
 (pdftex.def)             Requested size: 180.67455pt x 180.67455pt.
-<thesis_files/figure-latex/lettaustation2-1.pdf, id=909, 144.54pt x 144.54pt>
+<thesis_files/figure-latex/lettaustation2-1.pdf, id=911, 144.54pt x 144.54pt>
 File: thesis_files/figure-latex/lettaustation2-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/lettaustation2-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/lettaustation2-1.pdf  used o
@@ -1092,7 +1092,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 991--991
 LaTeX Warning: Reference `fig:lettauexamples' on page 29 undefined on input lin
 e 995.
 
-<thesis_files/figure-latex/lettauexamples2-1.pdf, id=912, 469.755pt x 108.405pt
+<thesis_files/figure-latex/lettauexamples2-1.pdf, id=914, 469.755pt x 108.405pt
 >
 File: thesis_files/figure-latex/lettauexamples2-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/lettauexamples2-1.pdf>
@@ -1101,21 +1101,21 @@ on input line 998.
 (pdftex.def)             Requested size: 469.75386pt x 108.40472pt.
 [29 <./thesis_files/figure-latex/compassrose-1.pdf> <./thesis_files/figure-late
 x/lettaustation2-1.pdf>]
-<figure/lettauvalues.png, id=932, 335.00156pt x 157.33781pt>
+<figure/lettauvalues.png, id=934, 335.00156pt x 157.33781pt>
 File: figure/lettauvalues.png Graphic file (type png)
 <use figure/lettauvalues.png>
 Package pdftex.def Info: figure/lettauvalues.png  used on input line 1006.
 (pdftex.def)             Requested size: 268.12218pt x 125.92563pt.
 [30 <./thesis_files/figure-latex/lettauexamples2-1.pdf> <./figure/lettauvalues.
 png>]
-<thesis_files/figure-latex/declustering-1.pdf, id=958, 144.54pt x 144.54pt>
+<thesis_files/figure-latex/declustering-1.pdf, id=960, 144.54pt x 144.54pt>
 File: thesis_files/figure-latex/declustering-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/declustering-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/declustering-1.pdf  used on 
 input line 1043.
 (pdftex.def)             Requested size: 144.53963pt x 144.53963pt.
 [31]
-<thesis_files/figure-latex/thresholding-1.pdf, id=966, 144.54pt x 144.54pt>
+<thesis_files/figure-latex/thresholding-1.pdf, id=968, 144.54pt x 144.54pt>
 File: thesis_files/figure-latex/thresholding-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/thresholding-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/thresholding-1.pdf  used on 
@@ -1123,7 +1123,7 @@ input line 1059.
 (pdftex.def)             Requested size: 144.53963pt x 144.53963pt.
 [32 <./thesis_files/figure-latex/declustering-1.pdf> <./thesis_files/figure-lat
 ex/thresholding-1.pdf>]
-<thesis_files/figure-latex/wstatistics-1.pdf, id=982, 180.675pt x 180.675pt>
+<thesis_files/figure-latex/wstatistics-1.pdf, id=984, 180.675pt x 180.675pt>
 File: thesis_files/figure-latex/wstatistics-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/wstatistics-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/wstatistics-1.pdf  used on i
@@ -1134,13 +1134,13 @@ Package amsmath Warning: Cannot use `split' here;
 (amsmath)                trying to recover with `aligned' on input line 1108.
 
 [33 <./thesis_files/figure-latex/wstatistics-1.pdf>]
-<thesis_files/figure-latex/fitif-1.pdf, id=1003, 144.54pt x 144.54pt>
+<thesis_files/figure-latex/fitif-1.pdf, id=1005, 144.54pt x 144.54pt>
 File: thesis_files/figure-latex/fitif-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/fitif-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/fitif-1.pdf  used on input l
 ine 1116.
 (pdftex.def)             Requested size: 144.53963pt x 144.53963pt.
-<thesis_files/figure-latex/hc-1.pdf, id=1006, 144.54pt x 144.54pt>
+<thesis_files/figure-latex/hc-1.pdf, id=1008, 144.54pt x 144.54pt>
 File: thesis_files/figure-latex/hc-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/hc-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/hc-1.pdf  used on input line
@@ -1148,7 +1148,7 @@ Package pdftex.def Info: thesis_files/figure-latex/hc-1.pdf  used on input line
 (pdftex.def)             Requested size: 144.53963pt x 144.53963pt.
 [34 <./thesis_files/figure-latex/fitif-1.pdf> <./thesis_files/figure-latex/hc-1
 .pdf>] [35]
-<thesis_files/figure-latex/combinedhc-1.pdf, id=1039, 361.35pt x 180.675pt>
+<thesis_files/figure-latex/combinedhc-1.pdf, id=1041, 361.35pt x 180.675pt>
 File: thesis_files/figure-latex/combinedhc-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/combinedhc-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/combinedhc-1.pdf  used on in
@@ -1169,7 +1169,7 @@ LaTeX Warning: Reference `fig:qualitycomparison1' on page 38 undefined on input
  line 1246.
 
 [38]
-<thesis_files/figure-latex/qualitycomparison2-1.pdf, id=1077, 469.755pt x 325.2
+<thesis_files/figure-latex/qualitycomparison2-1.pdf, id=1079, 469.755pt x 325.2
 15pt>
 File: thesis_files/figure-latex/qualitycomparison2-1.pdf Graphic file (type pdf
 )
@@ -1177,14 +1177,14 @@ File: thesis_files/figure-latex/qualitycomparison2-1.pdf Graphic file (type pdf
 Package pdftex.def Info: thesis_files/figure-latex/qualitycomparison2-1.pdf  us
 ed on input line 1273.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-<thesis_files/figure-latex/sideamera5-1.pdf, id=1081, 289.08pt x 216.81pt>
+<thesis_files/figure-latex/sideamera5-1.pdf, id=1083, 289.08pt x 216.81pt>
 File: thesis_files/figure-latex/sideamera5-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/sideamera5-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/sideamera5-1.pdf  used on in
 put line 1279.
 (pdftex.def)             Requested size: 289.07928pt x 216.80946pt.
 [39 <./thesis_files/figure-latex/qualitycomparison2-1.pdf>]
-<thesis_files/figure-latex/poorcomparison-1.pdf, id=1098, 469.755pt x 325.215pt
+<thesis_files/figure-latex/poorcomparison-1.pdf, id=1100, 469.755pt x 325.215pt
 >
 File: thesis_files/figure-latex/poorcomparison-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/poorcomparison-1.pdf>
@@ -1192,57 +1192,58 @@ Package pdftex.def Info: thesis_files/figure-latex/poorcomparison-1.pdf  used o
 n input line 1301.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 [40 <./thesis_files/figure-latex/sideamera5-1.pdf>]
-<thesis_files/figure-latex/verygoodxts-1.pdf, id=1113, 469.755pt x 216.81pt>
+<thesis_files/figure-latex/verygoodxts-1.pdf, id=1115, 469.755pt x 216.81pt>
 File: thesis_files/figure-latex/verygoodxts-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/verygoodxts-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/verygoodxts-1.pdf  used on i
 nput line 1327.
 (pdftex.def)             Requested size: 469.75386pt x 216.80946pt.
-<thesis_files/figure-latex/verygood-1.pdf, id=1114, 469.755pt x 325.215pt>
+<thesis_files/figure-latex/verygood-1.pdf, id=1116, 469.755pt x 325.215pt>
 File: thesis_files/figure-latex/verygood-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/verygood-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/verygood-1.pdf  used on inpu
 t line 1332.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 [41 <./thesis_files/figure-latex/poorcomparison-1.pdf>]
-<figure/801120.jpg, id=1135, 703.87968pt x 703.87968pt>
+<figure/801120.jpg, id=1137, 703.87968pt x 703.87968pt>
 File: figure/801120.jpg Graphic file (type jpg)
 <use figure/801120.jpg>
 Package pdftex.def Info: figure/801120.jpg  used on input line 1341.
-(pdftex.def)             Requested size: 177.78468pt x 177.78459pt.
+(pdftex.def)             Requested size: 161.16179pt x 161.15857pt.
 [42 <./thesis_files/figure-latex/verygoodxts-1.pdf> <./thesis_files/figure-late
 x/verygood-1.pdf>]
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <5> on input line 1353.
 [43 <./figure/801120.jpg>]
-<thesis_files/figure-latex/ts-1.pdf, id=1175, 325.215pt x 144.54pt>
+<thesis_files/figure-latex/ts-1.pdf, id=1177, 325.215pt x 144.54pt>
 File: thesis_files/figure-latex/ts-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/ts-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/ts-1.pdf  used on input line
- 1374.
+ 1426.
 (pdftex.def)             Requested size: 325.2142pt x 144.53963pt.
-[44 <./thesis_files/figure-latex/ts-1.pdf>]
-<thesis_files/figure-latex/page6-1.pdf, id=1193, 180.675pt x 180.675pt>
+[44]
+<thesis_files/figure-latex/page6-1.pdf, id=1187, 180.675pt x 180.675pt>
 File: thesis_files/figure-latex/page6-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/page6-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/page6-1.pdf  used on input l
 ine 1437.
 (pdftex.def)             Requested size: 180.67455pt x 180.67455pt.
-[45 <./thesis_files/figure-latex/page6-1.pdf>]
-<thesis_files/figure-latex/page8-1.pdf, id=1210, 361.35pt x 289.08pt>
+[45 <./thesis_files/figure-latex/ts-1.pdf> <./thesis_files/figure-latex/page6-1
+.pdf>]
+<thesis_files/figure-latex/page8-1.pdf, id=1211, 361.35pt x 289.08pt>
 File: thesis_files/figure-latex/page8-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/page8-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/page8-1.pdf  used on input l
-ine 1466.
+ine 1460.
 (pdftex.def)             Requested size: 361.34912pt x 289.07928pt.
-<thesis_files/figure-latex/page10-1.pdf, id=1211, 469.755pt x 325.215pt>
+[46 <./thesis_files/figure-latex/page8-1.pdf>]
+<thesis_files/figure-latex/page10-1.pdf, id=1223, 252.945pt x 180.675pt>
 File: thesis_files/figure-latex/page10-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/page10-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/page10-1.pdf  used on input 
-line 1478.
-(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-[46 <./thesis_files/figure-latex/page8-1.pdf>] [47 <./thesis_files/figure-latex
-/page10-1.pdf>] [48]
+line 1472.
+(pdftex.def)             Requested size: 252.94438pt x 180.67455pt.
+[47 <./thesis_files/figure-latex/page10-1.pdf>] [48]
 Chapter 6.
 [49
 
@@ -1253,13 +1254,13 @@ Appendix A.
 [51
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 1567--1569
+Underfull \hbox (badness 10000) in paragraph at lines 1582--1584
  \T1/lmr/m/n/12 from []$\T1/lmtt/m/n/12 https : / / www . ebook . de / de / pro
 duct / 35017614 / american _ society _ of _ civil _
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1567--1569
+Underfull \hbox (badness 10000) in paragraph at lines 1582--1584
  \T1/lmtt/m/n/12 engineers _ minimum _ design _ loads _ and _ associated _ crit
 eria _ for _ buildings _ and _
  []
@@ -1268,45 +1269,45 @@ eria _ for _ buildings _ and _
 
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 1606--1608
+Underfull \hbox (badness 10000) in paragraph at lines 1621--1623
  \T1/lmr/m/n/12 from []$\T1/lmtt/m/n/12 https : / / www . amazon . com / Teleco
 mmunications -[] Environment -[] Monographs -[]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1606--1608
+Underfull \hbox (badness 10000) in paragraph at lines 1621--1623
  \T1/lmtt/m/n/12 Statistics -[] Probability / dp / 1584884118 ? SubscriptionId 
 = AKIAIOBINVZYXZQZ2U3A &
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1606--1608
+Underfull \hbox (badness 10000) in paragraph at lines 1621--1623
  \T1/lmtt/m/n/12 tag = chimbori05 -[] 20 & linkCode = xm2 & camp = 2025 & creat
 ive = 165953 & creativeASIN =
  []
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1612.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1627.
 [53]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1612.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1627.
 (./thesis.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1612.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1612.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1627.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1627.
 
 Package rerunfilecheck Info: File `thesis.out' has not changed.
 (rerunfilecheck)             Checksum: 1E40BA95ECAA41A176D29DBDB7810A95;5049.
 
 LaTeX Warning: There were undefined references.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1612.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1627.
  ) 
 Here is how much of TeX's memory you used:
- 13008 strings out of 483172
- 204012 string characters out of 5963959
- 499371 words of memory out of 5000000
- 27364 multiletter control sequences out of 15000+600000
+ 13011 strings out of 483172
+ 204033 string characters out of 5963959
+ 499461 words of memory out of 5000000
+ 27366 multiletter control sequences out of 15000+600000
  608392 words of font info for 87 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 41i,17n,49p,1364b,457s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 41i,17n,49p,1364b,449s stack positions out of 5000i,500n,10000p,200000b,80000s
 {c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-m
 athsy.enc}{c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips
 /lm/lm-ec.enc}{c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/d
@@ -1338,10 +1339,10 @@ yTeX/texmf-dist/fonts/type1/public/lm/lmsy10.pfb><c:/Users/alexyshr/AppData/Roa
 ming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy6.pfb><c:/Users/alexyshr/AppD
 ata/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy8.pfb><c:/Users/alexys
 hr/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt12.pfb>
-Output written on thesis.pdf (64 pages, 13859445 bytes).
+Output written on thesis.pdf (64 pages, 13799516 bytes).
 PDF statistics:
  1451 PDF objects out of 1728 (max. 8388607)
  1269 compressed objects within 13 object streams
- 303 named destinations out of 1000 (max. 500000)
+ 304 named destinations out of 1000 (max. 500000)
  764 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -321,7 +321,7 @@ To facilitate the estimation of the parameters for the PP intensity function, pa
   (\#eq:ppusedif)
 \end{equation}
 
-In this study, the used intensity functions are shown in next equation \@ref(eq:ppspecificintensityfunction).
+In this study, used intensity functions are shown in next equation \@ref(eq:ppspecificintensityfunction).
 
 \begin{equation}
   \mathrm{
@@ -330,7 +330,7 @@ In this study, the used intensity functions are shown in next equation \@ref(eq:
       \begin{split}
             &\frac{1}{\psi_s}\exp\left(\frac{-(y-\omega_s)}{\psi_s}\right),\;for\;t\;in\;thunderstorm\;period
             \\
-            &\frac{1}{\psi_{nt}}\exp\left(\frac{-(y-\omega_{nt})}{\psi_{nt}}\right),\;for\;t\;in\;non\-thunderstorm\;period      
+            &\frac{1}{\psi_{nt}}\exp\left(\frac{-(y-\omega_{nt})}{\psi_{nt}}\right),\;for\;t\;in\;non--thunderstorm\;period      
       \end{split}
     \end{cases}
   }
