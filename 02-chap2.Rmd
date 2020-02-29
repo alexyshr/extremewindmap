@@ -194,7 +194,7 @@ plot(.x, .y, col="green", lty=4,
 ```
 
 
-### Hazard Function - _hf_
+### Hazard Function - _hf_ {#hf}
 
 Using $S(x) = 1 - F(x)$ as survival function -_sf_, the probability that a variable takes a value greater than x $S(x) = Pr[X > x] = 1 - F(x)$, the _hf_ is the ratio between _pdf_ and _sf_.
 
@@ -524,7 +524,7 @@ Once the PP is fitted to the data, the model will provide extreme wind velocitie
 A $Y_N$ extreme wind velocity, called the return level (RL) belonging to the N-years return period, has a expected frequency to occur or to be exceeded (annual exceedance probability)$P_e = \frac{1}{N}$, and also has a probability that the event does not occur (annual non-exceedance probability) $P_{ne}=1-\frac{1}{N}$. $Y_N$ will be the resulting value of the $G$ (ppf or quantile) function using a probability equal to $P_{ne}$. $Y_N=quantile(y, p=P_{ne})=G(y,p=P_{ne})=ppf(y,p=P_{ne})$. $Y_N$ can be understood as the wind extreme value expected to be exceeded on average once every N years.
  
 
-For PP $Y_N$ is the solution to the next equation, which is defined in terms of the intensity function,
+For PP, $Y_N$ is the solution to the next equation, which is defined in terms of the intensity function,
 
 \begin{equation}
   \mathrm{

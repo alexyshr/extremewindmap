@@ -637,8 +637,8 @@ Figure \ref{fig:plotgumbelppffunction} shows Gumbel \emph{ppf}, using equation \
 \end{figure}
 \normalsize
 
-\hypertarget{hazard-function---hf}{%
-\subsection{\texorpdfstring{Hazard Function - \emph{hf}}{Hazard Function - hf}}\label{hazard-function---hf}}
+\hypertarget{hf}{%
+\subsection{\texorpdfstring{Hazard Function - \emph{hf}}{Hazard Function - hf}}\label{hf}}
 
 Using \(S(x) = 1 - F(x)\) as survival function -\emph{sf}, the probability that a variable takes a value greater than x \(S(x) = Pr[X > x] = 1 - F(x)\), the \emph{hf} is the ratio between \emph{pdf} and \emph{sf}.
 
@@ -853,7 +853,7 @@ Once the PP is fitted to the data, the model will provide extreme wind velocitie
 
 A \(Y_N\) extreme wind velocity, called the return level (RL) belonging to the N-years return period, has a expected frequency to occur or to be exceeded (annual exceedance probability)\(P_e = \frac{1}{N}\), and also has a probability that the event does not occur (annual non-exceedance probability) \(P_{ne}=1-\frac{1}{N}\). \(Y_N\) will be the resulting value of the \(G\) (ppf or quantile) function using a probability equal to \(P_{ne}\). \(Y_N=quantile(y, p=P_{ne})=G(y,p=P_{ne})=ppf(y,p=P_{ne})\). \(Y_N\) can be understood as the wind extreme value expected to be exceeded on average once every N years.
 
-For PP \(Y_N\) is the solution to the next equation, which is defined in terms of the intensity function,
+For PP, \(Y_N\) is the solution to the next equation, which is defined in terms of the intensity function,
 \begin{equation}
   \mathrm{
           \int_{Y_N}^{\infty}\int_0^1\lambda\left( y,t\right)dydt = A_t\int_{Y_N}^{\infty}\lambda_t\left( y\right)\,dy + A_{nt}\int_{Y_N}^{\infty}\lambda_{nt}\left( y\right)\,dy = \frac{1}{N}
@@ -1167,8 +1167,8 @@ Probabilistic (Kriging) and deterministic (IDW, local polynomials) techniques ar
 \end{itemize}
 Possible advantage of deterministic methods, is a better assessment of the local variability of spatial autocorrelation. It can also be considered with IDW or local polynomials a detailed assessment of structural analysis and cross validation. At the end of the spatial interpolation analysis all the predictions can be compared to select the most suitable result.
 
-\hypertarget{integration-with-non-hurricane-data}{%
-\section{Integration with Non-Hurricane data}\label{integration-with-non-hurricane-data}}
+\hypertarget{integration}{%
+\section{Integration with Hurricane data}\label{integration}}
 
 Engineers (\protect\hyperlink{ref-Asce2017}{2017}) propose the equation C26.5-2 for combination of statistically independent events, of non-hurricane and hurricane wind speed data.
 \begin{equation}
@@ -1465,8 +1465,10 @@ After fitting the instensity function to the domain \(D\), the resulting paramet
 \end{figure}
 Results of formal goodness of fit statistics for `Kolmogorov-Smirnov D', `Cramer-von Mises T' and `Anderson-Darling A' are 0.089, 0.21, and 1.68 respectively. For a proposed null hypothesis, which indicates that the data conforms to a POT-PP, all resulting p-values using statistics D, T and A, confirm that there is no statistical evidence to to reject stated hypothesis. Resulting p-value for statistic D is 0.11. Another available criteria to measure the quality of the fitted process are `Akaike's Information Criterion', and `Bayesian Information Criterion', with values 1505.2, and 1508.4 respectively. The Root Mean Square Error (RMSE), calculated using theoretical versus empirical cdf, is 0.023.
 
-\hypertarget{hazard-curve-and-return-levels}{%
-\subsection{Hazard Curve and Return Levels}\label{hazard-curve-and-return-levels}}
+\hypertarget{hazard-curve-and-return-levels---rl}{%
+\subsection{Hazard Curve and Return Levels - RL}\label{hazard-curve-and-return-levels---rl}}
+
+Hazard curve is the solution to equation \eqref{eq:pprl}, but eliminating from it elements related to thunderstorms, the equation is simplified to \(A_{nt}\int_{Y_N}^{\infty}\lambda_{nt}\left( y\right)\,dy = \frac{1}{N}\), where \(A_{nt}\) is the average time of non-thunderstorm events by year, and \(Y_N\) is the return level or extreme wind velocity, corresponding to the N-years return period or MRI. Reemplacing in this ecuation the intensity function \(lambda_{nt}\), and solving \(Y_N\) for all possible values of MRI, will provide hazard curve displayed in figure \ref{fig:page10}.
 \begin{figure}
 
 {\centering \includegraphics{thesis_files/figure-latex/page10-1} 
@@ -1498,8 +1500,49 @@ Results of formal goodness of fit statistics for `Kolmogorov-Smirnov D', `Cramer
 \end{longtable}
 \endgroup{}
 
-\hypertarget{comparison-with-pot-gpd}{%
-\subsection{Comparison with POT-GPD}\label{comparison-with-pot-gpd}}
+Return levels of interest for this research, corrrespond to 700, 1700 and 3000 years of MRI, however, due to the mechanism of \protect\hyperlink{integration}{integration with existing hurricane study information}, described in \protect\hyperlink{rmd-method}{methodology}, it is necessary to extract for all stations values related to typical return periods, as shown in the table \ref{tab:rl}.
+
+\hypertarget{comparison-with-pot-gpd-and-common-extreme-value-distributions}{%
+\subsection{Comparison with POT-GPD and common extreme value distributions}\label{comparison-with-pot-gpd-and-common-extreme-value-distributions}}
+
+To enable a comparison between, a) POT-PP (previous section), b) \protect\hyperlink{pot-gpd}{POT-GPD}, and c) the fitting process of common extreme value distributions (GPA, GEV, GUM) without using POT method, this is, using the generic concept of \protect\hyperlink{hf}{hazard function \emph{hf}} (see \protect\hyperlink{rmd-thefra}{theoretical framework}), a whole authomatation process was done to calculate return levels and errors using mentioned alternatives, bearing in mind that in all cases \emph{maximum likelihood} was used to calculate the parameters.
+
+Resulting return levels and errors for POT-GPD, using R packages extRemes (Gilleland (\protect\hyperlink{ref-Gilleland2019}{2019})), ismev (Janet E. Heffernan with R port \& Alec G. Stephenson. (\protect\hyperlink{ref-JanetE.HeffernanwithRport2018}{2018})), evd (Stephenson (\protect\hyperlink{ref-Stephenson2002}{2002})), Renext (Deville \& IRSN (\protect\hyperlink{ref-Deville2016}{2016})), evir (Pfaff \& McNeil (\protect\hyperlink{ref-Pfaff2018}{2018})), and fExtremes (Wuertz, Setz, \& Chalabi (\protect\hyperlink{ref-Wuertz2017}{2017})), are reported in table \ref{tab:comparisonGPD}. Similarty are shown it table \ref{tab:comparisonCommonEVD}, return levels calculated from the adjustment of the probability distributions GPA, GEV, and Gumbel.
+
+\begingroup\fontsize{8}{10}\selectfont
+\begin{longtable}[t]{>{\raggedright\arraybackslash}p{1.2in}>{\raggedright\arraybackslash}p{0.2in}>{\raggedright\arraybackslash}p{0.2in}>{\raggedright\arraybackslash}p{0.2in}>{\raggedright\arraybackslash}p{0.2in}>{\raggedright\arraybackslash}p{0.2in}>{\raggedright\arraybackslash}p{0.2in}>{\raggedright\arraybackslash}p{0.2in}>{\raggedright\arraybackslash}p{0.2in}>{\raggedright\arraybackslash}p{0.2in}>{\raggedright\arraybackslash}p{0.2in}>{\raggedright\arraybackslash}p{0.2in}>{\raggedright\arraybackslash}p{0.2in}}
+\caption[POT-GPD]{\label{tab:comparisonGPD}POT-GPD. Return Levels in Kph}\\
+\toprule
+\multicolumn{1}{c}{PACKAGE} & \multicolumn{11}{c}{RETURN LEVELS FOR TYPICAL MRIs} & \multicolumn{1}{c}{ERROR} \\
+\cmidrule(l{3pt}r{3pt}){1-1} \cmidrule(l{3pt}r{3pt}){2-12} \cmidrule(l{3pt}r{3pt}){13-13}
+\multicolumn{1}{l}{ } & \multicolumn{1}{l}{10} & \multicolumn{1}{l}{20} & \multicolumn{1}{l}{50} & \multicolumn{1}{l}{100} & \multicolumn{1}{l}{250} & \multicolumn{1}{l}{500} & \multicolumn{1}{l}{700} & \multicolumn{1}{l}{1000} & \multicolumn{1}{l}{1700} & \multicolumn{1}{l}{3000} & \multicolumn{1}{l}{7000} & \multicolumn{1}{l}{RMSE}\\
+\midrule
+extRemes & 155.6 & 169.3 & 187.2 & 200.4 & 217.6 & 230.3 & 236.4 & 242.8 & 252.2 & 262.1 & 276.6 & 0.057\\
+ismev & 155.5 & 169.3 & 187.1 & 200.4 & 217.5 & 230.1 & 236.2 & 242.6 & 252.0 & 261.9 & 276.4 & 0.057\\
+evd & 155.6 & 169.3 & 187.2 & 200.4 & 217.6 & 230.3 & 236.4 & 242.7 & 252.2 & 262.1 & 276.6 & 0.057\\
+Renext Renouv & 155.6 & 169.3 & 187.2 & 200.4 & 217.6 & 230.3 & 236.4 & 242.7 & 252.2 & 262.1 & 276.6 & 0.057\\
+evir & 155.0 & 168.5 & 185.8 & 198.6 & 215.1 & 227.3 & 233.1 & 239.2 & 248.2 & 257.6 & 271.3 & 0.058\\
+\addlinespace
+fExtremes & 155.5 & 169.3 & 187.2 & 200.4 & 217.5 & 230.2 & 236.3 & 242.6 & 252.0 & 261.9 & 276.5 & 0.057\\
+Renext 2 parameters & 200.8 & 203.9 & 206.5 & 207.8 & 208.9 & 209.4 & 209.6 & 209.7 & 209.9 & 210.1 & 210.3 & 0.337\\
+\bottomrule
+\end{longtable}
+\endgroup{}
+
+\begingroup\fontsize{8}{10}\selectfont
+\begin{longtable}[t]{>{\raggedright\arraybackslash}p{0.1in}>{\raggedright\arraybackslash}p{1.4in}>{\raggedright\arraybackslash}p{0.15in}>{\raggedright\arraybackslash}p{0.15in}>{\raggedright\arraybackslash}p{0.15in}>{\raggedright\arraybackslash}p{0.15in}>{\raggedright\arraybackslash}p{0.15in}>{\raggedright\arraybackslash}p{0.15in}>{\raggedright\arraybackslash}p{0.15in}>{\raggedright\arraybackslash}p{0.15in}>{\raggedright\arraybackslash}p{0.15in}>{\raggedright\arraybackslash}p{0.15in}>{\raggedright\arraybackslash}p{0.15in}>{\raggedright\arraybackslash}p{0.15in}}
+\caption[CommonEVD]{\label{tab:comparisonCommonEVD}Common Extreme Value Distributions. Return Levels in Kph}\\
+\toprule
+\multicolumn{2}{c}{EVD} & \multicolumn{11}{c}{RETURN LEVELS FOR TYPICAL MRIs} & \multicolumn{1}{c}{ERROR} \\
+\cmidrule(l{3pt}r{3pt}){1-2} \cmidrule(l{3pt}r{3pt}){3-13} \cmidrule(l{3pt}r{3pt}){14-14}
+\multicolumn{1}{l}{ } & \multicolumn{1}{l}{NAME} & \multicolumn{1}{l}{10} & \multicolumn{1}{l}{20} & \multicolumn{1}{l}{50} & \multicolumn{1}{l}{100} & \multicolumn{1}{l}{250} & \multicolumn{1}{l}{500} & \multicolumn{1}{l}{700} & \multicolumn{1}{l}{1000} & \multicolumn{1}{l}{1700} & \multicolumn{1}{l}{3000} & \multicolumn{1}{l}{7000} & \multicolumn{1}{l}{RMSE}\\
+\midrule
+gpa & Generalized Pareto & 149.6 & 160.6 & 174.2 & 183.9 & 195.8 & 204.2 & 208.2 & 212.2 & 218.0 & 223.9 & 232.2 & 0.048\\
+gev & Generalized Extreme Value & 172.5 & 198.8 & 239.2 & 274.8 & 329.5 & 377.8 & 403.5 & 432.7 & 479.9 & 536.0 & 631.7 & 0.058\\
+gum & Gumbel & 140.9 & 152.1 & 167.0 & 178.2 & 193.0 & 204.3 & 209.7 & 215.5 & 224.1 & 233.3 & 247.0 & 0.067\\
+\bottomrule
+\end{longtable}
+\endgroup{}
 
 \hypertarget{non-hurricane-maps}{%
 \section{Non-Hurricane Maps}\label{non-hurricane-maps}}
@@ -1579,8 +1622,14 @@ C. S. Durst, B. A., O. B.E. (1960). Wind speeds over short periods of time. \emp
 \leavevmode\hypertarget{ref-Davison1990}{}%
 Davison, A. C., \& Smith, R. L. (1990). Models for exceedances over high thresholds. \emph{Journal of the Royal Statistical Society. Series B (Methodological)}, \emph{52}(3), 393--442. Retrieved from \url{http://www.jstor.org/stable/2345667}
 
+\leavevmode\hypertarget{ref-Deville2016}{}%
+Deville, Y., \& IRSN. (2016). \emph{Renext: Renewal method for extreme values extrapolation}. Retrieved from \url{https://CRAN.R-project.org/package=Renext}
+
 \leavevmode\hypertarget{ref-Asce2017}{}%
 Engineers, A. S. O. C. (2017). \emph{Minimum design loads and associated criteria for buildings and other structures (asce7-16)}. American Society of Civil Engineers. Retrieved from \url{https://www.ebook.de/de/product/35017614/american_society_of_civil_engineers_minimum_design_loads_and_associated_criteria_for_buildings_and_other_structures_7_16.html}
+
+\leavevmode\hypertarget{ref-Gilleland2019}{}%
+Gilleland, E. (2019). \emph{ExtRemes: Extreme value analysis}. Retrieved from \url{https://CRAN.R-project.org/package=extRemes}
 
 \leavevmode\hypertarget{ref-Harris1994}{}%
 Harris, J. W., \& Stocker, H. (1998). Maximum likelihood method. In \emph{Handbook of mathematics and computational science} (p. 824). Springer-Verlag.
@@ -1594,6 +1643,9 @@ IDEAM. (1999, June). Aeronautical information. Annual wind regime. Web Page. Ret
 \leavevmode\hypertarget{ref-ideam2005}{}%
 IDEAM. (2005). \emph{Protocolo toma de datos de campo y emplazamiento de estaciones meteorológicas}.
 
+\leavevmode\hypertarget{ref-JanetE.HeffernanwithRport2018}{}%
+Janet E. Heffernan with R port, O. S. functions written by, \& Alec G. Stephenson., R. documentation provided by. (2018). \emph{Ismev: An introduction to statistical modeling of extreme values}. Retrieved from \url{https://CRAN.R-project.org/package=ismev}
+
 \leavevmode\hypertarget{ref-Kubler1994}{}%
 Kubler, J. (1994). \emph{Computational Statistics \&Amp; Data Analysis}, \emph{18}(4), 473--474. Retrieved from \url{https://EconPapers.repec.org/RePEc:eee:csdana:v:18:y:1994:i:4:p:473-474}
 
@@ -1605,6 +1657,9 @@ Masters, F. J., Vickery, P. J., Bacon, P., \& Rappaport, E. N. (2010). Toward ob
 
 \leavevmode\hypertarget{ref-nist2012}{}%
 NIST. (2012, February). Standardized extreme wind speed database for the united states. Web Page. Retrieved from \url{https://www.itl.nist.gov/div898/winds/NIST_TN/nist_tn.htm}
+
+\leavevmode\hypertarget{ref-Pfaff2018}{}%
+Pfaff, B., \& McNeil, A. (2018). \emph{Evir: Extreme values in r}. Retrieved from \url{https://CRAN.R-project.org/package=evir}
 
 \leavevmode\hypertarget{ref-Pickands1971}{}%
 Pickands, J. (1971). The two-dimensional poisson process and extremal processes. \emph{Journal of Applied Probability}, \emph{8}(4), 745--756. \url{http://doi.org/10.2307/3212238}
@@ -1620,6 +1675,12 @@ Smith, R. L. (1989). Extreme value analysis of environmental time series: An app
 
 \leavevmode\hypertarget{ref-Smith2004}{}%
 Smith, R. L. (2004). Extreme values in finance, telecommunications, and the environment (chapman \& hall/crc monographs on statistics and applied probability). In B. F. inkenstädt \& H. Rootzén (Eds.), (pp. 1--78). Chapman; Hall/CRC. Retrieved from \url{https://www.amazon.com/Telecommunications-Environment-Monographs-Statistics-Probability/dp/1584884118?SubscriptionId=AKIAIOBINVZYXZQZ2U3A\&tag=chimbori05-20\&linkCode=xm2\&camp=2025\&creative=165953\&creativeASIN=1584884118}
+
+\leavevmode\hypertarget{ref-Stephenson2002}{}%
+Stephenson, A. G. (2002). Evd: Extreme value distributions. \emph{R News}, \emph{2}(2), 0. Retrieved from \url{https://CRAN.R-project.org/doc/Rnews/}
+
+\leavevmode\hypertarget{ref-Wuertz2017}{}%
+Wuertz, D., Setz, T., \& Chalabi, Y. (2017). \emph{FExtremes: Rmetrics - modelling extreme events in finance}. Retrieved from \url{https://CRAN.R-project.org/package=fExtremes}
 
 
 % Index?

@@ -426,7 +426,7 @@ Probabilistic (Kriging) and deterministic (IDW, local polynomials) techniques ar
 
 Possible advantage of deterministic methods, is a better assessment of the local variability of spatial autocorrelation. It can also be considered with IDW or local polynomials a detailed assessment of structural analysis and cross validation. At the end of the spatial interpolation analysis all the predictions can be compared to select the most suitable result.
 
-## Integration with Non-Hurricane data
+## Integration with Hurricane data {#integration}
 
 @Asce2017 propose the equation C26.5-2 for combination of statistically independent events, of non-hurricane and hurricane wind speed data. 
 

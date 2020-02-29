@@ -39,6 +39,8 @@ source('./code/pp_one_station.r')
 ```
 
 ```{r echo=FALSE, cache= F, include=FALSE}
+#Important Note:
+#This code is not working when knit. It is working if is ran here in RStudio, that is why next line is using # (not ran when knit). This code generates some graphis in format RDS. It is not neccesary to run again, at least RDS are not usable for changes in R versions (possible sittuacion for future)
 #source('./code/comparing_sources_pqrs_20199050080932_VV_AUT.r')
 ```
 
@@ -672,7 +674,10 @@ par(opar)
 ```
 
 
-### Hazard Curve and Return Levels
+### Hazard Curve and Return Levels - RL
+
+Hazard curve is the solution to equation \@ref(eq:pprl), but eliminating from it elements related to thunderstorms, the equation is simplified to  $A_{nt}\int_{Y_N}^{\infty}\lambda_{nt}\left( y\right)\,dy = \frac{1}{N}$, where $A_{nt}$ is the average time of non-thunderstorm events by year, and $Y_N$ is the return level or extreme wind velocity, corresponding to the N-years return period or MRI. Reemplacing in this ecuation the intensity function $lambda_{nt}$, and solving $Y_N$ for all possible values of MRI, will provide hazard curve displayed in figure \@ref(fig:page10).
+
 
 ```{r page10, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Hazard Curve. Station 801120" , fig.align="center", fig.height=2.5, fig.width=3.5}
 #replayPlot(myprint10)
@@ -725,6 +730,7 @@ ggplot(data=df, aes(x=x, y=y, group=1)) +
   theme(axis.title =element_text(size=7))
 ```
 
+
 ```{r rl, echo=FALSE, message=FALSE, warning=FALSE, paged.print=TRUE, results="asis"}
 mdf = data.frame(MRI=tipicalReturnPeriods, RL=veocitiesfortypicalreturnperiodsP)
 
@@ -742,8 +748,82 @@ kable_styling(font_size = 10, latex_options="scale_down")
 
 ```
 
+Return levels of interest for this research, corrrespond to 700, 1700 and 3000 years of MRI, however, due to the mechanism of [integration with existing hurricane study information](#integration), described in [methodology](#rmd-method), it is necessary to extract for all stations values related to typical return periods, as shown in the table \@ref(tab:rl).
 
-### Comparison with POT-GPD 
+### Comparison with POT-GPD and common extreme value distributions
+
+To enable a comparison between, a) POT-PP (previous section), b) [POT-GPD](#pot-gpd), and c) the fitting process of common extreme value distributions (GPA, GEV, GUM) without using POT method, this is, using the generic concept of [hazard function _hf_](#hf) (see [theoretical framework](#rmd-thefra)), a whole authomatation process was done to calculate return levels and errors using mentioned alternatives, bearing in mind that in all cases _maximum likelihood_ was used to calculate the parameters.
+
+Resulting return levels and errors for POT-GPD, using R packages extRemes (@Gilleland2019), ismev (@JanetE.HeffernanwithRport2018), evd (@Stephenson2002), Renext (@Deville2016), evir (@Pfaff2018), and fExtremes (@Wuertz2017), are reported in table \@ref(tab:comparisonGPD). Similarty are shown it table \@ref(tab:comparisonCommonEVD), return levels calculated from the adjustment of the probability distributions GPA, GEV, and Gumbel.
+
+
+```{r comparisonGPD, echo=FALSE, message=FALSE, warning=FALSE, paged.print=TRUE, results="asis"}
+#years_declu_nt
+#years_all
+
+
+mydf_b = cbind(dlf$returnlev[c(28:33,35), ], RMSE=d$quant[c(28:33,35), 12])
+rownames(mydf_b) = c("extRemes", "ismev", "evd", "Renext Renouv", "evir", "fExtremes", "Renext 2 parameters")
+
+#years1$Year = labelyears
+kable(mydf_b, align=rep('l', 12),  digits = c(rep(1, 11),3), 
+      col.names = c("10", "20", "50", "100", "250","500", "700", "1000", "1700", "3000", "7000", "RMSE"),
+      caption = "POT-GPD. Return Levels in Kph",
+      caption.short = "POT-GPD",
+      longtable = TRUE,
+      booktabs = TRUE) %>%
+      row_spec(0, align = "l") %>%
+      column_spec(1,width = "1.2in") %>%
+      column_spec(2,width = "0.2in") %>%
+      column_spec(3,width = "0.2in") %>%
+      column_spec(4,width = "0.2in") %>%
+      column_spec(5,width = "0.2in") %>%
+      column_spec(6,width = "0.2in") %>%
+      column_spec(7,width = "0.2in") %>%
+      column_spec(8,width = "0.2in") %>%
+      column_spec(9,width = "0.2in") %>%
+      column_spec(10,width = "0.2in") %>%
+      column_spec(11,width = "0.2in") %>%
+      column_spec(12,width = "0.2in") %>%
+      column_spec(13,width = "0.2in") %>%
+      kable_styling(font_size = 8, latex_options="scale_down") %>%
+      add_header_above(c("PACKAGE" = 1, "RETURN LEVELS FOR TYPICAL MRIs" = 11, "ERROR" = 1))
+```
+
+
+```{r comparisonCommonEVD, echo=FALSE, message=FALSE, warning=FALSE, paged.print=TRUE, results="asis"}
+#years_declu_nt
+#years_all
+
+
+mydf_c = cbind(dlf$returnlev[c(3,10,12), ], RMSE=d$quant[c(3,10,12), 12])
+evd_name = c("Generalized Pareto", "Generalized Extreme Value", "Gumbel")
+mydf_c = cbind(evd_name, mydf_c)
+#years1$Year = labelyears
+kable(mydf_c, align=rep('l', 13),  digits = c(0, rep(1, 11),3), 
+      col.names = c("NAME", "10", "20", "50", "100", "250","500", "700", "1000", "1700", "3000", "7000", "RMSE"),
+      caption = "Common Extreme Value Distributions. Return Levels in Kph",
+      caption.short = "CommonEVD",
+      longtable = TRUE,
+      booktabs = TRUE) %>%
+      row_spec(0, align = "l") %>%
+      column_spec(1,width = "0.1in") %>%
+      column_spec(2,width = "1.4in") %>%
+      column_spec(3,width = "0.15in") %>%
+      column_spec(4,width = "0.15in") %>%
+      column_spec(5,width = "0.15in") %>%
+      column_spec(6,width = "0.15in") %>%
+      column_spec(7,width = "0.15in") %>%
+      column_spec(8,width = "0.15in") %>%
+      column_spec(9,width = "0.15in") %>%
+      column_spec(10,width = "0.15in") %>%
+      column_spec(11,width = "0.15in") %>%
+      column_spec(12,width = "0.15in") %>%
+      column_spec(13,width = "0.15in") %>%
+      column_spec(14,width = "0.15in") %>%
+      kable_styling(font_size = 8, latex_options="scale_down") %>%
+      add_header_above(c("EVD" = 2, "RETURN LEVELS FOR TYPICAL MRIs" = 11, "ERROR" = 1))
+```
 
 ## Non-Hurricane Maps
 
