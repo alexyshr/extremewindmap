@@ -412,7 +412,7 @@ Y_N=\frac{\psi}{\zeta}\left[-log\left(\frac{N-1}{N}\right)\right]^{-\zeta}-\frac
 
 As for this research $\zeta = 0$, return levels $Y_N$ can be calculated using the Gumbel quantile function, but using $(1-\frac{1}{N})$ as probability. 
 
-## Spatial Interpolation
+## Spatial Interpolation {#si}
 
 Probabilistic (Kriging) and deterministic (IDW, local polynomials) techniques are used to create maps for return levels with same return period. Interpolation with Kriging requires verification of minimum procedures to ensure proper use of the method, for instance, 
 

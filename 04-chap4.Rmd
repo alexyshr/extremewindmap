@@ -18,12 +18,12 @@ if(!require(thesisdown)){
 library(thesisdown)
 library(stars)
 library(sf)
-library("rnaturalearth")
-library("rnaturalearthdata")
-library("ggspatial")
+library(rnaturalearth)
+library(rnaturalearthdata)
+library(ggspatial)
 library(RColorBrewer)
-library("knitr")
-library("kableExtra")
+library(knitr)
+library(kableExtra)
 library(raster)
 library(RStoolbox)
 library(gridExtra)
@@ -32,6 +32,7 @@ library(dplyr)
 library(grid)
 library(gridExtra)
 library(cowplot)
+library(ggplot2)
 ```
 
 ```{r echo=FALSE, cache= F, include=FALSE}
@@ -701,7 +702,7 @@ Hazard curve is the solution to equation \@ref(eq:pprl), but eliminating from it
 #        pt.cex = c(0))
 # box(lty = 1, col = 'black', lwd=0.5)
   
-library(ggplot2)
+
 x= 1/paP 
 y= yvels
 df = data.frame(x = x, y = y)
@@ -710,7 +711,7 @@ x1= tipicalReturnPeriods
 y1= veocitiesfortypicalreturnperiodsP
 
 df2 = data.frame(x = x1, y = y1)
-library(dplyr)
+
 df2_more1700 <- df2 %>% filter(x >= c(1700))
 df2_less1700 <- df2 %>% filter(x < c(1700))
 
@@ -754,7 +755,7 @@ Return levels of interest for this research, corrrespond to 700, 1700 and 3000 y
 
 To enable a comparison between, a) POT-PP (previous section), b) [POT-GPD](#pot-gpd), and c) the fitting process of common extreme value distributions (GPA, GEV, GUM) without using POT method, this is, using the generic concept of [hazard function _hf_](#hf) (see [theoretical framework](#rmd-thefra)), a whole authomatation process was done to calculate return levels and errors using mentioned alternatives, bearing in mind that in all cases _maximum likelihood_ was used to calculate the parameters.
 
-Resulting return levels and errors for POT-GPD, using R packages extRemes (@Gilleland2019), ismev (@JanetE.HeffernanwithRport2018), evd (@Stephenson2002), Renext (@Deville2016), evir (@Pfaff2018), and fExtremes (@Wuertz2017), are reported in table \@ref(tab:comparisonGPD). Similarty are shown it table \@ref(tab:comparisonCommonEVD), return levels calculated from the adjustment of the probability distributions GPA, GEV, and Gumbel.
+Resulting return levels and errors for POT-GPD, using R packages extRemes - @Gilleland2019, ismev -  @JanetE.HeffernanwithRport2018, evd - @Stephenson2002, Renext - @Deville2016, evir - @Pfaff2018, and fExtremes - @Wuertz2017, are reported in table \@ref(tab:comparisonGPD). Similarly are shown it table \@ref(tab:comparisonCommonEVD), return levels calculated from the adjustment of the probability distributions GPA, GEV, and Gumbel.
 
 
 ```{r comparisonGPD, echo=FALSE, message=FALSE, warning=FALSE, paged.print=TRUE, results="asis"}
@@ -825,33 +826,761 @@ kable(mydf_c, align=rep('l', 13),  digits = c(0, rep(1, 11),3),
       add_header_above(c("EVD" = 2, "RETURN LEVELS FOR TYPICAL MRIs" = 11, "ERROR" = 1))
 ```
 
-## Non-Hurricane Maps
+## Wind Maps
 
-### ISD
+Using calculated return levels in all available ISD stations, continuous maps covering the study area, were created using [spatial interpolation techniques](#si) as described in [methodology](#rmd-method). As calculated return levels for ERA5, represent predefined square cells of $0.25^\circ$ decimal degrees, no interpolation process was necessary in this reanalysis dataset.
 
-#### POT-PP
+### Existing Hurricane Maps
 
-#### POT-GPD
-
-### ERA5
-
-#### POT-PP
-
-#### POT-GPD
+The Colombian consulting firm Ingeniar ltda, following the methodology described in @hurricanemaps, and @hurricanemaps2, has provided raster wind maps for return periods 10, 20, 50, 100, 250, 500, 700, 1000, 1700, 3000, and 7000 years, resulting from the probabilistic study of winds due to hurricanes in the Colombian Caribbean Sea and the surrounding continental zone. Figure \@ref(fig:ingeniarmaps) shows three of mentioned maps.
 
 
-## Hurricane and Non-Hurricane Maps
+```{r ingeniarmaps, echo=FALSE, fig.cap="Ingeniar Hurricane Wind Maps.", message=FALSE, warning=FALSE, fig.height=1.75, fig.width=6.5}
+file_rl_h_4326_700_st = "./data/hurricanemaps/h_700.tif"
+rl_h_4326_700_st = read_stars(file_rl_h_4326_700_st)
+rl_h_4326_700_st = setNames(rl_h_4326_700_st, "Kph")
 
-### ISD
+file_rl_h_4326_1700_st = "./data/hurricanemaps/h_1700.tif"
+rl_h_4326_1700_st = read_stars(file_rl_h_4326_1700_st)
+rl_h_4326_1700_st = setNames(rl_h_4326_1700_st, "h_1700")
+ 
+file_rl_h_4326_3000_st = "./data/hurricanemaps/h_3000.tif"
+rl_h_4326_3000_st = read_stars(file_rl_h_4326_3000_st)
+rl_h_4326_3000_st = setNames(rl_h_4326_3000_st, "h_3000")
 
-#### POT-PP
+myPalette <- colorRampPalette(rev(brewer.pal(11, "Spectral")))
+sc <- scale_fill_gradientn(colours = myPalette(100), limits=c(27, 438),
+                           breaks=c(27, 100, 200, 300, 400, 438))
 
-#### POT-GPD
+theme_set(theme_bw())
+world <- ne_countries(scale = "medium", returnclass = "sf")
+world_points<- st_centroid(world)
+world_points <- cbind(world, st_coordinates(st_centroid(world$geometry)))
 
-### ERA5
+colombia = world_points$name == "Colombia"
+panama = world_points$name == "Panama"
+peru= world_points$name == "Peru"
+brazil= world_points$name == "Brazil"
+venezuela= world_points$name == "Venezuela"
+ecuador= world_points$name == "Ecuador"
 
-#### POT-PP
+c700 = ggplot(data = world) + 
+  geom_sf(fill= "antiquewhite", size=0.1) + 
+  geom_stars(data = rl_h_4326_700_st, aes(fill = Kph, x = x, y = y)) + 
+  #scale_fill_gradientn(colors = sf.colors(20)) + 
+  #sc2 + 
+  sc+
+  geom_text(data= world_points[venezuela,],aes(x=-69.4, y=8.5, label=name), color = "darkblue", fontface = "bold", size=1.5, check_overlap = FALSE) +
+  geom_text(data= world_points[panama,],aes(x=-79.1, y=9.2, label=name), color = "darkblue", fontface = "bold", size=1.5, check_overlap = FALSE) + 
+  geom_text(data= world_points[ecuador,],aes(x=-78.8, y=-1, label=name), color = "darkblue", fontface = "bold", size=1.5, check_overlap = FALSE) +
+  geom_text(data= world_points[peru,],aes(x=-75, y=-6, label=name), color = "darkblue", fontface = "bold", size=1.5, check_overlap = FALSE) +
+  geom_text(data= world_points[brazil,],aes(x=-68, y=-6, label=name), color = "darkblue", fontface = "bold", size=1.5, check_overlap = FALSE) +
+  geom_text(data= world_points[colombia,],aes(x=-71, y=5.5, label=name), color = "darkblue", fontface = "bold", size=1.5, check_overlap = FALSE) +
+  annotate(geom = "text", x = -77.5, y = 13.4, label = "Caribbean Sea", fontface = "italic", color = "grey22", size = 1.8) + 
+  annotate(geom = "text", x = -79, y = 5.6, label = "Pacific Sea", fontface = "italic", color = "grey22", size = 1.8) +
+  geom_sf(data = st_cast(world, "MULTILINESTRING"), size=0.1)+
+  #geom_sf(data = era5colpoints3116, size=1, shape=2, color= "black", show.legend = "point") + 
+  annotation_scale(location = "bl", width_hint = 0.5, height = unit(0.1, "cm"), line_width = 0.1, text_cex = 0.5, pad_x = unit(0.03, "in"), pad_y = unit(0.03, "in")) + annotation_north_arrow(location = "br", which_north = "true", pad_x = unit(0.01, "in"), pad_y = unit(0.02, "in"), height = unit(0.5, "cm"), width = unit(0.5, "cm"), style = north_arrow_minimal) +
+  coord_sf(xlim = c(-80.5, -67.7), ylim = c(4.5, 13.9), expand = FALSE) +
+  xlab("") + 
+  ylab("") + 
+  ggtitle("Hurricane Wind Map. \nMRI-700 years - Ingeniar Ltda") + 
+  theme(plot.title = element_text(size=6)) +
+  theme(axis.text.x= element_text(size=5)) + 
+  theme(axis.text.y= element_text(size=5)) +
+  theme(panel.grid.major = element_line(color = gray(.5), linetype = "dashed", size = 0.1)) +
+  theme(panel.background = element_rect(fill = "aliceblue")) +
+  #theme(legend.title = element_text(size=8)) +
+  #theme(legend.text=element_text(size=8)) +
+  #theme(legend.key.size = unit(0.5,"line")) +
+  theme(plot.margin=unit(c(0,0,0,0),"cm")) +
+  theme(plot.background = element_rect(fill = "transparent", color = NA))+
+  theme(axis.text.x = element_text(margin =  margin(t =2, b = -14))) + 
+  theme(axis.text.y = element_text(margin =  margin(r =2, l = -10))) +
+  theme(legend.title = element_text(size = 6)) +
+  theme(legend.text = element_text(size = 5)) + 
+  theme(legend.background = element_blank()) +
+  theme(legend.key.width = unit(0.1, "cm")) +
+  theme(legend.key.height = unit(0.5, "cm"))
 
-#### POT-GPD
+legend <- get_legend(c700)
+
+c700 = c700 + theme(legend.position = "none")
+
+c1700 = ggplot(data = world) + 
+  geom_sf(fill= "antiquewhite", size=0.1) + 
+  geom_stars(data = rl_h_4326_1700_st, aes(fill = h_1700, x = x, y = y)) + 
+  #scale_fill_gradientn(colors = sf.colors(20)) + 
+  #sc2 + 
+  sc+
+  geom_text(data= world_points[venezuela,],aes(x=-69.4, y=8.5, label=name), color = "darkblue", fontface = "bold", size=1.5, check_overlap = FALSE) +
+  geom_text(data= world_points[panama,],aes(x=-79.1, y=9.2, label=name), color = "darkblue", fontface = "bold", size=1.5, check_overlap = FALSE) + 
+  geom_text(data= world_points[ecuador,],aes(x=-78.8, y=-1, label=name), color = "darkblue", fontface = "bold", size=1.5, check_overlap = FALSE) +
+  geom_text(data= world_points[peru,],aes(x=-75, y=-6, label=name), color = "darkblue", fontface = "bold", size=1.5, check_overlap = FALSE) +
+  geom_text(data= world_points[brazil,],aes(x=-68, y=-6, label=name), color = "darkblue", fontface = "bold", size=1.5, check_overlap = FALSE) +
+  geom_text(data= world_points[colombia,],aes(x=-71, y=5.5, label=name), color = "darkblue", fontface = "bold", size=1.5, check_overlap = FALSE) +
+  annotate(geom = "text", x = -77.5, y = 13.4, label = "Caribbean Sea", fontface = "italic", color = "grey22", size = 1.8) + 
+  annotate(geom = "text", x = -79, y = 5.6, label = "Pacific Sea", fontface = "italic", color = "grey22", size = 1.8) +
+  geom_sf(data = st_cast(world, "MULTILINESTRING"), size=0.1)+
+  #geom_sf(data = era5colpoints3116, size=1, shape=2, color= "black", show.legend = "point") + 
+  annotation_scale(location = "bl", width_hint = 0.5, height = unit(0.1, "cm"), line_width = 0.1, text_cex = 0.5, pad_x = unit(0.03, "in"), pad_y = unit(0.03, "in")) + annotation_north_arrow(location = "br", which_north = "true", pad_x = unit(0.01, "in"), pad_y = unit(0.02, "in"), height = unit(0.5, "cm"), width = unit(0.5, "cm"), style = north_arrow_minimal) +
+  coord_sf(xlim = c(-80.5, -67.7), ylim = c(4.5, 13.9), expand = FALSE) +
+  xlab("") + 
+  ylab("") + 
+  ggtitle("Hurricane Wind Map. \nMRI-1700 years - Ingeniar Ltda") + 
+  theme(plot.title = element_text(size=6)) +
+  theme(axis.text.x= element_text(size=5)) + 
+  theme(axis.text.y= element_text(size=5)) +
+  theme(panel.grid.major = element_line(color = gray(.5), linetype = "dashed", size = 0.1)) +
+  theme(panel.background = element_rect(fill = "aliceblue")) +
+  #theme(legend.title = element_text(size=8)) +
+  #theme(legend.text=element_text(size=8)) +
+  #theme(legend.key.size = unit(0.5,"line")) +
+  theme(plot.margin=unit(c(0,0,0,0),"cm")) +
+  theme(plot.background = element_rect(fill = "transparent", color = NA))+
+  theme(axis.text.x = element_text(margin =  margin(t =2, b = -14))) + 
+  theme(axis.text.y = element_text(margin =  margin(r =2, l = -10))) +
+  theme(legend.position = "none")
+
+c3000 = ggplot(data = world) + 
+  geom_sf(fill= "antiquewhite", size=0.1) + 
+  geom_stars(data = rl_h_4326_3000_st, aes(fill = h_3000, x = x, y = y)) + 
+  #scale_fill_gradientn(colors = sf.colors(20)) + 
+  #sc2 + 
+  sc+
+  geom_text(data= world_points[venezuela,],aes(x=-69.4, y=8.5, label=name), color = "darkblue", fontface = "bold", size=1.5, check_overlap = FALSE) +
+  geom_text(data= world_points[panama,],aes(x=-79.1, y=9.2, label=name), color = "darkblue", fontface = "bold", size=1.5, check_overlap = FALSE) + 
+  geom_text(data= world_points[ecuador,],aes(x=-78.8, y=-1, label=name), color = "darkblue", fontface = "bold", size=1.5, check_overlap = FALSE) +
+  geom_text(data= world_points[peru,],aes(x=-75, y=-6, label=name), color = "darkblue", fontface = "bold", size=1.5, check_overlap = FALSE) +
+  geom_text(data= world_points[brazil,],aes(x=-68, y=-6, label=name), color = "darkblue", fontface = "bold", size=1.5, check_overlap = FALSE) +
+  geom_text(data= world_points[colombia,],aes(x=-71, y=5.5, label=name), color = "darkblue", fontface = "bold", size=1.5, check_overlap = FALSE) +
+  annotate(geom = "text", x = -77.5, y = 13.4, label = "Caribbean Sea", fontface = "italic", color = "grey22", size = 1.8) + 
+  annotate(geom = "text", x = -79, y = 5.6, label = "Pacific Sea", fontface = "italic", color = "grey22", size = 1.8) +
+  geom_sf(data = st_cast(world, "MULTILINESTRING"), size=0.1)+
+  #geom_sf(data = era5colpoints3116, size=1, shape=2, color= "black", show.legend = "point") + 
+  annotation_scale(location = "bl", width_hint = 0.5, height = unit(0.1, "cm"), line_width = 0.1, text_cex = 0.5, pad_x = unit(0.03, "in"), pad_y = unit(0.03, "in")) + annotation_north_arrow(location = "br", which_north = "true", pad_x = unit(0.01, "in"), pad_y = unit(0.02, "in"), height = unit(0.5, "cm"), width = unit(0.5, "cm"), style = north_arrow_minimal) +
+  coord_sf(xlim = c(-80.5, -67.7), ylim = c(4.5, 13.9), expand = FALSE) +
+  xlab("") + 
+  ylab("") + 
+  ggtitle("Hurricane Wind Map. \nMRI-3000 years - Ingeniar Ltda") + 
+  theme(plot.title = element_text(size=6)) +
+  theme(axis.text.x= element_text(size=5)) + 
+  theme(axis.text.y= element_text(size=5)) +
+  theme(panel.grid.major = element_line(color = gray(.5), linetype = "dashed", size = 0.1)) +
+  theme(panel.background = element_rect(fill = "aliceblue")) +
+  #theme(legend.title = element_text(size=8)) +
+  #theme(legend.text=element_text(size=8)) +
+  #theme(legend.key.size = unit(0.5,"line")) +
+  theme(plot.margin=unit(c(0,0,0,0),"cm")) +
+  theme(plot.background = element_rect(fill = "transparent", color = NA))+
+  theme(axis.text.x = element_text(margin =  margin(t =2, b = -14))) + 
+  theme(axis.text.y = element_text(margin =  margin(r =2, l = -10))) +
+  theme(legend.position = "none")
+
+#grid.arrange(c700, c1700, c3000, legend, ncol=4, widths=c(1,1,1,0.1))  
+plot_grid(c700, c1700, c3000, legend, ncol=4, rel_widths=c(1, 1, 1, 0.13))
+#grid.rect(gp=gpar(fill=NA))
+
+```
+
+
+### Non-Hurricane Maps
+
+
+```{r isdnhmaps, echo=FALSE, fig.cap="ISD Non-Hurricane Wind Maps.", message=FALSE, warning=FALSE, fig.height=2.7, fig.width=6.5}
+file_rl_nh_4326_700_st = "./data/isdmaps/nh_700.tif"
+rl_nh_4326_700_st = read_stars(file_rl_nh_4326_700_st)
+rl_nh_4326_700_st = setNames(rl_nh_4326_700_st, "Kph")
+
+file_rl_nh_4326_1700_st = "./data/isdmaps/nh_1700.tif"
+rl_nh_4326_1700_st = read_stars(file_rl_nh_4326_1700_st)
+rl_nh_4326_1700_st = setNames(rl_nh_4326_1700_st, "nh_1700")
+ 
+file_rl_nh_4326_3000_st = "./data/isdmaps/nh_3000.tif"
+rl_nh_4326_3000_st = read_stars(file_rl_nh_4326_3000_st)
+rl_nh_4326_3000_st = setNames(rl_nh_4326_3000_st, "nh_3000")
+
+myPalette <- colorRampPalette(rev(brewer.pal(11, "Spectral")))
+sc <- scale_fill_gradientn(colours = myPalette(100), limits=c(188, 346),
+                           breaks=c(188, 200, 225, 250, 275, 300, 325, 346))
+
+theme_set(theme_bw())
+world <- ne_countries(scale = "medium", returnclass = "sf")
+world_points<- st_centroid(world)
+world_points <- cbind(world, st_coordinates(st_centroid(world$geometry)))
+
+colombia = world_points$name == "Colombia"
+panama = world_points$name == "Panama"
+peru= world_points$name == "Peru"
+brazil= world_points$name == "Brazil"
+venezuela= world_points$name == "Venezuela"
+ecuador= world_points$name == "Ecuador"
+
+c700 = ggplot(data = world) + 
+  geom_sf(fill= "antiquewhite", size=0.1) + 
+  geom_stars(data = rl_nh_4326_700_st, aes(fill = Kph, x = x, y = y)) + 
+  #scale_fill_gradientn(colors = sf.colors(20)) + 
+  #sc2 + 
+  sc+
+  geom_text(data= world_points[venezuela,],aes(x=-66.5, y=8.5, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) +
+  geom_text(data= world_points[panama,],aes(x=-80.3, y=9.2, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) + 
+  geom_text(data= world_points[ecuador,],aes(x=-78.8, y=-1, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) +
+  geom_text(data= world_points[peru,],aes(x=-75, y=-6, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) +
+  geom_text(data= world_points[brazil,],aes(x=-68, y=-6, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) +
+  geom_text(data= world_points[colombia,],aes(x=-71, y=4, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) +
+  annotate(geom = "text", x = -77.5, y = 14, label = "Caribbean\nSea", fontface = "italic", color = "grey22", size = 2) + 
+  annotate(geom = "text", x = -80.5, y = 5, label = "Pacific\nSea", fontface = "italic", color = "grey22", size = 2) +
+  geom_sf(data = st_cast(world, "MULTILINESTRING"), size=0.1)+
+  #geom_sf(data = era5colpoints3116, size=1, shape=2, color= "black", show.legend = "point") + 
+  annotation_scale(location = "bl", width_hint = 0.5, height = unit(0.1, "cm"), line_width = 0.1, text_cex = 0.5, pad_x = unit(0.03, "in"), pad_y = unit(0.03, "in")) + annotation_north_arrow(location = "br", which_north = "true", pad_x = unit(0.01, "in"), pad_y = unit(0.02, "in"), height = unit(0.5, "cm"), width = unit(0.5, "cm"), style = north_arrow_minimal) +
+  coord_sf(xlim = c(-82.1, -63.8), ylim = c(-7.5, 15.5), expand = FALSE) +
+  xlab("") + 
+  ylab("") + 
+  ggtitle("Non-Hurricane Wind Map. \nMRI-700 years - ISD") + 
+  theme(plot.title = element_text(size=7)) +
+  theme(axis.text.x= element_text(size=6)) + 
+  theme(axis.text.y= element_text(size=6)) +
+  theme(panel.grid.major = element_line(color = gray(.5), linetype = "dashed", size = 0.1)) +
+  theme(panel.background = element_rect(fill = "aliceblue")) +
+  #theme(legend.title = element_text(size=8)) +
+  #theme(legend.text=element_text(size=8)) +
+  #theme(legend.key.size = unit(0.5,"line")) +
+  theme(plot.margin=unit(c(0,0,0,0),"cm")) +
+  theme(plot.background = element_rect(fill = "transparent", color = NA))+
+  theme(axis.text.x = element_text(margin =  margin(t =2, b = -14))) + 
+  theme(axis.text.y = element_text(margin =  margin(r =2, l = -16))) +
+  theme(legend.title = element_text(size = 6)) +
+  theme(legend.text = element_text(size = 6)) + 
+  theme(legend.background = element_blank()) +
+  theme(legend.key.width = unit(0.1, "cm"))
+
+legend <- get_legend(c700)
+
+c700 = c700 + theme(legend.position = "none")
+
+c1700 = ggplot(data = world) + 
+  geom_sf(fill= "antiquewhite", size=0.1) + 
+  geom_stars(data = rl_nh_4326_1700_st, aes(fill = nh_1700, x = x, y = y)) + 
+  #scale_fill_gradientn(colors = sf.colors(20)) + 
+  #sc2 + 
+  sc+
+  geom_text(data= world_points[venezuela,],aes(x=-66.5, y=8.5, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) +
+  geom_text(data= world_points[panama,],aes(x=-80.3, y=9.2, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) + 
+  geom_text(data= world_points[ecuador,],aes(x=-78.8, y=-1, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) +
+  geom_text(data= world_points[peru,],aes(x=-75, y=-6, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) +
+  geom_text(data= world_points[brazil,],aes(x=-68, y=-6, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) +
+  geom_text(data= world_points[colombia,],aes(x=-71, y=4, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) +
+  annotate(geom = "text", x = -77.5, y = 14, label = "Caribbean\nSea", fontface = "italic", color = "grey22", size = 2) + 
+  annotate(geom = "text", x = -80.5, y = 5, label = "Pacific\nSea", fontface = "italic", color = "grey22", size = 2) +
+  geom_sf(data = st_cast(world, "MULTILINESTRING"), size=0.1)+
+  #geom_sf(data = era5colpoints3116, size=1, shape=2, color= "black", show.legend = "point") + 
+  annotation_scale(location = "bl", width_hint = 0.5, height = unit(0.1, "cm"), line_width = 0.1, text_cex = 0.5, pad_x = unit(0.03, "in"), pad_y = unit(0.03, "in")) + annotation_north_arrow(location = "br", which_north = "true", pad_x = unit(0.01, "in"), pad_y = unit(0.02, "in"), height = unit(0.5, "cm"), width = unit(0.5, "cm"), style = north_arrow_minimal) +
+  coord_sf(xlim = c(-82.1, -63.8), ylim = c(-7.5, 15.5), expand = FALSE) +
+  xlab("") + 
+  ylab("") + 
+  ggtitle("Non-Hurricane Wind Map. \nMRI-1700 years - ISD") + 
+  theme(plot.title = element_text(size=7)) +
+  theme(axis.text.x= element_text(size=6)) + 
+  theme(axis.text.y= element_text(size=6)) +
+  theme(panel.grid.major = element_line(color = gray(.5), linetype = "dashed", size = 0.1)) +
+  theme(panel.background = element_rect(fill = "aliceblue")) +
+  #theme(legend.title = element_text(size=8)) +
+  #theme(legend.text=element_text(size=8)) +
+  #theme(legend.key.size = unit(0.5,"line")) +
+  theme(plot.margin=unit(c(0,0,0,0),"cm")) +
+  theme(plot.background = element_rect(fill = "transparent", color = NA))+
+  theme(axis.text.x = element_text(margin =  margin(t =2, b = -14))) + 
+  theme(axis.text.y = element_text(margin =  margin(r =2, l = -16))) +
+  theme(legend.position = "none")
+
+c3000 = ggplot(data = world) + 
+  geom_sf(fill= "antiquewhite", size=0.1) + 
+  geom_stars(data = rl_nh_4326_3000_st, aes(fill = nh_3000, x = x, y = y)) + 
+  #scale_fill_gradientn(colors = sf.colors(20)) + 
+  #sc2 + 
+  sc+
+  geom_text(data= world_points[venezuela,],aes(x=-66.5, y=8.5, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) +
+  geom_text(data= world_points[panama,],aes(x=-80.3, y=9.2, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) + 
+  geom_text(data= world_points[ecuador,],aes(x=-78.8, y=-1, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) +
+  geom_text(data= world_points[peru,],aes(x=-75, y=-6, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) +
+  geom_text(data= world_points[brazil,],aes(x=-68, y=-6, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) +
+  geom_text(data= world_points[colombia,],aes(x=-71, y=4, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) +
+  annotate(geom = "text", x = -77.5, y = 14, label = "Caribbean\nSea", fontface = "italic", color = "grey22", size = 2) + 
+  annotate(geom = "text", x = -80.5, y = 5, label = "Pacific\nSea", fontface = "italic", color = "grey22", size = 2) +
+  geom_sf(data = st_cast(world, "MULTILINESTRING"), size=0.1)+
+  #geom_sf(data = era5colpoints3116, size=1, shape=2, color= "black", show.legend = "point") + 
+  annotation_scale(location = "bl", width_hint = 0.5, height = unit(0.1, "cm"), line_width = 0.1, text_cex = 0.5, pad_x = unit(0.03, "in"), pad_y = unit(0.03, "in")) + annotation_north_arrow(location = "br", which_north = "true", pad_x = unit(0.01, "in"), pad_y = unit(0.02, "in"), height = unit(0.5, "cm"), width = unit(0.5, "cm"), style = north_arrow_minimal) +
+  coord_sf(xlim = c(-82.1, -63.8), ylim = c(-7.5, 15.5), expand = FALSE) +
+  xlab("") + 
+  ylab("") + 
+  ggtitle("Non-Hurricane Wind Map. \nMRI-3000 years - ISD") + 
+  theme(plot.title = element_text(size=7)) +
+  theme(axis.text.x= element_text(size=6)) + 
+  theme(axis.text.y= element_text(size=6)) +
+  theme(panel.grid.major = element_line(color = gray(.5), linetype = "dashed", size = 0.1)) +
+  theme(panel.background = element_rect(fill = "aliceblue")) +
+  #theme(legend.title = element_text(size=8)) +
+  #theme(legend.text=element_text(size=8)) +
+  #theme(legend.key.size = unit(0.5,"line")) +
+  theme(plot.margin=unit(c(0,0,0,0),"cm")) +
+  theme(plot.background = element_rect(fill = "transparent", color = NA))+
+  theme(axis.text.x = element_text(margin =  margin(t =2, b = -14))) + 
+  theme(axis.text.y = element_text(margin =  margin(r =2, l = -16))) +
+  theme(legend.position = "none")
+
+#grid.arrange(c700, c1700, c3000, legend, ncol=4, widths=c(1,1,1,0.1))  
+plot_grid(c700, c1700, c3000, legend, ncol=4, rel_widths=c(1, 1, 1, 0.1))
+#grid.rect(gp=gpar(fill=NA))
+
+```
+
+
+
+```{r era5nhmaps, echo=FALSE, fig.cap="ERA5 Non-Hurricane Wind Maps.", message=FALSE, warning=FALSE, fig.height=2.7, fig.width=6.5}
+file_rl_nonhurricanes_4326_700_st = "./data/era5maps/rl_nonhurricanes_4326_700_st.tif"
+rl_nonhurricanes_4326_700_st = read_stars(file_rl_nonhurricanes_4326_700_st)
+rl_nonhurricanes_4326_700_st = setNames(rl_nonhurricanes_4326_700_st, "Kph")
+
+file_rl_nonhurricanes_4326_1700_st = "./data/era5maps/rl_nonhurricanes_4326_1700_st.tif"
+rl_nonhurricanes_4326_1700_st = read_stars(file_rl_nonhurricanes_4326_1700_st)
+rl_nonhurricanes_4326_1700_st = setNames(rl_nonhurricanes_4326_1700_st, "nh_1700")
+
+file_rl_nonhurricanes_4326_3000_st = "./data/era5maps/rl_nonhurricanes_4326_3000_st.tif"
+rl_nonhurricanes_4326_3000_st = read_stars(file_rl_nonhurricanes_4326_3000_st)
+rl_nonhurricanes_4326_3000_st = setNames(rl_nonhurricanes_4326_3000_st, "nh_3000")
+
+myPalette <- colorRampPalette(rev(brewer.pal(11, "Spectral")))
+sc <- scale_fill_gradientn(colours = myPalette(100), limits=c(36, 129), 
+                           breaks=c(36, 50, 75, 100, 120, 129))
+
+theme_set(theme_bw())
+world <- ne_countries(scale = "medium", returnclass = "sf")
+world_points<- st_centroid(world)
+world_points <- cbind(world, st_coordinates(st_centroid(world$geometry)))
+
+colombia = world_points$name == "Colombia"
+panama = world_points$name == "Panama"
+peru= world_points$name == "Peru"
+brazil= world_points$name == "Brazil"
+venezuela= world_points$name == "Venezuela"
+ecuador= world_points$name == "Ecuador"
+
+c700 = ggplot(data = world) + 
+  geom_sf(fill= "antiquewhite", size=0.1) + 
+  geom_stars(data = rl_nonhurricanes_4326_700_st, aes(fill = Kph, x = x, y = y)) + 
+  #scale_fill_gradientn(colors = sf.colors(20)) + 
+  #sc2 + 
+  sc+
+  geom_text(data= world_points[venezuela,],aes(x=-66.5, y=8.5, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) +
+  geom_text(data= world_points[panama,],aes(x=-80.3, y=9.2, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) + 
+  geom_text(data= world_points[ecuador,],aes(x=-78.8, y=-1, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) +
+  geom_text(data= world_points[peru,],aes(x=-75, y=-6, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) +
+  geom_text(data= world_points[brazil,],aes(x=-68, y=-6, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) +
+  geom_text(data= world_points[colombia,],aes(x=-71, y=4, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) +
+  annotate(geom = "text", x = -77.5, y = 14, label = "Caribbean\nSea", fontface = "italic", color = "grey22", size = 2) + 
+  annotate(geom = "text", x = -80.5, y = 5, label = "Pacific\nSea", fontface = "italic", color = "grey22", size = 2) +
+  geom_sf(data = st_cast(world, "MULTILINESTRING"), size=0.1)+
+  #geom_sf(data = era5colpoints3116, size=1, shape=2, color= "black", show.legend = "point") + 
+  annotation_scale(location = "bl", width_hint = 0.5, height = unit(0.1, "cm"), line_width = 0.1, text_cex = 0.5, pad_x = unit(0.03, "in"), pad_y = unit(0.03, "in")) + annotation_north_arrow(location = "br", which_north = "true", pad_x = unit(0.01, "in"), pad_y = unit(0.02, "in"), height = unit(0.5, "cm"), width = unit(0.5, "cm"), style = north_arrow_minimal) +
+  coord_sf(xlim = c(-82.1, -63.8), ylim = c(-7.5, 15.5), expand = FALSE) +
+  xlab("") + 
+  ylab("") + 
+  ggtitle("Non-Hurricane Wind Map. \nMRI-700 years - ERA5") + 
+  theme(plot.title = element_text(size=7)) +
+  theme(axis.text.x= element_text(size=6)) + 
+  theme(axis.text.y= element_text(size=6)) +
+  theme(panel.grid.major = element_line(color = gray(.5), linetype = "dashed", size = 0.1)) +
+  theme(panel.background = element_rect(fill = "aliceblue")) +
+  #theme(legend.title = element_text(size=8)) +
+  #theme(legend.text=element_text(size=8)) +
+  #theme(legend.key.size = unit(0.5,"line")) +
+  theme(plot.margin=unit(c(0,0,0,0),"cm")) +
+  theme(plot.background = element_rect(fill = "transparent", color = NA))+
+  theme(axis.text.x = element_text(margin =  margin(t =2, b = -14))) + 
+  theme(axis.text.y = element_text(margin =  margin(r =2, l = -16))) +
+  theme(legend.title = element_text(size = 6)) +
+  theme(legend.text = element_text(size = 6)) + 
+  theme(legend.background = element_blank()) +
+  theme(legend.key.width = unit(0.1, "cm"))
+
+legend <- get_legend(c700)
+
+c700 = c700 + theme(legend.position = "none")
+
+c1700 = ggplot(data = world) + 
+  geom_sf(fill= "antiquewhite", size=0.1) + 
+  geom_stars(data = rl_nonhurricanes_4326_1700_st, aes(fill = nh_1700, x = x, y = y)) + 
+  #scale_fill_gradientn(colors = sf.colors(20)) + 
+  #sc2 + 
+  sc+
+  geom_text(data= world_points[venezuela,],aes(x=-66.5, y=8.5, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) +
+  geom_text(data= world_points[panama,],aes(x=-80.3, y=9.2, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) + 
+  geom_text(data= world_points[ecuador,],aes(x=-78.8, y=-1, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) +
+  geom_text(data= world_points[peru,],aes(x=-75, y=-6, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) +
+  geom_text(data= world_points[brazil,],aes(x=-68, y=-6, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) +
+  geom_text(data= world_points[colombia,],aes(x=-71, y=4, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) +
+  annotate(geom = "text", x = -77.5, y = 14, label = "Caribbean\nSea", fontface = "italic", color = "grey22", size = 2) + 
+  annotate(geom = "text", x = -80.5, y = 5, label = "Pacific\nSea", fontface = "italic", color = "grey22", size = 2) +
+  geom_sf(data = st_cast(world, "MULTILINESTRING"), size=0.1)+
+  #geom_sf(data = era5colpoints3116, size=1, shape=2, color= "black", show.legend = "point") + 
+  annotation_scale(location = "bl", width_hint = 0.5, height = unit(0.1, "cm"), line_width = 0.1, text_cex = 0.5, pad_x = unit(0.03, "in"), pad_y = unit(0.03, "in")) + annotation_north_arrow(location = "br", which_north = "true", pad_x = unit(0.01, "in"), pad_y = unit(0.02, "in"), height = unit(0.5, "cm"), width = unit(0.5, "cm"), style = north_arrow_minimal) +
+  coord_sf(xlim = c(-82.1, -63.8), ylim = c(-7.5, 15.5), expand = FALSE) +
+  xlab("") + 
+  ylab("") + 
+  ggtitle("Non-Hurricane Wind Map. \nMRI-1700 years - ERA5") + 
+  theme(plot.title = element_text(size=7)) +
+  theme(axis.text.x= element_text(size=6)) + 
+  theme(axis.text.y= element_text(size=6)) +
+  theme(panel.grid.major = element_line(color = gray(.5), linetype = "dashed", size = 0.1)) +
+  theme(panel.background = element_rect(fill = "aliceblue")) +
+  #theme(legend.title = element_text(size=8)) +
+  #theme(legend.text=element_text(size=8)) +
+  #theme(legend.key.size = unit(0.5,"line")) +
+  theme(plot.margin=unit(c(0,0,0,0),"cm")) +
+  theme(plot.background = element_rect(fill = "transparent", color = NA))+
+  theme(axis.text.x = element_text(margin =  margin(t =2, b = -14))) + 
+  theme(axis.text.y = element_text(margin =  margin(r =2, l = -16))) +
+  theme(legend.position = "none")
+
+c3000 = ggplot(data = world) + 
+  geom_sf(fill= "antiquewhite", size=0.1) + 
+  geom_stars(data = rl_nonhurricanes_4326_3000_st, aes(fill = nh_3000, x = x, y = y)) + 
+  #scale_fill_gradientn(colors = sf.colors(20)) + 
+  #sc2 + 
+  sc+
+  geom_text(data= world_points[venezuela,],aes(x=-66.5, y=8.5, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) +
+  geom_text(data= world_points[panama,],aes(x=-80.3, y=9.2, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) + 
+  geom_text(data= world_points[ecuador,],aes(x=-78.8, y=-1, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) +
+  geom_text(data= world_points[peru,],aes(x=-75, y=-6, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) +
+  geom_text(data= world_points[brazil,],aes(x=-68, y=-6, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) +
+  geom_text(data= world_points[colombia,],aes(x=-71, y=4, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) +
+  annotate(geom = "text", x = -77.5, y = 14, label = "Caribbean\nSea", fontface = "italic", color = "grey22", size = 2) + 
+  annotate(geom = "text", x = -80.5, y = 5, label = "Pacific\nSea", fontface = "italic", color = "grey22", size = 2) +
+  geom_sf(data = st_cast(world, "MULTILINESTRING"), size=0.1)+
+  #geom_sf(data = era5colpoints3116, size=1, shape=2, color= "black", show.legend = "point") + 
+  annotation_scale(location = "bl", width_hint = 0.5, height = unit(0.1, "cm"), line_width = 0.1, text_cex = 0.5, pad_x = unit(0.03, "in"), pad_y = unit(0.03, "in")) + annotation_north_arrow(location = "br", which_north = "true", pad_x = unit(0.01, "in"), pad_y = unit(0.02, "in"), height = unit(0.5, "cm"), width = unit(0.5, "cm"), style = north_arrow_minimal) +
+  coord_sf(xlim = c(-82.1, -63.8), ylim = c(-7.5, 15.5), expand = FALSE) +
+  xlab("") + 
+  ylab("") + 
+  ggtitle("Non-Hurricane Wind Map. \nMRI-3000 years - ERA5") + 
+  theme(plot.title = element_text(size=7)) +
+  theme(axis.text.x= element_text(size=6)) + 
+  theme(axis.text.y= element_text(size=6)) +
+  theme(panel.grid.major = element_line(color = gray(.5), linetype = "dashed", size = 0.1)) +
+  theme(panel.background = element_rect(fill = "aliceblue")) +
+  #theme(legend.title = element_text(size=8)) +
+  #theme(legend.text=element_text(size=8)) +
+  #theme(legend.key.size = unit(0.5,"line")) +
+  theme(plot.margin=unit(c(0,0,0,0),"cm")) +
+  theme(plot.background = element_rect(fill = "transparent", color = NA))+
+  theme(axis.text.x = element_text(margin =  margin(t =2, b = -14))) + 
+  theme(axis.text.y = element_text(margin =  margin(r =2, l = -16))) +
+  theme(legend.position = "none")
+
+#grid.arrange(c700, c1700, c3000, legend, ncol=4, widths=c(1,1,1,0.1))  
+plot_grid(c700, c1700, c3000, legend, ncol=4, rel_widths=c(1, 1, 1, 0.1))
+#grid.rect(gp=gpar(fill=NA))
+
+```
+
+
+### Combined Maps
+
+Following the procedure described in [integration with Hurricane data](#integration), final wind maps are created, combining existing data for hurricane studies, and non-hurrican maps produced in this study.
+
+```{r isdcbmaps, echo=FALSE, fig.cap="ISD Hurricane & Non-Hurricane Wind Maps.", message=FALSE, warning=FALSE, fig.height=2.7, fig.width=6.5}
+#Combined
+file_rl_combined_4326_700_st = "./data/isdmaps/isd_combined_4326_700_st.tif"
+rl_combined_4326_700_st = read_stars(file_rl_combined_4326_700_st)
+rl_combined_4326_700_st = setNames(rl_combined_4326_700_st, "Kph")
+
+file_rl_combined_4326_1700_st = "./data/isdmaps/isd_combined_4326_1700_st.tif"
+rl_combined_4326_1700_st = read_stars(file_rl_combined_4326_1700_st)
+rl_combined_4326_1700_st = setNames(rl_combined_4326_1700_st, "c_1700")
+
+file_rl_combined_4326_3000_st = "./data/isdmaps/isd_combined_4326_3000_st.tif"
+rl_combined_4326_3000_st = read_stars(file_rl_combined_4326_3000_st)
+rl_combined_4326_3000_st = setNames(rl_combined_4326_3000_st, "c_3000")
+
+myPalette <- colorRampPalette(rev(brewer.pal(11, "Spectral")))
+sc <- scale_fill_gradientn(colours = myPalette(100), limits=c(188, 438), 
+                           breaks=c(188, 200, 250, 300, 350, 400, 438))
+
+theme_set(theme_bw())
+world <- ne_countries(scale = "medium", returnclass = "sf")
+world_points<- st_centroid(world)
+world_points <- cbind(world, st_coordinates(st_centroid(world$geometry)))
+
+colombia = world_points$name == "Colombia"
+panama = world_points$name == "Panama"
+peru= world_points$name == "Peru"
+brazil= world_points$name == "Brazil"
+venezuela= world_points$name == "Venezuela"
+ecuador= world_points$name == "Ecuador"
+
+c700 = ggplot(data = world) + 
+  geom_sf(fill= "antiquewhite", size=0.1) + 
+  geom_stars(data = rl_combined_4326_700_st, aes(fill = Kph, x = x, y = y)) + 
+  #scale_fill_gradientn(colors = sf.colors(20)) + 
+  #sc2 + 
+  sc+
+  geom_text(data= world_points[venezuela,],aes(x=-66.5, y=8.5, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) +
+  geom_text(data= world_points[panama,],aes(x=-80.3, y=9.2, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) + 
+  geom_text(data= world_points[ecuador,],aes(x=-78.8, y=-1, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) +
+  geom_text(data= world_points[peru,],aes(x=-75, y=-6, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) +
+  geom_text(data= world_points[brazil,],aes(x=-68, y=-6, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) +
+  geom_text(data= world_points[colombia,],aes(x=-71, y=4, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) +
+  annotate(geom = "text", x = -77.5, y = 14, label = "Caribbean\nSea", fontface = "italic", color = "grey22", size = 2) + 
+  annotate(geom = "text", x = -80.5, y = 5, label = "Pacific\nSea", fontface = "italic", color = "grey22", size = 2) +
+  geom_sf(data = st_cast(world, "MULTILINESTRING"), size=0.1)+
+  #geom_sf(data = era5colpoints3116, size=1, shape=2, color= "black", show.legend = "point") + 
+  annotation_scale(location = "bl", width_hint = 0.5, height = unit(0.1, "cm"), line_width = 0.1, text_cex = 0.5, pad_x = unit(0.03, "in"), pad_y = unit(0.03, "in")) + annotation_north_arrow(location = "br", which_north = "true", pad_x = unit(0.01, "in"), pad_y = unit(0.02, "in"), height = unit(0.5, "cm"), width = unit(0.5, "cm"), style = north_arrow_minimal) +
+  coord_sf(xlim = c(-82.1, -63.8), ylim = c(-7.5, 15.5), expand = FALSE) +
+  xlab("") + 
+  ylab("") + 
+  ggtitle("Hurricane & Non-Hurricane Wind Map. \nMRI-700 years - ISD") + 
+  theme(plot.title = element_text(size=7)) +
+  theme(axis.text.x= element_text(size=6)) + 
+  theme(axis.text.y= element_text(size=6)) +
+  theme(panel.grid.major = element_line(color = gray(.5), linetype = "dashed", size = 0.1)) +
+  theme(panel.background = element_rect(fill = "aliceblue")) +
+  #theme(legend.title = element_text(size=8)) +
+  #theme(legend.text=element_text(size=8)) +
+  #theme(legend.key.size = unit(0.5,"line")) +
+  theme(plot.margin=unit(c(0,0,0,0),"cm")) +
+  theme(plot.background = element_rect(fill = "transparent", color = NA))+
+  theme(axis.text.x = element_text(margin =  margin(t =2, b = -14))) + 
+  theme(axis.text.y = element_text(margin =  margin(r =2, l = -16))) +
+  theme(legend.title = element_text(size = 6)) +
+  theme(legend.text = element_text(size = 6)) + 
+  theme(legend.background = element_blank()) +
+  theme(legend.key.width = unit(0.1, "cm"))
+
+legend <- get_legend(c700)
+
+c700 = c700 + theme(legend.position = "none")
+
+c1700 = ggplot(data = world) + 
+  geom_sf(fill= "antiquewhite", size=0.1) + 
+  geom_stars(data = rl_combined_4326_1700_st, aes(fill = c_1700, x = x, y = y)) + 
+  #scale_fill_gradientn(colors = sf.colors(20)) + 
+  #sc2 + 
+  sc+
+  geom_text(data= world_points[venezuela,],aes(x=-66.5, y=8.5, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) +
+  geom_text(data= world_points[panama,],aes(x=-80.3, y=9.2, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) + 
+  geom_text(data= world_points[ecuador,],aes(x=-78.8, y=-1, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) +
+  geom_text(data= world_points[peru,],aes(x=-75, y=-6, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) +
+  geom_text(data= world_points[brazil,],aes(x=-68, y=-6, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) +
+  geom_text(data= world_points[colombia,],aes(x=-71, y=4, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) +
+  annotate(geom = "text", x = -77.5, y = 14, label = "Caribbean\nSea", fontface = "italic", color = "grey22", size = 2) + 
+  annotate(geom = "text", x = -80.5, y = 5, label = "Pacific\nSea", fontface = "italic", color = "grey22", size = 2) +
+  geom_sf(data = st_cast(world, "MULTILINESTRING"), size=0.1)+
+  #geom_sf(data = era5colpoints3116, size=1, shape=2, color= "black", show.legend = "point") + 
+  annotation_scale(location = "bl", width_hint = 0.5, height = unit(0.1, "cm"), line_width = 0.1, text_cex = 0.5, pad_x = unit(0.03, "in"), pad_y = unit(0.03, "in")) + annotation_north_arrow(location = "br", which_north = "true", pad_x = unit(0.01, "in"), pad_y = unit(0.02, "in"), height = unit(0.5, "cm"), width = unit(0.5, "cm"), style = north_arrow_minimal) +
+  coord_sf(xlim = c(-82.1, -63.8), ylim = c(-7.5, 15.5), expand = FALSE) +
+  xlab("") + 
+  ylab("") + 
+  ggtitle("Hurricane & Non-Hurricane Wind Map. \nMRI-1700 years - ISD") + 
+  theme(plot.title = element_text(size=7)) +
+  theme(axis.text.x= element_text(size=6)) + 
+  theme(axis.text.y= element_text(size=6)) +
+  theme(panel.grid.major = element_line(color = gray(.5), linetype = "dashed", size = 0.1)) +
+  theme(panel.background = element_rect(fill = "aliceblue")) +
+  #theme(legend.title = element_text(size=8)) +
+  #theme(legend.text=element_text(size=8)) +
+  #theme(legend.key.size = unit(0.5,"line")) +
+  theme(plot.margin=unit(c(0,0,0,0),"cm")) +
+  theme(plot.background = element_rect(fill = "transparent", color = NA))+
+  theme(axis.text.x = element_text(margin =  margin(t =2, b = -14))) + 
+  theme(axis.text.y = element_text(margin =  margin(r =2, l = -16))) +
+  theme(legend.position = "none")
+
+c3000 = ggplot(data = world) + 
+  geom_sf(fill= "antiquewhite", size=0.1) + 
+  geom_stars(data = rl_combined_4326_3000_st, aes(fill = c_3000, x = x, y = y)) + 
+  #scale_fill_gradientn(colors = sf.colors(20)) + 
+  #sc2 + 
+  sc+
+  geom_text(data= world_points[venezuela,],aes(x=-66.5, y=8.5, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) +
+  geom_text(data= world_points[panama,],aes(x=-80.3, y=9.2, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) + 
+  geom_text(data= world_points[ecuador,],aes(x=-78.8, y=-1, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) +
+  geom_text(data= world_points[peru,],aes(x=-75, y=-6, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) +
+  geom_text(data= world_points[brazil,],aes(x=-68, y=-6, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) +
+  geom_text(data= world_points[colombia,],aes(x=-71, y=4, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) +
+  annotate(geom = "text", x = -77.5, y = 14, label = "Caribbean\nSea", fontface = "italic", color = "grey22", size = 2) + 
+  annotate(geom = "text", x = -80.5, y = 5, label = "Pacific\nSea", fontface = "italic", color = "grey22", size = 2) +
+  geom_sf(data = st_cast(world, "MULTILINESTRING"), size=0.1)+
+  #geom_sf(data = era5colpoints3116, size=1, shape=2, color= "black", show.legend = "point") + 
+  annotation_scale(location = "bl", width_hint = 0.5, height = unit(0.1, "cm"), line_width = 0.1, text_cex = 0.5, pad_x = unit(0.03, "in"), pad_y = unit(0.03, "in")) + annotation_north_arrow(location = "br", which_north = "true", pad_x = unit(0.01, "in"), pad_y = unit(0.02, "in"), height = unit(0.5, "cm"), width = unit(0.5, "cm"), style = north_arrow_minimal) +
+  coord_sf(xlim = c(-82.1, -63.8), ylim = c(-7.5, 15.5), expand = FALSE) +
+  xlab("") + 
+  ylab("") + 
+  ggtitle("Hurricane & Non-Hurricane Wind Map. \nMRI-3000 years - ISD") + 
+  theme(plot.title = element_text(size=7)) +
+  theme(axis.text.x= element_text(size=6)) + 
+  theme(axis.text.y= element_text(size=6)) +
+  theme(panel.grid.major = element_line(color = gray(.5), linetype = "dashed", size = 0.1)) +
+  theme(panel.background = element_rect(fill = "aliceblue")) +
+  #theme(legend.title = element_text(size=8)) +
+  #theme(legend.text=element_text(size=8)) +
+  #theme(legend.key.size = unit(0.5,"line")) +
+  theme(plot.margin=unit(c(0,0,0,0),"cm")) +
+  theme(plot.background = element_rect(fill = "transparent", color = NA))+
+  theme(axis.text.x = element_text(margin =  margin(t =2, b = -14))) + 
+  theme(axis.text.y = element_text(margin =  margin(r =2, l = -16))) +
+  theme(legend.position = "none")
+
+#grid.arrange(c700, c1700, c3000, legend, ncol=4, widths=c(1,1,1,0.1))  
+plot_grid(c700, c1700, c3000, legend, ncol=4, rel_widths=c(1, 1, 1, 0.1))
+#grid.rect(gp=gpar(fill=NA))
+```
+
+
+```{r era5cbmaps, echo=FALSE, fig.cap="ERA5 Hurricane & Non-Hurricane Wind Maps.", message=FALSE, warning=FALSE, fig.height=2.7, fig.width=6.5}
+file_rl_combined_4326_700_st = "./data/era5maps/rl_combined_4326_700_st.tif"
+rl_combined_4326_700_st = read_stars(file_rl_combined_4326_700_st)
+rl_combined_4326_700_st = setNames(rl_combined_4326_700_st, "Kph")
+
+file_rl_combined_4326_1700_st = "./data/era5maps/rl_combined_4326_1700_st.tif"
+rl_combined_4326_1700_st = read_stars(file_rl_combined_4326_1700_st)
+rl_combined_4326_1700_st = setNames(rl_combined_4326_1700_st, "c_1700")
+
+file_rl_combined_4326_3000_st = "./data/era5maps/rl_combined_4326_3000_st.tif"
+rl_combined_4326_3000_st = read_stars(file_rl_combined_4326_3000_st)
+rl_combined_4326_3000_st = setNames(rl_combined_4326_3000_st, "c_3000")
+
+myPalette <- colorRampPalette(rev(brewer.pal(11, "Spectral")))
+sc <- scale_fill_gradientn(colours = myPalette(100), limits=c(37, 438), 
+                           breaks=c(37, 100, 200, 300, 400, 438))
+
+theme_set(theme_bw())
+world <- ne_countries(scale = "medium", returnclass = "sf")
+world_points<- st_centroid(world)
+world_points <- cbind(world, st_coordinates(st_centroid(world$geometry)))
+
+colombia = world_points$name == "Colombia"
+panama = world_points$name == "Panama"
+peru= world_points$name == "Peru"
+brazil= world_points$name == "Brazil"
+venezuela= world_points$name == "Venezuela"
+ecuador= world_points$name == "Ecuador"
+
+c700 = ggplot(data = world) + 
+  geom_sf(fill= "antiquewhite", size=0.1) + 
+  geom_stars(data = rl_combined_4326_700_st, aes(fill = Kph, x = x, y = y)) + 
+  #scale_fill_gradientn(colors = sf.colors(20)) + 
+  #sc2 + 
+  sc+
+  geom_text(data= world_points[venezuela,],aes(x=-66.5, y=8.5, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) +
+  geom_text(data= world_points[panama,],aes(x=-80.3, y=9.2, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) + 
+  geom_text(data= world_points[ecuador,],aes(x=-78.8, y=-1, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) +
+  geom_text(data= world_points[peru,],aes(x=-75, y=-6, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) +
+  geom_text(data= world_points[brazil,],aes(x=-68, y=-6, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) +
+  geom_text(data= world_points[colombia,],aes(x=-71, y=4, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) +
+  annotate(geom = "text", x = -77.5, y = 14, label = "Caribbean\nSea", fontface = "italic", color = "grey22", size = 2) + 
+  annotate(geom = "text", x = -80.5, y = 5, label = "Pacific\nSea", fontface = "italic", color = "grey22", size = 2) +
+  geom_sf(data = st_cast(world, "MULTILINESTRING"), size=0.1)+
+  #geom_sf(data = era5colpoints3116, size=1, shape=2, color= "black", show.legend = "point") + 
+  annotation_scale(location = "bl", width_hint = 0.5, height = unit(0.1, "cm"), line_width = 0.1, text_cex = 0.5, pad_x = unit(0.03, "in"), pad_y = unit(0.03, "in")) + annotation_north_arrow(location = "br", which_north = "true", pad_x = unit(0.01, "in"), pad_y = unit(0.02, "in"), height = unit(0.5, "cm"), width = unit(0.5, "cm"), style = north_arrow_minimal) +
+  coord_sf(xlim = c(-82.1, -63.8), ylim = c(-7.5, 15.5), expand = FALSE) +
+  xlab("") + 
+  ylab("") + 
+  ggtitle("Hurricane & Non-Hurricane Wind Map. \nMRI-700 years - ERA5") + 
+  theme(plot.title = element_text(size=7)) +
+  theme(axis.text.x= element_text(size=6)) + 
+  theme(axis.text.y= element_text(size=6)) +
+  theme(panel.grid.major = element_line(color = gray(.5), linetype = "dashed", size = 0.1)) +
+  theme(panel.background = element_rect(fill = "aliceblue")) +
+  #theme(legend.title = element_text(size=8)) +
+  #theme(legend.text=element_text(size=8)) +
+  #theme(legend.key.size = unit(0.5,"line")) +
+  theme(plot.margin=unit(c(0,0,0,0),"cm")) +
+  theme(plot.background = element_rect(fill = "transparent", color = NA))+
+  theme(axis.text.x = element_text(margin =  margin(t =2, b = -14))) + 
+  theme(axis.text.y = element_text(margin =  margin(r =2, l = -16))) +
+  theme(legend.title = element_text(size = 6)) +
+  theme(legend.text = element_text(size = 6)) + 
+  theme(legend.background = element_blank()) +
+  theme(legend.key.width = unit(0.1, "cm"))
+
+legend <- get_legend(c700)
+
+c700 = c700 + theme(legend.position = "none")
+
+c1700 = ggplot(data = world) + 
+  geom_sf(fill= "antiquewhite", size=0.1) + 
+  geom_stars(data = rl_combined_4326_1700_st, aes(fill = c_1700, x = x, y = y)) + 
+  #scale_fill_gradientn(colors = sf.colors(20)) + 
+  #sc2 + 
+  sc+
+  geom_text(data= world_points[venezuela,],aes(x=-66.5, y=8.5, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) +
+  geom_text(data= world_points[panama,],aes(x=-80.3, y=9.2, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) + 
+  geom_text(data= world_points[ecuador,],aes(x=-78.8, y=-1, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) +
+  geom_text(data= world_points[peru,],aes(x=-75, y=-6, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) +
+  geom_text(data= world_points[brazil,],aes(x=-68, y=-6, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) +
+  geom_text(data= world_points[colombia,],aes(x=-71, y=4, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) +
+  annotate(geom = "text", x = -77.5, y = 14, label = "Caribbean\nSea", fontface = "italic", color = "grey22", size = 2) + 
+  annotate(geom = "text", x = -80.5, y = 5, label = "Pacific\nSea", fontface = "italic", color = "grey22", size = 2) +
+  geom_sf(data = st_cast(world, "MULTILINESTRING"), size=0.1)+
+  #geom_sf(data = era5colpoints3116, size=1, shape=2, color= "black", show.legend = "point") + 
+  annotation_scale(location = "bl", width_hint = 0.5, height = unit(0.1, "cm"), line_width = 0.1, text_cex = 0.5, pad_x = unit(0.03, "in"), pad_y = unit(0.03, "in")) + annotation_north_arrow(location = "br", which_north = "true", pad_x = unit(0.01, "in"), pad_y = unit(0.02, "in"), height = unit(0.5, "cm"), width = unit(0.5, "cm"), style = north_arrow_minimal) +
+  coord_sf(xlim = c(-82.1, -63.8), ylim = c(-7.5, 15.5), expand = FALSE) +
+  xlab("") + 
+  ylab("") + 
+  ggtitle("Hurricane & Non-Hurricane Wind Map. \nMRI-1700 years - ERA5") + 
+  theme(plot.title = element_text(size=7)) +
+  theme(axis.text.x= element_text(size=6)) + 
+  theme(axis.text.y= element_text(size=6)) +
+  theme(panel.grid.major = element_line(color = gray(.5), linetype = "dashed", size = 0.1)) +
+  theme(panel.background = element_rect(fill = "aliceblue")) +
+  #theme(legend.title = element_text(size=8)) +
+  #theme(legend.text=element_text(size=8)) +
+  #theme(legend.key.size = unit(0.5,"line")) +
+  theme(plot.margin=unit(c(0,0,0,0),"cm")) +
+  theme(plot.background = element_rect(fill = "transparent", color = NA))+
+  theme(axis.text.x = element_text(margin =  margin(t =2, b = -14))) + 
+  theme(axis.text.y = element_text(margin =  margin(r =2, l = -16))) +
+  theme(legend.position = "none")
+
+c3000 = ggplot(data = world) + 
+  geom_sf(fill= "antiquewhite", size=0.1) + 
+  geom_stars(data = rl_combined_4326_3000_st, aes(fill = c_3000, x = x, y = y)) + 
+  #scale_fill_gradientn(colors = sf.colors(20)) + 
+  #sc2 + 
+  sc+
+  geom_text(data= world_points[venezuela,],aes(x=-66.5, y=8.5, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) +
+  geom_text(data= world_points[panama,],aes(x=-80.3, y=9.2, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) + 
+  geom_text(data= world_points[ecuador,],aes(x=-78.8, y=-1, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) +
+  geom_text(data= world_points[peru,],aes(x=-75, y=-6, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) +
+  geom_text(data= world_points[brazil,],aes(x=-68, y=-6, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) +
+  geom_text(data= world_points[colombia,],aes(x=-71, y=4, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) +
+  annotate(geom = "text", x = -77.5, y = 14, label = "Caribbean\nSea", fontface = "italic", color = "grey22", size = 2) + 
+  annotate(geom = "text", x = -80.5, y = 5, label = "Pacific\nSea", fontface = "italic", color = "grey22", size = 2) +
+  geom_sf(data = st_cast(world, "MULTILINESTRING"), size=0.1)+
+  #geom_sf(data = era5colpoints3116, size=1, shape=2, color= "black", show.legend = "point") + 
+  annotation_scale(location = "bl", width_hint = 0.5, height = unit(0.1, "cm"), line_width = 0.1, text_cex = 0.5, pad_x = unit(0.03, "in"), pad_y = unit(0.03, "in")) + annotation_north_arrow(location = "br", which_north = "true", pad_x = unit(0.01, "in"), pad_y = unit(0.02, "in"), height = unit(0.5, "cm"), width = unit(0.5, "cm"), style = north_arrow_minimal) +
+  coord_sf(xlim = c(-82.1, -63.8), ylim = c(-7.5, 15.5), expand = FALSE) +
+  xlab("") + 
+  ylab("") + 
+  ggtitle("Hurricane & Non-Hurricane Wind Map. \nMRI-3000 years - ERA5") + 
+  theme(plot.title = element_text(size=7)) +
+  theme(axis.text.x= element_text(size=6)) + 
+  theme(axis.text.y= element_text(size=6)) +
+  theme(panel.grid.major = element_line(color = gray(.5), linetype = "dashed", size = 0.1)) +
+  theme(panel.background = element_rect(fill = "aliceblue")) +
+  #theme(legend.title = element_text(size=8)) +
+  #theme(legend.text=element_text(size=8)) +
+  #theme(legend.key.size = unit(0.5,"line")) +
+  theme(plot.margin=unit(c(0,0,0,0),"cm")) +
+  theme(plot.background = element_rect(fill = "transparent", color = NA))+
+  theme(axis.text.x = element_text(margin =  margin(t =2, b = -14))) + 
+  theme(axis.text.y = element_text(margin =  margin(r =2, l = -16))) +
+  theme(legend.position = "none")
+
+#grid.arrange(c700, c1700, c3000, legend, ncol=4, widths=c(1,1,1,0.1))  
+plot_grid(c700, c1700, c3000, legend, ncol=4, rel_widths=c(1, 1, 1, 0.1))
+#grid.rect(gp=gpar(fill=NA))
+
+```
 
 

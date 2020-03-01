@@ -1151,8 +1151,8 @@ Y_N=\frac{\psi}{\zeta}\left[-log\left(\frac{N-1}{N}\right)\right]^{-\zeta}-\frac
 \end{equation}
 As for this research \(\zeta = 0\), return levels \(Y_N\) can be calculated using the Gumbel quantile function, but using \((1-\frac{1}{N})\) as probability.
 
-\hypertarget{spatial-interpolation}{%
-\section{Spatial Interpolation}\label{spatial-interpolation}}
+\hypertarget{si}{%
+\section{Spatial Interpolation}\label{si}}
 
 Probabilistic (Kriging) and deterministic (IDW, local polynomials) techniques are used to create maps for return levels with same return period. Interpolation with Kriging requires verification of minimum procedures to ensure proper use of the method, for instance,
 \begin{itemize}
@@ -1507,7 +1507,7 @@ Return levels of interest for this research, corrrespond to 700, 1700 and 3000 y
 
 To enable a comparison between, a) POT-PP (previous section), b) \protect\hyperlink{pot-gpd}{POT-GPD}, and c) the fitting process of common extreme value distributions (GPA, GEV, GUM) without using POT method, this is, using the generic concept of \protect\hyperlink{hf}{hazard function \emph{hf}} (see \protect\hyperlink{rmd-thefra}{theoretical framework}), a whole authomatation process was done to calculate return levels and errors using mentioned alternatives, bearing in mind that in all cases \emph{maximum likelihood} was used to calculate the parameters.
 
-Resulting return levels and errors for POT-GPD, using R packages extRemes (Gilleland (\protect\hyperlink{ref-Gilleland2019}{2019})), ismev (Janet E. Heffernan with R port \& Alec G. Stephenson. (\protect\hyperlink{ref-JanetE.HeffernanwithRport2018}{2018})), evd (Stephenson (\protect\hyperlink{ref-Stephenson2002}{2002})), Renext (Deville \& IRSN (\protect\hyperlink{ref-Deville2016}{2016})), evir (Pfaff \& McNeil (\protect\hyperlink{ref-Pfaff2018}{2018})), and fExtremes (Wuertz, Setz, \& Chalabi (\protect\hyperlink{ref-Wuertz2017}{2017})), are reported in table \ref{tab:comparisonGPD}. Similarty are shown it table \ref{tab:comparisonCommonEVD}, return levels calculated from the adjustment of the probability distributions GPA, GEV, and Gumbel.
+Resulting return levels and errors for POT-GPD, using R packages extRemes - Gilleland (\protect\hyperlink{ref-Gilleland2019}{2019}), ismev - Janet E. Heffernan with R port \& Alec G. Stephenson. (\protect\hyperlink{ref-JanetE.HeffernanwithRport2018}{2018}), evd - Stephenson (\protect\hyperlink{ref-Stephenson2002}{2002}), Renext - Deville \& IRSN (\protect\hyperlink{ref-Deville2016}{2016}), evir - Pfaff \& McNeil (\protect\hyperlink{ref-Pfaff2018}{2018}), and fExtremes - Wuertz, Setz, \& Chalabi (\protect\hyperlink{ref-Wuertz2017}{2017}), are reported in table \ref{tab:comparisonGPD}. Similarly are shown it table \ref{tab:comparisonCommonEVD}, return levels calculated from the adjustment of the probability distributions GPA, GEV, and Gumbel.
 
 \begingroup\fontsize{8}{10}\selectfont
 \begin{longtable}[t]{>{\raggedright\arraybackslash}p{1.2in}>{\raggedright\arraybackslash}p{0.2in}>{\raggedright\arraybackslash}p{0.2in}>{\raggedright\arraybackslash}p{0.2in}>{\raggedright\arraybackslash}p{0.2in}>{\raggedright\arraybackslash}p{0.2in}>{\raggedright\arraybackslash}p{0.2in}>{\raggedright\arraybackslash}p{0.2in}>{\raggedright\arraybackslash}p{0.2in}>{\raggedright\arraybackslash}p{0.2in}>{\raggedright\arraybackslash}p{0.2in}>{\raggedright\arraybackslash}p{0.2in}>{\raggedright\arraybackslash}p{0.2in}}
@@ -1544,48 +1544,46 @@ gum & Gumbel & 140.9 & 152.1 & 167.0 & 178.2 & 193.0 & 204.3 & 209.7 & 215.5 & 2
 \end{longtable}
 \endgroup{}
 
+\hypertarget{wind-maps}{%
+\section{Wind Maps}\label{wind-maps}}
+
+Using calculated return levels in all available ISD stations, continuous maps covering the study area, were created using \protect\hyperlink{si}{spatial interpolation techniques} as described in \protect\hyperlink{rmd-method}{methodology}. As calculated return levels for ERA5, represent predefined square cells of \(0.25^\circ\) decimal degrees, no interpolation process was necessary in this reanalysis dataset.
+
+\hypertarget{existing-hurricane-maps}{%
+\subsection{Existing Hurricane Maps}\label{existing-hurricane-maps}}
+
+The Colombian consulting firm Ingeniar ltda, following the methodology described in CIMNE (\protect\hyperlink{ref-hurricanemaps}{2015}), and CIMNE (\protect\hyperlink{ref-hurricanemaps2}{2017}), has provided raster wind maps for return periods 10, 20, 50, 100, 250, 500, 700, 1000, 1700, 3000, and 7000 years, resulting from the probabilistic study of winds due to hurricanes in the Colombian Caribbean Sea and the surrounding continental zone. Figure \ref{fig:ingeniarmaps} shows three of mentioned maps.
+\begin{figure}
+\centering
+\includegraphics{thesis_files/figure-latex/ingeniarmaps-1.pdf}
+\caption{\label{fig:ingeniarmaps}Ingeniar Hurricane Wind Maps.}
+\end{figure}
 \hypertarget{non-hurricane-maps}{%
-\section{Non-Hurricane Maps}\label{non-hurricane-maps}}
+\subsection{Non-Hurricane Maps}\label{non-hurricane-maps}}
+\begin{figure}
+\centering
+\includegraphics{thesis_files/figure-latex/isdnhmaps-1.pdf}
+\caption{\label{fig:isdnhmaps}ISD Non-Hurricane Wind Maps.}
+\end{figure}
+\begin{figure}
+\centering
+\includegraphics{thesis_files/figure-latex/era5nhmaps-1.pdf}
+\caption{\label{fig:era5nhmaps}ERA5 Non-Hurricane Wind Maps.}
+\end{figure}
+\hypertarget{combined-maps}{%
+\subsection{Combined Maps}\label{combined-maps}}
 
-\hypertarget{isd-1}{%
-\subsection{ISD}\label{isd-1}}
-
-\hypertarget{pot-pp-1}{%
-\subsubsection{POT-PP}\label{pot-pp-1}}
-
-\hypertarget{pot-gpd-1}{%
-\subsubsection{POT-GPD}\label{pot-gpd-1}}
-
-\hypertarget{era5-1}{%
-\subsection{ERA5}\label{era5-1}}
-
-\hypertarget{pot-pp-2}{%
-\subsubsection{POT-PP}\label{pot-pp-2}}
-
-\hypertarget{pot-gpd-2}{%
-\subsubsection{POT-GPD}\label{pot-gpd-2}}
-
-\hypertarget{hurricane-and-non-hurricane-maps}{%
-\section{Hurricane and Non-Hurricane Maps}\label{hurricane-and-non-hurricane-maps}}
-
-\hypertarget{isd-2}{%
-\subsection{ISD}\label{isd-2}}
-
-\hypertarget{pot-pp-3}{%
-\subsubsection{POT-PP}\label{pot-pp-3}}
-
-\hypertarget{pot-gpd-3}{%
-\subsubsection{POT-GPD}\label{pot-gpd-3}}
-
-\hypertarget{era5-2}{%
-\subsection{ERA5}\label{era5-2}}
-
-\hypertarget{pot-pp-4}{%
-\subsubsection{POT-PP}\label{pot-pp-4}}
-
-\hypertarget{pot-gpd-4}{%
-\subsubsection{POT-GPD}\label{pot-gpd-4}}
-
+Following the procedure described in \protect\hyperlink{integration}{integration with Hurricane data}, final wind maps are created, combining existing data for hurricane studies, and non-hurrican maps produced in this study.
+\begin{figure}
+\centering
+\includegraphics{thesis_files/figure-latex/isdcbmaps-1.pdf}
+\caption{\label{fig:isdcbmaps}ISD Hurricane \& Non-Hurricane Wind Maps.}
+\end{figure}
+\begin{figure}
+\centering
+\includegraphics{thesis_files/figure-latex/era5cbmaps-1.pdf}
+\caption{\label{fig:era5cbmaps}ERA5 Hurricane \& Non-Hurricane Wind Maps.}
+\end{figure}
 \hypertarget{rmd-discussion}{%
 \chapter{Discussion}\label{rmd-discussion}}
 
@@ -1613,6 +1611,12 @@ gum & Gumbel & 140.9 & 152.1 & 167.0 & 178.2 & 193.0 & 204.3 & 209.7 & 215.5 & 2
 \setlength{\parskip}{8pt}
 
 \hypertarget{refs}{}
+\leavevmode\hypertarget{ref-hurricanemaps}{}%
+CIMNE, I. (2015). \emph{Update on the probabilistic modelling of natural risks at global level: Global risk model} (technical report). The United Nations Office for Disaster Risk Reduction - UNISDR. Retrieved from \url{https://www.preventionweb.net/english/hyogo/gar/2015/en/bgdocs/CIMNE-INGENIAR,\%202014a.pdf}
+
+\leavevmode\hypertarget{ref-hurricanemaps2}{}%
+CIMNE, I., ITEC. (2017). \emph{Metodología de modelación probabilista de riesgos naturales} (technical report No. ERN-CAPRA-T1-3). CAPRA- Probabilistic Risk Assessment Initiative. Retrieved from \url{https://ecapra.org/sites/default/files/documents/ERN-CAPRA-R6-T1-3\%20-\%20Modelos\%20de\%20Evaluaci\%C3\%B3n\%20de\%20Amenazas.pdf}
+
 \leavevmode\hypertarget{ref-Coles2001}{}%
 Coles, S. (2001). \emph{An introduction to statistical modeling of extreme values}. Springer London. \url{http://doi.org/10.1007/978-1-4471-3675-0}
 
