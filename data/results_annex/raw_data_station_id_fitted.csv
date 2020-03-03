@@ -1,0 +1,11 @@
+Excel Sheet Name,Description,Important
+nt_evd-fgev_fGumbel,Non thunderstorm. Fitting Gumbel using evd::fgev,Do not use
+nt_bbmle-mle2,Non thunderstorm. Fitting Gumbel using bbmle::mle2,Do not use
+nt_nll-optim,Non thunderstorm. Fitting Gumbel using negative likelihood and optim,Do not use
+nt_fitdistrplus-fitdist,Non thunderstorm. Fitting Gumbel using fitdistrplus::fitdist,Do not use
+nt_extRemes,"Non thunderstorm. Calculation of return levels POT-GPD, using extRemes::fevd",Do not use
+nt_distLquantile_quant,"Non thunderstorm. Calculation of return levels and RMSE (POT-GPD and EVDs), using extremeStat::distLquantile",To compare with POT-PP
+nt_distLquantile_parameters,"Non thunderstorm. Calculation of fitting parameters POT-GPD and EVD, using extremeStat::distLquantile",To compare with POT-PP
+nt_distLextreme_returnlev,"Non thunderstorm. Calculation of return levels POT-GPD and EVD, using extremeStat::distLextreme",To compare with POT-PP
+nt_distLextreme_parameter,"Non thunderstorm. Calculation of fitting parameters POT-GPD and EVD, using extremeStat::distLextreme",To compare with POT-PP
+nt_POT-GPD-Equivalent,Non thunderstorm. For POT-PP and using POT-GPD equivalent. Calculation of Goodness of Fit and RMSE ,Use as Goodness of Fit of POT-PP

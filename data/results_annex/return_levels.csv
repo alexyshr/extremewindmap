@@ -1,0 +1,17 @@
+Column ID,ColumnName,Important,Description
+1,id,,Consecurive Row ID
+2,t_thresh,Not Available,Threshold for thunderstorm data
+3,t_mu_location,Not Available,Location for thunderstorm data
+4,t_psi_scale,Not Available,Scale for thunderstorm data
+5,nt_thresh,,Threshold for non-thunderstorm data
+6,nt_mu_location,,Location for non-thunderstorm data
+7,nt_psi_scale,,Scale for non-thunderstorm data
+8,distance_w,,Minimun W distance to choose best threshold pairs
+9,station,,Station ID
+10 to 20,t_MRI_poissonprocessintfunc,Not Available,"Thunderstorm Return levels for MRIs (10, 20, 50, 100, 250, 500, 700, 1000, 1700, 3000, 7000), using Poisson Process Intensity Function"
+21 to 31,t_MRI_gumbeltailintfunc,Not Available,"Thunderstorm Return levels for MRIs (10, 20, 50, 100, 250, 500, 700, 1000, 1700, 3000, 7000), using PP Gumbel Tail Intensity Function"
+32 to 42,t_MRI_gumbelquantilefunc,Not Available,"Thunderstorm Return levels for MRIs (10, 20, 50, 100, 250, 500, 700, 1000, 1700, 3000, 7000), using PP Gumbel Quantile Function"
+43 to 53,nt_MRI_poissonprocessintfunc,Used to create maps!,"Non-thunderstorm Return levels for MRIs (10, 20, 50, 100, 250, 500, 700, 1000, 1700, 3000, 7000), using Poisson Process Intensity Function"
+54 to 64,nt_MRI_gumbeltailintfunc,Do not use,"Non-thunderstorm Return levels for MRIs (10, 20, 50, 100, 250, 500, 700, 1000, 1700, 3000, 7000), using PP Gumbel Tail Intensity Function"
+65 to 75,nt_MRI_gumbelquantilefunc,Do not use,"Non-thunderstorm Return levels for MRIs (10, 20, 50, 100, 250, 500, 700, 1000, 1700, 3000, 7000), using PP Gumbel Quantile Function"
+76 to 86,tnt_MRI_poissonprocessintfunc,Not Available,"Combined (t and nt) Return levels for MRIs (10, 20, 50, 100, 250, 500, 700, 1000, 1700, 3000, 7000), using Poisson Process Intensity Function"

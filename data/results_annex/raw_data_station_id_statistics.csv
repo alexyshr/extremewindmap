@@ -1,0 +1,14 @@
+Excel Sheet Name,Description
+all_years,Raw data time series statistics by year
+all_months,Raw data time series statistics by month
+all_weeks,Raw data time series statistics by week
+all_gaps30days,Raw data gaps of 30 days of more
+nt_years,Non-thunderstorm time series statistics by year
+nt_months,Non-thunderstorm time series statistics by month
+nt_weeks,Non-thunderstorm time series statistics by week
+nt_gaps30days,Non-thunderstorm gaps of 30 days of more
+IMP.VALS,Main statistics of dataset after declustering and thresholding
+declu_nt_years,"Non-thunderstorm time series statistics by year, after declustering and thresholding"
+declu_nt_months,"Non-thunderstorm time series statistics by month, after declustering and thresholding"
+declu_nt_weeks,"Non-thunderstorm time series statistics by week, after declustering and thresholding"
+declu_nt_gaps30days,"Non-thunderstorm gaps of 30 days of more, , after declustering and thresholding"

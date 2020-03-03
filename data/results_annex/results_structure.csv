@@ -1,0 +1,36 @@
+FolderTree,Description,Ftp
+downscaling,Downscaling Support,ftp://ftp.geocorp.co/windthesis/downscaling/
+  |-qualitydata,Quality data comparison (graphics in PDF),ftp://ftp.geocorp.co/windthesis/downscaling/qualitydata/
+  |-nonqualitydata,Non quality data comparison (graphis in PDF),ftp://ftp.geocorp.co/windthesis/downscaling/nonqualitydata/
+  |-ideam\_stations.csv,Ideam Stations,ftp://ftp.geocorp.co/windthesis/downscaling/ideam_stations.csv
+potpp,POT-PP input and output files,ftp://ftp.geocorp.co/windthesis/potpp/
+  |-era5,ERA5 files,ftp://ftp.geocorp.co/windthesis/potpp/era5/
+  |    |-FittedModel\_*.pdf,ERA5 POT-PP output graphics,ftp://ftp.geocorp.co/windthesis/potpp/era5/
+  |    |-fitted\_model\_result.xlsx,Return levels ERA5 (all stations),ftp://ftp.geocorp.co/windthesis/potpp/era5/fitted_model_result_PoissonProcessGumbelIntFunc.xlsx
+  |    |-raw\_data\_station\_*\_fitted.xlsx,ERA5 POT-PP output parameters by station,ftp://ftp.geocorp.co/windthesis/potpp/era5/
+  |    |-raw\_data\_station\_*\_statistics.xlsx,"ERA5 POT-PP time (year, month, week) statistics by station",ftp://ftp.geocorp.co/windthesis/potpp/era5/
+  |    |-maps,ERA5 raster and vector output data,ftp://ftp.geocorp.co/windthesis/potpp/era5/maps/
+  |    |    |-era5grid\_left\_right.*,"ERA5 stations shapefile (IDs from left to right, then down)",ftp://ftp.geocorp.co/windthesis/potpp/era5/maps/
+  |    |    |-era5grid\_left\_right\_pol.*,"ERA5 cells shapefile (IDs from left to right, then down)",ftp://ftp.geocorp.co/windthesis/potpp/era5/maps/
+  |    |    |-era5grid\_up\_down.*,"ERA5 stations shapefile (IDs from top to down, then right)",ftp://ftp.geocorp.co/windthesis/potpp/era5/maps/
+  |    |    |-era5grid\_up\_down\_pol.*,"ERA5 cells shapefile (IDs from top to down, then right)",ftp://ftp.geocorp.co/windthesis/potpp/era5/maps/
+  |    |    |-rl4326\_points\_nh\_combined.*,ERA5 stations shapefile with all return levels,ftp://ftp.geocorp.co/windthesis/potpp/era5/maps/
+  |    |    |-combined,ERA5 final wind maps (non-hurricanes + hurricanes),ftp://ftp.geocorp.co/windthesis/potpp/era5/maps/combined/
+  |    |    |-nonhurricanes,ERA5 POT-PP non-hurricane wind maps,ftp://ftp.geocorp.co/windthesis/potpp/era5/maps/nonhurricanes/
+  |-isd,ISD files,ftp://ftp.geocorp.co/windthesis/potpp/isd/
+  |    |-01 estaciones - 76 ok isd.txt,ISD list of used stations,ftp://ftp.geocorp.co/windthesis/potpp/isd/01%20estaciones%20-%2076%20ok%20isd.txt
+  |    |-01 estaciones - isd - error.txt,One ISD station not working,ftp://ftp.geocorp.co/windthesis/potpp/isd/01%20estaciones%20-%20isd%20-%20error.txt
+  |    |-FittedModel\_*.pdf,ISD POT-PP output graphics,ftp://ftp.geocorp.co/windthesis/potpp/isd/
+  |    |-fitted\_model\_result.xlsx,Return levels ISD (all stations),ftp://ftp.geocorp.co/windthesis/potpp/isd/fitted_model_result_PoissonProcessGumbelIntFunc.xlsx
+  |    |-isd\_stations.xlsx,ISD stations,ftp://ftp.geocorp.co/windthesis/potpp/isd/isd_stations.xlsx
+  |    |-raw\_data\_station\_*\_fitted.xlsx,ISD POT-PP output parameters by station,ftp://ftp.geocorp.co/windthesis/potpp/isd/
+  |    |-raw\_data\_station\_*\_statistics.xlsx,"ISD POT-PP time (year, month, week) statistics by station",ftp://ftp.geocorp.co/windthesis/potpp/isd/
+  |    |-maps,ISD raster and vector output data,ftp://ftp.geocorp.co/windthesis/potpp/isd/maps/
+  |    |    |-rl\_nh\_h\_combined\_allcells4326.*,ISD stations shapefile with all return levels,ftp://ftp.geocorp.co/windthesis/potpp/isd/maps/
+  |    |    |-combined,ISD final wind maps (non-hurricanes + hurricanes),ftp://ftp.geocorp.co/windthesis/potpp/isd/maps/combined/
+  |    |    |-nonhurricanes,ISD POT-PP non-hurricane wind maps,ftp://ftp.geocorp.co/windthesis/potpp/isd/maps/nonhurricanes/
+  |    |-raw\_data,ISD non-thunderstorm time series (standardized),ftp://ftp.geocorp.co/windthesis/potpp/isd/raw_data/
+  |-correction\_factors\_isd\_ideam.xlsx,Correction factors for standardization (ISD and IDEAM),ftp://ftp.geocorp.co/windthesis/potpp/correction_factors_isd_ideam.xlsx
+final\_presentation.pdf,Slides for final thesis defence,ftp://ftp.geocorp.co/windthesis/final_presentation.pdf
+final\_document.pdf,Thesis final report,ftp://ftp.geocorp.co/windthesis/final_document.pdf
+outfile\_nc4c\_zip9.nc,ERA5 data. Variable fg10 (3-seconds wind gust),ftp://ftp.geocorp.co/windthesis/outfile_nc4c_zip9.nc

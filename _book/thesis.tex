@@ -72,6 +72,46 @@
 % \usepackage{times} % other fonts are available like times, bookman, charter, palatino
 
 % Syntax highlighting #22
+  \usepackage{color}
+  \usepackage{fancyvrb}
+  \newcommand{\VerbBar}{|}
+  \newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+  \DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+  % Add ',fontsize=\small' for more characters per line
+  \usepackage{framed}
+  \definecolor{shadecolor}{RGB}{248,248,248}
+  \newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+  \newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+  \newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+  \newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+  \newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+  \newcommand{\BuiltInTok}[1]{#1}
+  \newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+  \newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+  \newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+  \newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+  \newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+  \newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+  \newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+  \newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+  \newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+  \newcommand{\ExtensionTok}[1]{#1}
+  \newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+  \newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+  \newcommand{\ImportTok}[1]{#1}
+  \newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+  \newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+  \newcommand{\NormalTok}[1]{#1}
+  \newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+  \newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+  \newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+  \newcommand{\RegionMarkerTok}[1]{#1}
+  \newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+  \newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+  \newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+  \newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+  \newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+  \newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
 
 % To pass between YAML and LaTeX the dollar signs are added by CII
 \title{Spatio-temporal analysis of extreme wind velocities for infrastructure design}
@@ -1429,7 +1469,7 @@ It can be seen in the table \ref{tab:years801120}, that declustered data has zer
 
 \caption{Non-Thunderstorm Time Series for ISD station 801120. Left: Raw Data. Right: Declustered Data}\label{fig:ts}
 \end{figure}
-Using declustered data, and considering that it is only neccesary to calculate optimal threshold for non-thunderstorm data, because there is no records classified as thunderstorm in any data source, many non-thunderstomr thresholds were tested, to choose the best one using the W statistic, as described in section \protect\hyperlink{thresholding}{thresholding} of the \protect\hyperlink{rmd-method}{methodology}. Figure \ref{fig:page6} shows a very good fit in resulting W-Statistic plot, for optimal non-thunderstorm threshold \(b_{nt} =\) \emph{42}\(\frac{Km}{h}\), with a maximun W distance of 0.47, for ISD station 801120, where empirical values (black points) are very close or similar to theoretical values (red line).
+Using declustered data, and considering that it is only neccesary to calculate optimal threshold for non-thunderstorm data, because there is no records classified as thunderstorm in any data source, many non-thunderstomr thresholds were tested, to choose the best one using the W statistic, as described in section \protect\hyperlink{thresholding}{thresholding} of the \protect\hyperlink{rmd-method}{methodology}. Figure \ref{fig:page6} shows a very good fit in resulting W-Statistic plot, for optimal non-thunderstorm threshold \(b_{nt} =\) \emph{42}\(\frac{Km}{h}\), with a minimum W distance of 0.47, for ISD station 801120, where empirical values (black points) are very close or similar to theoretical values (red line).
 
 \footnotesize
 \begin{figure}
@@ -1593,8 +1633,239 @@ Following the procedure described in \protect\hyperlink{integration}{integration
 
 \appendix
 
+\hypertarget{resutls---digital-files}{%
+\chapter{Resutls - Digital Files}\label{resutls---digital-files}}
+
+\begingroup\fontsize{8}{10}\selectfont
+\begin{longtable}[t]{>{\raggedright\arraybackslash}p{2.3in}>{\raggedright\arraybackslash}p{3.3in}}
+\caption[digital files]{\label{tab:resultsstructure}Digital files in FTP site \href{ftp://ftp.geocorp.co/windthesis/}{ftp://ftp.geocorp.co/windthesis/}. User anonymous@geocorp.co (no password).}\\
+\toprule
+\multicolumn{1}{l}{Folder Tree - Ftp Links} & \multicolumn{1}{l}{Description}\\
+\midrule
+\href{ftp://ftp.geocorp.co/windthesis/downscaling/}{downscaling} & Downscaling Support\\
+\href{ftp://ftp.geocorp.co/windthesis/downscaling/qualitydata/}{  |-qualitydata} & Quality data comparison (graphics in PDF)\\
+\href{ftp://ftp.geocorp.co/windthesis/downscaling/nonqualitydata/}{  |-nonqualitydata} & Non quality data comparison (graphis in PDF)\\
+\href{ftp://ftp.geocorp.co/windthesis/downscaling/ideam_stations.csv}{  |-ideam\_stations.csv} & Ideam Stations\\
+\href{ftp://ftp.geocorp.co/windthesis/potpp/}{potpp} & POT-PP input and output files\\
+\href{ftp://ftp.geocorp.co/windthesis/potpp/era5/}{  |-era5} & ERA5 files\\
+\href{ftp://ftp.geocorp.co/windthesis/potpp/era5/}{  |    |-FittedModel\_*.pdf} & ERA5 POT-PP output graphics\\
+\href{ftp://ftp.geocorp.co/windthesis/potpp/era5/fitted_model_result_PoissonProcessGumbelIntFunc.xlsx}{  |    |-fitted\_model\_result.xlsx} & Return levels ERA5 (all stations)\\
+\href{ftp://ftp.geocorp.co/windthesis/potpp/era5/}{  |    |-raw\_data\_station\_*\_fitted.xlsx} & ERA5 POT-PP output parameters by station\\
+\href{ftp://ftp.geocorp.co/windthesis/potpp/era5/}{  |    |-raw\_data\_station\_*\_statistics.xlsx} & ERA5 POT-PP time (year, month, week) statistics by station\\
+\href{ftp://ftp.geocorp.co/windthesis/potpp/era5/maps/}{  |    |-maps} & ERA5 raster and vector output data\\
+\href{ftp://ftp.geocorp.co/windthesis/potpp/era5/maps/}{  |    |    |-era5grid\_left\_right.*} & ERA5 stations shapefile (IDs from left to right, then down)\\
+\href{ftp://ftp.geocorp.co/windthesis/potpp/era5/maps/}{  |    |    |-era5grid\_left\_right\_pol.*} & ERA5 cells shapefile (IDs from left to right, then down)\\
+\href{ftp://ftp.geocorp.co/windthesis/potpp/era5/maps/}{  |    |    |-era5grid\_up\_down.*} & ERA5 stations shapefile (IDs from top to down, then right)\\
+\href{ftp://ftp.geocorp.co/windthesis/potpp/era5/maps/}{  |    |    |-era5grid\_up\_down\_pol.*} & ERA5 cells shapefile (IDs from top to down, then right)\\
+\href{ftp://ftp.geocorp.co/windthesis/potpp/era5/maps/}{  |    |    |-rl4326\_points\_nh\_combined.*} & ERA5 stations shapefile with all return levels\\
+\href{ftp://ftp.geocorp.co/windthesis/potpp/era5/maps/combined/}{  |    |    |-combined} & ERA5 final wind maps (non-hurricanes + hurricanes)\\
+\href{ftp://ftp.geocorp.co/windthesis/potpp/era5/maps/nonhurricanes/}{  |    |    |-nonhurricanes} & ERA5 POT-PP non-hurricane wind maps\\
+\href{ftp://ftp.geocorp.co/windthesis/potpp/isd/}{  |-isd} & ISD files\\
+\href{ftp://ftp.geocorp.co/windthesis/potpp/isd/01%20estaciones%20-%2076%20ok%20isd.txt}{  |    |-01 estaciones - 76 ok isd.txt} & ISD list of used stations\\
+\href{ftp://ftp.geocorp.co/windthesis/potpp/isd/01%20estaciones%20-%20isd%20-%20error.txt}{  |    |-01 estaciones - isd - error.txt} & One ISD station not working\\
+\href{ftp://ftp.geocorp.co/windthesis/potpp/isd/}{  |    |-FittedModel\_*.pdf} & ISD POT-PP output graphics\\
+\href{ftp://ftp.geocorp.co/windthesis/potpp/isd/fitted_model_result_PoissonProcessGumbelIntFunc.xlsx}{  |    |-fitted\_model\_result.xlsx} & Return levels ISD (all stations)\\
+\href{ftp://ftp.geocorp.co/windthesis/potpp/isd/isd_stations.xlsx}{  |    |-isd\_stations.xlsx} & ISD stations\\
+\href{ftp://ftp.geocorp.co/windthesis/potpp/isd/}{  |    |-raw\_data\_station\_*\_fitted.xlsx} & ISD POT-PP output parameters by station\\
+\href{ftp://ftp.geocorp.co/windthesis/potpp/isd/}{  |    |-raw\_data\_station\_*\_statistics.xlsx} & ISD POT-PP time (year, month, week) statistics by station\\
+\href{ftp://ftp.geocorp.co/windthesis/potpp/isd/maps/}{  |    |-maps} & ISD raster and vector output data\\
+\href{ftp://ftp.geocorp.co/windthesis/potpp/isd/maps/}{  |    |    |-rl\_nh\_h\_combined\_allcells4326.*} & ISD stations shapefile with all return levels\\
+\href{ftp://ftp.geocorp.co/windthesis/potpp/isd/maps/combined/}{  |    |    |-combined} & ISD final wind maps (non-hurricanes + hurricanes)\\
+\href{ftp://ftp.geocorp.co/windthesis/potpp/isd/maps/nonhurricanes/}{  |    |    |-nonhurricanes} & ISD POT-PP non-hurricane wind maps\\
+\href{ftp://ftp.geocorp.co/windthesis/potpp/isd/raw_data/}{  |    |-raw\_data} & ISD non-thunderstorm time series (standardized)\\
+\href{ftp://ftp.geocorp.co/windthesis/potpp/correction_factors_isd_ideam.xlsx}{  |-correction\_factors\_isd\_ideam.xlsx} & Correction factors for standardization (ISD and IDEAM)\\
+\href{ftp://ftp.geocorp.co/windthesis/final_presentation.pdf}{final\_presentation.pdf} & Slides for final thesis defence\\
+\href{ftp://ftp.geocorp.co/windthesis/final_document.pdf}{final\_document.pdf} & Thesis final report\\
+\href{ftp://ftp.geocorp.co/windthesis/outfile_nc4c_zip9.nc}{outfile\_nc4c\_zip9.nc} & ERA5 data. Variable fg10 (3-seconds wind gust)\\
+\bottomrule
+\end{longtable}
+\endgroup{}
+
+\begingroup\fontsize{8}{10}\selectfont
+\begin{longtable}[t]{>{\raggedright\arraybackslash}p{1.5in}>{\raggedright\arraybackslash}p{3in}>{\raggedright\arraybackslash}p{1.5in}}
+\caption[rawdatastationidfitted]{\label{tab:rawdatastationidfitted}Content of the output Excel Book 'raw\_data\_station\_*\_fitted.xlsx', where '*' is replaced by the Station ID. One file by station.}\\
+\toprule
+\multicolumn{1}{l}{Excel Sheet Name} & \multicolumn{1}{l}{Description} & \multicolumn{1}{l}{Important}\\
+\midrule
+nt\_evd-fgev\_fGumbel & Non thunderstorm. Fitting Gumbel using evd::fgev & Do not use\\
+nt\_bbmle-mle2 & Non thunderstorm. Fitting Gumbel using bbmle::mle2 & Do not use\\
+nt\_nll-optim & Non thunderstorm. Fitting Gumbel using negative likelihood and optim & Do not use\\
+nt\_fitdistrplus-fitdist & Non thunderstorm. Fitting Gumbel using fitdistrplus::fitdist & Do not use\\
+nt\_extRemes & Non thunderstorm. Calculation of return levels POT-GPD, using extRemes::fevd & Do not use\\
+nt\_distLquantile\_quant & Non thunderstorm. Calculation of return levels and RMSE (POT-GPD and EVDs), using extremeStat::distLquantile & To compare with POT-PP\\
+nt\_distLquantile\_parameters & Non thunderstorm. Calculation of fitting parameters POT-GPD and EVD, using extremeStat::distLquantile & To compare with POT-PP\\
+nt\_distLextreme\_returnlev & Non thunderstorm. Calculation of return levels POT-GPD and EVD, using extremeStat::distLextreme & To compare with POT-PP\\
+nt\_distLextreme\_parameter & Non thunderstorm. Calculation of fitting parameters POT-GPD and EVD, using extremeStat::distLextreme & To compare with POT-PP\\
+nt\_POT-GPD-Equivalent & Non thunderstorm. For POT-PP and using POT-GPD equivalent. Calculation of Goodness of Fit and RMSE & Use as Goodness of Fit of POT-PP\\
+\bottomrule
+\end{longtable}
+\endgroup{}
+
+\begingroup\fontsize{8}{10}\selectfont
+\begin{longtable}[t]{>{\raggedright\arraybackslash}p{1.2in}>{\raggedright\arraybackslash}p{4.6in}}
+\caption[rawdatastationidstatistics]{\label{tab:rawdatastationidstatistics}Content of the output Excel Book 'raw\_data\_station\_*\_statistics.xlsx', where '*' is replaced by the Station ID. One file by station.}\\
+\toprule
+\multicolumn{1}{l}{Excel Sheet Name} & \multicolumn{1}{l}{Description}\\
+\midrule
+all\_years & Raw data time series statistics by year\\
+all\_months & Raw data time series statistics by month\\
+all\_weeks & Raw data time series statistics by week\\
+all\_gaps30days & Raw data gaps of 30 days of more\\
+nt\_years & Non-thunderstorm time series statistics by year\\
+nt\_months & Non-thunderstorm time series statistics by month\\
+nt\_weeks & Non-thunderstorm time series statistics by week\\
+nt\_gaps30days & Non-thunderstorm gaps of 30 days of more\\
+IMP.VALS & Main statistics of dataset after declustering and thresholding\\
+declu\_nt\_years & Non-thunderstorm time series statistics by year, after declustering and thresholding\\
+declu\_nt\_months & Non-thunderstorm time series statistics by month, after declustering and thresholding\\
+declu\_nt\_weeks & Non-thunderstorm time series statistics by week, after declustering and thresholding\\
+declu\_nt\_gaps30days & Non-thunderstorm gaps of 30 days of more, , after declustering and thresholding\\
+\bottomrule
+\end{longtable}
+\endgroup{}
+
+\begingroup\fontsize{8}{10}\selectfont
+\begin{longtable}[t]{>{\raggedright\arraybackslash}p{0.4in}>{\raggedright\arraybackslash}p{5.7in}}
+\caption[fittedmodelidpdf]{\label{tab:fittedmodelidpdf}Content of the output graphics PDF file 'FittedModel\_*.pdf', where '*' is replaced by the Station ID. One file by station.}\\
+\toprule
+\multicolumn{1}{l}{Graphic} & \multicolumn{1}{l}{Description}\\
+\midrule
+Page 1 & Time Series Plot for Raw.Data\\
+Page 2 & Time Series Plot for Non-Thunderstorm ('nt')\\
+Page 3 & Log-Likelihood(Gumbel) - Optim (nll-optim)\\
+Page 4 & Declustered - Non-Thunderstorm - fitdistrplus-fitdist(gumbel)\\
+Page 5 & Declustered Non-Thunderstorm ('nt') Time Series\\
+Page 6 & W-Statistic Plot for best pair of thresholds\\
+Page 7 & Declustered - Non-Thunderstorm - Density Function from Intensity Function of Poisson Process\\
+Page 8 & Declustered - Non-Thunderstorm - POT-GPD Equivalent\\
+Page 9 & Declustered - Non-Thuderstorm - Cumulative Distribution Function from Intensity Function of Poisson Process\\
+Page 10 & Declustered - Non-Thunderstorms - Hazard Curve. Poisson Process Intensity Function\\
+Page 11 & Declustered - Non-Thunderstorms - Hazard Curve. Gumbel like tail Intensity Function of Poisson Process\\
+Page 12 & Non-Thunderstorms. Gumbel Density Function, but using parameters of Poisson Process\\
+Page 13 & Non-Thunderstorms. Gumbel Cumulative Distribution, but using parameters of Poisson Process\\
+Page 14 & Declustered Non-Thunderstorm. Fitted Gumbel density function using parameters of Poisson Process\\
+Page 15 & Declustered - Non-Thunderstorms - Hazard Curve. Gumbel Quantile Function using parameters of Poisson Process\\
+\bottomrule
+\end{longtable}
+\endgroup{}
+
+return\_levels.csv
+fitted\_model\_result.xlsx
+
+\begingroup\fontsize{8}{10}\selectfont
+\begin{longtable}[t]{>{\raggedright\arraybackslash}p{0.6in}>{\raggedright\arraybackslash}p{1.6in}>{\raggedright\arraybackslash}p{1in}>{\raggedright\arraybackslash}p{2.5in}}
+\caption[returnlevels]{\label{tab:returnlevels}Content of the output Excel Book 'fitted\_model\_result.xlsx' (sheet pp\_pintar). One file by dataset (ISD, ERA5).}\\
+\toprule
+\multicolumn{1}{l}{Column ID} & \multicolumn{1}{l}{Columns Name} & \multicolumn{1}{l}{Important} & \multicolumn{1}{l}{Description}\\
+\midrule
+1 & id &  & Consecurive Row ID\\
+2 & t\_thresh & Not Available & Threshold for thunderstorm data\\
+3 & t\_mu\_location & Not Available & Location for thunderstorm data\\
+4 & t\_psi\_scale & Not Available & Scale for thunderstorm data\\
+5 & nt\_thresh &  & Threshold for non-thunderstorm data\\
+6 & nt\_mu\_location &  & Location for non-thunderstorm data\\
+7 & nt\_psi\_scale &  & Scale for non-thunderstorm data\\
+8 & distance\_w &  & Minimun W distance to choose best threshold pairs\\
+9 & station &  & Station ID\\
+10 to 20 & t\_MRI\_poissonprocessintfunc & Not Available & Thunderstorm Return levels for MRIs (10, 20, 50, 100, 250, 500, 700, 1000, 1700, 3000, 7000), using Poisson Process Intensity Function\\
+21 to 31 & t\_MRI\_gumbeltailintfunc & Not Available & Thunderstorm Return levels for MRIs (10, 20, 50, 100, 250, 500, 700, 1000, 1700, 3000, 7000), using PP Gumbel Tail Intensity Function\\
+32 to 42 & t\_MRI\_gumbelquantilefunc & Not Available & Thunderstorm Return levels for MRIs (10, 20, 50, 100, 250, 500, 700, 1000, 1700, 3000, 7000), using PP Gumbel Quantile Function\\
+43 to 53 & nt\_MRI\_poissonprocessintfunc & Used to create maps! & Non-thunderstorm Return levels for MRIs (10, 20, 50, 100, 250, 500, 700, 1000, 1700, 3000, 7000), using Poisson Process Intensity Function\\
+54 to 64 & nt\_MRI\_gumbeltailintfunc & Do not use & Non-thunderstorm Return levels for MRIs (10, 20, 50, 100, 250, 500, 700, 1000, 1700, 3000, 7000), using PP Gumbel Tail Intensity Function\\
+65 to 75 & nt\_MRI\_gumbelquantilefunc & Do not use & Non-thunderstorm Return levels for MRIs (10, 20, 50, 100, 250, 500, 700, 1000, 1700, 3000, 7000), using PP Gumbel Quantile Function\\
+76 to 86 & tnt\_MRI\_poissonprocessintfunc & Not Available & Combined (t and nt) Return levels for MRIs (10, 20, 50, 100, 250, 500, 700, 1000, 1700, 3000, 7000), using Poisson Process Intensity Function\\
+\bottomrule
+\end{longtable}
+\endgroup{}
+
 \hypertarget{r-code}{%
 \chapter{R Code}\label{r-code}}
+
+This appendix includes all of the R chunks of code that were hidden throughout the document (using the \texttt{include\ =\ FALSE} or \texttt{echo=FALSE,\ message=FALSE,\ warning=FALSE} chunks tag) to help with readability and/or setup.
+
+\textbf{In Chapter \ref{rmd-data}:}
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#Maps of the World}
+\KeywordTok{theme_set}\NormalTok{(}\KeywordTok{theme_bw}\NormalTok{())}
+\NormalTok{world <-}\StringTok{ }\KeywordTok{ne_countries}\NormalTok{(}\DataTypeTok{scale =} \StringTok{"medium"}\NormalTok{, }\DataTypeTok{returnclass =} \StringTok{"sf"}\NormalTok{)}
+\NormalTok{world_points<-}\StringTok{ }\KeywordTok{st_centroid}\NormalTok{(world)}
+\end{Highlighting}
+\end{Shaded}
+\begin{verbatim}
+Warning in st_centroid.sf(world): st_centroid assumes attributes are constant
+over geometries of x
+\end{verbatim}
+\begin{verbatim}
+Warning in st_centroid.sfc(st_geometry(x), of_largest_polygon =
+of_largest_polygon): st_centroid does not give correct centroids for longitude/
+latitude data
+\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{world_points <-}\StringTok{ }\KeywordTok{cbind}\NormalTok{(world, }\KeywordTok{st_coordinates}\NormalTok{(}\KeywordTok{st_centroid}\NormalTok{(world}\OperatorTok{$}\NormalTok{geometry)))}
+\end{Highlighting}
+\end{Shaded}
+\begin{verbatim}
+Warning in st_centroid.sfc(world$geometry): st_centroid does not give correct
+centroids for longitude/latitude data
+\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{colombia =}\StringTok{ }\NormalTok{world_points}\OperatorTok{$}\NormalTok{name }\OperatorTok{==}\StringTok{ "Colombia"}
+\NormalTok{panama =}\StringTok{ }\NormalTok{world_points}\OperatorTok{$}\NormalTok{name }\OperatorTok{==}\StringTok{ "Panama"}
+\NormalTok{peru=}\StringTok{ }\NormalTok{world_points}\OperatorTok{$}\NormalTok{name }\OperatorTok{==}\StringTok{ "Peru"}
+\NormalTok{brazil=}\StringTok{ }\NormalTok{world_points}\OperatorTok{$}\NormalTok{name }\OperatorTok{==}\StringTok{ "Brazil"}
+\NormalTok{venezuela=}\StringTok{ }\NormalTok{world_points}\OperatorTok{$}\NormalTok{name }\OperatorTok{==}\StringTok{ "Venezuela"}
+\NormalTok{ecuador=}\StringTok{ }\NormalTok{world_points}\OperatorTok{$}\NormalTok{name }\OperatorTok{==}\StringTok{ "Ecuador"}
+
+\KeywordTok{ggplot}\NormalTok{(}\DataTypeTok{data =}\NormalTok{ world) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{geom_sf}\NormalTok{(}\DataTypeTok{fill=} \StringTok{"antiquewhite"}\NormalTok{) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\CommentTok{#geom_text(data= world_points,aes(x=X, y=Y, label=name), color = "darkblue", fontface = "bold", check_overlap = FALSE) +}
+\StringTok{  }\KeywordTok{geom_text}\NormalTok{(}\DataTypeTok{data=}\NormalTok{ world_points[venezuela,],}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x=}\OperatorTok{-}\DecValTok{67}\NormalTok{, }\DataTypeTok{y=}\FloatTok{8.5}\NormalTok{, }\DataTypeTok{label=}\NormalTok{name), }\DataTypeTok{color =} \StringTok{"darkblue"}\NormalTok{, }\DataTypeTok{fontface =} \StringTok{"bold"}\NormalTok{, }\DataTypeTok{size=}\DecValTok{3}\NormalTok{, }\DataTypeTok{check_overlap =} \OtherTok{FALSE}\NormalTok{) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_text}\NormalTok{(}\DataTypeTok{data=}\NormalTok{ world_points[panama,],}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x=}\OperatorTok{-}\FloatTok{79.2}\NormalTok{, }\DataTypeTok{y=}\FloatTok{9.2}\NormalTok{, }\DataTypeTok{label=}\NormalTok{name), }\DataTypeTok{color =} \StringTok{"darkblue"}\NormalTok{, }\DataTypeTok{fontface =} \StringTok{"bold"}\NormalTok{, }\DataTypeTok{size=}\DecValTok{3}\NormalTok{, }\DataTypeTok{check_overlap =} \OtherTok{FALSE}\NormalTok{) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{geom_text}\NormalTok{(}\DataTypeTok{data=}\NormalTok{ world_points[ecuador,],}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x=}\OperatorTok{-}\FloatTok{78.2}\NormalTok{, }\DataTypeTok{y=}\OperatorTok{-}\DecValTok{1}\NormalTok{, }\DataTypeTok{label=}\NormalTok{name), }\DataTypeTok{color =} \StringTok{"darkblue"}\NormalTok{, }\DataTypeTok{fontface =} \StringTok{"bold"}\NormalTok{, }\DataTypeTok{size=}\DecValTok{3}\NormalTok{, }\DataTypeTok{check_overlap =} \OtherTok{FALSE}\NormalTok{) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_text}\NormalTok{(}\DataTypeTok{data=}\NormalTok{ world_points[peru,],}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x=}\OperatorTok{-}\DecValTok{75}\NormalTok{, }\DataTypeTok{y=}\OperatorTok{-}\DecValTok{4}\NormalTok{, }\DataTypeTok{label=}\NormalTok{name), }\DataTypeTok{color =} \StringTok{"darkblue"}\NormalTok{, }\DataTypeTok{fontface =} \StringTok{"bold"}\NormalTok{, }\DataTypeTok{size=}\DecValTok{3}\NormalTok{, }\DataTypeTok{check_overlap =} \OtherTok{FALSE}\NormalTok{) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_text}\NormalTok{(}\DataTypeTok{data=}\NormalTok{ world_points[brazil,],}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x=}\OperatorTok{-}\DecValTok{67}\NormalTok{, }\DataTypeTok{y=}\OperatorTok{-}\DecValTok{2}\NormalTok{, }\DataTypeTok{label=}\NormalTok{name), }\DataTypeTok{color =} \StringTok{"darkblue"}\NormalTok{, }\DataTypeTok{fontface =} \StringTok{"bold"}\NormalTok{, }\DataTypeTok{size=}\DecValTok{3}\NormalTok{, }\DataTypeTok{check_overlap =} \OtherTok{FALSE}\NormalTok{) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{annotate}\NormalTok{(}\DataTypeTok{geom =} \StringTok{"text"}\NormalTok{, }\DataTypeTok{x =} \FloatTok{-77.5}\NormalTok{, }\DataTypeTok{y =} \DecValTok{13}\NormalTok{, }\DataTypeTok{label =} \StringTok{"Caribbean}\CharTok{\textbackslash{}n}\StringTok{Sea"}\NormalTok{, }\DataTypeTok{fontface =} \StringTok{"italic"}\NormalTok{, }\DataTypeTok{color =} \StringTok{"grey22"}\NormalTok{, }\DataTypeTok{size =} \DecValTok{4}\NormalTok{) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{annotate}\NormalTok{(}\DataTypeTok{geom =} \StringTok{"text"}\NormalTok{, }\DataTypeTok{x =} \DecValTok{-80}\NormalTok{, }\DataTypeTok{y =} \DecValTok{5}\NormalTok{, }\DataTypeTok{label =} \StringTok{"Pacific}\CharTok{\textbackslash{}n}\StringTok{Sea"}\NormalTok{, }\DataTypeTok{fontface =} \StringTok{"italic"}\NormalTok{, }\DataTypeTok{color =} \StringTok{"grey22"}\NormalTok{, }\DataTypeTok{size =} \DecValTok{4}\NormalTok{) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_sf}\NormalTok{(}\DataTypeTok{data =}\NormalTok{ ideam_stations, }\DataTypeTok{size=}\DecValTok{1}\NormalTok{, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{shape=}\NormalTok{categoria, }\DataTypeTok{color=}\NormalTok{categoria), }\DataTypeTok{show.legend =} \StringTok{"point"}\NormalTok{) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{scale_color_discrete}\NormalTok{(}\DataTypeTok{name =} \StringTok{'Category'}\NormalTok{, }\DataTypeTok{labels =} \KeywordTok{c}\NormalTok{(}\StringTok{"Agrometeorological"}\NormalTok{, }\StringTok{"Ordinary Climatic"}\NormalTok{, }\StringTok{"Main Climatic"}\NormalTok{, }\StringTok{"Mareographic"}\NormalTok{, }\StringTok{"Special Meteorological"}\NormalTok{, }\StringTok{"Main Synoptic"}\NormalTok{)) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{scale_shape_discrete}\NormalTok{(}\DataTypeTok{name =} \StringTok{'Category'}\NormalTok{, }\DataTypeTok{labels =} \KeywordTok{c}\NormalTok{(}\StringTok{"Agrometeorological"}\NormalTok{, }\StringTok{"Ordinary Climatic"}\NormalTok{, }\StringTok{"Main Climatic"}\NormalTok{, }\StringTok{"Mareographic"}\NormalTok{, }\StringTok{"Special Meteorological"}\NormalTok{, }\StringTok{"Main Synoptic"}\NormalTok{)) }\OperatorTok{+}\StringTok{  }
+\StringTok{  }\KeywordTok{annotation_scale}\NormalTok{(}\DataTypeTok{location =} \StringTok{"bl"}\NormalTok{, }\DataTypeTok{width_hint =} \FloatTok{0.5}\NormalTok{) }\OperatorTok{+}\StringTok{ }\KeywordTok{annotation_north_arrow}\NormalTok{(}\DataTypeTok{location =} \StringTok{"br"}\NormalTok{, }\DataTypeTok{which_north =} \StringTok{"true"}\NormalTok{, }\DataTypeTok{pad_x =} \KeywordTok{unit}\NormalTok{(}\FloatTok{0.05}\NormalTok{, }\StringTok{"in"}\NormalTok{), }\DataTypeTok{pad_y =} \KeywordTok{unit}\NormalTok{(}\FloatTok{0.05}\NormalTok{, }\StringTok{"in"}\NormalTok{), }\DataTypeTok{style =}\NormalTok{ north_arrow_fancy_orienteering) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{coord_sf}\NormalTok{(}\DataTypeTok{xlim =} \KeywordTok{c}\NormalTok{(}\OperatorTok{-}\FloatTok{82.1}\NormalTok{, }\FloatTok{-63.8}\NormalTok{), }\DataTypeTok{ylim =} \KeywordTok{c}\NormalTok{(}\OperatorTok{-}\FloatTok{7.5}\NormalTok{, }\FloatTok{15.5}\NormalTok{), }\DataTypeTok{expand =} \OtherTok{FALSE}\NormalTok{) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{xlab}\NormalTok{(}\StringTok{"Longitude"}\NormalTok{) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{ylab}\NormalTok{(}\StringTok{"Latitude"}\NormalTok{) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{ggtitle}\NormalTok{(}\StringTok{"IDEAM Stations"}\NormalTok{) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{theme}\NormalTok{(}\DataTypeTok{panel.grid.major =} \KeywordTok{element_line}\NormalTok{(}\DataTypeTok{color =} \KeywordTok{gray}\NormalTok{(.}\DecValTok{5}\NormalTok{), }\DataTypeTok{linetype =} \StringTok{"dashed"}\NormalTok{, }\DataTypeTok{size =} \FloatTok{0.5}\NormalTok{), }\DataTypeTok{panel.background =} \KeywordTok{element_rect}\NormalTok{(}\DataTypeTok{fill =} \StringTok{"aliceblue"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+\includegraphics{thesis_files/figure-latex/unnamed-chunk-12-1.pdf}
+
+\textbf{In Chapter \ref{rmd-thefra}:}
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{par}\NormalTok{(}\DataTypeTok{mar=}\KeywordTok{c}\NormalTok{(}\FloatTok{2.5}\NormalTok{,}\FloatTok{2.5}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{0}\NormalTok{))}
+\KeywordTok{par}\NormalTok{(}\DataTypeTok{oma=}\KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{0}\NormalTok{,}\DecValTok{0}\NormalTok{,}\DecValTok{0}\NormalTok{))}
+\KeywordTok{par}\NormalTok{(}\DataTypeTok{mgp=}\KeywordTok{c}\NormalTok{(}\FloatTok{1.5}\NormalTok{,}\FloatTok{0.5}\NormalTok{,}\DecValTok{0}\NormalTok{))}
+\NormalTok{location =}\StringTok{ }\DecValTok{100}
+\NormalTok{scale =}\StringTok{ }\DecValTok{40}
+\NormalTok{.x <-}\StringTok{ }\KeywordTok{seq}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{300}\NormalTok{, }\DataTypeTok{length.out=}\DecValTok{1000}\NormalTok{)}
+\NormalTok{pdfG <-}\StringTok{ }\ControlFlowTok{function}\NormalTok{(x) \{}
+  \DecValTok{1}\OperatorTok{/}\NormalTok{location }\OperatorTok{*}\KeywordTok{exp}\NormalTok{(}\OperatorTok{-}\NormalTok{(x}\OperatorTok{-}\NormalTok{location)}\OperatorTok{/}\NormalTok{scale)}\OperatorTok{*}\KeywordTok{exp}\NormalTok{(}\OperatorTok{-}\KeywordTok{exp}\NormalTok{(}\OperatorTok{-}\NormalTok{(x}\OperatorTok{-}\NormalTok{location)}\OperatorTok{/}\NormalTok{scale))}
+\NormalTok{  \}}
+\NormalTok{.y =}\StringTok{ }\KeywordTok{pdfG}\NormalTok{(.x)}
+\KeywordTok{plot}\NormalTok{(.x, .y, }\DataTypeTok{col=}\StringTok{"green"}\NormalTok{, }\DataTypeTok{lty=}\DecValTok{4}\NormalTok{, }
+     \DataTypeTok{xlab=}\StringTok{"Velocities Km/h"}\NormalTok{, }\DataTypeTok{ylab=}\StringTok{"Density Function - Gumbel Distribution"}\NormalTok{, }
+     \DataTypeTok{main=}\KeywordTok{paste}\NormalTok{(}\StringTok{"Gumbel - Density Function Gumbel Distribution}\CharTok{\textbackslash{}n}\StringTok{"}\NormalTok{, }\StringTok{"Location="}\NormalTok{, }
+     \KeywordTok{round}\NormalTok{(location,}\DecValTok{2}\NormalTok{), }\StringTok{" Scale="}\NormalTok{, }\KeywordTok{round}\NormalTok{(scale,}\DecValTok{2}\NormalTok{)), }\DataTypeTok{type=}\StringTok{"l"}\NormalTok{, }
+     \DataTypeTok{cex.axis =} \FloatTok{0.5}\NormalTok{, }\DataTypeTok{cex.lab=} \FloatTok{0.6}\NormalTok{, }\DataTypeTok{cex.main=}\FloatTok{0.7}\NormalTok{, }\DataTypeTok{cex.sub=}\FloatTok{0.6}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+\includegraphics{thesis_files/figure-latex/unnamed-chunk-13-1.pdf}
+
+\hypertarget{the-next-appendix}{%
+\chapter{The Next Appendix}\label{the-next-appendix}}
 
 \backmatter
 

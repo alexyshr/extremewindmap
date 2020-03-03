@@ -569,7 +569,7 @@ plot_grid(myprint1, NULL, myprint5, ncol = 3,  rel_widths = c(1,0.26,1))
 #grid.arrange(myprint1, myprint5, ncol=2)
 ```
 
-Using declustered data, and considering that it is only neccesary to calculate optimal threshold for non-thunderstorm data, because there is no records classified as thunderstorm in any data source, many non-thunderstomr thresholds were tested, to choose the best one using the W statistic, as described in section [thresholding](#thresholding) of the [methodology](#rmd-method). Figure \@ref(fig:page6) shows a very good fit in resulting W-Statistic plot, for optimal non-thunderstorm threshold $b_{nt} =$ _`r z5`_$\frac{Km}{h}$, with a maximun W distance of `r format(z8, scientific=F, digits = 2)`, for ISD station 801120, where empirical values (black points) are very close or similar to theoretical values (red line).
+Using declustered data, and considering that it is only neccesary to calculate optimal threshold for non-thunderstorm data, because there is no records classified as thunderstorm in any data source, many non-thunderstomr thresholds were tested, to choose the best one using the W statistic, as described in section [thresholding](#thresholding) of the [methodology](#rmd-method). Figure \@ref(fig:page6) shows a very good fit in resulting W-Statistic plot, for optimal non-thunderstorm threshold $b_{nt} =$ _`r z5`_$\frac{Km}{h}$, with a minimum W distance of `r format(z8, scientific=F, digits = 2)`, for ISD station 801120, where empirical values (black points) are very close or similar to theoretical values (red line).
 
 
 ```{r page6, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="POT - Thresholding", size="footnotesize", fig.align="center", fig.width=2.5, fig.asp=1}
