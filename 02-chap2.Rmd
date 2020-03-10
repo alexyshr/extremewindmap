@@ -75,7 +75,7 @@ Equation \@ref(eq:gumbelpdf) is the Gumbel _pdf_.
 where $\exp\left\{.\right\} \mapsto \mathrm{e}^{\left\{.\right\}}$, $\beta$ is the scale parameter, and $\mu$ is the location parameter. Location ($\mu$) has the effect to shift the _pdf_ to left or right along 'x' axis, thus, if location value is changed the effect is a movement of _pdf_ to the left (small value for location), or to the right (big value for location). Scale has the effect to stretch ($\beta > 1$) of compress  ($0 < \beta< 1$) the _pdf_, if scale parameter is close to zero the _pdf_ approaches a spike.
 
 
-Figure \@ref(fig:plotgumbelpdffunction) shows _pdf_ with location ($\mu$) = 100 and scale ($\beta$) = 40, using equation \@ref(eq:gumbelpdf). 
+Figure \@ref(fig:plotgumbelpdffunction) shows _pdf_ with location ($\mu$) = 100 and scale ($\beta$) = 40, using Equation \@ref(eq:gumbelpdf). 
 
 ```{r plotgumbelpdffunction, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Gumbel pdf", size="footnotesize", fig.width= 4, fig.height= 3}
 par(mar=c(2.5,2.5,2,0))
@@ -89,10 +89,10 @@ pdfG <- function(x) {
   }
 .y = pdfG(.x)
 plot(.x, .y, col="green", lty=4, 
-     xlab="Velocities Km/h", ylab="Density Function - Gumbel Distribution", 
-     main=paste("Gumbel - Density Function Gumbel Distribution\n", "Location=", 
-     round(location,2), " Scale=", round(scale,2)), type="l", 
-     cex.axis = 0.5, cex.lab= 0.6, cex.main=0.7, cex.sub=0.6)
+ xlab="Velocities Km/h", ylab="Density Function - Gumbel Distribution", 
+ main=paste("Gumbel - Density Function Gumbel Distribution\n", "Location=", 
+ round(location,2), " Scale=", round(scale,2)), type="l", 
+ cex.axis = 0.5, cex.lab= 0.6, cex.main=0.7, cex.sub=0.6)
 ```
 
 Figure \@ref(fig:plotgumbelpdf) shows _pdf_ with location ($\mu$) = 100 and scale ($\beta$) = 40, using function `dgumbel` of the package `RcmdrMisc`
@@ -135,7 +135,7 @@ Equation \@ref(eq:gumbelcdf) is the Gumbel _cdf_.
 \end{equation}
 
 
-Figure \@ref(fig:plotgumbelcdffunction) shows Gumbel _cdf_ with location ($\mu$) = 100 and scale ($\beta$) = 40, using equation \@ref(eq:gumbelcdf). As previously done with _pdf_, similar result can be achieved using function `pgumbel` of package `RcmdrMisc`.
+Figure \@ref(fig:plotgumbelcdffunction) shows Gumbel _cdf_ with location ($\mu$) = 100 and scale ($\beta$) = 40, using Equation \@ref(eq:gumbelcdf). As previously done with _pdf_, similar result can be achieved using function `pgumbel` of package `RcmdrMisc`.
 
 ```{r plotgumbelcdffunction, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Gumbel cdf", size="footnotesize", fig.width= 4, fig.height= 3}
 par(mar=c(2.5,2.5,2,0))
@@ -173,7 +173,7 @@ Equation \@ref(eq:gumbelppf) is the Gumbel _ppf_.
 \end{equation}
 
 
-Figure \@ref(fig:plotgumbelppffunction) shows Gumbel _ppf_, using equation \@ref(eq:gumbelppf). Similar result can be achieved using function `qgumbel` of package `RcmdrMisc`.
+Figure \@ref(fig:plotgumbelppffunction) shows Gumbel _ppf_, using Equation \@ref(eq:gumbelppf). Similar result can be achieved using function `qgumbel` of package `RcmdrMisc`.
 
 ```{r plotgumbelppffunction, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Gumbel ppf", size="footnotesize", fig.width= 4, fig.height= 3}
 par(mar=c(2.5,2.5,2,0))
@@ -212,7 +212,7 @@ Equation \@ref(eq:gumbelhf) is the Gumbel _ppf_.
 \end{equation}
 
 
-Figure \@ref(fig:plotgumbelhffunction) shows Gumbel _hf_, using equation \@ref(eq:gumbelhf).
+Figure \@ref(fig:plotgumbelhffunction) shows Gumbel _hf_, using Equation \@ref(eq:gumbelhf).
 
 ```{r plotgumbelhffunction, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Gumbel hf", size="footnotesize", fig.width= 4, fig.height= 3}
 par(mar=c(2.5,2.5,2,0))
@@ -360,7 +360,7 @@ text(x=0.85,  y=1800,
 # box(which = "outer", col="orange")
 ```
 
-If it is consider exposure time as a multiple of return period, the resulting figure  \@ref(fig:compoundprobability), shows that:
+If it is consider exposure time as a multiple of return period, the resulting Figure  \@ref(fig:compoundprobability), shows that:
 
 * When exposure time is .69% of the return period, then probability (occurrence and non-occurrence) will be 50%
 * As was stated previously, when exposure time is equal to return period, then the probability that the extreme wind speed (return level) occur is 63%, and 37% for the non occurrence probability.
@@ -395,7 +395,7 @@ The CRAN Task View "Extreme Value Analysis" <https://cran.r-project.org/web/view
 
 ### POT-GPD {#pot-gpd}
 
-Short description of POT-GPD (this section need to be complemented)
+In POT using Pareto distribution, the magnitude of the observations above the threshold are assumed a) to be independent random variables with the same generalized Pareto as probability distribution, $\sigma$ as scale, and $\xi$ as tail length, and corresponding times are assumed b) to follow a one dimensional homogeneous Poisson process with $\gamma$ as parameter. The _cdf_ of POT-GPD is $F(y) = 1 - \left(1-\xi\frac{y-b}{\sigma}\right)^{-\frac{1}{\xi}}_+$, where $b$ is the threshold. In both GPD (magnitude), and $1D$ Poisson process (time), it is not possible to differentiate between thunderstorm and non-thunderstorm wind types.
 
 In POT-GPD, to calculate return levels (RL), $Y_N$, corresponding to the N-years return period, next equation is used,
 
@@ -424,7 +424,7 @@ According to @Pintar2015 the stochastic Poisson Process - PP is mainly defined b
   (\#eq:ppgenericintensityfunction)
 \end{equation}
 
-Generic equation \@ref(eq:ppgenericintensityfunction) shows the intensity function, which is defined in the domain $D = D_t\,{\cup}\,D_{nt}$, and allow to fit the PP at each station to the observed data $\{t_i, y_i\}_{i=1}^I$, for all the times ($t_i$) of threshold crossing observations, and its corresponding wind speeds magnitudes ($y_i$). Thus, only data above the threshold (POT) are used.
+Generic Equation \@ref(eq:ppgenericintensityfunction) shows the intensity function, which is defined in the domain $D = D_t\,{\cup}\,D_{nt}$, and allow to fit the PP at each station to the observed data $\{t_i, y_i\}_{i=1}^I$, for all the times ($t_i$) of threshold crossing observations, and its corresponding wind speeds magnitudes ($y_i$). Thus, only data above the threshold (POT) are used.
 
 Intensity function of the PP is defined in @Smith2004, 
 
@@ -495,7 +495,7 @@ Thunderstorms and non-thunderstorms are modeled independently:
 1. Observations in domain $D$ follow a Poisson distribution with mean $\int_D\lambda(t,y)\,dt\,dy$
 2. For each disjoint sub-domain $D_1$ or $D_2$ inside $D$, the observations in $D_1$ or $D_2$ are independent random variables.
 
-Visual representation of the intensity function for PP can be seen in figure \@ref(fig:plotdomain3dpp). In vertical axis, two surfaces were drawn representing independent intensity functions for thunderstorm $\lambda_t(y)$ and for non-thunderstorm $\lambda_{nt}(y)$. The volume under each surface for its corresponding time periods and peak (over threshold) velocities, is the mean of PP.
+Visual representation of the intensity function for PP can be seen in Figure \@ref(fig:plotdomain3dpp). In vertical axis, two surfaces were drawn representing independent intensity functions for thunderstorm $\lambda_t(y)$ and for non-thunderstorm $\lambda_{nt}(y)$. The volume under each surface for its corresponding time periods and peak (over threshold) velocities, is the mean of PP.
 
 
 ```{r plotdomain3dpp, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Volume under surfaces represents the mean of PP", dpi=200, fig.align='center'}
@@ -539,7 +539,7 @@ The same thunderstorm event in considered to occur if the time lag distance betw
 
 ### Threshold Selection {#thresholdselection}
 
-POT-PP needs selection of the best threshold pairs $b_t$ and $b_{nt}$ (see figure \@ref(fig:plotdomainpp)) that produces the optimal fit. Measurement of this threshold fitting is done through $W$ statistics. If wind variable $y$, in a POT-PP approach, has a $cdf = U = F(y)$, then $F(y)$ is distributed as Uniform between 0 and 1 - Uniform(0,1), meaning that the transformation $W = -log(1-U)$ is an exponential random variable with mean one (1).
+POT-PP needs selection of the best threshold pairs $b_t$ and $b_{nt}$ (see Figure \@ref(fig:plotdomainpp)) that produces the optimal fit. Measurement of this threshold fitting is done through $W$ statistics. If wind variable $y$, in a POT-PP approach, has a $cdf = U = F(y)$, then $F(y)$ is distributed as Uniform between 0 and 1 - Uniform(0,1), meaning that the transformation $W = -log(1-U)$ is an exponential random variable with mean one (1).
 
 \begin{equation}
   \mathrm{
@@ -565,7 +565,7 @@ ASCE7-16 (page 734), requires the calculation of wind extreme return levels for 
 * Risk II - Category 'by default', and correspond to structures not classified in others categories.
 * Risk I - This structures represent low risk for life of people.
 
-To standardize wind speeds to gust speeds ASCE7-16 proposes the curve Durst (see @Durst1960, and figure \@ref(fig:durstcurve)). Durst curve is only valid for open terrain conditions, and it shows in axis $y$ the gust factor $\frac{V_t}{V_{3600}}$, a ratio between any wind gust averaged at $t$ seconds, $V_t$, and the hourly averaged wind speed $V_{3600}$, and in the axis $x$ the duration $t$ of the gust in seconds.
+To standardize wind speeds to gust speeds ASCE7-16 proposes the curve Durst (see @Durst1960, and Figure \@ref(fig:durstcurve)). Durst curve is only valid for open terrain conditions, and it shows in axis $y$ the gust factor $\frac{V_t}{V_{3600}}$, a ratio between any wind gust averaged at $t$ seconds, $V_t$, and the hourly averaged wind speed $V_{3600}$, and in the axis $x$ the duration $t$ of the gust in seconds.
 
 
 ```{r durstcurve, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Maximum speeds averaged over t (sec), to hourly mean speed. Note: curve values taken visually from the original (use original curve for calculations!) ", fig.height=2.5, fig.width=5}

@@ -10,14 +10,14 @@ rl_nonhurricanes_4326_1000_st.tif,ERA5 POT-PP non-hurricane wind map. MRI 1000 y
 rl_nonhurricanes_4326_1700_st.tif,ERA5 POT-PP non-hurricane wind map. MRI 1700 years
 rl_nonhurricanes_4326_3000_st.tif,ERA5 POT-PP non-hurricane wind map. MRI 3000 years
 rl_nonhurricanes_4326_7000_st.tif,ERA5 POT-PP non-hurricane wind map. MRI 7000 years
-rl_combined_4326_10_st.tif,ERA5 Final wind map (hurricane + non-hurricane). MRI 10 years
-rl_combined_4326_20_st.tif,ERA5 Final wind map (hurricane + non-hurricane). MRI 210 years
-rl_combined_4326_50_st.tif,ERA5 Final wind map (hurricane + non-hurricane). MRI 50 years
-rl_combined_4326_100_st.tif,ERA5 Final wind map (hurricane + non-hurricane). MRI 100 years
-rl_combined_4326_250_st.tif,ERA5 Final wind map (hurricane + non-hurricane). MRI 250 years
-rl_combined_4326_500_st.tif,ERA5 Final wind map (hurricane + non-hurricane). MRI 500 years
-rl_combined_4326_700_st.tif,ERA5 Final wind map (hurricane + non-hurricane). MRI 700 years
-rl_combined_4326_1000_st.tif,ERA5 Final wind map (hurricane + non-hurricane). MRI 1000 years
-rl_combined_4326_1700_st.tif,ERA5 Final wind map (hurricane + non-hurricane). MRI 1700 years
-rl_combined_4326_3000_st.tif,ERA5 Final wind map (hurricane + non-hurricane). MRI 3000 years
-rl_combined_4326_7000_st.tif,ERA5 Final wind map (hurricane + non-hurricane). MRI 7000 years
+rl_combined_4326_10_st.tif,ERA5 final wind map (hurricane + non-hurricane). MRI 10 years
+rl_combined_4326_20_st.tif,ERA5 final wind map (hurricane + non-hurricane). MRI 210 years
+rl_combined_4326_50_st.tif,ERA5 final wind map (hurricane + non-hurricane). MRI 50 years
+rl_combined_4326_100_st.tif,ERA5 final wind map (hurricane + non-hurricane). MRI 100 years
+rl_combined_4326_250_st.tif,ERA5 final wind map (hurricane + non-hurricane). MRI 250 years
+rl_combined_4326_500_st.tif,ERA5 final wind map (hurricane + non-hurricane). MRI 500 years
+rl_combined_4326_700_st.tif,ERA5 final wind map (hurricane + non-hurricane). MRI 700 years
+rl_combined_4326_1000_st.tif,ERA5 final wind map (hurricane + non-hurricane). MRI 1000 years
+rl_combined_4326_1700_st.tif,ERA5 final wind map (hurricane + non-hurricane). MRI 1700 years
+rl_combined_4326_3000_st.tif,ERA5 final wind map (hurricane + non-hurricane). MRI 3000 years
+rl_combined_4326_7000_st.tif,ERA5 final wind map (hurricane + non-hurricane). MRI 7000 years

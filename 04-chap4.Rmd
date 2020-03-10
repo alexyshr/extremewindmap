@@ -45,13 +45,13 @@ source('./code/pp_one_station.r')
 #source('./code/comparing_sources_pqrs_20199050080932_VV_AUT.r')
 ```
 
-# Results {#rmd-results}
+# Results and Discussion {#rmd-results}
 
 In this section, will be shown first, the data source comparison (post standardization process) to face the downscaling issue by using ERA5 and ISD database, then, the resulting process of fitting a POT-PP in the ISD station 801120, which includes revision of intensity function parameters, goodness of fit, hazard curve, return levels, and comparison with POT-GPD results, next, non-hurricane maps outputs, which includes results for ISD and ERA5 stations, and finally, output maps combining hurricane and non-hurricane results will be displayed.
 
 ## Data Standardization and Downscaling Support
 
-Looking for a statistical justification in the use of ISD (model) and ERA5 databases (forecast), as input data for this study, and considering the *downscaling approach* described in the [standartization process](#rmd-standartization) section of methodology, data sources ISD and IDEAM were standardized to enable comparison. Standardization consisted of transforming the data to be equivalent to $V_3$ 3-s gust, 10 meters anemometer height, and open space roughness. In the comparison process, for coincident stations by spatial location, it was checked if the velocity values (standardized) in the three sources, for equal dates, were similar in magnitude.
+Looking for a statistical justification in the use of ISD (model) and ERA5 databases (forecast), as input data for this study, and considering the *downscaling approach* described in the [downscaling support](#ds)section of methodology, data sources ISD and IDEAM were standardized to enable comparison. Standardization consisted of transforming the data to be equivalent to $V_3$ 3-s gust, 10 meters anemometer height, and open space roughness. In the comparison process, for coincident stations by spatial location, it was checked if the velocity values (standardized) in the three sources, for equal dates, were similar in magnitude.
 
 ### Data Standardization
 
@@ -71,12 +71,12 @@ For IDEAM:
 
 * As the original variables obtained from IDEAM, do not represent gust speeds, it was necessary to start from _average hourly speed_ $V_{3600}$, to obtain 3-s gust $V_3$. To standardize from $V_{3600}$ to $V_3$, using Durst curve, the correction factor is 1.51.
 
-* It was not possible to obtain the _average hourly speed_ $V_{3600}$ from IDEAM, see table \@ref(tab:tabledatasources2), but from _instantaneous wind velocity each 2 minutes - VV_AUT_2_ it is possible to obtain a **good** estimator of $V_{3600}$, and from _instantateous wind velocity each 10 minutes - VV_AUT_10_ it is possible to obtain a **poor** estimator of $V_{3600}$. 
+* It was not possible to obtain the _average hourly speed_ $V_{3600}$ from IDEAM, see Table \@ref(tab:tabledatasources2), but from _instantaneous wind velocity each 2 minutes - VV_AUT_2_ it is possible to obtain a **good** estimator of $V_{3600}$, and from _instantateous wind velocity each 10 minutes - VV_AUT_10_ it is possible to obtain a **poor** estimator of $V_{3600}$. 
 
 
 ### Data Comparison
 
-The available IDEAM data allowed two comparison processes, with quality data for a few stations, and with low quality data, but available for all stations. 
+The available IDEAM data allowed two comparison processes, with quality data for few stations, and with low quality data, but available for all stations. 
 
 In both cases, to make the use of ISD and ERA5 viable, its time series are expected to be as similar as possible to IDEAM (field measurements). To verify this, two types of graphics were constructed:
 
@@ -87,7 +87,7 @@ In both cases, to make the use of ISD and ERA5 viable, its time series are expec
 
 #### IDEAM VV_AUT_2 - Quality Data Comparison 
 
-IDEAM VV_AUT_2 was available for twenty (20) stations, of which only twelve (12) were _perfectly equivalent_ to ISD stations, see table \@ref(tab:table12stations), and map in left panel of figure \@ref(fig:qualitycomparison1). VV_AUT_2 dataset was transformed to $V_{3600}$ (average hourly speed), averaging all 20 values available per hour. For twelve matching  stations, wind velocity $V_{3600}$ (transformation of VV_AUT_2), was standardized station by station, using procedure described in [Surface Roughness at Open Space](#rmd-roughness) section and [Averaging Time 3-s Gust](#rmd-gust), and finally, for the same twelve ISD and IDEAM standardized stations, a comparison was done against matching ERA5 stations (the corresponding cell in ERA5 that has within ISD and IDEAM locations).
+IDEAM VV_AUT_2 was available for twenty (20) stations, of which only twelve (12) were _perfectly equivalent_ to ISD stations, see Table \@ref(tab:table12stations), and map in left panel of Figure \@ref(fig:qualitycomparison1). VV_AUT_2 dataset was transformed to $V_{3600}$ (average hourly speed), averaging all 20 values available per hour. For twelve matching  stations, wind velocity $V_{3600}$ (transformation of VV_AUT_2), was standardized station by station, using procedure described in [Surface Roughness at Open Space](#rmd-roughness) section and [Averaging Time 3-s Gust](#rmd-gust), and finally, for the same twelve ISD and IDEAM standardized stations, a comparison was done against matching ERA5 stations (the corresponding cell in ERA5 that has within ISD and IDEAM locations).
 
 ```{r table12stations, echo=FALSE, message=FALSE, warning=FALSE, paged.print=TRUE, results="asis"}
 #data_sources_thesis_summary1 <-read.csv("./data/data_sources_thesis_summary1.csv",header=TRUE, stringsAsFactors = F)
@@ -311,7 +311,7 @@ grid.arrange(big, small, ncol=2)
 #grid.rect(gp=gpar(fill=NA))
 ```
 
-The stations described in each row of the previous table \@ref(tab:table12stations), were compared by generating scatter plots and common time series graphics. Stations 28025502 from IDEAM, 800360 from ISD, and 416 (cell with center point in $-73.25^\circ$ longitude, and $10.5^\circ$ latitude) from ERA5, see map in right panel of figure \@ref(fig:qualitycomparison2), showed high correspondence, see figure \@ref(fig:sideamera5), because green regression line (empirical) is very similar to $45^\circ$ line (theoretical). Unfortunately, in the other eleven stations, there was no high equivalence between sources.
+The stations described in each row of the previous Table \@ref(tab:table12stations), were compared by generating scatter plots and common time series graphics. Stations 28025502 from IDEAM, 800360 from ISD, and 416 (cell with center point in $-73.25^\circ$ longitude, and $10.5^\circ$ latitude) from ERA5, see map in right panel of Figure \@ref(fig:qualitycomparison2), showed high correspondence, see Figure \@ref(fig:sideamera5), because green regression line (empirical) is very similar to $45^\circ$ line (theoretical). Unfortunately, in the other eleven stations, there was no high equivalence between sources.
 
 
 ```{r sideamera5, echo=FALSE, fig.align="center", fig.cap="Quality Data Comparison. High similarity between sources", message=FALSE, warning=FALSE, fig.width=4, fig.height=3}
@@ -325,7 +325,7 @@ dat1
 
 #### IDEAM VV_AUT_10 - Non Quality Data Comparison (available in all IDEAM stations)
 
-VV_AUT_10 was available for 204 stations, and despide that $V_{3600}$ calculated from this source, is not an accurate or quality estimator, the standarization procedure was done to allow an additional comparison process, whose results are shown in the map displayed in figure \@ref(fig:poorcomparison). Downscaling support was 'Good' comparing IDEAM and/or ISD stations with twenty-three (23) ERA5 stations (2261, 1971, 2066, 2020, 2260, 1875, 2213, 2637, 1442, 1583, 1501, 1582, 1381, 1493, 1485, 1397, 1338, 1055, 511, 1644, 515, 221, 1038), and 'Very Good' comparing IDEAM and/or ISD with five (5) ERA5 stations (265, 360, 78, 312, 416).
+VV_AUT_10 was available for 204 stations, and despide that $V_{3600}$ calculated from this source, is not an accurate or quality estimator, the standarization procedure was done to allow an additional comparison process, whose results are shown in the map displayed in Figure \@ref(fig:poorcomparison). Downscaling support was 'Good' comparing IDEAM and/or ISD stations with twenty-three (23) ERA5 stations (2261, 1971, 2066, 2020, 2260, 1875, 2213, 2637, 1442, 1583, 1501, 1582, 1381, 1493, 1485, 1397, 1338, 1055, 511, 1644, 515, 221, 1038), and 'Very Good' comparing IDEAM and/or ISD with five (5) ERA5 stations (265, 360, 78, 312, 416).
 
 'Very Good' downscaling results for this non quality data comparison, are shown bellow: 
 
@@ -440,7 +440,7 @@ kable(tableverygood, align=rep('l', 3),
 kable_styling(font_size = 10, latex_options="scale_down")
 ```
 
-For some ISD stations in previous table \@ref(tab:tableverygood), the value 'NA' means that for the corresponding ERA5 and IDEAM station (same row), there is not a ISD station located inside the ERA5 cell space ($0.25^\circ * 0.25^\circ$).
+For some ISD stations in previous Table \@ref(tab:tableverygood), the value 'NA' means that for the corresponding ERA5 and IDEAM station (same row), there is not a ISD station located inside the ERA5 cell space ($0.25^\circ * 0.25^\circ$).
 
 ```{r verygoodxts, echo=FALSE, fig.cap="Non Quality Data Comparison. Time Series Graphic for 'Very Good' Downscaling Support", message=FALSE, warning=FALSE, fig.height=3}
 tl = readRDS(file="./data/eracomparisonideam_188_78_plotxts.rds")
@@ -520,7 +520,7 @@ kable_styling(font_size = 10, latex_options="scale_down")
 
 As storm information is not available for any of the data sources, all the data for the station was classified as *non-thunderstorm*. According to [POT-PP](#pot-pp) method described in [methodology](#rmd-method), the first process aplied to original time series -raw data-, is [declustering](#decluster), and then, [thresholding](#thresholding). 
 
-Non-thunderstorm raw data for ISD station 801120 has `r sum(years_all$count)` records, from `r index(years_all)[1]` to `r index(years_all)[length(years_all$count)]`, corresponding to a total amount time in days of `r format(imp.vals$nt.length.time, scientific=F, digits = 0)`, and to an average number of events per year of `r round(imp.vals$n.nthunders.per.year, 1)`, which means that the average duration of an event is `r round(365/imp.vals$n.nthunders.per.year, 1)` days (average size in days of a cluster). After [declustering](#decluster), and [thresholding](#thresholding) processes, the number of records decreases to `r sum(years_declu_nt$count)`. Time series graphics are shown in figure \@ref(fig:ts), showing the data before (left) and after (right) applying the mentioned processes. Detailed yearly statistics are reported in table \@ref(tab:years801120), also including summary for before (left), and after (right). 
+Non-thunderstorm raw data for ISD station 801120 has `r sum(years_all$count)` records, from `r index(years_all)[1]` to `r index(years_all)[length(years_all$count)]`, corresponding to a total amount time in days of `r format(imp.vals$nt.length.time, scientific=F, digits = 0)`, and to an average number of events per year of `r round(imp.vals$n.nthunders.per.year, 1)`, which means that the average duration of an event is `r round(365/imp.vals$n.nthunders.per.year, 1)` days (average size in days of a cluster). After [declustering](#decluster), and [thresholding](#thresholding) processes, the number of records decreases to `r sum(years_declu_nt$count)`. Time series graphics are shown in Figure \@ref(fig:ts), showing the data before (left) and after (right) applying the mentioned processes. Detailed yearly statistics are reported in Table \@ref(tab:years801120), also including summary for before (left), and after (right). 
 
 ```{r years801120, echo=FALSE, message=FALSE, warning=FALSE, paged.print=TRUE, results="asis"}
 #years_declu_nt
@@ -560,7 +560,7 @@ kable(years_both, align=rep('l', 9),  digits = c(0,0,1,1,1,0,1,1,1),
       add_header_above(c(" ", "Raw Data" = 4, "Declustered Data" = 4))
 ```
 
-It can be seen in the table \@ref(tab:years801120), that declustered data has zero records for some years. This situation is due to that all the data for each one of those years (2001, 2007, 2011, 2013, 2018, and 2019), belonged to a cluster that started the previous year, or finished the next year, and the unique chosen maximun value (the value representative for the cluster) was found in the previous or next year, but not in mentioned years of zero records.
+It can be seen in the Table \@ref(tab:years801120), that declustered data has zero records for some years. This situation is due to that all the data for each one of those years (2001, 2007, 2011, 2013, 2018, and 2019), belonged to a cluster that started the previous year, or finished the next year, and the unique chosen maximun value (the value representative for the cluster) was found in the previous or next year, but not in mentioned years of zero records.
 
 
 ```{r ts, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Non-Thunderstorm Time Series for ISD station 801120. Left: Raw Data. Right: Declustered Data",  fig.align="center", fig.height=2, fig.width=4.5}
@@ -588,7 +588,7 @@ dat
 
 ### Fitted pdf and cdf and Goodness of Fit
 
-Equation \@ref(eq:ppintensityfunction), defined in section [POT-PP](#method-pot-pp) of the [methodological framework](#rmd-thefra), was used as intensity function, $\lambda(t, y) = \lambda_{nt}(y)$, for POT-PP. When shape $\zeta_t$ is equal to zero, as it is in this study, an equivalent intensity function is described in equation \@ref(eq:ppspecificintensityfunction) defined in terrms of the parameters location ($\omega_t$), and scale ($\psi_t$). Related _pdf_ and _cdf_ functions are referenced in equations \@ref(eq:pppdf), where the domain $D$ constraint the data above the threshold _b_, and the time to a non-thunderstorm period, and \@ref(eq:ppcdf) respectively.
+Equation \@ref(eq:ppintensityfunction), defined in section [POT-PP](#method-pot-pp) of the [methodological framework](#rmd-thefra), was used as intensity function, $\lambda(t, y) = \lambda_{nt}(y)$, for POT-PP. When shape $\zeta_t$ is equal to zero, as it is in this study, an equivalent intensity function is described in Equation \@ref(eq:ppspecificintensityfunction) defined in terrms of the parameters location ($\omega_t$), and scale ($\psi_t$). Related _pdf_ and _cdf_ functions are referenced in Equations \@ref(eq:pppdf), where the domain $D$ constraint the data above the threshold _b_, and the time to a non-thunderstorm period, and \@ref(eq:ppcdf) respectively.
 
 * Intensity function: $\frac{1}{\psi_{nt}}\exp\left(\frac{-(y-\omega_{nt})}{\psi_{nt}}\right)$
 
@@ -677,7 +677,7 @@ par(opar)
 
 ### Hazard Curve and Return Levels - RL
 
-Hazard curve is the solution to equation \@ref(eq:pprl), but eliminating from it elements related to thunderstorms, the equation is simplified to  $A_{nt}\int_{Y_N}^{\infty}\lambda_{nt}\left( y\right)\,dy = \frac{1}{N}$, where $A_{nt}$ is the average time of non-thunderstorm events by year, and $Y_N$ is the return level or extreme wind velocity, corresponding to the N-years return period or MRI. Reemplacing in this ecuation the intensity function $lambda_{nt}$, and solving $Y_N$ for all possible values of MRI, will provide hazard curve displayed in figure \@ref(fig:page10).
+Hazard curve is the solution to Equation \@ref(eq:pprl), but eliminating from it elements related to thunderstorms, the equation is simplified to $A_{nt}\int_{Y_N}^{\infty}\lambda_{nt}\left( y\right)\,dy = \frac{1}{N}$, where $A_{nt}$ is the average time of non-thunderstorm events by year, and $Y_N$ is the return level or extreme wind velocity, corresponding to the N-years return period or MRI. Reemplacing in this ecuation the intensity function $lambda_{nt}$, and solving $Y_N$ for all possible values of MRI, will provide hazard curve displayed in Figure \@ref(fig:page10).
 
 
 ```{r page10, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Hazard Curve. Station 801120" , fig.align="center", fig.height=2.5, fig.width=3.5}
@@ -749,13 +749,13 @@ kable_styling(font_size = 10, latex_options="scale_down")
 
 ```
 
-Return levels of interest for this research, corrrespond to 700, 1700 and 3000 years of MRI, however, due to the mechanism of [integration with existing hurricane study information](#integration), described in [methodology](#rmd-method), it is necessary to extract for all stations values related to typical return periods, as shown in the table \@ref(tab:rl).
+Return levels of interest for this research, corrrespond to 700, 1700 and 3000 years of MRI, however, due to the mechanism of [integration with existing hurricane study information](#integration), described in [methodology](#rmd-method), it is necessary to extract for all stations values related to typical return periods, as shown in the Table \@ref(tab:rl).
 
 ### Comparison with POT-GPD and common extreme value distributions
 
 To enable a comparison between, a) POT-PP (previous section), b) [POT-GPD](#pot-gpd), and c) the fitting process of common extreme value distributions (GPA, GEV, GUM) without using POT method, this is, using the generic concept of [hazard function _hf_](#hf) (see [theoretical framework](#rmd-thefra)), a whole authomatation process was done to calculate return levels and errors using mentioned alternatives, bearing in mind that in all cases _maximum likelihood_ was used to calculate the parameters.
 
-Resulting return levels and errors for POT-GPD, using R packages extRemes - @Gilleland2019, ismev -  @JanetE.HeffernanwithRport2018, evd - @Stephenson2002, Renext - @Deville2016, evir - @Pfaff2018, and fExtremes - @Wuertz2017, are reported in table \@ref(tab:comparisonGPD). Similarly are shown it table \@ref(tab:comparisonCommonEVD), return levels calculated from the adjustment of the probability distributions GPA, GEV, and Gumbel.
+Resulting return levels and errors for POT-GPD, using R packages extRemes - @Gilleland2019, ismev -  @JanetE.HeffernanwithRport2018, evd - @Stephenson2002, Renext - @Deville2016, evir - @Pfaff2018, and fExtremes - @Wuertz2017, are reported in Table \@ref(tab:comparisonGPD). Similarly are shown it Table \@ref(tab:comparisonCommonEVD), return levels calculated from the adjustment of the probability distributions GPA, GEV, and Gumbel.
 
 
 ```{r comparisonGPD, echo=FALSE, message=FALSE, warning=FALSE, paged.print=TRUE, results="asis"}
@@ -1582,5 +1582,7 @@ plot_grid(c700, c1700, c3000, legend, ncol=4, rel_widths=c(1, 1, 1, 0.1))
 #grid.rect(gp=gpar(fill=NA))
 
 ```
+
+## Final Discussion
 
 

@@ -1,0 +1,12 @@
+# Conclusions {#conclusions}
+
+
+
+
+
+
+**What extreme velocities (return levels) need to be used as load design forces for structures of different use category, in the study area?**
+
+If we remember that, for the case study area (Colombia), there are predefined requirements or mean return intervals - MRI  to design structures depending of it use category, and that this MRI values are 700, 1700, and 3000 years, the research question could be more specific.
+
+

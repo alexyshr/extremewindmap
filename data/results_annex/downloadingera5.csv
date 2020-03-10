@@ -1,0 +1,15 @@
+FolderTree,Description,Ftp
+downloadingEra5,Python scripts to download ERA5 data,ftp://ftp.geocorp.co/windthesis/downloadingEra5/
+  |-10fg,10fg: 10 meters wind gust ERA5 variable,ftp://ftp.geocorp.co/windthesis/downloadingEra5/10fg/
+  |    |-10fg\_1979\_1991\_netCDF\_0.25x0.25.py,Get 10fg variable from 1979 to 1991,ftp://ftp.geocorp.co/windthesis/downloadingEra5/10fg/10fg_1979_1991_netCDF_0.25x0.25.py
+  |    |-10fg\_1992\_2004\_netCDF\_0.25x0.25.py,Get 10fg variable from 1992 to 2004,ftp://ftp.geocorp.co/windthesis/downloadingEra5/10fg/10fg_1992_2004_netCDF_0.25x0.25.py
+  |    |-10fg\_2005\_2013\_netCDF\_0.25x0.25.py,Get 10fg variable from 2005 to 2013,ftp://ftp.geocorp.co/windthesis/downloadingEra5/10fg/10fg_2005_2013_netCDF_0.25x0.25.py
+  |    |-10fg\_2014\_2018\_netCDF\_0.25x0.25.py,Get 10fg variable from 2014 to 2018,ftp://ftp.geocorp.co/windthesis/downloadingEra5/10fg/10fg_2014_2018_netCDF_0.25x0.25.py
+  |    |-10fg\_2019\_oct\_netCDF\_0.25x0.25.py,Get 10fg variable from jan to sep of 2019,ftp://ftp.geocorp.co/windthesis/downloadingEra5/10fg/10fg_2019_oct_netCDF_0.25x0.25.py
+  |-fsr,fsr: forecast surface roughness ERA5 variable,ftp://ftp.geocorp.co/windthesis/downloadingEra5/fsr/
+  |    |-fsr\_1979\_1991\_netCDF\_0.25x0.25.py,Get fsr variable from 1979 to 1991,ftp://ftp.geocorp.co/windthesis/downloadingEra5/fsr/fsr_1979_1991_netCDF_0.25x0.25.py
+  |    |-fsr\_1992\_2004\_netCDF\_0.25x0.25.py,Get fsr variable from 1992 to 2004,ftp://ftp.geocorp.co/windthesis/downloadingEra5/fsr/fsr_1992_2004_netCDF_0.25x0.25.py
+  |    |-fsr\_2005\_2013\_netCDF\_0.25x0.25.py,Get fsr variable from 2005 to 2013,ftp://ftp.geocorp.co/windthesis/downloadingEra5/fsr/fsr_2005_2013_netCDF_0.25x0.25.py
+  |    |-fsr\_2014\_2018\_netCDF\_0.25x0.25.py,Get fsr variable from 2014 to 2018,ftp://ftp.geocorp.co/windthesis/downloadingEra5/fsr/fsr_2014_2018_netCDF_0.25x0.25.py
+  |    |-fsr\_2019\_oct\_netCDF\_0.25x0.25.py,Get fsr variable from jan to oct of 1991,ftp://ftp.geocorp.co/windthesis/downloadingEra5/fsr/fsr_2019_oct_netCDF_0.25x0.25.py
+  |-netcdfcommands.txt,Commands to join NETCDF files,ftp://ftp.geocorp.co/windthesis/downloadingEra5/netcdfcommands.txt
