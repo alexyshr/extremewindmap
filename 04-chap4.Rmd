@@ -41,13 +41,13 @@ source('./code/pp_one_station.r')
 
 ```{r echo=FALSE, cache= F, include=FALSE}
 #Important Note:
-#This code is not working when knit. It is working if is ran here in RStudio, that is why next line is using # (not ran when knit). This code generates some graphis in format RDS. It is not neccesary to run again, at least RDS are not usable for changes in R versions (possible sittuacion for future)
+#This code is not working when knit. It is working if is ran here in RStudio, that is why next line is using # (not ran when knit). This code generates some graphics in format RDS. It is not necessary to run again, at least RDS are not usable for changes in R versions (possible situation for future)
 #source('./code/comparing_sources_pqrs_20199050080932_VV_AUT.r')
 ```
 
 # Results and Discussion {#rmd-results}
 
-In this section, will be shown first, the data source comparison (post standardization process) to face the downscaling issue by using ERA5 and ISD database, then, the resulting process of fitting a POT-PP in the ISD station 801120, which includes revision of intensity function parameters, goodness of fit, hazard curve, return levels, and comparison with POT-GPD results, next, non-hurricane maps outputs, which includes results for ISD and ERA5 stations, and finally, output maps combining hurricane and non-hurricane results will be displayed.
+In this section, will be shown first, the data source comparison (post standardization process) to face the downscaling issue by using ERA5 and ISD database, then, the resulting process of fitting a POT-PP in the ISD station 801120, which includes revision of intensity function parameters, goodness of fit, hazard curve, return levels, and comparison with POT-GPD results, next, non-hurricane maps outputs, which includes results for ISD and ERA5 stations, after that, output maps combining hurricane and non-hurricane results will be displayed, and finally, a detailed discussion of the retults and future work is highlighted.
 
 ## Data Standardization and Downscaling Support
 
@@ -55,7 +55,7 @@ Looking for a statistical justification in the use of ISD (model) and ERA5 datab
 
 ### Data Standardization
 
-None of the sources required anemometer height standardization. @Lettau1969 was used for roughness standardization of ISD and IDEAM, applying the method station by station. Gust velocities standardization was done using Durst cuve, and in order to obtain $V_3$ from Durst curve, it was required to start from $V_{3600}$ (average hourly speed), or from a different wind gust speed, for instance $V_5$ 5-s gust.
+None of the sources required anemometer height standardization. @Lettau1969 was used for roughness standardization of ISD and IDEAM, applying the method station by station. Gust velocities standardization was done using Durst curve, and in order to obtain $V_3$ from Durst curve, it was required to start from $V_{3600}$ (average hourly speed), or from a different wind gust speed, for instance $V_5$ 5-s gust.
 
 For ERA5:
 
@@ -72,7 +72,6 @@ For IDEAM:
 * As the original variables obtained from IDEAM, do not represent gust speeds, it was necessary to start from _average hourly speed_ $V_{3600}$, to obtain 3-s gust $V_3$. To standardize from $V_{3600}$ to $V_3$, using Durst curve, the correction factor is 1.51.
 
 * It was not possible to obtain the _average hourly speed_ $V_{3600}$ from IDEAM, see Table \@ref(tab:tabledatasources2), but from _instantaneous wind velocity each 2 minutes - VV_AUT_2_ it is possible to obtain a **good** estimator of $V_{3600}$, and from _instantateous wind velocity each 10 minutes - VV_AUT_10_ it is possible to obtain a **poor** estimator of $V_{3600}$. 
-
 
 ### Data Comparison
 
@@ -325,7 +324,7 @@ dat1
 
 #### IDEAM VV_AUT_10 - Non Quality Data Comparison (available in all IDEAM stations)
 
-VV_AUT_10 was available for 204 stations, and despide that $V_{3600}$ calculated from this source, is not an accurate or quality estimator, the standarization procedure was done to allow an additional comparison process, whose results are shown in the map displayed in Figure \@ref(fig:poorcomparison). Downscaling support was 'Good' comparing IDEAM and/or ISD stations with twenty-three (23) ERA5 stations (2261, 1971, 2066, 2020, 2260, 1875, 2213, 2637, 1442, 1583, 1501, 1582, 1381, 1493, 1485, 1397, 1338, 1055, 511, 1644, 515, 221, 1038), and 'Very Good' comparing IDEAM and/or ISD with five (5) ERA5 stations (265, 360, 78, 312, 416).
+VV_AUT_10 was available for 204 stations, and despite that $V_{3600}$ calculated from this source, is not an accurate or quality estimator, the standardization procedure was done to allow an additional comparison process, whose results are shown in the map displayed in Figure \@ref(fig:poorcomparison). Downscaling support was 'Good' comparing IDEAM and/or ISD stations with twenty-three (23) ERA5 stations (2261, 1971, 2066, 2020, 2260, 1875, 2213, 2637, 1442, 1583, 1501, 1582, 1381, 1493, 1485, 1397, 1338, 1055, 511, 1644, 515, 221, 1038), and 'Very Good' comparing IDEAM and/or ISD with five (5) ERA5 stations (265, 360, 78, 312, 416).
 
 'Very Good' downscaling results for this non quality data comparison, are shown bellow: 
 
@@ -490,9 +489,9 @@ plot_grid(cl, cr, bl, br, ncol = 2, labels=c("A", "B", "C", "D"), label_size = 7
 ```
 
 
-## POT-PP in ISD Station 801120
+## POT-PP for ISD Station 801120
 
-Figure \@ref(fig:station801120) shows the satellite image (source Google Earth) of ISD station 801120, located in the international airport 'José María Córdova', municipality of Rio Negro (Antioquia, Colombia), with latitud $6.125^\circ$, and longitud $-75.423^\circ$ WGS84 coordinates.  Red circle represents an influence radius of 800 meters. Table \@ref(tab:cf801120) shows different calculations related to correction factors applied to this station, using procedure described in sections [Surface Roughness at Open Space](#rmd-roughness), and [Averaging Time 3-s Gust](#rmd-gust).
+Figure \@ref(fig:station801120) shows the satellite image (source Google Earth) of ISD station 801120, located in the international airport 'José María Córdova', municipality of Rio Negro (Antioquia, Colombia), with latitude $6.125^\circ$, and longitude $-75.423^\circ$ WGS84 coordinates.  Red circle represents an influence radius of 800 meters. Table \@ref(tab:cf801120) shows different calculations related to correction factors applied to this station, using procedure described in sections [Surface Roughness at Open Space](#rmd-roughness), and [Averaging Time 3-s Gust](#rmd-gust).
 
 ```{r station801120, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Location of ISD station 801120", fig.align="center", dpi=420}
 include_graphics(path = "figure/801120.jpg")
@@ -516,9 +515,9 @@ kable(cf, align=c('l', 'c'),  digits = c(1, 2), format = "latex", escape = FALSE
 kable_styling(font_size = 10, latex_options="scale_down")
 ```
 
-### Raw data, declustering, and thresholding
+### Raw Data, De-clustering, and Thresholding
 
-As storm information is not available for any of the data sources, all the data for the station was classified as *non-thunderstorm*. According to [POT-PP](#pot-pp) method described in [methodology](#rmd-method), the first process aplied to original time series -raw data-, is [declustering](#decluster), and then, [thresholding](#thresholding). 
+As storm information is not available for any of the data sources, all the data for the station was classified as *non-thunderstorm*. According to [POT-PP](#pot-pp) method described in [methodology](#rmd-method), the first process applied to original time series -raw data-, is [declustering](#decluster), and then, [thresholding](#thresholding). 
 
 Non-thunderstorm raw data for ISD station 801120 has `r sum(years_all$count)` records, from `r index(years_all)[1]` to `r index(years_all)[length(years_all$count)]`, corresponding to a total amount time in days of `r format(imp.vals$nt.length.time, scientific=F, digits = 0)`, and to an average number of events per year of `r round(imp.vals$n.nthunders.per.year, 1)`, which means that the average duration of an event is `r round(365/imp.vals$n.nthunders.per.year, 1)` days (average size in days of a cluster). After [declustering](#decluster), and [thresholding](#thresholding) processes, the number of records decreases to `r sum(years_declu_nt$count)`. Time series graphics are shown in Figure \@ref(fig:ts), showing the data before (left) and after (right) applying the mentioned processes. Detailed yearly statistics are reported in Table \@ref(tab:years801120), also including summary for before (left), and after (right). 
 
@@ -560,16 +559,16 @@ kable(years_both, align=rep('l', 9),  digits = c(0,0,1,1,1,0,1,1,1),
       add_header_above(c(" ", "Raw Data" = 4, "Declustered Data" = 4))
 ```
 
-It can be seen in the Table \@ref(tab:years801120), that declustered data has zero records for some years. This situation is due to that all the data for each one of those years (2001, 2007, 2011, 2013, 2018, and 2019), belonged to a cluster that started the previous year, or finished the next year, and the unique chosen maximun value (the value representative for the cluster) was found in the previous or next year, but not in mentioned years of zero records.
+It can be seen in the Table \@ref(tab:years801120), that de-clustered data has zero records for some years. This situation is due to that all the data for each one of those years (2001, 2007, 2011, 2013, 2018, and 2019), belonged to a cluster that started the previous year, or finished the next year, and the unique chosen maximum value (the value representative for the cluster) was found in the previous or next year, but not in mentioned years of zero records.
 
 
-```{r ts, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Non-Thunderstorm Time Series for ISD station 801120. Left: Raw Data. Right: Declustered Data",  fig.align="center", fig.height=2, fig.width=4.5}
+```{r ts, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Non-Thunderstorm Time Series for ISD station 801120. Left: Raw Data. Right: De-clustered Data",  fig.align="center", fig.height=2, fig.width=4.5}
 plot_grid(myprint1, NULL, myprint5, ncol = 3,  rel_widths = c(1,0.26,1))
 #grid.rect(gp=gpar(fill=NA))
 #grid.arrange(myprint1, myprint5, ncol=2)
 ```
 
-Using declustered data, and considering that it is only neccesary to calculate optimal threshold for non-thunderstorm data, because there is no records classified as thunderstorm in any data source, many non-thunderstomr thresholds were tested, to choose the best one using the W statistic, as described in section [thresholding](#thresholding) of the [methodology](#rmd-method). Figure \@ref(fig:page6) shows a very good fit in resulting W-Statistic plot, for optimal non-thunderstorm threshold $b_{nt} =$ _`r z5`_$\frac{Km}{h}$, with a minimum W distance of `r format(z8, scientific=F, digits = 2)`, for ISD station 801120, where empirical values (black points) are very close or similar to theoretical values (red line).
+Using de-clustered data, and considering that it is only necessary to calculate optimal threshold for non-thunderstorm data, because there is no records classified as thunderstorm in any data source, many non-thunderstorm thresholds were tested, to choose the best one using the W statistic, as described in section [thresholding](#thresholding) of the [methodology](#rmd-method). Figure \@ref(fig:page6) shows a very good fit in resulting W-Statistic plot, for optimal non-thunderstorm threshold $b_{nt} =$ _`r z5`_$\frac{Km}{h}$, with a minimum W distance of `r format(z8, scientific=F, digits = 2)`, for ISD station 801120, where empirical values (black points) are very close or similar to theoretical values (red line).
 
 
 ```{r page6, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="POT - Thresholding", size="footnotesize", fig.align="center", fig.width=2.5, fig.asp=1}
@@ -586,9 +585,9 @@ dat
 
 ```
 
-### Fitted pdf and cdf and Goodness of Fit
+### Fitted _pdf_ and _cdf_, and Goodness of Fit
 
-Equation \@ref(eq:ppintensityfunction), defined in section [POT-PP](#method-pot-pp) of the [methodological framework](#rmd-thefra), was used as intensity function, $\lambda(t, y) = \lambda_{nt}(y)$, for POT-PP. When shape $\zeta_t$ is equal to zero, as it is in this study, an equivalent intensity function is described in Equation \@ref(eq:ppspecificintensityfunction) defined in terrms of the parameters location ($\omega_t$), and scale ($\psi_t$). Related _pdf_ and _cdf_ functions are referenced in Equations \@ref(eq:pppdf), where the domain $D$ constraint the data above the threshold _b_, and the time to a non-thunderstorm period, and \@ref(eq:ppcdf) respectively.
+Equation \@ref(eq:ppintensityfunction), defined in section [POT-PP](#method-pot-pp) of the [methodological framework](#rmd-thefra), was used as intensity function, $\lambda(t, y) = \lambda_{nt}(y)$, for POT-PP. When shape $\zeta_t$ is equal to zero, as it is in this study, an equivalent intensity function is described in Equation \@ref(eq:ppspecificintensityfunction) defined in terms of the parameters location ($\omega_t$), and scale ($\psi_t$). Related _pdf_ and _cdf_ functions are referenced in Equations \@ref(eq:pppdf), where the domain $D$ constraint the data above the threshold _b_, and the time to a non-thunderstorm period, and \@ref(eq:ppcdf) respectively.
 
 * Intensity function: $\frac{1}{\psi_{nt}}\exp\left(\frac{-(y-\omega_{nt})}{\psi_{nt}}\right)$
 
@@ -596,7 +595,7 @@ Equation \@ref(eq:ppintensityfunction), defined in section [POT-PP](#method-pot-
 
 * cdf: $F(t,y) = P(y \leq Y) = \frac{\int_b^Y\lambda(y,t)\,dy}{\int_b^\infty\lambda(y,t)\,dy}$
 
-After fitting the instensity function to the domain $D$, the resulting parameters for ISD station 801120, are location $\omega_t$ equal to `r format(z6, scientific=F, digits = 4)`, and scale $\psi_t$ equal to `r format(z7, scientific=F, digits = 4)`. Figure \@ref(fig:page8) shows the histogram and fitted pdf in panel A, Q-Q plot (theoretical quantiles against empirical ones) in panel B,  empirical cumulative distribution against fitted cdf in panel C, and P-P plot (theoretical probabilities against empirical ones) in panel D. In all four panels, it can be seen that there is a very good visual correspondence between empirical data (points and histogram) and theoretical adjustment (lines). 
+After fitting the intensity function to the domain $D$, the resulting parameters for ISD station 801120, are location $\omega_t$ equal to `r format(z6, scientific=F, digits = 4)`, and scale $\psi_t$ equal to `r format(z7, scientific=F, digits = 4)`. Figure \@ref(fig:page8) shows the histogram and fitted _pdf_ in panel A, Q-Q plot (theoretical quantiles against empirical ones) in panel B,  empirical cumulative distribution against fitted _cdf_ in panel C, and P-P plot (theoretical probabilities against empirical ones) in panel D. In all four panels, it can be seen that there is a very good visual correspondence between empirical data (points and histogram) and theoretical adjustment (lines). 
 
 
 ```{r page8, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Graphic Diagnosis Of Goodness of Fit. Station 801120", fig.align="center", fig.width=5, fig.height=4}
@@ -615,7 +614,7 @@ add_label(-0.06, 0.54, "C", cex=0.6, col="red")
 add_label(0.47, 0.54, "D", cex=0.6, col="red")
 ```
 
-Results of formal goodness of fit statistics for 'Kolmogorov-Smirnov D', 'Cramer-von Mises T' and 'Anderson-Darling A' are `r format(mygof$ks, scientific=F, digits = 2)`, `r format(mygof$cvm, scientific=F, digits = 2)`, and `r format(mygof$ad, scientific=F, digits = 3)` respectively. For a proposed null hypothesis, which indicates that the data conforms to a POT-PP, all resulting p-values using statistics D, T and A, confirm that there is no statistical evidence to to reject stated hypothesis. Resulting p-value for statistic D is `r format(mykstest$p.value, scientific=F, digits = 2)`. Another available criteria to measure the quality of the fitted process are  'Akaike's Information Criterion', and 'Bayesian Information Criterion', with values `r format(mygof$aic, scientific=F, digits = 5)`, and `r format(mygof$bic, scientific=F, digits = 5)` respectively. The Root Mean Square Error (RMSE), calculated using theoretical versus empirical cdf, is `r format(rmse, scientific=F, digits = 2)`.
+Results of formal goodness of fit statistics for 'Kolmogorov-Smirnov D', 'Cramer-von Mises T' and 'Anderson-Darling A' are `r format(mygof$ks, scientific=F, digits = 2)`, `r format(mygof$cvm, scientific=F, digits = 2)`, and `r format(mygof$ad, scientific=F, digits = 3)` respectively. For a proposed null hypothesis, which indicates that the data conforms to a POT-PP, all resulting p-values using statistics D, T and A, confirm that there is no statistical evidence to to reject stated hypothesis. Resulting p-value for statistic D is `r format(mykstest$p.value, scientific=F, digits = 2)`. Another available criteria to measure the quality of the fitted process are  'Akaike's Information Criterion', and 'Bayesian Information Criterion', with values `r format(mygof$aic, scientific=F, digits = 5)`, and `r format(mygof$bic, scientific=F, digits = 5)` respectively. The Root Mean Square Error (RMSE), calculated using theoretical versus empirical _cdf_, is `r format(rmse, scientific=F, digits = 2)`.
 
 ```{r fitpp, eval=FALSE, fig.align="center", fig.cap="Graphic Diagnosis Of Goodness of Fit. Station 801120", fig.height=4, fig.width=5, message=FALSE, warning=FALSE, include=FALSE}
 opar <- par(no.readonly = TRUE)
@@ -677,7 +676,7 @@ par(opar)
 
 ### Hazard Curve and Return Levels - RL
 
-Hazard curve is the solution to Equation \@ref(eq:pprl), but eliminating from it elements related to thunderstorms, the equation is simplified to $A_{nt}\int_{Y_N}^{\infty}\lambda_{nt}\left( y\right)\,dy = \frac{1}{N}$, where $A_{nt}$ is the average time of non-thunderstorm events by year, and $Y_N$ is the return level or extreme wind velocity, corresponding to the N-years return period or MRI. Reemplacing in this ecuation the intensity function $lambda_{nt}$, and solving $Y_N$ for all possible values of MRI, will provide hazard curve displayed in Figure \@ref(fig:page10).
+Hazard curve is the solution to Equation \@ref(eq:pprl), but eliminating from it elements related to thunderstorms, the equation is simplified to $A_{nt}\int_{Y_N}^{\infty}\lambda_{nt}\left( y\right)\,dy = \frac{1}{N}$, where $A_{nt}$ is the average time of non-thunderstorm events by year, and $Y_N$ is the return level or extreme wind velocity, corresponding to the N-years return period or MRI. Replacing in this equation the intensity function $lambda_{nt}$, and solving $Y_N$ for all possible values of MRI, will provide hazard curve displayed in Figure \@ref(fig:page10).
 
 
 ```{r page10, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Hazard Curve. Station 801120" , fig.align="center", fig.height=2.5, fig.width=3.5}
@@ -749,11 +748,11 @@ kable_styling(font_size = 10, latex_options="scale_down")
 
 ```
 
-Return levels of interest for this research, corrrespond to 700, 1700 and 3000 years of MRI, however, due to the mechanism of [integration with existing hurricane study information](#integration), described in [methodology](#rmd-method), it is necessary to extract for all stations values related to typical return periods, as shown in the Table \@ref(tab:rl).
+Return levels of interest for this research, correspond to 700, 1700 and 3000 years of MRI, however, due to the mechanism of [integration with existing hurricane study information](#integration), described in [methodology](#rmd-method), it is necessary to extract for all stations values related to typical return periods, as shown in the Table \@ref(tab:rl).
 
-### Comparison with POT-GPD and common extreme value distributions
+### Comparison with POT-GPD and Common Extreme Value Distributions
 
-To enable a comparison between, a) POT-PP (previous section), b) [POT-GPD](#pot-gpd), and c) the fitting process of common extreme value distributions (GPA, GEV, GUM) without using POT method, this is, using the generic concept of [hazard function _hf_](#hf) (see [theoretical framework](#rmd-thefra)), a whole authomatation process was done to calculate return levels and errors using mentioned alternatives, bearing in mind that in all cases _maximum likelihood_ was used to calculate the parameters.
+To enable a comparison between, a) POT-PP (previous section), b) [POT-GPD](#pot-gpd), and c) the fitting process of common extreme value distributions (GPA, GEV, GUM) without using POT method, this is, using the generic concept of [hazard function _hf_](#hf) (see [theoretical framework](#rmd-thefra)), a whole automation process was done to calculate return levels and errors using mentioned alternatives, bearing in mind that in all cases _maximum likelihood_ was used to calculate the parameters.
 
 Resulting return levels and errors for POT-GPD, using R packages extRemes - @Gilleland2019, ismev -  @JanetE.HeffernanwithRport2018, evd - @Stephenson2002, Renext - @Deville2016, evir - @Pfaff2018, and fExtremes - @Wuertz2017, are reported in Table \@ref(tab:comparisonGPD). Similarly are shown it Table \@ref(tab:comparisonCommonEVD), return levels calculated from the adjustment of the probability distributions GPA, GEV, and Gumbel.
 
@@ -1284,9 +1283,9 @@ plot_grid(c700, c1700, c3000, legend, ncol=4, rel_widths=c(1, 1, 1, 0.1))
 ```
 
 
-### Combined Maps
+### Combined Maps {#cm}
 
-Following the procedure described in [integration with Hurricane data](#integration), final wind maps are created, combining existing data for hurricane studies, and non-hurrican maps produced in this study.
+Following the procedure described in [integration with Hurricane data](#integration), final wind maps are created, combining existing data for hurricane studies, and non-hurricane maps produced in this study.
 
 ```{r isdcbmaps, echo=FALSE, fig.cap="ISD Hurricane & Non-Hurricane Wind Maps.", message=FALSE, warning=FALSE, fig.height=2.7, fig.width=6.5}
 #Combined
@@ -1583,6 +1582,21 @@ plot_grid(c700, c1700, c3000, legend, ncol=4, rel_widths=c(1, 1, 1, 0.1))
 
 ```
 
-## Final Discussion
+## Final Discussion and Future Work {#fd}
 
+Regarding the comparison of the data, it must be remembered that the basis of comparison, that is, the one that represents the truth in the field - IDEAM field measurements, was not fully available, what disturbed the process since before starting it. On the other hand, there are many uncertainties with respect to the model that represents the ISD database, because first, the available documentation does not specify whether it is an average or a gust data, second, the comparative graphs showed that ISD database did not represent a continuous variable (vertical or horizontal stripes in scatter plots), and finally, the comparisons against IDEAM never showed good results. 
+
+With respect to ERA5 database, although the comparative results showed greater similarity, it should be remembered that each record in the time series does not represent a point value, on the contrary, it represents a square cell of 0.25 decimal degrees. The IDEAM stations with which the comparison was made, can fall into any location of the cell, and constitute only a very local condition, that is not represented by an averaged forecast for the whole cell size, this considering that Colombia is a tropical region with a widely diverse territory (mountains, plains, rivers, forests, etc) and climate. So the possible similarity between IDEAM and ERA5 is limited by this condition.
+
+The main difference between POT-PP and POT-GPD is that in the latter, wind quantities are adjusted to a GPD, and the time is adjusted to a Poisson Process (1D), while in the former, time and magnitude are adjusted to a Poisson Process (2D). If there is no weather classification available (storm and no storm) in the wind time series, POT-PP loses its advantages and resembles in potential and scope to POT-GPD, because the intensity function varying only in magnitude, becomes similar to a GPD. For this reason, POT-PP method is really useful, if historical classification of time series is available, record by record, in storm and non-storm.
+
+This classification by time of historical series, is useful because it allows to define more precisely the average rate of events per year (Poisson process rate), which in POT-PP is represented by the average amount of events time per year, this is, components $A_t$ and $A_{nt}$ of Equation \@ref(eq:pprl) - $A_t\int_{Y_N}^{\infty}\lambda_t\left( y\right)\,dy + A_{nt}\int_{Y_N}^{\infty}\lambda_{nt}\left( y\right)\,dy = \frac{1}{N}$ -, used to calculate return levels $Y_N$. 
+
+By the lack of thunderstorm and non-thunderstorm information, is impossible to calculate which part of the annual time belongs to storm and which to not-storm. As the available data were all assumed as non-thunderstorm data, this average time of events per year will always result in a fixed wrong value of 365 days, the maximum possible value. For ISD, this condition is reflected in high and unlikely final results. 
+
+However, the same condition did not affect the results in the ERA5 database in the same way. Although also in ERA5, all the data were classified as “non-thunderstorm”, and the average time of events was always 365 days, an additional condition made the final result more realistic. Contrary to what happens in the ISD database, where time series have many gaps and there is lack of information, used ERA5 database has the full time series, hour by hour, from 1979 to 2019. Following the theory behind POT-PP, this implies that there is only one cluster for the whole time series, which would leave a single data after the de-clustering, canceling the entire subsequent process. Our proposed solution was to work only with one data per week, the maximum, which implies that the de-clustering process will have no effect, since it is based on 4-day gaps, see [Declustering](#decluster) in [Methodology](#rmd-method) section, resulting in more events above the threshold, exactly 48 events for each one of the 40 years of history, which translates into greater averaging of the final wind data.
+
+One of the objectives of the investigation was to compare different methods in the calculation of return levels, and that was achieved using in all cases, both POT-GPD, and POT-PP. The Poisson for POT-GPD, does not accept data classification by time (storm or non-storm), because it is one-dimensional and data must represent a single general type of event: wind. Despite that, it is important to emphasize that the shortcomings in the calculation of the Poisson process rate, similarly affected the application of both methods, so in all cases, the results have the same limitation, and the use of POT-GPD does not represent best quality in the results.
+
+To improve the quality of extreme wind analysis in future research, the inclusion of seasonal effects is recommended, this can be done in two ways, first, using a separate POT-PP for each season, and second, model the Poisson process parameters (location, scale and shape) as sinusoidal functions of time. Finally, it is possible to include more formal statistics (not only graphics), to face the downscaling challenge.
 

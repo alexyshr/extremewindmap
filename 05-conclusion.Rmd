@@ -1,12 +1,16 @@
 # Conclusions {#conclusions}
 
 
+Final maps using ERA5 forecast database, see [Combined Maps](#cm) in [Results and Discussion](#rmd-results) section, representing return periods of 700, 1700, and 3000 years, are the extreme velocities needed as input load for the design of structures of different use category in the study area. Nevertheless, by one hand, full data from the IDEAM source is needed to enable the validation of downscaling support, on the other hand, it is essential to include in the study the classification of thunderstorm and non-thunderstorm data to achieve more realistic results, and finally, an additional conservative calibration process is needed, where to each municipality is assigned only a wind velocity, in order to define final values that will be part of the structure design norm.
 
+Other general conclusions of the investigation are:
 
+* In the abscense of wind field measurements, alternatives data sources as ISD and ERA5 can be a viable source of data to calculate extreme wind events, but always must be searched for statistic or graphic support for the downscaling issue, and at the end a process of calibration is needed for each particular case.
 
+* A powerful R tool is available to do extreme value analysis using POT-PP and POT-GPD approaches
 
-**What extreme velocities (return levels) need to be used as load design forces for structures of different use category, in the study area?**
+* Results of this research, could be the starting point of a process to update wind maps in countries with information issues.
 
-If we remember that, for the case study area (Colombia), there are predefined requirements or mean return intervals - MRI  to design structures depending of it use category, and that this MRI values are 700, 1700, and 3000 years, the research question could be more specific.
+* Output results of this research will contribute to reduce the risk of infrastructure collapse, representing a favorable impact in human lives, material losses, and disaster prevention.
 
-
+For a detailed analysis of the results, refer to [Results and Discussion](#rmd-results) section, and for a discussion about the project and its relevant topics, refer to [Final Discussion](#fd)

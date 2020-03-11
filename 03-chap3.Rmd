@@ -22,7 +22,7 @@ flights <- read.csv("data/flights.csv")
 
 # Methodology {#rmd-method}
 
-Figure \@ref(fig:methodology) shows a esquematic representation of the methodology, where more representative steps are identified by numbers (from 1 to 8). This research is focus in non-hurricane data, with three main elements: - data, - temporal analysis with POT-PP, and - spatial analysis to do spatial interpolation and create return levels - RL maps, for MRIs of 700, 1700, and 3000 years. Steps 1, and 3 to 7, need to be done for each available station, see Figure \@ref(fig:mainmethodology). With RL in each station, a continuous surface will be created, one for 700 years, next for 1700 years, and finally for 3000 years. An additional element, is the integration with existing hurricane maps to produce final maps, that will be used as input loads for infrastructure design, and will be part of the design standard.
+Figure \@ref(fig:methodology) shows a schematic representation of the methodology, where more representative steps are identified by numbers (from 1 to 8). This research is focus in non-hurricane data, with three main elements: - data, - temporal analysis with POT-PP, and - spatial analysis to do spatial interpolation and create return levels - RL maps, for MRIs of 700, 1700, and 3000 years. Steps 1, and 3 to 7, need to be done for each available station, see Figure \@ref(fig:mainmethodology). With RL in each station, a continuous surface will be created, one for 700 years, next for 1700 years, and finally for 3000 years. An additional element, is the integration with existing hurricane maps to produce final maps, that will be used as input loads for infrastructure design, and will be part of the design standard.
 
 ```{r mainmethodology, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Iterative process in methodology", fig.align="center", dpi=208}
 include_graphics(path = "figure/main_methodology.png")
@@ -44,7 +44,7 @@ Parallel to the standardization activity described below, it is also important t
 
 * _Filtering_: Remove wind speeds above $200 \frac{Km}{h}$ and data pertaining to hurricane events, because the procedure with hurricane requires a different approach and need to be done independently
 
-### Anemometer height - 10 m
+### Anemometer Height - 10 m
 
 According to the protocol for field data collection and location of methodological stations - @ideam2005, the anemometer (wind sensor) in installed always to a fixed height of 10 meters from the surface, as is shown in Figure \@ref(fig:anemometer), ergo, no height correction is needed.
 
@@ -110,7 +110,7 @@ $$
 $$
 F_{exposition} = \frac{0.951434}{K_z}
 $$
-Following @nist2012, calculation of roughness need to be weighted according to the predominance of wind magnitude in eight directions (north, south, east, west, north-east, north-west, south-east, and south-west), see Figure \@ref(fig:compassrose), using a detailed aerial photo or satellite image inside a radiuos of 800 meters around the station location, as shown in Figure \@ref(fig:lettaustation), with south direction highlighted. 
+Following @nist2012, calculation of roughness need to be weighted according to the predominance of wind magnitude in eight directions (north, south, east, west, north-east, north-west, south-east, and south-west), see Figure \@ref(fig:compassrose), using a detailed aerial photo or satellite image inside a radius of 800 meters around the station location, as shown in Figure \@ref(fig:lettaustation), with south direction highlighted. 
 
 ```{r compassrose, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Wind rose with wind percentages in eight directions, for a generic station", fig.align="center", fig.width= 2.5, fig.height= 2.5}
 #include_graphics(path = "figure/viensanandres.png")
@@ -138,7 +138,7 @@ img_stack.crop = crop(img_stack, extent(circle))
 img_stack.mask = mask(img_stack.crop, circle)
 ```
 
-```{r lettaustation2, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Digital imagery for 'Vanguardia' ISD station (USAF:802340), located in Villavicencio airport. with four (south, north, east, and west) 45 degree sectors highlighted. Radious of the circular zone is 800 meters", size="footnotesize", fig.align="center", fig.width= 1.6, fig.height= 1.6}
+```{r lettaustation2, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Digital imagery for 'Vanguardia' ISD station (USAF:802340), located in 'Villavicencio' airport. with four (south, north, east, and west) 45 degree sectors highlighted. Radius of the circular zone is 800 meters", size="footnotesize", fig.align="center", fig.width= 1.6, fig.height= 1.6}
 
 yellowtrans <- rgb(255, 255, 0, 30, maxColorValue=255)
 plotRGB(img_stack.mask)
@@ -229,7 +229,7 @@ It is valid only for open terrain conditions. Durst curve shows in axis $y$ the 
 
 As it happens in this study, where it is intended to complement the local/regional wind analysis, with data from ISD (output data of a model for extreme winds), and ERA5 reanalysis dataset (large scale forecast data), it is required to probe by means of _comparisons_ (exploratory data analysis and/or statistical measures) that those sources (modeled and forecast) are similar to IDEAM field measurements.
 
-The proposed mechanism in the search for downscaling support is, a) the creation of _common time series graphs_, where time series overlays for all datasources, are expected to be similar, and b) the elaboration of _scatter plots graphics_, which are generated matching two sources by time (sorted in ascending order by wind velocity), and that, visually will allow to evaluate about data similarity between two sources, when all the points fall very close to a 45 degree line. In both cases, the strategie for station matching, could be one of the following:
+The proposed mechanism in the search for downscaling support is, a) the creation of _common time series graphs_, where time series overlays for all data sources, are expected to be similar, and b) the elaboration of _scatter plots graphics_, which are generated matching two sources by time (sorted in ascending order by wind velocity), and that, visually will allow to evaluate about data similarity between two sources, when all the points fall very close to a 45 degree line. In both cases, the strategy for station matching, could be one of the following:
 
 1. _Manual matching_,  doing a detailed analysis station by station (only for ISD and IDEAM). While it is true that ISD is based on IDEAM, their names and locations are somewhat different, for this reason, it is necessary to read information available from each source, and decide station by station, about its correspondence.
 
@@ -252,7 +252,7 @@ In summary, POT means only to work with extreme values, and PP means to adjust d
 
 ### Declustering {#decluster}
 
-To make the assumptions of PP more justifiable, it  is important to have only one sample per event, the highest one. For instance, if a hypothetical storm started at 11:30 in the morning and ended at 12:30 in the afternoon, and the time series for that event has thirty wind measurements (one each two minutes), it is necessary to leave only the stronger or maximum value, and this process is called declustering (see Figure \@ref(fig:declustering)). POT-PP defines that all the adjacent observations separated by six hours (6) or less in the case of thunderstorm events, and four (4) days or less, in the case of non-thunderstorm events belong to the same cluster.
+To make the assumptions of PP more justifiable, it  is important to have only one sample per event, the highest one. For instance, if a hypothetical storm started at 11:30 in the morning and ended at 12:30 in the afternoon, and the time series for that event has thirty wind measurements (one each two minutes), it is necessary to leave only the stronger or maximum value, and this process is called de-clustering (see Figure \@ref(fig:declustering)). POT-PP defines that all the adjacent observations separated by six hours (6) or less in the case of thunderstorm events, and four (4) days or less, in the case of non-thunderstorm events belong to the same cluster.
 
 ```{r declustering, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="De-clustering in PP. Two thunderstorm clusters are shown. Separation between adjacent observations inside the clusters are always equal or less than six hours. Distance between the last event in the first cluster and the first event in the second cluster is larger than six hours. Only red samples are used to fit the PP, but in addition a POT (thresholding) process is needed", size="footnotesize", fig.width= 2, fig.height= 2, fig.align="center"}
 par(bg=NA)
@@ -313,7 +313,7 @@ text(x = 3.1, y = 3.4, labels = c("Minimum W distance"), cex=0.6, pos = 2)
 #box(which = "outer", col="orange")
 ```
 
-### Exclude no-data periods
+### Exclude No-Data Periods
 
 PP requires to remove long periods of time when stations were not recording or failing. Proposed time in @Pintar2015 is 180 days, namely, to remove all the gaps from the time series larger than six months.
 
@@ -435,7 +435,9 @@ Probabilistic (Kriging) and deterministic (IDW, local polynomials) techniques ar
 
 Possible advantage of deterministic methods, is a better assessment of the local variability of spatial autocorrelation. It can also be considered with IDW or local polynomials a detailed assessment of structural analysis and cross validation. At the end of the spatial interpolation analysis all the predictions can be compared to select the most suitable result.
 
-## Integration with Hurricane data {#integration}
+Main references in this research related to this matter using **R software** are @Pebesma2019, @Pebesma2004, and @Graeler2016. For the implementation of spatial statistics using vector or raster format, see @Pebesma2019a, @Pebesma2019b, and @Pebesma2018.
+
+## Integration with Hurricane Data {#integration}
 
 @Asce2017 propose the equation C26.5-2 for combination of statistically independent events, of non-hurricane and hurricane wind speed data. 
 
@@ -450,7 +452,7 @@ Where $P_e(y>Y_N)$ is the annual exceedance probability for the combined wind ha
 
 To understand Equation \@ref(eq:combination), it is important to remember that to calculate return level $Y_N$, for a given N-year return period, the exceedance probability $\frac{1}{N}$ of $Y_N$ is calculated. Then, the non-exceedance probability for $Y_N$ is $\left(1-\frac{1}{N}\right)$. The procedure consist in the creation of a new hazard curve, calculating all $P_e(y>Y_N)$ values for different $Y_N$ return levels, combining hazard curves from non-thunderstorm and thunderstorm data.
 
-Equation \@ref(eq:combination) can be expressed in terms of only exceedance probabilities, $P_{e} = 1 - (1 -P_{nh}) * (1 - P_{h})$, where $P_{nh}$ is the the annual exceedance probability for non-hurricane winds, and $P_{h}$ is the annual exceedance probability for hurricane winds. A graphical explanation of the procedure to calculate the combined $P_e$ for the return level $30\frac{Km}{h}$, is shown in next Figure \@ref(fig:combinedhc). For each cell in the study area, it is neccesary to calculate a new combined hazard curve, this is, all the $P_e$ values corresponding all different return levels (see right table in Figure \@ref(fig:combinedhc)).
+Equation \@ref(eq:combination) can be expressed in terms of only exceedance probabilities, $P_{e} = 1 - (1 -P_{nh}) * (1 - P_{h})$, where $P_{nh}$ is the the annual exceedance probability for non-hurricane winds, and $P_{h}$ is the annual exceedance probability for hurricane winds. A graphical explanation of the procedure to calculate the combined $P_e$ for the return level $30\frac{Km}{h}$, is shown in next Figure \@ref(fig:combinedhc). For each cell in the study area, it is necessary to calculate a new combined hazard curve, this is, all the $P_e$ values corresponding all different return levels (see right table in Figure \@ref(fig:combinedhc)).
 
 
 ```{r combinedhc, echo=FALSE, fig.align="center", fig.cap="Integration Hurricane and Non-Hurricane Data", message=FALSE, warning=FALSE, fig.height=2.5, fig.width=5}

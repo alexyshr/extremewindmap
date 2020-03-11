@@ -57,7 +57,7 @@ kable(mytable_latex, linesep = "", align=rep('l', 2), format = "latex", escape =
 
 ```
 
-# Resutls - Digital Files {#results}
+# Results - Digital Files {#results}
 
 
 ```{r resultsstructure, echo=FALSE, message=FALSE, warning=FALSE, paged.print=TRUE, results="asis"}
@@ -272,9 +272,9 @@ kable(isdmaps, linesep = "", align=rep('l', 2), #format = "markdown",
 
 # ERA5 Data Download and Integration {#era5download}
 
-The European Centre for Medium-Range Weather Forecasts - ECMWF had implemented the Climate Data Storage - CDS <https://cds.climate.copernicus.eu/>, where all its datasets can be downloaded, however there is a straightforward way to get ERA5 data throught Python library CDSAPI. Before to usde CDSAPI, it is neccesary to research about names and meanings of ERA5 variables using the official _data documentation_ web page <https://confluence.ecmwf.int/display/CKB/ERA5%3A+data+documentation>, or the _parameter database_ <https://apps.ecmwf.int/codes/grib/param-db>, that includes all ECWMF datasourses, not only ERA5.
+The European Center for Medium-Range Weather Forecasts - ECMWF had implemented the Climate Data Storage - CDS <https://cds.climate.copernicus.eu/>, where all its datasets can be downloaded, however there is a straightforward way to get ERA5 data through Python library CDSAPI. Before to use CDSAPI, it is necessary to research about names and meanings of ERA5 variables using the official _data documentation_ web page <https://confluence.ecmwf.int/display/CKB/ERA5%3A+data+documentation>, or the _parameter database_ <https://apps.ecmwf.int/codes/grib/param-db>, that includes all ECWMF data sources, not only ERA5.
 
-Next block of code shows the use of CDSAPI (Python) to download ERA5 variable _10fg - 10 meters wind gust_, from 1979 to 1991 for Colombia area. The most important keywords there, allow to define ERA5 datasource and product type, variable name _'variable'_, format netCDF _'format'_, area of interest _'area'_, using WGS88 coordinates in the format _north, west, south, east_, cell size _'grid'_ in decimal degrees, and all the keywords related to time _'year'_, _'month'_, _'day'_, _'time'_. 
+Next block of code shows the use of CDSAPI (Python) to download ERA5 variable _10fg - 10 meters wind gust_, from 1979 to 1991 for Colombia area. The most important keywords there, allow to define ERA5 data source and product type, variable name _'variable'_, format netCDF _'format'_, area of interest _'area'_, using WGS88 coordinates in the format _north, west, south, east_, cell size _'grid'_ in decimal degrees, and all the keywords related to time _'year'_, _'month'_, _'day'_, _'time'_. 
 
 
 ```
@@ -330,7 +330,7 @@ Next block of code shows the use of CDSAPI (Python) to download ERA5 variable _1
 
 Next Table \@ref(tab:pythonera5), shows all Python scripts used to download variables _10fg - 10 meters wind gust_ and _fsr - forecast surface roughness_, for the study area, along the period 1979 to 2019. Last file in the table, hold a summary of commands to manipulate NetCDF files.
 
-After downloading separate netCDF files, there are different tools available, to manipulate them, for instante Climate Data Operators - CDO <https://code.mpimet.mpg.de/projects/cdo/>, NetCDF command line utilies <https://www.unidata.ucar.edu/software/netcdf/docs/netcdf_working_with_netcdf_files.html>, and NetCDF operator - NCO <http://nco.sourceforge.net/>.
+After downloading separate netCDF files, there are different tools available, to manipulate them, for instance, Climate Data Operators - CDO <https://code.mpimet.mpg.de/projects/cdo/>, NetCDF command line utilies <https://www.unidata.ucar.edu/software/netcdf/docs/netcdf_working_with_netcdf_files.html>, and NetCDF operator - NCO <http://nco.sourceforge.net/>.
 
 ```{r pythonera5, echo=FALSE, message=FALSE, warning=FALSE, paged.print=TRUE, results="asis"}
 library(knitr)
@@ -409,7 +409,7 @@ This appendix includes all of the R chunks of code that were hidden throughout t
 
 # User Manual {#manual}
 
-One complete example will be shown here to run the entire process from the beginning (data standardization), to the end (wind map creation and final map creation), using ISD station XXXXX.
+One complete example will be shown here to run the entire process from the beginning (data standardization), to the end (wind map creation and final map creation), using ISD station X.
 
 
 

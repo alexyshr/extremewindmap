@@ -164,11 +164,19 @@
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 
 \Acknowledgements{
+Special thanks to Prof.~Dr.~\textbf{Edzer Pebesma}, first, for all the contributions to the open source community, considering that main work in this thesis was done using his R packages, especially \emph{sf}, \emph{stars} and \emph{gstat}, and second, for all high level knowledge transmitted through the subjects \emph{Spatial Data Science with R} and \emph{Analysis of Spatio-Temporal Data}, which were the motivation and basis to carry out the investigation.
+
+\par
+
+Special thanks to Prof.~Dr.~\textbf{Juan C Reyes} for his contribution in selecting the research topic, and great contributions in information, methodology and support.
+
+\par
+
 I would like to thank to:
 
 \par
 
-Prof.~Dr.~\textbf{Edzer Pebesma}, Prof.~Dr.~\textbf{Juan C. Reyes}, and Prof.~Dr.~\textbf{Sara Ribero}, for supervising my work and spending their valuable time for discussions and feedback, it was really a huge advantage to have that support always available, and a pleasure to work beside you. Dr.~\textbf{Adam Pintar}, for sharing its related POT-PP R Code, and for devoting much of his time to reviewing and commenting on my progress. Dr.~\textbf{Joaquín Huerta Guijarro}, because he always was available to help and he was very friendly and receptive. Dr.~\textbf{Christoph Brox}, because he was beside me in the difficult moments of the incident and the surgery. \textbf{European Union} -`Erasmus Mundus Grant', because their funding allow me to fulfill this dream to go further with my academic and professionals dreams. Engineer \textbf{Juan David Sandoval} for its valuable contributions. My mother \textbf{Ligia} made possible all my achievements, because she was always there with love, support, and valuable advice, I am grateful with all my heart. My daughter \textbf{Nicolle Chaely} for its love, support, and always pleasant company. Family members as \textbf{Elsa Manrique}, \textbf{Barbara Avellaneda}, and \textbf{Kevin Martinez}, because they were an important source of motivation and support. To all the beautiful people that shared with me different activities at \textbf{San Antonius Church of Münster}, with special mention of father \textbf{Alejandro Serrano Palacios} for support and friendship, and \textbf{choir} friends.
+Prof.~Dr.~\textbf{Edzer Pebesma}, Prof.~Dr.~\textbf{Juan C. Reyes}, and Prof.~Dr.~\textbf{Sara Ribero}, for supervising my work and spending their valuable time for discussions and feedback, it was really a huge advantage to have that support always available, and a pleasure to work beside you. Dr.~\textbf{Adam Pintar}, for sharing its related POT-PP R Code, and for devoting much of his time to reviewing and commenting on my progress. Dr.~\textbf{Joaquín Huerta Guijarro}, because he always was available to help and he was very friendly and receptive. Dr.~\textbf{Christoph Brox}, because he was beside me in the difficult moments of the incident and the surgery. \textbf{European Union} -`Erasmus Mundus Grant', because their funding allow me to fulfill this dream to go further with my academic and professionals dreams. Engineer \textbf{Juan David Sandoval} for its valuable contributions. My mother \textbf{Ligia} made possible all my achievements, because she was always there with love, support, and valuable advice, I am grateful with all my heart. My daughter \textbf{Nicolle Chaely} for its love, support, and always pleasant company. Family members as \textbf{Elsa Manrique}, \textbf{Barbara Avellaneda}, and \textbf{Kevin Martinez}, because they were an important source of motivation and support. To all the beautiful people that shared with me different activities at \textbf{San Antonius Church of Münster}, with special mention of father \textbf{Alejandro Serrano Palacios} for support and friendship, and \textbf{choir friends}.
 }
 
 \Dedication{
@@ -178,7 +186,7 @@ ASCE \> American Society of Civil Engineers \\
 ASCE7-16 \> ASCE/SEI Design Loads Standard \\
 cdf \>  Cumulative Distribution Function \\
 EDA \>  Exploratory Data Analysis \\
-ECMWF \>  European Center for Medium-Range Weather Forecasts \\
+ECMWF \>  European Centre for Medium-Range Weather Forecasts \\
 ERA5 \>  ECMWF climate reanalysis dataset  \\
 EVD \>  Extreme Value Distribution (GEVD, GEV)  \\
 GEVD \>  Generalized Extreme Value Distribution (EVD, GEV) \\
@@ -210,23 +218,27 @@ WGS84 \> World Geodetic System 1984
 }
 
 \Preface{
-\emph{Models of extreme values} are used for designing against the effects of \emph{extreme events} like earthquakes, winds, rainfall, floods of different types of physical processes Beirlant, Goegebeur, Teugels, \& Segers (\protect\hyperlink{ref-Beirlant2004}{2004}), avoiding widespread destruction and loss of lives Haigh \& Wahl (\protect\hyperlink{ref-Haigh2019}{2019}). This research presents a applied case of univariate extreme value analysis Smith (\protect\hyperlink{ref-Smith2004}{2004}), applied to wind velocities for infrastructure design, consequently, the main interest are probable future more extreme wind events, that structures need to be able to resist.
+\emph{Models of extreme values} are used for designing against the effects of \emph{extreme events} like earthquakes, winds, rainfall, floods of different types of physical processes, see Beirlant, Goegebeur, Teugels, \& Segers (\protect\hyperlink{ref-Beirlant2004}{2004}), avoiding widespread destruction and loss of lives, see Haigh \& Wahl (\protect\hyperlink{ref-Haigh2019}{2019}). This research presents a applied case of univariate extreme value analysis, explained in detail in Smith (\protect\hyperlink{ref-Smith2004}{2004}), applied to wind velocities for infrastructure design, consequently, the main interest are probable future more extreme wind events, that structures need to be able to resist.
 
-This work in its theoretical and methodological component was directed by ASCE7-16 Engineers (\protect\hyperlink{ref-Asce2017}{2017}), considering that output products will be used to update the chapter B.6, wind forces, of the Colombian structure design norm Ministerio de Vivienda (\protect\hyperlink{ref-nsr10}{2010}), maintained by the Colombian Association of Seismic Engineering - AIS by its Spanish acronym. ASCE7-16, defines four risk categories, which implies the use of different wind loads (represented in wind extreme values for different mean recurrence intervals) for structures that belong to each category, 3000 years of MRI for risk IV, 1700 years for risk III, and 700 years for risk II and I.
+This work in its theoretical and methodological component was directed by ASCE7-16 Engineers (\protect\hyperlink{ref-Asce2017}{2017}), considering that output products will be used to update the chapter B.6, wind forces, of the Colombian structure design norm, see Ministerio de Vivienda (\protect\hyperlink{ref-nsr10}{2010}), maintained by the Colombian Association of Seismic Engineering - AIS by its Spanish acronym. ASCE7-16, defines four risk categories, which implies the use of different wind loads (represented in wind extreme values for different mean recurrence intervals) for structures that belong to each category, 3000 years of MRI for risk IV, 1700 years for risk III, and 700 years for risk II and I.
 
-This research has a particularly new situation regarding to the input data, and it is that not only time series of field measurements from meteorological stations are used (IDEAM data source), but also post-processed information coming from the Integrated Surface Database - ISD (USA database based on IDEAM data source), see Smith, Lott, \& Vose (\protect\hyperlink{ref-Smith2011}{2011}), and forecast reanalysis data from ERA5, see European Centre For Medium-Range Weather Forecasts (\protect\hyperlink{ref-ECFMRWF2017}{2017}). This condition demanded a comparison of the different data sources, in order to verify the feasibility in the use of ERA5 and ISD, with a previous process of standardization of wind velocities (only for IDEAM and ISD) to reach the needed requirement of 3-s wind gust speed, 10 meters anemometers high and open space condition.
+This research has a particularly new situation regarding to the input data, and it is that not only time series of field measurements from meteorological stations are used (IDEAM data source), but also post-processed information coming from the Integrated Surface Database - ISD (USA database based on IDEAM data source), see Smith, Lott, \& Vose (\protect\hyperlink{ref-Smith2011}{2011}), and forecast reanalysis data from ERA5, see European Centre For Medium-Range Weather Forecasts (\protect\hyperlink{ref-ECFMRWF2017}{2017}). This condition demanded a comparison of the different data sources, in order to verify the feasibility in the use of ERA5 and ISD, with a previous process of standardization of wind velocities (only for IDEAM and ISD), to reach the needed requirement of 3-s wind gust speed, 10 meters anemometer height, and terrain open space condition.
 
-At each station the used method Peaks Over Threshold - Poisson Process, required to identify all the non-thunderstorm events in the non-hurricane dataset, through a process of de-clustering, choose a suitable threshold level to leave for the analysis only the most extreme values available, and then fit to the data a intensity function, using maximum likelihood to find optimal parameters with the best goodness of fit. With the fitted model, it was possible to calculate return levels for required mean return intervals. Next, a process of spatial interpolation was done using Kriging, what allowed to have three continuous maps for the whole study area. Main interest writing this document, is help to readers to enter speedily with the current details around wind extreme analysis.
+At each station the used method Peaks Over Threshold - Poisson Process, required to identify all the non-thunderstorm events in the non-hurricane dataset, through a process of de-clustering, choose a suitable threshold level to leave for the analysis only the most extreme values available, and then, fit to the data a intensity function, using maximum likelihood to find optimal parameters with the best goodness of fit. With the fitted model, it was possible to calculate return levels for required mean return intervals. Next, a process of spatial interpolation was done using Kriging, what allowed to have three continuous maps for the whole study area.
 }
 
 \Abstract{
-For the input non-hurricane, non tornadic data in each available station of the study area (field measurement of forecast models), this research calculate extreme winds or return levels with three different mean recurrence intervals - MRI, 700, 1700, and 3000 years, with a change of being equaled or exceeded only one time in the corresponding MRI period. Then, continuous maps of wind extreme velocities are interpolated to cover the study area, which are mixed with existing wind extreme hurricane studies to be used as input loads for infrastructure design.
+For the input non-hurricane, non tornadic data in each available station of the study area, this research calculate extreme winds or return levels for three different mean recurrence intervals - MRI, 700, 1700, and 3000 years, with a change of being equaled or exceeded only one time in the corresponding MRI period. Then, continuous maps of wind extreme velocities are interpolated to cover the study area, which are combined with existing wind extreme hurricane studies, to be used as input loads for infrastructure design.
 
 \par
 
-Spatio-temporal analysis of historical wind data for infrastructure design, namely, \(-\) from wind time series represented in forecast models over rectangular areas or pixels with a virtual station at its center, or field measurements at weather stations in specific coordinates around the study area, \(-\) calculate wind extreme magnitudes to be used as design loads of structures of different risk categories (bridges, houses, buildings, hospitals, etc), requires the use of statistical extreme value analysis methodologies to create maps with different mean recurrence intervals (MRI), \(-\) short ones for less risky/important structures, and long ones for highly important structures.
+The development of this research focused in non-hurricane data, covers three main areas, \emph{downscaling support}, \emph{temporal analysis}, and \emph{spatial analysis}, and includes in the end an integration process with \emph{existing results of hurricane studies}, which all together, allow to generate extreme winds maps with different mean recurrence intervals (MRIs), for the design of structures of different risk categories, namely, less risky/important structures for short MRIs (700 and 1700 years), and highly important structures for the longest MRI of 3000 years.
 
-Method used to calculate the return levels at each station is the Peaks Over Threshold - POT, using a non-homogeneous, bi-dimensional Poisson Process described, recommended by Engineers (\protect\hyperlink{ref-Asce2017}{2017}), and developed and implemented in Pintar, Simiu, Lombardo, \& Levitan (\protect\hyperlink{ref-Pintar2015}{2015}). To interpolate maps a geostatistical procedure using Kriging was implemented, considering the model with the best goodness of fit from model parameters comparison.
+Due to the specific characteristics of the study area, where there is a lack of historical wind measurements (IDEAM data source), it became necessary to look for \emph{alternative data sources}, ISD (model, based on IDEAM), and ERA5 (forecast data), which resulted in the downscaling issue, and that was confronted from a graphic comparison of all sources by matching stations, in the search of adequate support for the use of complementary data. The result of the comparison showed little similarity between the different sources. Prior to the comparison process, ISD and IDEAM data sources were standardized to represent 3-second wind gust, 10 meters anemometer height, and terrain open space roughness.
+
+The method of temporal analysis used to calculate the return levels at each station, from the historical wind time series, is the Peaks Over Threshold - POT, using a non-homogeneous, bi-dimensional Poisson Process - PP, recommended by Engineers (\protect\hyperlink{ref-Asce2017}{2017}), and developed and implemented in Pintar, Simiu, Lombardo, \& Levitan (\protect\hyperlink{ref-Pintar2015}{2015}), considering from a maximum likelihood adjustment, the model with the best goodness of fit. Main components of this matters are de-clustering, thresholding, intensity function fitting, hazard curve, and return levels calculation.
+
+Non-hurricane maps where created for data sources ISD and ERA5, using Kriging as spatial interpolation method, and after the integration with hurricane studies, the results for ERA5 showed the most reliable final maps, despite limitations in input data. Due to the limitation in the classification of storm and non-storm data, ISD final map showed very very high wind values, which are quite unlikely.
 }
 
 	\usepackage{booktabs}
@@ -256,20 +268,28 @@ Method used to calculate the return levels at each station is the Peaks Over Thr
 \frontmatter % this stuff will be roman-numbered
 \pagestyle{empty} % this removes page numbers from the frontmatter
   \begin{acknowledgements}
+    Special thanks to Prof.~Dr.~\textbf{Edzer Pebesma}, first, for all the contributions to the open source community, considering that main work in this thesis was done using his R packages, especially \emph{sf}, \emph{stars} and \emph{gstat}, and second, for all high level knowledge transmitted through the subjects \emph{Spatial Data Science with R} and \emph{Analysis of Spatio-Temporal Data}, which were the motivation and basis to carry out the investigation.
+    
+    \par
+    
+    Special thanks to Prof.~Dr.~\textbf{Juan C Reyes} for his contribution in selecting the research topic, and great contributions in information, methodology and support.
+    
+    \par
+    
     I would like to thank to:
     
     \par
     
-    Prof.~Dr.~\textbf{Edzer Pebesma}, Prof.~Dr.~\textbf{Juan C. Reyes}, and Prof.~Dr.~\textbf{Sara Ribero}, for supervising my work and spending their valuable time for discussions and feedback, it was really a huge advantage to have that support always available, and a pleasure to work beside you. Dr.~\textbf{Adam Pintar}, for sharing its related POT-PP R Code, and for devoting much of his time to reviewing and commenting on my progress. Dr.~\textbf{Joaquín Huerta Guijarro}, because he always was available to help and he was very friendly and receptive. Dr.~\textbf{Christoph Brox}, because he was beside me in the difficult moments of the incident and the surgery. \textbf{European Union} -`Erasmus Mundus Grant', because their funding allow me to fulfill this dream to go further with my academic and professionals dreams. Engineer \textbf{Juan David Sandoval} for its valuable contributions. My mother \textbf{Ligia} made possible all my achievements, because she was always there with love, support, and valuable advice, I am grateful with all my heart. My daughter \textbf{Nicolle Chaely} for its love, support, and always pleasant company. Family members as \textbf{Elsa Manrique}, \textbf{Barbara Avellaneda}, and \textbf{Kevin Martinez}, because they were an important source of motivation and support. To all the beautiful people that shared with me different activities at \textbf{San Antonius Church of Münster}, with special mention of father \textbf{Alejandro Serrano Palacios} for support and friendship, and \textbf{choir} friends.
+    Prof.~Dr.~\textbf{Edzer Pebesma}, Prof.~Dr.~\textbf{Juan C. Reyes}, and Prof.~Dr.~\textbf{Sara Ribero}, for supervising my work and spending their valuable time for discussions and feedback, it was really a huge advantage to have that support always available, and a pleasure to work beside you. Dr.~\textbf{Adam Pintar}, for sharing its related POT-PP R Code, and for devoting much of his time to reviewing and commenting on my progress. Dr.~\textbf{Joaquín Huerta Guijarro}, because he always was available to help and he was very friendly and receptive. Dr.~\textbf{Christoph Brox}, because he was beside me in the difficult moments of the incident and the surgery. \textbf{European Union} -`Erasmus Mundus Grant', because their funding allow me to fulfill this dream to go further with my academic and professionals dreams. Engineer \textbf{Juan David Sandoval} for its valuable contributions. My mother \textbf{Ligia} made possible all my achievements, because she was always there with love, support, and valuable advice, I am grateful with all my heart. My daughter \textbf{Nicolle Chaely} for its love, support, and always pleasant company. Family members as \textbf{Elsa Manrique}, \textbf{Barbara Avellaneda}, and \textbf{Kevin Martinez}, because they were an important source of motivation and support. To all the beautiful people that shared with me different activities at \textbf{San Antonius Church of Münster}, with special mention of father \textbf{Alejandro Serrano Palacios} for support and friendship, and \textbf{choir friends}.
   \end{acknowledgements}
   \begin{preface}
-    \emph{Models of extreme values} are used for designing against the effects of \emph{extreme events} like earthquakes, winds, rainfall, floods of different types of physical processes Beirlant, Goegebeur, Teugels, \& Segers (\protect\hyperlink{ref-Beirlant2004}{2004}), avoiding widespread destruction and loss of lives Haigh \& Wahl (\protect\hyperlink{ref-Haigh2019}{2019}). This research presents a applied case of univariate extreme value analysis Smith (\protect\hyperlink{ref-Smith2004}{2004}), applied to wind velocities for infrastructure design, consequently, the main interest are probable future more extreme wind events, that structures need to be able to resist.
+    \emph{Models of extreme values} are used for designing against the effects of \emph{extreme events} like earthquakes, winds, rainfall, floods of different types of physical processes, see Beirlant, Goegebeur, Teugels, \& Segers (\protect\hyperlink{ref-Beirlant2004}{2004}), avoiding widespread destruction and loss of lives, see Haigh \& Wahl (\protect\hyperlink{ref-Haigh2019}{2019}). This research presents a applied case of univariate extreme value analysis, explained in detail in Smith (\protect\hyperlink{ref-Smith2004}{2004}), applied to wind velocities for infrastructure design, consequently, the main interest are probable future more extreme wind events, that structures need to be able to resist.
     
-    This work in its theoretical and methodological component was directed by ASCE7-16 Engineers (\protect\hyperlink{ref-Asce2017}{2017}), considering that output products will be used to update the chapter B.6, wind forces, of the Colombian structure design norm Ministerio de Vivienda (\protect\hyperlink{ref-nsr10}{2010}), maintained by the Colombian Association of Seismic Engineering - AIS by its Spanish acronym. ASCE7-16, defines four risk categories, which implies the use of different wind loads (represented in wind extreme values for different mean recurrence intervals) for structures that belong to each category, 3000 years of MRI for risk IV, 1700 years for risk III, and 700 years for risk II and I.
+    This work in its theoretical and methodological component was directed by ASCE7-16 Engineers (\protect\hyperlink{ref-Asce2017}{2017}), considering that output products will be used to update the chapter B.6, wind forces, of the Colombian structure design norm, see Ministerio de Vivienda (\protect\hyperlink{ref-nsr10}{2010}), maintained by the Colombian Association of Seismic Engineering - AIS by its Spanish acronym. ASCE7-16, defines four risk categories, which implies the use of different wind loads (represented in wind extreme values for different mean recurrence intervals) for structures that belong to each category, 3000 years of MRI for risk IV, 1700 years for risk III, and 700 years for risk II and I.
     
-    This research has a particularly new situation regarding to the input data, and it is that not only time series of field measurements from meteorological stations are used (IDEAM data source), but also post-processed information coming from the Integrated Surface Database - ISD (USA database based on IDEAM data source), see Smith, Lott, \& Vose (\protect\hyperlink{ref-Smith2011}{2011}), and forecast reanalysis data from ERA5, see European Centre For Medium-Range Weather Forecasts (\protect\hyperlink{ref-ECFMRWF2017}{2017}). This condition demanded a comparison of the different data sources, in order to verify the feasibility in the use of ERA5 and ISD, with a previous process of standardization of wind velocities (only for IDEAM and ISD) to reach the needed requirement of 3-s wind gust speed, 10 meters anemometers high and open space condition.
+    This research has a particularly new situation regarding to the input data, and it is that not only time series of field measurements from meteorological stations are used (IDEAM data source), but also post-processed information coming from the Integrated Surface Database - ISD (USA database based on IDEAM data source), see Smith, Lott, \& Vose (\protect\hyperlink{ref-Smith2011}{2011}), and forecast reanalysis data from ERA5, see European Centre For Medium-Range Weather Forecasts (\protect\hyperlink{ref-ECFMRWF2017}{2017}). This condition demanded a comparison of the different data sources, in order to verify the feasibility in the use of ERA5 and ISD, with a previous process of standardization of wind velocities (only for IDEAM and ISD), to reach the needed requirement of 3-s wind gust speed, 10 meters anemometer height, and terrain open space condition.
     
-    At each station the used method Peaks Over Threshold - Poisson Process, required to identify all the non-thunderstorm events in the non-hurricane dataset, through a process of de-clustering, choose a suitable threshold level to leave for the analysis only the most extreme values available, and then fit to the data a intensity function, using maximum likelihood to find optimal parameters with the best goodness of fit. With the fitted model, it was possible to calculate return levels for required mean return intervals. Next, a process of spatial interpolation was done using Kriging, what allowed to have three continuous maps for the whole study area. Main interest writing this document, is help to readers to enter speedily with the current details around wind extreme analysis.
+    At each station the used method Peaks Over Threshold - Poisson Process, required to identify all the non-thunderstorm events in the non-hurricane dataset, through a process of de-clustering, choose a suitable threshold level to leave for the analysis only the most extreme values available, and then, fit to the data a intensity function, using maximum likelihood to find optimal parameters with the best goodness of fit. With the fitted model, it was possible to calculate return levels for required mean return intervals. Next, a process of spatial interpolation was done using Kriging, what allowed to have three continuous maps for the whole study area.
   \end{preface}
   \hypersetup{linkcolor=black}
   \setcounter{tocdepth}{4}
@@ -279,13 +299,17 @@ Method used to calculate the return levels at each station is the Peaks Over Thr
 
   \listoffigures
   \begin{abstract}
-    For the input non-hurricane, non tornadic data in each available station of the study area (field measurement of forecast models), this research calculate extreme winds or return levels with three different mean recurrence intervals - MRI, 700, 1700, and 3000 years, with a change of being equaled or exceeded only one time in the corresponding MRI period. Then, continuous maps of wind extreme velocities are interpolated to cover the study area, which are mixed with existing wind extreme hurricane studies to be used as input loads for infrastructure design.
+    For the input non-hurricane, non tornadic data in each available station of the study area, this research calculate extreme winds or return levels for three different mean recurrence intervals - MRI, 700, 1700, and 3000 years, with a change of being equaled or exceeded only one time in the corresponding MRI period. Then, continuous maps of wind extreme velocities are interpolated to cover the study area, which are combined with existing wind extreme hurricane studies, to be used as input loads for infrastructure design.
     
     \par
     
-    Spatio-temporal analysis of historical wind data for infrastructure design, namely, \(-\) from wind time series represented in forecast models over rectangular areas or pixels with a virtual station at its center, or field measurements at weather stations in specific coordinates around the study area, \(-\) calculate wind extreme magnitudes to be used as design loads of structures of different risk categories (bridges, houses, buildings, hospitals, etc), requires the use of statistical extreme value analysis methodologies to create maps with different mean recurrence intervals (MRI), \(-\) short ones for less risky/important structures, and long ones for highly important structures.
+    The development of this research focused in non-hurricane data, covers three main areas, \emph{downscaling support}, \emph{temporal analysis}, and \emph{spatial analysis}, and includes in the end an integration process with \emph{existing results of hurricane studies}, which all together, allow to generate extreme winds maps with different mean recurrence intervals (MRIs), for the design of structures of different risk categories, namely, less risky/important structures for short MRIs (700 and 1700 years), and highly important structures for the longest MRI of 3000 years.
     
-    Method used to calculate the return levels at each station is the Peaks Over Threshold - POT, using a non-homogeneous, bi-dimensional Poisson Process described, recommended by Engineers (\protect\hyperlink{ref-Asce2017}{2017}), and developed and implemented in Pintar, Simiu, Lombardo, \& Levitan (\protect\hyperlink{ref-Pintar2015}{2015}). To interpolate maps a geostatistical procedure using Kriging was implemented, considering the model with the best goodness of fit from model parameters comparison.
+    Due to the specific characteristics of the study area, where there is a lack of historical wind measurements (IDEAM data source), it became necessary to look for \emph{alternative data sources}, ISD (model, based on IDEAM), and ERA5 (forecast data), which resulted in the downscaling issue, and that was confronted from a graphic comparison of all sources by matching stations, in the search of adequate support for the use of complementary data. The result of the comparison showed little similarity between the different sources. Prior to the comparison process, ISD and IDEAM data sources were standardized to represent 3-second wind gust, 10 meters anemometer height, and terrain open space roughness.
+    
+    The method of temporal analysis used to calculate the return levels at each station, from the historical wind time series, is the Peaks Over Threshold - POT, using a non-homogeneous, bi-dimensional Poisson Process - PP, recommended by Engineers (\protect\hyperlink{ref-Asce2017}{2017}), and developed and implemented in Pintar, Simiu, Lombardo, \& Levitan (\protect\hyperlink{ref-Pintar2015}{2015}), considering from a maximum likelihood adjustment, the model with the best goodness of fit. Main components of this matters are de-clustering, thresholding, intensity function fitting, hazard curve, and return levels calculation.
+    
+    Non-hurricane maps where created for data sources ISD and ERA5, using Kriging as spatial interpolation method, and after the integration with hurricane studies, the results for ERA5 showed the most reliable final maps, despite limitations in input data. Due to the limitation in the classification of storm and non-storm data, ISD final map showed very very high wind values, which are quite unlikely.
   \end{abstract}
   \begin{dedication}
     \begin{tabbing}
@@ -294,7 +318,7 @@ Method used to calculate the return levels at each station is the Peaks Over Thr
     ASCE7-16 \> ASCE/SEI Design Loads Standard \\
     cdf \>  Cumulative Distribution Function \\
     EDA \>  Exploratory Data Analysis \\
-    ECMWF \>  European Center for Medium-Range Weather Forecasts \\
+    ECMWF \>  European Centre for Medium-Range Weather Forecasts \\
     ERA5 \>  ECMWF climate reanalysis dataset  \\
     EVD \>  Extreme Value Distribution (GEVD, GEV)  \\
     GEVD \>  Generalized Extreme Value Distribution (EVD, GEV) \\
@@ -347,7 +371,7 @@ There are four main approaches to deal with extreme value analysis, Smith (\prot
 d) the exceedances over threshold associated to a non-homogeneous, non-stationary, bi-dimensional Poisson process, a Point process approach also known as POT-PP. Main details will be discussed here for each method, but as the last one is recommended in Asce2017, a more indeed explanation will be provided in \protect\hyperlink{pot-pp}{POT-Poisson Process}. There is a whole section with the details about the background of this research, see \protect\hyperlink{rmd-thefra}{Theoretical Framework}
 
 \hypertarget{sample-maxima}{%
-\subsection{Sample maxima}\label{sample-maxima}}
+\subsection{Sample Maxima}\label{sample-maxima}}
 
 To work with random variables of sample maximum values, the used probability distribution function \emph{pdf} is the GEV
 
@@ -357,14 +381,17 @@ H(y) = \exp\left\{-\left(1+\xi\frac{y-\mu}{\psi}\right)_+^{-\frac{1}{\xi}}\right
 \((y+=max(y,0))\) where \(\mu\) is the location parameter, \(\psi > 0\) is a scale parameter, and \(\xi\) is a shape parameter. GEV can be seen as the integration in the same \emph{psf} of the Gumbel distribution (limit \(\xi\rightarrow0\)), Fréchet distribution (\(\xi>0\)), and Weibull distribution (\(\xi<0\)).
 
 \hypertarget{exceedances-over-threshold}{%
-\subsection{Exceedances over threshold}\label{exceedances-over-threshold}}
+\subsection{Exceedances Over Threshold}\label{exceedances-over-threshold}}
 
 If the researcher needs to work only with extreme values above an specific threshold, Pickands (\protect\hyperlink{ref-Pickands1971}{1971}) showed that the GEV has a GPD approximation where shape \(\xi\) parameter in previous equation is the same parameter for next equation for GPD,
 
 \[
 G(y,\sigma, \xi) = 1-\left(1+\xi\frac{y}{\sigma}\right)_+^{-\frac{1}{\xi}},
 \]
-\#\#\# Poisson-GPD
+
+\hypertarget{poisson-gpd}{%
+\subsection{Poisson-GPD}\label{poisson-gpd}}
+
 If a rescale of the variable indexes above the threshold is performed, then the exceedances over threshold approach can be seen as a point process, namely, an homogeneous Poisson Process where:
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -383,16 +410,16 @@ F(y) = \exp\left\{-\lambda\left(1+\xi\frac{y-\mu}{\sigma}\right)_+^{-\frac{1}{\x
 \hypertarget{problem-statement-and-motvation}{%
 \section{Problem Statement and Motvation}\label{problem-statement-and-motvation}}
 
-Wind forces are important for infrastructure design Comarazamy (\protect\hyperlink{ref-windeffects}{2005}). For a civil engineer, designer of different types of structures, main forces to consider when designing a structure, for instance a bridge or a building, are a) dead load due to the weight of the structure, and b) live load due to earthquake and wind. For the study area, a developing country, the structure design standard has defined in great detail, all aspects related to seismic forces, and dead forces, but lack of detail in wind forces, actually, current map is 20 years outdated, and it is not appropriate for all types of structures, because it only includes two return periods. Additionally, it is well known that in recent years there have been accelerated changes in the climate of the planet, including issues related to winds, aspect that is reflected in frequent failures of structures due to wind forces Council (\protect\hyperlink{ref-winddamage}{1994}), as is stated in Rezapour \& Baldock (\protect\hyperlink{ref-Rezapour2014}{2014}), wind forces are able to completely destroy different types of infrastructures, reason why last five decades the way to assess wind loads in structural design has had remarkable changes Roberts (\protect\hyperlink{ref-Roberts2012}{2012}).
+Wind forces are important for infrastructure design, see Comarazamy (\protect\hyperlink{ref-windeffects}{2005}). For a civil engineer, designer of different types of structures, main forces to consider when designing a structure, for instance a bridge or a building, are a) dead load due to the weight of the structure, and b) live load due to earthquake and wind. For the study area, a developing country, the structure design standard has defined in great detail, all aspects related to seismic forces, and dead forces, but lack of detail in wind forces, actually, current map is 20 years outdated, and it is not appropriate for all types of structures, because it only includes two return periods. Additionally, it is well known that in recent years there have been accelerated changes in the climate of the planet, including issues related to winds, aspect that is reflected in frequent failures of structures due to wind forces, see Council (\protect\hyperlink{ref-winddamage}{1994}), as is stated in Rezapour \& Baldock (\protect\hyperlink{ref-Rezapour2014}{2014}), wind forces are able to completely destroy different types of infrastructures, reason why last five decades the way to assess wind loads in structural design has had remarkable changes, see Roberts (\protect\hyperlink{ref-Roberts2012}{2012}).
 
-A complete study of extreme wind forces, need to address separately and using different scientific approaches, hurricane and non-hurricane data, to allow a final research product as the integration of the results in both fronts, see Engineers (\protect\hyperlink{ref-Asce2017}{2017}). In the study area, hurricane winds are only present inland in the Caribbean Sea, therefore, only affects directly to `San Andres y Providencia' island - one (1) of thirty-three (33) states. In 1102 of 1103 municipalities (more than 99\%), the issue of non-hurricane winds is the only one relevant, and in addition, this lacks recent studies and research, however, all municipalities located in the northern onshore border, may be impacted by side effects of hurricanes.
+A complete study of extreme wind forces, need to address separately and using different scientific approaches, hurricane and non-hurricane data, to allow a final research product as the integration of the results in both fronts, see Engineers (\protect\hyperlink{ref-Asce2017}{2017}). In the study area, hurricane winds are only present inland in the Caribbean Sea, therefore, only affects directly to `San Andres y Providencia' island - one (1) of thirty-three (33) states. In 1102 of 1103 municipalities (more than 99\%), the issue of non-hurricane winds is the only one relevant, and in addition, this lacks recent studies and research, however, all municipalities located near to the northern onshore border, may be impacted by side effects of hurricanes.
 
-As a note of clarification on the motivation to carry out the research, the author of this thesis is a civil engineer, from Colombia (the study area), and has developed previous research work with `Universidad de los Andes', related to geoinformatics, and analysis and evaluation of natural risks, and due to the proximity of the University with the Colombian Association of Seismic Engineering - AIS, the opportunity to contribute to the update of the standard has arisen.
+As a note of clarification on the motivation to carry out the research, the author of this thesis is a civil engineer, from Colombia (the study area), and has developed previous research work with `Universidad de los Andes', related to geoinformatics, and analysis and evaluation of natural risks. Due to the proximity of the University with the Colombian Association of Seismic Engineering - AIS, the opportunity to contribute to the update of the standard has arisen.
 
 \hypertarget{knowledge-gap}{%
 \section{Knowledge Gap}\label{knowledge-gap}}
 
-Nowadays, methodologies to deal with the inference of extreme wind maps are quite mature and advanced, and many of them already implemented and ready for use, reason why the main contribution in this research is not related to the theoretical foundations of the methods themselves, but to application of the method in a particular case in developing countries, where the lack of data plays a decisive role in achieving the results, see ADB (\protect\hyperlink{ref-windassessment}{2014}). Thereby, the gaps in which this research aims to contribute, are related to the use of alternative data sources, and how to meet the downscaling challenge, considering that the main drawback of the research is the lack of field measurement data comming from weather stations.
+Nowadays, methodologies to deal with the inference of extreme wind maps are quite mature and advanced, and many of them already implemented and ready for use, reason why the main contribution in this research is not related to the theoretical foundations of the methods themselves, but to application of the method in a particular case in developing countries, where the lack of data plays a decisive role in achieving the results, see ADB (\protect\hyperlink{ref-windassessment}{2014}). Thereby, the gaps in which this research aims to contribute, are related to the use of alternative data sources, and how to meet the downscaling challenge, considering that the main drawback of the research is the lack of field measurement data coming from weather stations.
 
 \hypertarget{research-aim-and-objectives}{%
 \section{Research Aim and Objectives}\label{research-aim-and-objectives}}
@@ -405,7 +432,7 @@ Specific objectives are:
 \item
   Complement the lack of field measured wind data, with other sources of information, then, analyze and compare different time series, to select and use the best data source (or combination of sources) for research, based on objective criteria, for instance similitude, completeness, coverage, etcetera, to achieve in this way a formal support for the decision made in this regard, in case of downscaling issue.
 \item
-  Select and apply a suitable probabilistic method to infer wind maps for infrastructure desing, that allows to fulfill wind load requirements defined for the respective authority in the study area.
+  Select and apply a suitable probabilistic method to infer wind maps for infrastructure design, that allows to fulfill wind load requirements defined for the respective authority in the study area.
 \item
   Estimate needed extreme wind values for the stations in the selected input data source, considering non-hurricane approaches.
 \item
@@ -413,7 +440,7 @@ Specific objectives are:
 \item
   Generate needed continuous non-hurricane wind maps, using the most suitable spatial interpolation technique, considering the specific characteristics of the input data source, advantages, and disadvantages of the selected methods.
 \item
-  Combine output maps from non-hurricane analysis, with existing hurricane studies to allow the inclusion of final maps in the desing standard.
+  Combine output maps from non-hurricane analysis, with existing hurricane studies to allow the inclusion of final maps in the design standard.
 \end{enumerate}
 \hypertarget{research-question}{%
 \section{Research Question}\label{research-question}}
@@ -439,13 +466,13 @@ Main sections of thesis document are 1) Introduction, 2) Data, 3) Theoretical Fr
 
 After introduction, in second section \textbf{\protect\hyperlink{rmd-data}{Data}}, main information about data sources IDEAM, ISD, and ERA5 are described, including at the end, details for data download and organization, topic that is complemented for ERA5, with the content of the Annex \ref{era5download} - \protect\hyperlink{era5download}{ERA5 Data Download and Integration}.
 
-\protect\hyperlink{rmd-thefra}{Theoretical framework} section is dedicated to introduce statistical concepts that are basis for the investigation, both in \textbf{probability distributions} (density function - pdf, distribution function - cdf, percent point function - ppf, and hazard function - hf) and in \textbf{extreme analysis} (annual exceedance probability - \(P_e\), recurrence interval - MRI, and compound exceedance probability - \(P_n\)). Later, it is described in more detail, topics related to \textbf{extreme value analysis} (peaks over threshold with generalized pareto - POT-GPD, and peaks over threshold with Poisson process - POT-PP), and at the end, a summary report is done about \textbf{wind load requirements} for the study, which is foundation for addressing the research.
+\protect\hyperlink{rmd-thefra}{Theoretical framework} section is dedicated to introduce statistical concepts that are basis for the investigation, both in \textbf{probability distributions} (density function - pdf, distribution function - cdf, percent point function - ppf, and hazard function - hf) and in \textbf{extreme analysis} (annual exceedance probability - \(P_e\), recurrence interval - MRI, and compound exceedance probability - \(P_n\)). Later, it is described in more detail, topics related to \textbf{extreme value analysis} (peaks over threshold with generalized Pareto - POT-GPD, and peaks over threshold with Poisson process - POT-PP), and at the end, a summary report is done about \textbf{wind load requirements} for the study, which is foundation for addressing the research.
 
 In \protect\hyperlink{rmd-method}{methodology} are described main processes needed to meet the objectives and answer the research question, which, broadly speaking, are data standardization, downscaling support, POT-PP, spatial interpolation and integration with hurricane data.
 
 \protect\hyperlink{rmd-results}{Results and discussion} section, shows first all results for data standardization and comparison to support the downscaling issue, second, all POT-PP results are set out for one ISD station, then all output maps for ISD and ERA5 data sources are exhibited, including discussions without bias, about the good and the bad of those finals results. These discussions are complemented by the following \protect\hyperlink{conclusions}{conclusions} section.
 
-To finalize the document, a series of appendices were created, to facilitate the reproducibility of the research. \protect\hyperlink{rcode}{Appendix A}, contains \emph{research R code}, but it is necessary to keep in mind that the code provided by Dr.~Adam Pintar, to do the declustering and thresholding in POT-PP, is not there, because its publication and distribution is not authorized. \protect\hyperlink{results}{Appendix B} contains all \emph{results in digital format}. \protect\hyperlink{era5download}{Appendix C} compliments the information needed to \emph{download and organize data} from the sources, mainly with details related to ERA5. As the document for the thesis was done using package ´thesisdown´, which is based in ´bookdown´, the most important \emph{document R code} to create the thesis document, mainly graphics, is shown in \protect\hyperlink{docrcode}{Appendix D}, then at the end, in \protect\hyperlink{manual}{Appendix E}, an \emph{user manual} is presented, in order to provide instruction to apply the same methodology in a different case study, and provided using R code.
+To finalize the document, a series of appendices were created, to facilitate the reproducibility of the research. \protect\hyperlink{rcode}{Appendix A}, contains \emph{research R code}, but it is necessary to keep in mind that the code provided by Dr.~Adam Pintar, to do the de-clustering and thresholding in POT-PP, is not there, because its publication and distribution is not authorized. \protect\hyperlink{results}{Appendix B} contains all \emph{results in digital format}. \protect\hyperlink{era5download}{Appendix C} compliments the information needed to \emph{download and organize data} from the sources, mainly with details related to ERA5. As the document for the thesis was done using package ´thesisdown´, which is based in ´bookdown´, the most important \emph{document R code} to create the thesis document, mainly graphics, is shown in \protect\hyperlink{docrcode}{Appendix D}, then at the end, in \protect\hyperlink{manual}{Appendix E}, an \emph{user manual} is presented, in order to provide instruction to apply the same methodology in a different case study, and provided using R code.
 
 \hypertarget{rmd-data}{%
 \chapter{Data}\label{rmd-data}}
@@ -565,7 +592,7 @@ Following, the time series, autocorrelation function, and partial autocorrelatio
 \hypertarget{era5}{%
 \section{ERA5}\label{era5}}
 
-ERA5 is forecast reanalysis data processed by the \emph{European Center for Medium-Range Weather Forecasts} - ECMWF with wind speeds time series in square cells \emph{matrix of pixels} of 0.25 degrees (33 km) covering the whole planet. For the study area was extracted a raster of 69 rows by 49 columns in format netCDF. Figure \ref{fig:plotera5stations} shows a map of ERA5 stations (cells centers).
+ERA5 is forecast reanalysis data processed by the \emph{European Centre for Medium-Range Weather Forecasts} - ECMWF with wind speeds time series in square cells \emph{matrix of pixels} of 0.25 degrees (33 km) covering the whole planet. For the study area was extracted a raster of 69 rows by 49 columns in format netCDF. Figure \ref{fig:plotera5stations} shows a map of ERA5 stations (cells centers).
 \begin{figure}
 \centering
 \includegraphics{thesis_files/figure-latex/plotera5stations-1.pdf}
@@ -574,7 +601,7 @@ ERA5 is forecast reanalysis data processed by the \emph{European Center for Medi
 \hypertarget{data-download-and-data-organization}{%
 \section{Data Download and Data Organization}\label{data-download-and-data-organization}}
 
-All data sources had different mechanisms for downloading. For IDEAM, the official procedure is through a written request using the e-mail \emph{\href{mailto:atencionalciudadano@ideam.gov.co}{\nolinkurl{atencionalciudadano@ideam.gov.co}}}, then they will provide a link to get the information. For ISD, all files are available in the ftp site \url{ftp://ftp.ncdc.noaa.gov/pub/data/noaa/isd-lite/}, organized in folders by years, then a gzip file is available, with the station name in the format \emph{ID-99999-YYYY.gz}, where ID is the USAF-ISD station identifier. For ISD, there are many files by station, one file for each year with data available. For ERA5 it is possible to make a request using a Python script, but since there is a size limit for downloading, it is neccesary to split the request, then, use console commands to create an unified netCDF file. Files with all IDEAM and ISD stations are available in the Annex \ref{rcode} - \protect\hyperlink{results}{Resutls - Digital Files}. For the Python code, and the commands to join netCDF files of ERA5 data source, see the Annex \ref{era5download} - \protect\hyperlink{era5download}{ERA5 Data Download and Integration}.
+All data sources had different mechanisms for downloading. For IDEAM, the official procedure is through a written request using the e-mail \emph{\href{mailto:atencionalciudadano@ideam.gov.co}{\nolinkurl{atencionalciudadano@ideam.gov.co}}}, then they will provide a link to get the information. For ISD, all files are available in the ftp site \url{ftp://ftp.ncdc.noaa.gov/pub/data/noaa/isd-lite/}, organized in folders by years, then a gzip file is available, with the station name in the format \emph{ID-99999-YYYY.gz}, where ID is the USAF-ISD station identifier. For ISD, there are many files by station, one file for each year with data available. For ERA5 it is possible to make a request using a Python script, but since there is a size limit for downloading, it is necessary to split the request, then, use console commands to create an unified netCDF file. Files with all IDEAM and ISD stations are available in the Annex \ref{rcode} - \protect\hyperlink{results}{Results - Digital Files}. For the Python code, and the commands to join netCDF files of ERA5 data source, see the Annex \ref{era5download} - \protect\hyperlink{era5download}{ERA5 Data Download and Integration}.
 
 \clearpage
 
@@ -959,7 +986,7 @@ To standardize wind speeds to gust speeds ASCE7-16 proposes the curve Durst (see
 \hypertarget{rmd-method}{%
 \chapter{Methodology}\label{rmd-method}}
 
-Figure \ref{fig:methodology} shows a esquematic representation of the methodology, where more representative steps are identified by numbers (from 1 to 8). This research is focus in non-hurricane data, with three main elements: - data, - temporal analysis with POT-PP, and - spatial analysis to do spatial interpolation and create return levels - RL maps, for MRIs of 700, 1700, and 3000 years. Steps 1, and 3 to 7, need to be done for each available station, see Figure \ref{fig:mainmethodology}. With RL in each station, a continuous surface will be created, one for 700 years, next for 1700 years, and finally for 3000 years. An additional element, is the integration with existing hurricane maps to produce final maps, that will be used as input loads for infrastructure design, and will be part of the design standard.
+Figure \ref{fig:methodology} shows a schematic representation of the methodology, where more representative steps are identified by numbers (from 1 to 8). This research is focus in non-hurricane data, with three main elements: - data, - temporal analysis with POT-PP, and - spatial analysis to do spatial interpolation and create return levels - RL maps, for MRIs of 700, 1700, and 3000 years. Steps 1, and 3 to 7, need to be done for each available station, see Figure \ref{fig:mainmethodology}. With RL in each station, a continuous surface will be created, one for 700 years, next for 1700 years, and finally for 3000 years. An additional element, is the integration with existing hurricane maps to produce final maps, that will be used as input loads for infrastructure design, and will be part of the design standard.
 \begin{figure}
 
 {\centering \includegraphics[width=2.4in]{figure/main_methodology} 
@@ -989,7 +1016,7 @@ Parallel to the standardization activity described below, it is also important t
   \emph{Filtering}: Remove wind speeds above \(200 \frac{Km}{h}\) and data pertaining to hurricane events, because the procedure with hurricane requires a different approach and need to be done independently
 \end{itemize}
 \hypertarget{anemometer-height---10-m}{%
-\subsection{Anemometer height - 10 m}\label{anemometer-height---10-m}}
+\subsection{Anemometer Height - 10 m}\label{anemometer-height---10-m}}
 
 According to the protocol for field data collection and location of methodological stations - IDEAM (\protect\hyperlink{ref-ideam2005}{2005}), the anemometer (wind sensor) in installed always to a fixed height of 10 meters from the surface, as is shown in Figure \ref{fig:anemometer}, ergo, no height correction is needed.
 \begin{figure}
@@ -1025,7 +1052,7 @@ K_z= 2.01*\left(\frac{z}{z_g}\right)
 \[
 F_{exposition} = \frac{0.951434}{K_z}
 \]
-Following NIST (\protect\hyperlink{ref-nist2012}{2012}), calculation of roughness need to be weighted according to the predominance of wind magnitude in eight directions (north, south, east, west, north-east, north-west, south-east, and south-west), see Figure \ref{fig:compassrose}, using a detailed aerial photo or satellite image inside a radiuos of 800 meters around the station location, as shown in Figure \ref{fig:lettaustation}, with south direction highlighted.
+Following NIST (\protect\hyperlink{ref-nist2012}{2012}), calculation of roughness need to be weighted according to the predominance of wind magnitude in eight directions (north, south, east, west, north-east, north-west, south-east, and south-west), see Figure \ref{fig:compassrose}, using a detailed aerial photo or satellite image inside a radius of 800 meters around the station location, as shown in Figure \ref{fig:lettaustation}, with south direction highlighted.
 \begin{figure}
 
 {\centering \includegraphics{thesis_files/figure-latex/compassrose-1} 
@@ -1041,7 +1068,7 @@ Following NIST (\protect\hyperlink{ref-nist2012}{2012}), calculation of roughnes
 
 }
 
-\caption{Digital imagery for 'Vanguardia' ISD station (USAF:802340), located in Villavicencio airport. with four (south, north, east, and west) 45 degree sectors highlighted. Radious of the circular zone is 800 meters}\label{fig:lettaustation2}
+\caption{Digital imagery for 'Vanguardia' ISD station (USAF:802340), located in 'Villavicencio' airport. with four (south, north, east, and west) 45 degree sectors highlighted. Radius of the circular zone is 800 meters}\label{fig:lettaustation2}
 \end{figure}
 \normalsize
 
@@ -1078,7 +1105,7 @@ It is valid only for open terrain conditions. Durst curve shows in axis \(y\) th
 
 As it happens in this study, where it is intended to complement the local/regional wind analysis, with data from ISD (output data of a model for extreme winds), and ERA5 reanalysis dataset (large scale forecast data), it is required to probe by means of \emph{comparisons} (exploratory data analysis and/or statistical measures) that those sources (modeled and forecast) are similar to IDEAM field measurements.
 
-The proposed mechanism in the search for downscaling support is, a) the creation of \emph{common time series graphs}, where time series overlays for all datasources, are expected to be similar, and b) the elaboration of \emph{scatter plots graphics}, which are generated matching two sources by time (sorted in ascending order by wind velocity), and that, visually will allow to evaluate about data similarity between two sources, when all the points fall very close to a 45 degree line. In both cases, the strategie for station matching, could be one of the following:
+The proposed mechanism in the search for downscaling support is, a) the creation of \emph{common time series graphs}, where time series overlays for all data sources, are expected to be similar, and b) the elaboration of \emph{scatter plots graphics}, which are generated matching two sources by time (sorted in ascending order by wind velocity), and that, visually will allow to evaluate about data similarity between two sources, when all the points fall very close to a 45 degree line. In both cases, the strategy for station matching, could be one of the following:
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
 \item
@@ -1101,7 +1128,7 @@ In summary, POT means only to work with extreme values, and PP means to adjust d
 \hypertarget{decluster}{%
 \subsection{Declustering}\label{decluster}}
 
-To make the assumptions of PP more justifiable, it is important to have only one sample per event, the highest one. For instance, if a hypothetical storm started at 11:30 in the morning and ended at 12:30 in the afternoon, and the time series for that event has thirty wind measurements (one each two minutes), it is necessary to leave only the stronger or maximum value, and this process is called declustering (see Figure \ref{fig:declustering}). POT-PP defines that all the adjacent observations separated by six hours (6) or less in the case of thunderstorm events, and four (4) days or less, in the case of non-thunderstorm events belong to the same cluster.
+To make the assumptions of PP more justifiable, it is important to have only one sample per event, the highest one. For instance, if a hypothetical storm started at 11:30 in the morning and ended at 12:30 in the afternoon, and the time series for that event has thirty wind measurements (one each two minutes), it is necessary to leave only the stronger or maximum value, and this process is called de-clustering (see Figure \ref{fig:declustering}). POT-PP defines that all the adjacent observations separated by six hours (6) or less in the case of thunderstorm events, and four (4) days or less, in the case of non-thunderstorm events belong to the same cluster.
 
 \footnotesize
 \begin{figure}
@@ -1144,7 +1171,7 @@ Selection of the thresholds pairs, one for thunderstorm, and one for non-thunder
 \normalsize
 
 \hypertarget{exclude-no-data-periods}{%
-\subsection{Exclude no-data periods}\label{exclude-no-data-periods}}
+\subsection{Exclude No-Data Periods}\label{exclude-no-data-periods}}
 
 PP requires to remove long periods of time when stations were not recording or failing. Proposed time in Pintar et al. (\protect\hyperlink{ref-Pintar2015}{2015}) is 180 days, namely, to remove all the gaps from the time series larger than six months.
 
@@ -1233,8 +1260,10 @@ Probabilistic (Kriging) and deterministic (IDW, local polynomials) techniques ar
 \end{itemize}
 Possible advantage of deterministic methods, is a better assessment of the local variability of spatial autocorrelation. It can also be considered with IDW or local polynomials a detailed assessment of structural analysis and cross validation. At the end of the spatial interpolation analysis all the predictions can be compared to select the most suitable result.
 
+Main references in this research related to this matter using \textbf{R software} are E. Pebesma \& Graeler (\protect\hyperlink{ref-Pebesma2019}{2019}), Pebesma (\protect\hyperlink{ref-Pebesma2004}{2004}), and Gräler, Pebesma, \& Heuvelink (\protect\hyperlink{ref-Graeler2016}{2016}). For the implementation of spatial statistics using vector or raster format, see E. Pebesma (\protect\hyperlink{ref-Pebesma2019a}{2019}\protect\hyperlink{ref-Pebesma2019a}{a}), E. Pebesma (\protect\hyperlink{ref-Pebesma2019b}{2019}\protect\hyperlink{ref-Pebesma2019b}{b}), and Pebesma (\protect\hyperlink{ref-Pebesma2018}{2018}).
+
 \hypertarget{integration}{%
-\section{Integration with Hurricane data}\label{integration}}
+\section{Integration with Hurricane Data}\label{integration}}
 
 Engineers (\protect\hyperlink{ref-Asce2017}{2017}) propose the equation C26.5-2 for combination of statistically independent events, of non-hurricane and hurricane wind speed data.
 \begin{equation}
@@ -1247,7 +1276,7 @@ Where \(P_e(y>Y_N)\) is the annual exceedance probability for the combined wind 
 
 To understand Equation \eqref{eq:combination}, it is important to remember that to calculate return level \(Y_N\), for a given N-year return period, the exceedance probability \(\frac{1}{N}\) of \(Y_N\) is calculated. Then, the non-exceedance probability for \(Y_N\) is \(\left(1-\frac{1}{N}\right)\). The procedure consist in the creation of a new hazard curve, calculating all \(P_e(y>Y_N)\) values for different \(Y_N\) return levels, combining hazard curves from non-thunderstorm and thunderstorm data.
 
-Equation \eqref{eq:combination} can be expressed in terms of only exceedance probabilities, \(P_{e} = 1 - (1 -P_{nh}) * (1 - P_{h})\), where \(P_{nh}\) is the the annual exceedance probability for non-hurricane winds, and \(P_{h}\) is the annual exceedance probability for hurricane winds. A graphical explanation of the procedure to calculate the combined \(P_e\) for the return level \(30\frac{Km}{h}\), is shown in next Figure \ref{fig:combinedhc}. For each cell in the study area, it is neccesary to calculate a new combined hazard curve, this is, all the \(P_e\) values corresponding all different return levels (see right table in Figure \ref{fig:combinedhc}).
+Equation \eqref{eq:combination} can be expressed in terms of only exceedance probabilities, \(P_{e} = 1 - (1 -P_{nh}) * (1 - P_{h})\), where \(P_{nh}\) is the the annual exceedance probability for non-hurricane winds, and \(P_{h}\) is the annual exceedance probability for hurricane winds. A graphical explanation of the procedure to calculate the combined \(P_e\) for the return level \(30\frac{Km}{h}\), is shown in next Figure \ref{fig:combinedhc}. For each cell in the study area, it is necessary to calculate a new combined hazard curve, this is, all the \(P_e\) values corresponding all different return levels (see right table in Figure \ref{fig:combinedhc}).
 \begin{figure}
 
 {\centering \includegraphics{thesis_files/figure-latex/combinedhc-1} 
@@ -1261,7 +1290,7 @@ After the combined hazard curve is created, a new process of spatial interpolati
 \hypertarget{rmd-results}{%
 \chapter{Results and Discussion}\label{rmd-results}}
 
-In this section, will be shown first, the data source comparison (post standardization process) to face the downscaling issue by using ERA5 and ISD database, then, the resulting process of fitting a POT-PP in the ISD station 801120, which includes revision of intensity function parameters, goodness of fit, hazard curve, return levels, and comparison with POT-GPD results, next, non-hurricane maps outputs, which includes results for ISD and ERA5 stations, and finally, output maps combining hurricane and non-hurricane results will be displayed.
+In this section, will be shown first, the data source comparison (post standardization process) to face the downscaling issue by using ERA5 and ISD database, then, the resulting process of fitting a POT-PP in the ISD station 801120, which includes revision of intensity function parameters, goodness of fit, hazard curve, return levels, and comparison with POT-GPD results, next, non-hurricane maps outputs, which includes results for ISD and ERA5 stations, after that, output maps combining hurricane and non-hurricane results will be displayed, and finally, a detailed discussion of the retults and future work is highlighted.
 
 \hypertarget{data-standardization-and-downscaling-support}{%
 \section{Data Standardization and Downscaling Support}\label{data-standardization-and-downscaling-support}}
@@ -1271,7 +1300,7 @@ Looking for a statistical justification in the use of ISD (model) and ERA5 datab
 \hypertarget{data-standardization}{%
 \subsection{Data Standardization}\label{data-standardization}}
 
-None of the sources required anemometer height standardization. Lettau (\protect\hyperlink{ref-Lettau1969}{1969}) was used for roughness standardization of ISD and IDEAM, applying the method station by station. Gust velocities standardization was done using Durst cuve, and in order to obtain \(V_3\) from Durst curve, it was required to start from \(V_{3600}\) (average hourly speed), or from a different wind gust speed, for instance \(V_5\) 5-s gust.
+None of the sources required anemometer height standardization. Lettau (\protect\hyperlink{ref-Lettau1969}{1969}) was used for roughness standardization of ISD and IDEAM, applying the method station by station. Gust velocities standardization was done using Durst curve, and in order to obtain \(V_3\) from Durst curve, it was required to start from \(V_{3600}\) (average hourly speed), or from a different wind gust speed, for instance \(V_5\) 5-s gust.
 
 For ERA5:
 \begin{itemize}
@@ -1351,7 +1380,7 @@ The stations described in each row of the previous Table \ref{tab:table12station
 \hypertarget{ideam-vv_aut_10---non-quality-data-comparison-available-in-all-ideam-stations}{%
 \subsubsection{IDEAM VV\_AUT\_10 - Non Quality Data Comparison (available in all IDEAM stations)}\label{ideam-vv_aut_10---non-quality-data-comparison-available-in-all-ideam-stations}}
 
-VV\_AUT\_10 was available for 204 stations, and despide that \(V_{3600}\) calculated from this source, is not an accurate or quality estimator, the standarization procedure was done to allow an additional comparison process, whose results are shown in the map displayed in Figure \ref{fig:poorcomparison}. Downscaling support was `Good' comparing IDEAM and/or ISD stations with twenty-three (23) ERA5 stations (2261, 1971, 2066, 2020, 2260, 1875, 2213, 2637, 1442, 1583, 1501, 1582, 1381, 1493, 1485, 1397, 1338, 1055, 511, 1644, 515, 221, 1038), and `Very Good' comparing IDEAM and/or ISD with five (5) ERA5 stations (265, 360, 78, 312, 416).
+VV\_AUT\_10 was available for 204 stations, and despite that \(V_{3600}\) calculated from this source, is not an accurate or quality estimator, the standardization procedure was done to allow an additional comparison process, whose results are shown in the map displayed in Figure \ref{fig:poorcomparison}. Downscaling support was `Good' comparing IDEAM and/or ISD stations with twenty-three (23) ERA5 stations (2261, 1971, 2066, 2020, 2260, 1875, 2213, 2637, 1442, 1583, 1501, 1582, 1381, 1493, 1485, 1397, 1338, 1055, 511, 1644, 515, 221, 1038), and `Very Good' comparing IDEAM and/or ISD with five (5) ERA5 stations (265, 360, 78, 312, 416).
 
 `Very Good' downscaling results for this non quality data comparison, are shown bellow:
 \begin{itemize}
@@ -1398,10 +1427,10 @@ For some ISD stations in previous Table \ref{tab:tableverygood}, the value `NA' 
 \includegraphics{thesis_files/figure-latex/verygood-1.pdf}
 \caption{\label{fig:verygood}Non Quality Data Comparison: Scatter plots for `Very Good' Downscaling Support}
 \end{figure}
-\hypertarget{pot-pp-in-isd-station-801120}{%
-\section{POT-PP in ISD Station 801120}\label{pot-pp-in-isd-station-801120}}
+\hypertarget{pot-pp-for-isd-station-801120}{%
+\section{POT-PP for ISD Station 801120}\label{pot-pp-for-isd-station-801120}}
 
-Figure \ref{fig:station801120} shows the satellite image (source Google Earth) of ISD station 801120, located in the international airport `José María Córdova', municipality of Rio Negro (Antioquia, Colombia), with latitud \(6.125^\circ\), and longitud \(-75.423^\circ\) WGS84 coordinates. Red circle represents an influence radius of 800 meters. Table \ref{tab:cf801120} shows different calculations related to correction factors applied to this station, using procedure described in sections \protect\hyperlink{rmd-roughness}{Surface Roughness at Open Space}, and \protect\hyperlink{rmd-gust}{Averaging Time 3-s Gust}.
+Figure \ref{fig:station801120} shows the satellite image (source Google Earth) of ISD station 801120, located in the international airport `José María Córdova', municipality of Rio Negro (Antioquia, Colombia), with latitude \(6.125^\circ\), and longitude \(-75.423^\circ\) WGS84 coordinates. Red circle represents an influence radius of 800 meters. Table \ref{tab:cf801120} shows different calculations related to correction factors applied to this station, using procedure described in sections \protect\hyperlink{rmd-roughness}{Surface Roughness at Open Space}, and \protect\hyperlink{rmd-gust}{Averaging Time 3-s Gust}.
 \begin{figure}
 
 {\centering \includegraphics[width=2.23in]{figure/801120} 
@@ -1427,10 +1456,10 @@ Gust factor for $V_3$ & 1.03\\
 \end{longtable}
 \endgroup{}
 
-\hypertarget{raw-data-declustering-and-thresholding}{%
-\subsection{Raw data, declustering, and thresholding}\label{raw-data-declustering-and-thresholding}}
+\hypertarget{raw-data-de-clustering-and-thresholding}{%
+\subsection{Raw Data, De-clustering, and Thresholding}\label{raw-data-de-clustering-and-thresholding}}
 
-As storm information is not available for any of the data sources, all the data for the station was classified as \emph{non-thunderstorm}. According to \protect\hyperlink{pot-pp}{POT-PP} method described in \protect\hyperlink{rmd-method}{methodology}, the first process aplied to original time series -raw data-, is \protect\hyperlink{decluster}{declustering}, and then, \protect\hyperlink{thresholding}{thresholding}.
+As storm information is not available for any of the data sources, all the data for the station was classified as \emph{non-thunderstorm}. According to \protect\hyperlink{pot-pp}{POT-PP} method described in \protect\hyperlink{rmd-method}{methodology}, the first process applied to original time series -raw data-, is \protect\hyperlink{decluster}{declustering}, and then, \protect\hyperlink{thresholding}{thresholding}.
 
 Non-thunderstorm raw data for ISD station 801120 has 2931 records, from 1986-12-06 12:00:00 to 2019-03-01 12:00:00, corresponding to a total amount time in days of 11739, and to an average number of events per year of 18.9, which means that the average duration of an event is 19.3 days (average size in days of a cluster). After \protect\hyperlink{decluster}{declustering}, and \protect\hyperlink{thresholding}{thresholding} processes, the number of records decreases to 181. Time series graphics are shown in Figure \ref{fig:ts}, showing the data before (left) and after (right) applying the mentioned processes. Detailed yearly statistics are reported in Table \ref{tab:years801120}, also including summary for before (left), and after (right).
 
@@ -1486,16 +1515,16 @@ Non-thunderstorm raw data for ISD station 801120 has 2931 records, from 1986-12-
 \end{longtable}
 \endgroup{}
 
-It can be seen in the Table \ref{tab:years801120}, that declustered data has zero records for some years. This situation is due to that all the data for each one of those years (2001, 2007, 2011, 2013, 2018, and 2019), belonged to a cluster that started the previous year, or finished the next year, and the unique chosen maximun value (the value representative for the cluster) was found in the previous or next year, but not in mentioned years of zero records.
+It can be seen in the Table \ref{tab:years801120}, that de-clustered data has zero records for some years. This situation is due to that all the data for each one of those years (2001, 2007, 2011, 2013, 2018, and 2019), belonged to a cluster that started the previous year, or finished the next year, and the unique chosen maximum value (the value representative for the cluster) was found in the previous or next year, but not in mentioned years of zero records.
 \begin{figure}
 
 {\centering \includegraphics{thesis_files/figure-latex/ts-1} 
 
 }
 
-\caption{Non-Thunderstorm Time Series for ISD station 801120. Left: Raw Data. Right: Declustered Data}\label{fig:ts}
+\caption{Non-Thunderstorm Time Series for ISD station 801120. Left: Raw Data. Right: De-clustered Data}\label{fig:ts}
 \end{figure}
-Using declustered data, and considering that it is only neccesary to calculate optimal threshold for non-thunderstorm data, because there is no records classified as thunderstorm in any data source, many non-thunderstomr thresholds were tested, to choose the best one using the W statistic, as described in section \protect\hyperlink{thresholding}{thresholding} of the \protect\hyperlink{rmd-method}{methodology}. Figure \ref{fig:page6} shows a very good fit in resulting W-Statistic plot, for optimal non-thunderstorm threshold \(b_{nt} =\) \emph{42}\(\frac{Km}{h}\), with a minimum W distance of 0.47, for ISD station 801120, where empirical values (black points) are very close or similar to theoretical values (red line).
+Using de-clustered data, and considering that it is only necessary to calculate optimal threshold for non-thunderstorm data, because there is no records classified as thunderstorm in any data source, many non-thunderstorm thresholds were tested, to choose the best one using the W statistic, as described in section \protect\hyperlink{thresholding}{thresholding} of the \protect\hyperlink{rmd-method}{methodology}. Figure \ref{fig:page6} shows a very good fit in resulting W-Statistic plot, for optimal non-thunderstorm threshold \(b_{nt} =\) \emph{42}\(\frac{Km}{h}\), with a minimum W distance of 0.47, for ISD station 801120, where empirical values (black points) are very close or similar to theoretical values (red line).
 
 \footnotesize
 \begin{figure}
@@ -1509,9 +1538,9 @@ Using declustered data, and considering that it is only neccesary to calculate o
 \normalsize
 
 \hypertarget{fitted-pdf-and-cdf-and-goodness-of-fit}{%
-\subsection{Fitted pdf and cdf and Goodness of Fit}\label{fitted-pdf-and-cdf-and-goodness-of-fit}}
+\subsection{\texorpdfstring{Fitted \emph{pdf} and \emph{cdf}, and Goodness of Fit}{Fitted pdf and cdf, and Goodness of Fit}}\label{fitted-pdf-and-cdf-and-goodness-of-fit}}
 
-Equation \eqref{eq:ppintensityfunction}, defined in section \protect\hyperlink{method-pot-pp}{POT-PP} of the \protect\hyperlink{rmd-thefra}{methodological framework}, was used as intensity function, \(\lambda(t, y) = \lambda_{nt}(y)\), for POT-PP. When shape \(\zeta_t\) is equal to zero, as it is in this study, an equivalent intensity function is described in Equation \eqref{eq:ppspecificintensityfunction} defined in terrms of the parameters location (\(\omega_t\)), and scale (\(\psi_t\)). Related \emph{pdf} and \emph{cdf} functions are referenced in Equations \eqref{eq:pppdf}, where the domain \(D\) constraint the data above the threshold \emph{b}, and the time to a non-thunderstorm period, and \eqref{eq:ppcdf} respectively.
+Equation \eqref{eq:ppintensityfunction}, defined in section \protect\hyperlink{method-pot-pp}{POT-PP} of the \protect\hyperlink{rmd-thefra}{methodological framework}, was used as intensity function, \(\lambda(t, y) = \lambda_{nt}(y)\), for POT-PP. When shape \(\zeta_t\) is equal to zero, as it is in this study, an equivalent intensity function is described in Equation \eqref{eq:ppspecificintensityfunction} defined in terms of the parameters location (\(\omega_t\)), and scale (\(\psi_t\)). Related \emph{pdf} and \emph{cdf} functions are referenced in Equations \eqref{eq:pppdf}, where the domain \(D\) constraint the data above the threshold \emph{b}, and the time to a non-thunderstorm period, and \eqref{eq:ppcdf} respectively.
 \begin{itemize}
 \item
   Intensity function: \(\frac{1}{\psi_{nt}}\exp\left(\frac{-(y-\omega_{nt})}{\psi_{nt}}\right)\)
@@ -1520,7 +1549,7 @@ Equation \eqref{eq:ppintensityfunction}, defined in section \protect\hyperlink{m
 \item
   cdf: \(F(t,y) = P(y \leq Y) = \frac{\int_b^Y\lambda(y,t)\,dy}{\int_b^\infty\lambda(y,t)\,dy}\)
 \end{itemize}
-After fitting the instensity function to the domain \(D\), the resulting parameters for ISD station 801120, are location \(\omega_t\) equal to -55.62, and scale \(\psi_t\) equal to 23.4. Figure \ref{fig:page8} shows the histogram and fitted pdf in panel A, Q-Q plot (theoretical quantiles against empirical ones) in panel B, empirical cumulative distribution against fitted cdf in panel C, and P-P plot (theoretical probabilities against empirical ones) in panel D. In all four panels, it can be seen that there is a very good visual correspondence between empirical data (points and histogram) and theoretical adjustment (lines).
+After fitting the intensity function to the domain \(D\), the resulting parameters for ISD station 801120, are location \(\omega_t\) equal to -55.62, and scale \(\psi_t\) equal to 23.4. Figure \ref{fig:page8} shows the histogram and fitted \emph{pdf} in panel A, Q-Q plot (theoretical quantiles against empirical ones) in panel B, empirical cumulative distribution against fitted \emph{cdf} in panel C, and P-P plot (theoretical probabilities against empirical ones) in panel D. In all four panels, it can be seen that there is a very good visual correspondence between empirical data (points and histogram) and theoretical adjustment (lines).
 \begin{figure}
 
 {\centering \includegraphics{thesis_files/figure-latex/page8-1} 
@@ -1529,12 +1558,12 @@ After fitting the instensity function to the domain \(D\), the resulting paramet
 
 \caption{Graphic Diagnosis Of Goodness of Fit. Station 801120}\label{fig:page8}
 \end{figure}
-Results of formal goodness of fit statistics for `Kolmogorov-Smirnov D', `Cramer-von Mises T' and `Anderson-Darling A' are 0.089, 0.21, and 1.68 respectively. For a proposed null hypothesis, which indicates that the data conforms to a POT-PP, all resulting p-values using statistics D, T and A, confirm that there is no statistical evidence to to reject stated hypothesis. Resulting p-value for statistic D is 0.11. Another available criteria to measure the quality of the fitted process are `Akaike's Information Criterion', and `Bayesian Information Criterion', with values 1505.2, and 1508.4 respectively. The Root Mean Square Error (RMSE), calculated using theoretical versus empirical cdf, is 0.023.
+Results of formal goodness of fit statistics for `Kolmogorov-Smirnov D', `Cramer-von Mises T' and `Anderson-Darling A' are 0.089, 0.21, and 1.68 respectively. For a proposed null hypothesis, which indicates that the data conforms to a POT-PP, all resulting p-values using statistics D, T and A, confirm that there is no statistical evidence to to reject stated hypothesis. Resulting p-value for statistic D is 0.11. Another available criteria to measure the quality of the fitted process are `Akaike's Information Criterion', and `Bayesian Information Criterion', with values 1505.2, and 1508.4 respectively. The Root Mean Square Error (RMSE), calculated using theoretical versus empirical \emph{cdf}, is 0.023.
 
 \hypertarget{hazard-curve-and-return-levels---rl}{%
 \subsection{Hazard Curve and Return Levels - RL}\label{hazard-curve-and-return-levels---rl}}
 
-Hazard curve is the solution to Equation \eqref{eq:pprl}, but eliminating from it elements related to thunderstorms, the equation is simplified to \(A_{nt}\int_{Y_N}^{\infty}\lambda_{nt}\left( y\right)\,dy = \frac{1}{N}\), where \(A_{nt}\) is the average time of non-thunderstorm events by year, and \(Y_N\) is the return level or extreme wind velocity, corresponding to the N-years return period or MRI. Reemplacing in this ecuation the intensity function \(lambda_{nt}\), and solving \(Y_N\) for all possible values of MRI, will provide hazard curve displayed in Figure \ref{fig:page10}.
+Hazard curve is the solution to Equation \eqref{eq:pprl}, but eliminating from it elements related to thunderstorms, the equation is simplified to \(A_{nt}\int_{Y_N}^{\infty}\lambda_{nt}\left( y\right)\,dy = \frac{1}{N}\), where \(A_{nt}\) is the average time of non-thunderstorm events by year, and \(Y_N\) is the return level or extreme wind velocity, corresponding to the N-years return period or MRI. Replacing in this equation the intensity function \(lambda_{nt}\), and solving \(Y_N\) for all possible values of MRI, will provide hazard curve displayed in Figure \ref{fig:page10}.
 \begin{figure}
 
 {\centering \includegraphics{thesis_files/figure-latex/page10-1} 
@@ -1566,12 +1595,12 @@ Hazard curve is the solution to Equation \eqref{eq:pprl}, but eliminating from i
 \end{longtable}
 \endgroup{}
 
-Return levels of interest for this research, corrrespond to 700, 1700 and 3000 years of MRI, however, due to the mechanism of \protect\hyperlink{integration}{integration with existing hurricane study information}, described in \protect\hyperlink{rmd-method}{methodology}, it is necessary to extract for all stations values related to typical return periods, as shown in the Table \ref{tab:rl}.
+Return levels of interest for this research, correspond to 700, 1700 and 3000 years of MRI, however, due to the mechanism of \protect\hyperlink{integration}{integration with existing hurricane study information}, described in \protect\hyperlink{rmd-method}{methodology}, it is necessary to extract for all stations values related to typical return periods, as shown in the Table \ref{tab:rl}.
 
 \hypertarget{comparison-with-pot-gpd-and-common-extreme-value-distributions}{%
-\subsection{Comparison with POT-GPD and common extreme value distributions}\label{comparison-with-pot-gpd-and-common-extreme-value-distributions}}
+\subsection{Comparison with POT-GPD and Common Extreme Value Distributions}\label{comparison-with-pot-gpd-and-common-extreme-value-distributions}}
 
-To enable a comparison between, a) POT-PP (previous section), b) \protect\hyperlink{pot-gpd}{POT-GPD}, and c) the fitting process of common extreme value distributions (GPA, GEV, GUM) without using POT method, this is, using the generic concept of \protect\hyperlink{hf}{hazard function \emph{hf}} (see \protect\hyperlink{rmd-thefra}{theoretical framework}), a whole authomatation process was done to calculate return levels and errors using mentioned alternatives, bearing in mind that in all cases \emph{maximum likelihood} was used to calculate the parameters.
+To enable a comparison between, a) POT-PP (previous section), b) \protect\hyperlink{pot-gpd}{POT-GPD}, and c) the fitting process of common extreme value distributions (GPA, GEV, GUM) without using POT method, this is, using the generic concept of \protect\hyperlink{hf}{hazard function \emph{hf}} (see \protect\hyperlink{rmd-thefra}{theoretical framework}), a whole automation process was done to calculate return levels and errors using mentioned alternatives, bearing in mind that in all cases \emph{maximum likelihood} was used to calculate the parameters.
 
 Resulting return levels and errors for POT-GPD, using R packages extRemes - Gilleland (\protect\hyperlink{ref-Gilleland2019}{2019}), ismev - Janet E. Heffernan with R port \& Alec G. Stephenson. (\protect\hyperlink{ref-JanetE.HeffernanwithRport2018}{2018}), evd - Stephenson (\protect\hyperlink{ref-Stephenson2002}{2002}), Renext - Deville \& IRSN (\protect\hyperlink{ref-Deville2016}{2016}), evir - Pfaff \& McNeil (\protect\hyperlink{ref-Pfaff2018}{2018}), and fExtremes - Wuertz, Setz, \& Chalabi (\protect\hyperlink{ref-Wuertz2017}{2017}), are reported in Table \ref{tab:comparisonGPD}. Similarly are shown it Table \ref{tab:comparisonCommonEVD}, return levels calculated from the adjustment of the probability distributions GPA, GEV, and Gumbel.
 
@@ -1636,10 +1665,10 @@ The Colombian consulting firm Ingeniar ltda, following the methodology described
 \includegraphics{thesis_files/figure-latex/era5nhmaps-1.pdf}
 \caption{\label{fig:era5nhmaps}ERA5 Non-Hurricane Wind Maps.}
 \end{figure}
-\hypertarget{combined-maps}{%
-\subsection{Combined Maps}\label{combined-maps}}
+\hypertarget{cm}{%
+\subsection{Combined Maps}\label{cm}}
 
-Following the procedure described in \protect\hyperlink{integration}{integration with Hurricane data}, final wind maps are created, combining existing data for hurricane studies, and non-hurrican maps produced in this study.
+Following the procedure described in \protect\hyperlink{integration}{integration with Hurricane data}, final wind maps are created, combining existing data for hurricane studies, and non-hurricane maps produced in this study.
 \begin{figure}
 \centering
 \includegraphics{thesis_files/figure-latex/isdcbmaps-1.pdf}
@@ -1650,15 +1679,42 @@ Following the procedure described in \protect\hyperlink{integration}{integration
 \includegraphics{thesis_files/figure-latex/era5cbmaps-1.pdf}
 \caption{\label{fig:era5cbmaps}ERA5 Hurricane \& Non-Hurricane Wind Maps.}
 \end{figure}
-\hypertarget{final-discussion}{%
-\section{Final Discussion}\label{final-discussion}}
+\hypertarget{fd}{%
+\section{Final Discussion and Future Work}\label{fd}}
+
+Regarding the comparison of the data, it must be remembered that the basis of comparison, that is, the one that represents the truth in the field - IDEAM field measurements, was not fully available, what disturbed the process since before starting it. On the other hand, there are many uncertainties with respect to the model that represents the ISD database, because first, the available documentation does not specify whether it is an average or a gust data, second, the comparative graphs showed that ISD database did not represent a continuous variable (vertical or horizontal stripes in scatter plots), and finally, the comparisons against IDEAM never showed good results.
+
+With respect to ERA5 database, although the comparative results showed greater similarity, it should be remembered that each record in the time series does not represent a point value, on the contrary, it represents a square cell of 0.25 decimal degrees. The IDEAM stations with which the comparison was made, can fall into any location of the cell, and constitute only a very local condition, that is not represented by an averaged forecast for the whole cell size, this considering that Colombia is a tropical region with a widely diverse territory (mountains, plains, rivers, forests, etc) and climate. So the possible similarity between IDEAM and ERA5 is limited by this condition.
+
+The main difference between POT-PP and POT-GPD is that in the latter, wind quantities are adjusted to a GPD, and the time is adjusted to a Poisson Process (1D), while in the former, time and magnitude are adjusted to a Poisson Process (2D). If there is no weather classification available (storm and no storm) in the wind time series, POT-PP loses its advantages and resembles in potential and scope to POT-GPD, because the intensity function varying only in magnitude, becomes similar to a GPD. For this reason, POT-PP method is really useful, if historical classification of time series is available, record by record, in storm and non-storm.
+
+This classification by time of historical series, is useful because it allows to define more precisely the average rate of events per year (Poisson process rate), which in POT-PP is represented by the average amount of events time per year, this is, components \(A_t\) and \(A_{nt}\) of Equation \eqref{eq:pprl} - \(A_t\int_{Y_N}^{\infty}\lambda_t\left( y\right)\,dy + A_{nt}\int_{Y_N}^{\infty}\lambda_{nt}\left( y\right)\,dy = \frac{1}{N}\) -, used to calculate return levels \(Y_N\).
+
+By the lack of thunderstorm and non-thunderstorm information, is impossible to calculate which part of the annual time belongs to storm and which to not-storm. As the available data were all assumed as non-thunderstorm data, this average time of events per year will always result in a fixed wrong value of 365 days, the maximum possible value. For ISD, this condition is reflected in high and unlikely final results.
+
+However, the same condition did not affect the results in the ERA5 database in the same way. Although also in ERA5, all the data were classified as ``non-thunderstorm'', and the average time of events was always 365 days, an additional condition made the final result more realistic. Contrary to what happens in the ISD database, where time series have many gaps and there is lack of information, used ERA5 database has the full time series, hour by hour, from 1979 to 2019. Following the theory behind POT-PP, this implies that there is only one cluster for the whole time series, which would leave a single data after the de-clustering, canceling the entire subsequent process. Our proposed solution was to work only with one data per week, the maximum, which implies that the de-clustering process will have no effect, since it is based on 4-day gaps, see \protect\hyperlink{decluster}{Declustering} in \protect\hyperlink{rmd-method}{Methodology} section, resulting in more events above the threshold, exactly 48 events for each one of the 40 years of history, which translates into greater averaging of the final wind data.
+
+One of the objectives of the investigation was to compare different methods in the calculation of return levels, and that was achieved using in all cases, both POT-GPD, and POT-PP. The Poisson for POT-GPD, does not accept data classification by time (storm or non-storm), because it is one-dimensional and data must represent a single general type of event: wind. Despite that, it is important to emphasize that the shortcomings in the calculation of the Poisson process rate, similarly affected the application of both methods, so in all cases, the results have the same limitation, and the use of POT-GPD does not represent best quality in the results.
+
+To improve the quality of extreme wind analysis in future research, the inclusion of seasonal effects is recommended, this can be done in two ways, first, using a separate POT-PP for each season, and second, model the Poisson process parameters (location, scale and shape) as sinusoidal functions of time. Finally, it is possible to include more formal statistics (not only graphics), to face the downscaling challenge.
 
 \hypertarget{conclusions}{%
 \chapter{Conclusions}\label{conclusions}}
 
-\textbf{What extreme velocities (return levels) need to be used as load design forces for structures of different use category, in the study area?}
+Final maps using ERA5 forecast database, see \protect\hyperlink{cm}{Combined Maps} in \protect\hyperlink{rmd-results}{Results and Discussion} section, representing return periods of 700, 1700, and 3000 years, are the extreme velocities needed as input load for the design of structures of different use category in the study area. Nevertheless, by one hand, full data from the IDEAM source is needed to enable the validation of downscaling support, on the other hand, it is essential to include in the study the classification of thunderstorm and non-thunderstorm data to achieve more realistic results, and finally, an additional conservative calibration process is needed, where to each municipality is assigned only a wind velocity, in order to define final values that will be part of the structure design norm.
 
-If we remember that, for the case study area (Colombia), there are predefined requirements or mean return intervals - MRI to design structures depending of it use category, and that this MRI values are 700, 1700, and 3000 years, the research question could be more specific.
+Other general conclusions of the investigation are:
+\begin{itemize}
+\item
+  In the abscense of wind field measurements, alternatives data sources as ISD and ERA5 can be a viable source of data to calculate extreme wind events, but always must be searched for statistic or graphic support for the downscaling issue, and at the end a process of calibration is needed for each particular case.
+\item
+  A powerful R tool is available to do extreme value analysis using POT-PP and POT-GPD approaches
+\item
+  Results of this research, could be the starting point of a process to update wind maps in countries with information issues.
+\item
+  Output results of this research will contribute to reduce the risk of infrastructure collapse, representing a favorable impact in human lives, material losses, and disaster prevention.
+\end{itemize}
+For a detailed analysis of the results, refer to \protect\hyperlink{rmd-results}{Results and Discussion} section, and for a discussion about the project and its relevant topics, refer to \protect\hyperlink{fd}{Final Discussion}
 
 \appendix
 
@@ -1716,7 +1772,7 @@ If we remember that, for the case study area (Colombia), there are predefined re
 \endgroup{}
 
 \hypertarget{results}{%
-\chapter{Resutls - Digital Files}\label{results}}
+\chapter{Results - Digital Files}\label{results}}
 
 \begingroup\fontsize{8}{10}\selectfont
 \begin{longtable}[t]{>{\raggedright\arraybackslash}p{2.2in}>{\raggedright\arraybackslash}p{4in}}
@@ -1924,9 +1980,9 @@ isd\_combined\_4326\_7000\_st.tif & ISD final wind map (hurricane + non-hurrican
 \hypertarget{era5download}{%
 \chapter{ERA5 Data Download and Integration}\label{era5download}}
 
-The European Centre for Medium-Range Weather Forecasts - ECMWF had implemented the Climate Data Storage - CDS \url{https://cds.climate.copernicus.eu/}, where all its datasets can be downloaded, however there is a straightforward way to get ERA5 data throught Python library CDSAPI. Before to usde CDSAPI, it is neccesary to research about names and meanings of ERA5 variables using the official \emph{data documentation} web page \url{https://confluence.ecmwf.int/display/CKB/ERA5\%3A+data+documentation}, or the \emph{parameter database} \url{https://apps.ecmwf.int/codes/grib/param-db}, that includes all ECWMF datasourses, not only ERA5.
+The European Center for Medium-Range Weather Forecasts - ECMWF had implemented the Climate Data Storage - CDS \url{https://cds.climate.copernicus.eu/}, where all its datasets can be downloaded, however there is a straightforward way to get ERA5 data through Python library CDSAPI. Before to use CDSAPI, it is necessary to research about names and meanings of ERA5 variables using the official \emph{data documentation} web page \url{https://confluence.ecmwf.int/display/CKB/ERA5\%3A+data+documentation}, or the \emph{parameter database} \url{https://apps.ecmwf.int/codes/grib/param-db}, that includes all ECWMF data sources, not only ERA5.
 
-Next block of code shows the use of CDSAPI (Python) to download ERA5 variable \emph{10fg - 10 meters wind gust}, from 1979 to 1991 for Colombia area. The most important keywords there, allow to define ERA5 datasource and product type, variable name \emph{`variable'}, format netCDF \emph{`format'}, area of interest \emph{`area'}, using WGS88 coordinates in the format \emph{north, west, south, east}, cell size \emph{`grid'} in decimal degrees, and all the keywords related to time \emph{`year'}, \emph{`month'}, \emph{`day'}, \emph{`time'}.
+Next block of code shows the use of CDSAPI (Python) to download ERA5 variable \emph{10fg - 10 meters wind gust}, from 1979 to 1991 for Colombia area. The most important keywords there, allow to define ERA5 data source and product type, variable name \emph{`variable'}, format netCDF \emph{`format'}, area of interest \emph{`area'}, using WGS88 coordinates in the format \emph{north, west, south, east}, cell size \emph{`grid'} in decimal degrees, and all the keywords related to time \emph{`year'}, \emph{`month'}, \emph{`day'}, \emph{`time'}.
 \begin{verbatim}
       import cdsapi
       c = cdsapi.Client()
@@ -1979,7 +2035,7 @@ Next block of code shows the use of CDSAPI (Python) to download ERA5 variable \e
 \end{verbatim}
 Next Table \ref{tab:pythonera5}, shows all Python scripts used to download variables \emph{10fg - 10 meters wind gust} and \emph{fsr - forecast surface roughness}, for the study area, along the period 1979 to 2019. Last file in the table, hold a summary of commands to manipulate NetCDF files.
 
-After downloading separate netCDF files, there are different tools available, to manipulate them, for instante Climate Data Operators - CDO \url{https://code.mpimet.mpg.de/projects/cdo/}, NetCDF command line utilies \url{https://www.unidata.ucar.edu/software/netcdf/docs/netcdf_working_with_netcdf_files.html}, and NetCDF operator - NCO \url{http://nco.sourceforge.net/}.
+After downloading separate netCDF files, there are different tools available, to manipulate them, for instance, Climate Data Operators - CDO \url{https://code.mpimet.mpg.de/projects/cdo/}, NetCDF command line utilies \url{https://www.unidata.ucar.edu/software/netcdf/docs/netcdf_working_with_netcdf_files.html}, and NetCDF operator - NCO \url{http://nco.sourceforge.net/}.
 
 \begingroup\fontsize{8}{10}\selectfont
 \begin{longtable}[t]{>{\raggedright\arraybackslash}p{2.3in}>{\raggedright\arraybackslash}p{3in}}
@@ -2205,7 +2261,7 @@ This appendix includes all of the R chunks of code that were hidden throughout t
 \hypertarget{manual}{%
 \chapter{User Manual}\label{manual}}
 
-One complete example will be shown here to run the entire process from the beginning (data standardization), to the end (wind map creation and final map creation), using ISD station XXXXX.
+One complete example will be shown here to run the entire process from the beginning (data standardization), to the end (wind map creation and final map creation), using ISD station X.
 
 \backmatter
 
@@ -2261,6 +2317,9 @@ European Centre For Medium-Range Weather Forecasts. (2017). ERA5 reanalysis. UCA
 \leavevmode\hypertarget{ref-Gilleland2019}{}%
 Gilleland, E. (2019). \emph{ExtRemes: Extreme value analysis}. Retrieved from \url{https://CRAN.R-project.org/package=extRemes}
 
+\leavevmode\hypertarget{ref-Graeler2016}{}%
+Gräler, B., Pebesma, E., \& Heuvelink, G. (2016). Spatio-temporal interpolation using gstat. \emph{The R Journal}, \emph{8}(1), 204--218. Retrieved from \url{https://journal.r-project.org/archive/2016/RJ-2016-014/index.html}
+
 \leavevmode\hypertarget{ref-Haigh2019}{}%
 Haigh, I. D., \& Wahl, T. (2019). Advances in extreme value analysis and application to natural hazards. \emph{Natural Hazards}, \emph{98}(3), 819--822. \url{http://doi.org/10.1007/s11069-019-03628-x}
 
@@ -2293,6 +2352,21 @@ Ministerio de Vivienda, C. y T. (2010). \emph{Reglamento colombiano de construcc
 
 \leavevmode\hypertarget{ref-nist2012}{}%
 NIST. (2012, February). Standardized extreme wind speed database for the united states. Web Page. Retrieved from \url{https://www.itl.nist.gov/div898/winds/NIST_TN/nist_tn.htm}
+
+\leavevmode\hypertarget{ref-Pebesma2018}{}%
+Pebesma, E. (2018). Simple Features for R: Standardized Support for Spatial Vector Data. \emph{The R Journal}, \emph{10}(1), 439--446. \url{http://doi.org/10.32614/RJ-2018-009}
+
+\leavevmode\hypertarget{ref-Pebesma2019a}{}%
+Pebesma, E. (2019a). \emph{Sf: Simple features for r}. Retrieved from \url{https://CRAN.R-project.org/package=sf}
+
+\leavevmode\hypertarget{ref-Pebesma2019b}{}%
+Pebesma, E. (2019b). \emph{Stars: Spatiotemporal arrays, raster and vector data cubes}.
+
+\leavevmode\hypertarget{ref-Pebesma2019}{}%
+Pebesma, E., \& Graeler, B. (2019). \emph{Gstat: Spatial and spatio-temporal geostatistical modelling, prediction and simulation}. Retrieved from \url{https://CRAN.R-project.org/package=gstat}
+
+\leavevmode\hypertarget{ref-Pebesma2004}{}%
+Pebesma, E. J. (2004). Multivariable geostatistics in S: The gstat package. \emph{Computers \& Geosciences}, \emph{30}, 683--691.
 
 \leavevmode\hypertarget{ref-Pfaff2018}{}%
 Pfaff, B., \& McNeil, A. (2018). \emph{Evir: Extreme values in r}. Retrieved from \url{https://CRAN.R-project.org/package=evir}

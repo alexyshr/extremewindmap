@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/W32TeX) (preloaded format=pdflatex 2020.3.2)  10 MAR 2020 16:32
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/W32TeX) (preloaded format=pdflatex 2020.3.2)  11 MAR 2020 11:13
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -673,24 +673,24 @@ File: l3backend-pdfmode.def 2020-02-23 L3 backend support: PDF mode
 ) (./thesis.aux)
 \openout1 = `thesis.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 251.
-LaTeX Font Info:    ... okay on input line 251.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 251.
-LaTeX Font Info:    ... okay on input line 251.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 251.
-LaTeX Font Info:    ... okay on input line 251.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 251.
-LaTeX Font Info:    ... okay on input line 251.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 251.
-LaTeX Font Info:    ... okay on input line 251.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 251.
-LaTeX Font Info:    ... okay on input line 251.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 251.
-LaTeX Font Info:    ... okay on input line 251.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 251.
-LaTeX Font Info:    ... okay on input line 251.
-LaTeX Font Info:    Trying to load font information for T1+lmr on input line 25
-1.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 263.
+LaTeX Font Info:    ... okay on input line 263.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 263.
+LaTeX Font Info:    ... okay on input line 263.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 263.
+LaTeX Font Info:    ... okay on input line 263.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 263.
+LaTeX Font Info:    ... okay on input line 263.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 263.
+LaTeX Font Info:    ... okay on input line 263.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 263.
+LaTeX Font Info:    ... okay on input line 263.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 263.
+LaTeX Font Info:    ... okay on input line 263.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 263.
+LaTeX Font Info:    ... okay on input line 263.
+LaTeX Font Info:    Trying to load font information for T1+lmr on input line 26
+3.
 (c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/t1lmr.fd
 File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
@@ -716,14 +716,14 @@ e
 ))
 
 Package Fancyhdr Warning: \fancyhead's `E' option without twoside option is use
-less on input line 251.
+less on input line 263.
 
 
 Package Fancyhdr Warning: \fancyhead's `E' option without twoside option is use
-less on input line 251.
+less on input line 263.
 
 \AtBeginShipoutBox=\box68
-Package hyperref Info: Link coloring OFF on input line 251.
+Package hyperref Info: Link coloring OFF on input line 263.
 
 (c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/namere
 f.sty
@@ -739,9 +739,9 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 \c@section@level=\count294
 )
-LaTeX Info: Redefining \ref on input line 251.
-LaTeX Info: Redefining \pageref on input line 251.
-LaTeX Info: Redefining \nameref on input line 251.
+LaTeX Info: Redefining \ref on input line 263.
+LaTeX Info: Redefining \pageref on input line 263.
+LaTeX Info: Redefining \nameref on input line 263.
 (./thesis.out) (./thesis.out)
 \@outlinefile=\write4
 \openout4 = `thesis.out'.
@@ -751,16 +751,16 @@ Package caption Info: threeparttable package is loaded.
 Package caption Info: wrapfig package is loaded.
 Package caption Info: End \AtBeginDocument code.
 LaTeX Font Info:    Trying to load font information for U+fontawesometwo on inp
-ut line 255.
+ut line 267.
 
 (c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/fontawesome/ufo
 ntawesometwo.fd
 File: ufontawesometwo.fd 2016/05/22 Font definitions for U/fontawesometwo.
 )
-<Figure/logos.png, id=273, 859.2903pt x 125.0271pt>
+<Figure/logos.png, id=277, 859.2903pt x 125.0271pt>
 File: Figure/logos.png Graphic file (type png)
 <use Figure/logos.png>
-Package pdftex.def Info: Figure/logos.png  used on input line 255.
+Package pdftex.def Info: Figure/logos.png  used on input line 267.
 (pdftex.def)             Requested size: 375.80542pt x 54.68013pt.
 [1
 Non-PDF special ignored!
@@ -771,20 +771,20 @@ Non-PDF special ignored!
 
 {c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pd
 ftex.map} <./figure/logos.png>]
-Overfull \hbox (106.63203pt too wide) in paragraph at lines 255--255
-[]\T1/lmr/m/n/12 March 10, 2020[] 
+Overfull \hbox (106.63203pt too wide) in paragraph at lines 267--267
+[]\T1/lmr/m/n/12 March 11, 2020[] 
  []
 
 
-Overfull \hbox (106.63203pt too wide) in paragraph at lines 255--255
-[]\T1/lmr/m/n/12 March 10, 2020[] 
+Overfull \hbox (106.63203pt too wide) in paragraph at lines 267--267
+[]\T1/lmr/m/n/12 March 11, 2020[] 
  []
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.256 \frontmatter
+l.268 \frontmatter
                    % this stuff will be roman-numbered [1
 
 
@@ -867,7 +867,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.346 T
+l.370 T
        here are four main approaches to deal with extreme value analysis, Sm...
 [1
 
@@ -882,178 +882,178 @@ This may cause the page layout to be inconsistent, however.
 
 [2] [3] [4]
 LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 4
-48.
+75.
 (c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 ) [5] [6]
 Chapter 2.
 LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 4
-53.
+80.
 (c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 ) [7
 
 ] [8]
-<thesis_files/figure-latex/plotideamstations-1.pdf, id=680, 469.755pt x 325.215
+<thesis_files/figure-latex/plotideamstations-1.pdf, id=686, 469.755pt x 325.215
 pt>
 File: thesis_files/figure-latex/plotideamstations-1.pdf Graphic file (type pdf)
 
 <use thesis_files/figure-latex/plotideamstations-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/plotideamstations-1.pdf  use
-d on input line 529.
+d on input line 556.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-<thesis_files/figure-latex/plotoneideamstation-1.pdf, id=681, 469.755pt x 325.2
+<thesis_files/figure-latex/plotoneideamstation-1.pdf, id=687, 469.755pt x 325.2
 15pt>
 File: thesis_files/figure-latex/plotoneideamstation-1.pdf Graphic file (type pd
 f)
 <use thesis_files/figure-latex/plotoneideamstation-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/plotoneideamstation-1.pdf  u
-sed on input line 535.
+sed on input line 562.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 [9 <./thesis_files/figure-latex/plotideamstations-1.pdf>]
-<thesis_files/figure-latex/plotisdstations-1.pdf, id=696, 469.755pt x 325.215pt
+<thesis_files/figure-latex/plotisdstations-1.pdf, id=702, 469.755pt x 325.215pt
 >
 File: thesis_files/figure-latex/plotisdstations-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/plotisdstations-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/plotisdstations-1.pdf  used 
-on input line 556.
+on input line 583.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 [10 <./thesis_files/figure-latex/plotoneideamstation-1.pdf>]
-<thesis_files/figure-latex/plotoneisdstation-1.pdf, id=708, 469.755pt x 325.215
+<thesis_files/figure-latex/plotoneisdstation-1.pdf, id=714, 469.755pt x 325.215
 pt>
 File: thesis_files/figure-latex/plotoneisdstation-1.pdf Graphic file (type pdf)
 
 <use thesis_files/figure-latex/plotoneisdstation-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/plotoneisdstation-1.pdf  use
-d on input line 562.
+d on input line 589.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 [11 <./thesis_files/figure-latex/plotisdstations-1.pdf>]
-<thesis_files/figure-latex/plotera5stations-1.pdf, id=722, 469.755pt x 292.0912
+<thesis_files/figure-latex/plotera5stations-1.pdf, id=728, 469.755pt x 292.0912
 5pt>
 File: thesis_files/figure-latex/plotera5stations-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/plotera5stations-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/plotera5stations-1.pdf  used
- on input line 571.
+ on input line 598.
 (pdftex.def)             Requested size: 469.75386pt x 292.09052pt.
 [12 <./thesis_files/figure-latex/plotoneisdstation-1.pdf>] [13 <./thesis_files/
 figure-latex/plotera5stations-1.pdf>]
 Chapter 3.
-<thesis_files/figure-latex/plotgumbelpdffunction-1.pdf, id=758, 289.08pt x 216.
+<thesis_files/figure-latex/plotgumbelpdffunction-1.pdf, id=764, 289.08pt x 216.
 81pt>
 File: thesis_files/figure-latex/plotgumbelpdffunction-1.pdf Graphic file (type 
 pdf)
 <use thesis_files/figure-latex/plotgumbelpdffunction-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/plotgumbelpdffunction-1.pdf 
- used on input line 623.
+ used on input line 650.
 (pdftex.def)             Requested size: 289.07928pt x 216.80946pt.
 [14
 
 
 ]
-<thesis_files/figure-latex/plotgumbelpdf-1.pdf, id=770, 289.08pt x 216.81pt>
+<thesis_files/figure-latex/plotgumbelpdf-1.pdf, id=776, 289.08pt x 216.81pt>
 File: thesis_files/figure-latex/plotgumbelpdf-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/plotgumbelpdf-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/plotgumbelpdf-1.pdf  used on
- input line 633.
+ input line 660.
 (pdftex.def)             Requested size: 289.07928pt x 216.80946pt.
 [15 <./thesis_files/figure-latex/plotgumbelpdffunction-1.pdf> <./thesis_files/f
 igure-latex/plotgumbelpdf-1.pdf>]
-<thesis_files/figure-latex/plotgumbelcdffunction-1.pdf, id=791, 289.08pt x 216.
+<thesis_files/figure-latex/plotgumbelcdffunction-1.pdf, id=797, 289.08pt x 216.
 81pt>
 File: thesis_files/figure-latex/plotgumbelcdffunction-1.pdf Graphic file (type 
 pdf)
 <use thesis_files/figure-latex/plotgumbelcdffunction-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/plotgumbelcdffunction-1.pdf 
- used on input line 664.
+ used on input line 691.
 (pdftex.def)             Requested size: 289.07928pt x 216.80946pt.
-<thesis_files/figure-latex/plotgumbelppffunction-1.pdf, id=795, 289.08pt x 216.
+<thesis_files/figure-latex/plotgumbelppffunction-1.pdf, id=801, 289.08pt x 216.
 81pt>
 File: thesis_files/figure-latex/plotgumbelppffunction-1.pdf Graphic file (type 
 pdf)
 <use thesis_files/figure-latex/plotgumbelppffunction-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/plotgumbelppffunction-1.pdf 
- used on input line 690.
+ used on input line 717.
 (pdftex.def)             Requested size: 289.07928pt x 216.80946pt.
 [16 <./thesis_files/figure-latex/plotgumbelcdffunction-1.pdf>]
-<thesis_files/figure-latex/plotgumbelhffunction-1.pdf, id=812, 289.08pt x 216.8
+<thesis_files/figure-latex/plotgumbelhffunction-1.pdf, id=818, 289.08pt x 216.8
 1pt>
 File: thesis_files/figure-latex/plotgumbelhffunction-1.pdf Graphic file (type p
 df)
 <use thesis_files/figure-latex/plotgumbelhffunction-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/plotgumbelhffunction-1.pdf  
-used on input line 715.
+used on input line 742.
 (pdftex.def)             Requested size: 289.07928pt x 216.80946pt.
 [17 <./thesis_files/figure-latex/plotgumbelppffunction-1.pdf>]
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <14.4> on input line 728.
+(Font)              <14.4> on input line 755.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 728.
+(Font)              <10> on input line 755.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 728.
-<thesis_files/figure-latex/unnamed-chunk-3-1.pdf, id=825, 216.81pt x 72.27pt>
+(Font)              <7> on input line 755.
+<thesis_files/figure-latex/unnamed-chunk-3-1.pdf, id=831, 216.81pt x 72.27pt>
 File: thesis_files/figure-latex/unnamed-chunk-3-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/unnamed-chunk-3-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/unnamed-chunk-3-1.pdf  used 
-on input line 735.
+on input line 762.
 (pdftex.def)             Requested size: 216.80946pt x 72.2698pt.
 [18 <./thesis_files/figure-latex/plotgumbelhffunction-1.pdf> <./thesis_files/fi
 gure-latex/unnamed-chunk-3-1.pdf>]
 
 Package amsmath Warning: Cannot use `split' here;
-(amsmath)                trying to recover with `aligned' on input line 762.
+(amsmath)                trying to recover with `aligned' on input line 789.
 
 
 Package amsmath Warning: Cannot use `split' here;
-(amsmath)                trying to recover with `aligned' on input line 780.
+(amsmath)                trying to recover with `aligned' on input line 807.
 
-<thesis_files/figure-latex/compoundprobability-1.pdf, id=844, 361.35pt x 180.67
+<thesis_files/figure-latex/compoundprobability-1.pdf, id=850, 361.35pt x 180.67
 5pt>
 File: thesis_files/figure-latex/compoundprobability-1.pdf Graphic file (type pd
 f)
 <use thesis_files/figure-latex/compoundprobability-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/compoundprobability-1.pdf  u
-sed on input line 786.
+sed on input line 813.
 (pdftex.def)             Requested size: 361.34912pt x 180.67455pt.
 [19] [20 <./thesis_files/figure-latex/compoundprobability-1.pdf>] [21]
-Underfull \hbox (badness 1681) in paragraph at lines 842--842
+Underfull \hbox (badness 1681) in paragraph at lines 869--869
 []\T1/lmr/bx/n/17.28 Peaks Over Thresh-old Pois-son Pro-cess POT-
  []
 
 
 Package amsmath Warning: Cannot use `split' here;
-(amsmath)                trying to recover with `aligned' on input line 855.
+(amsmath)                trying to recover with `aligned' on input line 882.
 
-<thesis_files/figure-latex/plotdomainpp-1.pdf, id=887, 252.945pt x 144.54pt>
+<thesis_files/figure-latex/plotdomainpp-1.pdf, id=893, 252.945pt x 144.54pt>
 File: thesis_files/figure-latex/plotdomainpp-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/plotdomainpp-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/plotdomainpp-1.pdf  used on 
-input line 870.
+input line 897.
 (pdftex.def)             Requested size: 252.94438pt x 144.53963pt.
 [22]
-<figure/domain3d.png, id=898, 489.62926pt x 457.71pt>
+<figure/domain3d.png, id=904, 489.62926pt x 457.71pt>
 File: figure/domain3d.png Graphic file (type png)
 <use figure/domain3d.png>
-Package pdftex.def Info: figure/domain3d.png  used on input line 887.
+Package pdftex.def Info: figure/domain3d.png  used on input line 914.
 (pdftex.def)             Requested size: 294.13942pt x 274.96336pt.
 [23 <./thesis_files/figure-latex/plotdomainpp-1.pdf>] [24 <./figure/domain3d.PN
 G>] [25]
-<thesis_files/figure-latex/durstcurve-1.pdf, id=932, 361.35pt x 180.675pt>
+<thesis_files/figure-latex/durstcurve-1.pdf, id=938, 361.35pt x 180.675pt>
 File: thesis_files/figure-latex/durstcurve-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/durstcurve-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/durstcurve-1.pdf  used on in
-put line 956.
+put line 983.
 (pdftex.def)             Requested size: 361.34912pt x 180.67455pt.
 [26 <./thesis_files/figure-latex/durstcurve-1.pdf>]
 Chapter 4.
-<figure/main_methodology.png, id=946, 376.40625pt x 599.23875pt>
+<figure/main_methodology.png, id=952, 376.40625pt x 599.23875pt>
 File: figure/main_methodology.png Graphic file (type png)
 <use figure/main_methodology.png>
-Package pdftex.def Info: figure/main_methodology.png  used on input line 965.
+Package pdftex.def Info: figure/main_methodology.png  used on input line 992.
 (pdftex.def)             Requested size: 173.44756pt x 276.13779pt.
-<figure/methodology.png, id=947, 1131.0255pt x 1592.349pt>
+<figure/methodology.png, id=953, 1131.0255pt x 1592.349pt>
 File: figure/methodology.png Graphic file (type png)
 <use figure/methodology.png>
-Package pdftex.def Info: figure/methodology.png  used on input line 973.
+Package pdftex.def Info: figure/methodology.png  used on input line 1000.
 (pdftex.def)             Requested size: 452.40979pt x 636.92833pt.
 [27
 
@@ -1061,32 +1061,32 @@ Package pdftex.def Info: figure/methodology.png  used on input line 973.
 Overfull \vbox (10.99832pt too high) has occurred while \output is active []
 
 [28 <./figure/methodology.png>]
-<thesis_files/figure-latex/anemometer-1.pdf, id=959, 216.81pt x 216.81pt>
+<thesis_files/figure-latex/anemometer-1.pdf, id=965, 216.81pt x 216.81pt>
 File: thesis_files/figure-latex/anemometer-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/anemometer-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/anemometer-1.pdf  used on in
-put line 997.
+put line 1024.
 (pdftex.def)             Requested size: 216.80946pt x 216.80946pt.
 [29 <./thesis_files/figure-latex/anemometer-1.pdf>]
 
 LaTeX Warning: Reference `fig:lettaustation' on page 30 undefined on input line
- 1028.
+ 1055.
 
-<thesis_files/figure-latex/compassrose-1.pdf, id=980, 180.675pt x 180.675pt>
+<thesis_files/figure-latex/compassrose-1.pdf, id=986, 180.675pt x 180.675pt>
 File: thesis_files/figure-latex/compassrose-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/compassrose-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/compassrose-1.pdf  used on i
-nput line 1031.
+nput line 1058.
 (pdftex.def)             Requested size: 180.67455pt x 180.67455pt.
-<thesis_files/figure-latex/lettaustation2-1.pdf, id=981, 115.43124pt x 115.4312
+<thesis_files/figure-latex/lettaustation2-1.pdf, id=987, 115.43124pt x 115.4312
 4pt>
 File: thesis_files/figure-latex/lettaustation2-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/lettaustation2-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/lettaustation2-1.pdf  used o
-n input line 1040.
+n input line 1067.
 (pdftex.def)             Requested size: 115.43095pt x 115.43095pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1044--1044
+Underfull \hbox (badness 10000) in paragraph at lines 1071--1071
 []\T1/lmr/m/n/12 Figure 4.5: |Dig-i-tal im-agery for 'Van-guardia' ISD sta-tion
 
  []
@@ -1094,71 +1094,71 @@ Underfull \hbox (badness 10000) in paragraph at lines 1044--1044
 [30 <./thesis_files/figure-latex/compassrose-1.pdf>]
 
 LaTeX Warning: Reference `fig:lettauexamples' on page 31 undefined on input lin
-e 1048.
+e 1075.
 
-<thesis_files/figure-latex/lettauexamples2-1.pdf, id=996, 469.755pt x 108.405pt
->
+<thesis_files/figure-latex/lettauexamples2-1.pdf, id=1002, 469.755pt x 108.405p
+t>
 File: thesis_files/figure-latex/lettauexamples2-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/lettauexamples2-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/lettauexamples2-1.pdf  used 
-on input line 1051.
+on input line 1078.
 (pdftex.def)             Requested size: 469.75386pt x 108.40472pt.
-<figure/lettauvalues.png, id=997, 335.00156pt x 157.33781pt>
+<figure/lettauvalues.png, id=1003, 335.00156pt x 157.33781pt>
 File: figure/lettauvalues.png Graphic file (type png)
 <use figure/lettauvalues.png>
-Package pdftex.def Info: figure/lettauvalues.png  used on input line 1059.
+Package pdftex.def Info: figure/lettauvalues.png  used on input line 1086.
 (pdftex.def)             Requested size: 214.64198pt x 100.80869pt.
 [31 <./thesis_files/figure-latex/lettaustation2-1.pdf> <./thesis_files/figure-l
 atex/lettauexamples2-1.pdf> <./figure/lettauvalues.png>] [32]
-<thesis_files/figure-latex/declustering-1.pdf, id=1040, 144.54pt x 144.54pt>
+<thesis_files/figure-latex/declustering-1.pdf, id=1046, 144.54pt x 144.54pt>
 File: thesis_files/figure-latex/declustering-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/declustering-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/declustering-1.pdf  used on 
-input line 1109.
+input line 1136.
 (pdftex.def)             Requested size: 144.53963pt x 144.53963pt.
 [33 <./thesis_files/figure-latex/declustering-1.pdf>]
-<thesis_files/figure-latex/thresholding-1.pdf, id=1051, 144.54pt x 144.54pt>
+<thesis_files/figure-latex/thresholding-1.pdf, id=1057, 144.54pt x 144.54pt>
 File: thesis_files/figure-latex/thresholding-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/thresholding-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/thresholding-1.pdf  used on 
-input line 1125.
+input line 1152.
 (pdftex.def)             Requested size: 144.53963pt x 144.53963pt.
-<thesis_files/figure-latex/wstatistics-1.pdf, id=1054, 180.675pt x 180.675pt>
+<thesis_files/figure-latex/wstatistics-1.pdf, id=1060, 180.675pt x 180.675pt>
 File: thesis_files/figure-latex/wstatistics-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/wstatistics-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/wstatistics-1.pdf  used on i
-nput line 1138.
+nput line 1165.
 (pdftex.def)             Requested size: 180.67455pt x 180.67455pt.
 [34 <./thesis_files/figure-latex/thresholding-1.pdf> <./thesis_files/figure-lat
 ex/wstatistics-1.pdf>]
 
 Package amsmath Warning: Cannot use `split' here;
-(amsmath)                trying to recover with `aligned' on input line 1174.
+(amsmath)                trying to recover with `aligned' on input line 1201.
 
-<thesis_files/figure-latex/fitif-1.pdf, id=1076, 144.54pt x 144.54pt>
+<thesis_files/figure-latex/fitif-1.pdf, id=1082, 144.54pt x 144.54pt>
 File: thesis_files/figure-latex/fitif-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/fitif-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/fitif-1.pdf  used on input l
-ine 1182.
+ine 1209.
 (pdftex.def)             Requested size: 144.53963pt x 144.53963pt.
 [35 <./thesis_files/figure-latex/fitif-1.pdf>]
-<thesis_files/figure-latex/hc-1.pdf, id=1091, 144.54pt x 144.54pt>
+<thesis_files/figure-latex/hc-1.pdf, id=1097, 144.54pt x 144.54pt>
 File: thesis_files/figure-latex/hc-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/hc-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/hc-1.pdf  used on input line
- 1198.
+ 1225.
 (pdftex.def)             Requested size: 144.53963pt x 144.53963pt.
 [36 <./thesis_files/figure-latex/hc-1.pdf>]
-<thesis_files/figure-latex/combinedhc-1.pdf, id=1114, 361.35pt x 180.675pt>
+<thesis_files/figure-latex/combinedhc-1.pdf, id=1128, 361.35pt x 180.675pt>
 File: thesis_files/figure-latex/combinedhc-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/combinedhc-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/combinedhc-1.pdf  used on in
-put line 1253.
+put line 1282.
 (pdftex.def)             Requested size: 361.34912pt x 180.67455pt.
 [37] [38 <./thesis_files/figure-latex/combinedhc-1.pdf>]
 Chapter 5.
 
-Underfull \hbox (badness 4981) in paragraph at lines 1267--1267
+Underfull \hbox (badness 4981) in paragraph at lines 1296--1296
 []\T1/lmr/bx/n/17.28 Data Stan-dard-iza-tion and Down-scal-ing Sup-
  []
 
@@ -1167,1004 +1167,1010 @@ Underfull \hbox (badness 4981) in paragraph at lines 1267--1267
 ]
 
 LaTeX Warning: Reference `fig:qualitycomparison1' on page 40 undefined on input
- line 1312.
+ line 1341.
 
 [40]
-<thesis_files/figure-latex/qualitycomparison2-1.pdf, id=1157, 469.755pt x 325.2
+<thesis_files/figure-latex/qualitycomparison2-1.pdf, id=1177, 469.755pt x 325.2
 15pt>
 File: thesis_files/figure-latex/qualitycomparison2-1.pdf Graphic file (type pdf
 )
 <use thesis_files/figure-latex/qualitycomparison2-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/qualitycomparison2-1.pdf  us
-ed on input line 1339.
+ed on input line 1368.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-<thesis_files/figure-latex/sideamera5-1.pdf, id=1161, 289.08pt x 216.81pt>
+<thesis_files/figure-latex/sideamera5-1.pdf, id=1181, 289.08pt x 216.81pt>
 File: thesis_files/figure-latex/sideamera5-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/sideamera5-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/sideamera5-1.pdf  used on in
-put line 1345.
+put line 1374.
 (pdftex.def)             Requested size: 289.07928pt x 216.80946pt.
 [41 <./thesis_files/figure-latex/qualitycomparison2-1.pdf>]
-<thesis_files/figure-latex/poorcomparison-1.pdf, id=1178, 469.755pt x 325.215pt
+<thesis_files/figure-latex/poorcomparison-1.pdf, id=1198, 469.755pt x 325.215pt
 >
 File: thesis_files/figure-latex/poorcomparison-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/poorcomparison-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/poorcomparison-1.pdf  used o
-n input line 1367.
+n input line 1396.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 [42 <./thesis_files/figure-latex/sideamera5-1.pdf>]
-<thesis_files/figure-latex/verygoodxts-1.pdf, id=1193, 469.755pt x 216.81pt>
+<thesis_files/figure-latex/verygoodxts-1.pdf, id=1214, 469.755pt x 216.81pt>
 File: thesis_files/figure-latex/verygoodxts-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/verygoodxts-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/verygoodxts-1.pdf  used on i
-nput line 1393.
+nput line 1422.
 (pdftex.def)             Requested size: 469.75386pt x 216.80946pt.
-<thesis_files/figure-latex/verygood-1.pdf, id=1194, 469.755pt x 325.215pt>
+<thesis_files/figure-latex/verygood-1.pdf, id=1215, 469.755pt x 325.215pt>
 File: thesis_files/figure-latex/verygood-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/verygood-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/verygood-1.pdf  used on inpu
-t line 1398.
+t line 1427.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 [43 <./thesis_files/figure-latex/poorcomparison-1.pdf>]
-<figure/801120.jpg, id=1216, 703.87968pt x 703.87968pt>
+<figure/801120.jpg, id=1236, 703.87968pt x 703.87968pt>
 File: figure/801120.jpg Graphic file (type jpg)
 <use figure/801120.jpg>
-Package pdftex.def Info: figure/801120.jpg  used on input line 1407.
+Package pdftex.def Info: figure/801120.jpg  used on input line 1436.
 (pdftex.def)             Requested size: 161.16179pt x 161.15857pt.
 [44 <./thesis_files/figure-latex/verygoodxts-1.pdf> <./thesis_files/figure-late
 x/verygood-1.pdf>]
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 1419.
+(Font)              <5> on input line 1448.
 [45 <./figure/801120.jpg>]
-<thesis_files/figure-latex/ts-1.pdf, id=1257, 325.215pt x 144.54pt>
+<thesis_files/figure-latex/ts-1.pdf, id=1277, 325.215pt x 144.54pt>
 File: thesis_files/figure-latex/ts-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/ts-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/ts-1.pdf  used on input line
- 1492.
+ 1521.
 (pdftex.def)             Requested size: 325.2142pt x 144.53963pt.
 [46]
-<thesis_files/figure-latex/page6-1.pdf, id=1266, 180.675pt x 180.675pt>
+<thesis_files/figure-latex/page6-1.pdf, id=1286, 180.675pt x 180.675pt>
 File: thesis_files/figure-latex/page6-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/page6-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/page6-1.pdf  used on input l
-ine 1503.
+ine 1532.
 (pdftex.def)             Requested size: 180.67455pt x 180.67455pt.
 [47 <./thesis_files/figure-latex/ts-1.pdf> <./thesis_files/figure-latex/page6-1
 .pdf>]
-<thesis_files/figure-latex/page8-1.pdf, id=1289, 361.35pt x 289.08pt>
+<thesis_files/figure-latex/page8-1.pdf, id=1309, 361.35pt x 289.08pt>
 File: thesis_files/figure-latex/page8-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/page8-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/page8-1.pdf  used on input l
-ine 1526.
+ine 1555.
 (pdftex.def)             Requested size: 361.34912pt x 289.07928pt.
 [48 <./thesis_files/figure-latex/page8-1.pdf>]
-<thesis_files/figure-latex/page10-1.pdf, id=1303, 252.945pt x 180.675pt>
+<thesis_files/figure-latex/page10-1.pdf, id=1323, 252.945pt x 180.675pt>
 File: thesis_files/figure-latex/page10-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/page10-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/page10-1.pdf  used on input 
-line 1540.
+line 1569.
 (pdftex.def)             Requested size: 252.94438pt x 180.67455pt.
 [49 <./thesis_files/figure-latex/page10-1.pdf>]
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1586--1586
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1615--1615
 []|\T1/lmr/m/n/8 155.6|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1586--1586
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1615--1615
 []|\T1/lmr/m/n/8 169.3|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1586--1586
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1615--1615
 []|\T1/lmr/m/n/8 187.2|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1586--1586
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1615--1615
 []|\T1/lmr/m/n/8 200.4|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1586--1586
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1615--1615
 []|\T1/lmr/m/n/8 217.6|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1586--1586
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1615--1615
 []|\T1/lmr/m/n/8 230.3|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1586--1586
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1615--1615
 []|\T1/lmr/m/n/8 236.4|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1586--1586
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1615--1615
 []|\T1/lmr/m/n/8 242.8|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1586--1586
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1615--1615
 []|\T1/lmr/m/n/8 252.2|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1586--1586
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1615--1615
 []|\T1/lmr/m/n/8 262.1|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1586--1586
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1615--1615
 []|\T1/lmr/m/n/8 276.6|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1586--1587
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1615--1616
 []|\T1/lmr/m/n/8 0.057|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1587--1587
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1616--1616
 []|\T1/lmr/m/n/8 155.5|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1587--1587
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1616--1616
 []|\T1/lmr/m/n/8 169.3|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1587--1587
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1616--1616
 []|\T1/lmr/m/n/8 187.1|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1587--1587
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1616--1616
 []|\T1/lmr/m/n/8 200.4|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1587--1587
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1616--1616
 []|\T1/lmr/m/n/8 217.5|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1587--1587
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1616--1616
 []|\T1/lmr/m/n/8 230.1|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1587--1587
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1616--1616
 []|\T1/lmr/m/n/8 236.2|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1587--1587
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1616--1616
 []|\T1/lmr/m/n/8 242.6|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1587--1587
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1616--1616
 []|\T1/lmr/m/n/8 252.0|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1587--1587
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1616--1616
 []|\T1/lmr/m/n/8 261.9|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1587--1587
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1616--1616
 []|\T1/lmr/m/n/8 276.4|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1587--1588
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1616--1617
 []|\T1/lmr/m/n/8 0.057|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1588--1588
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1617--1617
 []|\T1/lmr/m/n/8 155.6|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1588--1588
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1617--1617
 []|\T1/lmr/m/n/8 169.3|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1588--1588
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1617--1617
 []|\T1/lmr/m/n/8 187.2|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1588--1588
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1617--1617
 []|\T1/lmr/m/n/8 200.4|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1588--1588
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1617--1617
 []|\T1/lmr/m/n/8 217.6|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1588--1588
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1617--1617
 []|\T1/lmr/m/n/8 230.3|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1588--1588
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1617--1617
 []|\T1/lmr/m/n/8 236.4|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1588--1588
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1617--1617
 []|\T1/lmr/m/n/8 242.7|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1588--1588
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1617--1617
 []|\T1/lmr/m/n/8 252.2|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1588--1588
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1617--1617
 []|\T1/lmr/m/n/8 262.1|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1588--1588
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1617--1617
 []|\T1/lmr/m/n/8 276.6|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1588--1589
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1617--1618
 []|\T1/lmr/m/n/8 0.057|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1589--1589
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1618--1618
 []|\T1/lmr/m/n/8 155.6|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1589--1589
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1618--1618
 []|\T1/lmr/m/n/8 169.3|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1589--1589
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1618--1618
 []|\T1/lmr/m/n/8 187.2|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1589--1589
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1618--1618
 []|\T1/lmr/m/n/8 200.4|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1589--1589
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1618--1618
 []|\T1/lmr/m/n/8 217.6|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1589--1589
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1618--1618
 []|\T1/lmr/m/n/8 230.3|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1589--1589
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1618--1618
 []|\T1/lmr/m/n/8 236.4|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1589--1589
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1618--1618
 []|\T1/lmr/m/n/8 242.7|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1589--1589
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1618--1618
 []|\T1/lmr/m/n/8 252.2|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1589--1589
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1618--1618
 []|\T1/lmr/m/n/8 262.1|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1589--1589
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1618--1618
 []|\T1/lmr/m/n/8 276.6|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1589--1590
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1618--1619
 []|\T1/lmr/m/n/8 0.057|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1590--1590
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1619--1619
 []|\T1/lmr/m/n/8 155.0|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1590--1590
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1619--1619
 []|\T1/lmr/m/n/8 168.5|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1590--1590
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1619--1619
 []|\T1/lmr/m/n/8 185.8|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1590--1590
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1619--1619
 []|\T1/lmr/m/n/8 198.6|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1590--1590
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1619--1619
 []|\T1/lmr/m/n/8 215.1|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1590--1590
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1619--1619
 []|\T1/lmr/m/n/8 227.3|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1590--1590
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1619--1619
 []|\T1/lmr/m/n/8 233.1|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1590--1590
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1619--1619
 []|\T1/lmr/m/n/8 239.2|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1590--1590
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1619--1619
 []|\T1/lmr/m/n/8 248.2|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1590--1590
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1619--1619
 []|\T1/lmr/m/n/8 257.6|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1590--1590
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1619--1619
 []|\T1/lmr/m/n/8 271.3|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1590--1591
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1619--1620
 []|\T1/lmr/m/n/8 0.058|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1592--1592
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1621--1621
 []|\T1/lmr/m/n/8 155.5|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1592--1592
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1621--1621
 []|\T1/lmr/m/n/8 169.3|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1592--1592
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1621--1621
 []|\T1/lmr/m/n/8 187.2|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1592--1592
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1621--1621
 []|\T1/lmr/m/n/8 200.4|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1592--1592
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1621--1621
 []|\T1/lmr/m/n/8 217.5|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1592--1592
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1621--1621
 []|\T1/lmr/m/n/8 230.2|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1592--1592
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1621--1621
 []|\T1/lmr/m/n/8 236.3|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1592--1592
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1621--1621
 []|\T1/lmr/m/n/8 242.6|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1592--1592
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1621--1621
 []|\T1/lmr/m/n/8 252.0|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1592--1592
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1621--1621
 []|\T1/lmr/m/n/8 261.9|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1592--1592
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1621--1621
 []|\T1/lmr/m/n/8 276.5|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1592--1593
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1621--1622
 []|\T1/lmr/m/n/8 0.057|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1593--1593
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1622--1622
 []|\T1/lmr/m/n/8 200.8|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1593--1593
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1622--1622
 []|\T1/lmr/m/n/8 203.9|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1593--1593
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1622--1622
 []|\T1/lmr/m/n/8 206.5|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1593--1593
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1622--1622
 []|\T1/lmr/m/n/8 207.8|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1593--1593
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1622--1622
 []|\T1/lmr/m/n/8 208.9|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1593--1593
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1622--1622
 []|\T1/lmr/m/n/8 209.4|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1593--1593
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1622--1622
 []|\T1/lmr/m/n/8 209.6|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1593--1593
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1622--1622
 []|\T1/lmr/m/n/8 209.7|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1593--1593
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1622--1622
 []|\T1/lmr/m/n/8 209.9|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1593--1593
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1622--1622
 []|\T1/lmr/m/n/8 210.1|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1593--1593
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1622--1622
 []|\T1/lmr/m/n/8 210.3|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1593--1594
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1622--1623
 []|\T1/lmr/m/n/8 0.337|  
  []
 
 
-Overfull \hbox (5.9949pt too wide) in paragraph at lines 1606--1606
+Overfull \hbox (5.9949pt too wide) in paragraph at lines 1635--1635
 []|\T1/lmr/m/n/8 gpa|  
  []
 
 
-Overfull \hbox (8.5211pt too wide) in paragraph at lines 1606--1606
+Overfull \hbox (8.5211pt too wide) in paragraph at lines 1635--1635
 []|\T1/lmr/m/n/8 149.6|  
  []
 
 
-Overfull \hbox (8.5211pt too wide) in paragraph at lines 1606--1606
+Overfull \hbox (8.5211pt too wide) in paragraph at lines 1635--1635
 []|\T1/lmr/m/n/8 160.6|  
  []
 
 
-Overfull \hbox (8.5211pt too wide) in paragraph at lines 1606--1606
+Overfull \hbox (8.5211pt too wide) in paragraph at lines 1635--1635
 []|\T1/lmr/m/n/8 174.2|  
  []
 
 
-Overfull \hbox (8.5211pt too wide) in paragraph at lines 1606--1606
+Overfull \hbox (8.5211pt too wide) in paragraph at lines 1635--1635
 []|\T1/lmr/m/n/8 183.9|  
  []
 
 
-Overfull \hbox (8.5211pt too wide) in paragraph at lines 1606--1606
+Overfull \hbox (8.5211pt too wide) in paragraph at lines 1635--1635
 []|\T1/lmr/m/n/8 195.8|  
  []
 
 
-Overfull \hbox (8.5211pt too wide) in paragraph at lines 1606--1606
+Overfull \hbox (8.5211pt too wide) in paragraph at lines 1635--1635
 []|\T1/lmr/m/n/8 204.2|  
  []
 
 
-Overfull \hbox (8.5211pt too wide) in paragraph at lines 1606--1606
+Overfull \hbox (8.5211pt too wide) in paragraph at lines 1635--1635
 []|\T1/lmr/m/n/8 208.2|  
  []
 
 
-Overfull \hbox (8.5211pt too wide) in paragraph at lines 1606--1606
+Overfull \hbox (8.5211pt too wide) in paragraph at lines 1635--1635
 []|\T1/lmr/m/n/8 212.2|  
  []
 
 
-Overfull \hbox (8.5211pt too wide) in paragraph at lines 1606--1606
+Overfull \hbox (8.5211pt too wide) in paragraph at lines 1635--1635
 []|\T1/lmr/m/n/8 218.0|  
  []
 
 
-Overfull \hbox (8.5211pt too wide) in paragraph at lines 1606--1606
+Overfull \hbox (8.5211pt too wide) in paragraph at lines 1635--1635
 []|\T1/lmr/m/n/8 223.9|  
  []
 
 
-Overfull \hbox (8.5211pt too wide) in paragraph at lines 1606--1606
+Overfull \hbox (8.5211pt too wide) in paragraph at lines 1635--1635
 []|\T1/lmr/m/n/8 232.2|  
  []
 
 
-Overfull \hbox (8.5211pt too wide) in paragraph at lines 1606--1607
+Overfull \hbox (8.5211pt too wide) in paragraph at lines 1635--1636
 []|\T1/lmr/m/n/8 0.048|  
  []
 
 
-Overfull \hbox (5.28656pt too wide) in paragraph at lines 1607--1607
+Overfull \hbox (5.28656pt too wide) in paragraph at lines 1636--1636
 []|\T1/lmr/m/n/8 gev|  
  []
 
 
-Overfull \hbox (8.5211pt too wide) in paragraph at lines 1607--1607
+Overfull \hbox (8.5211pt too wide) in paragraph at lines 1636--1636
 []|\T1/lmr/m/n/8 172.5|  
  []
 
 
-Overfull \hbox (8.5211pt too wide) in paragraph at lines 1607--1607
+Overfull \hbox (8.5211pt too wide) in paragraph at lines 1636--1636
 []|\T1/lmr/m/n/8 198.8|  
  []
 
 
-Overfull \hbox (8.5211pt too wide) in paragraph at lines 1607--1607
+Overfull \hbox (8.5211pt too wide) in paragraph at lines 1636--1636
 []|\T1/lmr/m/n/8 239.2|  
  []
 
 
-Overfull \hbox (8.5211pt too wide) in paragraph at lines 1607--1607
+Overfull \hbox (8.5211pt too wide) in paragraph at lines 1636--1636
 []|\T1/lmr/m/n/8 274.8|  
  []
 
 
-Overfull \hbox (8.5211pt too wide) in paragraph at lines 1607--1607
+Overfull \hbox (8.5211pt too wide) in paragraph at lines 1636--1636
 []|\T1/lmr/m/n/8 329.5|  
  []
 
 
-Overfull \hbox (8.5211pt too wide) in paragraph at lines 1607--1607
+Overfull \hbox (8.5211pt too wide) in paragraph at lines 1636--1636
 []|\T1/lmr/m/n/8 377.8|  
  []
 
 
-Overfull \hbox (8.5211pt too wide) in paragraph at lines 1607--1607
+Overfull \hbox (8.5211pt too wide) in paragraph at lines 1636--1636
 []|\T1/lmr/m/n/8 403.5|  
  []
 
 
-Overfull \hbox (8.5211pt too wide) in paragraph at lines 1607--1607
+Overfull \hbox (8.5211pt too wide) in paragraph at lines 1636--1636
 []|\T1/lmr/m/n/8 432.7|  
  []
 
 
-Overfull \hbox (8.5211pt too wide) in paragraph at lines 1607--1607
+Overfull \hbox (8.5211pt too wide) in paragraph at lines 1636--1636
 []|\T1/lmr/m/n/8 479.9|  
  []
 
 
-Overfull \hbox (8.5211pt too wide) in paragraph at lines 1607--1607
+Overfull \hbox (8.5211pt too wide) in paragraph at lines 1636--1636
 []|\T1/lmr/m/n/8 536.0|  
  []
 
 
-Overfull \hbox (8.5211pt too wide) in paragraph at lines 1607--1607
+Overfull \hbox (8.5211pt too wide) in paragraph at lines 1636--1636
 []|\T1/lmr/m/n/8 631.7|  
  []
 
 
-Overfull \hbox (8.5211pt too wide) in paragraph at lines 1607--1608
+Overfull \hbox (8.5211pt too wide) in paragraph at lines 1636--1637
 []|\T1/lmr/m/n/8 0.058|  
  []
 
 
-Overfull \hbox (8.8284pt too wide) in paragraph at lines 1608--1608
+Overfull \hbox (8.8284pt too wide) in paragraph at lines 1637--1637
 []|\T1/lmr/m/n/8 gum|  
  []
 
 
-Overfull \hbox (8.5211pt too wide) in paragraph at lines 1608--1608
+Overfull \hbox (8.5211pt too wide) in paragraph at lines 1637--1637
 []|\T1/lmr/m/n/8 140.9|  
  []
 
 
-Overfull \hbox (8.5211pt too wide) in paragraph at lines 1608--1608
+Overfull \hbox (8.5211pt too wide) in paragraph at lines 1637--1637
 []|\T1/lmr/m/n/8 152.1|  
  []
 
 
-Overfull \hbox (8.5211pt too wide) in paragraph at lines 1608--1608
+Overfull \hbox (8.5211pt too wide) in paragraph at lines 1637--1637
 []|\T1/lmr/m/n/8 167.0|  
  []
 
 
-Overfull \hbox (8.5211pt too wide) in paragraph at lines 1608--1608
+Overfull \hbox (8.5211pt too wide) in paragraph at lines 1637--1637
 []|\T1/lmr/m/n/8 178.2|  
  []
 
 
-Overfull \hbox (8.5211pt too wide) in paragraph at lines 1608--1608
+Overfull \hbox (8.5211pt too wide) in paragraph at lines 1637--1637
 []|\T1/lmr/m/n/8 193.0|  
  []
 
 
-Overfull \hbox (8.5211pt too wide) in paragraph at lines 1608--1608
+Overfull \hbox (8.5211pt too wide) in paragraph at lines 1637--1637
 []|\T1/lmr/m/n/8 204.3|  
  []
 
 
-Overfull \hbox (8.5211pt too wide) in paragraph at lines 1608--1608
+Overfull \hbox (8.5211pt too wide) in paragraph at lines 1637--1637
 []|\T1/lmr/m/n/8 209.7|  
  []
 
 
-Overfull \hbox (8.5211pt too wide) in paragraph at lines 1608--1608
+Overfull \hbox (8.5211pt too wide) in paragraph at lines 1637--1637
 []|\T1/lmr/m/n/8 215.5|  
  []
 
 
-Overfull \hbox (8.5211pt too wide) in paragraph at lines 1608--1608
+Overfull \hbox (8.5211pt too wide) in paragraph at lines 1637--1637
 []|\T1/lmr/m/n/8 224.1|  
  []
 
 
-Overfull \hbox (8.5211pt too wide) in paragraph at lines 1608--1608
+Overfull \hbox (8.5211pt too wide) in paragraph at lines 1637--1637
 []|\T1/lmr/m/n/8 233.3|  
  []
 
 
-Overfull \hbox (8.5211pt too wide) in paragraph at lines 1608--1608
+Overfull \hbox (8.5211pt too wide) in paragraph at lines 1637--1637
 []|\T1/lmr/m/n/8 247.0|  
  []
 
 
-Overfull \hbox (8.5211pt too wide) in paragraph at lines 1608--1609
+Overfull \hbox (8.5211pt too wide) in paragraph at lines 1637--1638
 []|\T1/lmr/m/n/8 0.067|  
  []
 
 [50]
-<thesis_files/figure-latex/ingeniarmaps-1.pdf, id=1349, 469.755pt x 126.4725pt>
+<thesis_files/figure-latex/ingeniarmaps-1.pdf, id=1369, 469.755pt x 126.4725pt>
 
 File: thesis_files/figure-latex/ingeniarmaps-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/ingeniarmaps-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/ingeniarmaps-1.pdf  used on 
-input line 1624.
+input line 1653.
 (pdftex.def)             Requested size: 469.75386pt x 126.47218pt.
-<thesis_files/figure-latex/isdnhmaps-1.pdf, id=1350, 469.755pt x 194.7275pt>
+<thesis_files/figure-latex/isdnhmaps-1.pdf, id=1370, 469.755pt x 194.7275pt>
 File: thesis_files/figure-latex/isdnhmaps-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/isdnhmaps-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/isdnhmaps-1.pdf  used on inp
-ut line 1631.
+ut line 1660.
 (pdftex.def)             Requested size: 469.75386pt x 194.727pt.
-<thesis_files/figure-latex/era5nhmaps-1.pdf, id=1351, 469.755pt x 194.7275pt>
+<thesis_files/figure-latex/era5nhmaps-1.pdf, id=1371, 469.755pt x 194.7275pt>
 File: thesis_files/figure-latex/era5nhmaps-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/era5nhmaps-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/era5nhmaps-1.pdf  used on in
-put line 1636.
+put line 1665.
 (pdftex.def)             Requested size: 469.75386pt x 194.727pt.
 [51 <./thesis_files/figure-latex/ingeniarmaps-1.pdf> <./thesis_files/figure-lat
 ex/isdnhmaps-1.pdf>]
-<thesis_files/figure-latex/isdcbmaps-1.pdf, id=1385, 469.755pt x 194.7275pt>
+<thesis_files/figure-latex/isdcbmaps-1.pdf, id=1405, 469.755pt x 194.7275pt>
 File: thesis_files/figure-latex/isdcbmaps-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/isdcbmaps-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/isdcbmaps-1.pdf  used on inp
-ut line 1645.
+ut line 1674.
 (pdftex.def)             Requested size: 469.75386pt x 194.727pt.
-<thesis_files/figure-latex/era5cbmaps-1.pdf, id=1386, 469.755pt x 194.7275pt>
+<thesis_files/figure-latex/era5cbmaps-1.pdf, id=1406, 469.755pt x 194.7275pt>
 File: thesis_files/figure-latex/era5cbmaps-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/era5cbmaps-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/era5cbmaps-1.pdf  used on in
-put line 1650.
+put line 1679.
 (pdftex.def)             Requested size: 469.75386pt x 194.727pt.
 [52 <./thesis_files/figure-latex/era5nhmaps-1.pdf> <./thesis_files/figure-latex
-/isdcbmaps-1.pdf>] [53 <./thesis_files/figure-latex/era5cbmaps-1.pdf>]
+/isdcbmaps-1.pdf>] [53 <./thesis_files/figure-latex/era5cbmaps-1.pdf>] [54]
 Chapter 6.
-[54
+[55
 
 ]
 Appendix A.
 
-Overfull \hbox (2.31879pt too wide) in alignment at lines 1669--1692
+Overfull \hbox (2.31879pt too wide) in alignment at lines 1725--1748
  [] [] 
  []
 
 
-Overfull \hbox (2.31879pt too wide) in alignment at lines 1692--1712
+Overfull \hbox (2.31879pt too wide) in alignment at lines 1748--1768
  [] [] 
  []
 
 
-Overfull \hbox (2.31879pt too wide) in alignment at lines 1712--1715
+Overfull \hbox (2.31879pt too wide) in alignment at lines 1768--1771
  [] [] 
- []
-
-[55
-
-]
-Appendix B.
-
-Underfull \hbox (badness 10000) in paragraph at lines 1723--1723
-[]\T1/lmr/m/n/12 Table B.1: |[]Re-sults. Dig-i-tal files in FTP site
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1723--1723
-[]\T1/lmr/m/n/12 ftp://ftp.geocorp.co/windthesis/[]. User anony-mous@geocorp.co
-
- []
-
-
-Overfull \hbox (2.31877pt too wide) in alignment at lines 1722--1745
- [] [] 
- []
-
-
-Overfull \hbox (2.31877pt too wide) in alignment at lines 1745--1763
- [] [] 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1768--1768
-[]\T1/lmr/m/n/12 Table B.2: |[]Con-tent of the out-put Ex-cel Book
- []
-
-
-Underfull \hbox (badness 2922) in paragraph at lines 1768--1768
-\T1/lmr/m/n/12 'raw_data_station_*_fitted.xlsx', where '*' is re-placed by the
- []
-
-
-Overfull \hbox (2.06741pt too wide) in paragraph at lines 1778--1778
-[]|\T1/lmr/m/n/8 nt_distLquantile_parameters|  
  []
 
 [56
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 1788--1788
+Appendix B.
+
+Underfull \hbox (badness 10000) in paragraph at lines 1779--1779
+[]\T1/lmr/m/n/12 Table B.1: |[]Re-sults. Dig-i-tal files in FTP site
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1779--1779
+[]\T1/lmr/m/n/12 ftp://ftp.geocorp.co/windthesis/[]. User anony-mous@geocorp.co
+
+ []
+
+
+Overfull \hbox (2.31877pt too wide) in alignment at lines 1778--1801
+ [] [] 
+ []
+
+
+Overfull \hbox (2.31877pt too wide) in alignment at lines 1801--1819
+ [] [] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1824--1824
+[]\T1/lmr/m/n/12 Table B.2: |[]Con-tent of the out-put Ex-cel Book
+ []
+
+
+Underfull \hbox (badness 2922) in paragraph at lines 1824--1824
+\T1/lmr/m/n/12 'raw_data_station_*_fitted.xlsx', where '*' is re-placed by the
+ []
+
+
+Overfull \hbox (2.06741pt too wide) in paragraph at lines 1834--1834
+[]|\T1/lmr/m/n/8 nt_distLquantile_parameters|  
+ []
+
+[57
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 1844--1844
 []\T1/lmr/m/n/12 Table B.3: |[]Con-tent of the out-put Ex-cel Book
  []
 
 
-Underfull \hbox (badness 5939) in paragraph at lines 1788--1788
+Underfull \hbox (badness 5939) in paragraph at lines 1844--1844
 \T1/lmr/m/n/12 'raw_data_station_*_statistics.xlsx', where '*' is re-placed by
  []
 
 
-Underfull \hbox (badness 1983) in paragraph at lines 1811--1811
+Underfull \hbox (badness 1983) in paragraph at lines 1867--1867
 []\T1/lmr/m/n/12 Table B.4: |[]Con-tent of the out-put graph-ics PDF file 'Fit-
 ted-
  []
 
-[57]
-Underfull \hbox (badness 10000) in paragraph at lines 1836--1836
+[58]
+Underfull \hbox (badness 10000) in paragraph at lines 1892--1892
 []\T1/lmr/m/n/12 Table B.5: |[]Con-tent of the out-put Ex-cel Book 'fit-
  []
 
 
-Underfull \hbox (badness 1533) in paragraph at lines 1836--1836
+Underfull \hbox (badness 1533) in paragraph at lines 1892--1892
 \T1/lmr/m/n/12 ted_model_result.xlsx' (sheet pp_pintar). One file by dataset
  []
 
 
-Overfull \hbox (1.99481pt too wide) in paragraph at lines 1852--1852
+Overfull \hbox (1.99481pt too wide) in paragraph at lines 1908--1908
 []|\T1/lmr/m/n/8 nt_MRI_poissonprocessintfunc|  
  []
 
 
-Overfull \hbox (5.30048pt too wide) in paragraph at lines 1855--1855
+Overfull \hbox (5.30048pt too wide) in paragraph at lines 1911--1911
 []|\T1/lmr/m/n/8 tnt_MRI_poissonprocessintfunc|  
  []
 
-[58] [59]
+[59] [60]
 Appendix C.
-
-Underfull \hbox (badness 1546) in paragraph at lines 1927--1928
-\T1/lmr/m/n/12 page []$\T1/lmtt/m/n/12 https : / / confluence . ecmwf . int / d
-isplay / CKB / ERA5 % 3A + data + documentation$[]\T1/lmr/m/n/12 , or
- []
-
 LaTeX Font Info:    Trying to load font information for TS1+lmtt on input line 
-1934.
+1990.
 (c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/ts1lmtt.fd
 File: ts1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
-) [60
+) [61
 
 ]
-Underfull \hbox (badness 1742) in paragraph at lines 1982--1983
+Underfull \hbox (badness 1742) in paragraph at lines 2038--2039
 \T1/lmtt/m/n/12 mpg . de / projects / cdo/$[]\T1/lmr/m/n/12 , NetCDF com-mand l
 ine utilies []$\T1/lmtt/m/n/12 https : / / www . unidata . ucar .
  []
 
 
-Underfull \hbox (badness 2653) in paragraph at lines 1982--1983
+Underfull \hbox (badness 2653) in paragraph at lines 2038--2039
 \T1/lmtt/m/n/12 edu / software / netcdf / docs / netcdf _ working _ with _ netc
 df _ files . html$[]\T1/lmr/m/n/12 , and NetCDF
  []
 
-[61] [62]
+[62] [63]
 Appendix D.
-
-Package xcolor Warning: Incompatible color definition on input line 2026.
-
-LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <12> not available
-(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 2028.
-
-Package xcolor Warning: Incompatible color definition on input line 2031.
-
-
-Package xcolor Warning: Incompatible color definition on input line 2031.
-
-
-Package xcolor Warning: Incompatible color definition on input line 2041.
-
-
-Package xcolor Warning: Incompatible color definition on input line 2074.
-
-
-Package xcolor Warning: Incompatible color definition on input line 2074.
-
-
-Overfull \vbox (1.7763pt too high) detected at line 2074
- []
-
-
-Package xcolor Warning: Incompatible color definition on input line 2074.
-
-[63
-
-]
-
-Package xcolor Warning: Incompatible color definition on input line 2074.
-
-
-Package xcolor Warning: Incompatible color definition on input line 2074.
-
 
 Package xcolor Warning: Incompatible color definition on input line 2082.
 
+LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <12> not available
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 2084.
 
-Package xcolor Warning: Incompatible color definition on input line 2184.
-
-
-Package xcolor Warning: Incompatible color definition on input line 2184.
-
-
-Package xcolor Warning: Incompatible color definition on input line 2184.
-
-[64]
-
-Package xcolor Warning: Incompatible color definition on input line 2184.
+Package xcolor Warning: Incompatible color definition on input line 2087.
 
 
-Package xcolor Warning: Incompatible color definition on input line 2184.
+Package xcolor Warning: Incompatible color definition on input line 2087.
 
 
-Underfull \vbox (badness 10000) detected at line 2184
+Package xcolor Warning: Incompatible color definition on input line 2097.
+
+
+Package xcolor Warning: Incompatible color definition on input line 2130.
+
+
+Package xcolor Warning: Incompatible color definition on input line 2130.
+
+
+Overfull \vbox (1.7763pt too high) detected at line 2130
  []
 
 
-Underfull \vbox (badness 10000) detected at line 2184
- []
+Package xcolor Warning: Incompatible color definition on input line 2130.
+
+[64
+
+]
+
+Package xcolor Warning: Incompatible color definition on input line 2130.
 
 
-Package xcolor Warning: Incompatible color definition on input line 2184.
+Package xcolor Warning: Incompatible color definition on input line 2130.
+
+
+Package xcolor Warning: Incompatible color definition on input line 2138.
+
+
+Package xcolor Warning: Incompatible color definition on input line 2240.
+
+
+Package xcolor Warning: Incompatible color definition on input line 2240.
+
+
+Package xcolor Warning: Incompatible color definition on input line 2240.
 
 [65]
 
-Package xcolor Warning: Incompatible color definition on input line 2184.
+Package xcolor Warning: Incompatible color definition on input line 2240.
 
 
-Package xcolor Warning: Incompatible color definition on input line 2184.
+Package xcolor Warning: Incompatible color definition on input line 2240.
 
 
-Package xcolor Warning: Incompatible color definition on input line 2186.
+Underfull \vbox (badness 10000) detected at line 2240
+ []
 
 
-Package xcolor Warning: Incompatible color definition on input line 2204.
+Underfull \vbox (badness 10000) detected at line 2240
+ []
 
 
-Package xcolor Warning: Incompatible color definition on input line 2204.
+Package xcolor Warning: Incompatible color definition on input line 2240.
 
 [66]
+
+Package xcolor Warning: Incompatible color definition on input line 2240.
+
+
+Package xcolor Warning: Incompatible color definition on input line 2240.
+
+
+Package xcolor Warning: Incompatible color definition on input line 2242.
+
+
+Package xcolor Warning: Incompatible color definition on input line 2260.
+
+
+Package xcolor Warning: Incompatible color definition on input line 2260.
+
+[67]
 Appendix E.
-[67
+[68
 
 ]
-Underfull \hbox (badness 1292) in paragraph at lines 2234--2236
+Underfull \hbox (badness 1292) in paragraph at lines 2290--2292
  \T1/lmr/m/n/12 Re-trieved from []$\T1/lmtt/m/n/12 https : / / ecapra . org / s
 ites / default / files / documents / ERN -[] CAPRA -[]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2255--2257
+Underfull \hbox (badness 10000) in paragraph at lines 2311--2313
  \T1/lmr/m/n/12 from []$\T1/lmtt/m/n/12 https : / / www . ebook . de / de / pro
 duct / 35017614 / american _ society _ of _ civil _
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2255--2257
+Underfull \hbox (badness 10000) in paragraph at lines 2311--2313
  \T1/lmtt/m/n/12 engineers _ minimum _ design _ loads _ and _ associated _ crit
 eria _ for _ buildings _ and _
  []
 
-[68
+[69
 
 
-] [69]
-Underfull \hbox (badness 10000) in paragraph at lines 2321--2323
+] [70]
+Underfull \hbox (badness 1838) in paragraph at lines 2365--2367
+ [][]\T1/lmr/m/n/12 Pebesma, E., & Graeler, B. (2019). \T1/lmr/m/it/12 Gstat: S
+pa-tial and spatio-temporal geo-sta-
+ []
+
+
+Underfull \hbox (badness 2050) in paragraph at lines 2365--2367
+ \T1/lmr/m/it/12 tis-ti-cal mod-elling, pre-dic-tion and sim-u-la-tion\T1/lmr/m
+/n/12 . Re-trieved from []$\T1/lmtt/m/n/12 https : / / CRAN . R -[]
+ []
+
+[71]
+Underfull \hbox (badness 10000) in paragraph at lines 2395--2397
  \T1/lmr/m/n/12 from []$\T1/lmtt/m/n/12 https : / / www . amazon . com / Teleco
 mmunications -[] Environment -[] Monographs -[]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2321--2323
+Underfull \hbox (badness 10000) in paragraph at lines 2395--2397
  \T1/lmtt/m/n/12 Statistics -[] Probability / dp / 1584884118 ? SubscriptionId 
 = AKIAIOBINVZYXZQZ2U3A &
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2321--2323
+Underfull \hbox (badness 10000) in paragraph at lines 2395--2397
  \T1/lmtt/m/n/12 tag = chimbori05 -[] 20 & linkCode = xm2 & camp = 2025 & creat
 ive = 165953 & creativeASIN =
  []
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2333.
-[70]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 2333.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2407.
+[72]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 2407.
 (./thesis.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2333.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2333.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2407.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2407.
 
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: 3E59E8568960E31BFF07B3F5289EEC42;4933.
+(rerunfilecheck)             Checksum: DDB423F23AEA316424C85AF24BDE8F77;5017.
 
 LaTeX Warning: There were undefined references.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2333.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2407.
  ) 
 Here is how much of TeX's memory you used:
- 13191 strings out of 482938
- 207350 string characters out of 5958595
- 507932 words of memory out of 5000000
- 27718 multiletter control sequences out of 15000+600000
+ 13203 strings out of 482938
+ 207468 string characters out of 5958595
+ 509660 words of memory out of 5000000
+ 27720 multiletter control sequences out of 15000+600000
  615626 words of font info for 93 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  41i,17n,49p,1583b,477s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -2202,10 +2208,10 @@ hr/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtk10.pfb><c:/User
 s/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt12.pfb>
 <c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmt
 ti10.pfb>
-Output written on thesis.pdf (81 pages, 23405440 bytes).
+Output written on thesis.pdf (83 pages, 23415654 bytes).
 PDF statistics:
- 1851 PDF objects out of 2073 (max. 8388607)
- 1613 compressed objects within 17 object streams
- 352 named destinations out of 1000 (max. 500000)
- 757 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1897 PDF objects out of 2073 (max. 8388607)
+ 1657 compressed objects within 17 object streams
+ 362 named destinations out of 1000 (max. 500000)
+ 765 words of extra memory for PDF output out of 10000 (max. 10000000)
 

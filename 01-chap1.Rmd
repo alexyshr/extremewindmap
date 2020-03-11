@@ -425,7 +425,7 @@ era5colraster.st = st_rasterize(era5colpoints, st_as_stars(mybbox,
 ```
 
 
-ERA5 is forecast reanalysis data processed by the _European Center for Medium-Range Weather Forecasts_ - ECMWF with wind speeds time series in square cells _matrix of pixels_ of 0.25 degrees (33 km) covering the whole planet. For the study area was extracted a raster of `r (nlat)` rows by `r nlon` columns in format netCDF. Figure \@ref(fig:plotera5stations) shows a map of ERA5 stations (cells centers).
+ERA5 is forecast reanalysis data processed by the _European Centre for Medium-Range Weather Forecasts_ - ECMWF with wind speeds time series in square cells _matrix of pixels_ of 0.25 degrees (33 km) covering the whole planet. For the study area was extracted a raster of `r (nlat)` rows by `r nlon` columns in format netCDF. Figure \@ref(fig:plotera5stations) shows a map of ERA5 stations (cells centers).
 
 
 ```{r era5pols, message=FALSE, warning=FALSE, include=FALSE}
@@ -704,6 +704,6 @@ timestamp_string <- as.character(timestamp)
 
 ## Data Download and Data Organization
 
-All data sources had different mechanisms for downloading. For IDEAM, the official procedure is through a written request using the e-mail _atencionalciudadano@ideam.gov.co_, then they will provide a link to get the information. For ISD, all files are available in the ftp site ftp://ftp.ncdc.noaa.gov/pub/data/noaa/isd-lite/, organized in folders by years, then a gzip file is available, with the station name in the format _ID-99999-YYYY.gz_, where ID is the USAF-ISD station identifier. For ISD, there are many files by station, one file for each year with data available. For ERA5 it is possible to make a request using a Python script, but since there is a size limit for downloading, it is neccesary to split the request, then, use console commands to create an unified netCDF file. Files with all IDEAM and ISD stations are available in the Annex \@ref(rcode) - [Resutls - Digital Files](#results). For the Python code, and the commands to join netCDF files of ERA5 data source, see the Annex \@ref(era5download) - [ERA5 Data Download and Integration](#era5download).
+All data sources had different mechanisms for downloading. For IDEAM, the official procedure is through a written request using the e-mail _atencionalciudadano@ideam.gov.co_, then they will provide a link to get the information. For ISD, all files are available in the ftp site ftp://ftp.ncdc.noaa.gov/pub/data/noaa/isd-lite/, organized in folders by years, then a gzip file is available, with the station name in the format _ID-99999-YYYY.gz_, where ID is the USAF-ISD station identifier. For ISD, there are many files by station, one file for each year with data available. For ERA5 it is possible to make a request using a Python script, but since there is a size limit for downloading, it is necessary to split the request, then, use console commands to create an unified netCDF file. Files with all IDEAM and ISD stations are available in the Annex \@ref(rcode) - [Results - Digital Files](#results). For the Python code, and the commands to join netCDF files of ERA5 data source, see the Annex \@ref(era5download) - [ERA5 Data Download and Integration](#era5download).
 
 \clearpage
