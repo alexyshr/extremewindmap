@@ -150,7 +150,7 @@ text(x=-73.614, y=4.168, labels="802340", pos=4, cex = 0.8, col="white")
 
 ```
 
-Figure \@ref(fig:lettauexamples) shows extreme conditions for roughness, open space in left image (ISD Station 804070), closed space in center image (ISD Station 803000), and a typical example where Lettau procedure is needed. Lettau equation need to be applied to each direction and then the final $z_o$ value is the weighted average, using historical wind percentage. See Figure \@ref(fig:lettauvalues) showing the strokes made to calculate the different areas for two Colombian stations. Information about wind percentage per direction at each station were obtained from @ideam1999.
+Figure \@ref(fig:lettauexamples2) shows extreme conditions for roughness, open space in left image (ISD Station 804070), closed space in center image (ISD Station 803000), and a typical example where Lettau procedure is needed. Lettau equation need to be applied to each direction and then the final $z_o$ value is the weighted average, using historical wind percentage. See Figure \@ref(fig:lettauvalues) showing the strokes made to calculate the different areas for two Colombian stations. Information about wind percentage per direction at each station were obtained from @ideam1999.
 
 ```{r lettauexamples1, include=FALSE}
 #include_graphics(path = "figure/lettauexamples.PNG")
@@ -435,7 +435,7 @@ Probabilistic (Kriging) and deterministic (IDW, local polynomials) techniques ar
 
 Possible advantage of deterministic methods, is a better assessment of the local variability of spatial autocorrelation. It can also be considered with IDW or local polynomials a detailed assessment of structural analysis and cross validation. At the end of the spatial interpolation analysis all the predictions can be compared to select the most suitable result.
 
-Main references in this research related to this matter using **R software** are @Pebesma2019, @Pebesma2004, and @Graeler2016. For the implementation of spatial statistics using vector or raster format, see @Pebesma2019a, @Pebesma2019b, and @Pebesma2018.
+Main references in this research related to this matter, using **R software** are @Pebesma2019, @Pebesma2004, and @Graeler2016. For the implementation of spatial statistics using vector or raster format, see @Pebesma2019a, @Pebesma2019b, and @Pebesma2018.
 
 ## Integration with Hurricane Data {#integration}
 

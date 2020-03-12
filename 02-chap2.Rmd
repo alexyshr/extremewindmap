@@ -196,23 +196,6 @@ plot(.x, .y, col="green", lty=4,
 
 ### Hazard Function - _hf_ {#hf}
 
-Using $S(x) = 1 - F(x)$ as survival function -_sf_, the probability that a variable takes a value greater than x $S(x) = Pr[X > x] = 1 - F(x)$, the _hf_ is the ratio between _pdf_ and _sf_.
-
-$$
-h(x) = \frac{f(x)}{S(x)} = \frac{f(x)}{1-F(x)}
-$$
-Equation \@ref(eq:gumbelhf) is the Gumbel _ppf_.
-
-
-\begin{equation}
-\mathrm{
-        h(x)= \frac{1}{\beta}\frac{\exp(-(x-\mu)/\beta)}{\exp(\exp(-(x-\mu)/\beta))-1}
-       }
-  (\#eq:gumbelhf)
-\end{equation}
-
-
-Figure \@ref(fig:plotgumbelhffunction) shows Gumbel _hf_, using Equation \@ref(eq:gumbelhf).
 
 ```{r plotgumbelhffunction, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Gumbel hf", size="footnotesize", fig.width= 4, fig.height= 3}
 par(mar=c(2.5,2.5,2,0))
@@ -231,10 +214,26 @@ plot(.x, .y, col="green", lty=4,
      round(location,2), " Scale=", round(scale,2)), type="l", 
      cex.axis = 0.5, cex.lab= 0.6, cex.main=0.7, cex.sub=0.6, 
      xlim=c(0,500))
-#library(reliaR)
-#plot(.x, hgumbel(.x, mu=location, sigma=scale))
-#plot(.x, hra.gumbel(.x, mu=location, sigma=scale))
 ```
+
+Using $S(x) = 1 - F(x)$ as survival function -_sf_, the probability that a variable takes a value greater than x $S(x) = Pr[X > x] = 1 - F(x)$, the _hf_ is the ratio between _pdf_ and _sf_.
+
+$$
+h(x) = \frac{f(x)}{S(x)} = \frac{f(x)}{1-F(x)}
+$$
+Equation \@ref(eq:gumbelhf) is the Gumbel _ppf_.
+
+
+\begin{equation}
+\mathrm{
+        h(x)= \frac{1}{\beta}\frac{\exp(-(x-\mu)/\beta)}{\exp(\exp(-(x-\mu)/\beta))-1}
+       }
+  (\#eq:gumbelhf)
+\end{equation}
+
+
+Figure \@ref(fig:plotgumbelhffunction) shows Gumbel _hf_, using Equation \@ref(eq:gumbelhf).
+
 
 ## Statistical Concepts For Extreme Analysis
 
@@ -297,21 +296,6 @@ $$
 
 ### Compound Exceedance Probability - Pn
 
-If time of exposure is consider, understood as time the structure will be in use, it is possible to have a compound probability $P_n$, where $n$ is the exposure period. $P_n$ is the probability that the extreme wind speed will be equaled or exceeded at least one time in $n$ years, and is related with the occurrence probability, but also is possible to calculate the non-occurrence compound probability (probability that the event will not occur).
-
-$$
-  \mathrm{
-    P_n = 
-    \begin{cases}
-      \begin{split}
-            &1-\left(1-\frac{1}{MRI}\right)^n,\;occurrence\,probability
-            \\
-            &\left(1-\frac{1}{MRI}\right)^n,\;non-occurrence\,probability
-      \end{split}
-    \end{cases}
-  }
-$$
-
 ```{r compoundprobability, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Compound Probability", size="footnotesize", fig.width= 5, fig.height= 2.5}
 par(mar=c(3,3,0,0))
 par(oma=c(0,0,0,0))
@@ -359,6 +343,23 @@ text(x=0.85,  y=1800,
 # box(which = "inner", col="cyan")
 # box(which = "outer", col="orange")
 ```
+
+If time of exposure is consider, understood as time the structure will be in use, it is possible to have a compound probability $P_n$, where $n$ is the exposure period. $P_n$ is the probability that the extreme wind speed will be equaled or exceeded at least one time in $n$ years, and is related with the occurrence probability, but also is possible to calculate the non-occurrence compound probability (probability that the event will not occur).
+
+$$
+  \mathrm{
+    P_n = 
+    \begin{cases}
+      \begin{split}
+            &1-\left(1-\frac{1}{MRI}\right)^n,\;occurrence\,probability
+            \\
+            &\left(1-\frac{1}{MRI}\right)^n,\;non-occurrence\,probability
+      \end{split}
+    \end{cases}
+  }
+$$
+
+
 
 If it is consider exposure time as a multiple of return period, the resulting Figure  \@ref(fig:compoundprobability), shows that:
 

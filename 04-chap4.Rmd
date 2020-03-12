@@ -119,7 +119,7 @@ stationssamplewithera5 = data.frame(
 kable(stationssamplewithera5, align=rep('l', 3),
       col.names = c("ISD ID", "IDEAM ID", "ERA5 ID, (col,row), [lon,lat]"),
       caption = "Quality Data Comparison",
-      caption.short = "quality",
+      caption.short = "Quality Data Comparison",
       longtable = TRUE,
       booktabs = TRUE) %>%
       row_spec(0, align = "l") %>%
@@ -429,7 +429,7 @@ tableverygood <-read.csv("./data/poor_datasource_comparison_very_good_match.csv"
 kable(tableverygood, align=rep('l', 3),
       col.names = c("ISD ID", "IDEAM ID", "ERA5: ID, (col,row), [lon,lat]"),
       caption = "Non quality data comparison. 'Very Good' downscaling support.",
-      caption.short = "non-quality",
+      caption.short = "Non quality data comparison",
       longtable = TRUE,
       booktabs = TRUE) %>%
       row_spec(0, align = "l") %>%
@@ -505,7 +505,7 @@ cf  = data.frame (Variable = c("Roughness - $Z_o$", "Empirical exponent - $\\alp
 kable(cf, align=c('l', 'c'),  digits = c(1, 2), format = "latex", escape = FALSE,
       col.names = c("Variable", "Value"),
       caption = "Corrections factors for ISD station 801120",
-      caption.short = "corrections factors",
+      caption.short = "Corrections factors for ISD station 801120",
       longtable = TRUE,
       booktabs = TRUE) %>%
       row_spec(0, align = "l") %>%
@@ -542,7 +542,7 @@ years_both$count.dc[is.na(years_both$count.dc)] <- 0
 kable(years_both, align=rep('l', 9),  digits = c(0,0,1,1,1,0,1,1,1), 
       col.names = c("Year", "Count", "Mean", "Min", "Max","Count", "Mean", "Min", "Max"),
       caption = "Yearly statistics of raw data and declustered data for ISD station 801120",
-      caption.short = "yearly statistics",
+      caption.short = "Yearly Statistics for ISD station 801120",
       longtable = TRUE,
       booktabs = TRUE) %>%
       row_spec(0, align = "l") %>%
@@ -737,7 +737,7 @@ mdf = data.frame(MRI=tipicalReturnPeriods, RL=veocitiesfortypicalreturnperiodsP)
 kable(mdf, align=c('l', 'c'),  digits = c(1, 2),
       col.names = c("MRI", "Return Level"),
       caption = "Return Levels -RL for typical Mean Return Intervals - MRI. ISD station 801120",
-      caption.short = "RL",
+      caption.short = "Return Levels for ISD station 801120",
       longtable = TRUE,
       booktabs = TRUE) %>%
       row_spec(0, align = "l") %>%
@@ -769,7 +769,7 @@ rownames(mydf_b) = c("extRemes", "ismev", "evd", "Renext Renouv", "evir", "fExtr
 kable(mydf_b, align=rep('l', 12),  digits = c(rep(1, 11),3), 
       col.names = c("10", "20", "50", "100", "250","500", "700", "1000", "1700", "3000", "7000", "RMSE"),
       caption = "POT-GPD. Return Levels in Kph",
-      caption.short = "POT-GPD",
+      caption.short = "POT-GPD. Return Levels in Kph",
       longtable = TRUE,
       booktabs = TRUE) %>%
       row_spec(0, align = "l") %>%
@@ -803,7 +803,7 @@ mydf_c = cbind(evd_name, mydf_c)
 kable(mydf_c, align=rep('l', 13),  digits = c(0, rep(1, 11),3), 
       col.names = c("NAME", "10", "20", "50", "100", "250","500", "700", "1000", "1700", "3000", "7000", "RMSE"),
       caption = "Common Extreme Value Distributions. Return Levels in Kph",
-      caption.short = "CommonEVD",
+      caption.short = "Common Extreme Value Distributions. Return Levels in Kph",
       longtable = TRUE,
       booktabs = TRUE) %>%
       row_spec(0, align = "l") %>%

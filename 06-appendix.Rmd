@@ -25,7 +25,7 @@ mytable_latex <- cbind(folderTree = mylink_latex, description = code[,2])
 kable(mytable_latex, linesep = "", align=rep('l', 2), format = "latex", escape = FALSE, #format = "markdown",
        col.names = c("Folder Tree - Ftp Links","Description"),
        caption = "Research R Code. \\href{ftp://ftp.geocorp.co/windthesis/}{ftp://ftp.geocorp.co/windthesis/}. User anonymous@geocorp.co (no password).",
-       caption.short = "code",
+       caption.short = "Research R Code",
        longtable = TRUE,
        booktabs = TRUE) %>%
        row_spec(0, align = "l") %>%
@@ -78,7 +78,7 @@ mytable_latex <- cbind(folderTree = mylink_latex, description = results_structur
 kable(mytable_latex, linesep = "", align=rep('l', 2), format = "latex", escape = FALSE, #format = "markdown",
        col.names = c("Folder Tree - Ftp Links","Description"),
        caption = "Results. Digital files in FTP site \\href{ftp://ftp.geocorp.co/windthesis/}{ftp://ftp.geocorp.co/windthesis/}. User anonymous@geocorp.co (no password).",
-       caption.short = "digital files",
+       caption.short = "Results. Digital files",
        longtable = TRUE,
        booktabs = TRUE) %>%
        row_spec(0, align = "l") %>%
@@ -158,7 +158,7 @@ rawdatastationidfitted <-read.csv("./data/results_annex/raw_data_station_id_fitt
 kable(rawdatastationidfitted, linesep = "", align=rep('l', 3), #format = "markdown",
        col.names = c("Excel Sheet Name","Description","Important"),
        caption = "Content of the output Excel Book 'raw\\_data\\_station\\_*\\_fitted.xlsx', where '*' is replaced by the Station ID. One file by station.",
-       caption.short = "rawdatastationidfitted",
+       caption.short = "Content of raw\\_data\\_station\\_*\\_fitted.xlsx",
        longtable = TRUE,
        booktabs = TRUE) %>%
        row_spec(0, align = "l") %>%
@@ -177,7 +177,7 @@ rawdatastationidstatistics <-read.csv("./data/results_annex/raw_data_station_id_
 kable(rawdatastationidstatistics, linesep = "", align=rep('l', 2), #format = "markdown",
        col.names = c("Excel Sheet Name","Description"),
        caption = "Content of the output Excel Book 'raw\\_data\\_station\\_*\\_statistics.xlsx', where '*' is replaced by the Station ID. One file by station.",
-       caption.short = "rawdatastationidstatistics",
+       caption.short = "Content of raw\\_data\\_station\\_*\\_statistics.xlsx",
        longtable = TRUE,
        booktabs = TRUE) %>%
        row_spec(0, align = "l") %>%
@@ -196,7 +196,7 @@ fittedmodelidpdf <-read.csv("./data/results_annex/fittedmodel_id_pdf.csv",header
 kable(fittedmodelidpdf, linesep = "", align=rep('l', 2), #format = "markdown",
        col.names = c("Graphic","Description"),
        caption = "Content of the output graphics PDF file 'FittedModel\\_*.pdf', where '*' is replaced by the Station ID. One file by station.",
-       caption.short = "fittedmodelidpdf",
+       caption.short = "Content of FittedModel\\_*.pdf",
        longtable = TRUE,
        booktabs = TRUE) %>%
        row_spec(0, align = "l") %>%
@@ -217,7 +217,7 @@ returnlevels <-read.csv("./data/results_annex/return_levels.csv",header=TRUE, st
 kable(returnlevels, linesep = "", align=rep('l', 4), #format = "markdown",
        col.names = c("Column ID", "Columns Name", "Important", "Description"),
        caption = "Content of the output Excel Book 'fitted\\_model\\_result.xlsx' (sheet pp\\_pintar). One file by dataset (ISD, ERA5).",
-       caption.short = "returnlevels",
+       caption.short = "Content of fitted\\_model\\_result.xlsx",
        longtable = TRUE,
        booktabs = TRUE) %>%
        row_spec(0, align = "l") %>%
@@ -239,7 +239,7 @@ era5maps <-read.csv("./data/results_annex/ERA5_maps.csv",header=TRUE, stringsAsF
 kable(era5maps, linesep = "", align=rep('l', 2), #format = "markdown",
        col.names = c("File", "Description"),
        caption = "ERA5 output maps",
-       caption.short = "era5maps",
+       caption.short = "ERA5 output maps",
        longtable = TRUE,
        booktabs = TRUE) %>%
        row_spec(0, align = "l") %>%
@@ -259,7 +259,7 @@ isdmaps <-read.csv("./data/results_annex/ISD_maps.csv",header=TRUE, stringsAsFac
 kable(isdmaps, linesep = "", align=rep('l', 2), #format = "markdown",
        col.names = c("File", "Description"),
        caption = "ISD output maps",
-       caption.short = "isdmaps",
+       caption.short = "ISD output maps",
        longtable = TRUE,
        booktabs = TRUE) %>%
        row_spec(0, align = "l") %>%
@@ -344,7 +344,7 @@ mytable_latex <- cbind(folderTree = mylink_latex, description = pythonera5[,2])
 kable(mytable_latex, linesep = "", align=rep('l', 2), format = "latex", escape = FALSE, #format = "markdown",
        col.names = c("Folder Tree - Ftp Links","Description"),
        caption = "Python Scripts to download ERA5 data, and commands to join netCDF files.  \\href{ftp://ftp.geocorp.co/windthesis/}{ftp://ftp.geocorp.co/windthesis/}. User anonymous@geocorp.co (no password).",
-       caption.short = "pythonera5",
+       caption.short = "Python Scripts to download ERA5 data",
        longtable = TRUE,
        booktabs = TRUE) %>%
        row_spec(0, align = "l") %>%
@@ -409,7 +409,7 @@ This appendix includes all of the R chunks of code that were hidden throughout t
 
 # User Manual {#manual}
 
-One complete example will be shown here to run the entire process from the beginning (data standardization), to the end (wind map creation and final map creation), using ISD station X.
+
 
 
 

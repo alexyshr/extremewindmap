@@ -88,7 +88,7 @@ data_sources_thesis_summary1 <-read.csv("./data/data_sources_thesis_summary1.csv
 kable(data_sources_thesis_summary1, align=rep('l', 3),
       #col.names = c("Name[Code]", "Latitud", "Longitud"),
       caption = "Datasets description",
-      caption.short = "Datasets",
+      caption.short = "Datasets Description",
       longtable = TRUE,
       booktabs = TRUE) %>%
       row_spec(0, align = "l") %>%
@@ -104,7 +104,7 @@ data_sources_thesis_summary2 <-read.csv("./data/data_sources_thesis_summary2.csv
 kable(data_sources_thesis_summary2, align=rep('l', 3),
       #col.names = c("Name[Code]", "Latitud", "Longitud"),
       caption = "Datasets variables",
-      caption.short = "Variables",
+      caption.short = "Datasets Variables",
       longtable = TRUE,
       booktabs = TRUE) %>%
       row_spec(0, align = "l") %>%
@@ -120,7 +120,7 @@ data_sources_thesis_summary3 <-read.csv("./data/data_sources_thesis_summary3.csv
 kable(data_sources_thesis_summary3, align=rep('l', 4),
       #col.names = c("Name[Code]", "Latitud", "Longitud"),
       caption = "Variables units and time",
-      caption.short = "Units and Time",
+      caption.short = "Variables units and time",
       longtable = TRUE,
       booktabs = TRUE) %>%
       row_spec(0, align = "l") %>%
@@ -135,9 +135,7 @@ Ideal data source to create extreme wind speeds maps should be field observed da
 * There are uncertainties related to the way IDEAM anemometers are registering data, then comparison with other data sources are needed to be able to do appropriate data standardization, needed as a prerequisite to the analysis.
 * There is no time continuity in the registration of IDEAM data. Historical time series are different and variable in each station.
 
-Importance of ISD database for this study is based on the fact that post-processed ISD database has wind extreme values, and it was used to create extreme wind maps for United States. ISD allows comparison with IDEAM records to take better decisions in order to do needed data standardization.
-
-Despite that ERA5 data are not observed data, but forecast, its main advantage is data availability to assess the local climatic variance every 33 square kilometers.
+Importance of ISD database for this study is based on the fact that post-processed ISD database has wind extreme values, and it was used to create extreme wind maps for United States. ISD allows comparison with IDEAM records to take better decisions in order to do needed data standardization. Despite that ERA5 data are not observed data, but forecast, its main advantage is data availability to assess the local climatic variance every 0.25 square decimal degrees.
 
 
 ## IDEAM
@@ -152,12 +150,11 @@ tableideam$longitud = round(tableideam$longitud, 2)
 #tableideamstations = 
 kable(tableideam, 
       col.names = c("Name[Code]", "Latitud", "Longitud"),
-      caption = "IDEAM Stations sample",
-      caption.short = "IDEAM Stations",
+      caption = "IDEAM Stations Sample",
+      caption.short = "IDEAM Stations sample",
       longtable = TRUE,
-      booktabs = TRUE)
-
-#kable_styling(tableideamstations, font_size = 10)
+      booktabs = TRUE)  %>%
+kable_styling(font_size = 10, latex_options="scale_down")
 
 ```
 
@@ -221,7 +218,7 @@ ggplot(data = world) +
 
 Following, the time series, autocorrelation function, and partial autocorrelation function, for IDEAM station "21205791" will be displayed.
 
-```{r plotoneideamstation, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="IDEAM Station - Time Series"}
+```{r plotoneideamstation, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="IDEAM Station ELDORADO CATAM - AUT - Time Series", fig.width=4, fig.height=2.7}
 #Plote time series of one IDEAM Station
 originalfields = c("21205791")
 newfields = paste ("X", originalfields, sep="")
@@ -245,11 +242,12 @@ timestamp_all_vvmx_aut_60 <- as.POSIXct(as_tibble(select(all_vvmx_aut_60,
 
 statideam_xts = na.omit(xts(x=select(all_vvmx_aut_60, "X21205791"), 
                             order.by = timestamp_all_vvmx_aut_60))
-par(oma = c(2,0,0,0))
+#par(oma = c(2,0,0,0))
 plot.xts(statideam_xts, main = "Station ID: 21205791\nWind Velocity [m/s]", 
          major.ticks="years", format.labels = "%b-%d\n%Y", 
-         legend.loc = "top", col="green", cex.main=0.2)
-mtext(side = 1, text = "Station Name: ELDORADO CATAM - AUT", outer = TRUE)
+         legend.loc = "top", col="green", cex.main=0.3, cex=0.4, cex.axis=0.9,
+         mar = c(2.5,1,0,1), oma = c(0,0,0,0))
+#mtext(side = 1, text = "Station Name: ELDORADO CATAM - AUT", outer = TRUE, cex=0.2)
 ```
 
 ```{r plotoneideamstationacf, include=FALSE, fig.cap="IDEAM Station ACF"}
@@ -268,7 +266,7 @@ mtext(side = 1, text = "Station Name: ELDORADO CATAM - AUT", outer = TRUE)
 
 ## ISD
 
-ISD is a database with environmental variables among then extreme wind speeds. ISD has data for the whole planet, and is based on observed data at meteorological stations in each country, which means that for Colombia is based on IDEAM data. Main advantage is data availability at neighbor countries and specialized post-processing made by NOAA's National Centers for Environmental Information - NCEI in United States, which facilitates its use. Table \@ref(tab:tableisdstations) shows a sample of five ISD stations. Figure \@ref(fig:plotisdstations) shows a map of ISD stations.
+ISD is a database with environmental variables, among them extreme wind speeds. ISD has data for the whole planet, and is based on observed data at meteorological stations in each country, which means that for Colombia is based on IDEAM data. Main advantage is data availability at neighbor countries and specialized post-processing made by NOAA's National Centers for Environmental Information - NCEI in United States, which facilitates its use. Table \@ref(tab:tableisdstations) shows a sample of five ISD stations. Figure \@ref(fig:plotisdstations) shows a map of ISD stations.
 
 ```{r tableisdstations, echo=FALSE, message=FALSE, warning=FALSE, results="asis"}
 tableisd =  isd_stations[c(81,20,29,57,60), c("usaf", "station_name", "latitud", "longitud")]
@@ -278,12 +276,11 @@ tableisd$longitud = round(tableisd$longitud, 2)
 #tableideamstations = 
 kable(tableisd, 
       col.names = c("Code", "Name", "Latitud", "Longitud"),
-      caption = "ISD Stations sample",
+      caption = "ISD Stations Sample",
       caption.short = "ISD Stations",
       longtable = TRUE,
-      booktabs = TRUE)
-
-#kable_styling(tableideamstations, font_size = 10)
+      booktabs = TRUE) %>%
+kable_styling(font_size = 10, latex_options="scale_down")
 ```
 
 ```{r isdsf, echo=FALSE, message=FALSE, warning=FALSE}
@@ -341,7 +338,7 @@ ggplot(data = world) +
 
 Following, the time series, autocorrelation function, and partial autocorrelation function, for ISD station "802590" will be displayed.
 
-```{r plotoneisdstation, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="ISD Station - Time Series"}
+```{r plotoneisdstation, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="ISD Station ALFONSO BONILLA ARAGON INTL - Time Series", fig.width=4, fig.height=2.7}
 #Plot one ISD Station
 originalfields1 = c("802590")
 newfields1 = paste ("X", originalfields1, sep="")
@@ -365,12 +362,10 @@ timestamp_isdlite <- as.POSIXct(as_tibble(select(isdlite,
 
 statisd_xts = na.omit(xts(x=select(isdlite, "X802590"), 
  order.by = timestamp_isdlite))
-par(oma = c(2,0,0,0))
+#par(oma = c(2,0,0,0))
 plot.xts(statisd_xts, main = "Station ID: 802590\nWind Velocity [m/s]", 
  major.ticks="years", format.labels = "%b-%d\n%Y", legend.loc = "top", 
- col="green", cex.main=0.2)
-mtext(side = 1, text = "Station Name: ALFONSO BONILLA ARAGON INTL", 
- outer = TRUE)
+ col="green", cex.main=0.3, cex=0.4, cex.axis=0.9, mar = c(2.5,1,0,1), oma = c(0,0,0,0))
 ```
 
 ```{r plotoneisdstationacf, include=FALSE, fig.cap="ISD Station ACF"}
@@ -423,9 +418,6 @@ mybbox = st_bbox(c(pointsbbox$xmin - (cellsize/2), pointsbbox$xmax +
 era5colraster.st = st_rasterize(era5colpoints, st_as_stars(mybbox, 
  nx = nlon, ny = nlat, values = era5colpoints$value))
 ```
-
-
-ERA5 is forecast reanalysis data processed by the _European Centre for Medium-Range Weather Forecasts_ - ECMWF with wind speeds time series in square cells _matrix of pixels_ of 0.25 degrees (33 km) covering the whole planet. For the study area was extracted a raster of `r (nlat)` rows by `r nlon` columns in format netCDF. Figure \@ref(fig:plotera5stations) shows a map of ERA5 stations (cells centers).
 
 
 ```{r era5pols, message=FALSE, warning=FALSE, include=FALSE}
@@ -678,6 +670,8 @@ corner4rb = ggplot(data = world) +
 
 grid.arrange(big, arrangeGrob(corner1lt, corner2rt, corner3lb, corner4rb), ncol=2, widths=c(2.2,1))
 ```
+
+ERA5 is forecast reanalysis data processed by the _European Centre for Medium-Range Weather Forecasts_ - ECMWF with wind speeds time series in square cells _matrix of pixels_ of 0.25 decimal degrees covering the whole planet. For the study area was extracted a raster of `r (nlat)` rows by `r nlon` columns in format netCDF. Figure \@ref(fig:plotera5stations) shows a map of ERA5 stations (cells centers).
 
 ```{r, include=FALSE}
 t.units <- ncatt_get(ncin, "time", "units")

@@ -481,7 +481,7 @@ Input data is made up of three different sources a) IDEAM - Institute of Hydrolo
 
 \begingroup\fontsize{10}{12}\selectfont
 \begin{longtable}[t]{l>{\raggedright\arraybackslash}p{0.8in}>{\raggedright\arraybackslash}p{4in}}
-\caption[Datasets]{\label{tab:tabledatasources1}Datasets description}\\
+\caption[Datasets Description]{\label{tab:tabledatasources1}Datasets description}\\
 \toprule
 \multicolumn{1}{l}{Institution} & \multicolumn{1}{l}{Dataset} & \multicolumn{1}{l}{Details}\\
 \midrule
@@ -494,7 +494,7 @@ ECMWF & ERA5 & ERA5 is a reanalysis dataset with hourly estimates of atmospheric
 
 \begingroup\fontsize{10}{12}\selectfont
 \begin{longtable}[t]{l>{\raggedright\arraybackslash}p{1.2in}>{\raggedright\arraybackslash}p{3.5in}}
-\caption[Variables]{\label{tab:tabledatasources2}Datasets variables}\\
+\caption[Datasets Variables]{\label{tab:tabledatasources2}Datasets variables}\\
 \toprule
 \multicolumn{1}{l}{Dataset} & \multicolumn{1}{l}{Variables} & \multicolumn{1}{l}{Description}\\
 \midrule
@@ -509,7 +509,7 @@ ERA5 & fg10 & 10 metre wind gust since previous post-processing\\
 
 \begingroup\fontsize{10}{12}\selectfont
 \begin{longtable}[t]{l>{\raggedright\arraybackslash}p{0.8in}>{\raggedright\arraybackslash}p{3in}l}
-\caption[Units and Time]{\label{tab:tabledatasources3}Variables units and time}\\
+\caption[Variables units and time]{\label{tab:tabledatasources3}Variables units and time}\\
 \toprule
 \multicolumn{1}{l}{Variable} & \multicolumn{1}{l}{Units} & \multicolumn{1}{l}{Time} & \multicolumn{1}{l}{Stations}\\
 \midrule
@@ -531,16 +531,16 @@ Ideal data source to create extreme wind speeds maps should be field observed da
 \item
   There is no time continuity in the registration of IDEAM data. Historical time series are different and variable in each station.
 \end{itemize}
-Importance of ISD database for this study is based on the fact that post-processed ISD database has wind extreme values, and it was used to create extreme wind maps for United States. ISD allows comparison with IDEAM records to take better decisions in order to do needed data standardization.
-
-Despite that ERA5 data are not observed data, but forecast, its main advantage is data availability to assess the local climatic variance every 33 square kilometers.
+Importance of ISD database for this study is based on the fact that post-processed ISD database has wind extreme values, and it was used to create extreme wind maps for United States. ISD allows comparison with IDEAM records to take better decisions in order to do needed data standardization. Despite that ERA5 data are not observed data, but forecast, its main advantage is data availability to assess the local climatic variance every 0.25 square decimal degrees.
 
 \hypertarget{ideam}{%
 \section{IDEAM}\label{ideam}}
 
 Historical observed wind speeds from 203 stations in Colombia are managed by the official environmental authority IDEAM. Table \ref{tab:tableideamstations} shows a sample of five IDEAM stations. Figure \ref{fig:plotideamstations} shows a map of IDEAM stations.
+
+\begingroup\fontsize{10}{12}\selectfont
 \begin{longtable}[t]{lrr}
-\caption[IDEAM Stations]{\label{tab:tableideamstations}IDEAM Stations sample}\\
+\caption[IDEAM Stations sample]{\label{tab:tableideamstations}IDEAM Stations Sample}\\
 \toprule
 Name[Code] & Latitud & Longitud\\
 \midrule
@@ -551,6 +551,7 @@ TIBAITATA - AUT [21206990] & 4.69 & -74.21\\
 ELDORADO CATAM - AUT [21205791] & 4.71 & -74.15\\
 \bottomrule
 \end{longtable}
+\endgroup{}
 \begin{figure}
 \centering
 \includegraphics{thesis_files/figure-latex/plotideamstations-1.pdf}
@@ -560,14 +561,16 @@ Following, the time series, autocorrelation function, and partial autocorrelatio
 \begin{figure}
 \centering
 \includegraphics{thesis_files/figure-latex/plotoneideamstation-1.pdf}
-\caption{\label{fig:plotoneideamstation}IDEAM Station - Time Series}
+\caption{\label{fig:plotoneideamstation}IDEAM Station ELDORADO CATAM - AUT - Time Series}
 \end{figure}
 \hypertarget{isd}{%
 \section{ISD}\label{isd}}
 
-ISD is a database with environmental variables among then extreme wind speeds. ISD has data for the whole planet, and is based on observed data at meteorological stations in each country, which means that for Colombia is based on IDEAM data. Main advantage is data availability at neighbor countries and specialized post-processing made by NOAA's National Centers for Environmental Information - NCEI in United States, which facilitates its use. Table \ref{tab:tableisdstations} shows a sample of five ISD stations. Figure \ref{fig:plotisdstations} shows a map of ISD stations.
+ISD is a database with environmental variables, among them extreme wind speeds. ISD has data for the whole planet, and is based on observed data at meteorological stations in each country, which means that for Colombia is based on IDEAM data. Main advantage is data availability at neighbor countries and specialized post-processing made by NOAA's National Centers for Environmental Information - NCEI in United States, which facilitates its use. Table \ref{tab:tableisdstations} shows a sample of five ISD stations. Figure \ref{fig:plotisdstations} shows a map of ISD stations.
+
+\begingroup\fontsize{10}{12}\selectfont
 \begin{longtable}[t]{llrr}
-\caption[ISD Stations]{\label{tab:tableisdstations}ISD Stations sample}\\
+\caption[ISD Stations]{\label{tab:tableisdstations}ISD Stations Sample}\\
 \toprule
 Code & Name & Latitud & Longitud\\
 \midrule
@@ -578,6 +581,7 @@ Code & Name & Latitud & Longitud\\
 803150 & BENITO SALAS & 2.95 & -75.29\\
 \bottomrule
 \end{longtable}
+\endgroup{}
 \begin{figure}
 \centering
 \includegraphics{thesis_files/figure-latex/plotisdstations-1.pdf}
@@ -587,17 +591,17 @@ Following, the time series, autocorrelation function, and partial autocorrelatio
 \begin{figure}
 \centering
 \includegraphics{thesis_files/figure-latex/plotoneisdstation-1.pdf}
-\caption{\label{fig:plotoneisdstation}ISD Station - Time Series}
+\caption{\label{fig:plotoneisdstation}ISD Station ALFONSO BONILLA ARAGON INTL - Time Series}
 \end{figure}
 \hypertarget{era5}{%
 \section{ERA5}\label{era5}}
-
-ERA5 is forecast reanalysis data processed by the \emph{European Centre for Medium-Range Weather Forecasts} - ECMWF with wind speeds time series in square cells \emph{matrix of pixels} of 0.25 degrees (33 km) covering the whole planet. For the study area was extracted a raster of 69 rows by 49 columns in format netCDF. Figure \ref{fig:plotera5stations} shows a map of ERA5 stations (cells centers).
 \begin{figure}
 \centering
 \includegraphics{thesis_files/figure-latex/plotera5stations-1.pdf}
 \caption{\label{fig:plotera5stations}ERA5 Cells and Stations (cells centers). 49 cols by 69 rows. Cell size 0.25 decimal degrees (aprox 28 km in Colombia). Station IDs from 1 (lon=-79, lat=12.5) to 3381 (lon=-67, lat=-4.5)}
 \end{figure}
+ERA5 is forecast reanalysis data processed by the \emph{European Centre for Medium-Range Weather Forecasts} - ECMWF with wind speeds time series in square cells \emph{matrix of pixels} of 0.25 decimal degrees covering the whole planet. For the study area was extracted a raster of 69 rows by 49 columns in format netCDF. Figure \ref{fig:plotera5stations} shows a map of ERA5 stations (cells centers).
+
 \hypertarget{data-download-and-data-organization}{%
 \section{Data Download and Data Organization}\label{data-download-and-data-organization}}
 
@@ -722,6 +726,14 @@ Figure \ref{fig:plotgumbelppffunction} shows Gumbel \emph{ppf}, using Equation \
 \hypertarget{hf}{%
 \subsection{\texorpdfstring{Hazard Function - \emph{hf}}{Hazard Function - hf}}\label{hf}}
 
+\footnotesize
+\begin{figure}
+\centering
+\includegraphics{thesis_files/figure-latex/plotgumbelhffunction-1.pdf}
+\caption{\label{fig:plotgumbelhffunction}Gumbel hf}
+\end{figure}
+\normalsize
+
 Using \(S(x) = 1 - F(x)\) as survival function -\emph{sf}, the probability that a variable takes a value greater than x \(S(x) = Pr[X > x] = 1 - F(x)\), the \emph{hf} is the ratio between \emph{pdf} and \emph{sf}.
 
 \[
@@ -735,14 +747,6 @@ Equation \eqref{eq:gumbelhf} is the Gumbel \emph{ppf}.
   \label{eq:gumbelhf}
 \end{equation}
 Figure \ref{fig:plotgumbelhffunction} shows Gumbel \emph{hf}, using Equation \eqref{eq:gumbelhf}.
-
-\footnotesize
-\begin{figure}
-\centering
-\includegraphics{thesis_files/figure-latex/plotgumbelhffunction-1.pdf}
-\caption{\label{fig:plotgumbelhffunction}Gumbel hf}
-\end{figure}
-\normalsize
 
 \hypertarget{statistical-concepts-for-extreme-analysis}{%
 \section{Statistical Concepts For Extreme Analysis}\label{statistical-concepts-for-extreme-analysis}}
@@ -792,6 +796,14 @@ For an specific wind extreme event A, the probability that the event will occur 
 \hypertarget{compound-exceedance-probability---pn}{%
 \subsection{Compound Exceedance Probability - Pn}\label{compound-exceedance-probability---pn}}
 
+\footnotesize
+\begin{figure}
+\centering
+\includegraphics{thesis_files/figure-latex/compoundprobability-1.pdf}
+\caption{\label{fig:compoundprobability}Compound Probability}
+\end{figure}
+\normalsize
+
 If time of exposure is consider, understood as time the structure will be in use, it is possible to have a compound probability \(P_n\), where \(n\) is the exposure period. \(P_n\) is the probability that the extreme wind speed will be equaled or exceeded at least one time in \(n\) years, and is related with the occurrence probability, but also is possible to calculate the non-occurrence compound probability (probability that the event will not occur).
 
 \[
@@ -806,14 +818,6 @@ If time of exposure is consider, understood as time the structure will be in use
     \end{cases}
   }
 \]
-
-\footnotesize
-\begin{figure}
-\centering
-\includegraphics{thesis_files/figure-latex/compoundprobability-1.pdf}
-\caption{\label{fig:compoundprobability}Compound Probability}
-\end{figure}
-\normalsize
 
 If it is consider exposure time as a multiple of return period, the resulting Figure \ref{fig:compoundprobability}, shows that:
 \begin{itemize}
@@ -1072,7 +1076,7 @@ Following NIST (\protect\hyperlink{ref-nist2012}{2012}), calculation of roughnes
 \end{figure}
 \normalsize
 
-Figure \ref{fig:lettauexamples} shows extreme conditions for roughness, open space in left image (ISD Station 804070), closed space in center image (ISD Station 803000), and a typical example where Lettau procedure is needed. Lettau equation need to be applied to each direction and then the final \(z_o\) value is the weighted average, using historical wind percentage. See Figure \ref{fig:lettauvalues} showing the strokes made to calculate the different areas for two Colombian stations. Information about wind percentage per direction at each station were obtained from IDEAM (\protect\hyperlink{ref-ideam1999}{1999}).
+Figure \ref{fig:lettauexamples2} shows extreme conditions for roughness, open space in left image (ISD Station 804070), closed space in center image (ISD Station 803000), and a typical example where Lettau procedure is needed. Lettau equation need to be applied to each direction and then the final \(z_o\) value is the weighted average, using historical wind percentage. See Figure \ref{fig:lettauvalues} showing the strokes made to calculate the different areas for two Colombian stations. Information about wind percentage per direction at each station were obtained from IDEAM (\protect\hyperlink{ref-ideam1999}{1999}).
 \begin{figure}
 
 {\centering \includegraphics{thesis_files/figure-latex/lettauexamples2-1} 
@@ -1260,7 +1264,7 @@ Probabilistic (Kriging) and deterministic (IDW, local polynomials) techniques ar
 \end{itemize}
 Possible advantage of deterministic methods, is a better assessment of the local variability of spatial autocorrelation. It can also be considered with IDW or local polynomials a detailed assessment of structural analysis and cross validation. At the end of the spatial interpolation analysis all the predictions can be compared to select the most suitable result.
 
-Main references in this research related to this matter using \textbf{R software} are E. Pebesma \& Graeler (\protect\hyperlink{ref-Pebesma2019}{2019}), Pebesma (\protect\hyperlink{ref-Pebesma2004}{2004}), and Gräler, Pebesma, \& Heuvelink (\protect\hyperlink{ref-Graeler2016}{2016}). For the implementation of spatial statistics using vector or raster format, see E. Pebesma (\protect\hyperlink{ref-Pebesma2019a}{2019}\protect\hyperlink{ref-Pebesma2019a}{a}), E. Pebesma (\protect\hyperlink{ref-Pebesma2019b}{2019}\protect\hyperlink{ref-Pebesma2019b}{b}), and Pebesma (\protect\hyperlink{ref-Pebesma2018}{2018}).
+Main references in this research related to this matter, using \textbf{R software} are E. Pebesma \& Graeler (\protect\hyperlink{ref-Pebesma2019}{2019}), Pebesma (\protect\hyperlink{ref-Pebesma2004}{2004}), and Gräler, Pebesma, \& Heuvelink (\protect\hyperlink{ref-Graeler2016}{2016}). For the implementation of spatial statistics using vector or raster format, see E. Pebesma (\protect\hyperlink{ref-Pebesma2019a}{2019}\protect\hyperlink{ref-Pebesma2019a}{a}), E. Pebesma (\protect\hyperlink{ref-Pebesma2019b}{2019}\protect\hyperlink{ref-Pebesma2019b}{b}), and Pebesma (\protect\hyperlink{ref-Pebesma2018}{2018}).
 
 \hypertarget{integration}{%
 \section{Integration with Hurricane Data}\label{integration}}
@@ -1342,7 +1346,7 @@ IDEAM VV\_AUT\_2 was available for twenty (20) stations, of which only twelve (1
 
 \begingroup\fontsize{10}{12}\selectfont
 \begin{longtable}[t]{>{\raggedright\arraybackslash}p{0.6in}>{\raggedright\arraybackslash}p{0.6in}>{\raggedright\arraybackslash}p{1.8in}}
-\caption[quality]{\label{tab:table12stations}Quality Data Comparison}\\
+\caption[Quality Data Comparison]{\label{tab:table12stations}Quality Data Comparison}\\
 \toprule
 \multicolumn{1}{l}{ISD ID} & \multicolumn{1}{l}{IDEAM ID} & \multicolumn{1}{l}{ERA5 ID, (col,row), [lon,lat]}\\
 \midrule
@@ -1398,7 +1402,7 @@ VV\_AUT\_10 was available for 204 stations, and despite that \(V_{3600}\) calcul
 \end{figure}
 \begingroup\fontsize{10}{12}\selectfont
 \begin{longtable}[t]{>{\raggedright\arraybackslash}p{0.6in}>{\raggedright\arraybackslash}p{0.6in}>{\raggedright\arraybackslash}p{1.8in}}
-\caption[non-quality]{\label{tab:tableverygood}Non quality data comparison. 'Very Good' downscaling support.}\\
+\caption[Non quality data comparison]{\label{tab:tableverygood}Non quality data comparison. 'Very Good' downscaling support.}\\
 \toprule
 \multicolumn{1}{l}{ISD ID} & \multicolumn{1}{l}{IDEAM ID} & \multicolumn{1}{l}{ERA5: ID, (col,row), [lon,lat]}\\
 \midrule
@@ -1441,7 +1445,7 @@ Figure \ref{fig:station801120} shows the satellite image (source Google Earth) o
 \end{figure}
 \begingroup\fontsize{10}{12}\selectfont
 \begin{longtable}[t]{>{\raggedright\arraybackslash}p{2in}>{\centering\arraybackslash}p{0.6in}}
-\caption[corrections factors]{\label{tab:cf801120}Corrections factors for ISD station 801120}\\
+\caption[Corrections factors for ISD station 801120]{\label{tab:cf801120}Corrections factors for ISD station 801120}\\
 \toprule
 \multicolumn{1}{l}{Variable} & \multicolumn{1}{l}{Value}\\
 \midrule
@@ -1465,7 +1469,7 @@ Non-thunderstorm raw data for ISD station 801120 has 2931 records, from 1986-12-
 
 \begingroup\fontsize{9}{11}\selectfont
 \begin{longtable}[t]{>{\raggedright\arraybackslash}p{0.3in}>{\raggedright\arraybackslash}p{0.3in}>{\raggedright\arraybackslash}p{0.3in}>{\raggedright\arraybackslash}p{0.3in}>{\raggedright\arraybackslash}p{0.3in}>{\raggedright\arraybackslash}p{0.3in}>{\raggedright\arraybackslash}p{0.3in}>{\raggedright\arraybackslash}p{0.3in}>{\raggedright\arraybackslash}p{0.3in}}
-\caption[yearly statistics]{\label{tab:years801120}Yearly statistics of raw data and declustered data for ISD station 801120}\\
+\caption[Yearly Statistics for ISD station 801120]{\label{tab:years801120}Yearly statistics of raw data and declustered data for ISD station 801120}\\
 \toprule
 \multicolumn{1}{c}{ } & \multicolumn{4}{c}{Raw Data} & \multicolumn{4}{c}{Declustered Data} \\
 \cmidrule(l{3pt}r{3pt}){2-5} \cmidrule(l{3pt}r{3pt}){6-9}
@@ -1574,7 +1578,7 @@ Hazard curve is the solution to Equation \eqref{eq:pprl}, but eliminating from i
 \end{figure}
 \begingroup\fontsize{10}{12}\selectfont
 \begin{longtable}[t]{>{\raggedright\arraybackslash}p{0.3in}>{\centering\arraybackslash}p{0.7in}}
-\caption[RL]{\label{tab:rl}Return Levels -RL for typical Mean Return Intervals - MRI. ISD station 801120}\\
+\caption[Return Levels for ISD station 801120]{\label{tab:rl}Return Levels -RL for typical Mean Return Intervals - MRI. ISD station 801120}\\
 \toprule
 \multicolumn{1}{l}{MRI} & \multicolumn{1}{l}{Return Level}\\
 \midrule
@@ -1606,7 +1610,7 @@ Resulting return levels and errors for POT-GPD, using R packages extRemes - Gill
 
 \begingroup\fontsize{8}{10}\selectfont
 \begin{longtable}[t]{>{\raggedright\arraybackslash}p{1.2in}>{\raggedright\arraybackslash}p{0.2in}>{\raggedright\arraybackslash}p{0.2in}>{\raggedright\arraybackslash}p{0.2in}>{\raggedright\arraybackslash}p{0.2in}>{\raggedright\arraybackslash}p{0.2in}>{\raggedright\arraybackslash}p{0.2in}>{\raggedright\arraybackslash}p{0.2in}>{\raggedright\arraybackslash}p{0.2in}>{\raggedright\arraybackslash}p{0.2in}>{\raggedright\arraybackslash}p{0.2in}>{\raggedright\arraybackslash}p{0.2in}>{\raggedright\arraybackslash}p{0.2in}}
-\caption[POT-GPD]{\label{tab:comparisonGPD}POT-GPD. Return Levels in Kph}\\
+\caption[POT-GPD. Return Levels in Kph]{\label{tab:comparisonGPD}POT-GPD. Return Levels in Kph}\\
 \toprule
 \multicolumn{1}{c}{PACKAGE} & \multicolumn{11}{c}{RETURN LEVELS FOR TYPICAL MRIs} & \multicolumn{1}{c}{ERROR} \\
 \cmidrule(l{3pt}r{3pt}){1-1} \cmidrule(l{3pt}r{3pt}){2-12} \cmidrule(l{3pt}r{3pt}){13-13}
@@ -1626,7 +1630,7 @@ Renext 2 parameters & 200.8 & 203.9 & 206.5 & 207.8 & 208.9 & 209.4 & 209.6 & 20
 
 \begingroup\fontsize{8}{10}\selectfont
 \begin{longtable}[t]{>{\raggedright\arraybackslash}p{0.1in}>{\raggedright\arraybackslash}p{1.4in}>{\raggedright\arraybackslash}p{0.15in}>{\raggedright\arraybackslash}p{0.15in}>{\raggedright\arraybackslash}p{0.15in}>{\raggedright\arraybackslash}p{0.15in}>{\raggedright\arraybackslash}p{0.15in}>{\raggedright\arraybackslash}p{0.15in}>{\raggedright\arraybackslash}p{0.15in}>{\raggedright\arraybackslash}p{0.15in}>{\raggedright\arraybackslash}p{0.15in}>{\raggedright\arraybackslash}p{0.15in}>{\raggedright\arraybackslash}p{0.15in}>{\raggedright\arraybackslash}p{0.15in}}
-\caption[CommonEVD]{\label{tab:comparisonCommonEVD}Common Extreme Value Distributions. Return Levels in Kph}\\
+\caption[Common Extreme Value Distributions. Return Levels in Kph]{\label{tab:comparisonCommonEVD}Common Extreme Value Distributions. Return Levels in Kph}\\
 \toprule
 \multicolumn{2}{c}{EVD} & \multicolumn{11}{c}{RETURN LEVELS FOR TYPICAL MRIs} & \multicolumn{1}{c}{ERROR} \\
 \cmidrule(l{3pt}r{3pt}){1-2} \cmidrule(l{3pt}r{3pt}){3-13} \cmidrule(l{3pt}r{3pt}){14-14}
@@ -1723,7 +1727,7 @@ For a detailed analysis of the results, refer to \protect\hyperlink{rmd-results}
 
 \begingroup\fontsize{7}{9}\selectfont
 \begin{longtable}[t]{>{\raggedright\arraybackslash}p{1.3in}>{\raggedright\arraybackslash}p{4.9in}}
-\caption[code]{\label{tab:code}Research R Code. \href{ftp://ftp.geocorp.co/windthesis/}{ftp://ftp.geocorp.co/windthesis/}. User anonymous@geocorp.co (no password).}\\
+\caption[Research R Code]{\label{tab:code}Research R Code. \href{ftp://ftp.geocorp.co/windthesis/}{ftp://ftp.geocorp.co/windthesis/}. User anonymous@geocorp.co (no password).}\\
 \toprule
 \multicolumn{1}{l}{Folder Tree - Ftp Links} & \multicolumn{1}{l}{Description}\\
 \midrule
@@ -1776,7 +1780,7 @@ For a detailed analysis of the results, refer to \protect\hyperlink{rmd-results}
 
 \begingroup\fontsize{8}{10}\selectfont
 \begin{longtable}[t]{>{\raggedright\arraybackslash}p{2.2in}>{\raggedright\arraybackslash}p{4in}}
-\caption[digital files]{\label{tab:resultsstructure}Results. Digital files in FTP site \href{ftp://ftp.geocorp.co/windthesis/}{ftp://ftp.geocorp.co/windthesis/}. User anonymous@geocorp.co (no password).}\\
+\caption[Results. Digital files]{\label{tab:resultsstructure}Results. Digital files in FTP site \href{ftp://ftp.geocorp.co/windthesis/}{ftp://ftp.geocorp.co/windthesis/}. User anonymous@geocorp.co (no password).}\\
 \toprule
 \multicolumn{1}{l}{Folder Tree - Ftp Links} & \multicolumn{1}{l}{Description}\\
 \midrule
@@ -1821,7 +1825,7 @@ For a detailed analysis of the results, refer to \protect\hyperlink{rmd-results}
 
 \begingroup\fontsize{8}{10}\selectfont
 \begin{longtable}[t]{>{\raggedright\arraybackslash}p{1.5in}>{\raggedright\arraybackslash}p{3in}>{\raggedright\arraybackslash}p{1.5in}}
-\caption[rawdatastationidfitted]{\label{tab:rawdatastationidfitted}Content of the output Excel Book 'raw\_data\_station\_*\_fitted.xlsx', where '*' is replaced by the Station ID. One file by station.}\\
+\caption[Content of raw\_data\_station\_*\_fitted.xlsx]{\label{tab:rawdatastationidfitted}Content of the output Excel Book 'raw\_data\_station\_*\_fitted.xlsx', where '*' is replaced by the Station ID. One file by station.}\\
 \toprule
 \multicolumn{1}{l}{Excel Sheet Name} & \multicolumn{1}{l}{Description} & \multicolumn{1}{l}{Important}\\
 \midrule
@@ -1841,7 +1845,7 @@ nt\_POT-GPD-Equivalent & Non thunderstorm. For POT-PP and using POT-GPD equivale
 
 \begingroup\fontsize{8}{10}\selectfont
 \begin{longtable}[t]{>{\raggedright\arraybackslash}p{1.2in}>{\raggedright\arraybackslash}p{4.6in}}
-\caption[rawdatastationidstatistics]{\label{tab:rawdatastationidstatistics}Content of the output Excel Book 'raw\_data\_station\_*\_statistics.xlsx', where '*' is replaced by the Station ID. One file by station.}\\
+\caption[Content of raw\_data\_station\_*\_statistics.xlsx]{\label{tab:rawdatastationidstatistics}Content of the output Excel Book 'raw\_data\_station\_*\_statistics.xlsx', where '*' is replaced by the Station ID. One file by station.}\\
 \toprule
 \multicolumn{1}{l}{Excel Sheet Name} & \multicolumn{1}{l}{Description}\\
 \midrule
@@ -1864,7 +1868,7 @@ declu\_nt\_gaps30days & Non-thunderstorm gaps of 30 days of more, , after declus
 
 \begingroup\fontsize{8}{10}\selectfont
 \begin{longtable}[t]{>{\raggedright\arraybackslash}p{0.4in}>{\raggedright\arraybackslash}p{5.7in}}
-\caption[fittedmodelidpdf]{\label{tab:fittedmodelidpdf}Content of the output graphics PDF file 'FittedModel\_*.pdf', where '*' is replaced by the Station ID. One file by station.}\\
+\caption[Content of FittedModel\_*.pdf]{\label{tab:fittedmodelidpdf}Content of the output graphics PDF file 'FittedModel\_*.pdf', where '*' is replaced by the Station ID. One file by station.}\\
 \toprule
 \multicolumn{1}{l}{Graphic} & \multicolumn{1}{l}{Description}\\
 \midrule
@@ -1889,7 +1893,7 @@ Page 15 & Declustered - Non-Thunderstorms - Hazard Curve. Gumbel Quantile Functi
 
 \begingroup\fontsize{8}{10}\selectfont
 \begin{longtable}[t]{>{\raggedright\arraybackslash}p{0.6in}>{\raggedright\arraybackslash}p{1.6in}>{\raggedright\arraybackslash}p{1in}>{\raggedright\arraybackslash}p{2.5in}}
-\caption[returnlevels]{\label{tab:returnlevels}Content of the output Excel Book 'fitted\_model\_result.xlsx' (sheet pp\_pintar). One file by dataset (ISD, ERA5).}\\
+\caption[Content of fitted\_model\_result.xlsx]{\label{tab:returnlevels}Content of the output Excel Book 'fitted\_model\_result.xlsx' (sheet pp\_pintar). One file by dataset (ISD, ERA5).}\\
 \toprule
 \multicolumn{1}{l}{Column ID} & \multicolumn{1}{l}{Columns Name} & \multicolumn{1}{l}{Important} & \multicolumn{1}{l}{Description}\\
 \midrule
@@ -1915,7 +1919,7 @@ Page 15 & Declustered - Non-Thunderstorms - Hazard Curve. Gumbel Quantile Functi
 
 \begingroup\fontsize{8}{10}\selectfont
 \begin{longtable}[t]{>{\raggedright\arraybackslash}p{2in}>{\raggedright\arraybackslash}p{3.6in}}
-\caption[era5maps]{\label{tab:era5maps}ERA5 output maps}\\
+\caption[ERA5 output maps]{\label{tab:era5maps}ERA5 output maps}\\
 \toprule
 \multicolumn{1}{l}{File} & \multicolumn{1}{l}{Description}\\
 \midrule
@@ -1947,7 +1951,7 @@ rl\_combined\_4326\_7000\_st.tif & ERA5 final wind map (hurricane + non-hurrican
 
 \begingroup\fontsize{8}{10}\selectfont
 \begin{longtable}[t]{>{\raggedright\arraybackslash}p{2in}>{\raggedright\arraybackslash}p{3.5in}}
-\caption[isdmaps]{\label{tab:isdmaps}ISD output maps}\\
+\caption[ISD output maps]{\label{tab:isdmaps}ISD output maps}\\
 \toprule
 \multicolumn{1}{l}{File} & \multicolumn{1}{l}{Description}\\
 \midrule
@@ -2039,7 +2043,7 @@ After downloading separate netCDF files, there are different tools available, to
 
 \begingroup\fontsize{8}{10}\selectfont
 \begin{longtable}[t]{>{\raggedright\arraybackslash}p{2.3in}>{\raggedright\arraybackslash}p{3in}}
-\caption[pythonera5]{\label{tab:pythonera5}Python Scripts to download ERA5 data, and commands to join netCDF files.  \href{ftp://ftp.geocorp.co/windthesis/}{ftp://ftp.geocorp.co/windthesis/}. User anonymous@geocorp.co (no password).}\\
+\caption[Python Scripts to download ERA5 data]{\label{tab:pythonera5}Python Scripts to download ERA5 data, and commands to join netCDF files.  \href{ftp://ftp.geocorp.co/windthesis/}{ftp://ftp.geocorp.co/windthesis/}. User anonymous@geocorp.co (no password).}\\
 \toprule
 \multicolumn{1}{l}{Folder Tree - Ftp Links} & \multicolumn{1}{l}{Description}\\
 \midrule
@@ -2231,11 +2235,12 @@ This appendix includes all of the R chunks of code that were hidden throughout t
 
 \NormalTok{statideam_xts =}\StringTok{ }\KeywordTok{na.omit}\NormalTok{(}\KeywordTok{xts}\NormalTok{(}\DataTypeTok{x=}\KeywordTok{select}\NormalTok{(all_vvmx_aut_}\DecValTok{60}\NormalTok{, }\StringTok{"X21205791"}\NormalTok{), }
                             \DataTypeTok{order.by =}\NormalTok{ timestamp_all_vvmx_aut_}\DecValTok{60}\NormalTok{))}
-\KeywordTok{par}\NormalTok{(}\DataTypeTok{oma =} \KeywordTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{,}\DecValTok{0}\NormalTok{,}\DecValTok{0}\NormalTok{,}\DecValTok{0}\NormalTok{))}
+\CommentTok{#par(oma = c(2,0,0,0))}
 \KeywordTok{plot.xts}\NormalTok{(statideam_xts, }\DataTypeTok{main =} \StringTok{"Station ID: 21205791}\CharTok{\textbackslash{}n}\StringTok{Wind Velocity [m/s]"}\NormalTok{, }
          \DataTypeTok{major.ticks=}\StringTok{"years"}\NormalTok{, }\DataTypeTok{format.labels =} \StringTok{"%b-%d}\CharTok{\textbackslash{}n}\StringTok{%Y"}\NormalTok{, }
-         \DataTypeTok{legend.loc =} \StringTok{"top"}\NormalTok{, }\DataTypeTok{col=}\StringTok{"green"}\NormalTok{, }\DataTypeTok{cex.main=}\FloatTok{0.2}\NormalTok{)}
-\KeywordTok{mtext}\NormalTok{(}\DataTypeTok{side =} \DecValTok{1}\NormalTok{, }\DataTypeTok{text =} \StringTok{"Station Name: ELDORADO CATAM - AUT"}\NormalTok{, }\DataTypeTok{outer =} \OtherTok{TRUE}\NormalTok{)}
+         \DataTypeTok{legend.loc =} \StringTok{"top"}\NormalTok{, }\DataTypeTok{col=}\StringTok{"green"}\NormalTok{, }\DataTypeTok{cex.main=}\FloatTok{0.3}\NormalTok{, }\DataTypeTok{cex=}\FloatTok{0.4}\NormalTok{, }\DataTypeTok{cex.axis=}\FloatTok{0.9}\NormalTok{,}
+         \DataTypeTok{mar =} \KeywordTok{c}\NormalTok{(}\FloatTok{2.5}\NormalTok{,}\DecValTok{1}\NormalTok{,}\DecValTok{0}\NormalTok{,}\DecValTok{1}\NormalTok{), }\DataTypeTok{oma =} \KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{0}\NormalTok{,}\DecValTok{0}\NormalTok{,}\DecValTok{0}\NormalTok{))}
+\CommentTok{#mtext(side = 1, text = "Station Name: ELDORADO CATAM - AUT", outer = TRUE, cex=0.2)}
 \end{Highlighting}
 \end{Shaded}
 \textbf{In Chapter \ref{rmd-thefra}:}
@@ -2260,8 +2265,6 @@ This appendix includes all of the R chunks of code that were hidden throughout t
 \end{Shaded}
 \hypertarget{manual}{%
 \chapter{User Manual}\label{manual}}
-
-One complete example will be shown here to run the entire process from the beginning (data standardization), to the end (wind map creation and final map creation), using ISD station X.
 
 \backmatter
 
