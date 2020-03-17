@@ -5,18 +5,48 @@
 # used for labeling and referencing
 if(!require(devtools))
   install.packages("devtools", repos = "http://cran.rstudio.com")
-if(!require(dplyr))
-    install.packages("dplyr", repos = "http://cran.rstudio.com")
-if(!require(ggplot2))
-    install.packages("ggplot2", repos = "http://cran.rstudio.com")
-if(!require(ggplot2))
+if(!require(bookdown))
     install.packages("bookdown", repos = "http://cran.rstudio.com")
 if(!require(thesisdown)){
   library(devtools)
   devtools::install_github("ismayc/thesisdown")
   }
+if(!require(dplyr))
+    install.packages("dplyr", repos = "http://cran.rstudio.com")
+if(!require(ggplot2))
+    install.packages("ggplot2", repos = "http://cran.rstudio.com")
+
+if(!require(sf))
+    install.packages("sf", repos = "http://cran.rstudio.com")
+if(!require(rnaturalearth))
+    install.packages("rnaturalearth", repos = "http://cran.rstudio.com")
+if(!require(rnaturalearthdata))
+    install.packages("rnaturalearthdata", repos = "http://cran.rstudio.com")
+if(!require(ggspatial))
+    install.packages("ggspatial", repos = "http://cran.rstudio.com")
+if(!require(RColorBrewer))
+    install.packages("RColorBrewer", repos = "http://cran.rstudio.com")
+if(!require(knitr))
+    install.packages("knitr", repos = "http://cran.rstudio.com")
+if(!require(kableExtra))
+    install.packages("kableExtra", repos = "http://cran.rstudio.com")
+if(!require(raster))
+    install.packages("raster", repos = "http://cran.rstudio.com")
+if(!require(RStoolbox))
+    install.packages("RStoolbox", repos = "http://cran.rstudio.com")
+if(!require(gridExtra))
+    install.packages("gridExtra", repos = "http://cran.rstudio.com")
+if(!require(ggrepel))
+    install.packages("ggrepel", repos = "http://cran.rstudio.com")
+if(!require(grid))
+    install.packages("grid", repos = "http://cran.rstudio.com")
+if(!require(cowplot))
+    install.packages("cowplot", repos = "http://cran.rstudio.com")
+library(devtools)
+library(bookdown)
 library(thesisdown)
-library(stars)
+library(dplyr)
+library(ggplot2)
 library(sf)
 library(rnaturalearth)
 library(rnaturalearthdata)
@@ -28,11 +58,8 @@ library(raster)
 library(RStoolbox)
 library(gridExtra)
 library(ggrepel)
-library(dplyr)
 library(grid)
-library(gridExtra)
 library(cowplot)
-library(ggplot2)
 ```
 
 ```{r echo=FALSE, cache= F, include=FALSE}
@@ -86,7 +113,7 @@ In both cases, to make the use of ISD and ERA5 viable, its time series are expec
 
 #### IDEAM VV_AUT_2 - Quality Data Comparison 
 
-IDEAM VV_AUT_2 was available for twenty (20) stations, of which only twelve (12) were _perfectly equivalent_ to ISD stations, see Table \@ref(tab:table12stations), and map in left panel of Figure \@ref(fig:qualitycomparison1). VV_AUT_2 dataset was transformed to $V_{3600}$ (average hourly speed), averaging all 20 values available per hour. For twelve matching  stations, wind velocity $V_{3600}$ (transformation of VV_AUT_2), was standardized station by station, using procedure described in [Surface Roughness at Open Space](#rmd-roughness) section and [Averaging Time 3-s Gust](#rmd-gust), and finally, for the same twelve ISD and IDEAM standardized stations, a comparison was done against matching ERA5 stations (the corresponding cell in ERA5 that has within ISD and IDEAM locations).
+IDEAM VV_AUT_2 was available for twenty (20) stations, of which only twelve (12) were _perfectly equivalent_ to ISD stations, see Table \@ref(tab:table12stations), and map in left panel of Figure \@ref(fig:qualitycomparison2). VV_AUT_2 dataset was transformed to $V_{3600}$ (average hourly speed), averaging all 20 values available per hour. For twelve matching  stations, wind velocity $V_{3600}$ (transformation of VV_AUT_2), was standardized station by station, using procedure described in [Surface Roughness at Open Space](#rmd-roughness) section and [Averaging Time 3-s Gust](#rmd-gust), and finally, for the same twelve ISD and IDEAM standardized stations, a comparison was done against matching ERA5 stations (the corresponding cell in ERA5 that has within ISD and IDEAM locations).
 
 ```{r table12stations, echo=FALSE, message=FALSE, warning=FALSE, paged.print=TRUE, results="asis"}
 #data_sources_thesis_summary1 <-read.csv("./data/data_sources_thesis_summary1.csv",header=TRUE, stringsAsFactors = F)

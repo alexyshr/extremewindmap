@@ -12,20 +12,20 @@ MathJax.Hub.Config({
 });
 </script>
 
-```{r include=FALSE}
-library("RcmdrMisc")
+```{r load_pkgs2, echo=FALSE, message=FALSE, warning=FALSE}
+# List of packages required for this analysis
+pkg <- c("RcmdrMisc")
+# Check if packages are not installed and assign the
+# names of the packages not installed to the variable new.pkg
+new.pkg <- pkg[!(pkg %in% installed.packages())]
+# If there are any packages in the list that aren't installed,
+# install them
+if (length(new.pkg))
+  install.packages(new.pkg, repos = "http://cran.rstudio.com")
+# Load packages (thesisdown will load all of the packages as well)
+library(RcmdrMisc)
 ```
 
-<!--
-```{r wrap-hook1, include=FALSE}
-library(knitr)
-def.chunk.hook  <- knitr::knit_hooks$get("chunk")
-knitr::knit_hooks$set(chunk = function(x, options) {
-  x <- def.chunk.hook(x, options)
-  ifelse(options$size != "normalsize", paste0("\n \\", options$size,"\n\n", x, "\n\n \\normalsize"), x)
-})
-```
--->
 
 ## Probability Concepts
 
@@ -88,11 +88,8 @@ pdfG <- function(x) {
   1/location *exp(-(x-location)/scale)*exp(-exp(-(x-location)/scale))
   }
 .y = pdfG(.x)
-plot(.x, .y, col="green", lty=4, 
- xlab="Velocities Km/h", ylab="Density Function - Gumbel Distribution", 
- main=paste("Gumbel - Density Function Gumbel Distribution\n", "Location=", 
- round(location,2), " Scale=", round(scale,2)), type="l", 
- cex.axis = 0.5, cex.lab= 0.6, cex.main=0.7, cex.sub=0.6)
+plot(.x, .y, col="green", lty=4, xlab="Velocities Km/h", ylab="Density Function - Gumbel Distribution", cex.axis = 0.5, cex.lab= 0.6, cex.main=0.7,
+ main=paste("Gumbel - Density Function Gumbel Distribution\n", "Location=", round(location,2), " Scale=", round(scale,2)), type="l", cex.sub=0.6)
 ```
 
 Figure \@ref(fig:plotgumbelpdf) shows _pdf_ with location ($\mu$) = 100 and scale ($\beta$) = 40, using function `dgumbel` of the package `RcmdrMisc`
@@ -105,11 +102,8 @@ location = 100
 scale = 40
 .x <- seq(0, 300, length.out=1000)
 dfG = dgumbel(.x, location=location, scale=scale)
-plot(.x, dfG, col="red", lty=4, 
-     xlab="Velocities Km/h", ylab="Density Function - Gumbel Distribution", 
-     main=paste("Gumbel - Density Function Gumbel Distribution\n", "Location=", 
-     round(location,2), " Scale=", round(scale,2)), type="l", 
-     cex.axis = 0.5, cex.lab= 0.6, cex.main=0.7, cex.sub=0.6)
+plot(.x, dfG, col="red", lty=4, xlab="Velocities Km/h", ylab="Density Function - Gumbel Distribution", cex.axis = 0.5, cex.lab= 0.6, cex.main=0.7,
+ main=paste("Gumbel - Density Function Gumbel Distribution\n", "Location=", round(location,2), " Scale=", round(scale,2)), type="l", cex.sub=0.6)
 ```
 
 ### Cumulative Distribution Function - _cdf_
@@ -148,11 +142,8 @@ cdfG <- function(x) {
   exp(-exp(-(x-location)/scale))
   }
 .y = cdfG(.x)
-plot(.x, .y, col="green", lty=4, 
-     xlab="Velocities Km/h", ylab="Probability", 
-     main=paste("Gumbel - Cumulative Distribution Function\n", "Location=", 
-     round(location,2), " Scale=", round(scale,2)), type="l", 
-     cex.axis = 0.5, cex.lab= 0.6, cex.main=0.7, cex.sub=0.6)
+plot(.x, .y, col="green", lty=4, xlab="Velocities Km/h", ylab="Probability", cex.axis = 0.5, cex.lab= 0.6, cex.main=0.7, type="l",
+ main=paste("Gumbel - Cumulative Distribution Function\n", "Location=", round(location,2), " Scale=", round(scale,2)), cex.sub=0.6)
 ```
 
 ### Percent Point Function - _ppf_
@@ -186,11 +177,8 @@ ppfG <- function(x) {
   location - (scale*log(-log(x)))
   }
 .y = ppfG(.x)
-plot(.x, .y, col="green", lty=4, 
-     ylab="Velocities Km/h", xlab="Probability", 
-     main=paste("Gumbel - Percent Point Function\n", "Location=", 
-     round(location,2), " Scale=", round(scale,2)), type="l", 
-     cex.axis = 0.5, cex.lab= 0.6, cex.main=0.7, cex.sub=0.6)
+plot(.x, .y, col="green", lty=4, ylab="Velocities Km/h", xlab="Probability", cex.axis = 0.5, cex.lab= 0.6, cex.main=0.7, cex.sub=0.6,
+ main=paste("Gumbel - Percent Point Function\n", "Location=", round(location,2), " Scale=", round(scale,2)), type="l")
 ```
 
 
@@ -208,12 +196,8 @@ hfG <- function(x) {
   (1/scale)*(exp(-(x-location)/scale))/(exp(exp(-(x-location)/scale))-1)
   }
 .y = hfG(.x)
-plot(.x, .y, col="green", lty=4, 
-     xlab="Velocities Km/h", ylab="Hazard", 
-     main=paste("Gumbel - Hazard Function\n", "Location=", 
-     round(location,2), " Scale=", round(scale,2)), type="l", 
-     cex.axis = 0.5, cex.lab= 0.6, cex.main=0.7, cex.sub=0.6, 
-     xlim=c(0,500))
+plot(.x, .y, col="green", lty=4, xlab="Velocities Km/h", ylab="Hazard", cex.axis = 0.5, cex.lab= 0.6, cex.main=0.7, cex.sub=0.6,
+ main=paste("Gumbel - Hazard Function\n", "Location=", round(location,2), " Scale=", round(scale,2)), type="l", xlim=c(0,500))
 ```
 
 Using $S(x) = 1 - F(x)$ as survival function -_sf_, the probability that a variable takes a value greater than x $S(x) = Pr[X > x] = 1 - F(x)$, the _hf_ is the ratio between _pdf_ and _sf_.
@@ -301,17 +285,14 @@ par(mar=c(3,3,0,0))
 par(oma=c(0,0,0,0))
 par(mgp=c(2,1,0))
 plot(1, type="n", xlab=expression(paste("Compound Probability ", P[n])), ylab="Exposure Time as a Multiple of MRI", 
-     xlim=c(0,1), ylim= c(0,2500), xaxt ="n", yaxt="n", bty="n", cex.lab=0.7)
+ xlim=c(0,1), ylim= c(0,2500), xaxt ="n", yaxt="n", bty="n", cex.lab=0.7)
 
 y1 = c(0, 500,1000,1500,2000,2500)
-text(y=y1,  x=par("usr")[1], 
-     labels = y1/500, srt = 0, pos = 2, xpd = TRUE, cex=0.8)
+text(y=y1,  x=par("usr")[1], labels = y1/500, srt = 0, pos = 2, xpd = TRUE, cex=0.8)
 y1 = 500*0.69
-text(y=y1,  x=par("usr")[1], 
-     labels = ".69", srt = 0, pos = 2, xpd = TRUE, cex=0.6)
+text(y=y1,  x=par("usr")[1], labels = ".69", srt = 0, pos = 2, xpd = TRUE, cex=0.6)
 y1 = 2250
-text(y=y1,  x=par("usr")[1], 
-     labels = expression(paste("4",frac(1,2))), srt = 0, pos = 2, xpd = TRUE, cex=0.6)
+text(y=y1,  x=par("usr")[1], labels = expression(paste("4",frac(1,2))), srt = 0, pos = 2, xpd = TRUE, cex=0.6)
 
 npn <- function(x) (1-(1/500))^x #Event will not occur
 n = seq(from=0, to=2500, by=1)
@@ -323,8 +304,7 @@ pn <- function(x) 1-(1-(1/500))^x #Event will occur
 mypn= pn(n)
 lines(x=mypn,y=n, col= "green")
 
-text(x=c(0.01, 0.37,0.63, 0.99),  par("usr")[3], 
-     labels = c(".01",".37",".63",".99") , srt = 0, pos = 1, xpd = TRUE, cex=0.6)
+text(x=c(0.01, 0.37,0.63, 0.99),  par("usr")[3], labels = c(".01",".37",".63",".99") , srt = 0, pos = 1, xpd = TRUE, cex=0.6)
 
 axis(1, at= seq(from=0, to=1, by= 0.1), labels=seq(from=0, to=1, by= 0.1), tick=TRUE, col.axis="black", cex=0.8)
 
@@ -334,14 +314,8 @@ axis(1, at=c(0.01,.37,.63,0.99),labels=FALSE, tick=TRUE, col.axis="black", tck=-
 
 abline(v=c(0.01, 0.37,0.5, 0.63,0.99), lty="dotted")
 abline(h=c(345,500, 2250), lty="dotted")
-text(x=0.15,  y=1800, 
-     labels = "chance event\nwill not occur", cex=0.7)
-text(x=0.85,  y=1800, 
-     labels = "chance event\nwill occur", cex=0.7)
-# box(which = "plot", col="red")
-# box(which = "figure", col="blue")
-# box(which = "inner", col="cyan")
-# box(which = "outer", col="orange")
+text(x=0.15,  y=1800, labels = "chance event\nwill not occur", cex=0.7)
+text(x=0.85,  y=1800, labels = "chance event\nwill occur", cex=0.7)
 ```
 
 If time of exposure is consider, understood as time the structure will be in use, it is possible to have a compound probability $P_n$, where $n$ is the exposure period. $P_n$ is the probability that the extreme wind speed will be equaled or exceeded at least one time in $n$ years, and is related with the occurrence probability, but also is possible to calculate the non-occurrence compound probability (probability that the event will not occur).

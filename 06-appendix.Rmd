@@ -381,31 +381,83 @@ In Linux, next NCO commands will extract variable p0001 from file.nc to p0001.nc
 
 # Thesis Document R Code {#docrcode}
 
-```{r}
-library(knitr)
-opts_chunk$set(tidy.opts=list(width.cutoff=60),tidy=TRUE)
-```
-
-
 This appendix includes all of the R chunks of code that were hidden throughout the document (using the `include = FALSE` or `echo=FALSE, message=FALSE, warning=FALSE` chunks tag) to help with readability and/or setup.
 
 **In Chapter \@ref(rmd-data) - Data:**
 
 1. Install/Load Packages
 
-```{r ref.label=c('load_pkgs'), results='hide', echo = TRUE, eval=FALSE}
+```{r ref.label=c('load_pkgs1'), results='hide', echo = TRUE, eval=FALSE, size="tiny"}
 ```
 
-2. Load and Plot ISD and IDEAM Stations
+2. Load IDEAM and ISD Stations
 
-```{r ref.label=c('loadstations', 'sfideam', 'plotideamstations', 'plotoneideamstation'), results='hide', echo = TRUE, eval=FALSE}
+```{r ref.label=c('loadstations', 'sfideam', 'isdsf'), results='hide', echo = TRUE, eval=FALSE, size="tiny"}
 ```
 
-**In Chapter \@ref(rmd-thefra):**
-
-
-```{r ref.label='plotgumbelpdffunction', results='hide', echo = TRUE, eval=FALSE}
+3. Plot IDEAM Stations
+```{r ref.label=c('plotideamstations', 'plotoneideamstation'), results='hide', echo = TRUE, eval=FALSE, size="tiny"}
 ```
+
+4. Plot ISD Stations
+
+```{r ref.label=c('plotisdstations', 'plotoneisdstation'), results='hide', echo = TRUE, eval=FALSE, size="tiny"}
+```
+
+5. Load ERA5 Stations
+
+```{r ref.label=c('loadera5', 'era5sf', 'era5bbox', 'era5pols'), results='hide', echo = TRUE, eval=FALSE, size="tiny"}
+```
+
+6. Plot ERA5 Stations
+
+```{r ref.label=c('plotera5stations'), results='hide', echo = TRUE, eval=FALSE, size="tiny"}
+```
+
+**In Chapter \@ref(rmd-thefra) - Theoretical Framework:**
+
+1. Install/Load Packages
+
+```{r ref.label=c('load_pkgs2'), results='hide', echo = TRUE, eval=FALSE, size="tiny"}
+```
+
+2. Plot Gumbel _pdf_ 
+
+
+```{r ref.label=c('plotgumbelpdffunction','plotgumbelpdf'), results='hide', echo = TRUE, eval=FALSE, size="tiny"}
+```
+
+3. Plot Gumbel _cdf_ 
+
+
+```{r ref.label=c('plotgumbelcdffunction'), results='hide', echo = TRUE, eval=FALSE, size="tiny"}
+```
+
+4. Plot Gumbel _ppf_ 
+
+
+```{r ref.label=c('plotgumbelppffunction'), results='hide', echo = TRUE, eval=FALSE, size="tiny"}
+```
+
+5. Plot Gumbel _hf_ 
+
+
+```{r ref.label=c('plotgumbelhffunction'), results='hide', echo = TRUE, eval=FALSE, size="tiny"}
+```
+
+6. Compound Exceedance Probability - Pn
+
+```{r ref.label=c('compoundprobability'), results='hide', echo = TRUE, eval=FALSE, size="tiny"}
+```
+
+**In Chapter \@ref(rmd-method) - Methodology:**
+
+1. Combine Hazard Curve
+
+```{r ref.label=c('combinedhc'), results='hide', echo = TRUE, eval=FALSE, size="tiny"}
+```
+
+
 
 # User Manual {#manual}
 

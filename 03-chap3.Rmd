@@ -9,16 +9,39 @@ if(!require(dplyr))
     install.packages("dplyr", repos = "http://cran.rstudio.com")
 if(!require(ggplot2))
     install.packages("ggplot2", repos = "http://cran.rstudio.com")
-if(!require(ggplot2))
+if(!require(bookdown))
     install.packages("bookdown", repos = "http://cran.rstudio.com")
+if(!require(openair))
+    install.packages("openair", repos = "http://cran.rstudio.com")
+if(!require(raster))
+    install.packages("raster", repos = "http://cran.rstudio.com")
+if(!require(rgdal))
+    install.packages("rgdal", repos = "http://cran.rstudio.com")
+if(!require(shape))
+    install.packages("shape", repos = "http://cran.rstudio.com")
+if(!require(gridExtra))
+    install.packages("gridExtra", repos = "http://cran.rstudio.com")
+if(!require(grid))
+    install.packages("grid", repos = "http://cran.rstudio.com")
+if(!require(cowplot))
+    install.packages("cowplot", repos = "http://cran.rstudio.com")
 if(!require(thesisdown)){
   library(devtools)
   devtools::install_github("ismayc/thesisdown")
   }
+library(devtools)
 library(thesisdown)
-flights <- read.csv("data/flights.csv")
+library(dplyr)
+library(ggplot2)
+library(bookdown)
+library(openair)
+library(raster)
+library(rgdal)
+library(shape)
+library(gridExtra)
+library(grid)
+library(cowplot)
 ```
-
 
 # Methodology {#rmd-method}
 
@@ -110,13 +133,12 @@ $$
 $$
 F_{exposition} = \frac{0.951434}{K_z}
 $$
-Following @nist2012, calculation of roughness need to be weighted according to the predominance of wind magnitude in eight directions (north, south, east, west, north-east, north-west, south-east, and south-west), see Figure \@ref(fig:compassrose), using a detailed aerial photo or satellite image inside a radius of 800 meters around the station location, as shown in Figure \@ref(fig:lettaustation), with south direction highlighted. 
+Following @nist2012, calculation of roughness need to be weighted according to the predominance of wind magnitude in eight directions (north, south, east, west, north-east, north-west, south-east, and south-west), see Figure \@ref(fig:compassrose), using a detailed aerial photo or satellite image inside a radius of 800 meters around the station location, as shown in Figure \@ref(fig:lettaustation2), with south direction highlighted. 
 
 ```{r compassrose, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Wind rose with wind percentages in eight directions, for a generic station", fig.align="center", fig.width= 2.5, fig.height= 2.5}
 #include_graphics(path = "figure/viensanandres.png")
 par(mar=c(0,0,0,0))
 par(oma=c(0,0,0,0))
-library(openair)
 data(mydata)
 #windRose(mydata)
 windRose(mydata, angle = 45, width = 1, 
@@ -125,8 +147,6 @@ windRose(mydata, angle = 45, width = 1,
 
 ```{r lettaustation1, include = FALSE}
 #include_graphics(path = "figure/aerial_photo_pintar.png")
-library(raster)
-library(rgdal)
 circle = readOGR(dsn = "data/circle.shp", layer = "circle")
 sectors = readOGR(dsn = "data/sectors.shp", layer = "sectors")
 #myraster = raster ("data/802340_img_nopoint_modified.tif")
@@ -154,8 +174,7 @@ Figure \@ref(fig:lettauexamples2) shows extreme conditions for roughness, open s
 
 ```{r lettauexamples1, include=FALSE}
 #include_graphics(path = "figure/lettauexamples.PNG")
-library(raster)
-library(rgdal)
+
 circle804070 = readOGR(dsn = "data/circle_804070.shp", layer = "circle_804070")
 sectors804070 = readOGR(dsn = "data/n_sector_804070.shp", layer = "n_sector_804070")
 img_stack804070=stack("data/804070_img_modified.tif")
@@ -397,7 +416,7 @@ hfG <- function(x) {
 }
 
 curve(hfG, add=T, col="red", lwd=2)
-library(shape)
+
 Arrows (x0=150, y0=0, x1=150, y1=(hfG(150)-0.003), arr.type="triangle", arr.width=0.08, lwd=0.1)
 Arrows (x0=150, y0=hfG(150), x1=10, y1=hfG(150) , arr.type="triangle", arr.width=0.08, lwd=0.1)
 #box(which = "plot", col="red")
@@ -456,103 +475,40 @@ Equation \@ref(eq:combination) can be expressed in terms of only exceedance prob
 
 
 ```{r combinedhc, echo=FALSE, fig.align="center", fig.cap="Integration Hurricane and Non-Hurricane Data", message=FALSE, warning=FALSE, fig.height=2.5, fig.width=5}
-library(shape)
-#par(xpd = NA)
-#op <- par(mar = rep(0, 4))
 
 plotit<-function(){
 
   par(mar=c(2,2,0,0))
   par(oma=c(0,0,0,0))
   par(bg=NA)
-  plot(1, xlab='', ylab='', type='n', yaxt='n', xaxt='n', tck=0,
-     xlim=c(0,200), ylim=c(0,0.05), bg = 'transparent', bty="n")
+  plot(1, xlab='', ylab='', type='n', yaxt='n', xaxt='n', tck=0, xlim=c(0,200), ylim=c(0,0.05), bg = 'transparent', bty="n")
   
   arrows(0,0,0,0.05, length=0.04)
-   arrows(0,0,200,0, length=0.04)
+  arrows(0,0,200,0, length=0.04)
   
-  text(x = par("usr")[2] - 5,  y = par("usr")[3] - 0.005,
-       labels = expression(frac(1, N)),
-       xpd = NA,
-       ## Rotate the labels by 35 degrees.
-       srt = 0,
-       cex = 0.7)
+  text(x = par("usr")[2] - 5,  y = par("usr")[3] - 0.005, labels = expression(frac(1, N)), xpd = NA, srt = 0, cex = 0.7)
   
-  text(x = par("usr")[1] - 6,  y = 0.05,
-       labels = expression(Y[N]),
-       xpd = NA,
-       ## Rotate the labels by 35 degrees.
-       srt = 0,
-       cex = 0.7)
+  text(x = par("usr")[1] - 6,  y = 0.05, labels = expression(Y[N]), xpd = NA, srt = 0, cex = 0.7)
   
-  text(x = 50.2,  y = par("usr")[3] - 0.003,
-       labels = "?",
-       xpd = NA,
-       ## Rotate the labels by 35 degrees.
-       srt = 0,
-       cex = 0.7)
+  text(x = 50.2,  y = par("usr")[3] - 0.003, labels = "?", xpd = NA, srt = 0, cex = 0.7)
   
-  text(x = 68.5,  y = par("usr")[3] - 0.003,
-       labels = "0.02",
-       xpd = NA,
-       ## Rotate the labels by 35 degrees.
-       srt = 0,
-       cex = 0.7)
+  text(x = 68.5,  y = par("usr")[3] - 0.003, labels = "0.02", xpd = NA, srt = 0, cex = 0.7)
   
-  text(x = 100,  y = par("usr")[3] - 0.003,
-       labels = "0.03",
-       xpd = NA,
-       ## Rotate the labels by 35 degrees.
-       srt = 0,
-       cex = 0.7)
+  text(x = 100,  y = par("usr")[3] - 0.003, labels = "0.03", xpd = NA, srt = 0, cex = 0.7)
   
-  text(x = par("usr")[1] - 10,  y = 0.015,
-       labels = expression(paste("30 ", frac(Km, h))),
-       xpd = NA,
-       ## Rotate the labels by 35 degrees.
-       srt = 0,
-       cex = 0.7)
+  text(x = par("usr")[1] - 10,  y = 0.015, labels = expression(paste("30 ", frac(Km, h))), xpd = NA, srt = 0, cex = 0.7)
   
-  text(x = par("usr")[2] - 2,  y = 0.048,
-       labels = "Combined",
-       xpd = NA,
-       ## Rotate the labels by 35 degrees.
-       srt = 0,
-       pos = 2, 
-       cex = 0.6)
+  text(x = par("usr")[2] - 2,  y = 0.048, labels = "Combined", xpd = NA, srt = 0, pos = 2, cex = 0.6)
   
-  text(x = par("usr")[2] - 2,  y = 0.031,
-       labels = "Hurricanes",
-       xpd = NA,
-       ## Rotate the labels by 35 degrees.
-       pos = 2,
-       srt = 0,
-       cex = 0.6)
+  text(x = par("usr")[2] - 2,  y = 0.031, labels = "Hurricanes", xpd = NA, pos = 2, srt = 0, cex = 0.6)
   
-  text(x = par("usr")[2] - 2,  y = 0.021,
-       labels = "Non-Hurricanes",
-       xpd = NA,
-       ## Rotate the labels by 35 degrees.
-       pos = 2,
-       srt = 0,
-       cex = 0.6)
+  text(x = par("usr")[2] - 2,  y = 0.021, labels = "Non-Hurricanes", xpd = NA, pos = 2, srt = 0, cex = 0.6)
   
   myexp = expression(paste(P[e], " = 1 - (1 -", P[nh], ") * (1 - ", P[h], ")"))
   
-  text(x = par("usr")[1] + 60,  y = 0.049,
-       #labels = "? = 1- (1 – 0.03)(1-0.02)",
-       labels = myexp,
-       xpd = NA,
-       ## Rotate the labels by 35 degrees.
-       srt = 0,
-       cex = 0.7)
+  text(x = par("usr")[1] + 60,  y = 0.049, labels = myexp, xpd = NA, srt = 0, cex = 0.7)
 
-  text(x = par("usr")[1] + 60,  y = 0.045,
-       labels = "? = 1- (1 – 0.03)(1-0.02)",
-       xpd = NA,
-       ## Rotate the labels by 35 degrees.
-       srt = 0,
-       cex = 0.6)
+  text(x = par("usr")[1] + 60,  y = 0.045, labels = "? = 1- (1 – 0.03)(1-0.02)", xpd = NA, srt = 0, cex = 0.6)
     
   location = 65
   scale = 20
@@ -575,40 +531,18 @@ plotit<-function(){
   curve(hfG, add=T, col="red", lwd=1)
   Arrows (x0=100, y0=0, x1=100, y1=(hfG(100)-0.003), arr.type="triangle", arr.width=0.04, lwd=0.1)
   Arrows (x0=100, y0=hfG(100), x1=7, y1=hfG(100) , arr.type="triangle", arr.width=0.04, lwd=0.1)
-  #box(which = "plot", col="red")
-  #box(which = "figure", col="blue")
-  #box(which = "inner", col="cyan")
-  #box(which = "outer", col="orange")
 }
 
 z.plot1<-function(){plotit()}
 
-
-
 mydataframe = data.frame(v = c(10, 20, 30, "...", 350, "..."), Pe = c("...", "...", "?", "...", "...", "..."))
-
 
 names(mydataframe) <- c(expression(Y[N]), expression(P[e]))
 
-library(gridExtra)
-library(grid)
-library(cowplot)
-#mytable = grid.table(mydataframe)
-
-# Set theme to allow for plotmath expressions
 tt <- ttheme_default(base_size = 7, colhead=list(fg_params = list(parse=TRUE)))
 tbl <- tableGrob(mydataframe, rows=NULL, theme=tt)
 
-#grid.arrange(z.plot1, tbl, nrow=2, as.table=TRUE, heights=c(3,1))
-
-
-#plot_grid(z.plot1, mytable)
-
-
 plot_grid(z.plot1, tbl, ncol = 2, rel_widths = c(4,1), labels=c("", "Combined Curve"), label_size = 7, hjust=-0.13)
-
-#grid.rect(gp=gpar(fill=NA))
-
 ```
 
 After the combined hazard curve is created, a new process of spatial interpolation need to be accomplished. In case of absence of hazard curves for stations, but availability of return levels maps, it becomes necessary to recreate hazard curves cell by cell, to apply Equation \@ref(eq:combination). In this case are required as many maps as possible for different return periods, in order to estimate detailed enough hazard curves from return level values (cell values).
