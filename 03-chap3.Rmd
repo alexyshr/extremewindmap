@@ -482,34 +482,20 @@ plotit<-function(){
   par(oma=c(0,0,0,0))
   par(bg=NA)
   plot(1, xlab='', ylab='', type='n', yaxt='n', xaxt='n', tck=0, xlim=c(0,200), ylim=c(0,0.05), bg = 'transparent', bty="n")
-  
   arrows(0,0,0,0.05, length=0.04)
   arrows(0,0,200,0, length=0.04)
-  
   text(x = par("usr")[2] - 5,  y = par("usr")[3] - 0.005, labels = expression(frac(1, N)), xpd = NA, srt = 0, cex = 0.7)
-  
   text(x = par("usr")[1] - 6,  y = 0.05, labels = expression(Y[N]), xpd = NA, srt = 0, cex = 0.7)
-  
   text(x = 50.2,  y = par("usr")[3] - 0.003, labels = "?", xpd = NA, srt = 0, cex = 0.7)
-  
   text(x = 68.5,  y = par("usr")[3] - 0.003, labels = "0.02", xpd = NA, srt = 0, cex = 0.7)
-  
   text(x = 100,  y = par("usr")[3] - 0.003, labels = "0.03", xpd = NA, srt = 0, cex = 0.7)
-  
   text(x = par("usr")[1] - 10,  y = 0.015, labels = expression(paste("30 ", frac(Km, h))), xpd = NA, srt = 0, cex = 0.7)
-  
   text(x = par("usr")[2] - 2,  y = 0.048, labels = "Combined", xpd = NA, srt = 0, pos = 2, cex = 0.6)
-  
   text(x = par("usr")[2] - 2,  y = 0.031, labels = "Hurricanes", xpd = NA, pos = 2, srt = 0, cex = 0.6)
-  
   text(x = par("usr")[2] - 2,  y = 0.021, labels = "Non-Hurricanes", xpd = NA, pos = 2, srt = 0, cex = 0.6)
-  
   myexp = expression(paste(P[e], " = 1 - (1 -", P[nh], ") * (1 - ", P[h], ")"))
-  
   text(x = par("usr")[1] + 60,  y = 0.049, labels = myexp, xpd = NA, srt = 0, cex = 0.7)
-
   text(x = par("usr")[1] + 60,  y = 0.045, labels = "? = 1- (1 – 0.03)(1-0.02)", xpd = NA, srt = 0, cex = 0.6)
-    
   location = 65
   scale = 20
   .x <- seq(0, 1500, length.out=1000)
@@ -534,14 +520,10 @@ plotit<-function(){
 }
 
 z.plot1<-function(){plotit()}
-
 mydataframe = data.frame(v = c(10, 20, 30, "...", 350, "..."), Pe = c("...", "...", "?", "...", "...", "..."))
-
 names(mydataframe) <- c(expression(Y[N]), expression(P[e]))
-
 tt <- ttheme_default(base_size = 7, colhead=list(fg_params = list(parse=TRUE)))
 tbl <- tableGrob(mydataframe, rows=NULL, theme=tt)
-
 plot_grid(z.plot1, tbl, ncol = 2, rel_widths = c(4,1), labels=c("", "Combined Curve"), label_size = 7, hjust=-0.13)
 ```
 

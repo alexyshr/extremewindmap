@@ -452,11 +452,33 @@ This appendix includes all of the R chunks of code that were hidden throughout t
 
 **In Chapter \@ref(rmd-method) - Methodology:**
 
-1. Combine Hazard Curve
+1. Combined Hazard Curve
 
 ```{r ref.label=c('combinedhc'), results='hide', echo = TRUE, eval=FALSE, size="tiny"}
 ```
 
+**In Chapter \@ref(rmd-results) - Results and Discussion:**
+
+
+1. Downscaling Support - Quality Data Comparison
+
+```{r ref.label=c('ds', 'qualitycomparison1', 'qualitycomparison2', 'sideamera5'), results='hide', echo = TRUE, eval=FALSE, size="tiny"}
+```
+
+2. Downscaling Support - Non-Quality Data Comparison
+
+```{r ref.label=c('poorcomparison', 'verygoodxts', 'verygood'), results='hide', echo = TRUE, eval=FALSE, size="tiny"}
+```
+
+3. POT-PP for ISD Station 801120
+
+```{r ref.label=c('onestationppp', 'ts', 'page6', 'page8', 'page10'), results='hide', echo = TRUE, eval=FALSE, size="tiny"}
+```
+
+4. Wind Maps
+
+```{r ref.label=c('ingeniarmaps', 'isdnhmaps', 'era5nhmaps', 'isdcbmaps', 'era5cbmaps'), results='hide', echo = TRUE, eval=FALSE, size="tiny"}
+```
 
 
 # User Manual {#manual}

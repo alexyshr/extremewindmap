@@ -62,14 +62,25 @@ library(grid)
 library(cowplot)
 ```
 
-```{r echo=FALSE, cache= F, include=FALSE}
+```{r onestationppp, echo=FALSE, cache= F, include=FALSE}
+#POT-PP in one ISD Station
+#
+#Output of this code goes to the folder ‘…/index/data/’ of the ‘thesisdown’ root folder.
 source('./code/pp_one_station.r')
 ```
 
-```{r echo=FALSE, cache= F, include=FALSE}
-#Important Note:
-#This code is not working when knit. It is working if is ran here in RStudio, that is why next line is using # (not ran when knit). This code generates some graphics in format RDS. It is not necessary to run again, at least RDS are not usable for changes in R versions (possible situation for future)
+```{r ds, echo=FALSE, cache= F, include=FALSE}
+#Downscaling Support - Sources Comparison
+#
+#Important Note for next line of code (seven lines bellow):
+#
+#Not run when Knitting. Run it only in RStudio before Knit process, that is why next line of code is out-commented (using #). 
+#This code generates some graphics in format RDS, used inside Results and Discussion chapter. It is not necessary to run again, 
+#unless current RDS files already generated, are not usable for changes in R packages versions (possible situation for future)
+#Output of this code goes to the folder ‘…/index/data/’ of the ‘thesisdown’ root folder.
+#
 #source('./code/comparing_sources_pqrs_20199050080932_VV_AUT.r')
+#
 ```
 
 # Results and Discussion {#rmd-results}
@@ -159,17 +170,18 @@ kable_styling(font_size = 10, latex_options="scale_down")
 
 
 ```{r qualitycomparison1, message=FALSE, warning=FALSE, include=FALSE}
-
+#
+#IDEAM VV_AUT_2 - Quality Data Comparison
+#
 con1 = src_postgres(dbname = "winddata", host = "localhost", port = 5432, user = "user1", password = "user1")
 
 #Get Ideam Stations Table
 originalfields4 = c("objectid", "codigo1", "nombre", "latitud", "longitud", "latitud", "longitud", "categoria")
 newnames4 = c("objectid", "codigo1", "nombre", "latitud", "longitud", "y", "x", "categoria")
 originalfields4 = paste(originalfields4, " as ", newnames4, sep="")
-
 originalfields4 = paste(originalfields4, collapse= ", ", sep = "")
-#query4 = paste("select", originalfields4, "from ideam_all_stations", "where inpqrs2 = 'YES'", sep=" ")
-query4 = paste("select", originalfields4, "from ideam_all_stations", "where codigo1 IN (48015050, 52055230, 26125061, 26125710, 23085270, 27015330, 16015501, 23195502, 13035501, 28025502, 15065180, 29045190)", sep=" ")
+query4 = paste("select", originalfields4, "from ideam_all_stations", "where codigo1 IN (48015050, 52055230, 26125061, 26125710, 23085270, 27015330, 
+ 16015501, 23195502, 13035501, 28025502, 15065180, 29045190)", sep=" ")
 ideam_stations = as_tibble(tbl(con1, sql(query4)))
 Encoding(ideam_stations$categoria) <- "UTF-8"
 Encoding(ideam_stations$nombre) <- "UTF-8"
@@ -177,21 +189,17 @@ originalfields3 = c("id", "usaf", "station_name", "latitud", "longitud", "latitu
 newnames3 = c("id", "usaf", "station_name", "latitud", "longitud", "y", "x")
 originalfields3 = paste(originalfields3, " as ", newnames3, sep="")
 originalfields3 = paste(originalfields3, collapse= ", ", sep = "")
-#query3 = paste("select", originalfields3, "from isd_all_stations where usaf_isd_dataua != ''", sep=" ")
-query3 = paste("select", originalfields3, "from isd_all_stations where usaf IN ('803980', '803700', '802110', '802100', '801120', '801100', '800970', '800940', '800630', '800360', '800350', '800280')", sep=" ")
+query3 = paste("select", originalfields3, "from isd_all_stations where usaf IN ('803980', '803700', '802110', '802100', '801120', '801100', 
+ '800970', '800940', '800630', '800360', '800350', '800280')", sep=" ")
 
 isd_stations = as_tibble(tbl(con1, sql(query3)))
-
-
 ideam_stations = st_as_sf(ideam_stations, coords = c("longitud", "latitud"), crs = 4326)
 isd_stations = st_as_sf(isd_stations, coords = c("longitud", "latitud"), crs = 4326)
 
 ideam_stations3 <- ideam_stations %>% filter(codigo1 %in% c(15065180, 29045190, 28025502)) 
-
-ideam_stationso <- ideam_stations %>% filter(codigo1 %in% c(48015050, 52055230, 26125061, 26125710, 23085270, 27015330, 16015501, 23195502, 13035501))
-
+ideam_stationso <- ideam_stations %>% filter(codigo1 %in% c(48015050, 52055230, 26125061, 26125710, 23085270, 27015330, 16015501, 23195502, 
+ 13035501))
 isd_stations3 <- isd_stations %>% filter(usaf %in% c('800350', '800280', '800360'))
-
 isd_stationso <- isd_stations %>% filter(usaf %in% c('803980', '803700', '802110', '802100', '801120', '801100', '800970', '800940', '800630'))
 
 
@@ -223,12 +231,10 @@ img_stack_col.mask = mask(img_stack_col.crop, col_4326_sf_pol)
 myPalette <- colorRampPalette(rev(brewer.pal(11, "YlGn")))
 sc <- scale_fill_gradientn(colours = myPalette(100), limits=c(0, 255))
 
-
 theme_set(theme_bw())
 world <- ne_countries(scale = "medium", returnclass = "sf")
 world_points<- st_centroid(world)
 world_points <- cbind(world, st_coordinates(st_centroid(world$geometry)))
-
 
 colombia = world_points$name == "Colombia"
 panama = world_points$name == "Panama"
@@ -237,25 +243,10 @@ brazil= world_points$name == "Brazil"
 venezuela= world_points$name == "Venezuela"
 ecuador= world_points$name == "Ecuador"
 
-#Final map - predictions
 k = era5_4326_sf_pol
-#st_crs(k) = st_crs(3116)
-#k = st_warp(k, crs=st_crs(4326))
-#mid <- mean(k$var1.pred, na.rm = TRUE)
-
-#myfilename = paste0("D:/jd/01 Códigos de programación/02 Ajuste con R/rasters/combinedok/", "combined_700.tif")
-#write_stars(k, myfilename)
-
 
 big <-ggplot(data = world) + 
   geom_sf(fill= "antiquewhite",  size=0.1) + 
-  #geom_stars(data = col_4326_st[col_4326_sf_pol][,,,1], aes(fill = col_4326_st, x = x, y = y)) +
-  #ggRGB(img_stack_col.mask, r = 1, g = 2, b = 3, ggLayer = TRUE)+
-  #sc+
-  #geom_sf(data = k, colour="black", fill=NA) + 
-  #scale_fill_gradientn(colors = sf.colors(20)) + 
-  #sc2 + 
-  #sc+
   geom_text(data= world_points[venezuela,],aes(x=-68.5, y=8.5, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) +
   geom_text(data= world_points[panama,],aes(x=-80.5, y=9.2, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) + 
   geom_text(data= world_points[ecuador,],aes(x=-78, y=-1, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) +
@@ -267,18 +258,15 @@ big <-ggplot(data = world) +
   geom_sf(data = st_cast(world, "MULTILINESTRING"), size=0.1)+
   geom_rect(mapping=aes(xmin=-73.7, xmax=-72.8, ymin=10.1, ymax=10.9), color="red", alpha=0, size=0.1) +
   geom_sf(data = ideam_stations, size=2, shape=23, color= "red", show.legend = "point") + 
-  #geom_sf_text(data = ideam_stations, aes(label = codigo1), size=3, position = position_nudge(x = -1.5)) +
   geom_text_repel(data = ideam_stationso, size=2, aes(x=x, y=y, label = codigo1), direction="x", segment.size=0.1) +
   geom_text_repel(data = ideam_stations3, size=2, aes(x=x, y=y, label = codigo1), direction="x", segment.size=0.1, nudge_x=-0.5) +
   geom_sf(data = isd_stations, size=2, shape=3, color= "blue", show.legend = "point") +
-  #geom_sf_text(data = isd_stations, aes(label = usaf), size=3, position = position_nudge(x = +1.5)) +
   geom_text_repel(data = isd_stationso, size=2, aes(x=x, y=y, label = usaf), direction="y", segment.size=0.1) +
   geom_text_repel(data = isd_stations3, size=2, aes(x=x, y=y, label = usaf), direction="x", segment.size=0.1, nudge_x=0.5) +
-  #geom_sf_label(data = k, aes(label = DN), size=3) +
-  #geom_sf(data = era5colpoints3116, size=1, shape=2, color= "black", show.legend = "point") + 
-  annotation_scale(location = "bl", width_hint = 0.5, height = unit(0.2, "cm"), line_width = 0.5, text_cex = 0.5) + annotation_north_arrow(location = "br", which_north = "true", pad_x = unit(0.05, "in"), pad_y = unit(0.05, "in"), height = unit(1, "cm"), width = unit(1, "cm"), style = north_arrow_fancy_orienteering) +
+  annotation_scale(location = "bl", width_hint = 0.5, height = unit(0.2, "cm"), line_width = 0.5, text_cex = 0.5) + 
+  annotation_north_arrow(location = "br", which_north = "true", pad_x = unit(0.05, "in"), pad_y = unit(0.05, "in"), height = unit(1, "cm"), 
+   width = unit(1, "cm"), style = north_arrow_fancy_orienteering) +
   coord_sf(xlim = c(-79.5, -66.5), ylim = c(-5.4, 12.3), expand = FALSE) +
-  #coord_sf(xlim = c(-73.7, -72.8), ylim = c(10.1, 10.9), expand = FALSE) +
   xlab("") + 
   ylab("") + 
   ggtitle("Quality Data Comparison\nTwelve matching stations from IDEAM and ISD") + 
@@ -287,24 +275,13 @@ big <-ggplot(data = world) +
   theme(axis.text.y= element_text(size=7)) +
   theme(panel.grid.major = element_line(color = gray(.5), linetype = "dashed", size = 0.1)) +
   theme(panel.background = element_rect(fill = "aliceblue")) +
-  #theme(legend.title = element_text(size=8)) +
-  #theme(legend.text=element_text(size=8)) +
-  #theme(legend.key.size = unit(0.5,"line")) +
   theme(plot.margin=unit(c(0,0,0,0),"cm")) +
-  #theme(plot.background = element_rect(color = "black"))+
   theme(axis.text.x = element_text(margin =  margin(t =2, b = -10))) + 
   theme(axis.text.y = element_text(margin =  margin(r =2, l = -10)))
   
-
 small <- ggplot(data = world) + 
   geom_sf(fill= "antiquewhite",  size=0.1) + 
-  #ggRGB(img_stack_col.mask, r = 1, g = 2, b = 3, ggLayer = TRUE)+
-  #geom_stars(data = col_4326_st[col_4326_sf_pol][,,,1], aes(fill = col_4326_st, x = x, y = y)) +
-  #sc+
   geom_sf(data = k, colour="black", fill=NA, size=0.1) + 
-  #scale_fill_gradientn(colors = sf.colors(20)) + 
-  #sc2 + 
-  #sc+
   geom_text(data= world_points[venezuela,],aes(x=-66.5, y=8.5, label=name), color = "darkblue", fontface = "bold", size=3, check_overlap = FALSE) +
   geom_text(data= world_points[panama,],aes(x=-80.5, y=9.2, label=name), color = "darkblue", fontface = "bold", size=3, check_overlap = FALSE) + 
   geom_text(data= world_points[ecuador,],aes(x=-79.2, y=-1, label=name), color = "darkblue", fontface = "bold", size=3, check_overlap = FALSE) +
@@ -319,9 +296,9 @@ small <- ggplot(data = world) +
   geom_sf(data = isd_stations, size=3, shape=3, color= "blue", show.legend = "point") +
   geom_sf_text(data = isd_stations, aes(label = usaf), size=2, position = position_nudge(x = +0.09)) +
   geom_sf_label(data = k, aes(label = DN), size=2) +
-  #geom_sf(data = era5colpoints3116, size=1, shape=2, color= "black", show.legend = "point") + 
-  annotation_scale(location = "bl", width_hint = 0.5, height = unit(0.2, "cm")) + annotation_north_arrow(location = "br", which_north = "true", pad_x = unit(0.05, "in"), pad_y = unit(0.05, "in"), height = unit(1, "cm"), width = unit(1, "cm"), style = north_arrow_fancy_orienteering) +
-  #coord_sf(xlim = c(-82.1, -63.8), ylim = c(-7.5, 15.5), expand = FALSE) +
+  annotation_scale(location = "bl", width_hint = 0.5, height = unit(0.2, "cm")) +
+  annotation_north_arrow(location = "br", which_north = "true", pad_x = unit(0.05, "in"), pad_y = unit(0.05, "in"), height = unit(1, "cm"), 
+   width = unit(1, "cm"), style = north_arrow_fancy_orienteering) +
   coord_sf(xlim = c(-73.7, -72.8), ylim = c(10.1, 10.9), expand = FALSE) +
   xlab("") + 
   ylab("") + 
@@ -332,20 +309,18 @@ small <- ggplot(data = world) +
   theme(panel.border = element_rect(colour = "red"))+
   #theme(plot.background = element_rect(color = "black")) +
   theme(panel.grid.major = element_line(color = gray(.5), linetype = "dashed", size = 0.5), panel.background = element_rect(fill = "aliceblue"))
-
 grid.arrange(big, small, ncol=2)
-#grid.rect(gp=gpar(fill=NA))
 ```
 
 The stations described in each row of the previous Table \@ref(tab:table12stations), were compared by generating scatter plots and common time series graphics. Stations 28025502 from IDEAM, 800360 from ISD, and 416 (cell with center point in $-73.25^\circ$ longitude, and $10.5^\circ$ latitude) from ERA5, see map in right panel of Figure \@ref(fig:qualitycomparison2), showed high correspondence, see Figure \@ref(fig:sideamera5), because green regression line (empirical) is very similar to $45^\circ$ line (theoretical). Unfortunately, in the other eleven stations, there was no high equivalence between sources.
 
 
 ```{r sideamera5, echo=FALSE, fig.align="center", fig.cap="Quality Data Comparison. High similarity between sources", message=FALSE, warning=FALSE, fig.width=4, fig.height=3}
-#saveRDS(comparison13, "data/comparison13.rds")
+#
+#Quality Data Comparison. High similarity between sources
+#
 dat1 <- readRDS("data/comparison13.rds")
 dat1
-#box(which = "plot", col="black")
-#include_graphics(path = "figure/s800360_ideam_vs_era5.png")
 ```
 
 
@@ -363,7 +338,9 @@ VV_AUT_10 was available for 204 stations, and despite that $V_{3600}$ calculated
  
 
 ```{r poorcomparison, echo=FALSE, fig.cap="IDEAM VV_AUT_10 - Non Quality Data Comparison. Two different types of downscaling support: 'Good' and 'Very Good'", message=FALSE, warning=FALSE}
-
+#
+#IDEAM VV_AUT_10 - Non Quality Data Comparison
+#
 myPalette <- colorRampPalette(rev(brewer.pal(11, "YlGn")))
 sc <- scale_fill_gradientn(colours = myPalette(100), limits=c(0, 255))
 
@@ -379,7 +356,6 @@ brazil= world_points$name == "Brazil"
 venezuela= world_points$name == "Venezuela"
 ecuador= world_points$name == "Ecuador"
 
-
 pts <- do.call(rbind, st_centroid(st_geometry(era5_4326_sf_pol)))
 x = pts[,1]
 y = pts[,2]
@@ -387,49 +363,31 @@ y = pts[,2]
 era5_4326_sf_pol$x = x
 era5_4326_sf_pol$y = y
 
-era5_4326_sf_pol_filter_good = era5_4326_sf_pol %>% filter(DN %in% c(2261, 1971,2066,2020,2260,1875,2213,2637,1442,1583,1501,1582,1381,1493,1485,1397,1338,1055,511,1644,515,221,1038))
+era5_4326_sf_pol_filter_good = era5_4326_sf_pol %>% filter(DN %in% c(2261, 1971,2066,2020,2260,1875,2213,2637,1442,1583,1501,1582,1381,1493,1485,
+ 1397,1338,1055,511,1644,515,221,1038))
 
 era5_4326_sf_pol_filter_very_good = era5_4326_sf_pol %>% filter(DN %in% c(265,360,78,312,416))
 
-era5_4326_sf_pol_col1 = era5_4326_sf_pol %>% filter(DN %in% c(1, 50, 148, 246, 344, 442, 540, 638, 736, 834, 932, 1030, 1128, 1226, 1324, 1422, 1520, 1618, 1716, 1814, 1912, 2010, 2108, 2206, 2304, 2402, 2500, 2598, 2696, 2794, 2892, 2990, 3088, 3186, 3284, 3333))
+era5_4326_sf_pol_col1 = era5_4326_sf_pol %>% filter(DN %in% c(1, 50, 148, 246, 344, 442, 540, 638, 736, 834, 932, 1030, 1128, 1226, 1324, 1422, 
+ 1520, 1618, 1716, 1814, 1912, 2010, 2108, 2206, 2304, 2402, 2500, 2598, 2696, 2794, 2892, 2990, 3088, 3186, 3284, 3333))
 
-era5_4326_sf_pol_col49 = era5_4326_sf_pol %>% filter(DN %in% c(49, 147, 245, 343, 441, 539, 637, 735, 833, 931, 1029, 1127, 1225, 1323, 1421, 1519, 1617, 1715, 1813, 1911, 2009, 2107, 2205, 2303, 2401, 2499, 2597, 2695, 2793, 2891, 2989, 3087, 3185, 3283, 3381))
+era5_4326_sf_pol_col49 = era5_4326_sf_pol %>% filter(DN %in% c(49, 147, 245, 343, 441, 539, 637, 735, 833, 931, 1029, 1127, 1225, 1323, 1421, 1519, 
+ 1617, 1715, 1813, 1911, 2009, 2107, 2205, 2303, 2401, 2499, 2597, 2695, 2793, 2891, 2989, 3087, 3185, 3283, 3381))
 
 ggplot(data = world) + 
   geom_sf(fill= "antiquewhite",  size=0.1, alpha=0.7) + 
-  #geom_stars(data = col_4326_st[col_4326_sf_pol][,,,1], aes(fill = col_4326_st, x = x, y = y)) +
   ggRGB(img_stack_col.mask, r = 1, g = 2, b = 3, ggLayer = TRUE, alpha=0.8)+
   sc+
   geom_sf(data = era5_4326_sf_pol, colour="grey", fill=NA, size=0.1) + 
   geom_sf(data = era5_4326_sf_pol_filter_good, aes(fill = "Good: 23"), colour="black", size=0.1, alpha=1, show.legend = "polygon") +
   geom_sf(data = era5_4326_sf_pol_filter_very_good, aes(fill = "Very Good: 5"), colour="black", size=0.1, alpha=1, show.legend = "polygon") +
   scale_fill_manual(values = c("Good: 23" = "yellow", "Very Good: 5" = "orange"), name="Downscaling Support") + #, label=c("dd")) +  
-  #scale_fill_gradientn(colors = sf.colors(20)) + 
-  #sc2 + 
-  #sc+
-  #geom_text(data= world_points[venezuela,],aes(x=-68.5, y=8.5, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) +
-  #geom_text(data= world_points[panama,],aes(x=-80.5, y=9.2, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) + 
-  #geom_text(data= world_points[ecuador,],aes(x=-78, y=-1, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) +
-  #geom_text(data= world_points[peru,],aes(x=-75, y=-3.7, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) +
-  #geom_text(data= world_points[brazil,],aes(x=-68, y=-2, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) +
-  #geom_text(data= world_points[colombia,],aes(x=-71, y=4, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) +
-  #annotate(geom = "text", x = -77.5, y = 14, label = "Caribbean\nSea", fontface = "italic", color = "grey22", size = 4) + 
-  #annotate(geom = "text", x = -80.5, y = 5, label = "Pacific\nSea", fontface = "italic", color = "grey22", size = 4) +
   geom_sf(data = st_cast(world, "MULTILINESTRING"), size=0.1)+
-  #geom_rect(mapping=aes(xmin=-73.7, xmax=-72.8, ymin=10.1, ymax=10.9), color="red", alpha=0, size=0.1) +
-  #geom_sf(data = ideam_stations, size=2, shape=23, color= "red", show.legend = "point") + 
-  #geom_sf_text(data = ideam_stations, aes(label = codigo1), size=3, position = position_nudge(x = -1.5)) +
-  geom_text_repel(data = era5_4326_sf_pol_col1, size=2, aes(x=x, y=y, label = DN), direction="y", segment.size=0.1, segment.color= "grey50", color="grey50", nudge_x=-1, hjust=1, box.padding=0.1) +
-  geom_text_repel(data = era5_4326_sf_pol_col49, size=2, aes(x=x, y=y, label = DN), direction="y", segment.size=0.1, segment.color= "grey50", color="grey50", nudge_x=+1, hjust=0, box.padding=0.1) +
-  #geom_sf(data = isd_stations, size=2, shape=3, color= "blue", show.legend = "point") +
-  #geom_sf_text(data = isd_stations, aes(label = usaf), size=3, position = position_nudge(x = +1.5)) +
-  #geom_text_repel(data = isd_stationso, size=2, aes(x=x, y=y, label = usaf), direction="y", segment.size=0.1) +
-  #geom_text_repel(data = isd_stations3, size=2, aes(x=x, y=y, label = usaf), direction="x", segment.size=0.1, nudge_x=0.5) +
-  #geom_sf_label(data = k, aes(label = DN), size=1) +
-  #geom_sf(data = era5colpoints3116, size=1, shape=2, color= "black", show.legend = "point") + 
-  #annotation_scale(location = "bl", width_hint = 0.5, height = unit(0.2, "cm"), line_width = 0.5, text_cex = 0.5) + annotation_north_arrow(location = "br", which_north = "true", pad_x = unit(0.05, "in"), pad_y = unit(0.05, "in"), height = unit(1, "cm"), width = unit(1, "cm"), style = north_arrow_fancy_orienteering) +
+  geom_text_repel(data = era5_4326_sf_pol_col1, size=2, aes(x=x, y=y, label = DN), direction="y", segment.size=0.1, segment.color= "grey50", 
+   color="grey50", nudge_x=-1, hjust=1, box.padding=0.1) +
+  geom_text_repel(data = era5_4326_sf_pol_col49, size=2, aes(x=x, y=y, label = DN), direction="y", segment.size=0.1, segment.color= "grey50", 
+   color="grey50", nudge_x=+1, hjust=0, box.padding=0.1) +
   coord_sf(xlim = c(-81.25, -64.75), ylim = c(-5, 13), expand = FALSE) +
-  #coord_sf(xlim = c(-73.7, -72.8), ylim = c(10.1, 10.9), expand = FALSE) +
   xlab("") + 
   ylab("") + 
   ggtitle("ERA5 grid, cells IDs from 1 to 3381 (49 cols, 69 rows)\nISD-IDEAM-ERA5 'poor data' comparison") + 
@@ -438,15 +396,9 @@ ggplot(data = world) +
   theme(axis.text.y= element_text(size=7)) +
   theme(panel.grid.major = element_line(color = gray(.5), linetype = "dashed", size = 0.1)) +
   theme(panel.background = element_rect(fill = "aliceblue")) +
-  #theme(legend.title = element_text(size=8)) +
-  #theme(legend.text=element_text(size=8)) +
-  #theme(legend.key.size = unit(0.5,"line")) +
   theme(plot.margin=unit(c(0,0,0,0),"cm")) +
-  #theme(plot.background = element_rect(color = "black"))+
   theme(axis.text.x = element_text(margin =  margin(t =2, b = -10))) + 
   theme(axis.text.y = element_text(margin =  margin(r =2, l = -10)))
-
-#grid.rect(gp=gpar(fill=NA))  
 ```
 
 
@@ -469,14 +421,18 @@ kable_styling(font_size = 10, latex_options="scale_down")
 For some ISD stations in previous Table \@ref(tab:tableverygood), the value 'NA' means that for the corresponding ERA5 and IDEAM station (same row), there is not a ISD station located inside the ERA5 cell space ($0.25^\circ * 0.25^\circ$).
 
 ```{r verygoodxts, echo=FALSE, fig.cap="Non Quality Data Comparison. Time Series Graphic for 'Very Good' Downscaling Support", message=FALSE, warning=FALSE, fig.height=3}
+#
+#Non Quality Data Comparison. Time Series Graphic for 'Very Good' Downscaling Support
+#
 tl = readRDS(file="./data/eracomparisonideam_188_78_plotxts.rds")
-#tr = readRDS(file="./data/eracomparisonideam_19812_416_plotzoo.rds")
 tl
-#box(which="figure")
 ```
 
 
 ```{r verygood, echo=FALSE, fig.cap="Non Quality Data Comparison: Scatter plots for 'Very Good' Downscaling Support", message=FALSE, warning=FALSE}
+#
+#Non Quality Data Comparison: Scatter plots for 'Very Good' Downscaling Support
+#
 par(mfrow=c(3,2))
 par(mar=c(0,0,0,0))
 par(oma=c(0,0,0,0))
@@ -486,35 +442,8 @@ cr = readRDS(file="./data/eracomparisonideam_195_1_2_312_plotgg.rds")
 bl = readRDS(file="./data/eracomparisonideam_188_1_3_78_plotgg.rds")
 br = readRDS(file="./data/eracomparisonideam_188_1_2_78_plotgg.rds")
 
-
-#layout(matrix(c(1,2,3,4,5,6), 2, 3, byrow = TRUE))
-
-#plot_grid(tl, tr, ncol = 2, labels=c("A", "B"), label_size = 7, label_colour = "red")#, 
-
-
-
-
-# ggdraw() +
-#    draw_plot(tl, 0, 0, 0.7, 1) +
-#    draw_plot(tr, 0.7, 0.3, 0.3, 0.3)
-
-#plot_grid(cl, cr, bl, br, ncol = 2, labels=c("C", "D", "E", "F"), label_size = 7, label_colour = "red")#,  align = c("hv")
-
-plot_grid(cl, cr, bl, br, ncol = 2, labels=c("A", "B", "C", "D"), label_size = 7, label_colour = "red")#,  align = c("hv")
-
-#grid.arrange(tl, tr, cl, cr, bl, br, ncol=2)
-
-
-# ggdraw() +
-#   draw_plot(tl, 0, 1, 0.7, .5) +
-#   draw_plot(tr, 0.7, 1, 0.3, .5) +
-#   draw_plot(cl, 0, .5, 0.5, .5) +
-#   draw_plot(cr, 0.5, .5, 0.5, .5) +
-#   draw_plot(bl, 0, 0, .5, .5) +
-#   draw_plot(br, .5, 0, .5, .5) +
-#   draw_plot_label(c("A", "B", "C", "D", "E", "F"), c(0, 0.7, 0, 0.5, 0, 0.5), c(1.5, 1.5, 1, 1, 0.5, 0.5), size = 7)
+plot_grid(cl, cr, bl, br, ncol = 2, labels=c("A", "B", "C", "D"), label_size = 7, label_colour = "red")
 ```
-
 
 ## POT-PP for ISD Station 801120
 
@@ -590,26 +519,21 @@ It can be seen in the Table \@ref(tab:years801120), that de-clustered data has z
 
 
 ```{r ts, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Non-Thunderstorm Time Series for ISD station 801120. Left: Raw Data. Right: De-clustered Data",  fig.align="center", fig.height=2, fig.width=4.5}
+#
+#Non-Thunderstorm Time Series for ISD station 801120. Left: Raw Data. Right: De-clustered Data
+#
 plot_grid(myprint1, NULL, myprint5, ncol = 3,  rel_widths = c(1,0.26,1))
-#grid.rect(gp=gpar(fill=NA))
-#grid.arrange(myprint1, myprint5, ncol=2)
 ```
 
 Using de-clustered data, and considering that it is only necessary to calculate optimal threshold for non-thunderstorm data, because there is no records classified as thunderstorm in any data source, many non-thunderstorm thresholds were tested, to choose the best one using the W statistic, as described in section [thresholding](#thresholding) of the [methodology](#rmd-method). Figure \@ref(fig:page6) shows a very good fit in resulting W-Statistic plot, for optimal non-thunderstorm threshold $b_{nt} =$ _`r z5`_$\frac{Km}{h}$, with a minimum W distance of `r format(z8, scientific=F, digits = 2)`, for ISD station 801120, where empirical values (black points) are very close or similar to theoretical values (red line).
 
 
 ```{r page6, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="POT - Thresholding", size="footnotesize", fig.align="center", fig.width=2.5, fig.asp=1}
-#replayPlot(myprint6)
+#
+#POT - Thresholding
+#
 dat <- readRDS("data/myprint6.rds")
 dat
-#lines(x=c(3.1, 3.1), y=c(3.1,3.8), col="green", lty=5)
-#points(x=3.1, y=3.8, pch=".")
-#text(x = 3.1, y = 3.4, labels = c("Minimum W-statistic distance"), cex=0.6, pos = 2)
-#box(which = "plot", col="red")
-#box(which = "figure", col="blue")
-#box(which = "inner", col="cyan")
-#box(which = "outer", col="orange")
-
 ```
 
 ### Fitted _pdf_ and _cdf_, and Goodness of Fit
@@ -626,9 +550,11 @@ After fitting the intensity function to the domain $D$, the resulting parameters
 
 
 ```{r page8, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Graphic Diagnosis Of Goodness of Fit. Station 801120", fig.align="center", fig.width=5, fig.height=4}
+#
+#Graphic Diagnosis Of Goodness of Fit. Station 801120
+#
 replayPlot(myprint8)
 add_label <- function(xfrac, yfrac, label, pos = 4, ...) {
-  
   u <- par("usr")
   x <- u[1] + xfrac * (u[2] - u[1])
   y <- u[4] - yfrac * (u[4] - u[3])
@@ -707,28 +633,9 @@ Hazard curve is the solution to Equation \@ref(eq:pprl), but eliminating from it
 
 
 ```{r page10, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Hazard Curve. Station 801120" , fig.align="center", fig.height=2.5, fig.width=3.5}
-#replayPlot(myprint10)
-# library(RColorBrewer)
-# cols <- brewer.pal(9,"Set1")
-# maxy = max(veocitiesfortypicalreturnperiodsP) + 0.15*max(veocitiesfortypicalreturnperiodsP)
-# plot(x= 1/paP, y=yvels, xlab="Return Periods (Years) - Poisson Process Intensity Function",
-#      ylab="Velocities Km/h", main=paste("Declustered - Non-Thunderstorms - Hazard Curve", "\n", "Location=", round(z6,2), " Scale=", round(z7,2), "\n",
-#      "Station:", number, sep=" "),
-#      xlim=c(0,8500), ylim=c(100, maxy), type="l", col=cols[3], lwd=3)
-# 
-# points(x= tipicalReturnPeriods, y= veocitiesfortypicalreturnperiodsP, col=cols[9], pch=20)
-# text(x = tipicalReturnPeriods, y = veocitiesfortypicalreturnperiodsP, labels = paste0("(",tipicalReturnPeriods,",",round(veocitiesfortypicalreturnperiodsP, digits=1),")"), cex=0.8, pos = 4)
-# mtext(side = 1, text = paste0("Page ", numberofplots), outer = TRUE)
-# legend("bottomright", c("POT-PP (Intensity Function)"),
-#        bty = "n",
-#        col = cols[3:3],
-#        lty = c(1), lwd = c(3),
-#        pch = c(NA),
-#        pt.bg = c(NA),
-#        pt.cex = c(0))
-# box(lty = 1, col = 'black', lwd=0.5)
-  
-
+#
+#Hazard Curve. Station 801120
+#
 x= 1/paP 
 y= yvels
 df = data.frame(x = x, y = y)
@@ -746,8 +653,10 @@ ggplot(data=df, aes(x=x, y=y, group=1)) +
   geom_point(data=df2, aes(x=x, y=y, group=1), shape = 18, color = "black", fill="lightgray") +
   xlim(0,8500) + 
   ylim(125, 300) +
-  geom_text_repel(data=df2_more1700, size=2, aes(x=x, y=y, label = paste0("(",x,",",round(y, digits=1),")")),  direction="y", segment.size=0.1, nudge_y=15) + # ,
-  geom_text_repel(data=df2_less1700, size=2, aes(x=x, y=y, label = paste0("(",x,",",round(y, digits=1),")")),  direction="x", segment.size=0.1, nudge_x=1) +
+  geom_text_repel(data=df2_more1700, size=2, aes(x=x, y=y, label = paste0("(",x,",",round(y, digits=1),")")),  direction="y", segment.size=0.1, 
+   nudge_y=15) + 
+  geom_text_repel(data=df2_less1700, size=2, aes(x=x, y=y, label = paste0("(",x,",",round(y, digits=1),")")),  direction="x", segment.size=0.1, 
+   nudge_x=1) +
   xlab("Return Periods (Years) - POT-PP Intensity Function") + 
   ylab("Velocities Km/h") + 
   ggtitle(paste("Declustered - Non-Thunderstorms - Hazard Curve", "\n", "Location=", round(z6,2),  "Scale=", round(z7,2))) + 
@@ -862,6 +771,9 @@ The Colombian consulting firm Ingeniar ltda, following the methodology described
 
 
 ```{r ingeniarmaps, echo=FALSE, fig.cap="Ingeniar Hurricane Wind Maps.", message=FALSE, warning=FALSE, fig.height=1.75, fig.width=6.5}
+#
+#Hurricane Wind Maps
+#
 file_rl_h_4326_700_st = "./data/hurricanemaps/h_700.tif"
 rl_h_4326_700_st = read_stars(file_rl_h_4326_700_st)
 rl_h_4326_700_st = setNames(rl_h_4326_700_st, "Kph")
@@ -875,8 +787,7 @@ rl_h_4326_3000_st = read_stars(file_rl_h_4326_3000_st)
 rl_h_4326_3000_st = setNames(rl_h_4326_3000_st, "h_3000")
 
 myPalette <- colorRampPalette(rev(brewer.pal(11, "Spectral")))
-sc <- scale_fill_gradientn(colours = myPalette(100), limits=c(27, 438),
-                           breaks=c(27, 100, 200, 300, 400, 438))
+sc <- scale_fill_gradientn(colours = myPalette(100), limits=c(27, 438), breaks=c(27, 100, 200, 300, 400, 438))
 
 theme_set(theme_bw())
 world <- ne_countries(scale = "medium", returnclass = "sf")
@@ -893,10 +804,8 @@ ecuador= world_points$name == "Ecuador"
 c700 = ggplot(data = world) + 
   geom_sf(fill= "antiquewhite", size=0.1) + 
   geom_stars(data = rl_h_4326_700_st, aes(fill = Kph, x = x, y = y)) + 
-  #scale_fill_gradientn(colors = sf.colors(20)) + 
-  #sc2 + 
   sc+
-  geom_text(data= world_points[venezuela,],aes(x=-69.4, y=8.5, label=name), color = "darkblue", fontface = "bold", size=1.5, check_overlap = FALSE) +
+  geom_text(data= world_points[venezuela,],aes(x=-69.4, y=8.5, label=name), color="darkblue", fontface="bold", size=1.5, check_overlap = FALSE) +
   geom_text(data= world_points[panama,],aes(x=-79.1, y=9.2, label=name), color = "darkblue", fontface = "bold", size=1.5, check_overlap = FALSE) + 
   geom_text(data= world_points[ecuador,],aes(x=-78.8, y=-1, label=name), color = "darkblue", fontface = "bold", size=1.5, check_overlap = FALSE) +
   geom_text(data= world_points[peru,],aes(x=-75, y=-6, label=name), color = "darkblue", fontface = "bold", size=1.5, check_overlap = FALSE) +
@@ -904,9 +813,11 @@ c700 = ggplot(data = world) +
   geom_text(data= world_points[colombia,],aes(x=-71, y=5.5, label=name), color = "darkblue", fontface = "bold", size=1.5, check_overlap = FALSE) +
   annotate(geom = "text", x = -77.5, y = 13.4, label = "Caribbean Sea", fontface = "italic", color = "grey22", size = 1.8) + 
   annotate(geom = "text", x = -79, y = 5.6, label = "Pacific Sea", fontface = "italic", color = "grey22", size = 1.8) +
-  geom_sf(data = st_cast(world, "MULTILINESTRING"), size=0.1)+
-  #geom_sf(data = era5colpoints3116, size=1, shape=2, color= "black", show.legend = "point") + 
-  annotation_scale(location = "bl", width_hint = 0.5, height = unit(0.1, "cm"), line_width = 0.1, text_cex = 0.5, pad_x = unit(0.03, "in"), pad_y = unit(0.03, "in")) + annotation_north_arrow(location = "br", which_north = "true", pad_x = unit(0.01, "in"), pad_y = unit(0.02, "in"), height = unit(0.5, "cm"), width = unit(0.5, "cm"), style = north_arrow_minimal) +
+  geom_sf(data = st_cast(world, "MULTILINESTRING"), size=0.1) +
+  annotation_scale(location = "bl", width_hint = 0.5, height = unit(0.1, "cm"), line_width = 0.1, text_cex = 0.5, pad_x = unit(0.03, "in"), 
+   pad_y = unit(0.03, "in")) + 
+  annotation_north_arrow(location = "br", which_north = "true", pad_x = unit(0.01, "in"), pad_y = unit(0.02, "in"), height = unit(0.5, "cm"), 
+   width = unit(0.5, "cm"), style = north_arrow_minimal) +
   coord_sf(xlim = c(-80.5, -67.7), ylim = c(4.5, 13.9), expand = FALSE) +
   xlab("") + 
   ylab("") + 
@@ -916,9 +827,6 @@ c700 = ggplot(data = world) +
   theme(axis.text.y= element_text(size=5)) +
   theme(panel.grid.major = element_line(color = gray(.5), linetype = "dashed", size = 0.1)) +
   theme(panel.background = element_rect(fill = "aliceblue")) +
-  #theme(legend.title = element_text(size=8)) +
-  #theme(legend.text=element_text(size=8)) +
-  #theme(legend.key.size = unit(0.5,"line")) +
   theme(plot.margin=unit(c(0,0,0,0),"cm")) +
   theme(plot.background = element_rect(fill = "transparent", color = NA))+
   theme(axis.text.x = element_text(margin =  margin(t =2, b = -14))) + 
@@ -932,14 +840,11 @@ c700 = ggplot(data = world) +
 legend <- get_legend(c700)
 
 c700 = c700 + theme(legend.position = "none")
-
 c1700 = ggplot(data = world) + 
   geom_sf(fill= "antiquewhite", size=0.1) + 
   geom_stars(data = rl_h_4326_1700_st, aes(fill = h_1700, x = x, y = y)) + 
-  #scale_fill_gradientn(colors = sf.colors(20)) + 
-  #sc2 + 
   sc+
-  geom_text(data= world_points[venezuela,],aes(x=-69.4, y=8.5, label=name), color = "darkblue", fontface = "bold", size=1.5, check_overlap = FALSE) +
+  geom_text(data= world_points[venezuela,],aes(x=-69.4, y=8.5, label=name), color="darkblue", fontface = "bold", size=1.5, check_overlap = FALSE) +
   geom_text(data= world_points[panama,],aes(x=-79.1, y=9.2, label=name), color = "darkblue", fontface = "bold", size=1.5, check_overlap = FALSE) + 
   geom_text(data= world_points[ecuador,],aes(x=-78.8, y=-1, label=name), color = "darkblue", fontface = "bold", size=1.5, check_overlap = FALSE) +
   geom_text(data= world_points[peru,],aes(x=-75, y=-6, label=name), color = "darkblue", fontface = "bold", size=1.5, check_overlap = FALSE) +
@@ -948,8 +853,10 @@ c1700 = ggplot(data = world) +
   annotate(geom = "text", x = -77.5, y = 13.4, label = "Caribbean Sea", fontface = "italic", color = "grey22", size = 1.8) + 
   annotate(geom = "text", x = -79, y = 5.6, label = "Pacific Sea", fontface = "italic", color = "grey22", size = 1.8) +
   geom_sf(data = st_cast(world, "MULTILINESTRING"), size=0.1)+
-  #geom_sf(data = era5colpoints3116, size=1, shape=2, color= "black", show.legend = "point") + 
-  annotation_scale(location = "bl", width_hint = 0.5, height = unit(0.1, "cm"), line_width = 0.1, text_cex = 0.5, pad_x = unit(0.03, "in"), pad_y = unit(0.03, "in")) + annotation_north_arrow(location = "br", which_north = "true", pad_x = unit(0.01, "in"), pad_y = unit(0.02, "in"), height = unit(0.5, "cm"), width = unit(0.5, "cm"), style = north_arrow_minimal) +
+  annotation_scale(location = "bl", width_hint = 0.5, height = unit(0.1, "cm"), line_width = 0.1, text_cex = 0.5, pad_x = unit(0.03, "in"), 
+   pad_y = unit(0.03, "in")) + 
+  annotation_north_arrow(location = "br", which_north = "true", pad_x = unit(0.01, "in"), pad_y = unit(0.02, "in"), height = unit(0.5, "cm"), 
+   width = unit(0.5, "cm"), style = north_arrow_minimal) +
   coord_sf(xlim = c(-80.5, -67.7), ylim = c(4.5, 13.9), expand = FALSE) +
   xlab("") + 
   ylab("") + 
@@ -959,9 +866,6 @@ c1700 = ggplot(data = world) +
   theme(axis.text.y= element_text(size=5)) +
   theme(panel.grid.major = element_line(color = gray(.5), linetype = "dashed", size = 0.1)) +
   theme(panel.background = element_rect(fill = "aliceblue")) +
-  #theme(legend.title = element_text(size=8)) +
-  #theme(legend.text=element_text(size=8)) +
-  #theme(legend.key.size = unit(0.5,"line")) +
   theme(plot.margin=unit(c(0,0,0,0),"cm")) +
   theme(plot.background = element_rect(fill = "transparent", color = NA))+
   theme(axis.text.x = element_text(margin =  margin(t =2, b = -14))) + 
@@ -971,10 +875,8 @@ c1700 = ggplot(data = world) +
 c3000 = ggplot(data = world) + 
   geom_sf(fill= "antiquewhite", size=0.1) + 
   geom_stars(data = rl_h_4326_3000_st, aes(fill = h_3000, x = x, y = y)) + 
-  #scale_fill_gradientn(colors = sf.colors(20)) + 
-  #sc2 + 
   sc+
-  geom_text(data= world_points[venezuela,],aes(x=-69.4, y=8.5, label=name), color = "darkblue", fontface = "bold", size=1.5, check_overlap = FALSE) +
+  geom_text(data= world_points[venezuela,],aes(x=-69.4, y=8.5, label=name), color="darkblue", fontface="bold", size=1.5, check_overlap = FALSE) +
   geom_text(data= world_points[panama,],aes(x=-79.1, y=9.2, label=name), color = "darkblue", fontface = "bold", size=1.5, check_overlap = FALSE) + 
   geom_text(data= world_points[ecuador,],aes(x=-78.8, y=-1, label=name), color = "darkblue", fontface = "bold", size=1.5, check_overlap = FALSE) +
   geom_text(data= world_points[peru,],aes(x=-75, y=-6, label=name), color = "darkblue", fontface = "bold", size=1.5, check_overlap = FALSE) +
@@ -982,9 +884,11 @@ c3000 = ggplot(data = world) +
   geom_text(data= world_points[colombia,],aes(x=-71, y=5.5, label=name), color = "darkblue", fontface = "bold", size=1.5, check_overlap = FALSE) +
   annotate(geom = "text", x = -77.5, y = 13.4, label = "Caribbean Sea", fontface = "italic", color = "grey22", size = 1.8) + 
   annotate(geom = "text", x = -79, y = 5.6, label = "Pacific Sea", fontface = "italic", color = "grey22", size = 1.8) +
-  geom_sf(data = st_cast(world, "MULTILINESTRING"), size=0.1)+
-  #geom_sf(data = era5colpoints3116, size=1, shape=2, color= "black", show.legend = "point") + 
-  annotation_scale(location = "bl", width_hint = 0.5, height = unit(0.1, "cm"), line_width = 0.1, text_cex = 0.5, pad_x = unit(0.03, "in"), pad_y = unit(0.03, "in")) + annotation_north_arrow(location = "br", which_north = "true", pad_x = unit(0.01, "in"), pad_y = unit(0.02, "in"), height = unit(0.5, "cm"), width = unit(0.5, "cm"), style = north_arrow_minimal) +
+  geom_sf(data = st_cast(world, "MULTILINESTRING"), size=0.1) +
+  annotation_scale(location = "bl", width_hint = 0.5, height = unit(0.1, "cm"), line_width = 0.1, text_cex = 0.5, pad_x = unit(0.03, "in"), 
+   pad_y = unit(0.03, "in")) + 
+  annotation_north_arrow(location = "br", which_north = "true", pad_x = unit(0.01, "in"), pad_y = unit(0.02, "in"), height = unit(0.5, "cm"), 
+   width = unit(0.5, "cm"), style = north_arrow_minimal) +
   coord_sf(xlim = c(-80.5, -67.7), ylim = c(4.5, 13.9), expand = FALSE) +
   xlab("") + 
   ylab("") + 
@@ -994,19 +898,12 @@ c3000 = ggplot(data = world) +
   theme(axis.text.y= element_text(size=5)) +
   theme(panel.grid.major = element_line(color = gray(.5), linetype = "dashed", size = 0.1)) +
   theme(panel.background = element_rect(fill = "aliceblue")) +
-  #theme(legend.title = element_text(size=8)) +
-  #theme(legend.text=element_text(size=8)) +
-  #theme(legend.key.size = unit(0.5,"line")) +
   theme(plot.margin=unit(c(0,0,0,0),"cm")) +
   theme(plot.background = element_rect(fill = "transparent", color = NA))+
   theme(axis.text.x = element_text(margin =  margin(t =2, b = -14))) + 
   theme(axis.text.y = element_text(margin =  margin(r =2, l = -10))) +
   theme(legend.position = "none")
-
-#grid.arrange(c700, c1700, c3000, legend, ncol=4, widths=c(1,1,1,0.1))  
 plot_grid(c700, c1700, c3000, legend, ncol=4, rel_widths=c(1, 1, 1, 0.13))
-#grid.rect(gp=gpar(fill=NA))
-
 ```
 
 
@@ -1014,6 +911,9 @@ plot_grid(c700, c1700, c3000, legend, ncol=4, rel_widths=c(1, 1, 1, 0.13))
 
 
 ```{r isdnhmaps, echo=FALSE, fig.cap="ISD Non-Hurricane Wind Maps.", message=FALSE, warning=FALSE, fig.height=2.7, fig.width=6.5}
+#
+#ISD Non-Hurricane Wind Maps
+#
 file_rl_nh_4326_700_st = "./data/isdmaps/nh_700.tif"
 rl_nh_4326_700_st = read_stars(file_rl_nh_4326_700_st)
 rl_nh_4326_700_st = setNames(rl_nh_4326_700_st, "Kph")
@@ -1045,10 +945,8 @@ ecuador= world_points$name == "Ecuador"
 c700 = ggplot(data = world) + 
   geom_sf(fill= "antiquewhite", size=0.1) + 
   geom_stars(data = rl_nh_4326_700_st, aes(fill = Kph, x = x, y = y)) + 
-  #scale_fill_gradientn(colors = sf.colors(20)) + 
-  #sc2 + 
   sc+
-  geom_text(data= world_points[venezuela,],aes(x=-66.5, y=8.5, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) +
+  geom_text(data= world_points[venezuela,],aes(x=-66.5, y=8.5, label=name), color="darkblue", fontface="bold", size=2, check_overlap=FALSE) +
   geom_text(data= world_points[panama,],aes(x=-80.3, y=9.2, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) + 
   geom_text(data= world_points[ecuador,],aes(x=-78.8, y=-1, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) +
   geom_text(data= world_points[peru,],aes(x=-75, y=-6, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) +
@@ -1057,8 +955,10 @@ c700 = ggplot(data = world) +
   annotate(geom = "text", x = -77.5, y = 14, label = "Caribbean\nSea", fontface = "italic", color = "grey22", size = 2) + 
   annotate(geom = "text", x = -80.5, y = 5, label = "Pacific\nSea", fontface = "italic", color = "grey22", size = 2) +
   geom_sf(data = st_cast(world, "MULTILINESTRING"), size=0.1)+
-  #geom_sf(data = era5colpoints3116, size=1, shape=2, color= "black", show.legend = "point") + 
-  annotation_scale(location = "bl", width_hint = 0.5, height = unit(0.1, "cm"), line_width = 0.1, text_cex = 0.5, pad_x = unit(0.03, "in"), pad_y = unit(0.03, "in")) + annotation_north_arrow(location = "br", which_north = "true", pad_x = unit(0.01, "in"), pad_y = unit(0.02, "in"), height = unit(0.5, "cm"), width = unit(0.5, "cm"), style = north_arrow_minimal) +
+  annotation_scale(location = "bl", width_hint = 0.5, height = unit(0.1, "cm"), line_width = 0.1, text_cex = 0.5, pad_x = unit(0.03, "in"), 
+   pad_y = unit(0.03, "in")) + 
+  annotation_north_arrow(location = "br", which_north = "true", pad_x = unit(0.01, "in"), pad_y = unit(0.02, "in"), height = unit(0.5, "cm"), 
+   width = unit(0.5, "cm"), style = north_arrow_minimal) +
   coord_sf(xlim = c(-82.1, -63.8), ylim = c(-7.5, 15.5), expand = FALSE) +
   xlab("") + 
   ylab("") + 
@@ -1068,9 +968,6 @@ c700 = ggplot(data = world) +
   theme(axis.text.y= element_text(size=6)) +
   theme(panel.grid.major = element_line(color = gray(.5), linetype = "dashed", size = 0.1)) +
   theme(panel.background = element_rect(fill = "aliceblue")) +
-  #theme(legend.title = element_text(size=8)) +
-  #theme(legend.text=element_text(size=8)) +
-  #theme(legend.key.size = unit(0.5,"line")) +
   theme(plot.margin=unit(c(0,0,0,0),"cm")) +
   theme(plot.background = element_rect(fill = "transparent", color = NA))+
   theme(axis.text.x = element_text(margin =  margin(t =2, b = -14))) + 
@@ -1087,10 +984,8 @@ c700 = c700 + theme(legend.position = "none")
 c1700 = ggplot(data = world) + 
   geom_sf(fill= "antiquewhite", size=0.1) + 
   geom_stars(data = rl_nh_4326_1700_st, aes(fill = nh_1700, x = x, y = y)) + 
-  #scale_fill_gradientn(colors = sf.colors(20)) + 
-  #sc2 + 
   sc+
-  geom_text(data= world_points[venezuela,],aes(x=-66.5, y=8.5, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) +
+  geom_text(data= world_points[venezuela,],aes(x=-66.5, y=8.5, label=name), color="darkblue", fontface="bold", size=2, check_overlap=FALSE) +
   geom_text(data= world_points[panama,],aes(x=-80.3, y=9.2, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) + 
   geom_text(data= world_points[ecuador,],aes(x=-78.8, y=-1, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) +
   geom_text(data= world_points[peru,],aes(x=-75, y=-6, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) +
@@ -1099,8 +994,10 @@ c1700 = ggplot(data = world) +
   annotate(geom = "text", x = -77.5, y = 14, label = "Caribbean\nSea", fontface = "italic", color = "grey22", size = 2) + 
   annotate(geom = "text", x = -80.5, y = 5, label = "Pacific\nSea", fontface = "italic", color = "grey22", size = 2) +
   geom_sf(data = st_cast(world, "MULTILINESTRING"), size=0.1)+
-  #geom_sf(data = era5colpoints3116, size=1, shape=2, color= "black", show.legend = "point") + 
-  annotation_scale(location = "bl", width_hint = 0.5, height = unit(0.1, "cm"), line_width = 0.1, text_cex = 0.5, pad_x = unit(0.03, "in"), pad_y = unit(0.03, "in")) + annotation_north_arrow(location = "br", which_north = "true", pad_x = unit(0.01, "in"), pad_y = unit(0.02, "in"), height = unit(0.5, "cm"), width = unit(0.5, "cm"), style = north_arrow_minimal) +
+  annotation_scale(location = "bl", width_hint = 0.5, height = unit(0.1, "cm"), line_width = 0.1, text_cex = 0.5, pad_x = unit(0.03, "in"), 
+   pad_y = unit(0.03, "in")) + 
+  annotation_north_arrow(location = "br", which_north = "true", pad_x = unit(0.01, "in"), pad_y = unit(0.02, "in"), height = unit(0.5, "cm"),
+   width = unit(0.5, "cm"), style = north_arrow_minimal) +
   coord_sf(xlim = c(-82.1, -63.8), ylim = c(-7.5, 15.5), expand = FALSE) +
   xlab("") + 
   ylab("") + 
@@ -1110,9 +1007,6 @@ c1700 = ggplot(data = world) +
   theme(axis.text.y= element_text(size=6)) +
   theme(panel.grid.major = element_line(color = gray(.5), linetype = "dashed", size = 0.1)) +
   theme(panel.background = element_rect(fill = "aliceblue")) +
-  #theme(legend.title = element_text(size=8)) +
-  #theme(legend.text=element_text(size=8)) +
-  #theme(legend.key.size = unit(0.5,"line")) +
   theme(plot.margin=unit(c(0,0,0,0),"cm")) +
   theme(plot.background = element_rect(fill = "transparent", color = NA))+
   theme(axis.text.x = element_text(margin =  margin(t =2, b = -14))) + 
@@ -1122,10 +1016,8 @@ c1700 = ggplot(data = world) +
 c3000 = ggplot(data = world) + 
   geom_sf(fill= "antiquewhite", size=0.1) + 
   geom_stars(data = rl_nh_4326_3000_st, aes(fill = nh_3000, x = x, y = y)) + 
-  #scale_fill_gradientn(colors = sf.colors(20)) + 
-  #sc2 + 
   sc+
-  geom_text(data= world_points[venezuela,],aes(x=-66.5, y=8.5, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) +
+  geom_text(data= world_points[venezuela,],aes(x=-66.5, y=8.5, label=name), color="darkblue", fontface="bold", size=2, check_overlap=FALSE) +
   geom_text(data= world_points[panama,],aes(x=-80.3, y=9.2, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) + 
   geom_text(data= world_points[ecuador,],aes(x=-78.8, y=-1, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) +
   geom_text(data= world_points[peru,],aes(x=-75, y=-6, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) +
@@ -1133,9 +1025,11 @@ c3000 = ggplot(data = world) +
   geom_text(data= world_points[colombia,],aes(x=-71, y=4, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) +
   annotate(geom = "text", x = -77.5, y = 14, label = "Caribbean\nSea", fontface = "italic", color = "grey22", size = 2) + 
   annotate(geom = "text", x = -80.5, y = 5, label = "Pacific\nSea", fontface = "italic", color = "grey22", size = 2) +
-  geom_sf(data = st_cast(world, "MULTILINESTRING"), size=0.1)+
-  #geom_sf(data = era5colpoints3116, size=1, shape=2, color= "black", show.legend = "point") + 
-  annotation_scale(location = "bl", width_hint = 0.5, height = unit(0.1, "cm"), line_width = 0.1, text_cex = 0.5, pad_x = unit(0.03, "in"), pad_y = unit(0.03, "in")) + annotation_north_arrow(location = "br", which_north = "true", pad_x = unit(0.01, "in"), pad_y = unit(0.02, "in"), height = unit(0.5, "cm"), width = unit(0.5, "cm"), style = north_arrow_minimal) +
+  geom_sf(data = st_cast(world, "MULTILINESTRING"), size=0.1) +
+  annotation_scale(location = "bl", width_hint = 0.5, height = unit(0.1, "cm"), line_width = 0.1, text_cex = 0.5, pad_x = unit(0.03, "in"), 
+   pad_y = unit(0.03, "in")) + 
+  annotation_north_arrow(location = "br", which_north = "true", pad_x = unit(0.01, "in"), pad_y = unit(0.02, "in"), height = unit(0.5, "cm"), 
+   width = unit(0.5, "cm"), style = north_arrow_minimal) +
   coord_sf(xlim = c(-82.1, -63.8), ylim = c(-7.5, 15.5), expand = FALSE) +
   xlab("") + 
   ylab("") + 
@@ -1145,24 +1039,21 @@ c3000 = ggplot(data = world) +
   theme(axis.text.y= element_text(size=6)) +
   theme(panel.grid.major = element_line(color = gray(.5), linetype = "dashed", size = 0.1)) +
   theme(panel.background = element_rect(fill = "aliceblue")) +
-  #theme(legend.title = element_text(size=8)) +
-  #theme(legend.text=element_text(size=8)) +
-  #theme(legend.key.size = unit(0.5,"line")) +
   theme(plot.margin=unit(c(0,0,0,0),"cm")) +
   theme(plot.background = element_rect(fill = "transparent", color = NA))+
   theme(axis.text.x = element_text(margin =  margin(t =2, b = -14))) + 
   theme(axis.text.y = element_text(margin =  margin(r =2, l = -16))) +
   theme(legend.position = "none")
 
-#grid.arrange(c700, c1700, c3000, legend, ncol=4, widths=c(1,1,1,0.1))  
 plot_grid(c700, c1700, c3000, legend, ncol=4, rel_widths=c(1, 1, 1, 0.1))
-#grid.rect(gp=gpar(fill=NA))
-
 ```
 
 
 
 ```{r era5nhmaps, echo=FALSE, fig.cap="ERA5 Non-Hurricane Wind Maps.", message=FALSE, warning=FALSE, fig.height=2.7, fig.width=6.5}
+#
+#ERA5 Non-Hurricane Wind Maps
+#
 file_rl_nonhurricanes_4326_700_st = "./data/era5maps/rl_nonhurricanes_4326_700_st.tif"
 rl_nonhurricanes_4326_700_st = read_stars(file_rl_nonhurricanes_4326_700_st)
 rl_nonhurricanes_4326_700_st = setNames(rl_nonhurricanes_4326_700_st, "Kph")
@@ -1176,8 +1067,7 @@ rl_nonhurricanes_4326_3000_st = read_stars(file_rl_nonhurricanes_4326_3000_st)
 rl_nonhurricanes_4326_3000_st = setNames(rl_nonhurricanes_4326_3000_st, "nh_3000")
 
 myPalette <- colorRampPalette(rev(brewer.pal(11, "Spectral")))
-sc <- scale_fill_gradientn(colours = myPalette(100), limits=c(36, 129), 
-                           breaks=c(36, 50, 75, 100, 120, 129))
+sc <- scale_fill_gradientn(colours = myPalette(100), limits=c(36, 129), breaks=c(36, 50, 75, 100, 120, 129))
 
 theme_set(theme_bw())
 world <- ne_countries(scale = "medium", returnclass = "sf")
@@ -1194,10 +1084,8 @@ ecuador= world_points$name == "Ecuador"
 c700 = ggplot(data = world) + 
   geom_sf(fill= "antiquewhite", size=0.1) + 
   geom_stars(data = rl_nonhurricanes_4326_700_st, aes(fill = Kph, x = x, y = y)) + 
-  #scale_fill_gradientn(colors = sf.colors(20)) + 
-  #sc2 + 
   sc+
-  geom_text(data= world_points[venezuela,],aes(x=-66.5, y=8.5, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) +
+  geom_text(data= world_points[venezuela,],aes(x=-66.5, y=8.5, label=name), color="darkblue", fontface="bold", size=2, check_overlap=FALSE) +
   geom_text(data= world_points[panama,],aes(x=-80.3, y=9.2, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) + 
   geom_text(data= world_points[ecuador,],aes(x=-78.8, y=-1, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) +
   geom_text(data= world_points[peru,],aes(x=-75, y=-6, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) +
@@ -1206,8 +1094,10 @@ c700 = ggplot(data = world) +
   annotate(geom = "text", x = -77.5, y = 14, label = "Caribbean\nSea", fontface = "italic", color = "grey22", size = 2) + 
   annotate(geom = "text", x = -80.5, y = 5, label = "Pacific\nSea", fontface = "italic", color = "grey22", size = 2) +
   geom_sf(data = st_cast(world, "MULTILINESTRING"), size=0.1)+
-  #geom_sf(data = era5colpoints3116, size=1, shape=2, color= "black", show.legend = "point") + 
-  annotation_scale(location = "bl", width_hint = 0.5, height = unit(0.1, "cm"), line_width = 0.1, text_cex = 0.5, pad_x = unit(0.03, "in"), pad_y = unit(0.03, "in")) + annotation_north_arrow(location = "br", which_north = "true", pad_x = unit(0.01, "in"), pad_y = unit(0.02, "in"), height = unit(0.5, "cm"), width = unit(0.5, "cm"), style = north_arrow_minimal) +
+  annotation_scale(location = "bl", width_hint = 0.5, height = unit(0.1, "cm"), line_width = 0.1, text_cex = 0.5, pad_x = unit(0.03, "in"), 
+   pad_y = unit(0.03, "in")) + 
+  annotation_north_arrow(location = "br", which_north = "true", pad_x = unit(0.01, "in"), pad_y = unit(0.02, "in"), height = unit(0.5, "cm"), 
+   width = unit(0.5, "cm"), style = north_arrow_minimal) +
   coord_sf(xlim = c(-82.1, -63.8), ylim = c(-7.5, 15.5), expand = FALSE) +
   xlab("") + 
   ylab("") + 
@@ -1217,9 +1107,6 @@ c700 = ggplot(data = world) +
   theme(axis.text.y= element_text(size=6)) +
   theme(panel.grid.major = element_line(color = gray(.5), linetype = "dashed", size = 0.1)) +
   theme(panel.background = element_rect(fill = "aliceblue")) +
-  #theme(legend.title = element_text(size=8)) +
-  #theme(legend.text=element_text(size=8)) +
-  #theme(legend.key.size = unit(0.5,"line")) +
   theme(plot.margin=unit(c(0,0,0,0),"cm")) +
   theme(plot.background = element_rect(fill = "transparent", color = NA))+
   theme(axis.text.x = element_text(margin =  margin(t =2, b = -14))) + 
@@ -1236,10 +1123,8 @@ c700 = c700 + theme(legend.position = "none")
 c1700 = ggplot(data = world) + 
   geom_sf(fill= "antiquewhite", size=0.1) + 
   geom_stars(data = rl_nonhurricanes_4326_1700_st, aes(fill = nh_1700, x = x, y = y)) + 
-  #scale_fill_gradientn(colors = sf.colors(20)) + 
-  #sc2 + 
   sc+
-  geom_text(data= world_points[venezuela,],aes(x=-66.5, y=8.5, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) +
+  geom_text(data= world_points[venezuela,],aes(x=-66.5, y=8.5, label=name), color="darkblue", fontface="bold", size=2, check_overlap=FALSE) +
   geom_text(data= world_points[panama,],aes(x=-80.3, y=9.2, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) + 
   geom_text(data= world_points[ecuador,],aes(x=-78.8, y=-1, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) +
   geom_text(data= world_points[peru,],aes(x=-75, y=-6, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) +
@@ -1248,8 +1133,10 @@ c1700 = ggplot(data = world) +
   annotate(geom = "text", x = -77.5, y = 14, label = "Caribbean\nSea", fontface = "italic", color = "grey22", size = 2) + 
   annotate(geom = "text", x = -80.5, y = 5, label = "Pacific\nSea", fontface = "italic", color = "grey22", size = 2) +
   geom_sf(data = st_cast(world, "MULTILINESTRING"), size=0.1)+
-  #geom_sf(data = era5colpoints3116, size=1, shape=2, color= "black", show.legend = "point") + 
-  annotation_scale(location = "bl", width_hint = 0.5, height = unit(0.1, "cm"), line_width = 0.1, text_cex = 0.5, pad_x = unit(0.03, "in"), pad_y = unit(0.03, "in")) + annotation_north_arrow(location = "br", which_north = "true", pad_x = unit(0.01, "in"), pad_y = unit(0.02, "in"), height = unit(0.5, "cm"), width = unit(0.5, "cm"), style = north_arrow_minimal) +
+  annotation_scale(location = "bl", width_hint = 0.5, height = unit(0.1, "cm"), line_width = 0.1, text_cex = 0.5, pad_x = unit(0.03, "in"), 
+   pad_y = unit(0.03, "in")) + 
+  annotation_north_arrow(location = "br", which_north = "true", pad_x = unit(0.01, "in"), pad_y = unit(0.02, "in"), height = unit(0.5, "cm"), 
+   width = unit(0.5, "cm"), style = north_arrow_minimal) +
   coord_sf(xlim = c(-82.1, -63.8), ylim = c(-7.5, 15.5), expand = FALSE) +
   xlab("") + 
   ylab("") + 
@@ -1259,9 +1146,6 @@ c1700 = ggplot(data = world) +
   theme(axis.text.y= element_text(size=6)) +
   theme(panel.grid.major = element_line(color = gray(.5), linetype = "dashed", size = 0.1)) +
   theme(panel.background = element_rect(fill = "aliceblue")) +
-  #theme(legend.title = element_text(size=8)) +
-  #theme(legend.text=element_text(size=8)) +
-  #theme(legend.key.size = unit(0.5,"line")) +
   theme(plot.margin=unit(c(0,0,0,0),"cm")) +
   theme(plot.background = element_rect(fill = "transparent", color = NA))+
   theme(axis.text.x = element_text(margin =  margin(t =2, b = -14))) + 
@@ -1271,10 +1155,8 @@ c1700 = ggplot(data = world) +
 c3000 = ggplot(data = world) + 
   geom_sf(fill= "antiquewhite", size=0.1) + 
   geom_stars(data = rl_nonhurricanes_4326_3000_st, aes(fill = nh_3000, x = x, y = y)) + 
-  #scale_fill_gradientn(colors = sf.colors(20)) + 
-  #sc2 + 
   sc+
-  geom_text(data= world_points[venezuela,],aes(x=-66.5, y=8.5, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) +
+  geom_text(data= world_points[venezuela,],aes(x=-66.5, y=8.5, label=name), color="darkblue", fontface="bold", size=2, check_overlap=FALSE) +
   geom_text(data= world_points[panama,],aes(x=-80.3, y=9.2, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) + 
   geom_text(data= world_points[ecuador,],aes(x=-78.8, y=-1, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) +
   geom_text(data= world_points[peru,],aes(x=-75, y=-6, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) +
@@ -1283,8 +1165,10 @@ c3000 = ggplot(data = world) +
   annotate(geom = "text", x = -77.5, y = 14, label = "Caribbean\nSea", fontface = "italic", color = "grey22", size = 2) + 
   annotate(geom = "text", x = -80.5, y = 5, label = "Pacific\nSea", fontface = "italic", color = "grey22", size = 2) +
   geom_sf(data = st_cast(world, "MULTILINESTRING"), size=0.1)+
-  #geom_sf(data = era5colpoints3116, size=1, shape=2, color= "black", show.legend = "point") + 
-  annotation_scale(location = "bl", width_hint = 0.5, height = unit(0.1, "cm"), line_width = 0.1, text_cex = 0.5, pad_x = unit(0.03, "in"), pad_y = unit(0.03, "in")) + annotation_north_arrow(location = "br", which_north = "true", pad_x = unit(0.01, "in"), pad_y = unit(0.02, "in"), height = unit(0.5, "cm"), width = unit(0.5, "cm"), style = north_arrow_minimal) +
+  annotation_scale(location = "bl", width_hint = 0.5, height = unit(0.1, "cm"), line_width = 0.1, text_cex = 0.5, pad_x = unit(0.03, "in"), 
+   pad_y = unit(0.03, "in")) + 
+  annotation_north_arrow(location = "br", which_north = "true", pad_x = unit(0.01, "in"), pad_y = unit(0.02, "in"), height = unit(0.5, "cm"), 
+   width = unit(0.5, "cm"), style = north_arrow_minimal) +
   coord_sf(xlim = c(-82.1, -63.8), ylim = c(-7.5, 15.5), expand = FALSE) +
   xlab("") + 
   ylab("") + 
@@ -1294,19 +1178,13 @@ c3000 = ggplot(data = world) +
   theme(axis.text.y= element_text(size=6)) +
   theme(panel.grid.major = element_line(color = gray(.5), linetype = "dashed", size = 0.1)) +
   theme(panel.background = element_rect(fill = "aliceblue")) +
-  #theme(legend.title = element_text(size=8)) +
-  #theme(legend.text=element_text(size=8)) +
-  #theme(legend.key.size = unit(0.5,"line")) +
   theme(plot.margin=unit(c(0,0,0,0),"cm")) +
   theme(plot.background = element_rect(fill = "transparent", color = NA))+
   theme(axis.text.x = element_text(margin =  margin(t =2, b = -14))) + 
   theme(axis.text.y = element_text(margin =  margin(r =2, l = -16))) +
   theme(legend.position = "none")
 
-#grid.arrange(c700, c1700, c3000, legend, ncol=4, widths=c(1,1,1,0.1))  
 plot_grid(c700, c1700, c3000, legend, ncol=4, rel_widths=c(1, 1, 1, 0.1))
-#grid.rect(gp=gpar(fill=NA))
-
 ```
 
 
@@ -1315,7 +1193,9 @@ plot_grid(c700, c1700, c3000, legend, ncol=4, rel_widths=c(1, 1, 1, 0.1))
 Following the procedure described in [integration with Hurricane data](#integration), final wind maps are created, combining existing data for hurricane studies, and non-hurricane maps produced in this study.
 
 ```{r isdcbmaps, echo=FALSE, fig.cap="ISD Hurricane & Non-Hurricane Wind Maps.", message=FALSE, warning=FALSE, fig.height=2.7, fig.width=6.5}
-#Combined
+#
+#ISD Hurricane & Non-Hurricane Wind Maps
+#
 file_rl_combined_4326_700_st = "./data/isdmaps/isd_combined_4326_700_st.tif"
 rl_combined_4326_700_st = read_stars(file_rl_combined_4326_700_st)
 rl_combined_4326_700_st = setNames(rl_combined_4326_700_st, "Kph")
@@ -1329,8 +1209,7 @@ rl_combined_4326_3000_st = read_stars(file_rl_combined_4326_3000_st)
 rl_combined_4326_3000_st = setNames(rl_combined_4326_3000_st, "c_3000")
 
 myPalette <- colorRampPalette(rev(brewer.pal(11, "Spectral")))
-sc <- scale_fill_gradientn(colours = myPalette(100), limits=c(188, 438), 
-                           breaks=c(188, 200, 250, 300, 350, 400, 438))
+sc <- scale_fill_gradientn(colours = myPalette(100), limits=c(188, 438), breaks=c(188, 200, 250, 300, 350, 400, 438))
 
 theme_set(theme_bw())
 world <- ne_countries(scale = "medium", returnclass = "sf")
@@ -1347,10 +1226,8 @@ ecuador= world_points$name == "Ecuador"
 c700 = ggplot(data = world) + 
   geom_sf(fill= "antiquewhite", size=0.1) + 
   geom_stars(data = rl_combined_4326_700_st, aes(fill = Kph, x = x, y = y)) + 
-  #scale_fill_gradientn(colors = sf.colors(20)) + 
-  #sc2 + 
   sc+
-  geom_text(data= world_points[venezuela,],aes(x=-66.5, y=8.5, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) +
+  geom_text(data= world_points[venezuela,],aes(x=-66.5, y=8.5, label=name), color="darkblue", fontface="bold", size=2, check_overlap=FALSE) +
   geom_text(data= world_points[panama,],aes(x=-80.3, y=9.2, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) + 
   geom_text(data= world_points[ecuador,],aes(x=-78.8, y=-1, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) +
   geom_text(data= world_points[peru,],aes(x=-75, y=-6, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) +
@@ -1359,8 +1236,10 @@ c700 = ggplot(data = world) +
   annotate(geom = "text", x = -77.5, y = 14, label = "Caribbean\nSea", fontface = "italic", color = "grey22", size = 2) + 
   annotate(geom = "text", x = -80.5, y = 5, label = "Pacific\nSea", fontface = "italic", color = "grey22", size = 2) +
   geom_sf(data = st_cast(world, "MULTILINESTRING"), size=0.1)+
-  #geom_sf(data = era5colpoints3116, size=1, shape=2, color= "black", show.legend = "point") + 
-  annotation_scale(location = "bl", width_hint = 0.5, height = unit(0.1, "cm"), line_width = 0.1, text_cex = 0.5, pad_x = unit(0.03, "in"), pad_y = unit(0.03, "in")) + annotation_north_arrow(location = "br", which_north = "true", pad_x = unit(0.01, "in"), pad_y = unit(0.02, "in"), height = unit(0.5, "cm"), width = unit(0.5, "cm"), style = north_arrow_minimal) +
+  annotation_scale(location = "bl", width_hint = 0.5, height = unit(0.1, "cm"), line_width = 0.1, text_cex = 0.5, pad_x = unit(0.03, "in"), 
+   pad_y = unit(0.03, "in")) + 
+  annotation_north_arrow(location = "br", which_north = "true", pad_x = unit(0.01, "in"), pad_y = unit(0.02, "in"), height = unit(0.5, "cm"), 
+   width = unit(0.5, "cm"), style = north_arrow_minimal) +
   coord_sf(xlim = c(-82.1, -63.8), ylim = c(-7.5, 15.5), expand = FALSE) +
   xlab("") + 
   ylab("") + 
@@ -1370,9 +1249,6 @@ c700 = ggplot(data = world) +
   theme(axis.text.y= element_text(size=6)) +
   theme(panel.grid.major = element_line(color = gray(.5), linetype = "dashed", size = 0.1)) +
   theme(panel.background = element_rect(fill = "aliceblue")) +
-  #theme(legend.title = element_text(size=8)) +
-  #theme(legend.text=element_text(size=8)) +
-  #theme(legend.key.size = unit(0.5,"line")) +
   theme(plot.margin=unit(c(0,0,0,0),"cm")) +
   theme(plot.background = element_rect(fill = "transparent", color = NA))+
   theme(axis.text.x = element_text(margin =  margin(t =2, b = -14))) + 
@@ -1389,10 +1265,8 @@ c700 = c700 + theme(legend.position = "none")
 c1700 = ggplot(data = world) + 
   geom_sf(fill= "antiquewhite", size=0.1) + 
   geom_stars(data = rl_combined_4326_1700_st, aes(fill = c_1700, x = x, y = y)) + 
-  #scale_fill_gradientn(colors = sf.colors(20)) + 
-  #sc2 + 
   sc+
-  geom_text(data= world_points[venezuela,],aes(x=-66.5, y=8.5, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) +
+  geom_text(data= world_points[venezuela,],aes(x=-66.5, y=8.5, label=name), color="darkblue", fontface="bold", size=2, check_overlap=FALSE) +
   geom_text(data= world_points[panama,],aes(x=-80.3, y=9.2, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) + 
   geom_text(data= world_points[ecuador,],aes(x=-78.8, y=-1, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) +
   geom_text(data= world_points[peru,],aes(x=-75, y=-6, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) +
@@ -1401,8 +1275,10 @@ c1700 = ggplot(data = world) +
   annotate(geom = "text", x = -77.5, y = 14, label = "Caribbean\nSea", fontface = "italic", color = "grey22", size = 2) + 
   annotate(geom = "text", x = -80.5, y = 5, label = "Pacific\nSea", fontface = "italic", color = "grey22", size = 2) +
   geom_sf(data = st_cast(world, "MULTILINESTRING"), size=0.1)+
-  #geom_sf(data = era5colpoints3116, size=1, shape=2, color= "black", show.legend = "point") + 
-  annotation_scale(location = "bl", width_hint = 0.5, height = unit(0.1, "cm"), line_width = 0.1, text_cex = 0.5, pad_x = unit(0.03, "in"), pad_y = unit(0.03, "in")) + annotation_north_arrow(location = "br", which_north = "true", pad_x = unit(0.01, "in"), pad_y = unit(0.02, "in"), height = unit(0.5, "cm"), width = unit(0.5, "cm"), style = north_arrow_minimal) +
+  annotation_scale(location = "bl", width_hint = 0.5, height = unit(0.1, "cm"), line_width = 0.1, text_cex = 0.5, pad_x = unit(0.03, "in"), 
+   pad_y = unit(0.03, "in")) + 
+  annotation_north_arrow(location = "br", which_north = "true", pad_x = unit(0.01, "in"), pad_y = unit(0.02, "in"), height = unit(0.5, "cm"), 
+   width = unit(0.5, "cm"), style = north_arrow_minimal) +
   coord_sf(xlim = c(-82.1, -63.8), ylim = c(-7.5, 15.5), expand = FALSE) +
   xlab("") + 
   ylab("") + 
@@ -1412,9 +1288,6 @@ c1700 = ggplot(data = world) +
   theme(axis.text.y= element_text(size=6)) +
   theme(panel.grid.major = element_line(color = gray(.5), linetype = "dashed", size = 0.1)) +
   theme(panel.background = element_rect(fill = "aliceblue")) +
-  #theme(legend.title = element_text(size=8)) +
-  #theme(legend.text=element_text(size=8)) +
-  #theme(legend.key.size = unit(0.5,"line")) +
   theme(plot.margin=unit(c(0,0,0,0),"cm")) +
   theme(plot.background = element_rect(fill = "transparent", color = NA))+
   theme(axis.text.x = element_text(margin =  margin(t =2, b = -14))) + 
@@ -1424,10 +1297,8 @@ c1700 = ggplot(data = world) +
 c3000 = ggplot(data = world) + 
   geom_sf(fill= "antiquewhite", size=0.1) + 
   geom_stars(data = rl_combined_4326_3000_st, aes(fill = c_3000, x = x, y = y)) + 
-  #scale_fill_gradientn(colors = sf.colors(20)) + 
-  #sc2 + 
   sc+
-  geom_text(data= world_points[venezuela,],aes(x=-66.5, y=8.5, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) +
+  geom_text(data= world_points[venezuela,],aes(x=-66.5, y=8.5, label=name), color="darkblue", fontface="bold", size=2, check_overlap=FALSE) +
   geom_text(data= world_points[panama,],aes(x=-80.3, y=9.2, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) + 
   geom_text(data= world_points[ecuador,],aes(x=-78.8, y=-1, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) +
   geom_text(data= world_points[peru,],aes(x=-75, y=-6, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) +
@@ -1436,8 +1307,10 @@ c3000 = ggplot(data = world) +
   annotate(geom = "text", x = -77.5, y = 14, label = "Caribbean\nSea", fontface = "italic", color = "grey22", size = 2) + 
   annotate(geom = "text", x = -80.5, y = 5, label = "Pacific\nSea", fontface = "italic", color = "grey22", size = 2) +
   geom_sf(data = st_cast(world, "MULTILINESTRING"), size=0.1)+
-  #geom_sf(data = era5colpoints3116, size=1, shape=2, color= "black", show.legend = "point") + 
-  annotation_scale(location = "bl", width_hint = 0.5, height = unit(0.1, "cm"), line_width = 0.1, text_cex = 0.5, pad_x = unit(0.03, "in"), pad_y = unit(0.03, "in")) + annotation_north_arrow(location = "br", which_north = "true", pad_x = unit(0.01, "in"), pad_y = unit(0.02, "in"), height = unit(0.5, "cm"), width = unit(0.5, "cm"), style = north_arrow_minimal) +
+  annotation_scale(location = "bl", width_hint = 0.5, height = unit(0.1, "cm"), line_width = 0.1, text_cex = 0.5, pad_x = unit(0.03, "in"), 
+   pad_y = unit(0.03, "in")) + 
+  annotation_north_arrow(location = "br", which_north = "true", pad_x = unit(0.01, "in"), pad_y = unit(0.02, "in"), height = unit(0.5, "cm"), 
+   width = unit(0.5, "cm"), style = north_arrow_minimal) +
   coord_sf(xlim = c(-82.1, -63.8), ylim = c(-7.5, 15.5), expand = FALSE) +
   xlab("") + 
   ylab("") + 
@@ -1447,22 +1320,20 @@ c3000 = ggplot(data = world) +
   theme(axis.text.y= element_text(size=6)) +
   theme(panel.grid.major = element_line(color = gray(.5), linetype = "dashed", size = 0.1)) +
   theme(panel.background = element_rect(fill = "aliceblue")) +
-  #theme(legend.title = element_text(size=8)) +
-  #theme(legend.text=element_text(size=8)) +
-  #theme(legend.key.size = unit(0.5,"line")) +
   theme(plot.margin=unit(c(0,0,0,0),"cm")) +
   theme(plot.background = element_rect(fill = "transparent", color = NA))+
   theme(axis.text.x = element_text(margin =  margin(t =2, b = -14))) + 
   theme(axis.text.y = element_text(margin =  margin(r =2, l = -16))) +
   theme(legend.position = "none")
 
-#grid.arrange(c700, c1700, c3000, legend, ncol=4, widths=c(1,1,1,0.1))  
 plot_grid(c700, c1700, c3000, legend, ncol=4, rel_widths=c(1, 1, 1, 0.1))
-#grid.rect(gp=gpar(fill=NA))
 ```
 
 
 ```{r era5cbmaps, echo=FALSE, fig.cap="ERA5 Hurricane & Non-Hurricane Wind Maps.", message=FALSE, warning=FALSE, fig.height=2.7, fig.width=6.5}
+#
+#ERA5 Hurricane & Non-Hurricane Wind Maps
+#
 file_rl_combined_4326_700_st = "./data/era5maps/rl_combined_4326_700_st.tif"
 rl_combined_4326_700_st = read_stars(file_rl_combined_4326_700_st)
 rl_combined_4326_700_st = setNames(rl_combined_4326_700_st, "Kph")
@@ -1476,8 +1347,7 @@ rl_combined_4326_3000_st = read_stars(file_rl_combined_4326_3000_st)
 rl_combined_4326_3000_st = setNames(rl_combined_4326_3000_st, "c_3000")
 
 myPalette <- colorRampPalette(rev(brewer.pal(11, "Spectral")))
-sc <- scale_fill_gradientn(colours = myPalette(100), limits=c(37, 438), 
-                           breaks=c(37, 100, 200, 300, 400, 438))
+sc <- scale_fill_gradientn(colours = myPalette(100), limits=c(37, 438), breaks=c(37, 100, 200, 300, 400, 438))
 
 theme_set(theme_bw())
 world <- ne_countries(scale = "medium", returnclass = "sf")
@@ -1494,10 +1364,8 @@ ecuador= world_points$name == "Ecuador"
 c700 = ggplot(data = world) + 
   geom_sf(fill= "antiquewhite", size=0.1) + 
   geom_stars(data = rl_combined_4326_700_st, aes(fill = Kph, x = x, y = y)) + 
-  #scale_fill_gradientn(colors = sf.colors(20)) + 
-  #sc2 + 
   sc+
-  geom_text(data= world_points[venezuela,],aes(x=-66.5, y=8.5, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) +
+  geom_text(data= world_points[venezuela,],aes(x=-66.5, y=8.5, label=name), color="darkblue", fontface="bold", size=2, check_overlap=FALSE) +
   geom_text(data= world_points[panama,],aes(x=-80.3, y=9.2, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) + 
   geom_text(data= world_points[ecuador,],aes(x=-78.8, y=-1, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) +
   geom_text(data= world_points[peru,],aes(x=-75, y=-6, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) +
@@ -1506,8 +1374,10 @@ c700 = ggplot(data = world) +
   annotate(geom = "text", x = -77.5, y = 14, label = "Caribbean\nSea", fontface = "italic", color = "grey22", size = 2) + 
   annotate(geom = "text", x = -80.5, y = 5, label = "Pacific\nSea", fontface = "italic", color = "grey22", size = 2) +
   geom_sf(data = st_cast(world, "MULTILINESTRING"), size=0.1)+
-  #geom_sf(data = era5colpoints3116, size=1, shape=2, color= "black", show.legend = "point") + 
-  annotation_scale(location = "bl", width_hint = 0.5, height = unit(0.1, "cm"), line_width = 0.1, text_cex = 0.5, pad_x = unit(0.03, "in"), pad_y = unit(0.03, "in")) + annotation_north_arrow(location = "br", which_north = "true", pad_x = unit(0.01, "in"), pad_y = unit(0.02, "in"), height = unit(0.5, "cm"), width = unit(0.5, "cm"), style = north_arrow_minimal) +
+  annotation_scale(location = "bl", width_hint = 0.5, height = unit(0.1, "cm"), line_width = 0.1, text_cex = 0.5, pad_x = unit(0.03, "in"), 
+   pad_y = unit(0.03, "in")) + 
+  annotation_north_arrow(location = "br", which_north = "true", pad_x = unit(0.01, "in"), pad_y = unit(0.02, "in"), height = unit(0.5, "cm"), 
+   width = unit(0.5, "cm"), style = north_arrow_minimal) +
   coord_sf(xlim = c(-82.1, -63.8), ylim = c(-7.5, 15.5), expand = FALSE) +
   xlab("") + 
   ylab("") + 
@@ -1517,9 +1387,6 @@ c700 = ggplot(data = world) +
   theme(axis.text.y= element_text(size=6)) +
   theme(panel.grid.major = element_line(color = gray(.5), linetype = "dashed", size = 0.1)) +
   theme(panel.background = element_rect(fill = "aliceblue")) +
-  #theme(legend.title = element_text(size=8)) +
-  #theme(legend.text=element_text(size=8)) +
-  #theme(legend.key.size = unit(0.5,"line")) +
   theme(plot.margin=unit(c(0,0,0,0),"cm")) +
   theme(plot.background = element_rect(fill = "transparent", color = NA))+
   theme(axis.text.x = element_text(margin =  margin(t =2, b = -14))) + 
@@ -1536,10 +1403,8 @@ c700 = c700 + theme(legend.position = "none")
 c1700 = ggplot(data = world) + 
   geom_sf(fill= "antiquewhite", size=0.1) + 
   geom_stars(data = rl_combined_4326_1700_st, aes(fill = c_1700, x = x, y = y)) + 
-  #scale_fill_gradientn(colors = sf.colors(20)) + 
-  #sc2 + 
   sc+
-  geom_text(data= world_points[venezuela,],aes(x=-66.5, y=8.5, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) +
+  geom_text(data= world_points[venezuela,],aes(x=-66.5, y=8.5, label=name), color="darkblue", fontface="bold", size=2, check_overlap=FALSE) +
   geom_text(data= world_points[panama,],aes(x=-80.3, y=9.2, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) + 
   geom_text(data= world_points[ecuador,],aes(x=-78.8, y=-1, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) +
   geom_text(data= world_points[peru,],aes(x=-75, y=-6, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) +
@@ -1548,8 +1413,10 @@ c1700 = ggplot(data = world) +
   annotate(geom = "text", x = -77.5, y = 14, label = "Caribbean\nSea", fontface = "italic", color = "grey22", size = 2) + 
   annotate(geom = "text", x = -80.5, y = 5, label = "Pacific\nSea", fontface = "italic", color = "grey22", size = 2) +
   geom_sf(data = st_cast(world, "MULTILINESTRING"), size=0.1)+
-  #geom_sf(data = era5colpoints3116, size=1, shape=2, color= "black", show.legend = "point") + 
-  annotation_scale(location = "bl", width_hint = 0.5, height = unit(0.1, "cm"), line_width = 0.1, text_cex = 0.5, pad_x = unit(0.03, "in"), pad_y = unit(0.03, "in")) + annotation_north_arrow(location = "br", which_north = "true", pad_x = unit(0.01, "in"), pad_y = unit(0.02, "in"), height = unit(0.5, "cm"), width = unit(0.5, "cm"), style = north_arrow_minimal) +
+  annotation_scale(location = "bl", width_hint = 0.5, height = unit(0.1, "cm"), line_width = 0.1, text_cex = 0.5, pad_x = unit(0.03, "in"), 
+   pad_y = unit(0.03, "in")) + 
+  annotation_north_arrow(location = "br", which_north = "true", pad_x = unit(0.01, "in"), pad_y = unit(0.02, "in"), height = unit(0.5, "cm"), 
+   width = unit(0.5, "cm"), style = north_arrow_minimal) +
   coord_sf(xlim = c(-82.1, -63.8), ylim = c(-7.5, 15.5), expand = FALSE) +
   xlab("") + 
   ylab("") + 
@@ -1559,9 +1426,6 @@ c1700 = ggplot(data = world) +
   theme(axis.text.y= element_text(size=6)) +
   theme(panel.grid.major = element_line(color = gray(.5), linetype = "dashed", size = 0.1)) +
   theme(panel.background = element_rect(fill = "aliceblue")) +
-  #theme(legend.title = element_text(size=8)) +
-  #theme(legend.text=element_text(size=8)) +
-  #theme(legend.key.size = unit(0.5,"line")) +
   theme(plot.margin=unit(c(0,0,0,0),"cm")) +
   theme(plot.background = element_rect(fill = "transparent", color = NA))+
   theme(axis.text.x = element_text(margin =  margin(t =2, b = -14))) + 
@@ -1571,10 +1435,8 @@ c1700 = ggplot(data = world) +
 c3000 = ggplot(data = world) + 
   geom_sf(fill= "antiquewhite", size=0.1) + 
   geom_stars(data = rl_combined_4326_3000_st, aes(fill = c_3000, x = x, y = y)) + 
-  #scale_fill_gradientn(colors = sf.colors(20)) + 
-  #sc2 + 
   sc+
-  geom_text(data= world_points[venezuela,],aes(x=-66.5, y=8.5, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) +
+  geom_text(data= world_points[venezuela,],aes(x=-66.5, y=8.5, label=name), color="darkblue", fontface="bold", size=2, check_overlap=FALSE) +
   geom_text(data= world_points[panama,],aes(x=-80.3, y=9.2, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) + 
   geom_text(data= world_points[ecuador,],aes(x=-78.8, y=-1, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) +
   geom_text(data= world_points[peru,],aes(x=-75, y=-6, label=name), color = "darkblue", fontface = "bold", size=2, check_overlap = FALSE) +
@@ -1583,8 +1445,10 @@ c3000 = ggplot(data = world) +
   annotate(geom = "text", x = -77.5, y = 14, label = "Caribbean\nSea", fontface = "italic", color = "grey22", size = 2) + 
   annotate(geom = "text", x = -80.5, y = 5, label = "Pacific\nSea", fontface = "italic", color = "grey22", size = 2) +
   geom_sf(data = st_cast(world, "MULTILINESTRING"), size=0.1)+
-  #geom_sf(data = era5colpoints3116, size=1, shape=2, color= "black", show.legend = "point") + 
-  annotation_scale(location = "bl", width_hint = 0.5, height = unit(0.1, "cm"), line_width = 0.1, text_cex = 0.5, pad_x = unit(0.03, "in"), pad_y = unit(0.03, "in")) + annotation_north_arrow(location = "br", which_north = "true", pad_x = unit(0.01, "in"), pad_y = unit(0.02, "in"), height = unit(0.5, "cm"), width = unit(0.5, "cm"), style = north_arrow_minimal) +
+  annotation_scale(location = "bl", width_hint = 0.5, height = unit(0.1, "cm"), line_width = 0.1, text_cex = 0.5, pad_x = unit(0.03, "in"), 
+   pad_y = unit(0.03, "in")) + 
+  annotation_north_arrow(location = "br", which_north = "true", pad_x = unit(0.01, "in"), pad_y = unit(0.02, "in"), height = unit(0.5, "cm"), 
+   width = unit(0.5, "cm"), style = north_arrow_minimal) +
   coord_sf(xlim = c(-82.1, -63.8), ylim = c(-7.5, 15.5), expand = FALSE) +
   xlab("") + 
   ylab("") + 
@@ -1594,19 +1458,13 @@ c3000 = ggplot(data = world) +
   theme(axis.text.y= element_text(size=6)) +
   theme(panel.grid.major = element_line(color = gray(.5), linetype = "dashed", size = 0.1)) +
   theme(panel.background = element_rect(fill = "aliceblue")) +
-  #theme(legend.title = element_text(size=8)) +
-  #theme(legend.text=element_text(size=8)) +
-  #theme(legend.key.size = unit(0.5,"line")) +
   theme(plot.margin=unit(c(0,0,0,0),"cm")) +
   theme(plot.background = element_rect(fill = "transparent", color = NA))+
   theme(axis.text.x = element_text(margin =  margin(t =2, b = -14))) + 
   theme(axis.text.y = element_text(margin =  margin(r =2, l = -16))) +
   theme(legend.position = "none")
 
-#grid.arrange(c700, c1700, c3000, legend, ncol=4, widths=c(1,1,1,0.1))  
 plot_grid(c700, c1700, c3000, legend, ncol=4, rel_widths=c(1, 1, 1, 0.1))
-#grid.rect(gp=gpar(fill=NA))
-
 ```
 
 ## Final Discussion and Future Work {#fd}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/W32TeX) (preloaded format=pdflatex 2020.3.2)  17 MAR 2020 22:53
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/W32TeX) (preloaded format=pdflatex 2020.3.2)  18 MAR 2020 13:33
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -772,12 +772,12 @@ Non-PDF special ignored!
 {c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pd
 ftex.map} <./figure/logos.png>]
 Overfull \hbox (106.63203pt too wide) in paragraph at lines 267--267
-[]\T1/lmr/m/n/12 March 17, 2020[] 
+[]\T1/lmr/m/n/12 March 18, 2020[] 
  []
 
 
 Overfull \hbox (106.63203pt too wide) in paragraph at lines 267--267
-[]\T1/lmr/m/n/12 March 17, 2020[] 
+[]\T1/lmr/m/n/12 March 18, 2020[] 
  []
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
@@ -2189,82 +2189,292 @@ Package xcolor Warning: Incompatible color definition on input line 2707.
 Package xcolor Warning: Incompatible color definition on input line 2718.
 
 
-Package xcolor Warning: Incompatible color definition on input line 2788.
+Package xcolor Warning: Incompatible color definition on input line 2770.
 
 
-Package xcolor Warning: Incompatible color definition on input line 2788.
+Package xcolor Warning: Incompatible color definition on input line 2770.
+
+
+Package xcolor Warning: Incompatible color definition on input line 2781.
+
+
+Package xcolor Warning: Incompatible color definition on input line 2936.
+
+
+Package xcolor Warning: Incompatible color definition on input line 2936.
+
+
+Package xcolor Warning: Incompatible color definition on input line 2936.
 
 [68]
+
+Package xcolor Warning: Incompatible color definition on input line 2936.
+
+
+Package xcolor Warning: Incompatible color definition on input line 2936.
+
+
+Underfull \vbox (badness 10000) detected at line 2936
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 2936
+ []
+
+
+Package xcolor Warning: Incompatible color definition on input line 2936.
+
+[69]
+
+Package xcolor Warning: Incompatible color definition on input line 2936.
+
+
+Package xcolor Warning: Incompatible color definition on input line 2936.
+
+
+Package xcolor Warning: Incompatible color definition on input line 2946.
+
+
+Package xcolor Warning: Incompatible color definition on input line 3028.
+
+
+Package xcolor Warning: Incompatible color definition on input line 3028.
+
+
+Underfull \vbox (badness 1248) detected at line 3028
+ []
+
+
+Package xcolor Warning: Incompatible color definition on input line 3028.
+
+[70]
+
+Package xcolor Warning: Incompatible color definition on input line 3028.
+
+
+Package xcolor Warning: Incompatible color definition on input line 3028.
+
+
+Package xcolor Warning: Incompatible color definition on input line 3038.
+
+
+Package xcolor Warning: Incompatible color definition on input line 3100.
+
+
+Package xcolor Warning: Incompatible color definition on input line 3100.
+
+
+Underfull \vbox (badness 2285) detected at line 3100
+ []
+
+
+Package xcolor Warning: Incompatible color definition on input line 3100.
+
+[71]
+
+Package xcolor Warning: Incompatible color definition on input line 3100.
+
+
+Package xcolor Warning: Incompatible color definition on input line 3100.
+
+
+Package xcolor Warning: Incompatible color definition on input line 3110.
+
+
+Package xcolor Warning: Incompatible color definition on input line 3783.
+
+
+Package xcolor Warning: Incompatible color definition on input line 3783.
+
+
+Package xcolor Warning: Incompatible color definition on input line 3783.
+
+[72]
+
+Package xcolor Warning: Incompatible color definition on input line 3783.
+
+
+Package xcolor Warning: Incompatible color definition on input line 3783.
+
+
+Underfull \vbox (badness 10000) detected at line 3783
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 3783
+ []
+
+
+Package xcolor Warning: Incompatible color definition on input line 3783.
+
+[73]
+
+Package xcolor Warning: Incompatible color definition on input line 3783.
+
+
+Package xcolor Warning: Incompatible color definition on input line 3783.
+
+
+Underfull \vbox (badness 10000) detected at line 3783
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 3783
+ []
+
+
+Package xcolor Warning: Incompatible color definition on input line 3783.
+
+[74]
+
+Package xcolor Warning: Incompatible color definition on input line 3783.
+
+
+Package xcolor Warning: Incompatible color definition on input line 3783.
+
+
+Underfull \vbox (badness 10000) detected at line 3783
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 3783
+ []
+
+
+Package xcolor Warning: Incompatible color definition on input line 3783.
+
+[75]
+
+Package xcolor Warning: Incompatible color definition on input line 3783.
+
+
+Package xcolor Warning: Incompatible color definition on input line 3783.
+
+
+Underfull \vbox (badness 10000) detected at line 3783
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 3783
+ []
+
+
+Package xcolor Warning: Incompatible color definition on input line 3783.
+
+[76]
+
+Package xcolor Warning: Incompatible color definition on input line 3783.
+
+
+Package xcolor Warning: Incompatible color definition on input line 3783.
+
+
+Underfull \vbox (badness 10000) detected at line 3783
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 3783
+ []
+
+
+Package xcolor Warning: Incompatible color definition on input line 3783.
+
+[77]
+
+Package xcolor Warning: Incompatible color definition on input line 3783.
+
+
+Package xcolor Warning: Incompatible color definition on input line 3783.
+
+
+Underfull \vbox (badness 10000) detected at line 3783
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 3783
+ []
+
+
+Package xcolor Warning: Incompatible color definition on input line 3783.
+
+[78]
+
+Package xcolor Warning: Incompatible color definition on input line 3783.
+
+
+Package xcolor Warning: Incompatible color definition on input line 3783.
+
+[79]
 Appendix E.
-[69
+[80
 
 ]
-Underfull \hbox (badness 1292) in paragraph at lines 2818--2820
+Underfull \hbox (badness 1292) in paragraph at lines 3813--3815
  \T1/lmr/m/n/12 Re-trieved from []$\T1/lmtt/m/n/12 https : / / ecapra . org / s
 ites / default / files / documents / ERN -[] CAPRA -[]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2839--2841
+Underfull \hbox (badness 10000) in paragraph at lines 3834--3836
  \T1/lmr/m/n/12 from []$\T1/lmtt/m/n/12 https : / / www . ebook . de / de / pro
 duct / 35017614 / american _ society _ of _ civil _
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2839--2841
+Underfull \hbox (badness 10000) in paragraph at lines 3834--3836
  \T1/lmtt/m/n/12 engineers _ minimum _ design _ loads _ and _ associated _ crit
 eria _ for _ buildings _ and _
  []
 
-[70
+[81
 
 
-] [71]
-Underfull \hbox (badness 1838) in paragraph at lines 2893--2895
+] [82]
+Underfull \hbox (badness 1838) in paragraph at lines 3888--3890
  [][]\T1/lmr/m/n/12 Pebesma, E., & Graeler, B. (2019). \T1/lmr/m/it/12 Gstat: S
 pa-tial and spatio-temporal geo-sta-
  []
 
 
-Underfull \hbox (badness 2050) in paragraph at lines 2893--2895
+Underfull \hbox (badness 2050) in paragraph at lines 3888--3890
  \T1/lmr/m/it/12 tis-ti-cal mod-elling, pre-dic-tion and sim-u-la-tion\T1/lmr/m
 /n/12 . Re-trieved from []$\T1/lmtt/m/n/12 https : / / CRAN . R -[]
  []
 
-[72]
-Underfull \hbox (badness 10000) in paragraph at lines 2923--2925
+[83]
+Underfull \hbox (badness 10000) in paragraph at lines 3918--3920
  \T1/lmr/m/n/12 from []$\T1/lmtt/m/n/12 https : / / www . amazon . com / Teleco
 mmunications -[] Environment -[] Monographs -[]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2923--2925
+Underfull \hbox (badness 10000) in paragraph at lines 3918--3920
  \T1/lmtt/m/n/12 Statistics -[] Probability / dp / 1584884118 ? SubscriptionId 
 = AKIAIOBINVZYXZQZ2U3A &
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2923--2925
+Underfull \hbox (badness 10000) in paragraph at lines 3918--3920
  \T1/lmtt/m/n/12 tag = chimbori05 -[] 20 & linkCode = xm2 & camp = 2025 & creat
 ive = 165953 & creativeASIN =
  []
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2935.
-[73]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 2935.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 3930.
+[84]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 3930.
 (./thesis.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2935.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2935.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 3930.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 3930.
 
 Package rerunfilecheck Info: File `thesis.out' has not changed.
 (rerunfilecheck)             Checksum: DDB423F23AEA316424C85AF24BDE8F77;5017.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2935.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 3930.
  ) 
 Here is how much of TeX's memory you used:
- 13219 strings out of 482938
- 207563 string characters out of 5958595
- 577910 words of memory out of 5000000
- 27721 multiletter control sequences out of 15000+600000
+ 13235 strings out of 482938
+ 207683 string characters out of 5958595
+ 815945 words of memory out of 5000000
+ 27722 multiletter control sequences out of 15000+600000
  619560 words of font info for 97 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  41i,17n,49p,1583b,477s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -2303,10 +2513,10 @@ s/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt12.pfb>
 <c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmt
 t8.pfb><c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public
 /lm/lmtti10.pfb>
-Output written on thesis.pdf (84 pages, 23419489 bytes).
+Output written on thesis.pdf (95 pages, 23471251 bytes).
 PDF statistics:
- 1924 PDF objects out of 2073 (max. 8388607)
- 1682 compressed objects within 17 object streams
- 374 named destinations out of 1000 (max. 500000)
+ 1978 PDF objects out of 2073 (max. 8388607)
+ 1724 compressed objects within 18 object streams
+ 389 named destinations out of 1000 (max. 500000)
  765 words of extra memory for PDF output out of 10000 (max. 10000000)
 
