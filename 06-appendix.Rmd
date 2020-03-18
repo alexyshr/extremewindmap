@@ -483,7 +483,192 @@ This appendix includes all of the R chunks of code that were hidden throughout t
 
 # User Manual {#manual}
 
+Sofware details:
+
+* Software R version 3.6.2 (2019-12-12). Platform x86_64-w64-mingw32. Arch x86_64. Os mingw32. System x86_64, mingw32. Svn rev 77560. Language R. Nickname Dark and Stormy Night.
+* RStudio - Version 1.2.5033 - 2009-2019. "Orange Blossom" (330255dd, 2019-12-04)
+
+List of 61 used R packages:
+
+* actuar
+* bbmle
+* bookdown
+* cowplot
+* devtools
+* DiagrammeR
+* dplyr
+* evd
+* evir
+* evmix
+* extRemes
+* extremeStat
+* fitdistrplus
+* geoR
+* ggmap
+* ggplot2
+* ggrepel
+* ggspatial
+* grid
+* gridExtra
+* gstat
+* ismev
+* kableExtra
+* knitr
+* lattice
+* lmom
+* lmomco
+* lubridate
+* magick
+* maptools
+* mapview
+* MASS
+* ncdf4
+* openair
+* plot3D
+* plotly
+* POT
+* quantmod
+* raster
+* RcmdrMisc
+* RColorBrewer
+* Renext
+* rgdal
+* rgl
+* rnaturaleearth
+* rnaturaleearthdata
+* RPostgreSQL
+* RStoolbox
+* sf
+* shape
+* sp
+* SpatialExtremes
+* stars
+* thesisdown
+* tibble
+* tidyr
+* viridis
+* xls
+* xlsx
+* xts
+
+## POT-PP
+
+In Annex \@ref(rcode) - Research R Code - Digital Files, Table \ref{tab:code} it is possible to see R files with code related to POT-PP process. Files are separated by folder for ISD and for ERA5.
+
+### ISD
+
+**Procedure to run POT-PP in ISD stations**: 
+
+1. Use R version 3.6.2, RStudio Version 1.2.5033, and 61 R packages listed at the beginning of this manual. To proceed it is necessary to install all the packages.
+
+2. Verify files and variables according to descriptions and recommendations of following list (from 1 to 4), then execute file **pot_pp_isd.r**. 
+
+Files to run POT-PP in ISD stations are inside the folder **./pot_pp/isd/**. Main file to run this process is **pot_pp_isd.r**, below are the main variables to configure within this file.
 
 
+1. _inputpath="./raw_data/"_, 
 
+```{r results='hide', echo = TRUE, eval=FALSE}
+inputpath="./raw_data/"
+```
+
+Inside this folder _inputpath_, standardized time series text files must be stored, one file per station history. Be aware that all wind velocities must be already standardized, see [Data Standardization](#rmd-standardization) section in [Methodology](#rmd-method). Below, an example of the content of this folder is shown. 
+
+```   
+      raw_data_station_800740.txt
+      raw_data_station_800770.txt
+      raw_data_station_800840.txt
+      raw_data_station_800890.txt
+      ...
+```      
+
+Files names must follow this convention **raw_data_station_\*.txt**, where _\*_ must be replaced by the station ID. Its content must follow structure shown below.
+
+```
+      "date_time" "kph" "thunder_flag"
+      "1950/06/22 12:00:00 GMT"  122.60934 "nt"
+      "1951/06/13 12:00:00 GMT"   203.9521 "nt"
+      "1951/08/02 12:00:00 GMT"  30.553136 "nt"
+      "1963/02/26 12:00:00 GMT"  26.585196 "nt"
+      "1963/09/11 12:00:00 GMT"  32.537106 "nt"
+      "1964/10/03 12:00:00 GMT"  40.869779 "nt"
+      "1965/03/15 12:00:00 GMT"  26.585196 "nt"
+      "1965/05/18 12:00:00 GMT"  36.901839 "nt"
+      "1965/06/02 12:00:00 GMT"  26.585196 "nt"
+      ...
+```      
+
+First line must always have next content _"date_time" "mph" "thunder_flag"_, representing three column names, separated by spaces. First column _"date_time"_, has the date time in the format "YYYY/MM/DD HH:MM:SS", time zone UTC. Second column _kph_, must have the standardized wind velocity. Third column _"thunder_flag"_, must have a flag with one of two possible values _"nt"_ ot _"t"_, representing respectively _non-thunderstorm_ or _thunderstorm_ classification for the current wind value. For current research, third column always had the flag _"nt"_, for all rows, all stations. The separation of each column value must be _space_ character. Values corresponding to _"date_time"_ and _"thunder_flag"_ must be enclosed by double quotes.
+
+2. _estaciones_ 
+
+```{r results='hide', echo = TRUE, eval=FALSE}
+estaciones <- read.delim(paste0(inputpath, "01 estaciones.txt"), 
+  header = FALSE, sep = "\t")
+```
+
+Variable _estaciones_, must point to a text file, named _'01 estaciones.txt'_, and stored inside _inputpath_ folder, with the IDs of ISD stations to be processed. Each line of the file must have one ISD station ID. This file must have the list of stations to process, one station per row. If the intention is to run the process for only one station, the content of this file must have a single line, with the station ID. The code repeats the POT-PP procedure for each line of this file. Below, an example of the content of this file is shown.
+
+
+```   
+      800740
+      800770
+      800840
+      800890
+      ...
+```
+
+Be aware that for each line in this file _01 estaciones.txt_, one text file with the time series, with the name **raw_data_station_\*.txt**, where _\*_ represents the same station ID, must be stored inside _inputpath_ folder. See first element, lines up, in this list of variables. 
+
+3. _outputpath_
+
+```{r results='hide', echo = TRUE, eval=FALSE}
+outputpath = "./isd/"
+```
+
+Variable _outputpath_, should point to the folder where all output files will be stored, after running POT-PP process. See Annex \@ref(results) - Results - Digital Files, Table \ref{tab:resultsstructure}, with detailed list of output files (in this case inside **./potpp/isd/**). Files that will be generated inside _outputpath_ are displayed in next list, where _\*_ will be replaced by correspondent station ID.
+
+* _FittedModel\_\*.pdf_: ERA5 POT-PP output graphics. See Table \ref{tab:fittedmodelidpdf}.
+* _fitted_model_result.xlsx_: Return levels ERA5 (all stations). See Table \ref{tab:returnlevels}.
+* _raw_data_station\_\*\_fitted.xlsx_: ERA5 POT-PP output parameters by station. See Table \ref{tab:rawdatastationidfitted}.
+* _raw_data_station\_\*\_statistics.xlsx_: ERA5 POT-PP time (year, month, week) statistics by station. See Table \ref{tab:rawdatastationidstatistics}.
+
+
+4. Linked R code
+
+Main file **pot_pp_isd.r**, runs supplemental code using the R command _source_. Be sure that all R code files listed in next chunk of code, are pointing to the right location. In Annex \@ref(rcode) - Research R Code - Digital Files, Table \ref{tab:code} it is possible to see R files related to POT-PP process. Files are separated by folder for ISD and for ERA5.
+
+```{r results='hide', echo = TRUE, eval=FALSE}
+#Library of POT-PP functions, including Dr Adam Pintar R Code (not 
+#published because this is copyrighted)
+source('./code/function_lib.R')
+
+#Raw Data (whole dataset) Statistics and Send to CSV 
+source('./code/stats_raw_data.r')
+
+#Non Thunderstorm - Create Raw Data Statistics and Send to CSV 
+source('./code/stats_raw_data_nt.r')
+
+#Thunderstorm - Create Raw Data Statistics and Send to CSV
+source('./code/stats_raw_data_t.r')
+
+#Write "t" to csv, but changing to one data per day (the maximum)
+#Write "nt" to csv, but changing to one data per day (the maximum)
+source('./code/tnt_csv_1perday.r')
+
+#Statistics and graphics for de-clustered non-thunderstorm
+source('./code/stats_graphs_dnt.r')
+
+#Statistics and graphics for de-clustered thunderstorm
+source('./code/stats_graphs_dt.r')
+
+#Plots for thunderstorm
+source('./code/plot_t.r')
+
+#Plots for non-thunderstorm
+source('./code/plot_nt.r')
+
+#Plots for non-thunderstorm and thunderstorm
+source('./code/plot_t_nt.r')
+```
 

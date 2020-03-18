@@ -57,7 +57,7 @@ include_graphics(path = "figure/methodology.png")
 ```
 
 
-## Data Standardization {#rmd-standartization}
+## Data Standardization {#rmd-standardization}
 
 Analysis of extreme wind speeds requires data standardization as initial step. All input data must be standardized to represent three important conditions: a) anemometer height of 10 meters, b) open space terrain roughness, and c) averaging time of 3-seconds wind gust. 
 
