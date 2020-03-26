@@ -270,14 +270,16 @@ kable(isdmaps, linesep = "", align=rep('l', 2), #format = "markdown",
        kable_styling(font_size = 8, latex_options=c("scale_down")) #%>%
 ```
 
-# ERA5 Data Download and Integration {#era5download}
+# Data Download and Database Storing {#datadownload}
+
+## Download ERA5
 
 The European Center for Medium-Range Weather Forecasts - ECMWF had implemented the Climate Data Storage - CDS <https://cds.climate.copernicus.eu/>, where all its datasets can be downloaded, however there is a straightforward way to get ERA5 data through Python library CDSAPI. Before to use CDSAPI, it is necessary to research about names and meanings of ERA5 variables using the official _data documentation_ web page <https://confluence.ecmwf.int/display/CKB/ERA5%3A+data+documentation>, or the _parameter database_ <https://apps.ecmwf.int/codes/grib/param-db>, that includes all ECWMF data sources, not only ERA5.
 
 Next block of code shows the use of CDSAPI (Python) to download ERA5 variable _10fg - 10 meters wind gust_, from 1979 to 1991 for Colombia area. The most important keywords there, allow to define ERA5 data source and product type, variable name _'variable'_, format netCDF _'format'_, area of interest _'area'_, using WGS88 coordinates in the format _north, west, south, east_, cell size _'grid'_ in decimal degrees, and all the keywords related to time _'year'_, _'month'_, _'day'_, _'time'_. 
 
 
-```
+```{python era5, echo=TRUE, eval=FALSE, results='hide', size="scriptsize", python.reticulate = FALSE}
       import cdsapi
       c = cdsapi.Client()
       c.retrieve(
@@ -287,39 +289,26 @@ Next block of code shows the use of CDSAPI (Python) to download ERA5 variable _1
          'format':'netcdf',
          'variable':'10m_wind_gust_since_previous_post_processing',
          'year':[
-             '1979','1980','1981',
-             '1982','1983','1984',
-             '1985','1986','1987',
-             '1988','1989','1990',
+             '1979','1980','1981','1982','1983','1984',
+             '1985','1986','1987','1988','1989','1990',
              '1991'
          ],
          'month':[
-             '01','02','03',
-             '04','05','06',
-             '07','08','09',
-             '10','11','12'
+             '01','02','03','04','05','06',
+             '07','08','09','10','11','12'
          ],
          'time':[
-             '00:00','01:00','02:00',
-             '03:00','04:00','05:00',
-             '06:00','07:00','08:00',
-             '09:00','10:00','11:00',
-             '12:00','13:00','14:00',
-             '15:00','16:00','17:00',
-             '18:00','19:00','20:00',
-             '21:00','22:00','23:00'
+             '00:00','01:00','02:00','03:00','04:00','05:00',
+             '06:00','07:00','08:00','09:00','10:00','11:00',
+             '12:00','13:00','14:00','15:00','16:00','17:00',
+             '18:00','19:00','20:00','21:00','22:00','23:00'
          ],
          'day':[
-             '01','02','03',
-             '04','05','06',
-             '07','08','09',
-             '10','11','12',
-             '13','14','15',
-             '16','17','18',
-             '19','20','21',
-             '22','23','24',
-             '25','26','27',
-             '28','29','30',
+             '01','02','03','04','05','06',
+             '07','08','09','10','11','12',
+             '13','14','15','16','17','18',
+             '19','20','21','22','23','24',
+             '25','26','27','28','29','30',
              '31'
          ],
          'area':[12.5, -79.1, -4.5, -66.8], # North, West, South, East.
@@ -343,8 +332,8 @@ mytable_latex <- cbind(folderTree = mylink_latex, description = pythonera5[,2])
 
 kable(mytable_latex, linesep = "", align=rep('l', 2), format = "latex", escape = FALSE, #format = "markdown",
        col.names = c("Folder Tree - Ftp Links","Description"),
-       caption = "Python Scripts to download ERA5 data, and commands to join netCDF files.  \\href{ftp://ftp.geocorp.co/windthesis/}{ftp://ftp.geocorp.co/windthesis/}. User anonymous@geocorp.co (no password).",
-       caption.short = "Python Scripts to download ERA5 data",
+       caption = "Python code to get ERA5 data. NetCDF commands.  \\href{ftp://ftp.geocorp.co/windthesis/}{ftp://ftp.geocorp.co/windthesis/}. User anonymous@geocorp.co (no key).",
+       caption.short = "Python code to get ERA5 data. NetCDF commands",
        longtable = TRUE,
        booktabs = TRUE) %>%
        row_spec(0, align = "l") %>%
@@ -357,7 +346,7 @@ kable(mytable_latex, linesep = "", align=rep('l', 2), format = "latex", escape =
 Next CDO command, will join by time all netCDF files inside a folder, where _-f_ defines the file format, _-b_ defines the data format, and _-z_ defines the compression level (from 1 to 9). The resulting file name is _outfile_nc4c_zip9.nc_. Then whit _cdo griddes_ is possible to review output file content.
 
 
-```
+```{bash results='hide', echo = TRUE, eval=FALSE, size="scriptsize"}
       cdo -f nc4c -b F32 -z zip_9 mergetime *.nc outfile_nc4c_zip9.nc
       cdo griddes outfile_nc4c_zip9.nc
 ```
@@ -365,7 +354,7 @@ Next CDO command, will join by time all netCDF files inside a folder, where _-f_
 Using NetCDF command line utilities, next commands will explore the content of a file, and change file format.
 
 
-```
+```{bash results='hide', echo = TRUE, eval=FALSE, size="scriptsize"}
       ncdump -h file.nc
       nccopy -k 'nc4' -d 9 file.nc file_d9.nc
 ```
@@ -373,11 +362,374 @@ Using NetCDF command line utilities, next commands will explore the content of a
 In Linux, next NCO commands will extract variable p0001 from file.nc to p0001.nc, rename variables p0001 to fsr in file p0001.nc, and view the result.
 
 
-```
+```{bash results='hide', echo = TRUE, eval=FALSE, size="scriptsize"}
       ncks -v p0001 file.nc p0001.nc
       ncrename -v p0001,fsr p0001.nc
       ncview p0001.nc
 ```
+
+## Database Storing
+
+To optimize memory usage when running R code, some information related to IDEAM and ISD data sources, like stations and wind time series, were stored in **PostgreSQL database**, thanks to the possibility of lazy evaluation with **tidyverse** R package _dplyr_, see @Wickham2014, and @Wickham2019, which do not load the entire dataset in memory from the beginning, this is, _"it delays the actual operation until necessary and loads data onto R from the database only when we need it"_, see @databasesinr. In parallel, it was used throughout the investigation, the **tidyverse** R package _tibble_, which allow lazy and surly dataframes in R, namely _"they do less ..., and complain more"_, see @Mueller2019. As a reference, there is an R package called _tidyverse_, which installs and loads all related packages (ggplot2, tibble, tidyr, readr, and dplyr), see @Wickham2019a, and @Wickham2019b.
+
+### Loading time series from text files to PostgreSQL
+
+Package _dplyr_ can be used to load dataframes created with text files, to tables inside databases, using for instance, _copy\_to_ function, see @databasesinr, nonetheless an alternative procedure was done with _MS-DOS_ commands, and _SQL_ scripts using _pgsql_ (terminal-based front-end to PostgreSQL). This procedure is described below for IDEAM data VV_AUT_10 - instantaneous wind velocity each ten (10) minutes, see Table \@ref(tab:tabledatasources2).
+
+There is one text file for each station time series in VV_AUT_10. There are a total of 204 stations, that is 204 files. The file name follow the format _VV\_AUT\_10\@\*.data_, where \* is replaced by the station identifier, as can be seen below.
+
+```{bash results='hide', echo = TRUE, eval=FALSE, size="scriptsize"}
+      VV_AUT_10@31095030.data
+      VV_AUT_10@29065130.data
+      VV_AUT_10@29065140.data
+      VV_AUT_10@44015060.data
+      ...
+```
+
+
+Showing up next the partial content of one time series file (VV\_AUT\_10\@31095030.data). It has two columns (Fecha and Valor) separated by character |.
+
+```{bash results='hide', echo=TRUE, eval=FALSE, size="scriptsize"}
+      Fecha|Valor
+      2008-10-29 10:30:00|0.9
+      2008-10-29 10:40:00|1.4
+      2008-10-29 10:50:00|1.2
+      2008-10-29 11:00:00|1.5
+      2008-10-29 11:10:00|1.2
+      ...
+```
+
+1. Install PostgreSQL 10.5
+
+2. Create database with next credentials
+
+```{r echo=FALSE, message=FALSE, warning=FALSE, paged.print=TRUE, results="asis"}
+library(knitr)
+library(kableExtra)
+rawdatastationidfitted <-read.csv("./data/manual/db.csv",header=TRUE, stringsAsFactors = F) 
+
+
+kable(rawdatastationidfitted, linesep = "", align=rep('l', 2), 
+       col.names = c("Credential", "Value"),
+       caption = "PostgreSQL Database Credentials",
+       caption.short = "PostgreSQL Database Credentials",
+       longtable = TRUE,
+       booktabs = TRUE) %>%
+       row_spec(0, align = "l") %>%
+       column_spec(1,width = "0.8in") %>%
+       column_spec(2,width = "0.8in") %>%
+       kable_styling(font_size = 8, latex_options=c("scale_down")) #%>%
+```
+
+
+```{sql eval=FALSE, results='hide', echo=TRUE, size="scriptsize"}
+        -- Database: winddata
+        -- DROP DATABASE winddata;
+        CREATE DATABASE winddata
+            WITH 
+            OWNER = user1
+            ENCODING = 'UTF8'
+            LC_COLLATE = 'English_United States.1252'
+            LC_CTYPE = 'English_United States.1252'
+            TABLESPACE = pg_default
+            CONNECTION LIMIT = -1;
+```
+
+
+3. Inside PostgreSQL create _Temp_ table with the following SQL code. This table will temporarily store the information of each station text file.
+
+```{sql results='hide', echo = TRUE, eval=FALSE, size="scriptsize"}
+        CREATE TABLE public."TEMP" (
+          txtfecha VARCHAR(30),
+          valor NUMERIC(6,2)
+        ) 
+        WITH (oids = false);
+        
+        ALTER TABLE public."TEMP"
+          OWNER TO user1;
+```
+
+4. Inside PostgreSQL create _VV_AUT_10_ table with following SQL code. This table will permanently store, one under the other, the content of all time series files (204 files), identifying with an adittional column, the station ID of each record.
+
+```{sql results='hide', echo = TRUE, eval=FALSE, size="scriptsize"} 
+        CREATE TABLE public."VV_AUT_10" (
+          id BIGSERIAL,
+          estationid BIGINT,
+          txtfecha VARCHAR(30),
+          valor NUMERIC(6,2),
+          "timestamp" TIMESTAMP(0) WITHOUT TIME ZONE
+        ) 
+        WITH (oids = false);
+        
+        ALTER TABLE public."VV_AUT_10"
+          OWNER TO user1;
+```
+
+5. Use next MS-DOS script that will take files content and load them into the database, temporarily to _Temp_, then to _VV_AUT_10_. 
+
+
+``` {bash results='hide', echo = TRUE, eval=FALSE, size="scriptsize"}
+      REM 1: consecutive id
+      REM 2: file name
+      REM 3: station id
+      
+      echo --(%1 of 204)>>"load_vv_aut_10.logdos"
+      echo --(%1 of 204)
+      
+      echo Empty table TEMP
+      echo psql -L "load_vv_aut_10.logquery" -c "DELETE FROM public.\"TEMP\"" 
+       "postgresql://user1:user1@127.0.0.1/winddata" >>"load_vv_aut_10.logdos"
+      
+      psql -L "load_vv_aut_10.logquery" -c "DELETE FROM public.\"TEMP\"" 
+       "postgresql://user1:user1@127.0.0.1/winddata" >>"load_vv_aut_10.logdos"
+      
+      echo Copy from FILE to TEMP
+      echo psql -L "load_vv_aut_10.logquery" -c "COPY public.\"TEMP\" FROM 'modified\%2' 
+       (FORMAT CSV, DELIMITER'|', HEADER)" "postgresql://postgres:postgres@127.0.0.1/winddata"
+       >>"load_vv_aut_10.logdos"
+      
+      psql -L "load_vv_aut_10.logquery" -c "COPY public.\"TEMP\" FROM 'modified\%2' 
+       (FORMAT CSV, DELIMITER'|', HEADER)" "postgresql://postgres:postgres@127.0.0.1/winddata" 
+       >>"load_vv_aut_10.logdos"
+      
+      echo Insert from TEMP into VV_AUT_10
+      echo psql -L "load_vv_aut_10.logquery" -c "INSERT INTO public.\"VV_AUT_10\"(estationid, txtfecha, valor, 
+       timestamp) SELECT %3, txtfecha, valor, TO_TIMESTAMP(txtfecha, 'YYYY-MM-DD HH24:MI:SS') FROM 
+       public.\"TEMP\"" "postgresql://postgres:postgres@127.0.0.1/winddata" >>"load_vv_aut_10.logdos"
+      
+      psql -L "load_vv_aut_10.logquery" -c "INSERT INTO public.\"VV_AUT_10\"(estationid, txtfecha, valor, 
+       timestamp) SELECT %3, txtfecha, valor, TO_TIMESTAMP(txtfecha, 'YYYY-MM-DD HH24:MI:SS') FROM
+       public.\"TEMP\"" "postgresql://postgres:postgres@127.0.0.1/winddata" >>"load_vv_aut_10.logdos"
+      
+      echo HECHO! >>"load_vv_aut_10.logdos"
+      echo HECHO!
+      
+      echo .. >>"load_vv_aut_10.logdos"
+      echo ..
+      
+      echo .>>"load_vv_aut_10.logdos"
+      echo .
+```
+
+Copy previous MS-DOS commands into a text file called _load_vv_aut_10.bat_. To use this file, three parameters need to be passed, 1) consecutive id, 2)file name, and 3) station id. All results after call it, are stored in a log file named _load_vv_aut_10.logdos_. All SQL commands including the  _pgsql_ answer/result after code execution, are stored in a log file named _load_vv_aut_10.logquery_. The script, first, keep a consecutive record of the procedure inside the log file, second, empty the contents of the _Temp_ table, then, copy from text file to table _Temp_, and finally, from _Temp_ inserts into _VV\_AUT\_10_. In all script steps, detailed output logs are sent to files _load_vv_aut_10.logdos_, and _load_vv_aut_10.logquery_.
+
+6. Call previous file using MS-DOS commands as shown below, where first parameters is a consecutive identifier, second is time series file name, and third one is the station identifier.
+
+```{bash results='hide', echo = TRUE, eval=FALSE, size="scriptsize"}
+        call load_vv_aut_10.bat 1 VV_AUT_10_57025020.csv 57025020
+        call load_vv_aut_10.bat 2 VV_AUT_10_31095030.csv 31095030
+        call load_vv_aut_10.bat 3 VV_AUT_10_29065130.csv 29065130
+        call load_vv_aut_10.bat 4 VV_AUT_10_29065140.csv 29065140
+        call load_vv_aut_10.bat 5 VV_AUT_10_44015060.csv 44015060
+      ...
+```
+
+Consider following recommendations
+
+* All files (204 files representing time series and load_vv_aut_10.bat) need to be stored in same Windows folder, for instance, 'c:\\load_data'
+* Using Windows Command Prompt, use _cd_ command to locate the terminal inside the folder
+
+```{bash results='hide', echo = TRUE, eval=FALSE, size="scriptsize"}
+        c:
+        cd load_data
+```
+
+* Use _call_ command described in last step, once for each station time series file.
+* Review content of log file load_vv_aut_10.logdos, to detect and correct possible loading errors.
+
+
+Using previous procedure, following ISD and IDEAM information were loaded to the database, see Table \@ref(tab:tabledatasources2): 
+
+* VV_AUT_10
+* ALL_VVMX_AUT_60
+* ISD_LITE
+
+Previous listed tables have **stacked** stations information, namely, with the same number of columns, the records of the first station occupy a certain number of rows, and the station identifier is repeated in each row, and below them, increasing the number of rows, the information of other stations is stored.
+
+Previous stacked tables were transform to **unstacked** versions, namely, one column for each station identifier. Stacked table _ALL\_VVMX\_AUT\_60_ was transformed to unstacked table _IDEAM\_VVMX\_60_, using next chunk of SQL code.
+
+```{sql results='hide', echo = TRUE, eval=FALSE, size="scriptsize"}
+    CREATE table ideam_vvmx_60 AS
+    SELECT * FROM crosstab(
+    'SELECT DISTINCT
+      timestamp,
+      estacionid,
+      valor
+    FROM 
+      public."ALL_VVMX_AUT_60" 
+    ORDER BY timestamp, estacionid',
+    'SELECT DISTINCT
+      estacionid
+    FROM 
+      public."ALL_VVMX_AUT_60" 
+    ORDER BY estacionid')
+    AS ct(mydatetime timestamp, "11105020" real, "11135030" real, "12015100" real, "12015110" real,
+     "13035501" real, "13085050" real, "14015080" real, "15015120" real, "15065180" real, "15065190" real, 
+     "15065501" real, "15075150" real, "15075501" real, "15079010" real, "15085050" real, "16015110" real, 
+     "16015120" real, "16015130" real, "16015501" real, "16055120" real, "17015010" real, "17035010" real, 
+     "21015030" real, "21015040" real, "21015050" real, "21015060" real, "21015070" real, "21055070" real, 
+     "21105030" real, "21115010" real, "21115170" real, "21115180" real, "21145080" real, "21185090" real, 
+     "21195160" real, "21195170" real, "21195190" real, "21205012" real, "21205710" real, "21205791" real, 
+     "21205910" real, "21205940" real, "21206280" real, "21206600" real, "21206790" real, "21206920" real, 
+     "21206930" real, "21206940" real, "21206950" real, "21206960" real, "21206980" real, "21206990" real, 
+     "21215150" real, "21215160" real, "21215170" real, "21215180" real, "21215190" real, "21235030" real, 
+     "21255160" real, "21255170" real, "22025040" real, "22075050" real, "23035030" real, "23065180" real, 
+     "23065190" real, "23085260" real, "23085270" real, "23105060" real, "23105070" real, "23125160" real, 
+     "23125170" real, "23195190" real, "23195230" real, "23195240" real, "23195502" real, "24015110" real, 
+     "24015380" real, "24025090" real, "24035360" real, "24035370" real, "24035380" real, "24035390" real, 
+     "24035410" real, "24035430" real, "24055070" real, "24055080" real, "25025000" real, "25025002" real, 
+     "25025030" real, "25025280" real, "25025340" real, "25025350" real, "25025360" real, "25025380" real, 
+     "26015010" real, "26015030" real, "26035090" real, "26035100" real, "26055100" real, "26055110" real, 
+     "26055120" real, "26075120" real, "26075150" real, "26085160" real, "26085170" real, "26095320" real, 
+     "26105240" real, "26105250" real, "26115090" real, "26125061" real, "26125290" real, "26125300" real, 
+     "26125710" real, "26135290" real, "26135300" real, "26135310" real, "26135320" real, "26135330" real, 
+     "26145090" real, "26155220" real, "26155230" real, "26155240" real, "26185030" real, "26185050" real, 
+     "26225060" real, "26255030" real, "27015280" real, "27015290" real, "27015300" real, "27015310" real, 
+     "27015320" real, "27015330" real, "28025120" real, "28025130" real, "28025502" real, "28035060" real, 
+     "29004520" real, "29015000" real, "29015040" real, "29035000" real, "29035200" real, "29045000" real, 
+     "29045150" real, "29045190" real, "29065000" real, "29065120" real, "29065130" real, "31095030" real, 
+     "32105080" real, "35025080" real, "35025090" real, "35025110" real, "35035100" real, "35035110" real, 
+     "35035130" real, "35075070" real, "35075080" real, "35085060" real, "35085070" real, "35085080" real, 
+     "35095120" real, "35095130" real, "35165000" real, "35185010" real, "35195060" real, "35215020" real, 
+     "35215030" real, "35225030" real, "35235040" real, "35235050" real, "36015020" real, "37015030" real, 
+     "44015060" real, "44015070" real, "44035040" real, "44035050" real, "46015030" real, "46035010" real, 
+     "47035030" real, "48015040" real, "48015050" real, "51025060" real, "51025080" real, "52015050" real, 
+     "52025080" real, "52025090" real, "52035040" real, "52045080" real, "52055150" real, "52055160" real, 
+     "52055170" real, "52055210" real, "52055220" real, "52055230" real, "53045040" real, "53075020" real, 
+     "54077210" real, "55015010" real, "56019010" real, "57025020" real, "1111500036" real,
+     "2612500038" real, "3706500109" real)
+```
+
+
+Next list shows unstacked tables inside the database:
+
+* IDEAM_VVMX_60 (correspond to ALL_VVMX_AUT_60)
+* ISD_LITE_UNSTACK (correspond to ISD_LITE)
+
+
+In addition, stations catalogs of IDEAM and ISD were loaded as tables. Main fields are _identifier_, _name_, _latitude_ and _longitude_:
+
+* IDEAM_ALL_STATIONS
+* ISD_ALL_STATIONS
+
+Next chunk of code shows the use of _dplyr_ and _tibble_ packages with PostgreSQL tables
+
+```{r results='hide', echo = TRUE, eval=FALSE, size="scriptsize"}
+library(dplyr)
+con1 = src_postgres(dbname = "winddata", host = "localhost", port = 5432, user = "user1", password = "user1")
+originalfields3 = c("id", "usaf", "station_name", "latitud", "longitud")
+originalfields3 = paste(originalfields3, collapse= ", ", sep = "")
+query3 = paste("select", originalfields3, "from isd_all_stations where usaf_isd_dataua != ''", sep=" ")
+isd_stations = as_tibble(tbl(con1, sql(query3)))
+library(sf)
+isd_stations = st_as_sf(isd_stations, coords = c("longitud", "latitud"), crs = 4326)
+isd_stations3116 = st_transform(isd_stations, crs=3116)
+```
+
+
+### Database backup
+
+Next chunks of commands were used to create database backup.
+
+#### Schema backup
+
+```{bash results='hide', echo = TRUE, eval=FALSE, size="scriptsize"}
+      pg_dump.exe -f dump-C-E-o-s_winddata_2020_03.sql -C -E UTF8 -o -s -h localhost -U postgres winddata
+```
+
+
+#### Data backup
+
+Make a backup with option Fc (to load with pg_restore). Be aware of the use of option “copy” (not the option insert –D).
+
+```{bash results='hide', echo = TRUE, eval=FALSE, size="scriptsize"}
+      pg_dump.exe -Fc -a -E UTF8 -h localhost -U postgres -f dump-Fc-a-E_winddata_2020_03.dump winddata
+```
+
+#### Create table of contents file (TOC)
+
+It is possible to load data from a backup file to the database using a TOC text file containing the list of tables to be restored, in this way, it is possible to restore only one table, select some tables to be resored, or change the restoration order. TOC file createt with next command, will have the load order by default (this command only works with backups created with the options Fc o Ft)
+
+```{bash results='hide', echo = TRUE, eval=FALSE, size="scriptsize"}
+      pg_restore.exe -l -f dump-Fc-a-E_winddata_2020_03.TOC dump-Fc-a-E_winddata_2020_03.dump
+```
+
+The content of default TOC file (dump-Fc-a-E_winddata_2020_03.TOC), as result from previous command is shown below
+
+```{bash results='hide', echo = TRUE, eval=FALSE, size="scriptsize"}
+      ;
+      ; Archive created at 2020-03-25 15:38:55
+      ;     dbname: winddata
+      ;     TOC Entries: 17
+      ;     Compression: -1
+      ;     Dump Version: 1.13-0
+      ;     Format: CUSTOM
+      ;     Integer: 4 bytes
+      ;     Offset: 8 bytes
+      ;     Dumped from database version: 10.5
+      ;     Dumped by pg_dump version: 10.5
+      ;
+      ;
+      ; Selected TOC Entries:
+      ;
+      2865; 0 259855 TABLE DATA public ALL_VVMX_AUT_60 user1
+      2868; 0 259883 TABLE DATA public TEMP user1
+      2867; 0 259879 TABLE DATA public VV_AUT_10 user1
+      2875; 0 260005 TABLE DATA public ideam_all_stations user1
+      2876; 0 260092 TABLE DATA public ideam_vvmx_60 user1
+      2874; 0 259958 TABLE DATA public isd_all_stations user1
+      2871; 0 259898 TABLE DATA public isd_lite user1
+      2873; 0 259926 TABLE DATA public isd_lite_copy user1
+      2869; 0 259892 TABLE DATA public isd_lite_string user1
+      2877; 0 260096 TABLE DATA public isd_lite_unstack user1
+      2883; 0 0 SEQUENCE SET public ALL_VVMX_AUT_60_id_seq user1
+      2884; 0 0 SEQUENCE SET public ISD_LITE_ID_seq user1
+      2885; 0 0 SEQUENCE SET public VV_AUT_10_id_seq user1
+      2886; 0 0 SEQUENCE SET public isd_lite_new_id_seq user1
+```
+
+
+### Database restore
+
+#### Schema load
+
+Before to restore the schema from file dump-C-E-o-s_winddata_2020_03.sql, it is possible to manually edit it, considering special user needs:
+
+* Force to remove the database, if it is already created within PostgreSQL.
+* Enable extensions for particular needs, for instance PostGis, DBLink, pgRouting, plpgsql
+
+In addition, it is important to remember:
+
+*	Database name: winddata
+*	Database user: user1
+*	Log in the database as user _postgres_
+*	In next command, first _postgres_ is the name of database, and second one, is the user name.
+
+
+```{bash results='hide', echo = TRUE, eval=FALSE, size="scriptsize"}
+      psql.exe -f dump-C-E-o-s_winddata_2020_03.sql postgres postgres
+```
+
+#### Load data
+
+To load data it is necessary to use TOC file, which can be edited to change load order, or load only specific tables. To proceed with next command, please use the user _postgres_
+
+
+```{bash results='hide', echo = TRUE, eval=FALSE, size="scriptsize"}
+      pg_restore.exe -d winddata -Fc -a -L dump-Fc-a-E_winddata_2020_03.TOC -h localhost -U postgres
+       -e dump-Fc-a-E_winddata_2020_03.dump
+```
+
+
+#### Restore individual tables
+
+It is possible to restore/load individual tables using next command, where “-n” refers to schema and “-t” refers to table name. Next command will restore table _ideam_vvmx_60_ from _public_ schema (all tables belong to public schema)
+
+```{bash results='hide', echo = TRUE, eval=FALSE, size="scriptsize"}
+      pg_restore -d winddata -Fc -a -h localhost -U postgres -n public -t ideam_vvmx_60 -v 
+       -e dump-Fc-a-E_winddata_2020_03.dump
+```
+
 
 # Thesis Document R Code {#docrcode}
 
@@ -483,108 +835,152 @@ This appendix includes all of the R chunks of code that were hidden throughout t
 
 # User Manual {#manual}
 
-Sofware details:
+Sofware requirements:
 
 * Software R version 3.6.2 (2019-12-12). Platform x86_64-w64-mingw32. Arch x86_64. Os mingw32. System x86_64, mingw32. Svn rev 77560. Language R. Nickname Dark and Stormy Night.
 * RStudio - Version 1.2.5033 - 2009-2019. "Orange Blossom" (330255dd, 2019-12-04)
+* Sixty (60) R packages. Use next chunk of code to install and load R packages.
 
-List of 61 used R packages:
+```{r r61packages, results='hide', echo = TRUE, eval=FALSE, size="tiny"}
+# List of packages required for this analysis
+pkg <- c("actuar", "bbmle", "bookdown", "cowplot", "devtools", "DiagrammeR", "dplyr", "evd", "evir", "evmix", "extRemes", "extremeStat", 
+"fitdistrplus", "geoR", "ggmap", "ggplot2", "ggrepel", "ggspatial", "grid", "gridExtra", "gstat", "ismev", "kableExtra", "knitr", "lattice", "lmom",
+"lmomco", "lubridate", "magick", "maptools", "mapview", "MASS", "ncdf4", "openair", "plot3D", "plotly", "POT", "quantmod", "raster", "RcmdrMisc", 
+"RColorBrewer", "Renext", "rgdal", "rgl", "rnaturaleearth", "rnaturaleearthdata", "RPostgreSQL", "RStoolbox", "sf", "shape", "sp",
+"SpatialExtremes", "stars", "thesisdown", "tibble", "tidyr", "viridis", "xls", "xlsx", "xts")
+# Check if packages are not installed and assign the
+# names of the packages not installed to the variable new.pkg
+new.pkg <- pkg[!(pkg %in% installed.packages())]
+# If there are any packages in the list that aren't installed,
+# install them
+if (length(new.pkg))
+  install.packages(new.pkg, repos = "http://cran.rstudio.com")
+#Load packages
+library(actuar)
+library(bbmle)
+library(bookdown)
+library(cowplot)
+library(devtools)
+library(DiagrammeR)
+library(dplyr)
+library(evd)
+library(evir)
+library(evmix)
+library(extRemes)
+library(extremeStat)
+library(fitdistrplus)
+library(geoR)
+library(ggmap)
+library(ggplot2)
+library(ggrepel)
+library(ggspatial)
+library(grid)
+library(gridExtra)
+library(gstat)
+library(ismev)
+library(kableExtra)
+library(knitr)
+library(lattice)
+library(lmom)
+library(lmomco)
+library(lubridate)
+library(magick)
+library(maptools)
+library(mapview)
+library(MASS)
+library(ncdf4)
+library(openair)
+library(plot3D)
+library(plotly)
+library(POT)
+library(quantmod)
+library(raster)
+library(RcmdrMisc)
+library(RColorBrewer)
+library(Renext)
+library(rgdal)
+library(rgl)
+library(rnaturaleearth)
+library(rnaturaleearthdata)
+library(RPostgreSQL)
+library(RStoolbox)
+library(sf)
+library(shape)
+library(sp)
+library(SpatialExtremes)
+library(stars)
+library(thesisdown)
+library(tibble)
+library(tidyr)
+library(viridis)
+library(xls)
+library(xlsx)
+library(xts
+```
 
-* actuar
-* bbmle
-* bookdown
-* cowplot
-* devtools
-* DiagrammeR
-* dplyr
-* evd
-* evir
-* evmix
-* extRemes
-* extremeStat
-* fitdistrplus
-* geoR
-* ggmap
-* ggplot2
-* ggrepel
-* ggspatial
-* grid
-* gridExtra
-* gstat
-* ismev
-* kableExtra
-* knitr
-* lattice
-* lmom
-* lmomco
-* lubridate
-* magick
-* maptools
-* mapview
-* MASS
-* ncdf4
-* openair
-* plot3D
-* plotly
-* POT
-* quantmod
-* raster
-* RcmdrMisc
-* RColorBrewer
-* Renext
-* rgdal
-* rgl
-* rnaturaleearth
-* rnaturaleearthdata
-* RPostgreSQL
-* RStoolbox
-* sf
-* shape
-* sp
-* SpatialExtremes
-* stars
-* thesisdown
-* tibble
-* tidyr
-* viridis
-* xls
-* xlsx
-* xts
+## Data Standardization
+
+```{r results='hide', echo = TRUE, eval=FALSE, size="scriptsize"}
+
+```
 
 ## POT-PP
 
-In Annex \@ref(rcode) - Research R Code - Digital Files, Table \ref{tab:code} it is possible to see R files with code related to POT-PP process. Files are separated by folder for ISD and for ERA5.
-
 ### ISD
+
+Next Table \ref{tab:codeisd} shows specific POT-PP R code used for ISD stations. Complete R code report can be found in Annex \@ref(rcode) - Research R Code - Digital Files, Table \ref{tab:code}.  
+
+```{r codeisd, echo=FALSE, message=FALSE, warning=FALSE, paged.print=TRUE, results="asis"}
+library(knitr)
+library(kableExtra)
+code <-read.csv("./data/manual/code_isd.csv",header=TRUE, stringsAsFactors = F) 
+
+
+mylink_markdown <- paste0("[", code[,1], "](", code[,3], ")")
+mylink_latex <-  paste0("\\href{", code[,3], "}{", code[,1], "}")
+
+
+mytable_latex <- cbind(folderTree = mylink_latex, description = code[,2])
+
+
+kable(mytable_latex, linesep = "", align=rep('l', 2), format = "latex", escape = FALSE, #format = "markdown",
+       col.names = c("Folder Tree - Ftp Links","Description"),
+       caption = "R Code POT-PP ISD. \\href{ftp://ftp.geocorp.co/windthesis/}{ftp://ftp.geocorp.co/windthesis/}. User anonymous@geocorp.co (no password).",
+       caption.short = "R Code POT-PP ISD",
+       longtable = TRUE,
+       booktabs = TRUE) %>%
+       row_spec(0, align = "l") %>%
+       column_spec(1,width = "1.3in") %>%
+       column_spec(2,width = "4.9in") %>%
+       kable_styling(font_size = 7, latex_options=c("scale_down"))
+```
 
 **Procedure to run POT-PP in ISD stations**: 
 
-1. Use R version 3.6.2, RStudio Version 1.2.5033, and 61 R packages listed at the beginning of this manual. To proceed it is necessary to install all the packages.
+1. Install R version 3.6.2, RStudio Version 1.2.5033, and 60 R packages dependencies (see chunk of code at begining of this manual)
 
 2. Verify files and variables according to descriptions and recommendations of following list (from 1 to 4), then execute file **pot_pp_isd.r**. 
 
-Files to run POT-PP in ISD stations are inside the folder **./pot_pp/isd/**. Main file to run this process is **pot_pp_isd.r**, below are the main variables to configure within this file.
+Files to run POT-PP in ISD stations are inside the folder **./pot_pp/isd/**. Main file to run this process is **pot_pp_isd.r**, and inside it, next list of variables need to be configured.
 
 
-1. _inputpath="./raw_data/"_, 
+1. _inputpath_ 
 
-```{r results='hide', echo = TRUE, eval=FALSE}
-inputpath="./raw_data/"
+```{r results='hide', echo = TRUE, eval=FALSE, size="scriptsize"}
+      inputpath="./raw_data/"
 ```
 
 Inside this folder _inputpath_, standardized time series text files must be stored, one file per station history. Be aware that all wind velocities must be already standardized, see [Data Standardization](#rmd-standardization) section in [Methodology](#rmd-method). Below, an example of the content of this folder is shown. 
 
-```   
+```{size="scriptsize"} 
       raw_data_station_800740.txt
       raw_data_station_800770.txt
-      raw_data_station_800840.txt
-      raw_data_station_800890.txt
       ...
 ```      
 
 Files names must follow this convention **raw_data_station_\*.txt**, where _\*_ must be replaced by the station ID. Its content must follow structure shown below.
 
-```
+```{size="scriptsize"}
       "date_time" "kph" "thunder_flag"
       "1950/06/22 12:00:00 GMT"  122.60934 "nt"
       "1951/06/13 12:00:00 GMT"   203.9521 "nt"
@@ -592,83 +988,318 @@ Files names must follow this convention **raw_data_station_\*.txt**, where _\*_ 
       "1963/02/26 12:00:00 GMT"  26.585196 "nt"
       "1963/09/11 12:00:00 GMT"  32.537106 "nt"
       "1964/10/03 12:00:00 GMT"  40.869779 "nt"
-      "1965/03/15 12:00:00 GMT"  26.585196 "nt"
-      "1965/05/18 12:00:00 GMT"  36.901839 "nt"
-      "1965/06/02 12:00:00 GMT"  26.585196 "nt"
       ...
 ```      
 
-First line must always have next content _"date_time" "mph" "thunder_flag"_, representing three column names, separated by spaces. First column _"date_time"_, has the date time in the format "YYYY/MM/DD HH:MM:SS", time zone UTC. Second column _kph_, must have the standardized wind velocity. Third column _"thunder_flag"_, must have a flag with one of two possible values _"nt"_ ot _"t"_, representing respectively _non-thunderstorm_ or _thunderstorm_ classification for the current wind value. For current research, third column always had the flag _"nt"_, for all rows, all stations. The separation of each column value must be _space_ character. Values corresponding to _"date_time"_ and _"thunder_flag"_ must be enclosed by double quotes.
+First line must always have next content _"date_time" "mph" "thunder_flag"_, representing three column names, separated by spaces. First column _"date_time"_, has the date time in the format "YYYY/MM/DD HH:MM:SS", time zone UTC. Second column _kph_, must have the standardized wind velocity in kilometers per hour. Third column _"thunder_flag"_, must have a flag with one of two possible values _"nt"_ ot _"t"_, representing _non-thunderstorm_ or _thunderstorm_ classification respectively, for the current wind value. For current research, third column always had the flag _"nt"_, for all rows, all stations. Separation of each column value must be _space_ character. Values corresponding to _"date_time"_ and _"thunder_flag"_ must be enclosed by double quotes.
 
 2. _estaciones_ 
 
-```{r results='hide', echo = TRUE, eval=FALSE}
-estaciones <- read.delim(paste0(inputpath, "01 estaciones.txt"), 
-  header = FALSE, sep = "\t")
+```{r results='hide', echo = TRUE, eval=FALSE, size="scriptsize"}
+      estaciones <- read.delim(paste0(inputpath, "01 estaciones.txt"), 
+        header = FALSE, sep = "\t")
 ```
 
-Variable _estaciones_, must point to a text file, named _'01 estaciones.txt'_, and stored inside _inputpath_ folder, with the IDs of ISD stations to be processed. Each line of the file must have one ISD station ID. This file must have the list of stations to process, one station per row. If the intention is to run the process for only one station, the content of this file must have a single line, with the station ID. The code repeats the POT-PP procedure for each line of this file. Below, an example of the content of this file is shown.
+Variable _estaciones_, must point to a text file, named _'01 estaciones.txt'_, and stored inside _inputpath_ folder, with the IDs of ISD stations to be processed. Each line of the file must have one ISD station ID. This file must have the list of stations to process, one station per row. If the intention is to run the process for only one station, the content of this file must have a single line, with the corresponding station ID. The code repeats the POT-PP procedure for each line of this file. Below, an example of its content is shown.
 
 
-```   
+```{size="scriptsize"}   
       800740
       800770
-      800840
-      800890
       ...
 ```
 
-Be aware that for each line in this file _01 estaciones.txt_, one text file with the time series, with the name **raw_data_station_\*.txt**, where _\*_ represents the same station ID, must be stored inside _inputpath_ folder. See first element, lines up, in this list of variables. 
+Be aware that for each line in this file _01 estaciones.txt_, one text file with wind historical time series information, named **raw_data_station_\*.txt**, where _\*_ represents the same station ID, must be stored inside _inputpath_ folder. See first element, lines up, in this list of variables. 
 
 3. _outputpath_
 
-```{r results='hide', echo = TRUE, eval=FALSE}
-outputpath = "./isd/"
+```{r results='hide', echo = TRUE, eval=FALSE, size="scriptsize"}
+      outputpath = "./isd/"
 ```
 
-Variable _outputpath_, should point to the folder where all output files will be stored, after running POT-PP process. See Annex \@ref(results) - Results - Digital Files, Table \ref{tab:resultsstructure}, with detailed list of output files (in this case inside **./potpp/isd/**). Files that will be generated inside _outputpath_ are displayed in next list, where _\*_ will be replaced by correspondent station ID.
+Variable _outputpath_, should point to the folder where all output files will be stored, after running POT-PP process. The following list describes the main files to be generated, where _\*_ will be replaced by correspondent station ID.
+
+* _FittedModel\_\*.pdf_: ISD POT-PP output graphics. See Table \ref{tab:fittedmodelidpdf}.
+* _fitted_model_result.xlsx_: Return levels ISD (all stations). See Table \ref{tab:returnlevels}.
+* _raw_data_station\_\*\_fitted.xlsx_: ISD POT-PP output parameters by station. See Table \ref{tab:rawdatastationidfitted}.
+* _raw_data_station\_\*\_statistics.xlsx_: ISD POT-PP time (year, month, week) statistics by station. See Table \ref{tab:rawdatastationidstatistics}.
+
+Table \ref{tab:resultsstructureisd} shows **input** and **output** files for ISD stations, after running POT-PP. See Annex \@ref(results) - Results - Digital Files, Table \ref{tab:resultsstructure}, for a complete report of research files.
+
+```{r resultsstructureisd, echo=FALSE, message=FALSE, warning=FALSE, paged.print=TRUE, results="asis"}
+library(knitr)
+library(kableExtra)
+results_structure <-read.csv("./data/manual/results_structure_isd.csv",header=TRUE, stringsAsFactors = F) 
+#Ftp = results_structure[,3]
+
+mylink_markdown <- paste0("[", results_structure[,1], "](", results_structure[,3], ")")
+#mylink_latex <-  paste0("\\href{", results_structure[,3], "}{\verb", knitr::asis_output("\U007C"), results_structure[,1], knitr::asis_output("\U007C"), "}")
+mylink_latex <-  paste0("\\href{", results_structure[,3], "}{", results_structure[,1], "}")
+#mylink_latex <-  paste0("\\href{", results_structure[,3], "}{a}"
+#mytable_markdown <- cbind(folder_Tree = mylink_markdown, description = results_structure[,2])
+
+mytable_latex <- cbind(folderTree = mylink_latex, description = results_structure[,2])
+
+
+kable(mytable_latex, linesep = "", align=rep('l', 2), format = "latex", escape = FALSE, #format = "markdown",
+       col.names = c("Folder Tree - Ftp Links","Description"),
+       caption = "POT-PP ISD Input and Output Files",
+       caption.short = "POT-PP ISD Input and Output Files",
+       longtable = TRUE,
+       booktabs = TRUE) %>%
+       row_spec(0, align = "l") %>%
+       column_spec(1,width = "2.2in") %>%
+       column_spec(2,width = "4in") %>%
+#       column_spec(3,width = "0.5in") %>%
+       kable_styling(font_size = 8, latex_options=c("scale_down")) #%>%
+#       #add_header_above(c(" ", "Raw Data" = 4, "Declustered Data" = 4))
+```
+
+
+4. Linked R code
+
+Main file **pot_pp_isd.r**, runs supplemental code using the R command _source_. Be sure that all R code files listed in next chunk of code, are pointing to the right location. See Table \ref{tab:codeisd} with the description of POT-PP ERA5 complementary R files. In Annex \@ref(rcode) - Research R Code - Digital Files, Table \ref{tab:code} it is possible to see all R files related to this research.
+
+
+```{r results='hide', echo = TRUE, eval=FALSE, size="scriptsize"}
+    #Library of POT-PP functions, including Dr Adam Pintar R Code (not 
+    #published because this is copyrighted)
+    source('./code/function_lib.R')
+    #Raw Data (whole dataset) Statistics and Send to CSV 
+    source('./code/stats_raw_data.r')
+    #Non Thunderstorm - Create Raw Data Statistics and Send to CSV 
+    source('./code/stats_raw_data_nt.r')
+    #Thunderstorm - Create Raw Data Statistics and Send to CSV
+    source('./code/stats_raw_data_t.r')
+    #Write "t" to csv, but changing to one data per day (the maximum)
+    #Write "nt" to csv, but changing to one data per day (the maximum)
+    source('./code/tnt_csv_1perday.r')
+    #Statistics and graphics for de-clustered non-thunderstorm
+    source('./code/stats_graphs_dnt.r')
+    #Statistics and graphics for de-clustered thunderstorm
+    source('./code/stats_graphs_dt.r')
+    #Plots for thunderstorm
+    source('./code/plot_t.r')
+    #Plots for non-thunderstorm
+    source('./code/plot_nt.r')
+    #Plots for non-thunderstorm and thunderstorm
+    source('./code/plot_t_nt.r')
+```
+
+#### ISD Maps
+
+Main output file of POT-PP analysis is _fitted_model_result.xlsx_, which contains return levels for typical return periods. Inside this Excel book, sheet _pp_pintar_, use columns _43 to 53_, to create extreme wind maps. Name of those columns are _nt\_\*\_poissonprocessintfunc_, corresponding to non-thunderstorm return levels using Poisson Process Intensity Function, where \* is replaced for 10, 20, 50, 100, 250, 500, 700, 1000, 1700, 3000, and 7000 years. A detailed description of all columns of _fitted_model_result.xlsx_, can be found in Table \ref{tab:returnlevels}.
+
+To create non-hurricane maps using Kriging, from columns 43 to 53 of file _fitted_model_result.xlsx_, use R files inside folder _./code/pot\_pp/isd/maps/_, see Table \ref{tab:codeisd}. For instance, to create non-hurricane map with return levels for 10 years MRI, use file _rl_10_nh.r_, for 50 MRI use _rl_50_nh.r_, and in the same way for other return periods. Once geotiff images have been created with previous R files, use _plot_maps.r_ to plot maps using _ggplot2_ R package.
+
+Inside files _rl\_\*\_nh.r_ next types of geostatistical related analysis are coded, mainly using _gstat_, _sf_, and _stars_ R packages, see @Pebesma2019, @Pebesma2019a, and @Pebesma2019b respectivelly.
+
+* Experimental semiraviogram
+* Directional semivariograms
+* Theoretical semiraviograms
+* Graphics of semivariance models
+* First-order trend modeling
+* Graphics of semivariance models - first order trend
+* Ordinary Kriging estimation
+* Simple Kriging estimation
+* Universal Kriging estimation
+* Graphics of Kriging predictions & errors
+* Cross validation - 'leave-one-out'
+* Cross validation - 'N-fold'
+* Cross validation - comparison statistics
+* Final map - predictions
+* Final map - errors
+* IDW & cross validation
+
+**Procedure to create non-hurricane maps**:
+
+1. Run the procedure previously described in this manual, to execute POT-PP in ISD stations. File _fitted_model_result.xlsx_ will be created with all return levels for different return periods.
+
+2. From file _fitted_model_result.xlsx_, create file _rlisd.xlsx_ with 20 columns according to next  Table \@ref(tab:rlisd).  See Table \ref{tab:returnlevels} for columns descriptions. Keep same number of records in _rlisd.xlsx_ compared with _fitted_model_result.xlsx_.
+
+
+```{r rlisd, echo=FALSE, message=FALSE, warning=FALSE, paged.print=TRUE, results="asis"}
+library(knitr)
+library(kableExtra)
+rawdatastationidfitted <-read.csv("./data/manual/rlisd.csv",header=TRUE, stringsAsFactors = F) 
+
+
+kable(rawdatastationidfitted, linesep = "", align=rep('l', 4), 
+       col.names = c("Column ID", "Column Name", "Column ID", "Column Name"),
+       caption = "Creation of file rlisd.xlsx",
+       caption.short = "Creation of file rlisd.xlsx",
+       longtable = TRUE,
+       booktabs = TRUE) %>%
+       row_spec(0, align = "l") %>%
+       column_spec(1,width = "0.5in") %>%
+       column_spec(2,width = "1.5in") %>%
+       column_spec(3,width = "0.5in") %>%
+       column_spec(4,width = "1.5in") %>%
+       kable_styling(font_size = 8, latex_options=c("scale_down")) %>%
+       add_header_above(c("File fitted_model_result.xlsx" = 2, "File rlisd.xlsx" = 2))
+```
+
+3. Enable access to PostgreSQL database with ISD stations information. See Annex \@ref(datadownload) - [ERA5 Data Download and Organization](#datadownload). Connection information to the spatial database is shown in next Table \@ref(tab:db).
+
+```{r db, echo=FALSE, message=FALSE, warning=FALSE, paged.print=TRUE, results="asis"}
+library(knitr)
+library(kableExtra)
+rawdatastationidfitted <-read.csv("./data/manual/db.csv",header=TRUE, stringsAsFactors = F) 
+
+
+kable(rawdatastationidfitted, linesep = "", align=rep('l', 2), 
+       col.names = c("Credential", "Value"),
+       caption = "PostgreSQL Database Credentials",
+       caption.short = "PostgreSQL Database Credentials",
+       longtable = TRUE,
+       booktabs = TRUE) %>%
+       row_spec(0, align = "l") %>%
+       column_spec(1,width = "0.8in") %>%
+       column_spec(2,width = "0.8in") %>%
+       kable_styling(font_size = 8, latex_options=c("scale_down")) #%>%
+```
+
+4. Be sure that _rlisd.xlsx_ file is stored in same folder as _rl_700_nh.r_ file, this is, _./code/pot\_pp/isd/maps/_
+
+5. For desired MRI, run file _rl\_\*\_nh.r_, where \* correspond to one of next MRI years (10, 20, 50, 100, 250, 500, 700, 1000, 1700, 3000), but it is important to take into account, that despite code with multiple geostatistical analysis are inside the file, you as _spatial analysis expert_, must review and interpret each partial result, and chose the best semivariance model and prediction map to use as final wind map.
+
+6. Repeate previous step for all typical MRI
+
+
+### ERA5
+
+```{r codeera5, echo=FALSE, message=FALSE, warning=FALSE, paged.print=TRUE, results="asis"}
+library(knitr)
+library(kableExtra)
+code <-read.csv("./data/manual/code_era5.csv",header=TRUE, stringsAsFactors = F) 
+
+
+mylink_markdown <- paste0("[", code[,1], "](", code[,3], ")")
+mylink_latex <-  paste0("\\href{", code[,3], "}{", code[,1], "}")
+
+
+mytable_latex <- cbind(folderTree = mylink_latex, description = code[,2])
+
+
+kable(mytable_latex, linesep = "", align=rep('l', 2), format = "latex", escape = FALSE, #format = "markdown",
+       col.names = c("Folder Tree - Ftp Links","Description"),
+       caption = "R Code POT-PP ERA5. \\href{ftp://ftp.geocorp.co/windthesis/}{ftp://ftp.geocorp.co/windthesis/}. User anonymous@geocorp.co (no password).",
+       caption.short = "R Code POT-PP ERA5",
+       longtable = TRUE,
+       booktabs = TRUE) %>%
+       row_spec(0, align = "l") %>%
+       column_spec(1,width = "1.3in") %>%
+       column_spec(2,width = "4.9in") %>%
+       kable_styling(font_size = 7, latex_options=c("scale_down"))
+```
+
+Table \ref{tab:codeera5} shows specific POT-PP R code used for ERA5 stations. Complete R code report can be found in Annex \@ref(rcode) - Research R Code - Digital Files, Table \ref{tab:code}.
+
+```{r ref.label=c('loadera5'), message=FALSE, warning=FALSE, include=FALSE}
+```
+
+```{r ref.label=c('era5sf'), message=FALSE, warning=FALSE, include=FALSE}
+```
+
+```{r ref.label=c('era5bbox'), message=FALSE, warning=FALSE, include=FALSE}
+```
+
+```{r ref.label=c('era5pols'), message=FALSE, warning=FALSE, include=FALSE}
+```
+
+```{r era5stations, ref.label=c('plotera5stations'), results='hide', echo = FALSE, message=FALSE, warning=FALSE, eval=TRUE, fig.cap="ERA5 Cells and Stations", fig.height=4.05}
+```
+
+Stations in ERA5 dataset correspond to its cell centers, from ID equal to 1 (top, left cell), counting next cells to the right, then bottom, up to 3381 (bottom, righ cell). See Figure \@ref(fig:era5stations).
+
+**Procedure to run POT-PP in ERA5 stations**: 
+
+1. Install R version 3.6.2, RStudio Version 1.2.5033, and 60 R packages dependencies (see chunk of code at begining of this manual)
+
+2. Verify files and variables according to descriptions and recommendations of following list (from 1 to 2), then execute file **pot_pp_era5.r**. 
+
+Files to run POT-PP in ERA5 stations are inside the folder **./pot_pp/era5/**. Main file to run this process is **pot_pp_era5.r**, and inside it, next list of variables need to be configured.
+
+
+1. _inputpathnetcdf_
+
+```{r results='hide', echo = TRUE, eval=FALSE, size="scriptsize"}
+      inputpathnetcdf = "./data/"
+```
+
+Inside this folder _inputpathnetcdf_, file _"outfile_nc4c_zip9.nc"_, with variable 3-s wind gust _fg10_, must be stored. Be aware that ERA5 dataset does not need any type of standardization, as it comes standardized from source. See Annex \@ref(datadownload) for a detailed procedure to download  ERA5 information from Climate Data Storage - CDS <https://cds.climate.copernicus.eu/>. 
+
+2. _outputpath_
+
+```{r results='hide', echo = TRUE, eval=FALSE, size="scriptsize"}
+      outputpath = "./era5/"
+```
+
+Variable _outputpath_, should point to the folder where all output files will be stored, after running POT-PP process. Following list describes main files to be generated, where _\*_ will be replaced by correspondent station ID.
 
 * _FittedModel\_\*.pdf_: ERA5 POT-PP output graphics. See Table \ref{tab:fittedmodelidpdf}.
 * _fitted_model_result.xlsx_: Return levels ERA5 (all stations). See Table \ref{tab:returnlevels}.
 * _raw_data_station\_\*\_fitted.xlsx_: ERA5 POT-PP output parameters by station. See Table \ref{tab:rawdatastationidfitted}.
 * _raw_data_station\_\*\_statistics.xlsx_: ERA5 POT-PP time (year, month, week) statistics by station. See Table \ref{tab:rawdatastationidstatistics}.
 
+Table \ref{tab:resultsstructureera5} shows **input** and **output** files for ERA5 stations, after running POT-PP. See Annex \@ref(results) - Results - Digital Files, Table \ref{tab:resultsstructure}, for a complete report of research files.
 
-4. Linked R code
+```{r resultsstructureera5, echo=FALSE, message=FALSE, warning=FALSE, paged.print=TRUE, results="asis"}
+library(knitr)
+library(kableExtra)
+results_structure <-read.csv("./data/manual/results_structure_era5.csv",header=TRUE, stringsAsFactors = F) 
+#Ftp = results_structure[,3]
 
-Main file **pot_pp_isd.r**, runs supplemental code using the R command _source_. Be sure that all R code files listed in next chunk of code, are pointing to the right location. In Annex \@ref(rcode) - Research R Code - Digital Files, Table \ref{tab:code} it is possible to see R files related to POT-PP process. Files are separated by folder for ISD and for ERA5.
+mylink_markdown <- paste0("[", results_structure[,1], "](", results_structure[,3], ")")
+#mylink_latex <-  paste0("\\href{", results_structure[,3], "}{\verb", knitr::asis_output("\U007C"), results_structure[,1], knitr::asis_output("\U007C"), "}")
+mylink_latex <-  paste0("\\href{", results_structure[,3], "}{", results_structure[,1], "}")
+#mylink_latex <-  paste0("\\href{", results_structure[,3], "}{a}"
+#mytable_markdown <- cbind(folder_Tree = mylink_markdown, description = results_structure[,2])
 
-```{r results='hide', echo = TRUE, eval=FALSE}
-#Library of POT-PP functions, including Dr Adam Pintar R Code (not 
-#published because this is copyrighted)
-source('./code/function_lib.R')
+mytable_latex <- cbind(folderTree = mylink_latex, description = results_structure[,2])
 
-#Raw Data (whole dataset) Statistics and Send to CSV 
-source('./code/stats_raw_data.r')
 
-#Non Thunderstorm - Create Raw Data Statistics and Send to CSV 
-source('./code/stats_raw_data_nt.r')
-
-#Thunderstorm - Create Raw Data Statistics and Send to CSV
-source('./code/stats_raw_data_t.r')
-
-#Write "t" to csv, but changing to one data per day (the maximum)
-#Write "nt" to csv, but changing to one data per day (the maximum)
-source('./code/tnt_csv_1perday.r')
-
-#Statistics and graphics for de-clustered non-thunderstorm
-source('./code/stats_graphs_dnt.r')
-
-#Statistics and graphics for de-clustered thunderstorm
-source('./code/stats_graphs_dt.r')
-
-#Plots for thunderstorm
-source('./code/plot_t.r')
-
-#Plots for non-thunderstorm
-source('./code/plot_nt.r')
-
-#Plots for non-thunderstorm and thunderstorm
-source('./code/plot_t_nt.r')
+kable(mytable_latex, linesep = "", align=rep('l', 2), format = "latex", escape = FALSE, #format = "markdown",
+       col.names = c("Folder Tree - Ftp Links","Description"),
+       caption = "POT-PP ERA5 Input and Output Files",
+       caption.short = "POT-PP ERA5 Input and Output Files",
+       longtable = TRUE,
+       booktabs = TRUE) %>%
+       row_spec(0, align = "l") %>%
+       column_spec(1,width = "2.2in") %>%
+       column_spec(2,width = "4in") %>%
+#       column_spec(3,width = "0.5in") %>%
+       kable_styling(font_size = 8, latex_options=c("scale_down")) #%>%
+#       #add_header_above(c(" ", "Raw Data" = 4, "Declustered Data" = 4))
 ```
+
+3. Linked R code
+
+Main file **pot_pp_era5.r**, runs supplemental code using the R command _source_. Be sure that all R code files listed in next chunk of code, are pointing to the right location. See Table \ref{tab:codeera5} with the description of POT-PP ERA5 complementary R files. In Annex \@ref(rcode) - Research R Code - Digital Files, Table \ref{tab:code} it is possible to see all R files related to this research.
+
+```{r results='hide', echo = TRUE, eval=FALSE, size="scriptsize"}
+    #Library of POT-PP functions, including Dr Adam Pintar R Code (not 
+    #published because this is copyrighted)
+    source('./code/function_lib.R')
+    #Raw Data (whole dataset) Statistics and Send to CSV 
+    source('./code/stats_raw_data.r')
+    #Non Thunderstorm - Create Raw Data Statistics and Send to CSV 
+    source('./code/stats_raw_data_nt.r')
+    #Thunderstorm - Create Raw Data Statistics and Send to CSV
+    source('./code/stats_raw_data_t.r')
+    #Write "t" to csv, but changing to one data per day (the maximum)
+    #Write "nt" to csv, but changing to one data per day (the maximum)
+    source('./code/tnt_csv_1perday.r')
+    #Statistics and graphics for de-clustered non-thunderstorm
+    source('./code/stats_graphs_dnt.r')
+    #Statistics and graphics for de-clustered thunderstorm
+    source('./code/stats_graphs_dt.r')
+    #Plots for thunderstorm
+    source('./code/plot_t.r')
+    #Plots for non-thunderstorm
+    source('./code/plot_nt.r')
+    #Plots for non-thunderstorm and thunderstorm
+    source('./code/plot_t_nt.r')
+```
+
 

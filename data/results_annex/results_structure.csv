@@ -3,7 +3,7 @@ downscaling,Downscaling Support,ftp://ftp.geocorp.co/windthesis/downscaling/
   |-qualitydata,Quality data comparison (graphics in PDF),ftp://ftp.geocorp.co/windthesis/downscaling/qualitydata/
   |-nonqualitydata,Non quality data comparison (graphis in PDF),ftp://ftp.geocorp.co/windthesis/downscaling/nonqualitydata/
   |-ideam\_stations.csv,Ideam Stations,ftp://ftp.geocorp.co/windthesis/downscaling/ideam_stations.csv
-potpp,POT-PP input and output files,ftp://ftp.geocorp.co/windthesis/potpp/
+pot\_pp,POT-PP input and output files,ftp://ftp.geocorp.co/windthesis/potpp/
   |-era5,ERA5 files,ftp://ftp.geocorp.co/windthesis/potpp/era5/
   |    |-FittedModel\_*.pdf,ERA5 POT-PP output graphics. See Table \ref{tab:fittedmodelidpdf}.,ftp://ftp.geocorp.co/windthesis/potpp/era5/
   |    |-fitted\_model\_result.xlsx,Return levels ERA5 (all stations). See Table \ref{tab:returnlevels}.,ftp://ftp.geocorp.co/windthesis/potpp/era5/fitted_model_result_PoissonProcessGumbelIntFunc.xlsx

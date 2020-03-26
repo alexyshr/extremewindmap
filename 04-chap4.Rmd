@@ -1483,5 +1483,59 @@ However, the same condition did not affect the results in the ERA5 database in t
 
 One of the objectives of the investigation was to compare different methods in the calculation of return levels, and that was achieved using in all cases, both POT-GPD, and POT-PP. The Poisson for POT-GPD, does not accept data classification by time (storm or non-storm), because it is one-dimensional and data must represent a single general type of event: wind. Despite that, it is important to emphasize that the shortcomings in the calculation of the Poisson process rate, similarly affected the application of both methods, so in all cases, the results have the same limitation, and the use of POT-GPD does not represent best quality in the results.
 
+In relation to the use of PostgreSQL to store time series, seeking to decrease RAM load to avoid memory overflow, or slow processes, it can be concluded that although it is an efficient solution, it is also a delayed solution in terms of its implementation effort (process text files, load them, and unstack them in the database), and in addition, replication of research for future work is made more difficult by the need to install the database engine and restore database backup, compared to the simple use of text files. It is recommended to use a database for analysis and processing with **R** and **tidyverse lazy tibble dataframe** technologies, when data sources are already stored in a database as PostgreSQL. Final recommendation to optimize memory management when time series are processed, is to work directly with text files, but make a good code design, so that, avoid loading all time series into memory at the same time, that is, serial processing file by file, loading into memory only one time series at a time, and before moving on to the next file, make sure to remove used objects from memory _rm("object")_, and make memory garbage collection _gc()_ to make sure the it actually frees up unwanted objects, or reuse the same variables in each cycle of the process, to reuse previously allocated memory spaces. Next chunk of code shows some important memory management options.
+
+
+```{r results='hide', echo = TRUE, eval=FALSE, size="scriptsize"}
+    #List objects in current environment
+    ls()
+    
+    #Remove all objects in current environment
+    rm(list=ls())
+    
+    #After removing object, apply garbage collection
+    gc()
+    
+    #List object sorted by size
+    sort(sapply(ls(),function(x){object.size(get(x))}))
+    
+    #Remove an specific object
+    rm("name")
+    
+    #Review some memory values
+    library(pryr)
+    mem_used()
+    memory.size()
+    memory.limit()
+    
+    #Change memory limit
+    memory.limit(size = value)
+```
+
+For big netCDF files, as in present research, where variable _fg10_(3-s wind gust), stored 3.381 (49 cols x 69 rows) cells, and in each cell 356.472 hours, representing 1.205'231.832 different wind records, in a file size of 3.53 Gb, it is recomended to get specific needed slices instead of loading the entire file into memory. Use parameters _start_, and _count_ of function _ncvar_get_ (package _ncdf4_) to get desired netCDF records, as shown in code below, where time series of first ERA5 cell/station (upper-left) is assigned to variable _firstcelltimeseries_
+ 
+```{r results='hide', echo = TRUE, eval=FALSE, size="scriptsize"}
+    library(ncdf4)
+    ncname <- "outfile_nc4c_zip9.nc")
+    ncin <- nc_open(filename)
+    #First column
+    firstcol=1
+    #First row
+    firstrow=1
+    #First time
+    firsttime = 1
+    #Number of cols to get
+    ncols=1
+    #Number of rows to get
+    nrows=1
+    #Total number of time records (time dimension)
+    timedim <-  dim(ncvar_get(ncin, "time"))
+    #Number of time records to get
+    ntime = timedim
+    firstcelltimeseries = ncvar_get(nc=ncin, varid='fg10', start=c(firstcol,firstrow,firsttime), 
+                                    count=c(ncols,nrows,ntime))
+```
+
+
 To improve the quality of extreme wind analysis in future research, the inclusion of seasonal effects is recommended, this can be done in two ways, first, using a separate POT-PP for each season, and second, model the Poisson process parameters (location, scale and shape) as sinusoidal functions of time. Finally, it is possible to include more formal statistics (not only graphics), to face the downscaling challenge.
 

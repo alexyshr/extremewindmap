@@ -1,0 +1,15 @@
+FolderTree,Description,Ftp
+pot\_pp,POT-PP input and output files,ftp://ftp.geocorp.co/windthesis/potpp/
+\;\;|-era5,ERA5 files,ftp://ftp.geocorp.co/windthesis/potpp/era5/
+\;\;\;\;|-FittedModel\_*.pdf,ERA5 POT-PP output graphics. See Table \ref{tab:fittedmodelidpdf}.,ftp://ftp.geocorp.co/windthesis/potpp/era5/
+\;\;\;\;|-fitted\_model\_result.xlsx,Return levels ERA5 (all stations). See Table \ref{tab:returnlevels}.,ftp://ftp.geocorp.co/windthesis/potpp/era5/fitted_model_result_PoissonProcessGumbelIntFunc.xlsx
+\;\;\;\;|-raw\_data\_station\_*\_fitted.xlsx,ERA5 POT-PP output parameters by station. See Table \ref{tab:rawdatastationidfitted}.,ftp://ftp.geocorp.co/windthesis/potpp/era5/
+\;\;\;\;|-raw\_data\_station\_*\_statistics.xlsx,"ERA5 POT-PP time (year, month, week) statistics by station. See Table \ref{tab:rawdatastationidstatistics}.",ftp://ftp.geocorp.co/windthesis/potpp/era5/
+\;\;\;\;|-maps,ERA5 raster and vector output data,ftp://ftp.geocorp.co/windthesis/potpp/era5/maps/
+\;\;\;\;\;\;|-era5grid\_left\_right.*,"ERA5 stations shapefile (IDs from left to right, then down)",ftp://ftp.geocorp.co/windthesis/potpp/era5/maps/
+\;\;\;\;\;\;|-era5grid\_left\_right\_pol.*,"ERA5 cells shapefile (IDs from left to right, then down)",ftp://ftp.geocorp.co/windthesis/potpp/era5/maps/
+\;\;\;\;\;\;|-era5grid\_up\_down.*,"ERA5 stations shapefile (IDs from top to down, then right)",ftp://ftp.geocorp.co/windthesis/potpp/era5/maps/
+\;\;\;\;\;\;|-era5grid\_up\_down\_pol.*,"ERA5 cells shapefile (IDs from top to down, then right)",ftp://ftp.geocorp.co/windthesis/potpp/era5/maps/
+\;\;\;\;\;\;|-rl4326\_points\_nh\_combined.*,ERA5 stations shapefile with all return levels,ftp://ftp.geocorp.co/windthesis/potpp/era5/maps/
+\;\;\;\;\;\;|-combined,ERA5 final wind maps (non-hurricanes + hurricanes). See Table \ref{tab:era5maps}.,ftp://ftp.geocorp.co/windthesis/potpp/era5/maps/combined/
+\;\;\;\;\;\;|-nonhurricanes,ERA5 POT-PP non-hurricane wind maps. See Table \ref{tab:era5maps}.,ftp://ftp.geocorp.co/windthesis/potpp/era5/maps/nonhurricanes/

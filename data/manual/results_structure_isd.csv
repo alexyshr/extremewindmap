@@ -1,0 +1,16 @@
+FolderTree,Description,Ftp
+pot\_pp,POT-PP input and output files,ftp://ftp.geocorp.co/windthesis/potpp/
+  |-isd,ISD files,ftp://ftp.geocorp.co/windthesis/potpp/isd/
+  |    |-01 estaciones - 76 ok isd.txt,ISD list of used stations,ftp://ftp.geocorp.co/windthesis/potpp/isd/01%20estaciones%20-%2076%20ok%20isd.txt
+  |    |-01 estaciones - isd - error.txt,One ISD station not working,ftp://ftp.geocorp.co/windthesis/potpp/isd/01%20estaciones%20-%20isd%20-%20error.txt
+  |    |-FittedModel\_*.pdf,ISD POT-PP output graphics. See Table \ref{tab:fittedmodelidpdf}.,ftp://ftp.geocorp.co/windthesis/potpp/isd/
+  |    |-fitted\_model\_result.xlsx,Return levels ISD (all stations). See Table \ref{tab:returnlevels}.,ftp://ftp.geocorp.co/windthesis/potpp/isd/fitted_model_result_PoissonProcessGumbelIntFunc.xlsx
+  |    |-isd\_stations.xlsx,ISD stations,ftp://ftp.geocorp.co/windthesis/potpp/isd/isd_stations.xlsx
+  |    |-raw\_data\_station\_*\_fitted.xlsx,ISD POT-PP output parameters by station. See Table \ref{tab:rawdatastationidfitted}.,ftp://ftp.geocorp.co/windthesis/potpp/isd/
+  |    |-raw\_data\_station\_*\_statistics.xlsx,"ISD POT-PP time (year, month, week) statistics by station. See Table \ref{tab:rawdatastationidstatistics}.",ftp://ftp.geocorp.co/windthesis/potpp/isd/
+  |    |-maps,ISD raster and vector output data,ftp://ftp.geocorp.co/windthesis/potpp/isd/maps/
+  |    |    |-rl\_nh\_h\_combined\_allcells4326.*,ISD stations shapefile with all return levels,ftp://ftp.geocorp.co/windthesis/potpp/isd/maps/
+  |    |    |-combined,ISD final wind maps (non-hurricanes + hurricanes). See Table \ref{tab:isdmaps}.,ftp://ftp.geocorp.co/windthesis/potpp/isd/maps/combined/
+  |    |    |-nonhurricanes,ISD POT-PP non-hurricane wind maps. See Table \ref{tab:isdmaps}.,ftp://ftp.geocorp.co/windthesis/potpp/isd/maps/nonhurricanes/
+  |    |-raw\_data,ISD non-thunderstorm time series (standardized),ftp://ftp.geocorp.co/windthesis/potpp/isd/raw_data/
+  |-correction\_factors\_isd\_ideam.xlsx,Correction factors for standardization (ISD and IDEAM),ftp://ftp.geocorp.co/windthesis/potpp/correction_factors_isd_ideam.xlsx

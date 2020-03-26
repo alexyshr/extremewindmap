@@ -1,0 +1,21 @@
+Column ID,Column Name,Column ID,Column Name
+1,id,1,id
+2,t_thresh,2,t_thresh
+3,t_mu_location,3,t_mu_location
+4,t_psi_scale,4,t_psi_scale
+5,nt_thresh,5,nt_thresh
+6,nt_mu_location,6,nt_mu_location
+7,nt_psi_scale,7,nt_psi_scale
+8,distance_w,8,distance_w
+9,station,9,station
+43,nt_10_poissonprocessintfunc,10,nt_10_poissonprocessintfunc
+44,nt_20_poissonprocessintfunc,11,nt_20_poissonprocessintfunc
+45,nt_50_poissonprocessintfunc,12,nt_50_poissonprocessintfunc
+46,nt_100_poissonprocessintfunc,13,nt_100_poissonprocessintfunc
+47,nt_250_poissonprocessintfunc,14,nt_250_poissonprocessintfunc
+48,nt_500_poissonprocessintfunc,15,nt_500_poissonprocessintfunc
+49,nt_700_poissonprocessintfunc,16,nt_700_poissonprocessintfunc
+50,nt_1000_poissonprocessintfunc,17,nt_1000_poissonprocessintfunc
+51,nt_1700_poissonprocessintfunc,18,nt_1700_poissonprocessintfunc
+52,nt_3000_poissonprocessintfunc,19,nt_3000_poissonprocessintfunc
+53,nt_7000_poissonprocessintfunc,20,nt_7000_poissonprocessintfunc

@@ -98,6 +98,9 @@ space_between_paragraphs: true
 ---
 
 ```{r wrap-hook1, include=FALSE}
+#To enable size = "value" in chunk options, where
+#value can be one of next (sorted from big to small)
+#Huge > huge > LARGE > Large > large > normalsize > small > footnotesize > scriptsize > tiny
 library(knitr)
 def.chunk.hook  <- knitr::knit_hooks$get("chunk")
 knitr::knit_hooks$set(chunk = function(x, options) {

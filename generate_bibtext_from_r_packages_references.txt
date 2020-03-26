@@ -1,0 +1,7 @@
+library(knitr)
+write_bib(c("extRemes", "ismev", "Renext", "evir", "fExtremes", "sf", "stars", "xts", "dplyr", "gstat", "ncdf4", "POT"), file = "packages.bib")
+
+library(knitr)
+write_bib(c("tidyverse", "tibble"), file = "tidyverse.bib")
+
+
