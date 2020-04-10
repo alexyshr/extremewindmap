@@ -14,16 +14,16 @@ MathJax.Hub.Config({
 
 ```{r load_pkgs2, echo=FALSE, message=FALSE, warning=FALSE}
 # List of packages required for this analysis
-pkg <- c("RcmdrMisc")
+  pkg <- c("RcmdrMisc")
 # Check if packages are not installed and assign the
 # names of the packages not installed to the variable new.pkg
-new.pkg <- pkg[!(pkg %in% installed.packages())]
+  new.pkg <- pkg[!(pkg %in% installed.packages())]
 # If there are any packages in the list that aren't installed,
 # install them
-if (length(new.pkg))
-  install.packages(new.pkg, repos = "http://cran.rstudio.com")
+  if (length(new.pkg))
+    install.packages(new.pkg, repos = "http://cran.rstudio.com")
 # Load packages (thesisdown will load all of the packages as well)
-library(RcmdrMisc)
+  library(RcmdrMisc)
 ```
 
 
@@ -31,7 +31,7 @@ library(RcmdrMisc)
 
 Poisson process is an stochastic method that relies in the concepts of probability distributions. The main functions related to probability for extreme value analysis will be described below.
 
-### Probability Density Function - _pdf_
+### Probability Density Function _pdf_
 
 _Pdf_ defines the probability that a continuous variable falls between two points, this is, in _pdf_ the probability is related to the area below the curve (integral) between two points, as for continuous probability distributions the probability at a single point is zero. The term density is directly related to the probability of a portion of the curve, if the density function has high values the probability will be greater in comparison with the same portion of curve for low values.
 
@@ -106,7 +106,7 @@ plot(.x, dfG, col="red", lty=4, xlab="Velocities Km/h", ylab="Density Function -
  main=paste("Gumbel - Density Function Gumbel Distribution\n", "Location=", round(location,2), " Scale=", round(scale,2)), type="l", cex.sub=0.6)
 ```
 
-### Cumulative Distribution Function - _cdf_
+### Cumulative Distribution Function _cdf_
 
 _Cdf_ is the probability of taking a value less than or equal to x. That is
 
@@ -146,7 +146,7 @@ plot(.x, .y, col="green", lty=4, xlab="Velocities Km/h", ylab="Probability", cex
  main=paste("Gumbel - Cumulative Distribution Function\n", "Location=", round(location,2), " Scale=", round(scale,2)), cex.sub=0.6)
 ```
 
-### Percent Point Function - _ppf_
+### Percent Point Function _ppf_
 
 _Ppf_ is the inverse of _cdf_, also called the _quantile_ function. This is, from a specific probability get the corresponding value x of the variable.
 
@@ -182,7 +182,7 @@ plot(.x, .y, col="green", lty=4, ylab="Velocities Km/h", xlab="Probability", cex
 ```
 
 
-### Hazard Function - _hf_ {#hf}
+### Hazard Function _hf_ {#hf}
 
 
 ```{r plotgumbelhffunction, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Gumbel hf", size="footnotesize", fig.width= 4, fig.height= 3}
@@ -225,12 +225,12 @@ In order to approach the extreme value analysis, some statistical concepts are n
 
 As an hypothetical example, a simulated database of extreme wind speed will be used. This database is supposed to have 10.000 years of simulated wind speeds.
 
-### Annual Exceedance Probability - $P_e$
+### Annual Exceedance Probability $P_e$
 
 Using the previously described database, a question arises to calculate the probability to exceed the highest probable loss due to the simulated winds. It is possible to conclude that there is only one event grater or equal (in this case equal) to the highest probable causing loss in 10.000 years, and it is the _highest wind_. If we sort the database by wind magnitude in descending order (small winds last), the question is solved calculating the annual exceedance probability _Pe_ with next formula 
 
 
-```{r , echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Sorted Winds by Magnitude - wind simulation database", size="footnotesize", fig.width= 3, fig.height= 1}
+```{r , echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Sorted Winds by Magnitude - Wind Simulation Database", size="footnotesize", fig.width= 3, fig.height= 1}
 par(oma=c(0,0,0,0))
 par(mar=c(1.5,0,0,0))
 par(xpd=NA)
@@ -259,7 +259,7 @@ P_e = \frac{Event\,index\,after\,descending\,sorting}{Years\,of\,simulations } =
 $$
 because the highest wind will be the first in the sorted list. Same exercise can be done with all winds to construct the annual exceedance probability curve, that in this case will represent the probability to equal or exceed different probable losses due to wind.
 
-### Return Period - Mean Recurrence Interval - MRI
+### Mean Recurrence Interval MRI
 
 Continuing with the previous section, if the inverse of the exceedance probability is taken, the return period (in years) is obtained. The return period or Mean Recurrence Interval - MRI is associated with an specific return level (wind extreme velocity). MRI is the numbers of years (N) needed to obtain 63% of change that the corresponding return level will occur at least one time in that period. The return level is expected to be exceeded on average once every N-years. The annual exceedance probability of the return level corresponding to N-years of MRI, is $P_e=\frac{1}{MRI}=\frac{1}{N}$.
 
@@ -278,7 +278,7 @@ $$
   }
 $$
 
-### Compound Exceedance Probability - Pn
+### Compound Exceedance Probability Pn
 
 ```{r compoundprobability, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Compound Probability", size="footnotesize", fig.width= 5, fig.height= 2.5}
 par(mar=c(3,3,0,0))
@@ -346,31 +346,42 @@ The example discussed here was presented as an instrument to introduce important
 
 ## Extreme Value Analysis Overview {#extremeoverview}
 
-Analysis of extreme values is related with statistical inference to calculate probabilities of extreme events. Main methods to analyze extreme data are epochal, Peaks Over Threshold - POT, and extreme index. The epochal method, also known as block maxima, uses the most extreme value for a specific frame of time, typically, one year. POT is based in the selection of a single threshold value to do the analysis only with values above the threshold. But there are different POT approaches, the most common one is Generalized Pareto Distribution - POT-GPD, but also it is possible to use the Poisson process approach.
+Analysis of extreme values is related with statistical inference to calculate probabilities of extreme events. Main methods to analyze extreme data are _sample maxima_, and _Peaks Over Threshold POT_. The sample maxima method also known as epochal or block maxima, is the classical approach and uses the most extreme value for a specific frame of time, typically one year. POT is based in the selection of a single threshold value to do the analysis only with values above the threshold. There are different POT approaches, the most common one is the generalized Pareto, and the most flexible one is the Poisson process.
 
-In both methods (Epochal and POT), the first step is to fit the data to an appropriate probability distribution model, among them the most used are, - Extreme Value Type I (Gumbel), Extreme Value Type II (Fréchet), Weibull, Generalized Pareto - GPD, and Generalized Extreme Value - GEV.
+In both methods (Epochal and POT), the main step is to fit the data to an appropriate probability distribution model. Epochal uses a generalized extreme value distribution GEV, a family of distributions which include extreme value type I  - Gumbel, extreme value type II - Fréchet, and Weibull. Gumbel is the most common used GEV. POT uses a generalized Pareto distribution GPD, or an intensity function (Poisson process).
 
-Distribution models are fitted based in the estimation of its parameters, commonly called location, scale and shape, nonetheless each model has its own parameters names. There are different methods to estimate parameters, among them, - method of moments (modified moments - see @Kubler1994, and L moments - see @Hosking1997), - method of maximum likelihood MLE, see @Harris1994, which is problematic for GPD and GEV, - probability plot correlation coefficient, and - elemental percentiles (for GPD and GEV)
+Distribution models are fitted based in the estimation of its parameters, commonly called location, scale, and shape, nonetheless each model has its own parameters names. There are different methods to estimate parameters, among them: (a) method of modified moments [@Kubler1994], and L moments [@Hosking1997], (b) method of maximum likelihood MLE [@Harris1994], which is problematic for GPD and GEV, (c) probability plot correlation coefficient, and (d) elemental percentiles (for GPD and GEV).
 
-Once candidate parameters are available, it is necessary to assess the goodness of fit of the selected model, using one of the next methods, - Kolmogorov-Smirnov (KS) goodness of fit test, and - Anderson-Darling goodness of fit test. Here a visual assessment is also useful using a probability plot or a kernel density plot with  the fitted _pdf_ overlaid.
+Once candidate parameters are available, it is necessary to assess the goodness of fit of the selected model, using methods like Kolmogorov-Smirnov (KS) goodness of fit test, or Anderson-Darling goodness of fit test. Here a visual assessment is also useful using a probability plot or a kernel density plot with the fitted _pdf_ overlaid.
 
 The main use of the fitted model is the estimation of mean return intervals - MRI, and extreme wind speeds (return levels),
 
 $$
 MRI=\frac{1}{1-F(y)}
 $$
-with $F(y)$ as the _cdf_. If $1-F(y)$ is the annual exceedance probability, MRI is its inverse, see @Simiu1996 for more details about MRI. If $y$ is solved from previous equation using a given MRI of N-years, its value represents the $Y_N$ wind speed return level,
-
-$$
-Y_N = G\left(1-\frac{1}{\lambda\,N}\right)
-$$
-where $G$ is the _ppf_ (quantile function) and $\lambda$ is the number of wind speeds over the threshold per year.
+with $F(y)$ as the _cdf_. If $1-F(y)$ is the annual exceedance probability, MRI is its inverse, see [@Simiu1996] for more details about MRI. If $y$ is solved from previous equation using a given MRI of N-years, its value represents the $Y_N$ wind speed return level. Refer to each specific method bellow for specific solutions to $Y_N$.
 
 The CRAN Task View "Extreme Value Analysis" <https://cran.r-project.org/web/views/ExtremeValue.html> shows available **R** for block maxima, POT by GPD, and external indexes estimation approaches. Most important to consider are `evd`, `extremes`, `evir`, `POT`, `extremeStat`, `ismev`, and `Renext`.
 
+### Epochal
+
+To work with random variables of sample maximum values, used probability distribution function _pdf_ is GEV:
+
+$$
+H(y) = \exp\left\{-\left[1+\xi\frac{x-\mu}{\psi}\right]_+^{-\frac{1}{\xi}}\right\},
+$$
+
+Where $\xi\neq0$, $[...]_+ = max([...],0)$, $\mu$ is the location parameter, $\psi > 0$ is a scale parameter, and $\xi$ is a shape parameter. GEV combines in one unique family the Gumbel (medium-tailed) distribution (limit $\xi\rightarrow0$), Fréchet (long-tailed) distribution ($\xi>0$), and Weibull (short-tailed) distribution ($\xi<0$).
+
 ### POT-GPD {#pot-gpd}
 
-In POT using Pareto distribution, the magnitude of the observations above the threshold are assumed a) to be independent random variables with the same generalized Pareto as probability distribution, $\sigma$ as scale, and $\xi$ as tail length, and corresponding times are assumed b) to follow a one dimensional homogeneous Poisson process with $\gamma$ as parameter. The _cdf_ of POT-GPD is $F(y) = 1 - \left(1-\xi\frac{y-b}{\sigma}\right)^{-\frac{1}{\xi}}_+$, where $b$ is the threshold. In both GPD (magnitude), and $1D$ Poisson process (time), it is not possible to differentiate between thunderstorm and non-thunderstorm wind types.
+In this model, (a) the magnitude of the observations above the threshold are assumed to be independent random variables with the same generalized Pareto as probability distribution, $\sigma$ as scale, and $\xi$ as tail length, and (b) corresponding times are assumed to follow a one dimensional homogeneous Poisson process with $\gamma$ as parameter. 
+
+With the condition of exceeding some hight threshold $b$, as a consequence $y = (x-b) > 0$, the _cdf_ of $y$ is the generalized Pareto distribution GPD:
+
+$F(y) = 1 - \left[1-\xi\frac{y}{\sigma}\right]^{-\frac{1}{\xi}}_+$, 
+
+where $[...]_+ = max([...],0)$, $b$ is the threshold. In both GPD (magnitude), and $1D$ Poisson process (time), it is not possible to differentiate between thunderstorm and non-thunderstorm wind types. @Pickands1971 found a rigurous connection between epochal (GEV), and limits results of POT-GPD, as parameter shape $\xi$ in both previous equations are exactly the same. The long-tailed case when $\xi>0$, GPD behaves as usual Pareto distribution, for $\xi = 0$ (taking the limit $\xi\rightarrow0$) it behaves as exponential distribution, and $\xi<0$ the distribution has a finite upper endpoint at $-\frac{\sigma}{\xi}$.
 
 In POT-GPD, to calculate return levels (RL), $Y_N$, corresponding to the N-years return period, next equation is used,
 
@@ -381,9 +392,9 @@ $$
 Where $G$ is the quantile function (_ppf_), and the value of the probability passed to the $G$ function, has to be modified with the $\lambda$ parameter. $\lambda$ is the number of wind speed events over the threshold per year.
 
  
-## Peaks Over Threshold Poisson Process POT-PP {#method-pot-pp}
+### Peaks Over Threshold Poisson Process POT-PP {#method-pot-pp}
 
-According to @Pintar2015 the stochastic Poisson Process - PP is mainly defined by its intensity function. As the intensity function is not uniform over the domain, the PP considered here is non-homogeneous, and due to the intensity function dependency of magnitude and time, it is also bi-dimensional. PP was described for the first time in @Pickands1971, then extended in @Smith1989.
+According to [@Pintar2015] the stochastic Poisson Process - PP is mainly defined by its intensity function. As the intensity function is not uniform over the domain, the PP considered here is non-homogeneous, and due to the intensity function dependency of magnitude and time, it is also bi-dimensional. PP was described for the first time in [@Pickands1971], then extended in [@Smith1989].
 
 \begin{equation}
   \mathrm{
@@ -401,7 +412,7 @@ According to @Pintar2015 the stochastic Poisson Process - PP is mainly defined b
 
 Generic Equation \@ref(eq:ppgenericintensityfunction) shows the intensity function, which is defined in the domain $D = D_t\,{\cup}\,D_{nt}$, and allow to fit the PP at each station to the observed data $\{t_i, y_i\}_{i=1}^I$, for all the times ($t_i$) of threshold crossing observations, and its corresponding wind speeds magnitudes ($y_i$). Thus, only data above the threshold (POT) are used.
 
-Intensity function of the PP is defined in @Smith2004, 
+Intensity function of the PP is defined in [@Smith2004], 
 
 \begin{equation}
   \mathrm{
@@ -413,7 +424,7 @@ Intensity function of the PP is defined in @Smith2004,
 Where, at a given time $t$, parameter $shape = \zeta_t$ controls the tail length of the intensity function, and the other two parameters $\omega_t$ and $\psi_t$ define the location and scale of the intensity function.
 
 
-```{r plotdomainpp, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Domain off the Poisson Process - PP", fig.height= 2, fig.width=3.5}
+```{r plotdomainpp, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Domain off Poisson Process - PP", fig.height= 2, fig.width=3.5}
 par(mar=c(3,3,0,0))
 par(oma=c(0,0,0,0))
 par(mgp=c(1.5,0.5,0))
@@ -473,7 +484,7 @@ Thunderstorms and non-thunderstorms are modeled independently:
 Visual representation of the intensity function for PP can be seen in Figure \@ref(fig:plotdomain3dpp). In vertical axis, two surfaces were drawn representing independent intensity functions for thunderstorm $\lambda_t(y)$ and for non-thunderstorm $\lambda_{nt}(y)$. The volume under each surface for its corresponding time periods and peak (over threshold) velocities, is the mean of PP.
 
 
-```{r plotdomain3dpp, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Volume under surfaces represents the mean of PP", dpi=200, fig.align='center'}
+```{r plotdomain3dpp, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Volume Under Surfaces: Mean of PP", dpi=200, fig.align='center'}
 #, dpi=300, size="footnotesize", fig.width= 5, fig.height= 5}
 include_graphics(path = "figure/domain3d.PNG")
 ```
@@ -508,11 +519,11 @@ For PP, $Y_N$ is the solution to the next equation, which is defined in terms of
   (\#eq:pprl)
 \end{equation}
 
-where $A_t$, is the multiplication of the average number of thunderstorm per year and the average length of a thunderstorm, taken to be 1 hour as defined in @Pintar2015, and $A_{nt} = 365 - A_t$. The average length of a non-thunderstorm event is variable, and it is adjusted for each station to guarantee that $A_{nt} + A_t = 365$. Value 365 is used only, if operations with time in the dataset are performed in days.
+where $A_t$, is the multiplication of the average number of thunderstorm per year and the average length of a thunderstorm, taken to be 1 hour as defined in [@Pintar2015], and $A_{nt} = 365 - A_t$. The average length of a non-thunderstorm event is variable, and it is adjusted for each station to guarantee that $A_{nt} + A_t = 365$. Value 365 is used only, if operations with time in the dataset are performed in days.
 
 The same thunderstorm event in considered to occur if the time lag distance between successive thunderstorm samples is small than six hours, and for non-thunderstorm this time is 4 days. For PP, all the measurements belonging to the same event (thunderstorm or non-thunderstorm), need to be de-clustered to leave only one maximum value. In other words, the number of thunderstorm in the time series is one plus the number of time lag distances grater than 6 hours, and for non-thunderstorm grater than 4 days.
 
-### Threshold Selection {#thresholdselection}
+#### Threshold Selection {#thresholdselection}
 
 POT-PP needs selection of the best threshold pairs $b_t$ and $b_{nt}$ (see Figure \@ref(fig:plotdomainpp)) that produces the optimal fit. Measurement of this threshold fitting is done through $W$ statistics. If wind variable $y$, in a POT-PP approach, has a $cdf = U = F(y)$, then $F(y)$ is distributed as Uniform between 0 and 1 - Uniform(0,1), meaning that the transformation $W = -log(1-U)$ is an exponential random variable with mean one (1).
 
@@ -526,12 +537,11 @@ POT-PP needs selection of the best threshold pairs $b_t$ and $b_{nt}$ (see Figur
 The procedure to choose the best thresholds pairs based in W transformation, is described in methodology, section [thresholding](#thresholding).
 
 
-
 ## Wind Loads Requirements {#windloadsrequirements}
 
 As the output maps of this research will be used as input loads for infrastructure design, the methodology used for its creation, need to be consistent with Colombian official wind loads requirements. Colombian structure design code, from now the design standard, was created and it maintained by the Colombian Association of Seismic Engineering - AIS. 
 
-The design standard is mainly based in _minimum design loads and associated criteria for buildings and other structures - ASCE7-16_ norm, see @Asce2017. Under these circumstances, ASCE7-16 defines the minimum requirements of the research products. Especially the chapter C26 - "wind loads - general requirements", C26.5 "wind hazard map", and C26.7 "Exposure" - pages 733 to 747. Wind speeds requirements of ASCE7-16 are based in the combination of independent non-hurricane analysis, and hurricane wind speeds simulations models. The focus of this research will be the analysis of non-hurricane wind data, however, existing results of hurricane studies will be used to present final maps with both components. In ASCE7-16, for non-hurricane wind speed, the procedure is mainly based on @Pintar2015.
+The design standard is mainly based in _minimum design loads and associated criteria for buildings and other structures - ASCE7-16_ norm, see [@Asce2017]. Under these circumstances, ASCE7-16 defines the minimum requirements of the research products. Especially the chapter C26 - "wind loads - general requirements", C26.5 "wind hazard map", and C26.7 "Exposure" - pages 733 to 747. Wind speeds requirements of ASCE7-16 are based in the combination of independent non-hurricane analysis, and hurricane wind speeds simulations models. The focus of this research will be the analysis of non-hurricane wind data, however, existing results of hurricane studies will be used to present final maps with both components. In ASCE7-16, for non-hurricane wind speed, the procedure is mainly based on [@Pintar2015].
 
 ASCE7-16 (page 734), requires the calculation of wind extreme return levels for specific return periods according to the risk category of the structure to be designed: risk category I - 300 years,  risk category II - 700 years,  risk category III - 1700 years,  risk category IV - 3000 years. The design standard only requires 700, 1700 and 3000 years. In addition, extreme wind speeds for those MRI need to correspond to: - 3 second gust speeds, - at 33 ft (10 meters) above the ground, and - exposure category C (open space).
 
@@ -540,10 +550,10 @@ ASCE7-16 (page 734), requires the calculation of wind extreme return levels for 
 * Risk II - Category 'by default', and correspond to structures not classified in others categories.
 * Risk I - This structures represent low risk for life of people.
 
-To standardize wind speeds to gust speeds ASCE7-16 proposes the curve Durst (see @Durst1960, and Figure \@ref(fig:durstcurve)). Durst curve is only valid for open terrain conditions, and it shows in axis $y$ the gust factor $\frac{V_t}{V_{3600}}$, a ratio between any wind gust averaged at $t$ seconds, $V_t$, and the hourly averaged wind speed $V_{3600}$, and in the axis $x$ the duration $t$ of the gust in seconds.
+To standardize wind speeds to gust speeds ASCE7-16 proposes the curve Durst, see [@Durst1960], and Figure \@ref(fig:durstcurve). Durst curve is only valid for open terrain conditions, and it shows in axis $y$ the gust factor $\frac{V_t}{V_{3600}}$, a ratio between any wind gust (maximun speeds) averaged at $t$ seconds, $V_t$, and the hourly averaged wind speed $V_{3600}$, and in the axis $x$ the duration $t$ of the gust in seconds. Be aware that curve values in Figure \@ref(fig:durstcurve) are approximated values taken visually from the original curve. 
 
 
-```{r durstcurve, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Maximum speeds averaged over t (sec), to hourly mean speed. Note: curve values taken visually from the original (use original curve for calculations!) ", fig.height=2.5, fig.width=5}
+```{r durstcurve, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Durst Curve", fig.height=2.5, fig.width=5}
 #include_graphics(path = "figure/durst.PNG")
 par(mar=c(3,4,0,1))
 par(oma=c(0,0,0,0))

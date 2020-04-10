@@ -7,7 +7,7 @@ Other general conclusions of the investigation are:
 
 * In the abscense of wind field measurements, alternatives data sources as ISD and ERA5 can be a viable source of data to calculate extreme wind events, but always must be searched for statistic or graphic support for the downscaling issue, and at the end a process of calibration is needed for each particular case.
 
-* A powerful R tool is available to do extreme value analysis using POT-PP and POT-GPD approaches
+* A powerful **R** tool is available to do extreme value analysis using POT-PP and POT-GPD approaches
 
 * Results of this research, could be the starting point of a process to update wind maps in countries with information issues.
 

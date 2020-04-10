@@ -9,35 +9,35 @@ The {#rmd-data} text after the chapter declaration will allow us to link through
 
 ```{r load_pkgs1, echo=FALSE, message=FALSE, warning=FALSE}
 # List of packages required for this analysis
-pkg <- c("dplyr", "sf", "ggplot2","rnaturalearth", "rnaturalearthdata", "ggspatial", "kableExtra", "ncdf4", "stars", "magick", "RcmdrMisc", "knitr", 
- "ggrepel", "grid", "gridExtra", "cowplot", "xts", "bookdown", "lubridate", "devtools")
+  pkg <- c("dplyr", "sf", "ggplot2","rnaturalearth", "rnaturalearthdata", "ggspatial", "kableExtra", "ncdf4", "stars", "magick", "RcmdrMisc", 
+           "knitr", "ggrepel", "grid", "gridExtra", "cowplot", "xts", "bookdown", "lubridate", "devtools")
 # Check if packages are not installed and assign the
 # names of the packages not installed to the variable new.pkg
-new.pkg <- pkg[!(pkg %in% installed.packages())]
+  new.pkg <- pkg[!(pkg %in% installed.packages())]
 # If there are any packages in the list that aren't installed,
 # install them
-if (length(new.pkg))
-  install.packages(new.pkg, repos = "http://cran.rstudio.com")
+  if (length(new.pkg))
+    install.packages(new.pkg, repos = "http://cran.rstudio.com")
 # Load packages (thesisdown will load all of the packages as well)
-library(thesisdown)
-library(dplyr)
-library(sf)
-library(ggplot2)
-library(rnaturalearth)
-library(rnaturalearthdata)
-library(ggspatial)
-library(knitr)
-library(kableExtra)
-library(ncdf4)
-library(stars)
-library(magick)
-library(RcmdrMisc)
-library(ggrepel)
-library(grid)
-library(gridExtra)
-library(cowplot)
-library(xts)
-library(lubridate)
+  library(thesisdown)
+  library(dplyr)
+  library(sf)
+  library(ggplot2)
+  library(rnaturalearth)
+  library(rnaturalearthdata)
+  library(ggspatial)
+  library(knitr)
+  library(kableExtra)
+  library(ncdf4)
+  library(stars)
+  library(magick)
+  library(RcmdrMisc)
+  library(ggrepel)
+  library(grid)
+  library(gridExtra)
+  library(cowplot)
+  library(xts)
+  library(lubridate)
 ```
 
 
@@ -84,7 +84,7 @@ data_sources_thesis_summary2 <-read.csv("./data/data_sources_thesis_summary2.csv
 
 kable(data_sources_thesis_summary2, align=rep('l', 3),
       #col.names = c("Name[Code]", "Latitud", "Longitud"),
-      caption = "Datasets variables",
+      caption = "Variables in all datasets",
       caption.short = "Datasets Variables",
       longtable = TRUE,
       booktabs = TRUE) %>%
@@ -100,8 +100,8 @@ data_sources_thesis_summary3 <-read.csv("./data/data_sources_thesis_summary3.csv
 
 kable(data_sources_thesis_summary3, align=rep('l', 4),
       #col.names = c("Name[Code]", "Latitud", "Longitud"),
-      caption = "Variables units and time",
-      caption.short = "Variables units and time",
+      caption = "Variables Units and Time",
+      caption.short = "Variables Units and Time",
       longtable = TRUE,
       booktabs = TRUE) %>%
       row_spec(0, align = "l") %>%
@@ -132,7 +132,7 @@ tableideam$longitud = round(tableideam$longitud, 2)
 kable(tableideam, 
       col.names = c("Name[Code]", "Latitud", "Longitud"),
       caption = "IDEAM Stations Sample",
-      caption.short = "IDEAM Stations sample",
+      caption.short = "IDEAM Stations Sample",
       longtable = TRUE,
       booktabs = TRUE)  %>%
 kable_styling(font_size = 10, latex_options="scale_down")
@@ -238,7 +238,7 @@ tableisd$longitud = round(tableisd$longitud, 2)
 kable(tableisd, 
       col.names = c("Code", "Name", "Latitud", "Longitud"),
       caption = "ISD Stations Sample",
-      caption.short = "ISD Stations",
+      caption.short = "ISD Stations Sample",
       longtable = TRUE,
       booktabs = TRUE) %>%
 kable_styling(font_size = 10, latex_options="scale_down")
@@ -250,7 +250,7 @@ isd_stations = st_as_sf(isd_stations, coords = c("longitud", "latitud"), crs = 4
 ```
 
 
-```{r plotisdstations, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="ISD Stations. Colombia and surroundings"}
+```{r plotisdstations, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="ISD Stations. Colombia and Surroundings"}
 #Plot ISD Stations
 theme_set(theme_bw())
 world <- ne_countries(scale = "medium", returnclass = "sf")
@@ -379,7 +379,7 @@ era5_4326_sf_pol_filter_corners_right = era5_4326_sf_pol %>% filter(DN %in% c(49
 ```
 
 
-```{r plotera5stations, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="ERA5 Cells and Stations (cells centers). 49 cols by 69 rows. Cell size 0.25 decimal degrees (aprox 28 km in Colombia). Station IDs from 1 (lon=-79, lat=12.5) to 3381 (lon=-67, lat=-4.5)", fig.height=4.05}
+```{r plotera5stations, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="ERA5 Cells and Stations (Cells Centers)", fig.height=4.05}
 #Plot ERA5 Stations
 theme_set(theme_bw())
 world <- ne_countries(scale = "medium", returnclass = "sf")
@@ -545,7 +545,8 @@ corner4rb = ggplot(data = world) +
 grid.arrange(big, arrangeGrob(corner1lt, corner2rt, corner3lb, corner4rb), ncol=2, widths=c(2.2,1))
 ```
 
-ERA5 is forecast reanalysis data processed by the _European Centre for Medium-Range Weather Forecasts_ - ECMWF with wind speeds time series in square cells _matrix of pixels_ of 0.25 decimal degrees covering the whole planet. For the study area was extracted a raster of `r (nlat)` rows by `r nlon` columns in format netCDF. Figure \@ref(fig:plotera5stations) shows a map of ERA5 stations (cells centers).
+ERA5 is forecast reanalysis data processed by the _European Centre for Medium-Range Weather Forecasts_ - ECMWF with wind speeds time series in square cells _matrix of pixels_ of 0.25 decimal degrees (aprox 28 km in Colombia) covering the whole planet. For the study area was extracted a raster of `r (nlat)` rows by `r nlon` columns in format netCDF. Cell centers represent ERA5 stations, with IDs from 1 (lon=-79, lat=12.5) to 3381 (lon=-67, lat=-4.5). Figure \@ref(fig:plotera5stations) shows a map of ERA5 stations.
+
 
 ```{r, include=FALSE}
 t.units <- ncatt_get(ncin, "time", "units")
@@ -571,6 +572,6 @@ colnames(statera5_xts) = paste0("ERA5_", "1")
 
 ## Data Download and Data Organization
 
-All data sources had different mechanisms for downloading. For IDEAM, the official procedure is through a written request using the e-mail _atencionalciudadano@ideam.gov.co_, then they will provide a link to get the information. For ISD, all files are available in the ftp site ftp://ftp.ncdc.noaa.gov/pub/data/noaa/isd-lite/, organized in folders by years, then a gzip file is available, with the station name in the format _ID-99999-YYYY.gz_, where ID is the USAF-ISD station identifier. For ISD, there are many files by station, one file for each year with data available. For ERA5 it is possible to make a request using a Python script, but since there is a size limit for downloading, it is necessary to split the request, then, use console commands to create an unified netCDF file. Files with all IDEAM and ISD stations are available in the Annex \@ref(rcode) - [Results - Digital Files](#results). For the Python code, and the commands to join netCDF files of ERA5 data source, see the Annex \@ref(era5download) - [ERA5 Data Download and Integration](#era5download).
+All data sources had different mechanisms for downloading. For IDEAM, the official procedure is through a written request using the e-mail _atencionalciudadano@ideam.gov.co_, then they will provide a link to get the information. For ISD, all files are available in the ftp site ftp://ftp.ncdc.noaa.gov/pub/data/noaa/isd-lite/, organized in folders by years, then a gzip file is available, with the station name in the format _ID-99999-YYYY.gz_, where ID is the USAF-ISD station identifier. For ISD, there are many files by station, one file for each year with data available. For ERA5 it is possible to make a request using a Python script, but since there is a size limit for downloading, it is necessary to split the request, then, use console commands to create an unified netCDF file. Files with all IDEAM and ISD stations are available in the Annex \@ref(rcode) - [Results - Digital Files](#results). For the Python code, and the commands to join netCDF files of ERA5 data source, see the Annex \@ref(datadownload) - [ERA5 Data Download](#datadownload). For data organizattion see Annex \@ref(dbstoring) - [Database Storing](#dbstoring).
 
 \clearpage

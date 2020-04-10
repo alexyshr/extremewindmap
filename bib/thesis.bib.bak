@@ -60,7 +60,7 @@
 }
 
 @InBook{Smith2004,
-  chapter   = {1},
+  chapter   = {Statistics of Extremes, with Applications in Environment, Insurance, and Finance},
   pages     = {1-78},
   title     = {Extreme Values in Finance, Telecommunications, and the Environment (Chapman \& Hall/CRC Monographs on Statistics and Applied Probability)},
   publisher = {Chapman and Hall/CRC},
@@ -395,14 +395,13 @@ Tsunami and Volcanic Eruptions },
 }
 
 @Book{Roberts2012,
-  title         = {Wind Wizard: Alan G. Davenport and the Art of Wind Engineering},
-  publisher     = {Princeton University Press},
-  year          = {2012},
-  author        = {Roberts, S.},
-  isbn          = {9780691151533},
-  __markedentry = {[alexyshr:]},
-  lccn          = {2012015170},
-  url           = {https://books.google.de/books?id=e2eYDwAAQBAJ},
+  title     = {Wind Wizard: Alan G. Davenport and the Art of Wind Engineering},
+  publisher = {Princeton University Press},
+  year      = {2012},
+  author    = {Roberts, S.},
+  isbn      = {9780691151533},
+  lccn      = {2012015170},
+  url       = {https://books.google.de/books?id=e2eYDwAAQBAJ},
 }
 
 @InBook{winddamage,
@@ -520,12 +519,111 @@ Tsunami and Volcanic Eruptions },
 }
 
 @Manual{Mueller2019,
-  title         = {tibble: Simple Data Frames},
-  author        = {Kirill Müller and Hadley Wickham},
-  year          = {2019},
-  note          = {R package version 2.1.3},
+  title  = {tibble: Simple Data Frames},
+  author = {Kirill Müller and Hadley Wickham},
+  year   = {2019},
+  note   = {R package version 2.1.3},
+  url    = {https://CRAN.R-project.org/package=tibble},
+}
+
+@Manual{Wickham2019a,
+  title  = {tidyverse: Easily Install and Load the 'Tidyverse'},
+  author = {Hadley Wickham},
+  year   = {2019},
+  note   = {R package version 1.3.0},
+  url    = {https://CRAN.R-project.org/package=tidyverse},
+}
+
+@Article{Wickham2019b,
+  author  = {Hadley Wickham and Mara Averick and Jennifer Bryan and Winston Chang and Lucy D'Agostino McGowan and Romain François and Garrett Grolemund and Alex Hayes and Lionel Henry and Jim Hester and Max Kuhn and Thomas Lin Pedersen and Evan Miller and Stephan Milton Bache and Kirill Müller and Jeroen Ooms and David Robinson and Dana Paige Seidel and Vitalie Spinu and Kohske Takahashi and Davis Vaughan and Claus Wilke and Kara Woo and Hiroaki Yutani},
+  title   = {Welcome to the {tidyverse}},
+  journal = {Journal of Open Source Software},
+  year    = {2019},
+  volume  = {4},
+  number  = {43},
+  pages   = {1686},
+  doi     = {10.21105/joss.01686},
+}
+
+@InBook{Coles2003,
+  chapter   = {The use and misuse of extreme value models in practice},
+  pages     = {79-100},
+  title     = {Extreme Values in Finance, Telecommunications, and the Environment},
+  publisher = {Chapman and Hall/CRC},
+  year      = {2003},
+  author    = {Stuart Coles},
+  editor    = {Bärbel F inkenstädt and Holger Rootzén},
+  month     = {01},
+  isbn      = {9781584884118},
+  url       = {https://www.amazon.com/Telecommunications-Environment-Monographs-Statistics-Probability/dp/1584884118?SubscriptionId=AKIAIOBINVZYXZQZ2U3A&tag=chimbori05-20&linkCode=xm2&camp=2025&creative=165953&creativeASIN=1584884118},
+}
+
+@Article{Fisher1928,
+  author    = {R. A. Fisher and L. H. C. Tippett},
+  title     = {Limiting forms of the frequency distribution of the largest or smallest member of a sample},
+  journal   = {Mathematical Proceedings of the Cambridge Philosophical Society},
+  year      = {1928},
+  volume    = {24},
+  number    = {2},
+  pages     = {180--190},
+  month     = {apr},
+  doi       = {10.1017/s0305004100015681},
+  publisher = {Cambridge University Press ({CUP})},
+}
+
+@Article{Gnedenko1943,
+  author    = {B. Gnedenko},
+  title     = {Sur La Distribution Limite Du Terme Maximum D{\textquotesingle}Une Serie Aleatoire},
+  journal   = {The Annals of Mathematics},
+  year      = {1943},
+  volume    = {44},
+  number    = {3},
+  pages     = {423},
+  month     = {jul},
+  doi       = {10.2307/1968974},
+  publisher = {{JSTOR}},
+}
+
+@Article{Mises1954,
+  author  = {von Mises, R},
+  title   = {La distribution de la plus grande de n valeurs. In (Ed.), Selected Papers (Vol. II, pp. 271-294). Providence, RI},
+  journal = {American Mathematical Society},
+  year    = {1954},
+}
+
+@Article{Jenkinson1955,
+  author    = {Jenkinson, Arthur F},
+  title     = {The frequency distribution of the annual maximum (or minimum) values of meteorological elements},
+  journal   = {Quarterly Journal of the Royal Meteorological Society},
+  year      = {1955},
+  volume    = {81},
+  number    = {348},
+  pages     = {158--171},
+  publisher = {Wiley Online Library},
+}
+
+@Article{PickandsIII1975,
+  author        = {Pickands III, James and others},
+  title         = {Statistical inference using extreme order statistics},
+  journal       = {the Annals of Statistics},
+  year          = {1975},
+  volume        = {3},
+  number        = {1},
+  pages         = {119--131},
+  __markedentry = {[alexyshr:]},
+  publisher     = {Institute of Mathematical Statistics},
+}
+
+@Article{Smith1985,
+  author        = {Smith, Richard L},
+  title         = {Maximum likelihood estimation in a class of nonregular cases},
+  journal       = {Biometrika},
+  year          = {1985},
+  volume        = {72},
+  number        = {1},
+  pages         = {67--90},
   __markedentry = {[alexyshr:6]},
-  url           = {https://CRAN.R-project.org/package=tibble},
+  publisher     = {Oxford University Press},
 }
 
 @Comment{jabref-meta: databaseType:bibtex;}

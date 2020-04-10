@@ -14,7 +14,8 @@ knit: "bookdown::render_book"
 site: bookdown::bookdown_site
 output: 
   thesisdown::thesis_pdf: default
-  #thesisdown::thesis_gitbook: default
+  #  citation_package: natbib
+  thesisdown::thesis_gitbook: default
   #thesisdown::thesis_word: default
   #thesisdown::thesis_epub: default
 #If you are creating a PDF you'll need to write your preliminary content (e.g., abstract, acknowledgments) here or
@@ -25,16 +26,17 @@ abstract: |
 #like below, use a command like that for the abstract above.  Note that a tab is 
 #needed on the line after the `|`.
 acknowledgements: |
-  Special thanks to Prof. Dr. **Edzer Pebesma**, first, for all the contributions to the open source community, considering that main work in this thesis was done using his R packages, especially _sf_, _stars_ and _gstat_, and second, for all high level knowledge transmitted through the subjects _Spatial Data Science with R_ and _Analysis of Spatio-Temporal Data_, which were the motivation and basis to carry out the investigation.\par
+  Special thanks to Prof. Dr. **Edzer Pebesma**, first, for all the contributions to the open source community, considering that main work in this thesis was done using his R packages, especially `sf`, `stars` and `gstat`, and second, for all high level knowledge transmitted through the subjects _Spatial Data Science with R_ and _Analysis of Spatio-Temporal Data_, which were the motivation and basis to carry out the investigation.\par
   Special thanks to Prof. Dr. **Juan C Reyes** for his contribution in selecting the research topic, and great contributions in information, methodology and support.\par
-  I would like to thank to:\par
-  Prof. Dr. **Edzer Pebesma**, Prof. Dr. **Juan C. Reyes**, and Prof. Dr. **Sara Ribero**, for supervising my work and spending their valuable time for discussions and feedback, it was really a huge advantage to have that support always available, and a pleasure to work beside you. Dr. **Adam Pintar**, for sharing its related POT-PP R Code, and for devoting much of his time to reviewing and commenting on my progress. Dr. **Joaquín Huerta Guijarro**, because he always was available to help and he was very friendly and receptive. Dr. **Christoph Brox**, because he was beside me in the difficult moments of the incident and the surgery. **European Union** -'Erasmus Mundus Grant', because their funding allow me to fulfill this dream to go further with my academic and professionals dreams. Engineer **Juan David Sandoval** for its valuable contributions. My mother **Ligia** made possible all my achievements, because she was always there with love, support, and valuable advice, I am grateful with all my heart. My daughter **Nicolle Chaely** for its love, support, and always pleasant company. Family members as **Elsa Manrique**, **Barbara Avellaneda**, and **Kevin Martinez**, because they were an important source of motivation and support. To all the beautiful people that shared with me different activities at **San Antonius Church of Münster**, with special mention of father **Alejandro Serrano Palacios** for support and friendship,  and **choir friends**.
+  Gratitude is extended to Dr. **Christoph Brox**, for being a support in difficult moments as the surgery and COVID-19 crisis, and in the same way to **Karsten Höwelhans**.\par
+  The author is thankful to:\par
+  Prof. Dr. **Edzer Pebesma**, Prof. Dr. **Juan C. Reyes**, and Prof. Dr. **Sara Ribero**, for supervising this work and spending their valuable time for discussions and feedback, it was really a huge advantage to have that support always available, and a pleasure to work beside them. Dr. **Adam Pintar**, for sharing its related POT-PP R Code, and for devoting much of his time to reviewing and commenting on my progress. The oustanding help of Dr. **Joaquín Huerta Guijarro**, for being receptive, friendly, and decidedly available to help. **European Union** -'Erasmus Mundus Grant', their funding allow me to fulfill this dream to go further with academic and professionals dreams. Engineer **Juan David Sandoval** for its helpful contributions. **Ligia Avellaneda** and **Nicolle Chaely**, mother and daughter of the author, for your love, prayers, and prized advice. Family members as **Elsa Manrique**, **Barbara Avellaneda**, and **Kevin Martinez**, for their really important source of motivation and accompaniment. To all the beautiful people that shared with the author different activities at **San Antonius Church of Münster**, with special mention of father **Alejandro Serrano Palacios** for his oustanding help and friendship which is permanently appreciated, and **choir friends**.
   <!-- \clearpage -->
   <!-- \shipout\null -->
   <!-- \stepcounter{page} -->
 dedication: |
   \begin{tabbing}
-  AIS \hspace{3em} \= Seismic Engineering Association  \\
+  AIS \hspace{3em} \= Colombian Earthquake Engineering Association  \\
   ASCE \> American Society of Civil Engineers \\
   ASCE7-16 \> ASCE/SEI Design Loads Standard \\
   cdf \>  Cumulative Distribution Function \\
@@ -71,24 +73,19 @@ dedication: |
   <!-- \clearpage -->
   <!-- \shipout\null -->
   <!-- \stepcounter{page} -->  
-preface: |
-  _Models of extreme values_ are used for designing against the effects of _extreme events_ like earthquakes, winds, rainfall, floods of different types of physical processes, see @Beirlant2004, avoiding widespread destruction and loss of lives, see @Haigh2019. This research presents a applied case of univariate extreme value analysis, explained in detail in @Smith2004, applied to wind velocities for infrastructure design, consequently, the main interest are probable future more extreme wind events, that structures need to be able to resist. 
-  
-  This work in its theoretical and methodological component was directed by ASCE7-16 @Asce2017, considering that output products will be used to update the chapter B.6, wind forces, of the Colombian structure design norm, see @nsr10, maintained by the Colombian Association of Seismic Engineering - AIS by its Spanish acronym. ASCE7-16, defines four risk categories, which implies the use of different wind loads (represented in wind extreme values for different mean recurrence intervals) for structures that belong to each category, 3000 years of MRI for risk IV, 1700 years for risk III, and 700 years for risk II and I. 
-  
-  This research has a particularly new situation regarding to the input data, and it is that not only time series of field measurements from meteorological stations are used (IDEAM data source), but also post-processed information coming from the Integrated Surface Database - ISD (USA database based on IDEAM data source), see @Smith2011, and forecast reanalysis data from ERA5, see @ECFMRWF2017. This condition demanded a comparison of the different data sources, in order to verify the feasibility in the use of ERA5 and ISD, with a previous process of standardization of wind velocities (only for IDEAM and ISD), to reach the needed requirement of 3-s wind gust speed, 10 meters anemometer height, and terrain open space condition. 
-  
-  At each station the used method Peaks Over Threshold - Poisson Process, required to identify all the non-thunderstorm events in the non-hurricane dataset, through a process of de-clustering, choose a suitable threshold level to leave for the analysis only the most extreme values available, and then, fit to the data a intensity function, using maximum likelihood to find optimal parameters with the best goodness of fit. With the fitted model, it was possible to calculate return levels for required mean return intervals. Next, a process of spatial interpolation was done using Kriging, what allowed to have three continuous maps for the whole study area.
+  <!-- Preface: | -->
   <!-- \clearpage -->
   <!-- \shipout\null -->
   <!-- \stepcounter{page} -->  
 #Specify the location of the bibliography below
 bibliography: bib/thesis.bib
+citation_package: none
+biblio-style: "apalike"
 #Download your specific csl file and refer to it in the line below.
 csl: csl/apa.csl
 link-citations: true
 toc: true
-toc-depth: 4
+toc-depth: 2
 lot: true
 lof: true
 space_between_paragraphs: true
@@ -106,6 +103,19 @@ def.chunk.hook  <- knitr::knit_hooks$get("chunk")
 knitr::knit_hooks$set(chunk = function(x, options) {
   x <- def.chunk.hook(x, options)
   ifelse(options$size != "normalsize", paste0("\n \\", options$size,"\n\n", x, "\n\n \\normalsize"), x)
+})
+```
+
+```{r setup_source, include=FALSE}
+#To add vertical space before source code vspaceecho='2cm'
+hook_source_def = knitr::knit_hooks$get('source')
+knitr::knit_hooks$set(source = function(x, options) {
+  if (!is.null(options$vspaceecho)) {
+    begin <- paste0("\\vspace{", options$vspaceecho, "}")
+    stringr::str_c(begin, hook_source_def(x, options))
+  } else {
+    hook_source_def(x, options)
+  }
 })
 ```
 
@@ -149,63 +159,55 @@ on chapters.
 
 # Introduction
 
-This research aims to create non-hurricane non-tornadic maps of extreme wind speeds, for _three specific recurrence intervals_ (700, 1700, and 3000 years) covering the study area (Colombian territory). These maps will be combined with existing hurricane wind speed studies, to be used as input loads due to wind, for infrastructure design.
+_Extreme value models_ are used for estimating engineering design forces of _extreme events_ like earthquakes, winds, rainfall, floods, etc, [@Beirlant2004]. Structures designed with these forces are better prepared to resist extreme levels of natural phenomena [@Coles2003]. 
 
-For each station with wind speeds time series in the input data, following @Pintar2015, extreme wind speeds corresponding to each recurrence interval are calculated using a _Peaks Over Threshold Poisson Process_ extreme value model, onwards _POT-PP_, then wind velocities with the same recurrence interval are _spatially interpolated_ to generate continuous maps for the whole study area.
+This research presents an application of extreme value analysis [@Smith2004] to estimate wind velocities for infrastructure desing. Consequently, the main interest are probable future extreme events that structures need to be able to resist.
 
-A wind speed linked to a _mean recurrence interval - MRI_ of _N-years_ (N-years return value or return period) is interpreted as the highest probable wind speed along the period of N-years, see @Asce2017. The annual probability of equal or exceed that wind speed is 1/N. The annual exceedance probability for all velocity values in 700-years output map will be 1/700, for the 1700-years map will be 1/1700, and 1/3000 for the 3000-years final map.
+This research follows the methodological approach defined in chapter 26 of the ASCE7-16 standard [@Asce2017]. ASCE7-16 considers design wind velocities for various mean recurrence intervals MRIs, depending on the risk category of the structure, as follows: MRI=700 years for risk category (RC) I and II, 1700 years for RC III, and 3000 for RC IV. A wind speed linked to a _mean recurrence interval - MRI_ of _N-years_ (N-years return period) is interpreted as the highest probable wind speed along the period of N-years [@Asce2017]. The annual probability of equal or exceed that wind speed is 1/N, this is with a change of being equaled or exceeded only one time in the corresponding MRI period. 
+
+The development of this research (focused in non-hurricane data), covers three main areas, _downscaling support_, _temporal analysis_, and _spatial analysis_, and includes an integration process with _existing results of hurricane studies_.
+
+Due to the specific characteristics of the study area where there is lack of historical wind measurements, it became necessary to look for alternative data sources: ISD, and ERA5 forecast data. This resulted in a downscaling issue that was confronted from a graphic comparison of all sources by matching stations, in the search of adequate _downscaling support_ for the use of complementary data. Prior to the comparison process, ISD and IDEAM data sources were standardized to represent 3-second wind gust, 10 meters anemometer height, and terrain open space roughness.
+
+The _temporal analysis_ method used to calculate the return levels at each station, from the historical wind time series, is the Peaks Over Threshold POT, using a non-homogeneous, bi-dimensional Poisson Process PP, recommended by [@Asce2017], and developed in [@Pintar2015]. Main components of POT-PP model are de-clustering, thresholding, intensity function fitting, hazard curve, and return levels calculation. At each station with non-thunderstorm data, this model starts with a process of de-clustering choosing a suitable threshold level to leave for the analysis only the most extreme available values, and then, fit to the data an intensity function using maximum likelihood to find optimal parameters with the best goodness of fit. With the fitted model, and using the hazard curve, it was possible to calculate extreme wind velocities or return levels for required MRIs.
+
+The integration of all these results allow to generate continuous maps of extreme winds velocities, using _Kriging_ as _spatial analysis_ method, which are combined with _existing wind extreme hurricane studies_, to be used as input loads for the design of structures of different risk categories, i.e., less risky/important structures for short MRIs (700 and 1700 years), and highly important structures for the longest MRI of 3000 years.
 
 ## Context and Background
 
-To design a specific structure, the horizontal forces, wind and earthquake, play an starring role. For the study area, Colombia, initially the wind force was considered as a fixed velocity $100  \frac{Km}{h}$, later, a continuous map with a return period of 50 years was included in the official design standard, then, an additional map with return period of 700 year was included, see @nsr10.
+To design an specific structure, horizontal forces (wind and earthquake) play an starring role. For Colombia, initially, wind forces are calculated considering a fixed velocity value of 100  km/h, later, a continuous map with a return period of 50 years was included in the official design standard. Afterwords, an additional map with a return period of 700 year was added [@nsr10].
 
-In the context of this study, extreme wind analysis is concerned with statistical methods applied to very high values of wind as random variable in a stochastic process, to allow statistical inference from historical data, namely, assess from the ordered sample of wind velocities, the probability of wind events that are more extreme than the ones previously observed and included in the mentioned input sample. Classical reference in this matter is @Coles2001, where a detailed study is done about classical extreme value theory and models and threshold models. 
+In the context of this study, extreme wind analysis is concerned with statistical methods applied to very high values of wind velocity as random variable in an stochastic process, to allow statistical inference from historical data. Extreme analysis methods assess the probability of wind events that are more extreme than the ones previously registered and included in the input model of the maximum wind velocities ordered sample. @Coles2001 presents a detailed study about classical extreme value theory and threshold models. Asymtotic extreme value models arguments give an appropiate representation of the stochastic behaviour of maximum values [@Coles2003].
 
-There are four main approaches to deal with extreme value analysis, @Smith2004: a) sample maxima associated to a Generalized Extreme Value Distribution - GEV (traditional method), b) exceedances over threshold associated to a Generalized Pareto Distribution, onwards _POT-GPD_, c) the Poisson-GPD, an homogeneous Poisson process for the number of exceedances, and a GPD for the excess values, and 
-d) the exceedances over threshold associated to a non-homogeneous, non-stationary, bi-dimensional Poisson process, a Point process approach also known as POT-PP. Main details will be discussed here for each method, but as the last one is recommended in Asce2017, a more indeed explanation will be provided in [POT-Poisson Process](#pot-pp). There is a whole section with the details about the background of this research, see [Theoretical Framework](#rmd-thefra)
+According to @Coles2003, there are four main elements needed for a good analysis of extreme values: (a) appropiate selection of an asymtotic model; (b) use of all appropiate and available information; (c) properly estimation of uncertanty; and (d) considering non-stationary effects.
 
-### Sample Maxima
+In general, there are two approaches to deal with extreme value analysis [@Pintar2015], the clasical approach, and peaks over threshold POT. In this research, POT is selected over classical approach to be able to use more samples for statistical estimation.
 
-To work with random variables of sample maximum values, the used probability distribution function _pdf_ is the GEV
+The clasical approach or traditional method, as well known as _sample maxima_ or _yearly maxima_ is associated to a generalized extreme value distribution GEV [@Fisher1928; @Gnedenko1943]. GEV is a family of limit probability distributions including Gumbel, Fréchet and Weibull, unified in [@Mises1954; @Jenkinson1955]. The GEV family _describes all limiting distributions of the centered and normalized sample maximum_ [@Coles2003].
 
-$$
-H(y) = \exp\left\{-\left(1+\xi\frac{y-\mu}{\psi}\right)_+^{-\frac{1}{\xi}}\right\},
-$$
-$(y+=max(y,0))$ where $\mu$ is the location parameter, $\psi > 0$ is a scale parameter, and $\xi$ is a shape parameter. GEV can be seen as the integration in the same _psf_ of the Gumbel distribution (limit $\xi\rightarrow0$), Fréchet distribution ($\xi>0$), and Weibull distribution ($\xi<0$).
+POT models the values above a chosen high level, and in general, the POT method has two approaches [@Smith2004]: (a) exceedances over threshold associated to a Generalized Pareto Distribution GPD, onwards _POT-GPD_; and (b) the exceedances over threshold associated to a non-homogeneous non-stationary bi-dimensional Poisson process POT-PP (a point process approach). POT-PP is consider to be more flexible than generalized Pareto approach [@Coles2001], so for this study, POT-PP method is selected.
 
-### Exceedances Over Threshold
+Selection of threshold level is relevant in POT. A low threshold (more exceedances) implies less variance and weak asymptotic support, but high bias. A hight threshold (fewer exceedances) implies more variance and stronger asymptotic support, but low bias.
 
-If the researcher needs to work only with extreme values above an specific threshold, @Pickands1971 showed that the GEV has a GPD approximation where shape $\xi$ parameter in previous equation is the same parameter for next equation for GPD,
+POT-GPD, models wind magnitudes over the threshold as a GPD, and time as a separated Poisson process [@PickandsIII1975]. This method was used for the first time as statistical application in [@Davison1990]. The generalizad Pareto family describes all possible limiting distributions of the distributions scaled above the threshold [@Coles2003].
 
-$$
-G(y,\sigma, \xi) = 1-\left(1+\xi\frac{y}{\sigma}\right)_+^{-\frac{1}{\xi}},
-$$
+In POT-PP time and magnitude above the threshold are modeled using a two-dimensional Poisson process [@Pickands1971]. This method was applied for the first time in [@Smith1989].
 
-### Poisson-GPD
+There are many techniques to estimate the parameters of extreme value models, i.e. graphical methods, estimators based on moments, order statistics, and likelihood based [@Coles2003]. @Smith1985 supported the use of likelihood methods due to _asymtotic normality_ guaranteed when shape parameter is greater than 0.5, excluding light tailed distributions with finite end point. In addition, likelihood method is easy to evaluate and solve numerically, and the calculation of standard errors and confidence intervals is possible using asymptotic theory.
 
-If a rescale of the variable indexes above the threshold is performed, then the exceedances over threshold approach can be seen as a point process, namely, an homogeneous Poisson Process where:
+## Problem Statement and Motivation
 
-1. The number of exceedances above the threshold has a Poisson distribution with mean $\lambda$
-2. The excess values follow a GPD with $N\leq1$
+Wind forces are important for infrastructure design [@windeffects]. For a civil engineer main forces to consider for the design of an structure, for instance a bridge or a building, are (a) dead load due to the weight of the structure, and (b) live load due to earthquake and wind. For Colombia, the structure design standard has defined in great detail, all aspects related to seismic forces, and dead forces, but lack of detail in design wind velocities. Current wind velocities map is 20 years outdated, and is not appropriate for all types of structures, because it only includes two return periods. 
 
-Its cumulative distribution function _cdf_ is
+It is well known that in recent years there have been accelerated changes in the climate of the planet, including issues related to winds. This aspect is reflected in frequent partial failures of structures due to wind forces [@winddamage], and in some cases including with total losses [@Rezapour2014]. Last five decades the way to assess wind loads in structural design has had remarkable changes [@Roberts2012].
 
-$$
-F(y) = \exp\left\{-\lambda\left(1+\xi\frac{y-\mu}{\sigma}\right)_+^{-\frac{1}{\xi}}\right\},
-$$
+A complete study of extreme wind forces, need to address separately hurricane and non-hurricane data, to include in the product the integration of results from both fronts [@Asce2017]. In the study area, hurricane winds are only present inland in the Caribbean Sea, therefore, only affects directly 'San Andres y Providencia' island - one (1) of thirty-three (33) states. In 1102 of 1103 municipalities (more than 99%), only non-hurricane winds are relevant. However, all municipalities located near to the northern onshore border may be impacted by side effects of hurricanes.
 
-## Problem Statement and Motvation
-
-Wind forces are important for infrastructure design, see @windeffects. For a civil engineer, designer of different types of structures, main forces to consider when designing a structure, for instance a bridge or a building, are a) dead load due to the weight of the structure, and b) live load due to earthquake and wind. For the study area, a developing country, the structure design standard has defined in great detail, all aspects related to seismic forces, and dead forces, but lack of detail in wind forces, actually, current map is 20 years outdated, and it is not appropriate for all types of structures, because it only includes two return periods. Additionally, it is well known that in recent years there have been accelerated changes in the climate of the planet, including issues related to winds, aspect that is reflected in frequent failures of structures due to wind forces, see @winddamage, as is stated in @Rezapour2014, wind forces are able to completely destroy different types of infrastructures, reason why last five decades the way to assess wind loads in structural design has had remarkable changes, see @Roberts2012.
-
-A complete study of extreme wind forces, need to address separately and using different scientific approaches, hurricane and non-hurricane data, to allow a final research product as the integration of the results in both fronts, see @Asce2017. In the study area, hurricane winds are only present inland in the Caribbean Sea, therefore, only affects directly to 'San Andres y Providencia' island - one (1) of thirty-three (33) states. In 1102 of 1103 municipalities (more than 99%), the issue of non-hurricane winds is the only one relevant, and in addition, this lacks recent studies and research, however, all municipalities located near to the northern onshore border, may be impacted by side effects of hurricanes.
-
-As a note of clarification on the motivation to carry out the research, the author of this thesis is a civil engineer, from Colombia (the study area), and has developed previous research work with 'Universidad de los Andes', related to geoinformatics, and analysis and evaluation of natural risks. Due to the proximity of the University with the Colombian Association of Seismic Engineering - AIS, the opportunity to contribute to the update of the standard has arisen. 
-
+The national infrastructure design standard of Colombia, maintained by the Earthquake Colombian Association of Seismic Engineering - AIS, uses km/h as official units for wind velocities. In this reseach km/h is always used, considering that output results will support the update of chapter B.6 (wind forces) of mentioned standard.
 
 ## Knowledge Gap
 
-Nowadays, methodologies to deal with the inference of extreme wind maps are quite mature and advanced, and many of them already implemented and ready for use, reason why the main contribution in this research is not related to the theoretical foundations of the methods themselves, but to application of the method in a particular case in developing countries, where the lack of data plays a decisive role in achieving the results, see @windassessment. Thereby, the gaps in which this research aims to contribute, are related to the use of alternative data sources, and how to meet the downscaling challenge, considering that the main drawback of the research is the lack of field measurement data coming from weather stations.
+Nowadays, methodologies to deal with the inference of extreme wind maps are quite mature and advanced, and many of them are already implemented and ready for use. For this reason, the main contribution of this research is not related to the theoretical foundations of the methods themselves, but to application of the method in a particular case where good quality data is not available [@windassessment]. Thereby, the gaps in which this research aims to contribute, are related to the use of alternative data sources, and how to meet the downscaling challenge, considering that the main drawback of the research is the lack of field measurement data coming from weather stations.
 
 ## Research Aim and Objectives
 
@@ -247,7 +249,7 @@ If we consider not only the annual exceedance probability $\frac{1}{MRI}$, but a
 
 Main sections of thesis document are 1) Introduction, 2) Data, 3) Theoretical Framework, 4) Methodology, 5) Results and Discussion, 5) Conclusions, and 6) five Annexes, from A to E.
 
-After introduction, in second section **[Data](#rmd-data)**, main information about data sources IDEAM, ISD, and ERA5 are described, including at the end, details for data download and organization, topic that is complemented for ERA5, with the content of the Annex \@ref(era5download) - [ERA5 Data Download and Integration](#era5download).
+After introduction, in second section **[Data](#rmd-data)**, main information about data sources IDEAM, ISD, and ERA5 are described, including at the end, details for [ERA5 Data Download](#era5download) in Annex \@ref(datadownload). Annex \@ref(dbstoring) - [Database Storing](#dbstoring), explains reasons for using PostgreSQL engine, and the database backup and restoration process.
 
 [Theoretical framework](#rmd-thefra) section is dedicated to introduce statistical concepts that are basis for the investigation, both in **probability distributions** (density function - pdf, distribution function - cdf, percent point function - ppf, and hazard function - hf) and in **extreme analysis** (annual exceedance probability - $P_e$, recurrence interval - MRI, and compound exceedance probability - $P_n$). Later, it is described in more detail, topics related to **extreme value analysis** (peaks over threshold with generalized Pareto - POT-GPD, and peaks over threshold with Poisson process - POT-PP), and at the end, a summary report is done about **wind load requirements** for the study, which is foundation for addressing the research.
 
@@ -255,6 +257,6 @@ In [methodology](#rmd-method) are described main processes needed to meet the ob
 
 [Results and discussion](#rmd-results) section, shows first all results for data standardization and comparison to support the downscaling issue, second, all POT-PP results are set out for one ISD station, then all output maps for ISD and ERA5 data sources are exhibited, including discussions without bias, about the good and the bad of those finals results. These discussions are complemented by the following [conclusions](#conclusions) section.
 
-To finalize the document, a series of appendices were created, to facilitate the reproducibility of the research. [Appendix A](#rcode), contains _research R code_, but it is necessary to keep in mind that the code provided by Dr. Adam Pintar, to do the de-clustering and thresholding in POT-PP, is not there, because its publication and distribution is not authorized. [Appendix B](#results) contains all _results in digital format_. [Appendix C](#era5download) compliments the information needed to _download and organize data_ from the sources, mainly with details related to ERA5. As the document for the thesis was done using package ´thesisdown´, which is based in ´bookdown´, the most important _document R code_ to create the thesis document, mainly graphics, is shown in [Appendix D](#docrcode), then at the end, in [Appendix E](#manual), an _user manual_ is presented, in order to provide instruction to apply the same methodology in a different case study, and provided using R code.
+To finalize the document, a series of appendices were created, to facilitate the reproducibility of the research. [Appendix A](#rcode), contains _research R code_, but considering that the code provided by _Dr. Adam L. Pintar_ to do the de-clustering and thresholding in POT-PP is not there (publication and distribution is not authorized). [Appendix B](#results) contains all _results in digital format_. [Appendix C](#datadownload) compliments the information needed to _download ERA5_ data. [Appendix D](#dbstoring) shows the use of PostgreSQL for data storage, and provides instructions for backup and restoring. As the document for the thesis was done using package ´thesisdown´, which is based in ´bookdown´, the most important _document R code_ to create the thesis document, mainly graphics, is shown in [Appendix E](#docrcode), finally, in [Appendix F](#manual), an _user manual_ is presented, in order to provide instruction to apply the same methodology in a different case study, and using provided R code.
 
 

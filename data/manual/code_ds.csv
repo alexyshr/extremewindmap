@@ -1,0 +1,9 @@
+FolderTree,Description,Ftp
+code,Folder with R code. ALL CODE CREATED BY DR. ADAM PINTAR IS NOT PUBLISHED.,ftp://ftp.geocorp.co/windthesis/code/
+\;\;|-downscaling,"Folder with code to compare all data sources, looking for downscaling support.",ftp://ftp.geocorp.co/windthesis/code/downscaling/
+\;\;\;\;|-qualitydata,Folder with code to compare using quality data from IDEAM (variable VV\_AUT\_2).,ftp://ftp.geocorp.co/windthesis/code/downscaling/qualitydata/
+\;\;\;\;|    |-VV\_AUT\_2\_1.r,Using predefined list of matching stations (ISD vs IDEAM). ERA5 match is by intersection (1).,ftp://ftp.geocorp.co/windthesis/code/downscaling/qualitydata/comparing_VV_AUT_2_1.r
+\;\;\;\;|    |-VV\_AUT\_2\_2.r,Using predefined list of matching stations (ISD vs IDEAM). ERA5 match is by intersection (2).,ftp://ftp.geocorp.co/windthesis/code/downscaling/qualitydata/comparing_VV_AUT_2_2.r
+\;\;\;\;|    |-VV\_AUT\_2\_3.r,Using predefined list of matching stations (ISD vs IDEAM). ERA5 match is by intersection (3).,ftp://ftp.geocorp.co/windthesis/code/downscaling/qualitydata/comparing_VV_AUT_2_3.r
+\;\;\;\;|-nonqualitydata,Folder with code to compare using non-quality data from IDEAM (variable VV\_AUT\_10).,ftp://ftp.geocorp.co/windthesis/code/downscaling/nonqualitydata/
+\;\;\;\;\;\;|-VV\_AUT\_10.r,All stations from ISD or IDEAM that intersects one ERA5 cell are compared. ,ftp://ftp.geocorp.co/windthesis/code/downscaling/nonqualitydata/comparing_VV_AUT_10.r

@@ -47,7 +47,7 @@ library(cowplot)
 
 Figure \@ref(fig:methodology) shows a schematic representation of the methodology, where more representative steps are identified by numbers (from 1 to 8). This research is focus in non-hurricane data, with three main elements: - data, - temporal analysis with POT-PP, and - spatial analysis to do spatial interpolation and create return levels - RL maps, for MRIs of 700, 1700, and 3000 years. Steps 1, and 3 to 7, need to be done for each available station, see Figure \@ref(fig:mainmethodology). With RL in each station, a continuous surface will be created, one for 700 years, next for 1700 years, and finally for 3000 years. An additional element, is the integration with existing hurricane maps to produce final maps, that will be used as input loads for infrastructure design, and will be part of the design standard.
 
-```{r mainmethodology, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Iterative process in methodology", fig.align="center", dpi=208}
+```{r mainmethodology, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Iterative Process in Methodology", fig.align="center", dpi=208}
 include_graphics(path = "figure/main_methodology.png")
 ```
 
@@ -67,9 +67,9 @@ Parallel to the standardization activity described below, it is also important t
 
 * _Filtering_: Remove wind speeds above $200 \frac{Km}{h}$ and data pertaining to hurricane events, because the procedure with hurricane requires a different approach and need to be done independently
 
-### Anemometer Height - 10 m
+### Anemometer Height
 
-According to the protocol for field data collection and location of methodological stations - @ideam2005, the anemometer (wind sensor) in installed always to a fixed height of 10 meters from the surface, as is shown in Figure \@ref(fig:anemometer), ergo, no height correction is needed.
+According to the protocol for field data collection and location of methodological stations [@ideam2005], the anemometer (wind sensor) in installed always to a fixed height of 10 meters from the surface, as is shown in Figure \@ref(fig:anemometer), ergo, no height correction is needed.
 
 ```{r anemometer, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Anemometer height - 10 m", fig.align="center", fig.width=3, fig.height=3, }
 #include_graphics(path = "figure/anemometer.png")
@@ -109,14 +109,14 @@ text(4,11, labels="Anemometer", pos=4, cex=0.5)
 #box(which = "outer", col="orange")
 ```
 
-### Surface Roughness at Open Terrain (0.03 m) {#rmd-roughness}
+### Surface Roughness at Open Terrain {#rmd-roughness}
 
-Due to the effects that the terrain has on wind speed, a correction should be applied if the station is located in a geographical space considered "not open terrain". When terrain is open, the roughness corresponds to 0.03 meters. There are some alternative methodologies to calculate the roughness, @Masters2010 uses the station data, but the separation of the measurements should not exceed one minute, something difficult to obtain, and @Lettau1969 uses an empirical equation that is recommended in @Asce2017 (page 743, equation C26.7-1), which was used here,
+Due to the effects that the terrain has on wind speed, a correction should be applied if the station is located in a geographical space considered "not open terrain". When terrain is open, the roughness corresponds to 0.03 meters. There are some alternative methodologies to calculate the roughness, [@Masters2010] uses the station data, but the separation of the measurements should not exceed one minute, something difficult to obtain, and [@Lettau1969] uses an empirical equation that is recommended in [@Asce2017], page 743, equation C26.7-1, which was used here,
 
 $$
 Roughness = z_0= 0.5 * H_{ob}*\frac{S_{ob}}{A_{ob}}
 $$
-Where $H_{ob}$ is the average height of the obstacles, $S_{ob}$ is the average vertical area perpendicular to the wind of the obstacles, and $A_{ob}$ is the average area of the terrain occupied by each obstruction. Then, the empirical exponent $\alpha$, gradient height $z_g$, and exposure coefficient $K_z$, corresponding to equations C26.10-3, C26.10-4, and C26.10-1.si of @Asce2017, are used to calculate the correction factor $F_{exposition}$, verifying that $z_0$ units are in meters.
+Where $H_{ob}$ is the average height of the obstacles, $S_{ob}$ is the average vertical area perpendicular to the wind of the obstacles, and $A_{ob}$ is the average area of the terrain occupied by each obstruction. Then, the empirical exponent $\alpha$, gradient height $z_g$, and exposure coefficient $K_z$, corresponding to equations C26.10-3, C26.10-4, and C26.10-1.si of [@Asce2017], are used to calculate the correction factor $F_{exposition}$, verifying that $z_0$ units are in meters.
 
 $$
 \alpha =  5.65*z_0^{-0.133}
@@ -133,9 +133,10 @@ $$
 $$
 F_{exposition} = \frac{0.951434}{K_z}
 $$
-Following @nist2012, calculation of roughness need to be weighted according to the predominance of wind magnitude in eight directions (north, south, east, west, north-east, north-west, south-east, and south-west), see Figure \@ref(fig:compassrose), using a detailed aerial photo or satellite image inside a radius of 800 meters around the station location, as shown in Figure \@ref(fig:lettaustation2), with south direction highlighted. 
+Following [@nist2012], calculation of roughness need to be weighted according to the predominance of wind magnitude in eight directions (north, south, east, west, north-east, north-west, south-east, and south-west), see Figure \@ref(fig:compassrose), using a detailed aerial photo or satellite image inside a radius of 800 meters around the station location, as shown in Figure \@ref(fig:lettaustation2) for _Vanguardia_ ISD station (USAF:802340), located in _Villavicencio_ airport, with four (south, north, east, and west) 45 degree sectors highlighted.
 
-```{r compassrose, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Wind rose with wind percentages in eight directions, for a generic station", fig.align="center", fig.width= 2.5, fig.height= 2.5}
+
+```{r compassrose, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Wind Rose With Wind Percentages", fig.align="center", fig.width= 2.5, fig.height= 2.5}
 #include_graphics(path = "figure/viensanandres.png")
 par(mar=c(0,0,0,0))
 par(oma=c(0,0,0,0))
@@ -158,7 +159,7 @@ img_stack.crop = crop(img_stack, extent(circle))
 img_stack.mask = mask(img_stack.crop, circle)
 ```
 
-```{r lettaustation2, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Digital imagery for 'Vanguardia' ISD station (USAF:802340), located in 'Villavicencio' airport. with four (south, north, east, and west) 45 degree sectors highlighted. Radius of the circular zone is 800 meters", size="footnotesize", fig.align="center", fig.width= 1.6, fig.height= 1.6}
+```{r lettaustation2, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Digital Imagery for 'Vanguardia' ISD Station (USAF:802340)", size="footnotesize", fig.align="center", fig.width= 1.6, fig.height= 1.6}
 
 yellowtrans <- rgb(255, 255, 0, 30, maxColorValue=255)
 plotRGB(img_stack.mask)
@@ -170,7 +171,8 @@ text(x=-73.614, y=4.168, labels="802340", pos=4, cex = 0.8, col="white")
 
 ```
 
-Figure \@ref(fig:lettauexamples2) shows extreme conditions for roughness, open space in left image (ISD Station 804070), closed space in center image (ISD Station 803000), and a typical example where Lettau procedure is needed. Lettau equation need to be applied to each direction and then the final $z_o$ value is the weighted average, using historical wind percentage. See Figure \@ref(fig:lettauvalues) showing the strokes made to calculate the different areas for two Colombian stations. Information about wind percentage per direction at each station were obtained from @ideam1999.
+Figure \@ref(fig:lettauexamples2) shows extreme conditions for roughness, open space in left image (ISD Station 804070) with roughness value of 0.03, closed space in center image (ISD Station 803000) with roughness value of 0.1, and a typical example where Lettau procedure is needed because roughness is different in each direction, in right image. Lettau equation need to be applied to each direction and then the final $z_o$ value is the weighted average, using historical wind percentage. See Figure \@ref(fig:lettauvalues) showing the strokes made to calculate the different areas for two Colombian stations, in red the area occupied by the obstacles, and in blue the perpendicular area @triana2019. Information about wind percentage per direction at each station were obtained from [@ideam1999].
+
 
 ```{r lettauexamples1, include=FALSE}
 #include_graphics(path = "figure/lettauexamples.PNG")
@@ -195,7 +197,7 @@ img_stack804380.mask = mask(img_stack804380.crop, circle804380)
 ```
 
 
-```{r lettauexamples2, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Roughness values: 0.03 for open space (left), 0.1 for closed space (center), and areas where Lettau equation is needed because roughness is different in each direction (right).", fig.align="center", fig.height=1.5}
+```{r lettauexamples2, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Roughness. Open (L), Closed (C), and Lettau (R).", fig.align="center", fig.height=1.5}
 
 par(mfrow=c(1,3))
 par(pty="m")
@@ -230,13 +232,13 @@ text(x=-71.161, y=8.582, labels="804380", pos=2, cex = 1.3, col="white", halo=TR
 #box(which = "outer", col="orange")
 ```
 
-```{r lettauvalues, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Lettau calculation. In red the area occupied by the obstacles, and in blue the perpendicular area. Source Triana (2019)", fig.align="center", dpi=150}
+```{r lettauvalues, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Lettau Calculation", fig.align="center", dpi=150}
 include_graphics(path = "figure/lettauvalues.png")
 ```
 
 ### Averaging Time 3-s Gust {#rmd-gust}
 
-To transform hourly mean wind velocity $V_{3600}$, to 3-s gust velocity $V_3$, @Asce2017 recommends to use @Durst1960. See [Wind Loads Requirements](#windloadsrequirements). As the axis $x$ represents duration $t$ of the gust, what is done is to look there for the value 3 seconds, and read the corresponding gust factor $\frac{V_t}{V_{3600}}$, this is, the value in the axis $y$, then
+To transform hourly mean wind velocity $V_{3600}$, to 3-s gust velocity $V_3$, [@Asce2017] recommends to use [@Durst1960]. See [Wind Loads Requirements](#windloadsrequirements). As the axis $x$ represents duration $t$ of the gust, what is done is to look there for the value 3 seconds, and read the corresponding gust factor $\frac{V_t}{V_{3600}}$, this is, the value in the axis $y$, then
 
 $$
 V_t = V_{3\,seconds} = (gust factor) * V_{3600\,seconds}
@@ -271,9 +273,9 @@ In summary, POT means only to work with extreme values, and PP means to adjust d
 
 ### Declustering {#decluster}
 
-To make the assumptions of PP more justifiable, it  is important to have only one sample per event, the highest one. For instance, if a hypothetical storm started at 11:30 in the morning and ended at 12:30 in the afternoon, and the time series for that event has thirty wind measurements (one each two minutes), it is necessary to leave only the stronger or maximum value, and this process is called de-clustering (see Figure \@ref(fig:declustering)). POT-PP defines that all the adjacent observations separated by six hours (6) or less in the case of thunderstorm events, and four (4) days or less, in the case of non-thunderstorm events belong to the same cluster.
+To make the assumptions of PP more justifiable, it is important to have only one sample per event, the highest one. For instance, if a hypothetical storm started at 11:30 in the morning and ended at 12:30 in the afternoon, and the time series for that event has thirty wind measurements (one each two minutes), it is necessary to leave only the stronger or maximum value, and this process is called de-clustering.  In Figure \@ref(fig:declustering), two thunderstorm clusters are shown, and only red samples are used to fit the PP, but in addition a POT (thresholding) process is needed. POT-PP defines that all the adjacent observations separated by six hours (6) or less in the case of thunderstorm events, and four (4) days or less, in the case of non-thunderstorm events belong to the same cluster.
 
-```{r declustering, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="De-clustering in PP. Two thunderstorm clusters are shown. Separation between adjacent observations inside the clusters are always equal or less than six hours. Distance between the last event in the first cluster and the first event in the second cluster is larger than six hours. Only red samples are used to fit the PP, but in addition a POT (thresholding) process is needed", size="footnotesize", fig.width= 2, fig.height= 2, fig.align="center"}
+```{r declustering, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="De-clustering in PP", size="footnotesize", fig.width= 2, fig.height= 2, fig.align="center"}
 par(bg=NA)
 par(xpd = NA)
 op <- par(mar = rep(0, 4))
@@ -297,7 +299,7 @@ points(3.3, 0.4, col="red", pch=15, cex=0.9)
 
 ### Thresholding {#thresholding}
 
-As the POT model requires to work only with the most extreme values in the time series, it is necessary to select a threshold to filter out small values. Selection of threshold value imply two effects in the model. Bias is high when a low threshold is selected (many exceedances) because the asymptotic support is weak. Opposite situation happens for high thresholds where variance is potentially high, so according to @Davison1990, it is needed to select a threshold value, consistent with model structure.
+As the POT model requires to work only with the most extreme values in the time series, it is necessary to select a threshold to filter out small values. Selection of threshold value imply two effects in the model. Bias is high when a low threshold is selected (many exceedances) because the asymptotic support is weak. Opposite situation happens for high thresholds where variance is potentially high, so according to [@Davison1990], it is needed to select a threshold value, consistent with model structure.
 
 ```{r thresholding, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="POT - Thresholding", size="footnotesize", fig.width= 2, fig.height= 2, fig.align="center"}
 par(bg=NA)
@@ -320,7 +322,7 @@ points(x, y, col="black", pch=20, cex = 1)
 
 Selection of the thresholds pairs, one for thunderstorm, and one for non-thunderstorm, is based in $W$ transformation described in [threshold selection section](#thresholdselection). W-statistic is done comparing the ordered empirical result of applying $W = -log(1-U)$ to the data, axis $y$ in Figure \@ref(fig:wstatistics), with the theoretical quantiles of an exponential variable with uniform distribution between 0 and 1, axis $x$ in same figure. W-statistic is the highest vertical distance between the 45º line and the points in the graphic. The best thresholds pairs returns the minimum value for W-statistics after testing, in an iterative process, with many threshold pairs combinations.
 
-```{r wstatistics, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="POT - Thresholding", size="footnotesize", fig.align="center", fig.width=2.5, fig.asp=1}
+```{r wstatistics, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="POT - Thresholding W Statistic", size="footnotesize", fig.align="center", fig.width=2.5, fig.asp=1}
 dat <- readRDS("data/myprint6.rds")
 dat
 lines(x=c(3.1, 3.1), y=c(3.1,3.8), col="green", lty=5)
@@ -334,7 +336,7 @@ text(x = 3.1, y = 3.4, labels = c("Minimum W distance"), cex=0.6, pos = 2)
 
 ### Exclude No-Data Periods
 
-PP requires to remove long periods of time when stations were not recording or failing. Proposed time in @Pintar2015 is 180 days, namely, to remove all the gaps from the time series larger than six months.
+PP requires to remove long periods of time when stations were not recording or failing. Proposed time in [@Pintar2015] is 180 days, namely, to remove all the gaps from the time series larger than six months.
 
 ### Fit Intensity Function
 
@@ -368,7 +370,7 @@ In this study, used intensity functions are shown in next Equation \@ref(eq:ppsp
 As is shown in \@ref(fig:fitif), the fitting process involve finding the best group of parameters of the intensity function, in such a way that the red curve (_pdf_ of the PP, based in intensity function) be as tight as possible to the shape of the data histogram. As is described in [POT-PP](#pot-pp), optimal parameters to do the fitting process of the intensity function are calculated using *maximum likelihood*.
 
 
-```{r fitif, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="POT - PP intensity function fitting process", size="footnotesize", fig.width= 2, fig.height= 2, fig.align="center"}
+```{r fitif, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="POT - PP Intensity Function Fitting Process", size="footnotesize", fig.width= 2, fig.height= 2, fig.align="center"}
 par(bg=NA)
 par(xpd = NA)
 op <- par(mar = rep(0, 4))
@@ -379,12 +381,12 @@ curve(evd::dgumbel(x, loc=2, scale=1), col = "red", add=TRUE, lwd=2)
 ```
 
 
-### Hazard Curve - Return Levels - RL
+### Hazard Curve - Return Levels RL
 
 If Equation \@ref(eq:pprl), $Y_N$ is solved using estimated parameters of the intensity function, and a hazard curve is constructed as shown in Figure \@ref(fig:hc), where axis $x$ represents annual exceedance probability $P_e = \frac{1}{N}$, and axis $y$ represents the RL $Y_N$ for the corresponding N-years return period, then it will be possible to have the extreme return wind velocity level for any given return period going from axis $x$ to axis $y$ through the curve.
 
 
-```{r hc, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="POT - PP fitting process", size="footnotesize", fig.width= 2, fig.height= 2, fig.align="center"}
+```{r hc, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="POT - PP Hazard Curve", size="footnotesize", fig.width= 2, fig.height= 2, fig.align="center"}
 par(mar=c(2,1,0,0))
 par(oma=c(0,0,0,0))
 par(bg=NA)
@@ -454,11 +456,11 @@ Probabilistic (Kriging) and deterministic (IDW, local polynomials) techniques ar
 
 Possible advantage of deterministic methods, is a better assessment of the local variability of spatial autocorrelation. It can also be considered with IDW or local polynomials a detailed assessment of structural analysis and cross validation. At the end of the spatial interpolation analysis all the predictions can be compared to select the most suitable result.
 
-Main references in this research related to this matter, using **R software** are @Pebesma2019, @Pebesma2004, and @Graeler2016. For the implementation of spatial statistics using vector or raster format, see @Pebesma2019a, @Pebesma2019b, and @Pebesma2018.
+Main references in this research related to this matter, using **R software** are [@Pebesma2019], [@Pebesma2004], and [@Graeler2016]. For the implementation of spatial statistics using vector or raster format, see [@Pebesma2019a], [@Pebesma2019b], and [@Pebesma2018].
 
 ## Integration with Hurricane Data {#integration}
 
-@Asce2017 propose the equation C26.5-2 for combination of statistically independent events, of non-hurricane and hurricane wind speed data. 
+[@Asce2017] propose the equation C26.5-2 for combination of statistically independent events, of non-hurricane and hurricane wind speed data. 
 
 \begin{equation}
   \mathrm{

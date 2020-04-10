@@ -25,7 +25,7 @@
 %%
 % \documentclass{<something>} must begin each LaTeX document
 %\documentclass[12pt,twoside]{reedthesis}
-\documentclass[12pt,oneside]{reedthesis} 
+\documentclass[12pt,oneside]{reedthesis}
 % Packages are extensions to the basic LaTeX functions. Whatever you
 % want to typeset, there is probably a package out there for it.
 % Chemistry (chemtex), screenplays, you name it.
@@ -38,9 +38,13 @@
 \usepackage{chemarr} %% Useful for one reaction arrow, useless if you're not a chem major
 \usepackage[hyphens]{url}
 \usepackage[utf8]{inputenc}
+% Added by ALEXYS
+\usepackage{xurl} % uncomment for correct output
+\usepackage[hidelinks]{hyperref}
+\hypersetup{breaklinks=true} % set automatically by hyperref?
 % Added by CII
-\usepackage[hidelinks]{hyperref}  
-% \usepackage{hyperref}
+% \usepackage[hidelinks]{hyperref}
+% \usepackage[breaklinks=true]{hyperref}
 \usepackage{lmodern}
 \usepackage{float}
 \floatplacement{figure}{H}
@@ -155,6 +159,10 @@ $endfor$
 %%
 %
 
+%Uncomment next line to avoid hyperlinks in PDF file. Usefull to manage error:
+%
+%
+%\hypersetup{draft}
 \begin{document}
 
 % Everything below added by CII

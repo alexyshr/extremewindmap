@@ -93,7 +93,7 @@ Looking for a statistical justification in the use of ISD (model) and ERA5 datab
 
 ### Data Standardization
 
-None of the sources required anemometer height standardization. @Lettau1969 was used for roughness standardization of ISD and IDEAM, applying the method station by station. Gust velocities standardization was done using Durst curve, and in order to obtain $V_3$ from Durst curve, it was required to start from $V_{3600}$ (average hourly speed), or from a different wind gust speed, for instance $V_5$ 5-s gust.
+None of the sources required anemometer height standardization. [@Lettau1969] was used for roughness standardization of ISD and IDEAM, applying the method station by station. Gust velocities standardization was done using Durst curve, and in order to obtain $V_3$ from Durst curve, it was required to start from $V_{3600}$ (average hourly speed), or from a different wind gust speed, for instance $V_5$ 5-s gust.
 
 For ERA5:
 
@@ -315,7 +315,7 @@ grid.arrange(big, small, ncol=2)
 The stations described in each row of the previous Table \@ref(tab:table12stations), were compared by generating scatter plots and common time series graphics. Stations 28025502 from IDEAM, 800360 from ISD, and 416 (cell with center point in $-73.25^\circ$ longitude, and $10.5^\circ$ latitude) from ERA5, see map in right panel of Figure \@ref(fig:qualitycomparison2), showed high correspondence, see Figure \@ref(fig:sideamera5), because green regression line (empirical) is very similar to $45^\circ$ line (theoretical). Unfortunately, in the other eleven stations, there was no high equivalence between sources.
 
 
-```{r sideamera5, echo=FALSE, fig.align="center", fig.cap="Quality Data Comparison. High similarity between sources", message=FALSE, warning=FALSE, fig.width=4, fig.height=3}
+```{r sideamera5, echo=FALSE, fig.align="center", fig.cap="Quality Data Comparison. High Similarity Between Sources", message=FALSE, warning=FALSE, fig.width=4, fig.height=3}
 #
 #Quality Data Comparison. High similarity between sources
 #
@@ -337,7 +337,7 @@ VV_AUT_10 was available for 204 stations, and despite that $V_{3600}$ calculated
 * Figure \@ref(fig:verygood), shows four different very good scatter plots, a) IDEAM 15015120 vs ERA5 265, b) IDEAM 29004520 vs ERA5 312, c) IDEAM 15079010 vs ERA5 78, and d) IDEAM 15075501 vs ERA5 78. Red line in each graphic represent the desired $45^\circ$ line, where all points should fall, if the data sources would be exactly the same (theoretical behavior when there is equivalence of sources), and green line represents the linear regression line (empirical or real behavior when making the comparison).
  
 
-```{r poorcomparison, echo=FALSE, fig.cap="IDEAM VV_AUT_10 - Non Quality Data Comparison. Two different types of downscaling support: 'Good' and 'Very Good'", message=FALSE, warning=FALSE}
+```{r poorcomparison, echo=FALSE, fig.cap="IDEAM VV_AUT_10. Non-Quality Data Comparison", message=FALSE, warning=FALSE}
 #
 #IDEAM VV_AUT_10 - Non Quality Data Comparison
 #
@@ -407,8 +407,8 @@ tableverygood <-read.csv("./data/poor_datasource_comparison_very_good_match.csv"
 
 kable(tableverygood, align=rep('l', 3),
       col.names = c("ISD ID", "IDEAM ID", "ERA5: ID, (col,row), [lon,lat]"),
-      caption = "Non quality data comparison. 'Very Good' downscaling support.",
-      caption.short = "Non quality data comparison",
+      caption = "Non-Quality Data Comparison. 'Very Good' downscaling support.",
+      caption.short = "Non-Quality Data Comparison",
       longtable = TRUE,
       booktabs = TRUE) %>%
       row_spec(0, align = "l") %>%
@@ -420,7 +420,7 @@ kable_styling(font_size = 10, latex_options="scale_down")
 
 For some ISD stations in previous Table \@ref(tab:tableverygood), the value 'NA' means that for the corresponding ERA5 and IDEAM station (same row), there is not a ISD station located inside the ERA5 cell space ($0.25^\circ * 0.25^\circ$).
 
-```{r verygoodxts, echo=FALSE, fig.cap="Non Quality Data Comparison. Time Series Graphic for 'Very Good' Downscaling Support", message=FALSE, warning=FALSE, fig.height=3}
+```{r verygoodxts, echo=FALSE, fig.cap="Time Series Graphic for 'Very Good' Downscaling Support", message=FALSE, warning=FALSE, fig.height=3}
 #
 #Non Quality Data Comparison. Time Series Graphic for 'Very Good' Downscaling Support
 #
@@ -429,7 +429,7 @@ tl
 ```
 
 
-```{r verygood, echo=FALSE, fig.cap="Non Quality Data Comparison: Scatter plots for 'Very Good' Downscaling Support", message=FALSE, warning=FALSE}
+```{r verygood, echo=FALSE, fig.cap="Scatter Plots for 'Very Good' Downscaling Support", message=FALSE, warning=FALSE}
 #
 #Non Quality Data Comparison: Scatter plots for 'Very Good' Downscaling Support
 #
@@ -449,7 +449,7 @@ plot_grid(cl, cr, bl, br, ncol = 2, labels=c("A", "B", "C", "D"), label_size = 7
 
 Figure \@ref(fig:station801120) shows the satellite image (source Google Earth) of ISD station 801120, located in the international airport 'José María Córdova', municipality of Rio Negro (Antioquia, Colombia), with latitude $6.125^\circ$, and longitude $-75.423^\circ$ WGS84 coordinates.  Red circle represents an influence radius of 800 meters. Table \@ref(tab:cf801120) shows different calculations related to correction factors applied to this station, using procedure described in sections [Surface Roughness at Open Space](#rmd-roughness), and [Averaging Time 3-s Gust](#rmd-gust).
 
-```{r station801120, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Location of ISD station 801120", fig.align="center", dpi=420}
+```{r station801120, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Location of ISD Station 801120", fig.align="center", dpi=420}
 include_graphics(path = "figure/801120.jpg")
 ```
 
@@ -460,8 +460,8 @@ cf  = data.frame (Variable = c("Roughness - $Z_o$", "Empirical exponent - $\\alp
 
 kable(cf, align=c('l', 'c'),  digits = c(1, 2), format = "latex", escape = FALSE,
       col.names = c("Variable", "Value"),
-      caption = "Corrections factors for ISD station 801120",
-      caption.short = "Corrections factors for ISD station 801120",
+      caption = "Corrections Factors for ISD Station 801120",
+      caption.short = "Corrections Factors for ISD Station 801120",
       longtable = TRUE,
       booktabs = TRUE) %>%
       row_spec(0, align = "l") %>%
@@ -498,7 +498,7 @@ years_both$count.dc[is.na(years_both$count.dc)] <- 0
 kable(years_both, align=rep('l', 9),  digits = c(0,0,1,1,1,0,1,1,1), 
       col.names = c("Year", "Count", "Mean", "Min", "Max","Count", "Mean", "Min", "Max"),
       caption = "Yearly statistics of raw data and declustered data for ISD station 801120",
-      caption.short = "Yearly Statistics for ISD station 801120",
+      caption.short = "Yearly Statistics for ISD Station 801120",
       longtable = TRUE,
       booktabs = TRUE) %>%
       row_spec(0, align = "l") %>%
@@ -518,7 +518,7 @@ kable(years_both, align=rep('l', 9),  digits = c(0,0,1,1,1,0,1,1,1),
 It can be seen in the Table \@ref(tab:years801120), that de-clustered data has zero records for some years. This situation is due to that all the data for each one of those years (2001, 2007, 2011, 2013, 2018, and 2019), belonged to a cluster that started the previous year, or finished the next year, and the unique chosen maximum value (the value representative for the cluster) was found in the previous or next year, but not in mentioned years of zero records.
 
 
-```{r ts, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Non-Thunderstorm Time Series for ISD station 801120. Left: Raw Data. Right: De-clustered Data",  fig.align="center", fig.height=2, fig.width=4.5}
+```{r ts, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Non-Storm Time Series. ISD Station 801120. Raw Data(L). De-clustered(R)",  fig.align="center", fig.height=2, fig.width=4.5}
 #
 #Non-Thunderstorm Time Series for ISD station 801120. Left: Raw Data. Right: De-clustered Data
 #
@@ -528,7 +528,7 @@ plot_grid(myprint1, NULL, myprint5, ncol = 3,  rel_widths = c(1,0.26,1))
 Using de-clustered data, and considering that it is only necessary to calculate optimal threshold for non-thunderstorm data, because there is no records classified as thunderstorm in any data source, many non-thunderstorm thresholds were tested, to choose the best one using the W statistic, as described in section [thresholding](#thresholding) of the [methodology](#rmd-method). Figure \@ref(fig:page6) shows a very good fit in resulting W-Statistic plot, for optimal non-thunderstorm threshold $b_{nt} =$ _`r z5`_$\frac{Km}{h}$, with a minimum W distance of `r format(z8, scientific=F, digits = 2)`, for ISD station 801120, where empirical values (black points) are very close or similar to theoretical values (red line).
 
 
-```{r page6, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="POT - Thresholding", size="footnotesize", fig.align="center", fig.width=2.5, fig.asp=1}
+```{r page6, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="POT - Thresholding. ISD Station 801120", size="footnotesize", fig.align="center", fig.width=2.5, fig.asp=1}
 #
 #POT - Thresholding
 #
@@ -549,7 +549,7 @@ Equation \@ref(eq:ppintensityfunction), defined in section [POT-PP](#method-pot-
 After fitting the intensity function to the domain $D$, the resulting parameters for ISD station 801120, are location $\omega_t$ equal to `r format(z6, scientific=F, digits = 4)`, and scale $\psi_t$ equal to `r format(z7, scientific=F, digits = 4)`. Figure \@ref(fig:page8) shows the histogram and fitted _pdf_ in panel A, Q-Q plot (theoretical quantiles against empirical ones) in panel B,  empirical cumulative distribution against fitted _cdf_ in panel C, and P-P plot (theoretical probabilities against empirical ones) in panel D. In all four panels, it can be seen that there is a very good visual correspondence between empirical data (points and histogram) and theoretical adjustment (lines). 
 
 
-```{r page8, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Graphic Diagnosis Of Goodness of Fit. Station 801120", fig.align="center", fig.width=5, fig.height=4}
+```{r page8, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Goodness of Fit Graphic Diagnosis. Station 801120", fig.align="center", fig.width=5, fig.height=4}
 #
 #Graphic Diagnosis Of Goodness of Fit. Station 801120
 #
@@ -627,7 +627,7 @@ par(opar)
 ```
 
 
-### Hazard Curve and Return Levels - RL
+### Hazard Curve and Return Levels RL
 
 Hazard curve is the solution to Equation \@ref(eq:pprl), but eliminating from it elements related to thunderstorms, the equation is simplified to $A_{nt}\int_{Y_N}^{\infty}\lambda_{nt}\left( y\right)\,dy = \frac{1}{N}$, where $A_{nt}$ is the average time of non-thunderstorm events by year, and $Y_N$ is the return level or extreme wind velocity, corresponding to the N-years return period or MRI. Replacing in this equation the intensity function $lambda_{nt}$, and solving $Y_N$ for all possible values of MRI, will provide hazard curve displayed in Figure \@ref(fig:page10).
 
@@ -672,8 +672,8 @@ mdf = data.frame(MRI=tipicalReturnPeriods, RL=veocitiesfortypicalreturnperiodsP)
 
 kable(mdf, align=c('l', 'c'),  digits = c(1, 2),
       col.names = c("MRI", "Return Level"),
-      caption = "Return Levels -RL for typical Mean Return Intervals - MRI. ISD station 801120",
-      caption.short = "Return Levels for ISD station 801120",
+      caption = "Return Levels -RL for Typical Mean Return Intervals - MRI. ISD station 801120",
+      caption.short = "Return Levels for ISD Station 801120",
       longtable = TRUE,
       booktabs = TRUE) %>%
       row_spec(0, align = "l") %>%
@@ -690,7 +690,7 @@ Return levels of interest for this research, correspond to 700, 1700 and 3000 ye
 
 To enable a comparison between, a) POT-PP (previous section), b) [POT-GPD](#pot-gpd), and c) the fitting process of common extreme value distributions (GPA, GEV, GUM) without using POT method, this is, using the generic concept of [hazard function _hf_](#hf) (see [theoretical framework](#rmd-thefra)), a whole automation process was done to calculate return levels and errors using mentioned alternatives, bearing in mind that in all cases _maximum likelihood_ was used to calculate the parameters.
 
-Resulting return levels and errors for POT-GPD, using R packages extRemes - @Gilleland2019, ismev -  @JanetE.HeffernanwithRport2018, evd - @Stephenson2002, Renext - @Deville2016, evir - @Pfaff2018, and fExtremes - @Wuertz2017, are reported in Table \@ref(tab:comparisonGPD). Similarly are shown it Table \@ref(tab:comparisonCommonEVD), return levels calculated from the adjustment of the probability distributions GPA, GEV, and Gumbel.
+Resulting return levels and errors for POT-GPD, using R packages `extRemes` [@Gilleland2019], `ismev` [@JanetE.HeffernanwithRport2018], `evd` [@Stephenson2002], `Renext` [@Deville2016], `evir` [@Pfaff2018], and `fExtremes` [@Wuertz2017], are reported in Table \@ref(tab:comparisonGPD). Similarly are shown it Table \@ref(tab:comparisonCommonEVD), return levels calculated from the adjustment of the probability distributions GPA, GEV, and Gumbel.
 
 
 ```{r comparisonGPD, echo=FALSE, message=FALSE, warning=FALSE, paged.print=TRUE, results="asis"}
@@ -767,7 +767,7 @@ Using calculated return levels in all available ISD stations, continuous maps co
 
 ### Existing Hurricane Maps
 
-The Colombian consulting firm Ingeniar ltda, following the methodology described in @hurricanemaps, and @hurricanemaps2, has provided raster wind maps for return periods 10, 20, 50, 100, 250, 500, 700, 1000, 1700, 3000, and 7000 years, resulting from the probabilistic study of winds due to hurricanes in the Colombian Caribbean Sea and the surrounding continental zone. Figure \@ref(fig:ingeniarmaps) shows three of mentioned maps.
+The Colombian consulting firm Ingeniar ltda, following the methodology described in [@hurricanemaps], and [@hurricanemaps2], has provided raster wind maps for return periods 10, 20, 50, 100, 250, 500, 700, 1000, 1700, 3000, and 7000 years, resulting from the probabilistic study of winds due to hurricanes in the Colombian Caribbean Sea and the surrounding continental zone. Figure \@ref(fig:ingeniarmaps) shows three of mentioned maps.
 
 
 ```{r ingeniarmaps, echo=FALSE, fig.cap="Ingeniar Hurricane Wind Maps.", message=FALSE, warning=FALSE, fig.height=1.75, fig.width=6.5}
@@ -1488,51 +1488,45 @@ In relation to the use of PostgreSQL to store time series, seeking to decrease R
 
 ```{r results='hide', echo = TRUE, eval=FALSE, size="scriptsize"}
     #List objects in current environment
-    ls()
-    
+      ls()
     #Remove all objects in current environment
-    rm(list=ls())
-    
+      rm(list=ls())
     #After removing object, apply garbage collection
-    gc()
-    
+      gc()
     #List object sorted by size
-    sort(sapply(ls(),function(x){object.size(get(x))}))
-    
+      sort(sapply(ls(),function(x){object.size(get(x))}))
     #Remove an specific object
-    rm("name")
-    
+      rm("name")
     #Review some memory values
-    library(pryr)
-    mem_used()
-    memory.size()
-    memory.limit()
-    
+      library(pryr)
+      mem_used()
+      memory.size()
+      memory.limit()
     #Change memory limit
-    memory.limit(size = value)
+      memory.limit(size = value)
 ```
 
-For big netCDF files, as in present research, where variable _fg10_(3-s wind gust), stored 3.381 (49 cols x 69 rows) cells, and in each cell 356.472 hours, representing 1.205'231.832 different wind records, in a file size of 3.53 Gb, it is recomended to get specific needed slices instead of loading the entire file into memory. Use parameters _start_, and _count_ of function _ncvar_get_ (package _ncdf4_) to get desired netCDF records, as shown in code below, where time series of first ERA5 cell/station (upper-left) is assigned to variable _firstcelltimeseries_
+For big netCDF files, as in present research, where variable _fg10_(3-s wind gust), stored 3.381 (49 cols x 69 rows) cells, and in each cell 356.472 hours, representing 1.205'231.832 different wind records, in a file size of 3.53 Gb, it is recomended to get specific needed slices instead of loading the entire file into memory. Use parameters `start`, and `count` of function `ncvar_get` (R package `ncdf4`) to get desired netCDF records, as shown in code below, where time series of first ERA5 cell/station (upper-left) is assigned to variable _firstcelltimeseries_
  
 ```{r results='hide', echo = TRUE, eval=FALSE, size="scriptsize"}
     library(ncdf4)
-    ncname <- "outfile_nc4c_zip9.nc")
+    ncname <- "outfile_nc4c_zip9.nc"
     ncin <- nc_open(filename)
     #First column
-    firstcol=1
+      firstcol=1
     #First row
-    firstrow=1
+      firstrow=1
     #First time
-    firsttime = 1
+      firsttime = 1
     #Number of cols to get
-    ncols=1
+      ncols=1
     #Number of rows to get
-    nrows=1
+      nrows=1
     #Total number of time records (time dimension)
-    timedim <-  dim(ncvar_get(ncin, "time"))
+      timedim <-  dim(ncvar_get(ncin, "time"))
     #Number of time records to get
-    ntime = timedim
-    firstcelltimeseries = ncvar_get(nc=ncin, varid='fg10', start=c(firstcol,firstrow,firsttime), 
+      ntime = timedim
+      firstcelltimeseries = ncvar_get(nc=ncin, varid='fg10', start=c(firstcol,firstrow,firsttime), 
                                     count=c(ncols,nrows,ntime))
 ```
 
