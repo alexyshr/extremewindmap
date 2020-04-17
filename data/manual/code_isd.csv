@@ -1,12 +1,12 @@
 FolderTree,Description,Ftp
 code,Folder with R code. ALL CODE CREATED BY DR. ADAM PINTAR IS NOT PUBLISHED.,ftp://ftp.geocorp.co/windthesis/code/
 \;\;|-pot\_pp,Folder with POT-PP R code. Based in Dr Adam Pintar code (respected copyright).,ftp://ftp.geocorp.co/windthesis/code/pot_pp/
-\;\;\;\;|-function\_lib.r,POT-PP Functions. Author of declustering and thresholding functions is Dr Adam Pintar.,ftp://ftp.geocorp.co/windthesis/code/pot_pp/function_lib.r
+\;\;\;\;|-function\_lib.r,POT-PP Functions. Author of de-clustering and thresholding functions is Dr Adam Pintar.,ftp://ftp.geocorp.co/windthesis/code/pot_pp/function_lib.r
 \;\;\;\;|-plot\_nt.r,Plot non-thunderstorm graphics.,ftp://ftp.geocorp.co/windthesis/code/pot_pp/plot_nt.r
 \;\;\;\;|-plot\_t.r,Plot thunderstorm graphics.,ftp://ftp.geocorp.co/windthesis/code/pot_pp/plot_t.r
 \;\;\;\;|-plot\_t\_nt.r,"Plot graphics with thunderstorm and non-thunderstorm data, in simultaneous.",ftp://ftp.geocorp.co/windthesis/code/pot_pp/plot_t_nt.r
-\;\;\;\;|-stats\_graphs\_dnt.r,Statistics and graphics for non-thunderstorm declustered data.,ftp://ftp.geocorp.co/windthesis/code/pot_pp/statistics_and_graphics_declustered_nt.r
-\;\;\;\;|-stats\_graphs\_dt.r,Statistics and graphics for thunderstorm declustered data.,ftp://ftp.geocorp.co/windthesis/code/pot_pp/statistics_and_graphics_declustered_t.r
+\;\;\;\;|-stats\_graphs\_dnt.r,Statistics and graphics for non-thunderstorm de-clustered data.,ftp://ftp.geocorp.co/windthesis/code/pot_pp/statistics_and_graphics_declustered_nt.r
+\;\;\;\;|-stats\_graphs\_dt.r,Statistics and graphics for thunderstorm de-clustered data.,ftp://ftp.geocorp.co/windthesis/code/pot_pp/statistics_and_graphics_declustered_t.r
 \;\;\;\;|-stats\_raw\_data.r,Statistics for raw data.,ftp://ftp.geocorp.co/windthesis/code/pot_pp/statistics_raw_data.r
 \;\;\;\;|-stats\_raw\_data\_nt.r,Statistics for non-thunderstorm raw data.,ftp://ftp.geocorp.co/windthesis/code/pot_pp/statistics_raw_data_nt.r
 \;\;\;\;|-stats\_raw\_data\_t.r,Statistics for thunderstorm raw data.,ftp://ftp.geocorp.co/windthesis/code/pot_pp/statistics_raw_data_t.r

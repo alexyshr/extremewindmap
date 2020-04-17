@@ -61,20 +61,20 @@ isd_stations = as_tibble(tbl(con1, sql(query3)))
 
 # Data {#rmd-data}
 
-Input data is made up of three different sources a) IDEAM - Institute of Hydrology, Meteorology and Environmental Studies of Colombia <http://www.ideam.gov.co>, b) ISD - Integrated Surface Database <https://www.ncdc.noaa.gov/isd>, and c) ERA5 climate reanalysis <https://www.ecmwf.int/en/forecasts/datasets/reanalysis-datasets/era5>. 
+Input data was obtained from three different sources (a) Institute of Hydrology, Meteorology and Environmental Studies of Colombia IDEAM <http://www.ideam.gov.co>, (b) Integrated Surface Database ISD <https://www.ncdc.noaa.gov/isd>, and (c) climate reanalysis ERA5 <https://www.ecmwf.int/en/forecasts/datasets/reanalysis-datasets/era5>. Information about datasets, variables, and units is found in tables \@ref(tab:tabledatasources1), \@ref(tab:tabledatasources2), and \@ref(tab:tabledatasources3) respectively.
 
 ```{r tabledatasources1, echo= F, echo=FALSE, message=FALSE, warning=FALSE, results="asis"}
 data_sources_thesis_summary1 <-read.csv("./data/data_sources_thesis_summary1.csv",header=TRUE, stringsAsFactors = F)
 
 kable(data_sources_thesis_summary1, align=rep('l', 3),
-      #col.names = c("Name[Code]", "Latitud", "Longitud"),
+      #col.names = c("Name[Code]", "Latitude", "Longitude"),
       caption = "Datasets description",
       caption.short = "Datasets Description",
       longtable = TRUE,
       booktabs = TRUE) %>%
       row_spec(0, align = "l") %>%
-      column_spec(2,width = "0.8in") %>%
-      column_spec(3,width = "4in") %>%
+      column_spec(2,width = "1.2in") %>%
+      column_spec(3,width = "3.8in") %>%
 kable_styling(font_size = 10, latex_options="scale_down")
 
 ```
@@ -83,7 +83,7 @@ kable_styling(font_size = 10, latex_options="scale_down")
 data_sources_thesis_summary2 <-read.csv("./data/data_sources_thesis_summary2.csv",header=TRUE, stringsAsFactors = F)
 
 kable(data_sources_thesis_summary2, align=rep('l', 3),
-      #col.names = c("Name[Code]", "Latitud", "Longitud"),
+      #col.names = c("Name[Code]", "Latitude", "Longitude"),
       caption = "Variables in all datasets",
       caption.short = "Datasets Variables",
       longtable = TRUE,
@@ -95,11 +95,12 @@ kable_styling(font_size = 10, latex_options="scale_down")
 
 ```
 
+
 ```{r tabledatasources3, echo= F, echo=FALSE, message=FALSE, warning=FALSE, results="asis"}
 data_sources_thesis_summary3 <-read.csv("./data/data_sources_thesis_summary3.csv",header=TRUE, stringsAsFactors = F)
 
 kable(data_sources_thesis_summary3, align=rep('l', 4),
-      #col.names = c("Name[Code]", "Latitud", "Longitud"),
+      #col.names = c("Name[Code]", "Latitude", "Longitude"),
       caption = "Variables Units and Time",
       caption.short = "Variables Units and Time",
       longtable = TRUE,
@@ -110,18 +111,29 @@ kable(data_sources_thesis_summary3, align=rep('l', 4),
 kable_styling(font_size = 10, latex_options="scale_down")
 ```
 
-Ideal data source to create extreme wind speeds maps should be field observed data from IDEAM, but there are not enough number of stations around the study area to represent all the local wind variability in a huge country with multiple variety of climates and and changing thermal floors, but there are other important motivation to include different sources trying to improve output results:
+Ideal data source to create extreme wind speeds maps should be field observed data from IDEAM, but the IDEAM data have the following deficiencies: 
 
-* As just mentioned, low quantity of IDEAM stations
-* There are uncertainties related to the way IDEAM anemometers are registering data, then comparison with other data sources are needed to be able to do appropriate data standardization, needed as a prerequisite to the analysis.
-* There is no time continuity in the registration of IDEAM data. Historical time series are different and variable in each station.
+1. There are not enough number of stations around the study area to represent all the local wind variability in a huge country with multiple variety of climates and changing thermal floors.
 
-Importance of ISD database for this study is based on the fact that post-processed ISD database has wind extreme values, and it was used to create extreme wind maps for United States. ISD allows comparison with IDEAM records to take better decisions in order to do needed data standardization. Despite that ERA5 data are not observed data, but forecast, its main advantage is data availability to assess the local climatic variance every 0.25 square decimal degrees.
+2. There are uncertainties related to the way anemometers are registering data, then comparison with other data sources are needed to be able to do appropriate data standardization, needed as a prerequisite for the analysis.
 
+3. There is no time continuity in the registration of IDEAM data. Historical time series are different and variable in each station.
+
+4. The different wind related variables provided by IDEAM are not well documented and their comparative values for identical time periods are not consistent with each other.
+
+Other logistical difficulties in accessing IDEAM data source are also highlighted:
+
+1. It was not possible to obtain the wind hourly mean variable.
+
+2. It was impossible for them to calculate and deliver a representative gust velocity, for example _5-minutes gust_.
+
+3. There was also no access to complete raw data (instantaneous measurements every minute that they claim to have), to be able to calculate from them the variables required for the study.
+
+Importance of ISD database for this study is based on the fact that post-processed ISD database has wind extreme values, and it was used to create extreme wind maps for United States. ISD allows comparison with IDEAM records to take better decisions in order to conduct data standardization. Despite that ERA5 data are not observed data (but forecast), its main advantage is their resolution (0.25 square decimal degrees) and availability.
 
 ## IDEAM
 
-Historical observed wind speeds from `r length(ideam_stations$codigo1)` stations in Colombia are managed by the official environmental authority IDEAM. Table \@ref(tab:tableideamstations) shows a sample of five IDEAM stations. Figure \@ref(fig:plotideamstations) shows a map of IDEAM stations.
+Historical observed wind speeds from `r length(ideam_stations$codigo1)` stations in Colombia are managed by the official environmental authority IDEAM. Table \@ref(tab:tableideamstations) shows a sample of five IDEAM stations. Figure \@ref(fig:plotideamstations) shows a map of IDEAM stations. Figure \@ref(fig:plotoneideamstation) shows data for IDEAM station "21205791".
 
 ```{r tableideamstations, echo=FALSE, message=FALSE, warning=FALSE, results="asis"}
 tableideam =  ideam_stations[c(81,120,200,57,179), c("nombre", "latitud", "longitud")]
@@ -130,7 +142,7 @@ tableideam$longitud = round(tableideam$longitud, 2)
 
 #tableideamstations = 
 kable(tableideam, 
-      col.names = c("Name[Code]", "Latitud", "Longitud"),
+      col.names = c("Name[Code]", "Latitude", "Longitude"),
       caption = "IDEAM Stations Sample",
       caption.short = "IDEAM Stations Sample",
       longtable = TRUE,
@@ -183,9 +195,7 @@ ggplot(data = world) +
   theme(panel.grid.major = element_line(color = gray(.5), linetype = "dashed", size = 0.5), panel.background = element_rect(fill = "aliceblue"))
 ```
 
-Following, the time series, autocorrelation function, and partial autocorrelation function, for IDEAM station "21205791" will be displayed.
-
-```{r plotoneideamstation, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="IDEAM Station ELDORADO CATAM - AUT - Time Series", fig.width=4, fig.height=2.7}
+```{r plotoneideamstation, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Time Series of IDEAM Station ELDORADO CATAM - AUT", fig.width=4, fig.height=2.7}
 #Plote time series - one IDEAM Station
 originalfields = c("21205791")
 newfields = paste ("X", originalfields, sep="")
@@ -227,7 +237,8 @@ plot.xts(statideam_xts, main = "Station ID: 21205791\nWind Velocity [m/s]", majo
 
 ## ISD
 
-ISD is a database with environmental variables, among them extreme wind speeds. ISD has data for the whole planet, and is based on observed data at meteorological stations in each country, which means that for Colombia is based on IDEAM data. Main advantage is data availability at neighbor countries and specialized post-processing made by NOAA's National Centers for Environmental Information - NCEI in United States, which facilitates its use. Table \@ref(tab:tableisdstations) shows a sample of five ISD stations. Figure \@ref(fig:plotisdstations) shows a map of ISD stations.
+ISD is a database with environmental variables, among them extreme wind speeds. ISD has data for the whole planet, and is based on observed data at meteorological stations in each country, which means that for Colombia is based on IDEAM data. Main advantage is data availability at neighbor countries and specialized post-processing made by NOAA's National Centers for Environmental Information NCEI in United States, which facilitates its use. Table \@ref(tab:tableisdstations) shows a sample of five ISD stations. Figures \@ref(fig:plotisdstations) and \@ref(fig:plotoneisdstation) shows a map of ISD stations and data from ISD station "802590".
+
 
 ```{r tableisdstations, echo=FALSE, message=FALSE, warning=FALSE, results="asis"}
 tableisd =  isd_stations[c(81,20,29,57,60), c("usaf", "station_name", "latitud", "longitud")]
@@ -236,7 +247,7 @@ tableisd$longitud = round(tableisd$longitud, 2)
 
 #tableideamstations = 
 kable(tableisd, 
-      col.names = c("Code", "Name", "Latitud", "Longitud"),
+      col.names = c("Code", "Name", "Latitude", "Longitude"),
       caption = "ISD Stations Sample",
       caption.short = "ISD Stations Sample",
       longtable = TRUE,
@@ -250,7 +261,7 @@ isd_stations = st_as_sf(isd_stations, coords = c("longitud", "latitud"), crs = 4
 ```
 
 
-```{r plotisdstations, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="ISD Stations. Colombia and Surroundings"}
+```{r plotisdstations, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="ISD Stations. Colombia and Surroundings countries"}
 #Plot ISD Stations
 theme_set(theme_bw())
 world <- ne_countries(scale = "medium", returnclass = "sf")
@@ -284,8 +295,6 @@ ggplot(data = world) +
   ggtitle("Integrated Surface Database - ISD") + 
   theme(panel.grid.major = element_line(color = gray(.5), linetype = "dashed", size = 0.5), panel.background = element_rect(fill = "aliceblue"))
 ```
-
-Following, the time series, autocorrelation function, and partial autocorrelation function, for ISD station "802590" will be displayed.
 
 ```{r plotoneisdstation, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="ISD Station ALFONSO BONILLA ARAGON INTL - Time Series", fig.width=4, fig.height=2.7}
 #Plot - ISD Station
@@ -331,7 +340,7 @@ plot.xts(statisd_xts, main = "Station ID: 802590\nWind Velocity [m/s]", major.ti
 ## ERA5
 
 ```{r loadera5, include=FALSE}
-#Load ERA5 netCDF dataset - variable fg10
+#Load ERA5 NetCDF dataset - variable fg10
 ncname <- "outfile_nc4c_zip9"
 filename <- paste("./data/", ncname, ".nc", sep = "")
 ncin <- nc_open(filename)
@@ -545,7 +554,7 @@ corner4rb = ggplot(data = world) +
 grid.arrange(big, arrangeGrob(corner1lt, corner2rt, corner3lb, corner4rb), ncol=2, widths=c(2.2,1))
 ```
 
-ERA5 is forecast reanalysis data processed by the _European Centre for Medium-Range Weather Forecasts_ - ECMWF with wind speeds time series in square cells _matrix of pixels_ of 0.25 decimal degrees (aprox 28 km in Colombia) covering the whole planet. For the study area was extracted a raster of `r (nlat)` rows by `r nlon` columns in format netCDF. Cell centers represent ERA5 stations, with IDs from 1 (lon=-79, lat=12.5) to 3381 (lon=-67, lat=-4.5). Figure \@ref(fig:plotera5stations) shows a map of ERA5 stations.
+ERA5 is forecast reanalysis data processed by the _European Centre for Medium-Range Weather Forecasts_ ECMWF with wind speeds time series in square cells of 0.25 decimal degrees covering the whole planet. It was extracted a raster of `r (nlat)` rows by `r nlon` columns in format NetCDF. Cell centers represent ERA5 stations, with IDs from 1 (lon=-79, lat=12.5) to 3381 (lon=-67, lat=-4.5). Map in figure \@ref(fig:plotera5stations) shows ERA5 stations.
 
 
 ```{r, include=FALSE}
@@ -572,6 +581,6 @@ colnames(statera5_xts) = paste0("ERA5_", "1")
 
 ## Data Download and Data Organization
 
-All data sources had different mechanisms for downloading. For IDEAM, the official procedure is through a written request using the e-mail _atencionalciudadano@ideam.gov.co_, then they will provide a link to get the information. For ISD, all files are available in the ftp site ftp://ftp.ncdc.noaa.gov/pub/data/noaa/isd-lite/, organized in folders by years, then a gzip file is available, with the station name in the format _ID-99999-YYYY.gz_, where ID is the USAF-ISD station identifier. For ISD, there are many files by station, one file for each year with data available. For ERA5 it is possible to make a request using a Python script, but since there is a size limit for downloading, it is necessary to split the request, then, use console commands to create an unified netCDF file. Files with all IDEAM and ISD stations are available in the Annex \@ref(rcode) - [Results - Digital Files](#results). For the Python code, and the commands to join netCDF files of ERA5 data source, see the Annex \@ref(datadownload) - [ERA5 Data Download](#datadownload). For data organizattion see Annex \@ref(dbstoring) - [Database Storing](#dbstoring).
+All data sources had different mechanisms for downloading. For IDEAM, the official procedure is through the e-mail _atencionalciudadano@ideam.gov.co_. For ISD all files are available in the FTP site ftp://ftp.ncdc.noaa.gov/pub/data/noaa/isd-lite/, organized in folders by years with _gzip_ files inside; there are many files by station (one file for each year available), with names in the format _ID-99999-YYYY.gz_, where ID is the USAF-ISD station identifier, and YYYY is the year. ERA5 data request uses a Python scripts with data size limit for download. Files with all IDEAM and ISD stations are available in Annex \@ref(rcode). For the Python code and commands to join NetCDF files of ERA5 data source see the Annex \@ref(datadownload). For data organization see the Annex \@ref(dbstoring).
 
 \clearpage

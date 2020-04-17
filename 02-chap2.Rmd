@@ -24,22 +24,24 @@ MathJax.Hub.Config({
     install.packages(new.pkg, repos = "http://cran.rstudio.com")
 # Load packages (thesisdown will load all of the packages as well)
   library(RcmdrMisc)
+  library(knitr)
 ```
 
 
 ## Probability Concepts
 
-Poisson process is an stochastic method that relies in the concepts of probability distributions. The main functions related to probability for extreme value analysis will be described below.
+### Probability Density Function PDF
 
-### Probability Density Function _pdf_
+PDF defines the probability that a continuous variable falls between two points. In PDF the probability is related to the area below the curve (integral) between two points, as for continuous probability distributions the probability at a single point is zero. The term density is related to the quantity of probability defined below each part of the curve, the higher the values of the curve, the higher the density and, consequently, the probability.
 
-_Pdf_ defines the probability that a continuous variable falls between two points, this is, in _pdf_ the probability is related to the area below the curve (integral) between two points, as for continuous probability distributions the probability at a single point is zero. The term density is directly related to the probability of a portion of the curve, if the density function has high values the probability will be greater in comparison with the same portion of curve for low values.
+\begin{equation}
+\mathrm{
+        \int_a^b f(x)dx = Pr[a \leq X \leq b]
+       }
+  (\#eq:pdf)
+\end{equation}
 
-$$
-\int_a^b f(x)dx = Pr[a \leq X \leq b]
-$$
-
-Equation \@ref(eq:gumbelpdf) is the Gumbel _pdf_.
+Equation \@ref(eq:gumbelpdf) is the Gumbel PDF.
 
 <!--
 \begin{equation}
@@ -72,12 +74,12 @@ Equation \@ref(eq:gumbelpdf) is the Gumbel _pdf_.
   (\#eq:gumbelpdf)
 \end{equation}
 
-where $\exp\left\{.\right\} \mapsto \mathrm{e}^{\left\{.\right\}}$, $\beta$ is the scale parameter, and $\mu$ is the location parameter. Location ($\mu$) has the effect to shift the _pdf_ to left or right along 'x' axis, thus, if location value is changed the effect is a movement of _pdf_ to the left (small value for location), or to the right (big value for location). Scale has the effect to stretch ($\beta > 1$) of compress  ($0 < \beta< 1$) the _pdf_, if scale parameter is close to zero the _pdf_ approaches a spike.
+where $\exp\left\{.\right\}$ is $\mathrm{e}^{\left\{.\right\}}$, $\beta$ the scale parameter, and $\mu$ the location parameter. Location ($\mu$) has the effect to shift the PDF to left or right along 'x' axis, thus, if location value is changed the effect is a movement to the left (small value for location), or to the right (big value for location). Scale has the effect to stretch ($\beta > 1$) of compress  ($0 < \beta< 1$) the PDF, if scale parameter is close to zero it approaches a spike.
 
 
-Figure \@ref(fig:plotgumbelpdffunction) shows _pdf_ with location ($\mu$) = 100 and scale ($\beta$) = 40, using Equation \@ref(eq:gumbelpdf). 
+Figure \@ref(fig:plotgumbelpdffunction) shows PDF with location ($\mu$) = 100 and scale ($\beta$) = 40, using Equation \@ref(eq:gumbelpdf). Figure \@ref(fig:plotgumbelpdf) shows PDF with location ($\mu$) = 100 and scale ($\beta$) = 40, using function `dgumbel` of the package `RcmdrMisc`.
 
-```{r plotgumbelpdffunction, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Gumbel pdf", size="footnotesize", fig.width= 4, fig.height= 3}
+```{r plotgumbelpdffunction, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Gumbel PDF", size="footnotesize", fig.width= 4, fig.height= 3}
 par(mar=c(2.5,2.5,2,0))
 par(oma=c(0,0,0,0))
 par(mgp=c(1.5,0.5,0))
@@ -92,9 +94,8 @@ plot(.x, .y, col="green", lty=4, xlab="Velocities Km/h", ylab="Density Function 
  main=paste("Gumbel - Density Function Gumbel Distribution\n", "Location=", round(location,2), " Scale=", round(scale,2)), type="l", cex.sub=0.6)
 ```
 
-Figure \@ref(fig:plotgumbelpdf) shows _pdf_ with location ($\mu$) = 100 and scale ($\beta$) = 40, using function `dgumbel` of the package `RcmdrMisc`
 
-```{r plotgumbelpdf, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Gumbel pdf - dgumbel function", size="footnotesize", fig.width= 4, fig.height= 3}
+```{r plotgumbelpdf, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Gumbel PDF - dgumbel function", size="footnotesize", fig.width= 4, fig.height= 3}
 par(mar=c(2.5,2.5,2,0))
 par(oma=c(0,0,0,0))
 par(mgp=c(1.5,0.5,0))
@@ -106,19 +107,28 @@ plot(.x, dfG, col="red", lty=4, xlab="Velocities Km/h", ylab="Density Function -
  main=paste("Gumbel - Density Function Gumbel Distribution\n", "Location=", round(location,2), " Scale=", round(scale,2)), type="l", cex.sub=0.6)
 ```
 
-### Cumulative Distribution Function _cdf_
+### Cumulative Distribution Function CDF
 
-_Cdf_ is the probability of taking a value less than or equal to x. That is
+CDF is the probability of taking a value less than or equal to x. That is
 
-$$
-F(x) = Pr[X < x] = \alpha
-$$
-For a continuous variable, _cdf_ can be expressed as the integral of its _pdf_.
-$$
-F(x) = \int_{-\infty}^x f(x)dx
-$$
+\begin{equation}
+\mathrm{
+        F(x) = Pr[X < x] = \alpha
+       }
+  (\#eq:cdf1)
+\end{equation}
 
-Equation \@ref(eq:gumbelcdf) is the Gumbel _cdf_.
+For a continuous variable, CDF can be expressed as the integral of its PDF.
+
+\begin{equation}
+\mathrm{
+        F(x) = \int_{-\infty}^x f(x)dx
+       }
+  (\#eq:cdf2)
+\end{equation}
+
+
+Equation \@ref(eq:gumbelcdf) is the Gumbel CDF.
 
 \begin{equation}
 \mathrm{
@@ -129,9 +139,9 @@ Equation \@ref(eq:gumbelcdf) is the Gumbel _cdf_.
 \end{equation}
 
 
-Figure \@ref(fig:plotgumbelcdffunction) shows Gumbel _cdf_ with location ($\mu$) = 100 and scale ($\beta$) = 40, using Equation \@ref(eq:gumbelcdf). As previously done with _pdf_, similar result can be achieved using function `pgumbel` of package `RcmdrMisc`.
+Figure \@ref(fig:plotgumbelcdffunction) shows Gumbel CDF with location ($\mu$) = 100 and scale ($\beta$) = 40, using Equation \@ref(eq:gumbelcdf). As previously done with PDF, similar result can be achieved using function `pgumbel` of package `RcmdrMisc`.
 
-```{r plotgumbelcdffunction, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Gumbel cdf", size="footnotesize", fig.width= 4, fig.height= 3}
+```{r plotgumbelcdffunction, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Gumbel CDF", size="footnotesize", fig.width= 4, fig.height= 3}
 par(mar=c(2.5,2.5,2,0))
 par(oma=c(0,0,0,0))
 par(mgp=c(1.5,0.5,0))
@@ -146,14 +156,19 @@ plot(.x, .y, col="green", lty=4, xlab="Velocities Km/h", ylab="Probability", cex
  main=paste("Gumbel - Cumulative Distribution Function\n", "Location=", round(location,2), " Scale=", round(scale,2)), cex.sub=0.6)
 ```
 
-### Percent Point Function _ppf_
+### Percent Point Function PPF
 
-_Ppf_ is the inverse of _cdf_, also called the _quantile_ function. This is, from a specific probability get the corresponding value x of the variable.
+PPF is the inverse of CDF, also called the _quantile_ function. This is, from a specific probability get the corresponding value x of the variable.
 
-$$
-x = G(\alpha) = G(F(x))
-$$
-Equation \@ref(eq:gumbelppf) is the Gumbel _ppf_.
+\begin{equation}
+\mathrm{
+        x = G(\alpha) = G(F(x))
+       }
+  (\#eq:ppf)
+\end{equation}
+
+
+Equation \@ref(eq:gumbelppf) is the Gumbel PPF.
 
 \begin{equation}
 \mathrm{
@@ -164,9 +179,9 @@ Equation \@ref(eq:gumbelppf) is the Gumbel _ppf_.
 \end{equation}
 
 
-Figure \@ref(fig:plotgumbelppffunction) shows Gumbel _ppf_, using Equation \@ref(eq:gumbelppf). Similar result can be achieved using function `qgumbel` of package `RcmdrMisc`.
+Figure \@ref(fig:plotgumbelppffunction) shows Gumbel PPF, using Equation \@ref(eq:gumbelppf). Similar result can be achieved using function `qgumbel` of package `RcmdrMisc`.
 
-```{r plotgumbelppffunction, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Gumbel ppf", size="footnotesize", fig.width= 4, fig.height= 3}
+```{r plotgumbelppffunction, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Gumbel PPF", size="footnotesize", fig.width= 4, fig.height= 3}
 par(mar=c(2.5,2.5,2,0))
 par(oma=c(0,0,0,0))
 par(mgp=c(1.5,0.5,0))
@@ -182,10 +197,12 @@ plot(.x, .y, col="green", lty=4, ylab="Velocities Km/h", xlab="Probability", cex
 ```
 
 
-### Hazard Function _hf_ {#hf}
+### Hazard Function HF {#hf}
+
+Figure \@ref(fig:plotgumbelhffunction) shows Gumbel HF, using Equation \@ref(eq:gumbelhf).
 
 
-```{r plotgumbelhffunction, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Gumbel hf", size="footnotesize", fig.width= 4, fig.height= 3}
+```{r plotgumbelhffunction, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Gumbel HF", size="footnotesize", fig.width= 4, fig.height= 3}
 par(mar=c(2.5,2.5,2,0))
 par(oma=c(0,0,0,0))
 par(mgp=c(1.5,0.5,0))
@@ -200,12 +217,17 @@ plot(.x, .y, col="green", lty=4, xlab="Velocities Km/h", ylab="Hazard", cex.axis
  main=paste("Gumbel - Hazard Function\n", "Location=", round(location,2), " Scale=", round(scale,2)), type="l", xlim=c(0,500))
 ```
 
-Using $S(x) = 1 - F(x)$ as survival function -_sf_, the probability that a variable takes a value greater than x $S(x) = Pr[X > x] = 1 - F(x)$, the _hf_ is the ratio between _pdf_ and _sf_.
+HF is the ratio between PDF and SF. SF is the survival function $S(x) = 1 - F(x)$, which defines the probability that a variable takes a value greater than x, $S(x) = Pr[X > x] = 1 - F(x)$.
 
-$$
-h(x) = \frac{f(x)}{S(x)} = \frac{f(x)}{1-F(x)}
-$$
-Equation \@ref(eq:gumbelhf) is the Gumbel _ppf_.
+\begin{equation}
+\mathrm{
+        h(x) = \frac{f(x)}{S(x)} = \frac{f(x)}{1-F(x)}
+       }
+  (\#eq:hf)
+\end{equation}
+
+
+Equation \@ref(eq:gumbelhf) is the Gumbel HF.
 
 
 \begin{equation}
@@ -216,21 +238,16 @@ Equation \@ref(eq:gumbelhf) is the Gumbel _ppf_.
 \end{equation}
 
 
-Figure \@ref(fig:plotgumbelhffunction) shows Gumbel _hf_, using Equation \@ref(eq:gumbelhf).
+## Statistical Concepts for Extreme Analysis
 
-
-## Statistical Concepts For Extreme Analysis
-
-In order to approach the extreme value analysis, some statistical concepts are needed to understand the theoretical framework behind this knowledge area. In this section will be introduced the concepts annual exceedance probability, mean recurrence interval - MRI, exposure time, and compound probability for any given exposure time and MRI.
-
-As an hypothetical example, a simulated database of extreme wind speed will be used. This database is supposed to have 10.000 years of simulated wind speeds.
+In order to approach the extreme value analysis, some statistical concepts are needed to understand the theoretical framework behind this knowledge area. This section introduces the concepts annual exceedance probability, mean recurrence interval MRI, exposure time, and compound probability for any given exposure time and MRI. As a hypothetical example, a simulated database of extreme wind speed will be used. This database is supposed to have 10.000 years of wind speeds.
 
 ### Annual Exceedance Probability $P_e$
 
-Using the previously described database, a question arises to calculate the probability to exceed the highest probable loss due to the simulated winds. It is possible to conclude that there is only one event grater or equal (in this case equal) to the highest probable causing loss in 10.000 years, and it is the _highest wind_. If we sort the database by wind magnitude in descending order (small winds last), the question is solved calculating the annual exceedance probability _Pe_ with next formula 
+Using the previously described database, a question arises to calculate the probability to exceed the highest probable damage caused to any structure by the action of the winds from this simulated database. It is possible to conclude that there is only one event greater or equal (in this case equal) to the highest probable causing damage in 10.000 years, and it is the _highest wind_. If we sort the database by wind magnitude in descending order (small winds last), the question is solved calculating the annual exceedance probability _Pe_ with next formula 
 
 
-```{r , echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Sorted Winds by Magnitude - Wind Simulation Database", size="footnotesize", fig.width= 3, fig.height= 1}
+```{r , echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Sorted Wind Velocities by Magnitude", size="footnotesize", fig.width= 3, fig.height= 1}
 par(oma=c(0,0,0,0))
 par(mar=c(1.5,0,0,0))
 par(xpd=NA)
@@ -254,29 +271,35 @@ axis(1, labels=FALSE, tick=TRUE, col.axis="black", lwd.ticks=0)
 #box(which = "outer", col="black", lwd=0.1)
 ```
 
+The annual exceedance probability $P_e$ equals to the ratio between _event index after descending sorting_ and _years of simulations_. The highest wind will be the first in the sorted list.
+
 $$
-P_e = \frac{Event\,index\,after\,descending\,sorting}{Years\,of\,simulations } = \frac{1}{10.000}=0.001=0.01\%
+P_e = \frac{\textrm{Event index after descending sorting}}{\textrm{Years of simulations}}= \frac{1}{10.000}=0.001=0.01\%
 $$
-because the highest wind will be the first in the sorted list. Same exercise can be done with all winds to construct the annual exceedance probability curve, that in this case will represent the probability to equal or exceed different probable losses due to wind.
+Same exercise can be done with all winds to construct the annual exceedance probability curve, that in this case will represent the probability to equal or exceed different probable damage due to wind.
 
 ### Mean Recurrence Interval MRI
 
-Continuing with the previous section, if the inverse of the exceedance probability is taken, the return period (in years) is obtained. The return period or Mean Recurrence Interval - MRI is associated with an specific return level (wind extreme velocity). MRI is the numbers of years (N) needed to obtain 63% of change that the corresponding return level will occur at least one time in that period. The return level is expected to be exceeded on average once every N-years. The annual exceedance probability of the return level corresponding to N-years of MRI, is $P_e=\frac{1}{MRI}=\frac{1}{N}$.
+Continuing with the previous section, if the inverse of the exceedance probability is taken, the return period (in years) is obtained. The return period or Mean Recurrence Interval MRI is associated with a specific return level (wind extreme velocity). MRI is the numbers of years (N) needed to obtain 63% of change that the corresponding return level will occur at least one time in that period. The return level is expected to be exceeded on average once every N-years. 
 
-For an specific wind extreme event A, the probability that the event will occur in a period equal to MRI years is 63%. If we analyze for the same period a strongest wind extreme event B, its occurrence probability will be lest than 67%. If the purpose of this research is to design infrastructure considering wind loads, the structure will be more resistant to wind if we design with stronger winds, this is high MRIs, and low annual exceedance probability. Common approach for infrastructure design, considering any type of load (earthquake, wind, etc) is to choose high MRI according to the importance/use/risk/type of the structure. For highly important structures, like hospitals or coliseums, where the risk of collapse must be diminished, the MRI used to design is higher in comparison to common structures (for instance a normal house), which implies less risks for its use and importance.
+The formula to calculate the annual exceedance probability of the return level depends on the MRI value as shown below:
 
-$$
-  \mathrm{
-    P_e = 
-    \begin{cases}
-      \begin{split}
-            &1-\exp\left(-\frac{1}{MRI}\right),\;for\,MRI\,<\,10\,years
-            \\
-            &\frac{1}{MRI},\;for\,MRI\,\geq\,10\,years      
-      \end{split}
-    \end{cases}
-  }
-$$
+\begin{equation}
+\mathrm{
+        P_e = 
+        \begin{cases}
+          \begin{split}
+                &1-\exp\left(-\frac{1}{MRI}\right),\;\textrm{for MRI < 10 years}
+                \\
+                &\frac{1}{MRI},\;\textrm{for MRI }\geq\textrm{ 10years}      
+          \end{split}
+        \end{cases}
+       }
+  (\#eq:pe)
+\end{equation}
+
+For a specific wind extreme event A, the probability that the event will occur in a period equal to MRI years is 63%. If we analyze for the same period a strongest wind extreme event B, its occurrence probability will be less than 67%. If the purpose of this research is to design infrastructure considering wind loads, the structure will be more resistant to wind if we design with stronger winds, this is high MRIs, and low annual exceedance probability. Common approach for infrastructure design, considering any type of load (earthquake, wind, etc.) is to choose high MRI according to the importance/use/risk/type of the structure. For highly important structures, like hospitals or coliseums, where the risk of collapse must be diminished, the MRI used to design is higher in comparison to common structures (for instance a normal house), which implies less risks for its use and importance.
+
 
 ### Compound Exceedance Probability Pn
 
@@ -318,101 +341,113 @@ text(x=0.15,  y=1800, labels = "chance event\nwill not occur", cex=0.7)
 text(x=0.85,  y=1800, labels = "chance event\nwill occur", cex=0.7)
 ```
 
-If time of exposure is consider, understood as time the structure will be in use, it is possible to have a compound probability $P_n$, where $n$ is the exposure period. $P_n$ is the probability that the extreme wind speed will be equaled or exceeded at least one time in $n$ years, and is related with the occurrence probability, but also is possible to calculate the non-occurrence compound probability (probability that the event will not occur).
+It is possible to calculate a compound probability $P_n$, where $n$ is the exposure period. The exposure period is the usage time of the structures that have been designed with an extreme wind speed. $P_n$ is the probability that the extreme wind speed will be equaled or exceeded at least one time in $n$ years, and in this sense it is a probability of occurrence:
 
-$$
-  \mathrm{
-    P_n = 
-    \begin{cases}
-      \begin{split}
-            &1-\left(1-\frac{1}{MRI}\right)^n,\;occurrence\,probability
-            \\
-            &\left(1-\frac{1}{MRI}\right)^n,\;non-occurrence\,probability
-      \end{split}
-    \end{cases}
-  }
-$$
+\begin{equation}
+\mathrm{
+        P_n = 1-\left(1-\frac{1}{MRI}\right)^n,\;\textrm{occurrence probability}
+       }
+  (\#eq:pn)
+\end{equation}
 
 
+As a complementary probability, it is possible to calculate the compound non-occurrence probability as $\left(1-\frac{1}{MRI}\right)^n$
 
-If it is consider exposure time as a multiple of return period, the resulting Figure  \@ref(fig:compoundprobability), shows that:
+If it is considering exposure time as a multiple of return period, the resulting Figure  \@ref(fig:compoundprobability), shows that:
 
 * When exposure time is .69% of the return period, then probability (occurrence and non-occurrence) will be 50%
-* As was stated previously, when exposure time is equal to return period, then the probability that the extreme wind speed (return level) occur is 63%, and 37% for the non occurrence probability.
+* As was stated previously, when exposure time is equal to return period, then the probability that the extreme wind speed (return level) occur is 63%, and 37% for the non-occurrence probability.
 * If exposure time is 4.5 times the return period, there is a 99% of change that the return level will occur.
 
-The example discussed here was presented as an instrument to introduce important concepts, nonetheless,there are specialized approaches to deal with extreme value analysis which will be discussed in [Extreme Value Analysis Overview](#extremeoverview) and more in detail in [Peaks Over Threshold - Poisson Process](#pot-pp). In summary, is necessary to fit the data over a specific threshold to an extreme value distribution, and $P_e$ will be $1-F(y)$, with F(y) as the _cdf_, and MRI as $\frac{1}{1-F(y)}$.
+The example discussed here was presented as an instrument to introduce important concepts, nonetheless, there are specialized approaches to deal with extreme value analysis which will be discussed in _[Extreme Value Analysis Overview](#extremeoverview)_.
 
 
 ## Extreme Value Analysis Overview {#extremeoverview}
 
-Analysis of extreme values is related with statistical inference to calculate probabilities of extreme events. Main methods to analyze extreme data are _sample maxima_, and _Peaks Over Threshold POT_. The sample maxima method also known as epochal or block maxima, is the classical approach and uses the most extreme value for a specific frame of time, typically one year. POT is based in the selection of a single threshold value to do the analysis only with values above the threshold. There are different POT approaches, the most common one is the generalized Pareto, and the most flexible one is the Poisson process.
+Analysis of extreme values is related with statistical inference to calculate probabilities of extreme events. Main methods to analyze extreme data are _sample maxima_, and _Peaks Over Threshold POT_. The sample maxima method also known as epochal or block maxima, is the classical approach and uses the most extreme value for a specific frame of time, typically one year. POT is based in the selection of a single threshold value to do the analysis only with values above the threshold. There are different POT approaches depending on how the time and magnitude dimensions are analyzed, the most common one uses generalized Pareto for wind velocities and Poisson process for time (POT-Poisson-GPD), and the most flexible one uses Poisson process simultaneously for both dimensions (POT-PP).
 
-In both methods (Epochal and POT), the main step is to fit the data to an appropriate probability distribution model. Epochal uses a generalized extreme value distribution GEV, a family of distributions which include extreme value type I  - Gumbel, extreme value type II - Fréchet, and Weibull. Gumbel is the most common used GEV. POT uses a generalized Pareto distribution GPD, or an intensity function (Poisson process).
+In both methods (Epochal and POT), the main step is to fit wind velocities to an appropriate probability distribution model. Epochal uses a generalized extreme value distribution GEV, a family of distributions which include extreme value type I  - Gumbel, extreme value type II - Fréchet, and Weibull. Gumbel is the most common used GEV. POT uses a generalized Pareto distribution (POT-Poisson-GPD), or an intensity function (POT-PP).
 
-Distribution models are fitted based in the estimation of its parameters, commonly called location, scale, and shape, nonetheless each model has its own parameters names. There are different methods to estimate parameters, among them: (a) method of modified moments [@Kubler1994], and L moments [@Hosking1997], (b) method of maximum likelihood MLE [@Harris1994], which is problematic for GPD and GEV, (c) probability plot correlation coefficient, and (d) elemental percentiles (for GPD and GEV).
+Distribution models are fitted based in the estimation of its parameters, commonly called location, scale, and shape, nonetheless each model has its own parameters names. There are different methods to estimate parameters, among them: (a) method of modified moments [@Kubler1994], and L moments [@Hosking1997], (b) method of maximum likelihood MLE [@Harris1994], (c) probability plot correlation coefficient, and (d) elemental percentiles (for GPD and GEV).
 
-Once candidate parameters are available, it is necessary to assess the goodness of fit of the selected model, using methods like Kolmogorov-Smirnov (KS) goodness of fit test, or Anderson-Darling goodness of fit test. Here a visual assessment is also useful using a probability plot or a kernel density plot with the fitted _pdf_ overlaid.
+Once candidate parameters are available, it is necessary to assess the goodness of fit of the selected model using tests like Kolmogorov-Smirnov (KS), or Anderson-Darling. Here a visual assessment is also useful using a probability plot or a kernel density plot with the fitted PDF overlaid.
 
-The main use of the fitted model is the estimation of mean return intervals - MRI, and extreme wind speeds (return levels),
+The main use of the fitted model is the estimation of mean return intervals MRI, and extreme wind speeds (return levels),
 
-$$
-MRI=\frac{1}{1-F(y)}
-$$
-with $F(y)$ as the _cdf_. If $1-F(y)$ is the annual exceedance probability, MRI is its inverse, see [@Simiu1996] for more details about MRI. If $y$ is solved from previous equation using a given MRI of N-years, its value represents the $Y_N$ wind speed return level. Refer to each specific method bellow for specific solutions to $Y_N$.
+\begin{equation}
+\mathrm{
+        MRI=\frac{1}{1-F(y)}
+       }
+  (\#eq:mri)
+\end{equation}
+
+with $F(y)$ as the CDF. If $1-F(y)$ is the annual exceedance probability, MRI is its inverse; see [@Simiu1996] for more details about MRI. If $y$ is solved from previous equation using a given MRI of N-years, its value represents the $Y_N$ wind speed return level. Refer to each specific method bellow for specific solutions to $Y_N$.
 
 The CRAN Task View "Extreme Value Analysis" <https://cran.r-project.org/web/views/ExtremeValue.html> shows available **R** for block maxima, POT by GPD, and external indexes estimation approaches. Most important to consider are `evd`, `extremes`, `evir`, `POT`, `extremeStat`, `ismev`, and `Renext`.
 
-### Epochal
+### Epochal (Sample Maxima)
 
-To work with random variables of sample maximum values, used probability distribution function _pdf_ is GEV:
+To work with random variables of sample maximum values, used probability distribution function PDF is GEV:
 
-$$
-H(y) = \exp\left\{-\left[1+\xi\frac{x-\mu}{\psi}\right]_+^{-\frac{1}{\xi}}\right\},
-$$
+\begin{equation}
+\mathrm{
+        H(y) = \exp\left\{-\left[1+\xi\frac{x-\mu}{\psi}\right]_+^{-\frac{1}{\xi}}\right\}
+       }
+  (\#eq:epochalpdf)
+\end{equation}
+
 
 Where $\xi\neq0$, $[...]_+ = max([...],0)$, $\mu$ is the location parameter, $\psi > 0$ is a scale parameter, and $\xi$ is a shape parameter. GEV combines in one unique family the Gumbel (medium-tailed) distribution (limit $\xi\rightarrow0$), Fréchet (long-tailed) distribution ($\xi>0$), and Weibull (short-tailed) distribution ($\xi<0$).
 
-### POT-GPD {#pot-gpd}
+### Peaks Over Threshold using GPD and 1D Poisson Process POT-Poisson-GPD {#pot-poisson-gpd}
 
 In this model, (a) the magnitude of the observations above the threshold are assumed to be independent random variables with the same generalized Pareto as probability distribution, $\sigma$ as scale, and $\xi$ as tail length, and (b) corresponding times are assumed to follow a one dimensional homogeneous Poisson process with $\gamma$ as parameter. 
 
-With the condition of exceeding some hight threshold $b$, as a consequence $y = (x-b) > 0$, the _cdf_ of $y$ is the generalized Pareto distribution GPD:
+With the condition of exceeding some high threshold $b$, as a consequence $y = (x-b) > 0$, the CDF of $y$ is the generalized Pareto distribution GPD:
 
-$F(y) = 1 - \left[1-\xi\frac{y}{\sigma}\right]^{-\frac{1}{\xi}}_+$, 
+\begin{equation}
+\mathrm{
+        F(y) = 1 - \left[1-\xi\frac{y}{\sigma}\right]^{-\frac{1}{\xi}}_+,
+       }
+  (\#eq:gpd)
+\end{equation}
 
-where $[...]_+ = max([...],0)$, $b$ is the threshold. In both GPD (magnitude), and $1D$ Poisson process (time), it is not possible to differentiate between thunderstorm and non-thunderstorm wind types. @Pickands1971 found a rigurous connection between epochal (GEV), and limits results of POT-GPD, as parameter shape $\xi$ in both previous equations are exactly the same. The long-tailed case when $\xi>0$, GPD behaves as usual Pareto distribution, for $\xi = 0$ (taking the limit $\xi\rightarrow0$) it behaves as exponential distribution, and $\xi<0$ the distribution has a finite upper endpoint at $-\frac{\sigma}{\xi}$.
 
-In POT-GPD, to calculate return levels (RL), $Y_N$, corresponding to the N-years return period, next equation is used,
+where $[...]_+ = max([...],0)$, $b$ is the threshold. In both GPD (magnitude), and $1D$ Poisson process (time), it is not possible to differentiate between thunderstorm and non-thunderstorm wind types. @Pickands1971 found a rigorous connection between epochal (GEV), and limits results of POT-Poisson-GPD, as parameter shape $\xi$ in both previous equations are exactly the same. The long-tailed case when $\xi>0$, GPD behaves as usual Pareto distribution, for $\xi = 0$ (taking the limit $\xi\rightarrow0$) it behaves as exponential distribution, and $\xi<0$ the distribution has a finite upper endpoint at $-\frac{\sigma}{\xi}$.
 
-$$
-Y_N =G\left(y, 1-\frac{1}{\lambda\,N}\right)
-$$
+In POT-Poisson-GPD, to calculate return levels (RL), $Y_N$, corresponding to the N-years return period, next equation is used,
 
-Where $G$ is the quantile function (_ppf_), and the value of the probability passed to the $G$ function, has to be modified with the $\lambda$ parameter. $\lambda$ is the number of wind speed events over the threshold per year.
+\begin{equation}
+\mathrm{
+        Y_N =G\left(y, 1-\frac{1}{\lambda\,N}\right)
+       }
+  (\#eq:yngpd)
+\end{equation}
+
+where $G$ is the quantile function (PPF), and the value of the probability passed to the $G$ function, has to be modified with the $\lambda$ parameter. $\lambda$ is the number of wind speed events over the threshold per year.
 
  
-### Peaks Over Threshold Poisson Process POT-PP {#method-pot-pp}
+### Peaks Over Threshold Using a 2D Poisson Process POT-PP {#method-pot-pp}
 
-According to [@Pintar2015] the stochastic Poisson Process - PP is mainly defined by its intensity function. As the intensity function is not uniform over the domain, the PP considered here is non-homogeneous, and due to the intensity function dependency of magnitude and time, it is also bi-dimensional. PP was described for the first time in [@Pickands1971], then extended in [@Smith1989].
+According to [@Pintar2015] the stochastic Poisson Process PP is mainly defined by its intensity function. As the intensity function is not uniform over the domain, the PP considered here is non-homogeneous, and due to the intensity function dependency of magnitude and time, it is also bi-dimensional. PP was described for the first time in [@Pickands1971], then extended in [@Smith1989]. 
+
+Generic Equation \@ref(eq:ppgenericintensityfunction) shows the intensity function, which is defined in the domain $D = D_t\,{\cup}\,D_{nt}$, and allow to fit the PP at each station to the observed data $\{t_i, y_i\}_{i=1}^I$, for all the times ($t_i$) of threshold crossing observations, and its corresponding wind speeds magnitudes ($y_i$). Thus, only data above the threshold (POT) are used.
 
 \begin{equation}
   \mathrm{
     \lambda\left(y,t\right)
     \begin{cases}
       \begin{split}
-            &\lambda_t(y),\;for\,t\,in\,thunderstorm\,period
+            &\lambda_t(y),\;\textrm{for t in thunderstorm period}
             \\
-            &\lambda_{nt}(y),\;for\,t\,in\,non-thunderstorm\,period      
+            &\lambda_{nt}(y),\;\textrm{for t in non-thunderstorm period}      
       \end{split}
     \end{cases}
   }
   (\#eq:ppgenericintensityfunction)
 \end{equation}
 
-Generic Equation \@ref(eq:ppgenericintensityfunction) shows the intensity function, which is defined in the domain $D = D_t\,{\cup}\,D_{nt}$, and allow to fit the PP at each station to the observed data $\{t_i, y_i\}_{i=1}^I$, for all the times ($t_i$) of threshold crossing observations, and its corresponding wind speeds magnitudes ($y_i$). Thus, only data above the threshold (POT) are used.
-
-Intensity function of the PP is defined in [@Smith2004], 
+The specific intensity function of the PP is defined in [@Smith2004] and is shown in Equation \@ref(eq:ppintensityfunction):
 
 \begin{equation}
   \mathrm{
@@ -421,7 +456,14 @@ Intensity function of the PP is defined in [@Smith2004],
   (\#eq:ppintensityfunction)
 \end{equation}  
         
-Where, at a given time $t$, parameter $shape = \zeta_t$ controls the tail length of the intensity function, and the other two parameters $\omega_t$ and $\psi_t$ define the location and scale of the intensity function.
+where, at a given time $t$, parameter $shape = \zeta_t$ controls the tail length of the intensity function, and the other two parameters $\omega_t$ and $\psi_t$ define the location and scale of the intensity function.
+
+Figure \@ref(fig:plotdomainpp) represent the domain $D$ of PP. In time, the domain represents the station service period from first sample $t_1$ to last sample $t_4$. $D$ is the union of all thunderstorm periods $D_t$ (from $t_2$ to $t_3$), and all non-thunderstorm periods $D_{nt}$ (periods $t_1$ to $t_2$ and $t_3$ to $t_4$). In magnitude, only thunderstorm data above its threshold $b_t$, and only non-thunderstorm data above its threshold $b_{nt}$ are used. 
+
+Thunderstorms and non-thunderstorms are modeled independently: 
+
+1. Observations in domain $D$ follow a Poisson distribution with mean $\int_D\lambda(t,y)\,dt\,dy$
+2. For each disjoint sub-domain $D_1$ or $D_2$ inside $D$, the observations in $D_1$ or $D_2$ are independent random variables.
 
 
 ```{r plotdomainpp, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Domain off Poisson Process - PP", fig.height= 2, fig.width=3.5}
@@ -474,14 +516,8 @@ axis(2, labels=FALSE, tick=TRUE, col.axis="black", lwd.ticks=0)
 #box(which = "outer", col="orange")
 ```
 
-Figure \@ref(fig:plotdomainpp) represent the domain $D$ of PP. In time, the domain represents the station service period from first sample $t_1$ to last sample $t_4$. $D$ is the union of all thunderstorm periods $D_t$ (from $t_2$ to $t_3$), and all non-thunderstorm periods $D_{nt}$ (periods $t_1$ to $t_2$ and $t_3$ to $t_4$). In magnitude, only thunderstorm data above its threshold $b_t$, and only non-thunderstorm data above its threshold $b_{nt}$ are used. 
 
-Thunderstorms and non-thunderstorms are modeled independently: 
-
-1. Observations in domain $D$ follow a Poisson distribution with mean $\int_D\lambda(t,y)\,dt\,dy$
-2. For each disjoint sub-domain $D_1$ or $D_2$ inside $D$, the observations in $D_1$ or $D_2$ are independent random variables.
-
-Visual representation of the intensity function for PP can be seen in Figure \@ref(fig:plotdomain3dpp). In vertical axis, two surfaces were drawn representing independent intensity functions for thunderstorm $\lambda_t(y)$ and for non-thunderstorm $\lambda_{nt}(y)$. The volume under each surface for its corresponding time periods and peak (over threshold) velocities, is the mean of PP.
+Visual representation of the intensity function for PP can be seen in Figure \@ref(fig:plotdomain3dpp). In vertical axis, two surfaces were drawn representing independent intensity functions for thunderstorm $\lambda_t(y)$ and for non-thunderstorm $\lambda_{nt}(y)$. The volume under each surface for its corresponding time periods and peak over threshold velocities, is the mean of PP.
 
 
 ```{r plotdomain3dpp, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Volume Under Surfaces: Mean of PP", dpi=200, fig.align='center'}
@@ -507,7 +543,7 @@ The values of $\hat\eta$ need to be calculated using a numerical approach, becau
 
 Once the PP is fitted to the data, the model will provide extreme wind velocities (return levels), for different return periods (mean recurrence intervals). 
 
-A $Y_N$ extreme wind velocity, called the return level (RL) belonging to the N-years return period, has a expected frequency to occur or to be exceeded (annual exceedance probability)$P_e = \frac{1}{N}$, and also has a probability that the event does not occur (annual non-exceedance probability) $P_{ne}=1-\frac{1}{N}$. $Y_N$ will be the resulting value of the $G$ (ppf or quantile) function using a probability equal to $P_{ne}$. $Y_N=quantile(y, p=P_{ne})=G(y,p=P_{ne})=ppf(y,p=P_{ne})$. $Y_N$ can be understood as the wind extreme value expected to be exceeded on average once every N years.
+A $Y_N$ extreme wind velocity, called the return level (RL) belonging to the N-years return period, has an expected frequency to occur or to be exceeded (annual exceedance probability) $P_e = \frac{1}{N}$, and also has a probability that the event does not occur (annual non-exceedance probability) $P_{ne}=1-\frac{1}{N}$. $Y_N$ will be the resulting value of the $G$ (PPF or quantile) function using a probability equal to $P_{ne}$. $Y_N=quantile(y, p=P_{ne})=G(y,p=P_{ne})=PPF(y,p=P_{ne})$. $Y_N$ can be understood as the wind extreme value expected to be exceeded on average once every N years.
  
 
 For PP, $Y_N$ is the solution to the next equation, which is defined in terms of the intensity function,
@@ -521,36 +557,22 @@ For PP, $Y_N$ is the solution to the next equation, which is defined in terms of
 
 where $A_t$, is the multiplication of the average number of thunderstorm per year and the average length of a thunderstorm, taken to be 1 hour as defined in [@Pintar2015], and $A_{nt} = 365 - A_t$. The average length of a non-thunderstorm event is variable, and it is adjusted for each station to guarantee that $A_{nt} + A_t = 365$. Value 365 is used only, if operations with time in the dataset are performed in days.
 
-The same thunderstorm event in considered to occur if the time lag distance between successive thunderstorm samples is small than six hours, and for non-thunderstorm this time is 4 days. For PP, all the measurements belonging to the same event (thunderstorm or non-thunderstorm), need to be de-clustered to leave only one maximum value. In other words, the number of thunderstorm in the time series is one plus the number of time lag distances grater than 6 hours, and for non-thunderstorm grater than 4 days.
-
-#### Threshold Selection {#thresholdselection}
-
-POT-PP needs selection of the best threshold pairs $b_t$ and $b_{nt}$ (see Figure \@ref(fig:plotdomainpp)) that produces the optimal fit. Measurement of this threshold fitting is done through $W$ statistics. If wind variable $y$, in a POT-PP approach, has a $cdf = U = F(y)$, then $F(y)$ is distributed as Uniform between 0 and 1 - Uniform(0,1), meaning that the transformation $W = -log(1-U)$ is an exponential random variable with mean one (1).
-
-\begin{equation}
-  \mathrm{
-            cdf = U= F(y) = P(y \leq Y) = \frac{\int_b^Y\lambda(y,t)\,dy}{\int_b^\infty\lambda(y,t)\,dy} 
-         }
-  (\#eq:ppcdf)
-\end{equation}
-
-The procedure to choose the best thresholds pairs based in W transformation, is described in methodology, section [thresholding](#thresholding).
-
+The same thunderstorm event in considered to occur if the time lag distance between successive thunderstorm samples is small than six hours, and for non-thunderstorm this time is 4 days. For PP, all the measurements belonging to the same event (thunderstorm or non-thunderstorm), need to be de-clustered to leave only one maximum value. In other words, the number of thunderstorm in the time series is one plus the number of time lag distances greater than 6 hours, and above 4 days for non-thunderstorm.
 
 ## Wind Loads Requirements {#windloadsrequirements}
 
-As the output maps of this research will be used as input loads for infrastructure design, the methodology used for its creation, need to be consistent with Colombian official wind loads requirements. Colombian structure design code, from now the design standard, was created and it maintained by the Colombian Association of Seismic Engineering - AIS. 
+As the output maps of this research will be used as input loads for infrastructure design, the methodology used for its creation, need to be consistent with Colombian official wind loads requirements. Colombian structure design code, from now the _design standard_, was created and is maintained by the Colombian Association of Seismic Engineering - AIS. 
 
-The design standard is mainly based in _minimum design loads and associated criteria for buildings and other structures - ASCE7-16_ norm, see [@Asce2017]. Under these circumstances, ASCE7-16 defines the minimum requirements of the research products. Especially the chapter C26 - "wind loads - general requirements", C26.5 "wind hazard map", and C26.7 "Exposure" - pages 733 to 747. Wind speeds requirements of ASCE7-16 are based in the combination of independent non-hurricane analysis, and hurricane wind speeds simulations models. The focus of this research will be the analysis of non-hurricane wind data, however, existing results of hurricane studies will be used to present final maps with both components. In ASCE7-16, for non-hurricane wind speed, the procedure is mainly based on [@Pintar2015].
+The design standard is mainly based in _minimum design loads and associated criteria for buildings and other structures ASCE7-16_ standard [@Asce2017]. The ASCE7-16 standard defines the minimum requirements for design wind loads in pages 733 to 747. Wind speeds requirements of ASCE7-16 are based in the combination of independent non-hurricane analysis, and hurricane wind speeds simulations models. The focus of this research will be the analysis of non-hurricane wind data, however, existing results of hurricane studies will be used to present final maps with both components. In ASCE7-16, for non-hurricane wind speed, the procedure is mainly based on [@Pintar2015].
 
-ASCE7-16 (page 734), requires the calculation of wind extreme return levels for specific return periods according to the risk category of the structure to be designed: risk category I - 300 years,  risk category II - 700 years,  risk category III - 1700 years,  risk category IV - 3000 years. The design standard only requires 700, 1700 and 3000 years. In addition, extreme wind speeds for those MRI need to correspond to: - 3 second gust speeds, - at 33 ft (10 meters) above the ground, and - exposure category C (open space).
+ASCE7-16 (page 734), requires the calculation of wind extreme return levels for specific return periods according to the risk category of the structure to be designed, as follows: risk category I - 300 years,  risk category II - 700 years,  risk category III - 1700 years,  risk category IV - 3000 years. In addition, extreme wind speeds for those MRI need to correspond to 3 seconds gust speeds at 33 ft. (10 meters) above the ground and exposure category C. Below is a description of the risk categories:
 
 * Risk IV - This are 'indispensable buildings' that involve substantial risk. These structures that can handle toxic or explosive substances.
-* Risk III - There is substantial risk because these structures that can handle toxic or explosive substances, can cause a serious economical impact, or massive interruption of activities if they fail.
+* Risk III - There is substantial risk because these structures that can handle toxic or explosive substances, can cause a serious economic impact, or massive interruption of activities if they fail.
 * Risk II - Category 'by default', and correspond to structures not classified in others categories.
 * Risk I - This structures represent low risk for life of people.
 
-To standardize wind speeds to gust speeds ASCE7-16 proposes the curve Durst, see [@Durst1960], and Figure \@ref(fig:durstcurve). Durst curve is only valid for open terrain conditions, and it shows in axis $y$ the gust factor $\frac{V_t}{V_{3600}}$, a ratio between any wind gust (maximun speeds) averaged at $t$ seconds, $V_t$, and the hourly averaged wind speed $V_{3600}$, and in the axis $x$ the duration $t$ of the gust in seconds. Be aware that curve values in Figure \@ref(fig:durstcurve) are approximated values taken visually from the original curve. 
+To standardize wind speeds to gust speeds ASCE7-16 proposes the curve Durst, see [@Durst1960], and Figure \@ref(fig:durstcurve). Durst curve is only valid for open terrain conditions, and it shows in axis $y$ the gust factor $\frac{V_t}{V_{3600}}$, a ratio between any wind gust (maximum speeds) averaged at $t$ seconds, $V_t$, and the hourly averaged wind speed $V_{3600}$, and in the axis $x$ the duration $t$ of the gust in seconds. Be aware that curve values in Figure \@ref(fig:durstcurve) are approximated values taken visually from the original curve. 
 
 
 ```{r durstcurve, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Durst Curve", fig.height=2.5, fig.width=5}

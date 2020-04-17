@@ -1,16 +1,16 @@
 Graphic,Description
-Page 1,Time Series Plot for Raw.Data
+Page 1,Time Series Plot for Raw Data
 Page 2,Time Series Plot for Non-Thunderstorm ('nt')
 Page 3,Log-Likelihood(Gumbel) - Optim (nll-optim)
-Page 4,Declustered - Non-Thunderstorm - fitdistrplus-fitdist(gumbel)
-Page 5,Declustered Non-Thunderstorm ('nt') Time Series
+Page 4,De-clustered - Non-Thunderstorm - fitdistrplus-fitdist(gumbel)
+Page 5,De-clustered Non-Thunderstorm ('nt') Time Series
 Page 6,W-Statistic Plot for best pair of thresholds
-Page 7,Declustered - Non-Thunderstorm - Density Function from Intensity Function of Poisson Process
-Page 8,Declustered - Non-Thunderstorm - POT-GPD Equivalent
-Page 9,Declustered - Non-Thuderstorm - Cumulative Distribution Function from Intensity Function of Poisson Process
-Page 10,Declustered - Non-Thunderstorms - Hazard Curve. Poisson Process Intensity Function
-Page 11,Declustered - Non-Thunderstorms - Hazard Curve. Gumbel like tail Intensity Function of Poisson Process
+Page 7,De-clustered - Non-Thunderstorm - Density Function from Intensity Function of Poisson Process
+Page 8,De-clustered - Non-Thunderstorm - POT-GPD Equivalent
+Page 9,De-clustered - Non-Thuderstorm - Cumulative Distribution Function from Intensity Function of Poisson Process
+Page 10,De-clustered - Non-Thunderstorms - Hazard Curve. Poisson Process Intensity Function
+Page 11,De-clustered - Non-Thunderstorms - Hazard Curve. Gumbel like tail Intensity Function of Poisson Process
 Page 12,"Non-Thunderstorms. Gumbel Density Function, but using parameters of Poisson Process"
 Page 13,"Non-Thunderstorms. Gumbel Cumulative Distribution, but using parameters of Poisson Process"
-Page 14,Declustered Non-Thunderstorm. Fitted Gumbel density function using parameters of Poisson Process
-Page 15,Declustered - Non-Thunderstorms - Hazard Curve. Gumbel Quantile Function using parameters of Poisson Process
+Page 14,De-clustered Non-Thunderstorm. Fitted Gumbel density function using parameters of Poisson Process
+Page 15,De-clustered - Non-Thunderstorms - Hazard Curve. Gumbel Quantile Function using parameters of Poisson Process

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/W32TeX) (preloaded format=pdflatex 2020.3.30)  10 APR 2020 21:59
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/W32TeX) (preloaded format=pdflatex 2020.3.30)  17 APR 2020 19:12
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -676,24 +676,24 @@ File: l3backend-pdfmode.def 2020-02-23 L3 backend support: PDF mode
 ) (./thesis.aux)
 \openout1 = `thesis.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 268.
-LaTeX Font Info:    ... okay on input line 268.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 268.
-LaTeX Font Info:    ... okay on input line 268.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 268.
-LaTeX Font Info:    ... okay on input line 268.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 268.
-LaTeX Font Info:    ... okay on input line 268.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 268.
-LaTeX Font Info:    ... okay on input line 268.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 268.
-LaTeX Font Info:    ... okay on input line 268.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 268.
-LaTeX Font Info:    ... okay on input line 268.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 268.
-LaTeX Font Info:    ... okay on input line 268.
-LaTeX Font Info:    Trying to load font information for T1+lmr on input line 26
-8.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 273.
+LaTeX Font Info:    ... okay on input line 273.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 273.
+LaTeX Font Info:    ... okay on input line 273.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 273.
+LaTeX Font Info:    ... okay on input line 273.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 273.
+LaTeX Font Info:    ... okay on input line 273.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 273.
+LaTeX Font Info:    ... okay on input line 273.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 273.
+LaTeX Font Info:    ... okay on input line 273.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 273.
+LaTeX Font Info:    ... okay on input line 273.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 273.
+LaTeX Font Info:    ... okay on input line 273.
+LaTeX Font Info:    Trying to load font information for T1+lmr on input line 27
+3.
 (c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/t1lmr.fd
 File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
@@ -719,14 +719,14 @@ e
 ))
 
 Package Fancyhdr Warning: \fancyhead's `E' option without twoside option is use
-less on input line 268.
+less on input line 273.
 
 
 Package Fancyhdr Warning: \fancyhead's `E' option without twoside option is use
-less on input line 268.
+less on input line 273.
 
 \AtBeginShipoutBox=\box68
-Package hyperref Info: Link coloring OFF on input line 268.
+Package hyperref Info: Link coloring OFF on input line 273.
 
 (c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/namere
 f.sty
@@ -742,9 +742,9 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 \c@section@level=\count294
 )
-LaTeX Info: Redefining \ref on input line 268.
-LaTeX Info: Redefining \pageref on input line 268.
-LaTeX Info: Redefining \nameref on input line 268.
+LaTeX Info: Redefining \ref on input line 273.
+LaTeX Info: Redefining \pageref on input line 273.
+LaTeX Info: Redefining \nameref on input line 273.
 (./thesis.out) (./thesis.out)
 \@outlinefile=\write4
 \openout4 = `thesis.out'.
@@ -754,16 +754,16 @@ Package caption Info: threeparttable package is loaded.
 Package caption Info: wrapfig package is loaded.
 Package caption Info: End \AtBeginDocument code.
 LaTeX Font Info:    Trying to load font information for U+fontawesometwo on inp
-ut line 272.
+ut line 277.
 
 (c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/fontawesome/ufo
 ntawesometwo.fd
 File: ufontawesometwo.fd 2016/05/22 Font definitions for U/fontawesometwo.
 )
-<Figure/logos.png, id=321, 859.2903pt x 125.0271pt>
+<Figure/logos.png, id=325, 859.2903pt x 125.0271pt>
 File: Figure/logos.png Graphic file (type png)
 <use Figure/logos.png>
-Package pdftex.def Info: Figure/logos.png  used on input line 272.
+Package pdftex.def Info: Figure/logos.png  used on input line 277.
 (pdftex.def)             Requested size: 375.80542pt x 54.68013pt.
 [1
 Non-PDF special ignored!
@@ -774,26 +774,26 @@ Non-PDF special ignored!
 
 {c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pd
 ftex.map} <./figure/logos.png>]
-Overfull \hbox (100.43045pt too wide) in paragraph at lines 272--272
-[]\T1/lmr/m/n/12 April 10, 2020[] 
+Overfull \hbox (122.79018pt too wide) in paragraph at lines 277--277
+[]\T1/lmr/m/n/12 February 24, 2020 [] 
  []
 
 
-Overfull \hbox (100.43045pt too wide) in paragraph at lines 272--272
-[]\T1/lmr/m/n/12 April 10, 2020[] 
+Overfull \hbox (122.79018pt too wide) in paragraph at lines 277--277
+[]\T1/lmr/m/n/12 February 24, 2020 [] 
  []
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.273 \frontmatter
+l.278 \frontmatter
                    % this stuff will be roman-numbered [1
 
 
 ]
 LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 2
-76.
+81.
 (c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 ) [1
@@ -872,7 +872,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.367 
+l.372 
        [1
 
 
@@ -886,2073 +886,2026 @@ This may cause the page layout to be inconsistent, however.
 
 [2] [3] [4] [5]
 LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 4
-60.
+66.
 (c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 ) [6]
 Chapter 2.
 [7
 
-]
-Overfull \vbox (4.68166pt too high) has occurred while \output is active []
-
-[8]
-<thesis_files/figure-latex/plotideamstations-1.pdf, id=753, 469.755pt x 325.215
+] [8]
+<thesis_files/figure-latex/plotideamstations-1.pdf, id=770, 469.755pt x 325.215
 pt>
 File: thesis_files/figure-latex/plotideamstations-1.pdf Graphic file (type pdf)
 
 <use thesis_files/figure-latex/plotideamstations-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/plotideamstations-1.pdf  use
-d on input line 542.
+d on input line 565.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-<thesis_files/figure-latex/plotoneideamstation-1.pdf, id=754, 289.08pt x 194.72
+<thesis_files/figure-latex/plotoneideamstation-1.pdf, id=771, 289.08pt x 194.72
 75pt>
 File: thesis_files/figure-latex/plotoneideamstation-1.pdf Graphic file (type pd
 f)
 <use thesis_files/figure-latex/plotoneideamstation-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/plotoneideamstation-1.pdf  u
-sed on input line 548.
+sed on input line 570.
 (pdftex.def)             Requested size: 289.07928pt x 194.727pt.
-[9 <./thesis_files/figure-latex/plotideamstations-1.pdf> <./thesis_files/figure
--latex/plotoneideamstation-1.pdf>]
-<thesis_files/figure-latex/plotisdstations-1.pdf, id=776, 469.755pt x 325.215pt
+[9 <./thesis_files/figure-latex/plotideamstations-1.pdf>]
+<thesis_files/figure-latex/plotisdstations-1.pdf, id=787, 469.755pt x 325.215pt
 >
 File: thesis_files/figure-latex/plotisdstations-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/plotisdstations-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/plotisdstations-1.pdf  used 
-on input line 572.
+on input line 594.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-<thesis_files/figure-latex/plotoneisdstation-1.pdf, id=777, 289.08pt x 194.7275
+<thesis_files/figure-latex/plotoneisdstation-1.pdf, id=788, 289.08pt x 194.7275
 pt>
 File: thesis_files/figure-latex/plotoneisdstation-1.pdf Graphic file (type pdf)
 
 <use thesis_files/figure-latex/plotoneisdstation-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/plotoneisdstation-1.pdf  use
-d on input line 578.
+d on input line 599.
 (pdftex.def)             Requested size: 289.07928pt x 194.727pt.
-[10 <./thesis_files/figure-latex/plotisdstations-1.pdf>]
-<thesis_files/figure-latex/plotera5stations-1.pdf, id=790, 469.755pt x 292.0912
+[10 <./thesis_files/figure-latex/plotoneideamstation-1.pdf>]
+<thesis_files/figure-latex/plotera5stations-1.pdf, id=801, 469.755pt x 292.0912
 5pt>
 File: thesis_files/figure-latex/plotera5stations-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/plotera5stations-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/plotera5stations-1.pdf  used
- on input line 585.
+ on input line 606.
 (pdftex.def)             Requested size: 469.75386pt x 292.09052pt.
-[11 <./thesis_files/figure-latex/plotoneisdstation-1.pdf> <./thesis_files/figur
-e-latex/plotera5stations-1.pdf>] [12]
+[11 <./thesis_files/figure-latex/plotisdstations-1.pdf> <./thesis_files/figure-
+latex/plotoneisdstation-1.pdf>] [12 <./thesis_files/figure-latex/plotera5statio
+ns-1.pdf>]
 Chapter 3.
-<thesis_files/figure-latex/plotgumbelpdffunction-1.pdf, id=831, 289.08pt x 216.
+<thesis_files/figure-latex/plotgumbelpdffunction-1.pdf, id=845, 289.08pt x 216.
 81pt>
 File: thesis_files/figure-latex/plotgumbelpdffunction-1.pdf Graphic file (type 
 pdf)
 <use thesis_files/figure-latex/plotgumbelpdffunction-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/plotgumbelpdffunction-1.pdf 
- used on input line 639.
+ used on input line 659.
 (pdftex.def)             Requested size: 289.07928pt x 216.80946pt.
 [13
 
 
 ]
-<thesis_files/figure-latex/plotgumbelpdf-1.pdf, id=845, 289.08pt x 216.81pt>
+<thesis_files/figure-latex/plotgumbelpdf-1.pdf, id=856, 289.08pt x 216.81pt>
 File: thesis_files/figure-latex/plotgumbelpdf-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/plotgumbelpdf-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/plotgumbelpdf-1.pdf  used on
- input line 649.
+ input line 667.
 (pdftex.def)             Requested size: 289.07928pt x 216.80946pt.
 [14 <./thesis_files/figure-latex/plotgumbelpdffunction-1.pdf> <./thesis_files/f
 igure-latex/plotgumbelpdf-1.pdf>]
-<thesis_files/figure-latex/plotgumbelcdffunction-1.pdf, id=867, 289.08pt x 216.
+<thesis_files/figure-latex/plotgumbelcdffunction-1.pdf, id=880, 289.08pt x 216.
 81pt>
 File: thesis_files/figure-latex/plotgumbelcdffunction-1.pdf Graphic file (type 
 pdf)
 <use thesis_files/figure-latex/plotgumbelcdffunction-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/plotgumbelcdffunction-1.pdf 
- used on input line 680.
+ used on input line 702.
 (pdftex.def)             Requested size: 289.07928pt x 216.80946pt.
-<thesis_files/figure-latex/plotgumbelppffunction-1.pdf, id=871, 289.08pt x 216.
+<thesis_files/figure-latex/plotgumbelppffunction-1.pdf, id=884, 289.08pt x 216.
 81pt>
 File: thesis_files/figure-latex/plotgumbelppffunction-1.pdf Graphic file (type 
 pdf)
 <use thesis_files/figure-latex/plotgumbelppffunction-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/plotgumbelppffunction-1.pdf 
- used on input line 706.
+ used on input line 730.
 (pdftex.def)             Requested size: 289.07928pt x 216.80946pt.
 [15 <./thesis_files/figure-latex/plotgumbelcdffunction-1.pdf>]
-<thesis_files/figure-latex/plotgumbelhffunction-1.pdf, id=885, 289.08pt x 216.8
+<thesis_files/figure-latex/plotgumbelhffunction-1.pdf, id=901, 289.08pt x 216.8
 1pt>
 File: thesis_files/figure-latex/plotgumbelhffunction-1.pdf Graphic file (type p
 df)
 <use thesis_files/figure-latex/plotgumbelhffunction-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/plotgumbelhffunction-1.pdf  
-used on input line 717.
+used on input line 743.
 (pdftex.def)             Requested size: 289.07928pt x 216.80946pt.
 [16 <./thesis_files/figure-latex/plotgumbelppffunction-1.pdf> <./thesis_files/f
 igure-latex/plotgumbelhffunction-1.pdf>]
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <14.4> on input line 744.
+(Font)              <14.4> on input line 768.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 744.
+(Font)              <10> on input line 768.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 744.
-<thesis_files/figure-latex/unnamed-chunk-2-1.pdf, id=906, 216.81pt x 72.27pt>
+(Font)              <7> on input line 768.
+<thesis_files/figure-latex/unnamed-chunk-2-1.pdf, id=923, 216.81pt x 72.27pt>
 File: thesis_files/figure-latex/unnamed-chunk-2-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/unnamed-chunk-2-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/unnamed-chunk-2-1.pdf  used 
-on input line 751.
+on input line 775.
 (pdftex.def)             Requested size: 216.80946pt x 72.2698pt.
 [17 <./thesis_files/figure-latex/unnamed-chunk-2-1.pdf>]
 
 Package amsmath Warning: Cannot use `split' here;
-(amsmath)                trying to recover with `aligned' on input line 778.
+(amsmath)                trying to recover with `aligned' on input line 803.
 
-<thesis_files/figure-latex/compoundprobability-1.pdf, id=922, 361.35pt x 180.67
+<thesis_files/figure-latex/compoundprobability-1.pdf, id=937, 361.35pt x 180.67
 5pt>
 File: thesis_files/figure-latex/compoundprobability-1.pdf Graphic file (type pd
 f)
 <use thesis_files/figure-latex/compoundprobability-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/compoundprobability-1.pdf  u
-sed on input line 787.
+sed on input line 814.
 (pdftex.def)             Requested size: 361.34912pt x 180.67455pt.
-
-Package amsmath Warning: Cannot use `split' here;
-(amsmath)                trying to recover with `aligned' on input line 804.
-
 [18 <./thesis_files/figure-latex/compoundprobability-1.pdf>] [19] [20]
 
 Package amsmath Warning: Cannot use `split' here;
-(amsmath)                trying to recover with `aligned' on input line 883.
+(amsmath)                trying to recover with `aligned' on input line 913.
 
-<thesis_files/figure-latex/plotdomainpp-1.pdf, id=968, 252.945pt x 144.54pt>
+[21]
+<thesis_files/figure-latex/plotdomainpp-1.pdf, id=995, 252.945pt x 144.54pt>
 File: thesis_files/figure-latex/plotdomainpp-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/plotdomainpp-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/plotdomainpp-1.pdf  used on 
-input line 898.
+input line 938.
 (pdftex.def)             Requested size: 252.94438pt x 144.53963pt.
-[21]
-<figure/domain3d.png, id=978, 489.62926pt x 457.71pt>
+<figure/domain3d.png, id=997, 489.62926pt x 457.71pt>
 File: figure/domain3d.png Graphic file (type png)
 <use figure/domain3d.png>
-Package pdftex.def Info: figure/domain3d.png  used on input line 915.
+Package pdftex.def Info: figure/domain3d.png  used on input line 944.
 (pdftex.def)             Requested size: 294.13942pt x 274.96336pt.
-[22 <./thesis_files/figure-latex/plotdomainpp-1.pdf>] [23 <./figure/domain3d.PN
-G>] [24]
-<thesis_files/figure-latex/durstcurve-1.pdf, id=1014, 361.35pt x 180.675pt>
+[22 <./thesis_files/figure-latex/plotdomainpp-1.pdf> <./figure/domain3d.PNG>] [
+23]
+<thesis_files/figure-latex/durstcurve-1.pdf, id=1024, 361.35pt x 180.675pt>
 File: thesis_files/figure-latex/durstcurve-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/durstcurve-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/durstcurve-1.pdf  used on in
-put line 984.
+put line 1001.
 (pdftex.def)             Requested size: 361.34912pt x 180.67455pt.
-[25 <./thesis_files/figure-latex/durstcurve-1.pdf>]
+[24 <./thesis_files/figure-latex/durstcurve-1.pdf>]
 Chapter 4.
-<figure/main_methodology.png, id=1027, 376.40625pt x 599.23875pt>
+<figure/main_methodology.png, id=1036, 376.40625pt x 599.23875pt>
 File: figure/main_methodology.png Graphic file (type png)
 <use figure/main_methodology.png>
-Package pdftex.def Info: figure/main_methodology.png  used on input line 993.
+Package pdftex.def Info: figure/main_methodology.png  used on input line 1010.
 (pdftex.def)             Requested size: 173.44756pt x 276.13779pt.
-<figure/methodology.png, id=1028, 1131.0255pt x 1592.349pt>
+<figure/methodology.png, id=1038, 1131.0255pt x 1592.349pt>
 File: figure/methodology.png Graphic file (type png)
 <use figure/methodology.png>
-Package pdftex.def Info: figure/methodology.png  used on input line 1001.
+Package pdftex.def Info: figure/methodology.png  used on input line 1019.
 (pdftex.def)             Requested size: 452.40979pt x 636.92833pt.
-[26
+[25
 
  <./figure/main_methodology.png>]
 Overfull \vbox (10.99832pt too high) has occurred while \output is active []
 
-[27 <./figure/methodology.png>]
-<thesis_files/figure-latex/anemometer-1.pdf, id=1042, 216.81pt x 216.81pt>
+[26 <./figure/methodology.png>]
+<thesis_files/figure-latex/anemometer-1.pdf, id=1052, 216.81pt x 194.7275pt>
 File: thesis_files/figure-latex/anemometer-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/anemometer-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/anemometer-1.pdf  used on in
-put line 1025.
-(pdftex.def)             Requested size: 216.80946pt x 216.80946pt.
-[28 <./thesis_files/figure-latex/anemometer-1.pdf>]
-<thesis_files/figure-latex/compassrose-1.pdf, id=1064, 180.675pt x 180.675pt>
+put line 1045.
+(pdftex.def)             Requested size: 216.80946pt x 194.727pt.
+[27 <./thesis_files/figure-latex/anemometer-1.pdf>]
+<thesis_files/figure-latex/compassrose-1.pdf, id=1072, 469.755pt x 165.61874pt>
+
 File: thesis_files/figure-latex/compassrose-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/compassrose-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/compassrose-1.pdf  used on i
-nput line 1059.
-(pdftex.def)             Requested size: 180.67455pt x 180.67455pt.
-<thesis_files/figure-latex/lettaustation2-1.pdf, id=1065, 115.43124pt x 115.431
+nput line 1089.
+(pdftex.def)             Requested size: 469.75386pt x 165.61833pt.
+<thesis_files/figure-latex/lettaustation2-1.pdf, id=1073, 115.43124pt x 115.431
 24pt>
 File: thesis_files/figure-latex/lettaustation2-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/lettaustation2-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/lettaustation2-1.pdf  used o
-n input line 1068.
+n input line 1098.
 (pdftex.def)             Requested size: 115.43095pt x 115.43095pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1072--1072
+Underfull \hbox (badness 10000) in paragraph at lines 1102--1102
 []\T1/lmr/m/n/12 Figure 4.5: |Dig-i-tal Im-agery for 'Van-guardia' ISD Sta-tion
 
  []
 
-[29 <./thesis_files/figure-latex/compassrose-1.pdf>]
-<thesis_files/figure-latex/lettauexamples2-1.pdf, id=1081, 469.755pt x 108.405p
+[28 <./thesis_files/figure-latex/compassrose-1.pdf>]
+<thesis_files/figure-latex/lettauexamples2-1.pdf, id=1096, 469.755pt x 108.405p
 t>
 File: thesis_files/figure-latex/lettauexamples2-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/lettauexamples2-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/lettauexamples2-1.pdf  used 
-on input line 1079.
+on input line 1109.
 (pdftex.def)             Requested size: 469.75386pt x 108.40472pt.
-<figure/lettauvalues.png, id=1082, 335.00156pt x 157.33781pt>
+<figure/lettauvalues.png, id=1097, 335.00156pt x 157.33781pt>
 File: figure/lettauvalues.png Graphic file (type png)
 <use figure/lettauvalues.png>
-Package pdftex.def Info: figure/lettauvalues.png  used on input line 1087.
+Package pdftex.def Info: figure/lettauvalues.png  used on input line 1117.
 (pdftex.def)             Requested size: 214.64198pt x 100.80869pt.
-[30 <./thesis_files/figure-latex/lettaustation2-1.pdf> <./thesis_files/figure-l
-atex/lettauexamples2-1.pdf> <./figure/lettauvalues.png>] [31]
-<thesis_files/figure-latex/declustering-1.pdf, id=1125, 144.54pt x 144.54pt>
+[29 <./thesis_files/figure-latex/lettaustation2-1.pdf> <./thesis_files/figure-l
+atex/lettauexamples2-1.pdf> <./figure/lettauvalues.png>] [30]
+<thesis_files/figure-latex/declustering-1.pdf, id=1140, 144.54pt x 144.54pt>
 File: thesis_files/figure-latex/declustering-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/declustering-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/declustering-1.pdf  used on 
-input line 1137.
+input line 1168.
 (pdftex.def)             Requested size: 144.53963pt x 144.53963pt.
-<thesis_files/figure-latex/thresholding-1.pdf, id=1127, 144.54pt x 144.54pt>
+<thesis_files/figure-latex/thresholding-1.pdf, id=1142, 144.54pt x 144.54pt>
 File: thesis_files/figure-latex/thresholding-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/thresholding-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/thresholding-1.pdf  used on 
-input line 1153.
+input line 1184.
 (pdftex.def)             Requested size: 144.53963pt x 144.53963pt.
-[32 <./thesis_files/figure-latex/declustering-1.pdf>]
-<thesis_files/figure-latex/wstatistics-1.pdf, id=1140, 180.675pt x 180.675pt>
+[31 <./thesis_files/figure-latex/declustering-1.pdf>]
+<thesis_files/figure-latex/wstatistics-1.pdf, id=1155, 180.675pt x 180.675pt>
 File: thesis_files/figure-latex/wstatistics-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/wstatistics-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/wstatistics-1.pdf  used on i
-nput line 1166.
+nput line 1204.
 (pdftex.def)             Requested size: 180.67455pt x 180.67455pt.
-[33 <./thesis_files/figure-latex/thresholding-1.pdf> <./thesis_files/figure-lat
+[32 <./thesis_files/figure-latex/thresholding-1.pdf> <./thesis_files/figure-lat
 ex/wstatistics-1.pdf>]
 
 Package amsmath Warning: Cannot use `split' here;
-(amsmath)                trying to recover with `aligned' on input line 1202.
+(amsmath)                trying to recover with `aligned' on input line 1240.
 
-<thesis_files/figure-latex/fitif-1.pdf, id=1162, 144.54pt x 144.54pt>
+<thesis_files/figure-latex/fitif-1.pdf, id=1177, 144.54pt x 144.54pt>
 File: thesis_files/figure-latex/fitif-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/fitif-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/fitif-1.pdf  used on input l
-ine 1210.
+ine 1248.
 (pdftex.def)             Requested size: 144.53963pt x 144.53963pt.
-<thesis_files/figure-latex/hc-1.pdf, id=1165, 144.54pt x 144.54pt>
+[33 <./thesis_files/figure-latex/fitif-1.pdf>]
+<thesis_files/figure-latex/hc-1.pdf, id=1191, 144.54pt x 144.54pt>
 File: thesis_files/figure-latex/hc-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/hc-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/hc-1.pdf  used on input line
- 1226.
+ 1264.
 (pdftex.def)             Requested size: 144.53963pt x 144.53963pt.
-[34 <./thesis_files/figure-latex/fitif-1.pdf>] [35 <./thesis_files/figure-latex
-/hc-1.pdf>]
-<thesis_files/figure-latex/combinedhc-1.pdf, id=1208, 361.35pt x 180.675pt>
+[34 <./thesis_files/figure-latex/hc-1.pdf>] [35]
+<thesis_files/figure-latex/combinedhc-1.pdf, id=1234, 361.35pt x 180.675pt>
 File: thesis_files/figure-latex/combinedhc-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/combinedhc-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/combinedhc-1.pdf  used on in
-put line 1283.
+put line 1320.
 (pdftex.def)             Requested size: 361.34912pt x 180.67455pt.
-[36] [37 <./thesis_files/figure-latex/combinedhc-1.pdf>]
+[36 <./thesis_files/figure-latex/combinedhc-1.pdf>] [37]
 Chapter 5.
 
-Underfull \hbox (badness 4981) in paragraph at lines 1297--1297
+Underfull \hbox (badness 4981) in paragraph at lines 1340--1340
 []\T1/lmr/bx/n/17.28 Data Stan-dard-iza-tion and Down-scal-ing Sup-
  []
 
 [38
 
-] [39]
-<thesis_files/figure-latex/qualitycomparison2-1.pdf, id=1260, 469.755pt x 325.2
+]
+Underfull \hbox (badness 1360) in paragraph at lines 1375--1375
+[][]\T1/lmr/bx/n/12 Quality data com-par-i-son of in-stan-ta-neous wind ve-loc-
+ity each 2 min-utes
+ []
+
+[39]
+<thesis_files/figure-latex/qualitycomparison2-1.pdf, id=1280, 469.755pt x 325.2
 15pt>
 File: thesis_files/figure-latex/qualitycomparison2-1.pdf Graphic file (type pdf
 )
 <use thesis_files/figure-latex/qualitycomparison2-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/qualitycomparison2-1.pdf  us
-ed on input line 1369.
+ed on input line 1408.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
-<thesis_files/figure-latex/sideamera5-1.pdf, id=1264, 289.08pt x 216.81pt>
+<thesis_files/figure-latex/sideamera5-1.pdf, id=1281, 289.08pt x 216.81pt>
 File: thesis_files/figure-latex/sideamera5-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/sideamera5-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/sideamera5-1.pdf  used on in
-put line 1375.
+put line 1413.
 (pdftex.def)             Requested size: 289.07928pt x 216.80946pt.
 [40 <./thesis_files/figure-latex/qualitycomparison2-1.pdf>]
-<thesis_files/figure-latex/poorcomparison-1.pdf, id=1281, 469.755pt x 325.215pt
+<thesis_files/figure-latex/poorcomparison-1.pdf, id=1298, 469.755pt x 325.215pt
 >
 File: thesis_files/figure-latex/poorcomparison-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/poorcomparison-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/poorcomparison-1.pdf  used o
-n input line 1397.
+n input line 1427.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 [41 <./thesis_files/figure-latex/sideamera5-1.pdf>]
-<thesis_files/figure-latex/verygoodxts-1.pdf, id=1297, 469.755pt x 216.81pt>
+<thesis_files/figure-latex/verygoodxts-1.pdf, id=1316, 469.755pt x 216.81pt>
 File: thesis_files/figure-latex/verygoodxts-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/verygoodxts-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/verygoodxts-1.pdf  used on i
-nput line 1423.
+nput line 1453.
 (pdftex.def)             Requested size: 469.75386pt x 216.80946pt.
-<thesis_files/figure-latex/verygood-1.pdf, id=1298, 469.755pt x 325.215pt>
+<thesis_files/figure-latex/verygood-1.pdf, id=1317, 469.755pt x 325.215pt>
 File: thesis_files/figure-latex/verygood-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/verygood-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/verygood-1.pdf  used on inpu
-t line 1428.
+t line 1458.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 [42 <./thesis_files/figure-latex/poorcomparison-1.pdf>]
-<figure/801120.jpg, id=1319, 703.87968pt x 703.87968pt>
+<figure/801120.jpg, id=1338, 703.87968pt x 703.87968pt>
 File: figure/801120.jpg Graphic file (type jpg)
 <use figure/801120.jpg>
-Package pdftex.def Info: figure/801120.jpg  used on input line 1437.
+Package pdftex.def Info: figure/801120.jpg  used on input line 1467.
 (pdftex.def)             Requested size: 161.16179pt x 161.15857pt.
 [43 <./thesis_files/figure-latex/verygoodxts-1.pdf> <./thesis_files/figure-late
 x/verygood-1.pdf>]
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 1449.
+(Font)              <5> on input line 1479.
 [44 <./figure/801120.jpg>]
-<thesis_files/figure-latex/ts-1.pdf, id=1360, 325.215pt x 144.54pt>
+<thesis_files/figure-latex/ts-1.pdf, id=1380, 325.215pt x 144.54pt>
 File: thesis_files/figure-latex/ts-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/ts-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/ts-1.pdf  used on input line
- 1522.
+ 1552.
 (pdftex.def)             Requested size: 325.2142pt x 144.53963pt.
 [45]
-<thesis_files/figure-latex/page6-1.pdf, id=1370, 180.675pt x 180.675pt>
+<thesis_files/figure-latex/page6-1.pdf, id=1389, 180.675pt x 180.675pt>
 File: thesis_files/figure-latex/page6-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/page6-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/page6-1.pdf  used on input l
-ine 1533.
+ine 1565.
 (pdftex.def)             Requested size: 180.67455pt x 180.67455pt.
 [46 <./thesis_files/figure-latex/ts-1.pdf> <./thesis_files/figure-latex/page6-1
 .pdf>]
-<thesis_files/figure-latex/page8-1.pdf, id=1393, 361.35pt x 289.08pt>
+<thesis_files/figure-latex/page8-1.pdf, id=1412, 361.35pt x 289.08pt>
 File: thesis_files/figure-latex/page8-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/page8-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/page8-1.pdf  used on input l
-ine 1556.
+ine 1588.
 (pdftex.def)             Requested size: 361.34912pt x 289.07928pt.
 [47 <./thesis_files/figure-latex/page8-1.pdf>]
-<thesis_files/figure-latex/page10-1.pdf, id=1407, 252.945pt x 180.675pt>
+<thesis_files/figure-latex/page10-1.pdf, id=1426, 252.945pt x 180.675pt>
 File: thesis_files/figure-latex/page10-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/page10-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/page10-1.pdf  used on input 
-line 1570.
+line 1602.
 (pdftex.def)             Requested size: 252.94438pt x 180.67455pt.
 [48 <./thesis_files/figure-latex/page10-1.pdf>]
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1616--1616
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1650--1650
 []|\T1/lmr/m/n/8 155.6|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1616--1616
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1650--1650
 []|\T1/lmr/m/n/8 169.3|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1616--1616
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1650--1650
 []|\T1/lmr/m/n/8 187.2|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1616--1616
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1650--1650
 []|\T1/lmr/m/n/8 200.4|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1616--1616
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1650--1650
 []|\T1/lmr/m/n/8 217.6|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1616--1616
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1650--1650
 []|\T1/lmr/m/n/8 230.3|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1616--1616
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1650--1650
 []|\T1/lmr/m/n/8 236.4|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1616--1616
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1650--1650
 []|\T1/lmr/m/n/8 242.8|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1616--1616
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1650--1650
 []|\T1/lmr/m/n/8 252.2|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1616--1616
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1650--1650
 []|\T1/lmr/m/n/8 262.1|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1616--1616
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1650--1650
 []|\T1/lmr/m/n/8 276.6|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1616--1617
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1650--1651
 []|\T1/lmr/m/n/8 0.057|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1617--1617
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1651--1651
 []|\T1/lmr/m/n/8 155.5|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1617--1617
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1651--1651
 []|\T1/lmr/m/n/8 169.3|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1617--1617
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1651--1651
 []|\T1/lmr/m/n/8 187.1|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1617--1617
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1651--1651
 []|\T1/lmr/m/n/8 200.4|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1617--1617
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1651--1651
 []|\T1/lmr/m/n/8 217.5|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1617--1617
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1651--1651
 []|\T1/lmr/m/n/8 230.1|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1617--1617
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1651--1651
 []|\T1/lmr/m/n/8 236.2|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1617--1617
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1651--1651
 []|\T1/lmr/m/n/8 242.6|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1617--1617
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1651--1651
 []|\T1/lmr/m/n/8 252.0|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1617--1617
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1651--1651
 []|\T1/lmr/m/n/8 261.9|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1617--1617
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1651--1651
 []|\T1/lmr/m/n/8 276.4|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1617--1618
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1651--1652
 []|\T1/lmr/m/n/8 0.057|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1618--1618
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1652--1652
 []|\T1/lmr/m/n/8 155.6|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1618--1618
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1652--1652
 []|\T1/lmr/m/n/8 169.3|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1618--1618
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1652--1652
 []|\T1/lmr/m/n/8 187.2|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1618--1618
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1652--1652
 []|\T1/lmr/m/n/8 200.4|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1618--1618
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1652--1652
 []|\T1/lmr/m/n/8 217.6|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1618--1618
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1652--1652
 []|\T1/lmr/m/n/8 230.3|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1618--1618
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1652--1652
 []|\T1/lmr/m/n/8 236.4|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1618--1618
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1652--1652
 []|\T1/lmr/m/n/8 242.7|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1618--1618
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1652--1652
 []|\T1/lmr/m/n/8 252.2|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1618--1618
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1652--1652
 []|\T1/lmr/m/n/8 262.1|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1618--1618
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1652--1652
 []|\T1/lmr/m/n/8 276.6|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1618--1619
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1652--1653
 []|\T1/lmr/m/n/8 0.057|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1619--1619
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1653--1653
 []|\T1/lmr/m/n/8 155.6|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1619--1619
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1653--1653
 []|\T1/lmr/m/n/8 169.3|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1619--1619
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1653--1653
 []|\T1/lmr/m/n/8 187.2|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1619--1619
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1653--1653
 []|\T1/lmr/m/n/8 200.4|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1619--1619
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1653--1653
 []|\T1/lmr/m/n/8 217.6|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1619--1619
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1653--1653
 []|\T1/lmr/m/n/8 230.3|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1619--1619
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1653--1653
 []|\T1/lmr/m/n/8 236.4|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1619--1619
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1653--1653
 []|\T1/lmr/m/n/8 242.7|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1619--1619
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1653--1653
 []|\T1/lmr/m/n/8 252.2|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1619--1619
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1653--1653
 []|\T1/lmr/m/n/8 262.1|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1619--1619
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1653--1653
 []|\T1/lmr/m/n/8 276.6|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1619--1620
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1653--1654
 []|\T1/lmr/m/n/8 0.057|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1620--1620
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1654--1654
 []|\T1/lmr/m/n/8 155.0|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1620--1620
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1654--1654
 []|\T1/lmr/m/n/8 168.5|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1620--1620
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1654--1654
 []|\T1/lmr/m/n/8 185.8|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1620--1620
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1654--1654
 []|\T1/lmr/m/n/8 198.6|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1620--1620
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1654--1654
 []|\T1/lmr/m/n/8 215.1|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1620--1620
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1654--1654
 []|\T1/lmr/m/n/8 227.3|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1620--1620
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1654--1654
 []|\T1/lmr/m/n/8 233.1|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1620--1620
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1654--1654
 []|\T1/lmr/m/n/8 239.2|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1620--1620
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1654--1654
 []|\T1/lmr/m/n/8 248.2|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1620--1620
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1654--1654
 []|\T1/lmr/m/n/8 257.6|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1620--1620
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1654--1654
 []|\T1/lmr/m/n/8 271.3|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1620--1621
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1654--1655
 []|\T1/lmr/m/n/8 0.058|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1622--1622
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1656--1656
 []|\T1/lmr/m/n/8 155.5|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1622--1622
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1656--1656
 []|\T1/lmr/m/n/8 169.3|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1622--1622
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1656--1656
 []|\T1/lmr/m/n/8 187.2|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1622--1622
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1656--1656
 []|\T1/lmr/m/n/8 200.4|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1622--1622
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1656--1656
 []|\T1/lmr/m/n/8 217.5|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1622--1622
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1656--1656
 []|\T1/lmr/m/n/8 230.2|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1622--1622
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1656--1656
 []|\T1/lmr/m/n/8 236.3|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1622--1622
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1656--1656
 []|\T1/lmr/m/n/8 242.6|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1622--1622
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1656--1656
 []|\T1/lmr/m/n/8 252.0|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1622--1622
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1656--1656
 []|\T1/lmr/m/n/8 261.9|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1622--1622
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1656--1656
 []|\T1/lmr/m/n/8 276.5|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1622--1623
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1656--1657
 []|\T1/lmr/m/n/8 0.057|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1623--1623
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1657--1657
 []|\T1/lmr/m/n/8 200.8|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1623--1623
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1657--1657
 []|\T1/lmr/m/n/8 203.9|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1623--1623
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1657--1657
 []|\T1/lmr/m/n/8 206.5|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1623--1623
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1657--1657
 []|\T1/lmr/m/n/8 207.8|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1623--1623
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1657--1657
 []|\T1/lmr/m/n/8 208.9|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1623--1623
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1657--1657
 []|\T1/lmr/m/n/8 209.4|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1623--1623
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1657--1657
 []|\T1/lmr/m/n/8 209.6|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1623--1623
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1657--1657
 []|\T1/lmr/m/n/8 209.7|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1623--1623
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1657--1657
 []|\T1/lmr/m/n/8 209.9|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1623--1623
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1657--1657
 []|\T1/lmr/m/n/8 210.1|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1623--1623
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1657--1657
 []|\T1/lmr/m/n/8 210.3|  
  []
 
 
-Overfull \hbox (4.9074pt too wide) in paragraph at lines 1623--1624
+Overfull \hbox (4.9074pt too wide) in paragraph at lines 1657--1658
 []|\T1/lmr/m/n/8 0.337|  
  []
 
 
-Overfull \hbox (5.9949pt too wide) in paragraph at lines 1636--1636
+Overfull \hbox (5.9949pt too wide) in paragraph at lines 1670--1670
 []|\T1/lmr/m/n/8 gpa|  
  []
 
 
-Overfull \hbox (8.5211pt too wide) in paragraph at lines 1636--1636
+Overfull \hbox (8.5211pt too wide) in paragraph at lines 1670--1670
 []|\T1/lmr/m/n/8 149.6|  
  []
 
 
-Overfull \hbox (8.5211pt too wide) in paragraph at lines 1636--1636
+Overfull \hbox (8.5211pt too wide) in paragraph at lines 1670--1670
 []|\T1/lmr/m/n/8 160.6|  
  []
 
 
-Overfull \hbox (8.5211pt too wide) in paragraph at lines 1636--1636
+Overfull \hbox (8.5211pt too wide) in paragraph at lines 1670--1670
 []|\T1/lmr/m/n/8 174.2|  
  []
 
 
-Overfull \hbox (8.5211pt too wide) in paragraph at lines 1636--1636
+Overfull \hbox (8.5211pt too wide) in paragraph at lines 1670--1670
 []|\T1/lmr/m/n/8 183.9|  
  []
 
 
-Overfull \hbox (8.5211pt too wide) in paragraph at lines 1636--1636
+Overfull \hbox (8.5211pt too wide) in paragraph at lines 1670--1670
 []|\T1/lmr/m/n/8 195.8|  
  []
 
 
-Overfull \hbox (8.5211pt too wide) in paragraph at lines 1636--1636
+Overfull \hbox (8.5211pt too wide) in paragraph at lines 1670--1670
 []|\T1/lmr/m/n/8 204.2|  
  []
 
 
-Overfull \hbox (8.5211pt too wide) in paragraph at lines 1636--1636
+Overfull \hbox (8.5211pt too wide) in paragraph at lines 1670--1670
 []|\T1/lmr/m/n/8 208.2|  
  []
 
 
-Overfull \hbox (8.5211pt too wide) in paragraph at lines 1636--1636
+Overfull \hbox (8.5211pt too wide) in paragraph at lines 1670--1670
 []|\T1/lmr/m/n/8 212.2|  
  []
 
 
-Overfull \hbox (8.5211pt too wide) in paragraph at lines 1636--1636
+Overfull \hbox (8.5211pt too wide) in paragraph at lines 1670--1670
 []|\T1/lmr/m/n/8 218.0|  
  []
 
 
-Overfull \hbox (8.5211pt too wide) in paragraph at lines 1636--1636
+Overfull \hbox (8.5211pt too wide) in paragraph at lines 1670--1670
 []|\T1/lmr/m/n/8 223.9|  
  []
 
 
-Overfull \hbox (8.5211pt too wide) in paragraph at lines 1636--1636
+Overfull \hbox (8.5211pt too wide) in paragraph at lines 1670--1670
 []|\T1/lmr/m/n/8 232.2|  
  []
 
 
-Overfull \hbox (8.5211pt too wide) in paragraph at lines 1636--1637
+Overfull \hbox (8.5211pt too wide) in paragraph at lines 1670--1671
 []|\T1/lmr/m/n/8 0.048|  
  []
 
 
-Overfull \hbox (5.28656pt too wide) in paragraph at lines 1637--1637
+Overfull \hbox (5.28656pt too wide) in paragraph at lines 1671--1671
 []|\T1/lmr/m/n/8 gev|  
  []
 
 
-Overfull \hbox (8.5211pt too wide) in paragraph at lines 1637--1637
+Overfull \hbox (8.5211pt too wide) in paragraph at lines 1671--1671
 []|\T1/lmr/m/n/8 172.5|  
  []
 
 
-Overfull \hbox (8.5211pt too wide) in paragraph at lines 1637--1637
+Overfull \hbox (8.5211pt too wide) in paragraph at lines 1671--1671
 []|\T1/lmr/m/n/8 198.8|  
  []
 
 
-Overfull \hbox (8.5211pt too wide) in paragraph at lines 1637--1637
+Overfull \hbox (8.5211pt too wide) in paragraph at lines 1671--1671
 []|\T1/lmr/m/n/8 239.2|  
  []
 
 
-Overfull \hbox (8.5211pt too wide) in paragraph at lines 1637--1637
+Overfull \hbox (8.5211pt too wide) in paragraph at lines 1671--1671
 []|\T1/lmr/m/n/8 274.8|  
  []
 
 
-Overfull \hbox (8.5211pt too wide) in paragraph at lines 1637--1637
+Overfull \hbox (8.5211pt too wide) in paragraph at lines 1671--1671
 []|\T1/lmr/m/n/8 329.5|  
  []
 
 
-Overfull \hbox (8.5211pt too wide) in paragraph at lines 1637--1637
+Overfull \hbox (8.5211pt too wide) in paragraph at lines 1671--1671
 []|\T1/lmr/m/n/8 377.8|  
  []
 
 
-Overfull \hbox (8.5211pt too wide) in paragraph at lines 1637--1637
+Overfull \hbox (8.5211pt too wide) in paragraph at lines 1671--1671
 []|\T1/lmr/m/n/8 403.5|  
  []
 
 
-Overfull \hbox (8.5211pt too wide) in paragraph at lines 1637--1637
+Overfull \hbox (8.5211pt too wide) in paragraph at lines 1671--1671
 []|\T1/lmr/m/n/8 432.7|  
  []
 
 
-Overfull \hbox (8.5211pt too wide) in paragraph at lines 1637--1637
+Overfull \hbox (8.5211pt too wide) in paragraph at lines 1671--1671
 []|\T1/lmr/m/n/8 479.9|  
  []
 
 
-Overfull \hbox (8.5211pt too wide) in paragraph at lines 1637--1637
+Overfull \hbox (8.5211pt too wide) in paragraph at lines 1671--1671
 []|\T1/lmr/m/n/8 536.0|  
  []
 
 
-Overfull \hbox (8.5211pt too wide) in paragraph at lines 1637--1637
+Overfull \hbox (8.5211pt too wide) in paragraph at lines 1671--1671
 []|\T1/lmr/m/n/8 631.7|  
  []
 
 
-Overfull \hbox (8.5211pt too wide) in paragraph at lines 1637--1638
+Overfull \hbox (8.5211pt too wide) in paragraph at lines 1671--1672
 []|\T1/lmr/m/n/8 0.058|  
  []
 
 
-Overfull \hbox (8.8284pt too wide) in paragraph at lines 1638--1638
+Overfull \hbox (8.8284pt too wide) in paragraph at lines 1672--1672
 []|\T1/lmr/m/n/8 gum|  
  []
 
 
-Overfull \hbox (8.5211pt too wide) in paragraph at lines 1638--1638
+Overfull \hbox (8.5211pt too wide) in paragraph at lines 1672--1672
 []|\T1/lmr/m/n/8 140.9|  
  []
 
 
-Overfull \hbox (8.5211pt too wide) in paragraph at lines 1638--1638
+Overfull \hbox (8.5211pt too wide) in paragraph at lines 1672--1672
 []|\T1/lmr/m/n/8 152.1|  
  []
 
 
-Overfull \hbox (8.5211pt too wide) in paragraph at lines 1638--1638
+Overfull \hbox (8.5211pt too wide) in paragraph at lines 1672--1672
 []|\T1/lmr/m/n/8 167.0|  
  []
 
 
-Overfull \hbox (8.5211pt too wide) in paragraph at lines 1638--1638
+Overfull \hbox (8.5211pt too wide) in paragraph at lines 1672--1672
 []|\T1/lmr/m/n/8 178.2|  
  []
 
 
-Overfull \hbox (8.5211pt too wide) in paragraph at lines 1638--1638
+Overfull \hbox (8.5211pt too wide) in paragraph at lines 1672--1672
 []|\T1/lmr/m/n/8 193.0|  
  []
 
 
-Overfull \hbox (8.5211pt too wide) in paragraph at lines 1638--1638
+Overfull \hbox (8.5211pt too wide) in paragraph at lines 1672--1672
 []|\T1/lmr/m/n/8 204.3|  
  []
 
 
-Overfull \hbox (8.5211pt too wide) in paragraph at lines 1638--1638
+Overfull \hbox (8.5211pt too wide) in paragraph at lines 1672--1672
 []|\T1/lmr/m/n/8 209.7|  
  []
 
 
-Overfull \hbox (8.5211pt too wide) in paragraph at lines 1638--1638
+Overfull \hbox (8.5211pt too wide) in paragraph at lines 1672--1672
 []|\T1/lmr/m/n/8 215.5|  
  []
 
 
-Overfull \hbox (8.5211pt too wide) in paragraph at lines 1638--1638
+Overfull \hbox (8.5211pt too wide) in paragraph at lines 1672--1672
 []|\T1/lmr/m/n/8 224.1|  
  []
 
 
-Overfull \hbox (8.5211pt too wide) in paragraph at lines 1638--1638
+Overfull \hbox (8.5211pt too wide) in paragraph at lines 1672--1672
 []|\T1/lmr/m/n/8 233.3|  
  []
 
 
-Overfull \hbox (8.5211pt too wide) in paragraph at lines 1638--1638
+Overfull \hbox (8.5211pt too wide) in paragraph at lines 1672--1672
 []|\T1/lmr/m/n/8 247.0|  
  []
 
 
-Overfull \hbox (8.5211pt too wide) in paragraph at lines 1638--1639
+Overfull \hbox (8.5211pt too wide) in paragraph at lines 1672--1673
 []|\T1/lmr/m/n/8 0.067|  
  []
 
 [49]
-<thesis_files/figure-latex/ingeniarmaps-1.pdf, id=1451, 469.755pt x 126.4725pt>
+<thesis_files/figure-latex/ingeniarmaps-1.pdf, id=1467, 469.755pt x 126.4725pt>
 
 File: thesis_files/figure-latex/ingeniarmaps-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/ingeniarmaps-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/ingeniarmaps-1.pdf  used on 
-input line 1654.
+input line 1688.
 (pdftex.def)             Requested size: 469.75386pt x 126.47218pt.
-<thesis_files/figure-latex/isdnhmaps-1.pdf, id=1452, 469.755pt x 194.7275pt>
+<thesis_files/figure-latex/isdnhmaps-1.pdf, id=1470, 469.755pt x 194.7275pt>
 File: thesis_files/figure-latex/isdnhmaps-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/isdnhmaps-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/isdnhmaps-1.pdf  used on inp
-ut line 1661.
+ut line 1697.
 (pdftex.def)             Requested size: 469.75386pt x 194.727pt.
-<thesis_files/figure-latex/era5nhmaps-1.pdf, id=1453, 469.755pt x 194.7275pt>
+<thesis_files/figure-latex/era5nhmaps-1.pdf, id=1471, 469.755pt x 194.7275pt>
 File: thesis_files/figure-latex/era5nhmaps-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/era5nhmaps-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/era5nhmaps-1.pdf  used on in
-put line 1666.
+put line 1703.
 (pdftex.def)             Requested size: 469.75386pt x 194.727pt.
 [50 <./thesis_files/figure-latex/ingeniarmaps-1.pdf> <./thesis_files/figure-lat
 ex/isdnhmaps-1.pdf>]
-<thesis_files/figure-latex/isdcbmaps-1.pdf, id=1489, 469.755pt x 194.7275pt>
+<thesis_files/figure-latex/isdcbmaps-1.pdf, id=1507, 469.755pt x 194.7275pt>
 File: thesis_files/figure-latex/isdcbmaps-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/isdcbmaps-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/isdcbmaps-1.pdf  used on inp
-ut line 1675.
+ut line 1712.
 (pdftex.def)             Requested size: 469.75386pt x 194.727pt.
-<thesis_files/figure-latex/era5cbmaps-1.pdf, id=1490, 469.755pt x 194.7275pt>
+<thesis_files/figure-latex/era5cbmaps-1.pdf, id=1508, 469.755pt x 194.7275pt>
 File: thesis_files/figure-latex/era5cbmaps-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/era5cbmaps-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/era5cbmaps-1.pdf  used on in
-put line 1680.
+put line 1717.
 (pdftex.def)             Requested size: 469.75386pt x 194.727pt.
 [51 <./thesis_files/figure-latex/era5nhmaps-1.pdf> <./thesis_files/figure-latex
 /isdcbmaps-1.pdf>] [52 <./thesis_files/figure-latex/era5cbmaps-1.pdf>] [53]
 
-Package xcolor Warning: Incompatible color definition on input line 1703.
+Package xcolor Warning: Incompatible color definition on input line 1742.
 
 LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <8> not available
-(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 1706.
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 1745.
 
-Package xcolor Warning: Incompatible color definition on input line 1723.
-
-
-Package xcolor Warning: Incompatible color definition on input line 1723.
+Package xcolor Warning: Incompatible color definition on input line 1762.
 
 
-Package xcolor Warning: Incompatible color definition on input line 1729.
+Package xcolor Warning: Incompatible color definition on input line 1762.
+
+
+Package xcolor Warning: Incompatible color definition on input line 1770.
 
 LaTeX Font Info:    Trying to load font information for TS1+lmtt on input line 
-1748.
+1789.
 (c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/ts1lmtt.fd
 File: ts1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 
-Package xcolor Warning: Incompatible color definition on input line 1751.
+Package xcolor Warning: Incompatible color definition on input line 1793.
 
 
-Package xcolor Warning: Incompatible color definition on input line 1751.
+Package xcolor Warning: Incompatible color definition on input line 1793.
 
 [54]
 Chapter 6.
 [55
 
 ]
-Appendix A.
-
-Overfull \hbox (2.31879pt too wide) in alignment at lines 1780--1803
- [] [] 
- []
-
-
-Overfull \hbox (2.31879pt too wide) in alignment at lines 1803--1823
- [] [] 
- []
-
-
-Overfull \hbox (2.31879pt too wide) in alignment at lines 1823--1826
- [] [] 
+Overfull \hbox (26.36987pt too wide) in paragraph at lines 1832--1834
+[][]\T1/lmr/m/n/12 Berhane, F. (2016, April). Work-ing with databases in r. Wep
+ Page. https://datascienceplus.com/.
  []
 
 [56
 
+] [57] [58] [59] [60]
+Appendix A.
+
+Overfull \hbox (2.31879pt too wide) in alignment at lines 2002--2025
+ [] [] 
+ []
+
+
+Overfull \hbox (2.31879pt too wide) in alignment at lines 2025--2045
+ [] [] 
+ []
+
+
+Overfull \hbox (2.31879pt too wide) in alignment at lines 2045--2048
+ [] [] 
+ []
+
+[61
+
 ]
 Appendix B.
 
-Underfull \hbox (badness 10000) in paragraph at lines 1834--1834
+Underfull \hbox (badness 10000) in paragraph at lines 2056--2056
 []\T1/lmr/m/n/12 Table B.1: |[]Re-sults. Dig-i-tal Files in FTP site
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1834--1834
+Underfull \hbox (badness 10000) in paragraph at lines 2056--2056
 []\T1/lmr/m/n/12 ftp://ftp.geocorp.co/windthesis/[]. User anony-mous@geocorp.co
 
  []
 
 
-Overfull \hbox (2.31877pt too wide) in alignment at lines 1833--1856
+Overfull \hbox (2.31877pt too wide) in alignment at lines 2055--2078
  [] [] 
  []
 
 
-Overfull \hbox (2.31877pt too wide) in alignment at lines 1856--1874
+Overfull \hbox (2.31877pt too wide) in alignment at lines 2078--2096
  [] [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1879--1879
+Underfull \hbox (badness 10000) in paragraph at lines 2101--2101
 []\T1/lmr/m/n/12 Table B.2: |[]Con-tent of the out-put Ex-cel Book
  []
 
 
-Underfull \hbox (badness 2922) in paragraph at lines 1879--1879
+Underfull \hbox (badness 2922) in paragraph at lines 2101--2101
 \T1/lmr/m/n/12 'raw_data_station_*_fitted.xlsx', where '*' is re-placed by the
  []
 
 
-Overfull \hbox (2.06741pt too wide) in paragraph at lines 1889--1889
+Overfull \hbox (2.06741pt too wide) in paragraph at lines 2111--2111
 []|\T1/lmr/m/n/8 nt_distLquantile_parameters|  
  []
 
-[57
+[62
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 1899--1899
+Underfull \hbox (badness 10000) in paragraph at lines 2121--2121
 []\T1/lmr/m/n/12 Table B.3: |[]Con-tent of the out-put Ex-cel Book
  []
 
 
-Underfull \hbox (badness 5939) in paragraph at lines 1899--1899
+Underfull \hbox (badness 5939) in paragraph at lines 2121--2121
 \T1/lmr/m/n/12 'raw_data_station_*_statistics.xlsx', where '*' is re-placed by
  []
 
 
-Underfull \hbox (badness 1983) in paragraph at lines 1922--1922
+Underfull \hbox (badness 1983) in paragraph at lines 2144--2144
 []\T1/lmr/m/n/12 Table B.4: |[]Con-tent of the out-put graph-ics PDF file 'Fit-
 ted-
  []
 
-[58]
-Underfull \hbox (badness 10000) in paragraph at lines 1947--1947
+[63]
+Underfull \hbox (badness 10000) in paragraph at lines 2169--2169
 []\T1/lmr/m/n/12 Table B.5: |[]Con-tent of the out-put Ex-cel Book 'fit-
  []
 
 
-Underfull \hbox (badness 1533) in paragraph at lines 1947--1947
+Underfull \hbox (badness 1533) in paragraph at lines 2169--2169
 \T1/lmr/m/n/12 ted_model_result.xlsx' (sheet pp_pintar). One file by dataset
  []
 
 
-Overfull \hbox (1.99481pt too wide) in paragraph at lines 1963--1963
+Overfull \hbox (1.99481pt too wide) in paragraph at lines 2185--2185
 []|\T1/lmr/m/n/8 nt_MRI_poissonprocessintfunc|  
  []
 
 
-Overfull \hbox (5.30048pt too wide) in paragraph at lines 1966--1966
+Overfull \hbox (5.30048pt too wide) in paragraph at lines 2188--2188
 []|\T1/lmr/m/n/8 tnt_MRI_poissonprocessintfunc|  
  []
 
-[59] [60]
+[64] [65]
 Appendix C.
 
-Package xcolor Warning: Incompatible color definition on input line 2045.
+Package xcolor Warning: Incompatible color definition on input line 2267.
 
 
-Package xcolor Warning: Incompatible color definition on input line 2063.
+Package xcolor Warning: Incompatible color definition on input line 2285.
 
 
-Package xcolor Warning: Incompatible color definition on input line 2063.
+Package xcolor Warning: Incompatible color definition on input line 2285.
 
-[61
-
-]
-
-Package xcolor Warning: Incompatible color definition on input line 2099.
-
-
-Package xcolor Warning: Incompatible color definition on input line 2104.
-
-
-Package xcolor Warning: Incompatible color definition on input line 2104.
-
-
-Package xcolor Warning: Incompatible color definition on input line 2112.
-
-
-Package xcolor Warning: Incompatible color definition on input line 2117.
-
-
-Package xcolor Warning: Incompatible color definition on input line 2117.
-
-
-Package xcolor Warning: Incompatible color definition on input line 2125.
-
-
-Package xcolor Warning: Incompatible color definition on input line 2131.
-
-
-Package xcolor Warning: Incompatible color definition on input line 2131.
-
-[62]
-Appendix D.
-
-Package xcolor Warning: Incompatible color definition on input line 2149.
-
-
-Package xcolor Warning: Incompatible color definition on input line 2156.
-
-
-Package xcolor Warning: Incompatible color definition on input line 2156.
-
-
-Package xcolor Warning: Incompatible color definition on input line 2164.
-
-[63
+[66
 
 ]
 
-Package xcolor Warning: Incompatible color definition on input line 2173.
+Package xcolor Warning: Incompatible color definition on input line 2321.
 
 
-Package xcolor Warning: Incompatible color definition on input line 2173.
+Package xcolor Warning: Incompatible color definition on input line 2326.
 
 
-Package xcolor Warning: Incompatible color definition on input line 2200.
+Package xcolor Warning: Incompatible color definition on input line 2326.
 
 
-Package xcolor Warning: Incompatible color definition on input line 2213.
-
-
-Package xcolor Warning: Incompatible color definition on input line 2213.
-
-
-Package xcolor Warning: Incompatible color definition on input line 2225.
-
-
-Package xcolor Warning: Incompatible color definition on input line 2234.
-
-
-Package xcolor Warning: Incompatible color definition on input line 2234.
-
-
-Package xcolor Warning: Incompatible color definition on input line 2246.
-
-
-Package xcolor Warning: Incompatible color definition on input line 2258.
-
-
-Package xcolor Warning: Incompatible color definition on input line 2258.
-
-
-Package xcolor Warning: Incompatible color definition on input line 2270.
-
-[64]
-
-Package xcolor Warning: Incompatible color definition on input line 2303.
-
-
-Package xcolor Warning: Incompatible color definition on input line 2303.
-
-
-Package xcolor Warning: Incompatible color definition on input line 2317.
-
-
-Package xcolor Warning: Incompatible color definition on input line 2325.
-
-
-Package xcolor Warning: Incompatible color definition on input line 2325.
+Package xcolor Warning: Incompatible color definition on input line 2334.
 
 
 Package xcolor Warning: Incompatible color definition on input line 2339.
 
-[65]
 
-Package xcolor Warning: Incompatible color definition on input line 2344.
-
-
-Package xcolor Warning: Incompatible color definition on input line 2344.
+Package xcolor Warning: Incompatible color definition on input line 2339.
 
 
-Package xcolor Warning: Incompatible color definition on input line 2370.
+Package xcolor Warning: Incompatible color definition on input line 2347.
 
 
-Package xcolor Warning: Incompatible color definition on input line 2422.
+Package xcolor Warning: Incompatible color definition on input line 2353.
 
 
-Package xcolor Warning: Incompatible color definition on input line 2422.
-
-
-Package xcolor Warning: Incompatible color definition on input line 2422.
-
-[66]
-
-Package xcolor Warning: Incompatible color definition on input line 2422.
-
-
-Package xcolor Warning: Incompatible color definition on input line 2422.
-
-
-Package xcolor Warning: Incompatible color definition on input line 2446.
-
-
-Package xcolor Warning: Incompatible color definition on input line 2459.
-
-
-Package xcolor Warning: Incompatible color definition on input line 2459.
-
-
-Package xcolor Warning: Incompatible color definition on input line 2467.
-
-
-Package xcolor Warning: Incompatible color definition on input line 2471.
-
-
-Package xcolor Warning: Incompatible color definition on input line 2471.
-
-
-Package xcolor Warning: Incompatible color definition on input line 2476.
-
-
-Package xcolor Warning: Incompatible color definition on input line 2480.
-
-
-Package xcolor Warning: Incompatible color definition on input line 2480.
+Package xcolor Warning: Incompatible color definition on input line 2353.
 
 [67]
+Appendix D.
 
-Package xcolor Warning: Incompatible color definition on input line 2517.
-
-
-Package xcolor Warning: Incompatible color definition on input line 2521.
+Package xcolor Warning: Incompatible color definition on input line 2371.
 
 
-Package xcolor Warning: Incompatible color definition on input line 2521.
+Package xcolor Warning: Incompatible color definition on input line 2378.
 
 
-Package xcolor Warning: Incompatible color definition on input line 2532.
+Package xcolor Warning: Incompatible color definition on input line 2378.
 
-
-Package xcolor Warning: Incompatible color definition on input line 2536.
-
-
-Package xcolor Warning: Incompatible color definition on input line 2536.
-
-
-Package xcolor Warning: Incompatible color definition on input line 2547.
-
-
-Package xcolor Warning: Incompatible color definition on input line 2551.
-
-
-Package xcolor Warning: Incompatible color definition on input line 2551.
-
-
-Package xcolor Warning: Incompatible color definition on input line 2559.
-
-
-Package xcolor Warning: Incompatible color definition on input line 2587.
-
-
-Package xcolor Warning: Incompatible color definition on input line 2587.
-
-
-Package xcolor Warning: Incompatible color definition on input line 2587.
-
-[68]
-
-Package xcolor Warning: Incompatible color definition on input line 2587.
-
-
-Package xcolor Warning: Incompatible color definition on input line 2587.
-
-
-Package xcolor Warning: Incompatible color definition on input line 2619.
-
-
-Package xcolor Warning: Incompatible color definition on input line 2623.
-
-
-Package xcolor Warning: Incompatible color definition on input line 2623.
-
-
-Package xcolor Warning: Incompatible color definition on input line 2634.
-
-
-Package xcolor Warning: Incompatible color definition on input line 2639.
-
-
-Package xcolor Warning: Incompatible color definition on input line 2639.
-
-
-Package xcolor Warning: Incompatible color definition on input line 2650.
-
-
-Package xcolor Warning: Incompatible color definition on input line 2655.
-
-
-Package xcolor Warning: Incompatible color definition on input line 2655.
-
-[69]
-Appendix E.
-
-Package xcolor Warning: Incompatible color definition on input line 2673.
-
-LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <6> not available
-(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 2676.
-
-Package xcolor Warning: Incompatible color definition on input line 2706.
-
-
-Package xcolor Warning: Incompatible color definition on input line 2706.
-
-
-Package xcolor Warning: Incompatible color definition on input line 2718.
-
-
-Package xcolor Warning: Incompatible color definition on input line 2740.
-
-
-Package xcolor Warning: Incompatible color definition on input line 2740.
-
-
-Package xcolor Warning: Incompatible color definition on input line 2740.
-
-[70
+[68
 
 ]
 
-Package xcolor Warning: Incompatible color definition on input line 2740.
+Package xcolor Warning: Incompatible color definition on input line 2386.
 
 
-Package xcolor Warning: Incompatible color definition on input line 2740.
+Package xcolor Warning: Incompatible color definition on input line 2395.
+
+
+Package xcolor Warning: Incompatible color definition on input line 2395.
+
+
+Package xcolor Warning: Incompatible color definition on input line 2422.
+
+
+Package xcolor Warning: Incompatible color definition on input line 2435.
+
+
+Package xcolor Warning: Incompatible color definition on input line 2435.
+
+
+Package xcolor Warning: Incompatible color definition on input line 2447.
+
+
+Package xcolor Warning: Incompatible color definition on input line 2456.
+
+
+Package xcolor Warning: Incompatible color definition on input line 2456.
+
+
+Package xcolor Warning: Incompatible color definition on input line 2468.
+
+
+Package xcolor Warning: Incompatible color definition on input line 2480.
+
+
+Package xcolor Warning: Incompatible color definition on input line 2480.
+
+[69]
+
+Package xcolor Warning: Incompatible color definition on input line 2492.
+
+
+Package xcolor Warning: Incompatible color definition on input line 2525.
+
+
+Package xcolor Warning: Incompatible color definition on input line 2525.
+
+
+Package xcolor Warning: Incompatible color definition on input line 2538.
+
+
+Package xcolor Warning: Incompatible color definition on input line 2546.
+
+
+Package xcolor Warning: Incompatible color definition on input line 2546.
+
+[70]
+
+Package xcolor Warning: Incompatible color definition on input line 2560.
+
+
+Package xcolor Warning: Incompatible color definition on input line 2565.
+
+
+Package xcolor Warning: Incompatible color definition on input line 2565.
+
+
+Package xcolor Warning: Incompatible color definition on input line 2591.
+
+
+Package xcolor Warning: Incompatible color definition on input line 2643.
+
+
+Package xcolor Warning: Incompatible color definition on input line 2643.
+
+
+Underfull \vbox (badness 10000) detected at line 2643
+ []
+
+
+Package xcolor Warning: Incompatible color definition on input line 2643.
+
+[71]
+
+Package xcolor Warning: Incompatible color definition on input line 2643.
+
+
+Package xcolor Warning: Incompatible color definition on input line 2643.
+
+
+Package xcolor Warning: Incompatible color definition on input line 2667.
+
+
+Package xcolor Warning: Incompatible color definition on input line 2680.
+
+
+Package xcolor Warning: Incompatible color definition on input line 2680.
+
+
+Package xcolor Warning: Incompatible color definition on input line 2688.
+
+
+Package xcolor Warning: Incompatible color definition on input line 2692.
+
+
+Package xcolor Warning: Incompatible color definition on input line 2692.
+
+
+Package xcolor Warning: Incompatible color definition on input line 2697.
+
+
+Package xcolor Warning: Incompatible color definition on input line 2701.
+
+
+Package xcolor Warning: Incompatible color definition on input line 2701.
+
+[72]
+
+Package xcolor Warning: Incompatible color definition on input line 2737.
+
+
+Package xcolor Warning: Incompatible color definition on input line 2741.
+
+
+Package xcolor Warning: Incompatible color definition on input line 2741.
 
 
 Package xcolor Warning: Incompatible color definition on input line 2752.
 
 
-Package xcolor Warning: Incompatible color definition on input line 2814.
+Package xcolor Warning: Incompatible color definition on input line 2756.
 
 
-Package xcolor Warning: Incompatible color definition on input line 2814.
+Package xcolor Warning: Incompatible color definition on input line 2756.
 
 
-Package xcolor Warning: Incompatible color definition on input line 2826.
+Package xcolor Warning: Incompatible color definition on input line 2767.
 
 
-Package xcolor Warning: Incompatible color definition on input line 2884.
+Package xcolor Warning: Incompatible color definition on input line 2771.
 
 
-Package xcolor Warning: Incompatible color definition on input line 2884.
+Package xcolor Warning: Incompatible color definition on input line 2771.
 
 
-Package xcolor Warning: Incompatible color definition on input line 2884.
-
-[71]
-
-Package xcolor Warning: Incompatible color definition on input line 2884.
+Package xcolor Warning: Incompatible color definition on input line 2779.
 
 
-Package xcolor Warning: Incompatible color definition on input line 2884.
+Package xcolor Warning: Incompatible color definition on input line 2807.
 
 
-Package xcolor Warning: Incompatible color definition on input line 2896.
+Package xcolor Warning: Incompatible color definition on input line 2807.
 
 
-Package xcolor Warning: Incompatible color definition on input line 2933.
-
-
-Package xcolor Warning: Incompatible color definition on input line 2933.
-
-
-Package xcolor Warning: Incompatible color definition on input line 2945.
-
-
-Package xcolor Warning: Incompatible color definition on input line 3111.
-
-
-Package xcolor Warning: Incompatible color definition on input line 3111.
-
-
-Package xcolor Warning: Incompatible color definition on input line 3111.
-
-[72]
-
-Package xcolor Warning: Incompatible color definition on input line 3111.
-
-
-Package xcolor Warning: Incompatible color definition on input line 3111.
-
-
-Underfull \vbox (badness 10000) detected at line 3111
- []
-
-
-Underfull \vbox (badness 10000) detected at line 3111
- []
-
-
-Package xcolor Warning: Incompatible color definition on input line 3111.
+Package xcolor Warning: Incompatible color definition on input line 2807.
 
 [73]
 
-Package xcolor Warning: Incompatible color definition on input line 3111.
+Package xcolor Warning: Incompatible color definition on input line 2807.
 
 
-Package xcolor Warning: Incompatible color definition on input line 3111.
+Package xcolor Warning: Incompatible color definition on input line 2807.
 
 
-Package xcolor Warning: Incompatible color definition on input line 3124.
+Package xcolor Warning: Incompatible color definition on input line 2839.
 
 
-Package xcolor Warning: Incompatible color definition on input line 3138.
+Package xcolor Warning: Incompatible color definition on input line 2843.
 
 
-Package xcolor Warning: Incompatible color definition on input line 3138.
+Package xcolor Warning: Incompatible color definition on input line 2843.
 
 
-Package xcolor Warning: Incompatible color definition on input line 3150.
+Package xcolor Warning: Incompatible color definition on input line 2854.
+
+
+Package xcolor Warning: Incompatible color definition on input line 2859.
+
+
+Package xcolor Warning: Incompatible color definition on input line 2859.
+
+
+Package xcolor Warning: Incompatible color definition on input line 2870.
+
+
+Package xcolor Warning: Incompatible color definition on input line 2875.
+
+
+Package xcolor Warning: Incompatible color definition on input line 2875.
 
 [74]
+Appendix E.
 
-Package xcolor Warning: Incompatible color definition on input line 3174.
+Package xcolor Warning: Incompatible color definition on input line 2893.
 
+LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <6> not available
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 2896.
 
-Package xcolor Warning: Incompatible color definition on input line 3174.
-
-
-Package xcolor Warning: Incompatible color definition on input line 3186.
-
-
-Package xcolor Warning: Incompatible color definition on input line 3201.
+Package xcolor Warning: Incompatible color definition on input line 2926.
 
 
-Package xcolor Warning: Incompatible color definition on input line 3201.
+Package xcolor Warning: Incompatible color definition on input line 2926.
 
 
-Package xcolor Warning: Incompatible color definition on input line 3213.
+Package xcolor Warning: Incompatible color definition on input line 2938.
 
 
-Package xcolor Warning: Incompatible color definition on input line 3228.
+Package xcolor Warning: Incompatible color definition on input line 2960.
 
 
-Package xcolor Warning: Incompatible color definition on input line 3228.
+Package xcolor Warning: Incompatible color definition on input line 2960.
 
 
-Package xcolor Warning: Incompatible color definition on input line 3240.
-
-
-Package xcolor Warning: Incompatible color definition on input line 3255.
-
-
-Package xcolor Warning: Incompatible color definition on input line 3255.
-
-
-Package xcolor Warning: Incompatible color definition on input line 3267.
-
-
-Package xcolor Warning: Incompatible color definition on input line 3305.
-
-
-Package xcolor Warning: Incompatible color definition on input line 3305.
-
-
-Package xcolor Warning: Incompatible color definition on input line 3305.
-
-[75]
-
-Package xcolor Warning: Incompatible color definition on input line 3305.
-
-
-Package xcolor Warning: Incompatible color definition on input line 3305.
-
-
-Package xcolor Warning: Incompatible color definition on input line 3318.
-
-
-Package xcolor Warning: Incompatible color definition on input line 3370.
-
-
-Package xcolor Warning: Incompatible color definition on input line 3370.
-
-
-Package xcolor Warning: Incompatible color definition on input line 3383.
-
-[76]
-
-Package xcolor Warning: Incompatible color definition on input line 3538.
-
-
-Package xcolor Warning: Incompatible color definition on input line 3538.
-
-
-Underfull \vbox (badness 10000) detected at line 3538
+Underfull \vbox (badness 10000) detected at line 2960
  []
 
 
-Underfull \vbox (badness 10000) detected at line 3538
- []
+Package xcolor Warning: Incompatible color definition on input line 2960.
 
-
-Package xcolor Warning: Incompatible color definition on input line 3538.
-
-[77]
-
-Package xcolor Warning: Incompatible color definition on input line 3538.
-
-
-Package xcolor Warning: Incompatible color definition on input line 3538.
-
-
-Package xcolor Warning: Incompatible color definition on input line 3550.
-
-
-Package xcolor Warning: Incompatible color definition on input line 3632.
-
-
-Package xcolor Warning: Incompatible color definition on input line 3632.
-
-
-Package xcolor Warning: Incompatible color definition on input line 3632.
-
-[78]
-
-Package xcolor Warning: Incompatible color definition on input line 3632.
-
-
-Package xcolor Warning: Incompatible color definition on input line 3632.
-
-
-Package xcolor Warning: Incompatible color definition on input line 3644.
-
-
-Package xcolor Warning: Incompatible color definition on input line 3706.
-
-
-Package xcolor Warning: Incompatible color definition on input line 3706.
-
-
-Package xcolor Warning: Incompatible color definition on input line 3706.
-
-[79]
-
-Package xcolor Warning: Incompatible color definition on input line 3706.
-
-
-Package xcolor Warning: Incompatible color definition on input line 3706.
-
-
-Package xcolor Warning: Incompatible color definition on input line 3718.
-
-
-Package xcolor Warning: Incompatible color definition on input line 4391.
-
-
-Package xcolor Warning: Incompatible color definition on input line 4391.
-
-
-Underfull \vbox (badness 3942) detected at line 4391
- []
-
-
-Package xcolor Warning: Incompatible color definition on input line 4391.
-
-[80]
-
-Package xcolor Warning: Incompatible color definition on input line 4391.
-
-
-Package xcolor Warning: Incompatible color definition on input line 4391.
-
-
-Underfull \vbox (badness 10000) detected at line 4391
- []
-
-
-Underfull \vbox (badness 10000) detected at line 4391
- []
-
-
-Package xcolor Warning: Incompatible color definition on input line 4391.
-
-[81]
-
-Package xcolor Warning: Incompatible color definition on input line 4391.
-
-
-Package xcolor Warning: Incompatible color definition on input line 4391.
-
-
-Underfull \vbox (badness 10000) detected at line 4391
- []
-
-
-Underfull \vbox (badness 10000) detected at line 4391
- []
-
-
-Package xcolor Warning: Incompatible color definition on input line 4391.
-
-[82]
-
-Package xcolor Warning: Incompatible color definition on input line 4391.
-
-
-Package xcolor Warning: Incompatible color definition on input line 4391.
-
-
-Underfull \vbox (badness 10000) detected at line 4391
- []
-
-
-Underfull \vbox (badness 10000) detected at line 4391
- []
-
-
-Package xcolor Warning: Incompatible color definition on input line 4391.
-
-[83]
-
-Package xcolor Warning: Incompatible color definition on input line 4391.
-
-
-Package xcolor Warning: Incompatible color definition on input line 4391.
-
-
-Underfull \vbox (badness 10000) detected at line 4391
- []
-
-
-Underfull \vbox (badness 10000) detected at line 4391
- []
-
-
-Package xcolor Warning: Incompatible color definition on input line 4391.
-
-[84]
-
-Package xcolor Warning: Incompatible color definition on input line 4391.
-
-
-Package xcolor Warning: Incompatible color definition on input line 4391.
-
-
-Underfull \vbox (badness 10000) detected at line 4391
- []
-
-
-Underfull \vbox (badness 10000) detected at line 4391
- []
-
-
-Package xcolor Warning: Incompatible color definition on input line 4391.
-
-[85]
-
-Package xcolor Warning: Incompatible color definition on input line 4391.
-
-
-Package xcolor Warning: Incompatible color definition on input line 4391.
-
-
-Underfull \vbox (badness 10000) detected at line 4391
- []
-
-
-Underfull \vbox (badness 10000) detected at line 4391
- []
-
-
-Package xcolor Warning: Incompatible color definition on input line 4391.
-
-[86]
-
-Package xcolor Warning: Incompatible color definition on input line 4391.
-
-
-Package xcolor Warning: Incompatible color definition on input line 4391.
-
-[87]
-Appendix F.
-
-Package xcolor Warning: Incompatible color definition on input line 4410.
-
-
-Package xcolor Warning: Incompatible color definition on input line 4487.
-
-
-Package xcolor Warning: Incompatible color definition on input line 4487.
-
-
-Package xcolor Warning: Incompatible color definition on input line 4487.
-
-[88
+[75
 
 ]
 
-Package xcolor Warning: Incompatible color definition on input line 4487.
+Package xcolor Warning: Incompatible color definition on input line 2960.
 
 
-Package xcolor Warning: Incompatible color definition on input line 4487.
+Package xcolor Warning: Incompatible color definition on input line 2960.
 
 
-Package xcolor Warning: Incompatible color definition on input line 4500.
+Package xcolor Warning: Incompatible color definition on input line 2972.
 
 
-Package xcolor Warning: Incompatible color definition on input line 4507.
+Package xcolor Warning: Incompatible color definition on input line 3034.
 
 
-Package xcolor Warning: Incompatible color definition on input line 4507.
+Package xcolor Warning: Incompatible color definition on input line 3034.
 
 
-Package xcolor Warning: Incompatible color definition on input line 4515.
+Package xcolor Warning: Incompatible color definition on input line 3046.
 
 
-Package xcolor Warning: Incompatible color definition on input line 4523.
+Package xcolor Warning: Incompatible color definition on input line 3104.
 
 
-Package xcolor Warning: Incompatible color definition on input line 4523.
+Package xcolor Warning: Incompatible color definition on input line 3104.
 
 
-Package xcolor Warning: Incompatible color definition on input line 4531.
+Underfull \vbox (badness 10000) detected at line 3104
+ []
+
+
+Package xcolor Warning: Incompatible color definition on input line 3104.
+
+[76]
+
+Package xcolor Warning: Incompatible color definition on input line 3104.
+
+
+Package xcolor Warning: Incompatible color definition on input line 3104.
+
+
+Package xcolor Warning: Incompatible color definition on input line 3116.
+
+
+Package xcolor Warning: Incompatible color definition on input line 3153.
+
+
+Package xcolor Warning: Incompatible color definition on input line 3153.
+
+
+Package xcolor Warning: Incompatible color definition on input line 3165.
+
+
+Package xcolor Warning: Incompatible color definition on input line 3331.
+
+
+Package xcolor Warning: Incompatible color definition on input line 3331.
+
+
+Underfull \vbox (badness 10000) detected at line 3331
+ []
+
+
+Package xcolor Warning: Incompatible color definition on input line 3331.
+
+[77]
+
+Package xcolor Warning: Incompatible color definition on input line 3331.
+
+
+Package xcolor Warning: Incompatible color definition on input line 3331.
+
+
+Underfull \vbox (badness 10000) detected at line 3331
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 3331
+ []
+
+
+Package xcolor Warning: Incompatible color definition on input line 3331.
+
+[78]
+
+Package xcolor Warning: Incompatible color definition on input line 3331.
+
+
+Package xcolor Warning: Incompatible color definition on input line 3331.
+
+
+Package xcolor Warning: Incompatible color definition on input line 3344.
+
+
+Package xcolor Warning: Incompatible color definition on input line 3359.
+
+
+Package xcolor Warning: Incompatible color definition on input line 3359.
+
+
+Package xcolor Warning: Incompatible color definition on input line 3371.
+
+[79]
+
+Package xcolor Warning: Incompatible color definition on input line 3395.
+
+
+Package xcolor Warning: Incompatible color definition on input line 3395.
+
+
+Package xcolor Warning: Incompatible color definition on input line 3407.
+
+
+Package xcolor Warning: Incompatible color definition on input line 3422.
+
+
+Package xcolor Warning: Incompatible color definition on input line 3422.
+
+
+Package xcolor Warning: Incompatible color definition on input line 3434.
+
+
+Package xcolor Warning: Incompatible color definition on input line 3449.
+
+
+Package xcolor Warning: Incompatible color definition on input line 3449.
+
+
+Package xcolor Warning: Incompatible color definition on input line 3461.
+
+
+Package xcolor Warning: Incompatible color definition on input line 3476.
+
+
+Package xcolor Warning: Incompatible color definition on input line 3476.
+
+
+Package xcolor Warning: Incompatible color definition on input line 3488.
+
+
+Package xcolor Warning: Incompatible color definition on input line 3526.
+
+
+Package xcolor Warning: Incompatible color definition on input line 3526.
+
+
+Underfull \vbox (badness 10000) detected at line 3526
+ []
+
+
+Package xcolor Warning: Incompatible color definition on input line 3526.
+
+[80]
+
+Package xcolor Warning: Incompatible color definition on input line 3526.
+
+
+Package xcolor Warning: Incompatible color definition on input line 3526.
+
+
+Package xcolor Warning: Incompatible color definition on input line 3539.
+
+
+Package xcolor Warning: Incompatible color definition on input line 3591.
+
+
+Package xcolor Warning: Incompatible color definition on input line 3591.
+
+
+Package xcolor Warning: Incompatible color definition on input line 3604.
+
+[81]
+
+Package xcolor Warning: Incompatible color definition on input line 3759.
+
+
+Package xcolor Warning: Incompatible color definition on input line 3759.
+
+
+Underfull \vbox (badness 10000) detected at line 3759
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 3759
+ []
+
+
+Package xcolor Warning: Incompatible color definition on input line 3759.
+
+[82]
+
+Package xcolor Warning: Incompatible color definition on input line 3759.
+
+
+Package xcolor Warning: Incompatible color definition on input line 3759.
+
+
+Package xcolor Warning: Incompatible color definition on input line 3771.
+
+
+Package xcolor Warning: Incompatible color definition on input line 3853.
+
+
+Package xcolor Warning: Incompatible color definition on input line 3853.
+
+
+Underfull \vbox (badness 10000) detected at line 3853
+ []
+
+
+Package xcolor Warning: Incompatible color definition on input line 3853.
+
+[83]
+
+Package xcolor Warning: Incompatible color definition on input line 3853.
+
+
+Package xcolor Warning: Incompatible color definition on input line 3853.
+
+
+Package xcolor Warning: Incompatible color definition on input line 3865.
+
+
+Package xcolor Warning: Incompatible color definition on input line 3927.
+
+
+Package xcolor Warning: Incompatible color definition on input line 3927.
+
+
+Underfull \vbox (badness 10000) detected at line 3927
+ []
+
+
+Package xcolor Warning: Incompatible color definition on input line 3927.
+
+[84]
+
+Package xcolor Warning: Incompatible color definition on input line 3927.
+
+
+Package xcolor Warning: Incompatible color definition on input line 3927.
+
+
+Package xcolor Warning: Incompatible color definition on input line 3939.
+
+
+Package xcolor Warning: Incompatible color definition on input line 4612.
+
+
+Package xcolor Warning: Incompatible color definition on input line 4612.
+
+
+Underfull \vbox (badness 10000) detected at line 4612
+ []
+
+
+Package xcolor Warning: Incompatible color definition on input line 4612.
+
+[85]
+
+Package xcolor Warning: Incompatible color definition on input line 4612.
+
+
+Package xcolor Warning: Incompatible color definition on input line 4612.
+
+
+Underfull \vbox (badness 10000) detected at line 4612
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 4612
+ []
+
+
+Package xcolor Warning: Incompatible color definition on input line 4612.
+
+[86]
+
+Package xcolor Warning: Incompatible color definition on input line 4612.
+
+
+Package xcolor Warning: Incompatible color definition on input line 4612.
+
+
+Underfull \vbox (badness 10000) detected at line 4612
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 4612
+ []
+
+
+Package xcolor Warning: Incompatible color definition on input line 4612.
+
+[87]
+
+Package xcolor Warning: Incompatible color definition on input line 4612.
+
+
+Package xcolor Warning: Incompatible color definition on input line 4612.
+
+
+Underfull \vbox (badness 10000) detected at line 4612
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 4612
+ []
+
+
+Package xcolor Warning: Incompatible color definition on input line 4612.
+
+[88]
+
+Package xcolor Warning: Incompatible color definition on input line 4612.
+
+
+Package xcolor Warning: Incompatible color definition on input line 4612.
+
+
+Underfull \vbox (badness 10000) detected at line 4612
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 4612
+ []
+
+
+Package xcolor Warning: Incompatible color definition on input line 4612.
 
 [89]
 
-Package xcolor Warning: Incompatible color definition on input line 4584.
+Package xcolor Warning: Incompatible color definition on input line 4612.
 
 
-Package xcolor Warning: Incompatible color definition on input line 4584.
+Package xcolor Warning: Incompatible color definition on input line 4612.
 
 
-Package xcolor Warning: Incompatible color definition on input line 4592.
+Underfull \vbox (badness 10000) detected at line 4612
+ []
 
 
-Package xcolor Warning: Incompatible color definition on input line 4633.
+Underfull \vbox (badness 10000) detected at line 4612
+ []
 
 
-Package xcolor Warning: Incompatible color definition on input line 4633.
-
-
-Package xcolor Warning: Incompatible color definition on input line 4633.
+Package xcolor Warning: Incompatible color definition on input line 4612.
 
 [90]
 
-Package xcolor Warning: Incompatible color definition on input line 4633.
+Package xcolor Warning: Incompatible color definition on input line 4612.
 
 
-Package xcolor Warning: Incompatible color definition on input line 4633.
+Package xcolor Warning: Incompatible color definition on input line 4612.
 
 
-Package xcolor Warning: Incompatible color definition on input line 4662.
+Underfull \vbox (badness 10000) detected at line 4612
+ []
 
 
-Package xcolor Warning: Incompatible color definition on input line 4667.
+Underfull \vbox (badness 10000) detected at line 4612
+ []
 
 
-Package xcolor Warning: Incompatible color definition on input line 4667.
-
-
-Package xcolor Warning: Incompatible color definition on input line 4672.
-
-
-Package xcolor Warning: Incompatible color definition on input line 4680.
-
-
-Package xcolor Warning: Incompatible color definition on input line 4680.
-
-
-Package xcolor Warning: Incompatible color definition on input line 4680.
+Package xcolor Warning: Incompatible color definition on input line 4612.
 
 [91]
 
-Package xcolor Warning: Incompatible color definition on input line 4680.
+Package xcolor Warning: Incompatible color definition on input line 4612.
 
 
-Package xcolor Warning: Incompatible color definition on input line 4680.
-
-
-Package xcolor Warning: Incompatible color definition on input line 4687.
-
-
-Package xcolor Warning: Incompatible color definition on input line 4691.
-
-
-Package xcolor Warning: Incompatible color definition on input line 4691.
-
-
-Package xcolor Warning: Incompatible color definition on input line 4735.
-
-
-Package xcolor Warning: Incompatible color definition on input line 4788.
-
-
-Package xcolor Warning: Incompatible color definition on input line 4788.
-
-
-Package xcolor Warning: Incompatible color definition on input line 4788.
+Package xcolor Warning: Incompatible color definition on input line 4612.
 
 [92]
+Appendix F.
 
-Package xcolor Warning: Incompatible color definition on input line 4788.
-
-
-Package xcolor Warning: Incompatible color definition on input line 4788.
+Package xcolor Warning: Incompatible color definition on input line 4631.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 4798--4798
+Package xcolor Warning: Incompatible color definition on input line 4708.
+
+
+Package xcolor Warning: Incompatible color definition on input line 4708.
+
+
+Underfull \vbox (badness 10000) detected at line 4708
+ []
+
+
+Package xcolor Warning: Incompatible color definition on input line 4708.
+
+[93
+
+]
+
+Package xcolor Warning: Incompatible color definition on input line 4708.
+
+
+Package xcolor Warning: Incompatible color definition on input line 4708.
+
+
+Package xcolor Warning: Incompatible color definition on input line 4721.
+
+
+Package xcolor Warning: Incompatible color definition on input line 4728.
+
+
+Package xcolor Warning: Incompatible color definition on input line 4728.
+
+
+Package xcolor Warning: Incompatible color definition on input line 4736.
+
+
+Package xcolor Warning: Incompatible color definition on input line 4744.
+
+
+Package xcolor Warning: Incompatible color definition on input line 4744.
+
+
+Package xcolor Warning: Incompatible color definition on input line 4752.
+
+[94]
+
+Package xcolor Warning: Incompatible color definition on input line 4805.
+
+
+Package xcolor Warning: Incompatible color definition on input line 4805.
+
+
+Package xcolor Warning: Incompatible color definition on input line 4813.
+
+
+Package xcolor Warning: Incompatible color definition on input line 4854.
+
+
+Package xcolor Warning: Incompatible color definition on input line 4854.
+
+
+Underfull \vbox (badness 10000) detected at line 4854
+ []
+
+
+Package xcolor Warning: Incompatible color definition on input line 4854.
+
+[95]
+
+Package xcolor Warning: Incompatible color definition on input line 4854.
+
+
+Package xcolor Warning: Incompatible color definition on input line 4854.
+
+
+Package xcolor Warning: Incompatible color definition on input line 4883.
+
+
+Package xcolor Warning: Incompatible color definition on input line 4888.
+
+
+Package xcolor Warning: Incompatible color definition on input line 4888.
+
+
+Package xcolor Warning: Incompatible color definition on input line 4893.
+
+
+Package xcolor Warning: Incompatible color definition on input line 4901.
+
+
+Package xcolor Warning: Incompatible color definition on input line 4901.
+
+
+Underfull \vbox (badness 10000) detected at line 4901
+ []
+
+
+Overfull \vbox (0.91304pt too high) detected at line 4901
+ []
+
+
+Package xcolor Warning: Incompatible color definition on input line 4901.
+
+[96]
+
+Package xcolor Warning: Incompatible color definition on input line 4901.
+
+
+Package xcolor Warning: Incompatible color definition on input line 4901.
+
+
+Package xcolor Warning: Incompatible color definition on input line 4908.
+
+
+Package xcolor Warning: Incompatible color definition on input line 4912.
+
+
+Package xcolor Warning: Incompatible color definition on input line 4912.
+
+
+Package xcolor Warning: Incompatible color definition on input line 4956.
+
+
+Package xcolor Warning: Incompatible color definition on input line 5009.
+
+
+Package xcolor Warning: Incompatible color definition on input line 5009.
+
+
+Package xcolor Warning: Incompatible color definition on input line 5009.
+
+[97]
+
+Package xcolor Warning: Incompatible color definition on input line 5009.
+
+
+Package xcolor Warning: Incompatible color definition on input line 5009.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5019--5019
 []\T1/lmr/m/n/12 Table F.2: |[]Down-scal-ing Sup-port R Code.
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 4798--4798
+Underfull \hbox (badness 10000) in paragraph at lines 5019--5019
 []\T1/lmr/m/n/12 ftp://ftp.geocorp.co/windthesis/[]. User anony-mous@geocorp.co
 
  []
 
 
-Overfull \hbox (2.31879pt too wide) in alignment at lines 4797--4811
+Overfull \hbox (2.31879pt too wide) in alignment at lines 5018--5032
  [] [] 
  []
 
-[93]
-Underfull \hbox (badness 3260) in paragraph at lines 4819--4820
+[98]
+Underfull \hbox (badness 3260) in paragraph at lines 5040--5041
 []\T1/lmr/m/n/12 For this pro-ce-dure, needed R files are VV_AUT_2_1.r, VV_AUT_
 2_2.r, and
  []
 
 
-Package xcolor Warning: Incompatible color definition on input line 4837.
+Package xcolor Warning: Incompatible color definition on input line 5058.
 
 
-Package xcolor Warning: Incompatible color definition on input line 4851.
+Package xcolor Warning: Incompatible color definition on input line 5072.
 
 
-Package xcolor Warning: Incompatible color definition on input line 4851.
+Package xcolor Warning: Incompatible color definition on input line 5072.
 
 
-Package xcolor Warning: Incompatible color definition on input line 4865.
+Package xcolor Warning: Incompatible color definition on input line 5086.
 
 
-Package xcolor Warning: Incompatible color definition on input line 4869.
+Package xcolor Warning: Incompatible color definition on input line 5090.
 
 
-Package xcolor Warning: Incompatible color definition on input line 4869.
+Package xcolor Warning: Incompatible color definition on input line 5090.
 
 
-Package xcolor Warning: Incompatible color definition on input line 4877.
+Package xcolor Warning: Incompatible color definition on input line 5098.
 
 
-Package xcolor Warning: Incompatible color definition on input line 4892.
+Package xcolor Warning: Incompatible color definition on input line 5113.
 
 
-Package xcolor Warning: Incompatible color definition on input line 4892.
+Package xcolor Warning: Incompatible color definition on input line 5113.
 
-[94]
+[99]
 
-Package xcolor Warning: Incompatible color definition on input line 4900.
+Package xcolor Warning: Incompatible color definition on input line 5121.
 
 
-Package xcolor Warning: Incompatible color definition on input line 4912.
+Package xcolor Warning: Incompatible color definition on input line 5133.
 
 
-Package xcolor Warning: Incompatible color definition on input line 4912.
+Package xcolor Warning: Incompatible color definition on input line 5133.
 
 
-Package xcolor Warning: Incompatible color definition on input line 4926.
+Package xcolor Warning: Incompatible color definition on input line 5147.
 
 
-Package xcolor Warning: Incompatible color definition on input line 4930.
+Package xcolor Warning: Incompatible color definition on input line 5151.
 
 
-Package xcolor Warning: Incompatible color definition on input line 4930.
+Package xcolor Warning: Incompatible color definition on input line 5151.
 
 
-Package xcolor Warning: Incompatible color definition on input line 4944.
+Package xcolor Warning: Incompatible color definition on input line 5165.
 
 
-Package xcolor Warning: Incompatible color definition on input line 4950.
+Package xcolor Warning: Incompatible color definition on input line 5171.
 
 
-Package xcolor Warning: Incompatible color definition on input line 4950.
+Package xcolor Warning: Incompatible color definition on input line 5171.
 
 
-Package xcolor Warning: Incompatible color definition on input line 4958.
+Package xcolor Warning: Incompatible color definition on input line 5179.
 
 
-Package xcolor Warning: Incompatible color definition on input line 4962.
+Package xcolor Warning: Incompatible color definition on input line 5183.
 
 
-Package xcolor Warning: Incompatible color definition on input line 4962.
+Package xcolor Warning: Incompatible color definition on input line 5183.
 
 
-Package xcolor Warning: Incompatible color definition on input line 4974.
+Package xcolor Warning: Incompatible color definition on input line 5195.
 
 
-Package xcolor Warning: Incompatible color definition on input line 4978.
+Package xcolor Warning: Incompatible color definition on input line 5199.
 
 
-Package xcolor Warning: Incompatible color definition on input line 4978.
+Package xcolor Warning: Incompatible color definition on input line 5199.
 
-[95]
+[100]
 
-Package xcolor Warning: Incompatible color definition on input line 5006.
+Package xcolor Warning: Incompatible color definition on input line 5227.
 
 
-Package xcolor Warning: Incompatible color definition on input line 5010.
+Package xcolor Warning: Incompatible color definition on input line 5231.
 
 
-Package xcolor Warning: Incompatible color definition on input line 5010.
-
-
-Package xcolor Warning: Incompatible color definition on input line 5024.
-
-
-Package xcolor Warning: Incompatible color definition on input line 5038.
-
-
-Package xcolor Warning: Incompatible color definition on input line 5038.
-
-
-Package xcolor Warning: Incompatible color definition on input line 5052.
-
-
-Package xcolor Warning: Incompatible color definition on input line 5056.
-
-
-Package xcolor Warning: Incompatible color definition on input line 5056.
-
-
-Package xcolor Warning: Incompatible color definition on input line 5070.
-
-[96]
-
-Package xcolor Warning: Incompatible color definition on input line 5075.
-
-
-Package xcolor Warning: Incompatible color definition on input line 5075.
-
-
-Package xcolor Warning: Incompatible color definition on input line 5089.
-
-
-Package xcolor Warning: Incompatible color definition on input line 5093.
-
-
-Package xcolor Warning: Incompatible color definition on input line 5093.
-
-
-Package xcolor Warning: Incompatible color definition on input line 5101.
-
-
-Package xcolor Warning: Incompatible color definition on input line 5108.
-
-
-Package xcolor Warning: Incompatible color definition on input line 5108.
-
-
-Package xcolor Warning: Incompatible color definition on input line 5116.
-
-
-Package xcolor Warning: Incompatible color definition on input line 5124.
-
-
-Package xcolor Warning: Incompatible color definition on input line 5124.
-
-
-Package xcolor Warning: Incompatible color definition on input line 5136.
-
-
-Package xcolor Warning: Incompatible color definition on input line 5141.
-
-
-Package xcolor Warning: Incompatible color definition on input line 5141.
-
-
-Overfull \hbox (2.31879pt too wide) in alignment at lines 5155--5178
- [] [] 
- []
-
-[97]
-Overfull \hbox (2.31879pt too wide) in alignment at lines 5178--5189
- [] [] 
- []
-
-
-Package xcolor Warning: Incompatible color definition on input line 5210.
-
-
-Package xcolor Warning: Incompatible color definition on input line 5214.
-
-
-Package xcolor Warning: Incompatible color definition on input line 5214.
-
-[98]
-
-Package xcolor Warning: Incompatible color definition on input line 5222.
-
-
-Package xcolor Warning: Incompatible color definition on input line 5228.
-
-
-Package xcolor Warning: Incompatible color definition on input line 5228.
-
-
-Package xcolor Warning: Incompatible color definition on input line 5236.
-
-
-Package xcolor Warning: Incompatible color definition on input line 5245.
+Package xcolor Warning: Incompatible color definition on input line 5231.
 
 
 Package xcolor Warning: Incompatible color definition on input line 5245.
@@ -2961,297 +2914,372 @@ Package xcolor Warning: Incompatible color definition on input line 5245.
 Package xcolor Warning: Incompatible color definition on input line 5259.
 
 
-Package xcolor Warning: Incompatible color definition on input line 5264.
+Package xcolor Warning: Incompatible color definition on input line 5259.
 
 
-Package xcolor Warning: Incompatible color definition on input line 5264.
+Package xcolor Warning: Incompatible color definition on input line 5273.
 
 
-Package xcolor Warning: Incompatible color definition on input line 5272.
+Package xcolor Warning: Incompatible color definition on input line 5277.
 
 
-Package xcolor Warning: Incompatible color definition on input line 5278.
+Package xcolor Warning: Incompatible color definition on input line 5277.
 
 
-Package xcolor Warning: Incompatible color definition on input line 5278.
-
-
-Package xcolor Warning: Incompatible color definition on input line 5292.
-
-
-Package xcolor Warning: Incompatible color definition on input line 5296.
-
-
-Package xcolor Warning: Incompatible color definition on input line 5296.
-
-[99]
-Overfull \hbox (2.31877pt too wide) in alignment at lines 5314--5335
- [] [] 
- []
-
-
-Package xcolor Warning: Incompatible color definition on input line 5349.
-
-
-Package xcolor Warning: Incompatible color definition on input line 5374.
-
-
-Package xcolor Warning: Incompatible color definition on input line 5374.
-
-
-Overfull \vbox (0.99844pt too high) detected at line 5374
- []
-
-
-Package xcolor Warning: Incompatible color definition on input line 5374.
-
-[100]
-
-Package xcolor Warning: Incompatible color definition on input line 5374.
-
-
-Package xcolor Warning: Incompatible color definition on input line 5374.
-
-
-Underfull \hbox (badness 1939) in paragraph at lines 5382--5383
-[]\T1/lmr/m/n/12 To cre-ate non-hurricane maps us-ing Krig-ing, from columns 43
- to 53 of file \T1/lmr/m/it/12 fit-
- []
-
-
-Underfull \hbox (badness 1571) in paragraph at lines 5382--5383
-\T1/lmr/m/it/12 ted_model_result.xlsx\T1/lmr/m/n/12 , use R files in-side folde
-r \T1/lmr/m/it/12 ./code/pot_pp/isd/maps/\T1/lmr/m/n/12 , see Ta-ble
- []
+Package xcolor Warning: Incompatible color definition on input line 5291.
 
 [101]
-Overfull \hbox (0.62474pt too wide) in paragraph at lines 5445--5445
-[]|\T1/lmr/m/n/8 nt_10_poissonprocessintfunc|  
- []
+
+Package xcolor Warning: Incompatible color definition on input line 5296.
 
 
-Overfull \hbox (0.62474pt too wide) in paragraph at lines 5445--5446
-[]|\T1/lmr/m/n/8 nt_10_poissonprocessintfunc|  
- []
+Package xcolor Warning: Incompatible color definition on input line 5296.
 
 
-Overfull \hbox (0.62474pt too wide) in paragraph at lines 5446--5446
-[]|\T1/lmr/m/n/8 nt_20_poissonprocessintfunc|  
- []
+Package xcolor Warning: Incompatible color definition on input line 5310.
 
 
-Overfull \hbox (0.62474pt too wide) in paragraph at lines 5446--5447
-[]|\T1/lmr/m/n/8 nt_20_poissonprocessintfunc|  
- []
+Package xcolor Warning: Incompatible color definition on input line 5314.
 
 
-Overfull \hbox (0.62474pt too wide) in paragraph at lines 5447--5447
-[]|\T1/lmr/m/n/8 nt_50_poissonprocessintfunc|  
- []
+Package xcolor Warning: Incompatible color definition on input line 5314.
 
 
-Overfull \hbox (0.62474pt too wide) in paragraph at lines 5447--5448
-[]|\T1/lmr/m/n/8 nt_50_poissonprocessintfunc|  
- []
+Package xcolor Warning: Incompatible color definition on input line 5322.
 
 
-Overfull \hbox (4.87474pt too wide) in paragraph at lines 5448--5448
-[]|\T1/lmr/m/n/8 nt_100_poissonprocessintfunc|  
- []
+Package xcolor Warning: Incompatible color definition on input line 5329.
 
 
-Overfull \hbox (4.87474pt too wide) in paragraph at lines 5448--5449
-[]|\T1/lmr/m/n/8 nt_100_poissonprocessintfunc|  
- []
+Package xcolor Warning: Incompatible color definition on input line 5329.
 
 
-Overfull \hbox (4.87474pt too wide) in paragraph at lines 5449--5449
-[]|\T1/lmr/m/n/8 nt_250_poissonprocessintfunc|  
- []
+Package xcolor Warning: Incompatible color definition on input line 5337.
 
 
-Overfull \hbox (4.87474pt too wide) in paragraph at lines 5449--5450
-[]|\T1/lmr/m/n/8 nt_250_poissonprocessintfunc|  
- []
+Package xcolor Warning: Incompatible color definition on input line 5345.
 
 
-Overfull \hbox (4.87474pt too wide) in paragraph at lines 5450--5450
-[]|\T1/lmr/m/n/8 nt_500_poissonprocessintfunc|  
- []
+Package xcolor Warning: Incompatible color definition on input line 5345.
 
 
-Overfull \hbox (4.87474pt too wide) in paragraph at lines 5450--5451
-[]|\T1/lmr/m/n/8 nt_500_poissonprocessintfunc|  
- []
+Package xcolor Warning: Incompatible color definition on input line 5357.
 
 
-Overfull \hbox (4.87474pt too wide) in paragraph at lines 5451--5451
-[]|\T1/lmr/m/n/8 nt_700_poissonprocessintfunc|  
- []
+Package xcolor Warning: Incompatible color definition on input line 5362.
 
 
-Overfull \hbox (4.87474pt too wide) in paragraph at lines 5451--5452
-[]|\T1/lmr/m/n/8 nt_700_poissonprocessintfunc|  
- []
+Package xcolor Warning: Incompatible color definition on input line 5362.
 
 
-Overfull \hbox (9.12474pt too wide) in paragraph at lines 5452--5452
-[]|\T1/lmr/m/n/8 nt_1000_poissonprocessintfunc|  
- []
-
-
-Overfull \hbox (9.12474pt too wide) in paragraph at lines 5452--5453
-[]|\T1/lmr/m/n/8 nt_1000_poissonprocessintfunc|  
- []
-
-
-Overfull \hbox (9.12474pt too wide) in paragraph at lines 5453--5453
-[]|\T1/lmr/m/n/8 nt_1700_poissonprocessintfunc|  
- []
-
-
-Overfull \hbox (9.12474pt too wide) in paragraph at lines 5453--5454
-[]|\T1/lmr/m/n/8 nt_1700_poissonprocessintfunc|  
- []
-
-
-Overfull \hbox (9.12474pt too wide) in paragraph at lines 5454--5454
-[]|\T1/lmr/m/n/8 nt_3000_poissonprocessintfunc|  
- []
-
-
-Overfull \hbox (9.12474pt too wide) in paragraph at lines 5454--5455
-[]|\T1/lmr/m/n/8 nt_3000_poissonprocessintfunc|  
- []
-
-
-Overfull \hbox (9.12474pt too wide) in paragraph at lines 5455--5455
-[]|\T1/lmr/m/n/8 nt_7000_poissonprocessintfunc|  
- []
-
-
-Overfull \hbox (9.12474pt too wide) in paragraph at lines 5455--5456
-[]|\T1/lmr/m/n/8 nt_7000_poissonprocessintfunc|  
- []
-
-
-Overfull \hbox (2.31879pt too wide) in alignment at lines 5494--5517
+Overfull \hbox (2.31879pt too wide) in alignment at lines 5376--5399
  [] [] 
  []
 
 [102]
-<thesis_files/figure-latex/era5stations-1.pdf, id=2098, 469.755pt x 292.09125pt
+Overfull \hbox (2.31879pt too wide) in alignment at lines 5399--5410
+ [] [] 
+ []
+
+
+Package xcolor Warning: Incompatible color definition on input line 5431.
+
+
+Package xcolor Warning: Incompatible color definition on input line 5435.
+
+
+Package xcolor Warning: Incompatible color definition on input line 5435.
+
+[103]
+
+Package xcolor Warning: Incompatible color definition on input line 5443.
+
+
+Package xcolor Warning: Incompatible color definition on input line 5449.
+
+
+Package xcolor Warning: Incompatible color definition on input line 5449.
+
+
+Package xcolor Warning: Incompatible color definition on input line 5457.
+
+
+Package xcolor Warning: Incompatible color definition on input line 5466.
+
+
+Package xcolor Warning: Incompatible color definition on input line 5466.
+
+
+Package xcolor Warning: Incompatible color definition on input line 5480.
+
+
+Package xcolor Warning: Incompatible color definition on input line 5485.
+
+
+Package xcolor Warning: Incompatible color definition on input line 5485.
+
+
+Package xcolor Warning: Incompatible color definition on input line 5493.
+
+
+Package xcolor Warning: Incompatible color definition on input line 5499.
+
+
+Package xcolor Warning: Incompatible color definition on input line 5499.
+
+
+Package xcolor Warning: Incompatible color definition on input line 5513.
+
+
+Package xcolor Warning: Incompatible color definition on input line 5517.
+
+
+Package xcolor Warning: Incompatible color definition on input line 5517.
+
+[104]
+Overfull \hbox (2.31877pt too wide) in alignment at lines 5535--5556
+ [] [] 
+ []
+
+
+Package xcolor Warning: Incompatible color definition on input line 5570.
+
+
+Package xcolor Warning: Incompatible color definition on input line 5595.
+
+
+Package xcolor Warning: Incompatible color definition on input line 5595.
+
+
+Package xcolor Warning: Incompatible color definition on input line 5595.
+
+[105]
+
+Package xcolor Warning: Incompatible color definition on input line 5595.
+
+
+Package xcolor Warning: Incompatible color definition on input line 5595.
+
+
+Underfull \hbox (badness 1939) in paragraph at lines 5603--5604
+[]\T1/lmr/m/n/12 To cre-ate non-hurricane maps us-ing Krig-ing, from columns 43
+ to 53 of file \T1/lmr/m/it/12 fit-
+ []
+
+[106]
+Overfull \hbox (0.62474pt too wide) in paragraph at lines 5666--5666
+[]|\T1/lmr/m/n/8 nt_10_poissonprocessintfunc|  
+ []
+
+
+Overfull \hbox (0.62474pt too wide) in paragraph at lines 5666--5667
+[]|\T1/lmr/m/n/8 nt_10_poissonprocessintfunc|  
+ []
+
+
+Overfull \hbox (0.62474pt too wide) in paragraph at lines 5667--5667
+[]|\T1/lmr/m/n/8 nt_20_poissonprocessintfunc|  
+ []
+
+
+Overfull \hbox (0.62474pt too wide) in paragraph at lines 5667--5668
+[]|\T1/lmr/m/n/8 nt_20_poissonprocessintfunc|  
+ []
+
+
+Overfull \hbox (0.62474pt too wide) in paragraph at lines 5668--5668
+[]|\T1/lmr/m/n/8 nt_50_poissonprocessintfunc|  
+ []
+
+
+Overfull \hbox (0.62474pt too wide) in paragraph at lines 5668--5669
+[]|\T1/lmr/m/n/8 nt_50_poissonprocessintfunc|  
+ []
+
+
+Overfull \hbox (4.87474pt too wide) in paragraph at lines 5669--5669
+[]|\T1/lmr/m/n/8 nt_100_poissonprocessintfunc|  
+ []
+
+
+Overfull \hbox (4.87474pt too wide) in paragraph at lines 5669--5670
+[]|\T1/lmr/m/n/8 nt_100_poissonprocessintfunc|  
+ []
+
+
+Overfull \hbox (4.87474pt too wide) in paragraph at lines 5670--5670
+[]|\T1/lmr/m/n/8 nt_250_poissonprocessintfunc|  
+ []
+
+
+Overfull \hbox (4.87474pt too wide) in paragraph at lines 5670--5671
+[]|\T1/lmr/m/n/8 nt_250_poissonprocessintfunc|  
+ []
+
+
+Overfull \hbox (4.87474pt too wide) in paragraph at lines 5671--5671
+[]|\T1/lmr/m/n/8 nt_500_poissonprocessintfunc|  
+ []
+
+
+Overfull \hbox (4.87474pt too wide) in paragraph at lines 5671--5672
+[]|\T1/lmr/m/n/8 nt_500_poissonprocessintfunc|  
+ []
+
+
+Overfull \hbox (4.87474pt too wide) in paragraph at lines 5672--5672
+[]|\T1/lmr/m/n/8 nt_700_poissonprocessintfunc|  
+ []
+
+
+Overfull \hbox (4.87474pt too wide) in paragraph at lines 5672--5673
+[]|\T1/lmr/m/n/8 nt_700_poissonprocessintfunc|  
+ []
+
+
+Overfull \hbox (9.12474pt too wide) in paragraph at lines 5673--5673
+[]|\T1/lmr/m/n/8 nt_1000_poissonprocessintfunc|  
+ []
+
+
+Overfull \hbox (9.12474pt too wide) in paragraph at lines 5673--5674
+[]|\T1/lmr/m/n/8 nt_1000_poissonprocessintfunc|  
+ []
+
+
+Overfull \hbox (9.12474pt too wide) in paragraph at lines 5674--5674
+[]|\T1/lmr/m/n/8 nt_1700_poissonprocessintfunc|  
+ []
+
+
+Overfull \hbox (9.12474pt too wide) in paragraph at lines 5674--5675
+[]|\T1/lmr/m/n/8 nt_1700_poissonprocessintfunc|  
+ []
+
+
+Overfull \hbox (9.12474pt too wide) in paragraph at lines 5675--5675
+[]|\T1/lmr/m/n/8 nt_3000_poissonprocessintfunc|  
+ []
+
+
+Overfull \hbox (9.12474pt too wide) in paragraph at lines 5675--5676
+[]|\T1/lmr/m/n/8 nt_3000_poissonprocessintfunc|  
+ []
+
+
+Overfull \hbox (9.12474pt too wide) in paragraph at lines 5676--5676
+[]|\T1/lmr/m/n/8 nt_7000_poissonprocessintfunc|  
+ []
+
+
+Overfull \hbox (9.12474pt too wide) in paragraph at lines 5676--5677
+[]|\T1/lmr/m/n/8 nt_7000_poissonprocessintfunc|  
+ []
+
+
+Overfull \hbox (2.31879pt too wide) in alignment at lines 5715--5738
+ [] [] 
+ []
+
+[107]
+<thesis_files/figure-latex/era5stations-1.pdf, id=2218, 469.755pt x 292.09125pt
 >
 File: thesis_files/figure-latex/era5stations-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/era5stations-1.pdf>
 Package pdftex.def Info: thesis_files/figure-latex/era5stations-1.pdf  used on 
-input line 5525.
+input line 5746.
 (pdftex.def)             Requested size: 469.75386pt x 292.09052pt.
-[103 <./thesis_files/figure-latex/era5stations-1.pdf>]
+[108 <./thesis_files/figure-latex/era5stations-1.pdf>]
 
-Package xcolor Warning: Incompatible color definition on input line 5546.
-
-
-Package xcolor Warning: Incompatible color definition on input line 5550.
+Package xcolor Warning: Incompatible color definition on input line 5767.
 
 
-Package xcolor Warning: Incompatible color definition on input line 5550.
+Package xcolor Warning: Incompatible color definition on input line 5771.
 
 
-Package xcolor Warning: Incompatible color definition on input line 5559.
+Package xcolor Warning: Incompatible color definition on input line 5771.
 
 
-Package xcolor Warning: Incompatible color definition on input line 5563.
+Package xcolor Warning: Incompatible color definition on input line 5780.
 
 
-Package xcolor Warning: Incompatible color definition on input line 5563.
+Package xcolor Warning: Incompatible color definition on input line 5784.
 
 
-Overfull \hbox (2.31877pt too wide) in alignment at lines 5579--5599
+Package xcolor Warning: Incompatible color definition on input line 5784.
+
+
+Overfull \hbox (2.31877pt too wide) in alignment at lines 5800--5820
  [] [] 
  []
 
-[104]
+[109]
 
-Package xcolor Warning: Incompatible color definition on input line 5615.
-
-
-Package xcolor Warning: Incompatible color definition on input line 5640.
+Package xcolor Warning: Incompatible color definition on input line 5836.
 
 
-Package xcolor Warning: Incompatible color definition on input line 5640.
-
-[105]
-Overfull \hbox (26.36987pt too wide) in paragraph at lines 5664--5666
- [][]\T1/lmr/m/n/12 Berhane, F. (2016, April). Work-ing with databases in r. We
-p Page. https://datascienceplus.com/.
- []
-
-[106
+Package xcolor Warning: Incompatible color definition on input line 5861.
 
 
-] [107] [108] [109]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 5817.
+Package xcolor Warning: Incompatible color definition on input line 5861.
+
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 5867.
 [110]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 5817.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 5867.
 (./thesis.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 5817.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 5817.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 5867.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 5867.
 
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: 5F728A6390CC63C699811C3C7665737E;5573.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 5817.
+(rerunfilecheck)             Checksum: 764C38A4D3114BEDBE1E5266BBB8DD83;5720.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 5867.
  ) 
 Here is how much of TeX's memory you used:
- 13420 strings out of 482913
- 210216 string characters out of 5957399
- 821659 words of memory out of 5000000
- 27802 multiletter control sequences out of 15000+600000
- 620825 words of font info for 101 fonts, out of 8000000 for 9000
+ 13458 strings out of 482913
+ 210741 string characters out of 5957399
+ 834851 words of memory out of 5000000
+ 27818 multiletter control sequences out of 15000+600000
+ 616554 words of font info for 100 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 41i,17n,49p,1448b,485s stack positions out of 5000i,500n,10000p,200000b,80000s
-pdfTeX warning (dest): name{era5download} has been referenced but does not ex
-ist, replaced by a fixed one
-
-{c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ts1
-.enc}{c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/l
-m-ec.enc}{c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/
-lm/lm-mathsy.enc}{c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/fonts/en
-c/dvips/lm/lm-rm.enc}{c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/font
-s/enc/dvips/lm/lm-mathit.enc}{c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-d
-ist/fonts/enc/dvips/lm/lm-mathex.enc}{c:/Users/alexyshr/AppData/Roaming/TinyTeX
-/texmf-dist/fonts/enc/dvips/fontawesome/fontawesometwo.enc}<c:/Users/alexyshr/A
-ppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/fontawesome/FontAwesome.pf
-b><c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/l
-mbx12.pfb><c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/pub
-lic/lm/lmbxi10.pfb><c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/fonts/
-type1/public/lm/lmex10.pfb><c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dis
-t/fonts/type1/public/lm/lmmi10.pfb><c:/Users/alexyshr/AppData/Roaming/TinyTeX/t
-exmf-dist/fonts/type1/public/lm/lmmi12.pfb><c:/Users/alexyshr/AppData/Roaming/T
-inyTeX/texmf-dist/fonts/type1/public/lm/lmmi6.pfb><c:/Users/alexyshr/AppData/Ro
-aming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi7.pfb><c:/Users/alexyshr/App
-Data/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi8.pfb><c:/Users/alexy
-shr/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr10.pfb><c:/User
-s/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr12.pfb><
-c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr6
-.pfb><c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/l
-m/lmr7.pfb><c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/pu
-blic/lm/lmr8.pfb><c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/fonts/ty
-pe1/public/lm/lmr9.pfb><c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/fo
-nts/type1/public/lm/lmri12.pfb><c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf
--dist/fonts/type1/public/lm/lmro12.pfb><c:/Users/alexyshr/AppData/Roaming/TinyT
-eX/texmf-dist/fonts/type1/public/lm/lmsy10.pfb><c:/Users/alexyshr/AppData/Roami
-ng/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy6.pfb><c:/Users/alexyshr/AppDat
-a/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy8.pfb><c:/Users/alexyshr
-/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtk10.pfb><c:/Users/
-alexyshr/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt12.pfb><c
-:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt8
-.pfb><c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/l
-m/lmtti10.pfb>
-Output written on thesis.pdf (121 pages, 26522754 bytes).
+ 41i,17n,49p,1449b,487s stack positions out of 5000i,500n,10000p,200000b,80000s
+{c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-t
+s1.enc}{c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm
+/lm-ec.enc}{c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvip
+s/lm/lm-mathsy.enc}{c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/fonts/
+enc/dvips/lm/lm-rm.enc}{c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/fo
+nts/enc/dvips/lm/lm-mathit.enc}{c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf
+-dist/fonts/enc/dvips/lm/lm-mathex.enc}{c:/Users/alexyshr/AppData/Roaming/TinyT
+eX/texmf-dist/fonts/enc/dvips/fontawesome/fontawesometwo.enc}<c:/Users/alexyshr
+/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/fontawesome/FontAwesome.
+pfb><c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm
+/lmbx12.pfb><c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/p
+ublic/lm/lmex10.pfb><c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/fonts
+/type1/public/lm/lmmi10.pfb><c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-di
+st/fonts/type1/public/lm/lmmi12.pfb><c:/Users/alexyshr/AppData/Roaming/TinyTeX/
+texmf-dist/fonts/type1/public/lm/lmmi6.pfb><c:/Users/alexyshr/AppData/Roaming/T
+inyTeX/texmf-dist/fonts/type1/public/lm/lmmi7.pfb><c:/Users/alexyshr/AppData/Ro
+aming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi8.pfb><c:/Users/alexyshr/App
+Data/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr10.pfb><c:/Users/alexy
+shr/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/User
+s/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr6.pfb><c
+:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr7.
+pfb><c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm
+/lmr8.pfb><c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/pub
+lic/lm/lmr9.pfb><c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/fonts/typ
+e1/public/lm/lmri12.pfb><c:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/f
+onts/type1/public/lm/lmro12.pfb><c:/Users/alexyshr/AppData/Roaming/TinyTeX/texm
+f-dist/fonts/type1/public/lm/lmsy10.pfb><c:/Users/alexyshr/AppData/Roaming/Tiny
+TeX/texmf-dist/fonts/type1/public/lm/lmsy6.pfb><c:/Users/alexyshr/AppData/Roami
+ng/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy8.pfb><c:/Users/alexyshr/AppDat
+a/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtk10.pfb><c:/Users/alexysh
+r/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt12.pfb><c:/Users
+/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt8.pfb><c
+:/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtti
+10.pfb>
+Output written on thesis.pdf (121 pages, 26514134 bytes).
 PDF statistics:
- 2453 PDF objects out of 2487 (max. 8388607)
- 2164 compressed objects within 22 object streams
- 503 named destinations out of 1000 (max. 500000)
- 858 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 2479 PDF objects out of 2487 (max. 8388607)
+ 2191 compressed objects within 22 object streams
+ 526 named destinations out of 1000 (max. 500000)
+ 866 words of extra memory for PDF output out of 10000 (max. 10000000)
 

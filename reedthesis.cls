@@ -344,7 +344,8 @@
   I hereby confirm that this thesis on \textit{\@title} is solely my own work and that I have used no sources or aids other than the ones stated. \par
   All passages in my thesis for which other sources, including electronic media, have been used, be it direct quotes or content references, have been acknowledged as such and the sources cited.
   \par\vskip 1cm	% below center, not center
-  \today
+% \today
+  February 24, 2020
   \centerline{\copy0}	% approved
 %%  \centerline{(\@department)} %major
   \vskip 2cm		%space to sign
@@ -352,7 +353,8 @@
   \par\vskip 2cm
   I agree to have my thesis checked in order to rule out potential similarities with other works and to have my thesis stored in a database for this purpose.
   \par\vskip 1cm	% below center, not center
-  \today
+%  \today
+  February 24, 2020
   \centerline{\copy0}	% approved
   \vskip 2cm		%space to sign
   \rule{4cm}{0.4pt}

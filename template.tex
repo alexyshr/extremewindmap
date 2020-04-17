@@ -159,10 +159,15 @@ $endfor$
 %%
 %
 
-%Uncomment next line to avoid hyperlinks in PDF file. Usefull to manage error:
-%
-%
+%Uncomment next line (\hypersetup{draft}) to avoid hyperlinks in PDF file. Usefull to manage error:
+%! pdfTeX error (ext4): \pdfendlink ended up in different nesting level than \pd
+%fstartlink.
+%\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+%                                                  \fi \fi 
+%l.914 \chapter{Database Storing}\label{dbstoring}}
+%See: https://www.overleaf.com/learn/latex/Questions/What_does_%22%5Cpdfendlink_ended_up_in_different_nesting_level_than_%5Cpdfstartlink%22_mean%3F
 %\hypersetup{draft}
+%
 \begin{document}
 
 % Everything below added by CII

@@ -7,8 +7,8 @@ nt_years,Non-thunderstorm time series statistics by year
 nt_months,Non-thunderstorm time series statistics by month
 nt_weeks,Non-thunderstorm time series statistics by week
 nt_gaps30days,Non-thunderstorm gaps of 30 days of more
-IMP.VALS,Main statistics of dataset after declustering and thresholding
-declu_nt_years,"Non-thunderstorm time series statistics by year, after declustering and thresholding"
-declu_nt_months,"Non-thunderstorm time series statistics by month, after declustering and thresholding"
-declu_nt_weeks,"Non-thunderstorm time series statistics by week, after declustering and thresholding"
-declu_nt_gaps30days,"Non-thunderstorm gaps of 30 days of more, , after declustering and thresholding"
+IMP.VALS,Main statistics of dataset after de-clustering and thresholding
+declu_nt_years,"Non-thunderstorm time series statistics by year, after de-clustering and thresholding"
+declu_nt_months,"Non-thunderstorm time series statistics by month, after de-clustering and thresholding"
+declu_nt_weeks,"Non-thunderstorm time series statistics by week, after de-clustering and thresholding"
+declu_nt_gaps30days,"Non-thunderstorm gaps of 30 days of more,  after de-clustering and thresholding"
