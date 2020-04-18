@@ -1,6 +1,7 @@
 Dataset,Variables,Description
 IDEAM,vv_aut_2,Instantaneous wind velocity each two (2) minutes
 ,vv_aut_10,Instantaneous wind velocity each ten (10) minutes
-ISD,v5,Maximun hourly five seconds (5-s) wind gust velocity
-ERA5,fg10,10 metre wind gust since previous post-processing
+,vvmx_aut_60,Maximum wind velocity each sixty (60) minutes
+ISD,v5,Maximum hourly five seconds (5-s) wind gust velocity
+ERA5,fg10,10 meters wind gust since previous post-processing
 ,fsr,Forecast Surface Roughness

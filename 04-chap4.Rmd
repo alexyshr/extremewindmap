@@ -1501,7 +1501,7 @@ Final recommendation to optimize memory management when time series are processe
       memory.limit(size = value)
 ```
 
-For big NetCDF files, as in this study where variable _fg10_ (3-s wind gust) stored 3.381 (49 cols x 69 rows) cells and in each cell 356.472 hours, representing 1.205'231.832 different wind records in a file size of 3.53 GB, it is recommended to get specific needed slices instead of loading the entire file into memory. For instance, use parameters `start`, and `count` of function `ncvar_get` (R package `ncdf4`) to get desired NetCDF records, as shown in code below where time series of first ERA5 cell/station (upper-left) is assigned to variable _firstcelltimeseries_.
+For big NetCDF files, as in this study where variable _fg10_ (3-s wind gust) stored 3.381 (49 columns x 69 rows) cells and in each cell 356.472 hours, representing 1.205'231.832 different wind records in a file size of 3.53 GB, it is recommended to get specific needed slices instead of loading the entire file into memory. For instance, use parameters `start`, and `count` of function `ncvar_get` (R package `ncdf4`) to get desired NetCDF records, as shown in code below where time series of first ERA5 cell/station (upper-left) is assigned to variable _firstcelltimeseries_.
  
 ```{r results='hide', vspaceecho='0.4cm', echo = TRUE, eval=FALSE, size="scriptsize"}
     library(ncdf4)

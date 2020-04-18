@@ -1,4 +1,4 @@
 Institution,Dataset,Details
-IDEAM,Historical records at weather stations,"IDEAM is responsible for the instalation, maintenance and management of all kind of weather stations located everywhere along the country"
+IDEAM,Historical records at weather stations,"IDEAM is responsible for the installation, maintenance and management of all kind of weather stations located everywhere along the country"
 NOAA,ISD,"ISD (Integrated Surface Database. NOAA's National Centers for Environmental Information - NCEI) Lite: A subset from the full ISD dataset containing eight common surface parameters in a fixed-width format free of duplicate values, sub-hourly data, and complicated flags."
-ECMWF,ERA5,"ERA5 is a reanalysis dataset with hourly estimates of atmospheric variables with horizontal resolution of 0.25º (33 kilómeters), this is equally spaced cells every 0.25 degrees"
+ECMWF,ERA5,"ERA5 is a reanalysis dataset with hourly estimates of atmospheric variables with horizontal resolution of 0.25º (33 kilometers), i.e. cells equally spaced every 0.25 degrees"

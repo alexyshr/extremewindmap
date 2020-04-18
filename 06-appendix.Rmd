@@ -505,7 +505,7 @@ kable(rawdatastationidfitted, linesep = "", align=rep('l', 2),
 ```
 
 
-6. Copy previous MS-DOS commands into a text file called _load_vv_aut_10.bat_. To use this file three parameters need to be passed, 1) consecutive id, 2) file name, and 3) station id. All results (after call it) are stored in a log file named _load_vv_aut_10.logdos_. All SQL commands including the  _pgsql_ answer/result after code execution, are stored in a log file named _load_vv_aut_10.logquery_. The script, first, keep a consecutive record of the procedure inside the log file, second, empty the contents of the _Temp_ table, then, copy from text file to table _Temp_, and finally, from _Temp_ inserts into _VV\_AUT\_10_. In all script steps, detailed output logs are sent to files _load_vv_aut_10.logdos_, and _load_vv_aut_10.logquery_.
+6. Copy previous MS-DOS commands into a text file called _load_vv_aut_10.bat_. To use this file three parameters need to be passed: 1) consecutive id, 2) file name, and 3) station id. All results (after call it) are stored in a log file named _load_vv_aut_10.logdos_. All SQL commands including the  _pgsql_ answer/result after code execution, are stored in a log file named _load_vv_aut_10.logquery_. The script, first, keep a consecutive record of the procedure inside the log file, second, empty the contents of the _Temp_ table, then, copy from text file to table _Temp_, and finally, from _Temp_ inserts into _VV\_AUT\_10_. In all script steps, detailed output logs are sent to files _load_vv_aut_10.logdos_, and _load_vv_aut_10.logquery_.
 
 
 7. Call previous file using MS-DOS commands as shown below, where first parameters are a consecutive identifier, second is time series file name, and third one is the station identifier.

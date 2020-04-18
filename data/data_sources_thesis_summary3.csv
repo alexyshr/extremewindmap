@@ -1,6 +1,8 @@
 Variable,Units,Time,Stations
+vv_aut_2,meters per second,Variable,20
+vv_aut_10,meters per second,Variable,204
 vvmx_aut_60,meters per second,Variable from 2001 until today. Irregular time series.,203
-Wind speed,meters per second,"Variable from 1941 until today. Note: There is too much variability in time (start, end, and time range) for each station. Irregutal time series.
+v5,meters per second,"Variable from 1941 until today. Note: There is too much variability in time (start, end, and time range) for each station. Irregular time series.
 ",101
 fg10,meters per second,1979-Today,3381
 fsr,meters per second,1979-Today,3381
