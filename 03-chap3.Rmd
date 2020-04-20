@@ -324,7 +324,8 @@ points(3.3, 0.4, col="red", pch=15, cex=0.9)
 
 ### Thresholding {#thresholding}
 
-As the POT model requires to work only with the most extreme values in the time series, it is necessary to select a threshold to filter out small values. Bias is high when a low threshold is selected (many exceedances) because the asymptotic support is weak; opposite situation happens for high thresholds where variance is potentially high. According to [@Davison1990], it is necessary to select a threshold value, consistent with model structure.
+As the POT model requires to work only with the most extreme values in the time series, it is necessary to select a threshold to filter out small values. Bias is high when a low threshold is selected (many exceedances) because the asymptotic support is weak; opposite situation happens for high thresholds where variance is potentially high. According to [@Davison1990], it is necessary to select a threshold value, consistent with model structure. Figure \@ref(fig:plotdomainpp) represents the thresholding process in a generic dataset, where only points above (red squares) the dotted horizontal line (the threshold) will be used for the model.
+
 
 ```{r thresholding, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="POT - Thresholding", size="footnotesize", fig.width= 2, fig.height= 2, fig.align="center"}
 par(bg=NA)
@@ -510,7 +511,7 @@ where $P_e(y>Y_N)$ is the annual exceedance probability for the combined wind ha
 
 To understand Equation \@ref(eq:combination), it is important to remember that to calculate return level $Y_N$, for a given N-year return period, the exceedance probability $\frac{1}{N}$ of $Y_N$ is calculated. Then, the non-exceedance probability for $Y_N$ is $\left(1-\frac{1}{N}\right)$. The procedure consists in the creation of a new hazard curve, calculating all $P_e(y>Y_N)$ values for different $Y_N$ return levels, combining hazard curves from non-thunderstorm and thunderstorm data.
 
-Equation \@ref(eq:combination) can be expressed only in terms of exceedance probabilities, $P_{e} = 1 - (1 -P_{nh}) (1 - P_{h})$, where $P_{nh}$ is the the annual exceedance probability for non-hurricane winds, and $P_{h}$ is the annual exceedance probability for hurricane winds. A graphical explanation of the procedure to calculate the combined $P_e$ for the return level $30\frac{Km}{h}$, is shown in next Figure \@ref(fig:combinedhc). For each cell in the study area, it is necessary to calculate a new combined hazard curve, this is, all the $P_e$ values corresponding all different return levels (Figure \@ref(fig:combinedhc)).
+Equation \@ref(eq:combination) can be expressed only in terms of exceedance probabilities, $P_{e} = 1 - (1 -P_{nh}) (1 - P_{h})$, where $P_{nh}$ is the the annual exceedance probability for non-hurricane winds, and $P_{h}$ is the annual exceedance probability for hurricane winds. A graphical explanation of the procedure to calculate the combined $P_e$ for the return level $30\frac{Km}{h}$, is shown in Figure \@ref(fig:combinedhc). For each cell in the study area, it is necessary to calculate a new combined hazard curve, this is, all the $P_e$ values corresponding all different return levels (Figure \@ref(fig:combinedhc)).
 
 
 ```{r combinedhc, echo=FALSE, fig.align="center", fig.cap="Integration of Hurricane and Non-Hurricane Data", message=FALSE, warning=FALSE, fig.height=2.5, fig.width=5}

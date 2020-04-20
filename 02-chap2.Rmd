@@ -244,10 +244,10 @@ In order to approach the extreme value analysis, some statistical concepts are n
 
 ### Annual Exceedance Probability $P_e$
 
-Using the previously described database, a question arises to calculate the probability to exceed the highest probable damage caused to any structure by the action of the winds from this simulated database. It is possible to conclude that there is only one event greater or equal (in this case equal) to the highest probable causing damage in 10.000 years, and it is the _highest wind_. If we sort the database by wind magnitude in descending order (small winds last), the question is solved calculating the annual exceedance probability _Pe_ with next formula 
+Using the previously described database, a question arises to calculate the probability to exceed the highest probable damage caused to any structure by the action of the winds from this simulated database. It is possible to conclude that there is only one event greater or equal (in this case equal) to the highest probable causing damage in 10.000 years, and it is the _highest wind_. If the database is sorted by wind magnitude in descending order, i.e. small winds to the right of the list as shown in Figure \@ref(fig:winddatabase), the question is solved calculating the annual exceedance probability _Pe_ with Equation \@ref(eq:pedatabase).
 
 
-```{r , echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Sorted Wind Velocities by Magnitude", size="footnotesize", fig.width= 3, fig.height= 1}
+```{r winddatabase, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Sorted Wind Velocities by Magnitude", size="footnotesize", fig.width= 3, fig.height= 1}
 par(oma=c(0,0,0,0))
 par(mar=c(1.5,0,0,0))
 par(xpd=NA)
@@ -273,9 +273,13 @@ axis(1, labels=FALSE, tick=TRUE, col.axis="black", lwd.ticks=0)
 
 The annual exceedance probability $P_e$ equals to the ratio between _event index after descending sorting_ and _years of simulations_. The highest wind will be the first in the sorted list.
 
-$$
-P_e = \frac{\textrm{Event index after descending sorting}}{\textrm{Years of simulations}}= \frac{1}{10.000}=0.001=0.01\%
-$$
+\begin{equation}
+\mathrm{
+        P_e = \frac{\textrm{Event index after descending sorting}}{\textrm{Years of simulations}}= \frac{1}{10.000}=0.001=0.01\%
+       }
+  (\#eq:pedatabase)
+\end{equation}
+
 Same exercise can be done with all winds to construct the annual exceedance probability curve, that in this case will represent the probability to equal or exceed different probable damage due to wind.
 
 ### Mean Recurrence Interval MRI
@@ -381,7 +385,7 @@ The main use of the fitted model is the estimation of mean return intervals MRI,
   (\#eq:mri)
 \end{equation}
 
-with $F(y)$ as the CDF. If $1-F(y)$ is the annual exceedance probability, MRI is its inverse; see [@Simiu1996] for more details about MRI. If $y$ is solved from previous equation using a given MRI of N-years, its value represents the $Y_N$ wind speed return level. Refer to each specific method bellow for specific solutions to $Y_N$.
+with $F(y)$ as the CDF. If $1-F(y)$ is the annual exceedance probability, MRI is its inverse; see [@Simiu1996] for more details about MRI. If $y$ is solved from Equation \@ref(eq:mri) using a given MRI of N-years, its value represents the $Y_N$ wind speed return level. Refer to each specific method bellow for specific solutions to $Y_N$.
 
 The CRAN Task View "Extreme Value Analysis" <https://cran.r-project.org/web/views/ExtremeValue.html> shows available **R** for block maxima, POT by GPD, and external indexes estimation approaches. Most important to consider are `evd`, `extremes`, `evir`, `POT`, `extremeStat`, `ismev`, and `Renext`.
 
@@ -413,9 +417,9 @@ With the condition of exceeding some high threshold $b$, as a consequence $y = (
 \end{equation}
 
 
-where $[...]_+ = max([...],0)$, $b$ is the threshold. In both GPD (magnitude), and $1D$ Poisson process (time), it is not possible to differentiate between thunderstorm and non-thunderstorm wind types. @Pickands1971 found a rigorous connection between epochal (GEV), and limits results of POT-Poisson-GPD, as parameter shape $\xi$ in both previous equations are exactly the same. The long-tailed case when $\xi>0$, GPD behaves as usual Pareto distribution, for $\xi = 0$ (taking the limit $\xi\rightarrow0$) it behaves as exponential distribution, and $\xi<0$ the distribution has a finite upper endpoint at $-\frac{\sigma}{\xi}$.
+where $[...]_+ = max([...],0)$, $b$ is the threshold. In both GPD (magnitude), and $1D$ Poisson process (time), it is not possible to differentiate between thunderstorm and non-thunderstorm wind types. @Pickands1971 found a rigorous connection between epochal (GEV) and limits results of POT-Poisson-GPD, as parameter shape $\xi$ in Equations \@ref(eq:epochalpdf) and \@ref(eq:gpd) are exactly the same. The long-tailed case when $\xi>0$, GPD behaves as usual Pareto distribution, for $\xi = 0$ (taking the limit $\xi\rightarrow0$) it behaves as exponential distribution, and $\xi<0$ the distribution has a finite upper endpoint at $-\frac{\sigma}{\xi}$.
 
-In POT-Poisson-GPD, to calculate return levels (RL), $Y_N$, corresponding to the N-years return period, next equation is used,
+The equation to calculate return levels (RL) $Y_N$ corresponding to the N-years return period in POT-Poisson-GPD is:
 
 \begin{equation}
 \mathrm{
@@ -525,7 +529,7 @@ Visual representation of the intensity function for PP can be seen in Figure \@r
 include_graphics(path = "figure/domain3d.PNG")
 ```
 
-To fit the intensity function to the data, the method of maximum likelihood is used to estimate its parameters, $scale = \psi$, $location = \omega$, and $shape = \zeta$, the selected vector of parameters $\eta$ are the $\hat\eta = (\hat\psi, \hat\omega, \hat\zeta)$ values that maximizes next function
+To fit the intensity function to the data, the method of maximum likelihood is used to estimate its parameters, $scale = \psi$, $location = \omega$, and $shape = \zeta$, the selected vector of parameters $\eta$ are the $\hat\eta = (\hat\psi, \hat\omega, \hat\zeta)$ values that maximizes the function:
 
 \begin{equation}
   \mathrm{
@@ -534,7 +538,7 @@ To fit the intensity function to the data, the method of maximum likelihood is u
                   \right)
                   \exp\left\{
                             -\int_{{D}}\lambda\left(y,t\right)dy\,dt
-                     \right\}
+                     \right\}.
          }
   (\#eq:pplikelihood)
 \end{equation}
@@ -546,7 +550,7 @@ Once the PP is fitted to the data, the model will provide extreme wind velocitie
 A $Y_N$ extreme wind velocity, called the return level (RL) belonging to the N-years return period, has an expected frequency to occur or to be exceeded (annual exceedance probability) $P_e = \frac{1}{N}$, and also has a probability that the event does not occur (annual non-exceedance probability) $P_{ne}=1-\frac{1}{N}$. $Y_N$ will be the resulting value of the $G$ (PPF or quantile) function using a probability equal to $P_{ne}$. $Y_N=quantile(y, p=P_{ne})=G(y,p=P_{ne})=PPF(y,p=P_{ne})$. $Y_N$ can be understood as the wind extreme value expected to be exceeded on average once every N years.
  
 
-For PP, $Y_N$ is the solution to the next equation, which is defined in terms of the intensity function,
+For PP $Y_N$ is defined in terms of the intensity function as the solution to the equation
 
 \begin{equation}
   \mathrm{

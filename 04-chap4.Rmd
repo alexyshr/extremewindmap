@@ -115,15 +115,16 @@ IDEAM:
 
 ### Data Comparison
 
-The available IDEAM data allowed two comparison processes, with quality data for few stations, and with low quality data, but available for all stations. In both cases, to make the use of ISD and ERA5 viable, its time series are expected to be as similar as possible to IDEAM (field measurements). As was described in methodology section, to verify similarity two types of graphics were constructed: *time series overlay*, and *scatter plot graphics*.
+The available IDEAM data allowed two comparison processes, with quality data for few stations, and with low quality data but available for all stations. In both cases to make the use of ISD and ERA5 viable, its time series are expected to be as similar as possible to IDEAM (field measurements). As was described in methodology section, to verify similarity two types of graphics were constructed: **time series overlay**, and **scatter plot graphics**.
 
 #### Quality data comparison of instantaneous wind velocity each 2 minutes (VV_AUT_2)
 
-The IDEAM variable instantaneous wind velocity each 2 minutes (VV_AUT_2) was available for twenty (20) stations, of which only twelve (12) were _perfectly equivalent_ to ISD stations (Table \@ref(tab:table12stations) and map in left panel of Figure \@ref(fig:qualitycomparison2)). VV_AUT_2 dataset was transformed to $V_{3600}$ (average hourly speed) averaging all 20 values available per hour. For twelve matching  stations, wind velocity $V_{3600}$ was standardized station by station, using procedure described in _[Surface Roughness at Open Space](#rmd-roughness)_ section and _[Averaging Time 3-s Gust](#rmd-gust)_. Finally, for the same twelve ISD and IDEAM standardized stations, a comparison was done against matching ERA5 stations (the corresponding cell in ERA5 that has within ISD and IDEAM locations).
+Despite the fact that the ISD database (for Colombia) is based on the measured data of the IDEAM stations, their identifiers are completely different, and their names and locations in most cases have significant differences. In order to compare ISD and IDEAM sources, a manual station-by-station procedure was required to match the stations of each source. The IDEAM variable instantaneous wind velocity each 2 minutes (VV_AUT_2) was available for twenty (20) stations, of which only twelve (12) were _perfectly equivalent_ to ISD stations (Table \@ref(tab:table12stations) and map in left panel of Figure \@ref(fig:qualitycomparison2))
 
-The stations described in each row of the Table \@ref(tab:table12stations) were compared by generating scatter plots and common time series graphics. For only the stations corresponding to one row there was high correspondence between sources. Unfortunately, in the other eleven stations downscaling support was not reflected.
+VV_AUT_2 dataset was transformed to $V_{3600}$ (average hourly speed) averaging all 20 values available per hour. For twelve matching stations, wind velocity $V_{3600}$ was standardized station by station using procedure described in _[Surface Roughness at Open Space](#rmd-roughness)_ section and _[Averaging Time 3-s Gust](#rmd-gust)_. For the same twelve ISD and IDEAM standardized stations, a comparison was done against matching ERA5 stations (the corresponding cell in ERA5 that has within ISD and IDEAM locations).
 
-The stations corresponding to the map in the right panel of Figure \@ref(fig:qualitycomparison2) and scatter plot in Figure \@ref(fig:sideamera5), show high correspondence between sources because green regression line (empirical) is very similar to $45^\circ$ line (theoretical). Axis $x$ in m/s correspond to IDEAM stations 28025502, and axis $y$ with same units contains ERA5 416 station (cell with center point in $-73.25^\circ$ longitude, and $10.5^\circ$ latitude). The points in the upper part of the graph that move away from the global trend of the correlation, correspond to erroneous field measurements (sensor failure) of the IDEAM meteorological station.
+The stations described in each row of the Table \@ref(tab:table12stations) were compared by generating scatter plots and common time series graphics. For the stations IDEAM 28025502 and ERA5 416 corresponding to the tenth row of the mentioned table, there was high correspondence between sources. Unfortunately, in the stations corresponding to the other eleven rows, downscaling support was not reflected.
+
 
 ```{r table12stations, echo=FALSE, message=FALSE, warning=FALSE, paged.print=TRUE, results="asis"}
 #data_sources_thesis_summary1 <-read.csv("./data/data_sources_thesis_summary1.csv",header=TRUE, stringsAsFactors = F)
@@ -311,6 +312,7 @@ small <- ggplot(data = world) +
 grid.arrange(big, small, ncol=2)
 ```
 
+The stations corresponding to the map in the right panel of Figure \@ref(fig:qualitycomparison2) and scatter plot in Figure \@ref(fig:sideamera5), show high correspondence between sources because green regression line (empirical) is very similar to $45^\circ$ line (theoretical). Axis $x$ in m/s correspond to IDEAM station 28025502, and axis $y$ (with same units) contains ERA5 416 station (cell with center point in $-73.25^\circ$ longitude, and $10.5^\circ$ latitude). The points in the upper part of Figure \@ref(fig:sideamera5) that move away from the global trend of the correlation, correspond to erroneous field measurements (sensor failure) of the IDEAM meteorological station. The graph shows some statistics and coefficients of the linear regression model; the value **P** is equivalent to the p-value for the slope of the regression line, i.e. the probability of observing any value equal or larger than t-statistic.
 
 ```{r sideamera5, echo=FALSE, fig.align="center", fig.cap="Quality Data Comparison. High Similarity Between Sources", message=FALSE, warning=FALSE, fig.width=4, fig.height=3}
 #
@@ -395,9 +397,9 @@ ggplot(data = world) +
 ```{r tableverygood, echo=FALSE, message=FALSE, warning=FALSE, paged.print=TRUE, results="asis"}
 tableverygood <-read.csv("./data/poor_datasource_comparison_very_good_match.csv",header=TRUE, stringsAsFactors = F)
 
-kable(tableverygood, align=rep('l', 3),
+kable(tableverygood, linesep = "", align=rep('l', 3),
       col.names = c("ISD ID", "IDEAM ID", "ERA5: ID, (col,row), [lon,lat]"),
-      caption = "Non-Quality Data Comparison. 'Very Good' downscaling support.",
+      caption = "Non-Quality Comparison. Very good downscaling support.",
       caption.short = "Non-Quality Data Comparison",
       longtable = TRUE,
       booktabs = TRUE) %>%
@@ -408,7 +410,7 @@ kable(tableverygood, align=rep('l', 3),
 kable_styling(font_size = 10, latex_options="scale_down")
 ```
 
-For some ISD stations in Table \@ref(tab:tableverygood), the value 'NA' means that for the corresponding ERA5 and IDEAM station (same row), there is not an ISD station located inside the ERA5 cell space ($0.25^\circ * 0.25^\circ$). Velocities in the axis $y$ of Figure \@ref(fig:verygoodxts) and all the axis in Figure \@ref(fig:verygood) are in m/s.
+Note that although the Table \@ref(tab:tableverygood) has nine records, each for a different IDEAM station, there are only five ERA5 stations because some of them are repeated, for example station 78 that appears three times. Additionally, there are only two ISD stations. The value 'NA' means that for the corresponding ERA5 and IDEAM station (same row), there is not an ISD station located inside the ERA5 cell space ($0.25^\circ * 0.25^\circ$). Velocities in the axis $y$ of Figure \@ref(fig:verygoodxts) and all the axis in Figure \@ref(fig:verygood) are in m/s. The regression model coefficients are shown for the green regression lines in Figure \@ref(fig:verygood): adjusted R2, line intercept, line slope, and the probability $Pr(>|t|)$ (the significance of the estimate increases as p-value decreases).
 
 
 ```{r verygoodxts, echo=FALSE, fig.cap="Time Series Graphic for 'Very Good' Downscaling Support", message=FALSE, warning=FALSE, fig.height=3}
@@ -435,6 +437,7 @@ br = readRDS(file="./data/eracomparisonideam_188_1_2_78_plotgg.rds")
 
 plot_grid(cl, cr, bl, br, ncol = 2, labels=c("A", "B", "C", "D"), label_size = 7, label_colour = "red")
 ```
+
 
 ## POT-PP for ISD Station 801120
 
@@ -1043,7 +1046,7 @@ c3000 = ggplot(data = world) +
 plot_grid(c700, c1700, c3000, legend, ncol=4, rel_widths=c(1, 1, 1, 0.1))
 ```
 
-Applying POT-PP to the variable _ten meters wind gust fg10_ from ERA5 reanalysis dataset, RL were calculated. As RL for ERA5 represent predefined square cells of $0.25^\circ$ decimal degrees, no interpolation process was required.
+The comparison process between measured data and ERA5 data did not give good results, but this is mainly due to inadequate data received from IDEAM. It was decided to execute the process POT-PP in the ERA5 variable _ten meters wind gust fg10_, but remembering that once adequate field data is obtained, the downscaling support must be verified to guarantee the feasibility of the results. No interpolation process was required because the calculated RLs at each station, represent predefined square cells of $0.25^\circ$ decimal degrees.
 
 
 ```{r era5nhmaps, echo=FALSE, fig.cap="ERA5 Non-Hurricane Wind Maps", message=FALSE, warning=FALSE, fig.height=2.7, fig.width=6.5}

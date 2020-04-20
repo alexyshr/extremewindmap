@@ -133,10 +133,10 @@ Importance of ISD database for this study is based on the fact that post-process
 
 ## IDEAM
 
-Historical observed wind speeds from `r length(ideam_stations$codigo1)` stations in Colombia are managed by the official environmental authority IDEAM. Table \@ref(tab:tableideamstations) shows a sample of five IDEAM stations. Figure \@ref(fig:plotideamstations) shows a map of IDEAM stations. Figure \@ref(fig:plotoneideamstation) shows data for IDEAM station "21205791".
+Historical observed wind speeds from `r length(ideam_stations$codigo1)` stations in Colombia are managed by the official environmental authority IDEAM. Table \@ref(tab:tableideamstations) shows a sample of ten IDEAM stations. Figure \@ref(fig:plotideamstations) shows a map of IDEAM stations. Figure \@ref(fig:plotoneideamstation) shows data for IDEAM station "21205791".
 
 ```{r tableideamstations, echo=FALSE, message=FALSE, warning=FALSE, results="asis"}
-tableideam =  ideam_stations[c(81,120,200,57,179), c("nombre", "latitud", "longitud")]
+tableideam =  ideam_stations[c(81,120,200,57,179, 22,35,150,170,185), c("nombre", "latitud", "longitud")]
 tableideam$latitud = round(tableideam$latitud, 2)
 tableideam$longitud = round(tableideam$longitud, 2)
 
@@ -195,7 +195,7 @@ ggplot(data = world) +
   theme(panel.grid.major = element_line(color = gray(.5), linetype = "dashed", size = 0.5), panel.background = element_rect(fill = "aliceblue"))
 ```
 
-```{r plotoneideamstation, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Time Series of IDEAM Station ELDORADO CATAM - AUT", fig.width=4, fig.height=2.7}
+```{r plotoneideamstation, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Time Series of IDEAM Station ELDORADO CATAM - AUT", fig.width=4.5, fig.height=3.5}
 #Plote time series - one IDEAM Station
 originalfields = c("21205791")
 newfields = paste ("X", originalfields, sep="")
@@ -237,11 +237,11 @@ plot.xts(statideam_xts, main = "Station ID: 21205791\nWind Velocity [m/s]", majo
 
 ## ISD
 
-ISD is a database with environmental variables, among them extreme wind speeds. ISD has data for the whole planet, and is based on observed data at meteorological stations in each country, which means that for Colombia is based on IDEAM data. Main advantage is data availability at neighbor countries and specialized post-processing made by NOAA's National Centers for Environmental Information NCEI in United States, which facilitates its use. Table \@ref(tab:tableisdstations) shows a sample of five ISD stations. Figures \@ref(fig:plotisdstations) and \@ref(fig:plotoneisdstation) shows a map of ISD stations and data from ISD station "802590".
+ISD is a database with environmental variables, among them extreme wind speeds. ISD has data for the whole planet, and is based on observed data at meteorological stations in each country, which means that for Colombia is based on IDEAM data. Main advantage is data availability at neighbor countries and specialized post-processing made by NOAA's National Centers for Environmental Information NCEI in United States, which facilitates its use. Table \@ref(tab:tableisdstations) shows a sample of ten ISD stations. Figures \@ref(fig:plotisdstations) and \@ref(fig:plotoneisdstation) shows a map of ISD stations and data from ISD station "802590".
 
 
 ```{r tableisdstations, echo=FALSE, message=FALSE, warning=FALSE, results="asis"}
-tableisd =  isd_stations[c(81,20,29,57,60), c("usaf", "station_name", "latitud", "longitud")]
+tableisd =  isd_stations[c(81,20,29,57,60, 30,50,55,58,3), c("usaf", "station_name", "latitud", "longitud")]
 tableisd$latitud = round(tableisd$latitud, 2)
 tableisd$longitud = round(tableisd$longitud, 2)
 
@@ -296,7 +296,7 @@ ggplot(data = world) +
   theme(panel.grid.major = element_line(color = gray(.5), linetype = "dashed", size = 0.5), panel.background = element_rect(fill = "aliceblue"))
 ```
 
-```{r plotoneisdstation, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="ISD Station ALFONSO BONILLA ARAGON INTL - Time Series", fig.width=4, fig.height=2.7}
+```{r plotoneisdstation, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="ISD Station ALFONSO BONILLA ARAGON INTL - Time Series", fig.width=4.5, fig.height=3.3}
 #Plot - ISD Station
 originalfields1 = c("802590")
 newfields1 = paste ("X", originalfields1, sep="")
@@ -339,6 +339,7 @@ plot.xts(statisd_xts, main = "Station ID: 802590\nWind Velocity [m/s]", major.ti
 
 ## ERA5
 
+
 ```{r loadera5, include=FALSE}
 #Load ERA5 NetCDF dataset - variable fg10
 ncname <- "outfile_nc4c_zip9"
@@ -361,6 +362,8 @@ lonlat.unstack <- expand.grid(lon=as.numeric(lon), lat=as.numeric(lat))
 era5colpoints = st_as_sf(lonlat.unstack, coords=1:2, crs=st_crs(4326))
 era5colpoints$value = 1:(nlon*nlat)
 ```
+
+ERA5 is forecast reanalysis data processed by the _European Centre for Medium-Range Weather Forecasts_ ECMWF with wind speeds time series in square cells of 0.25 decimal degrees covering the whole planet. It was extracted a raster of `r (nlat)` rows by `r nlon` columns in format NetCDF. Cell centers represent ERA5 stations, with IDs from 1 (lon=-79, lat=12.5) to 3381 (lon=-67, lat=-4.5). Map in figure \@ref(fig:plotera5stations) shows ERA5 stations.
 
 ```{r era5bbox, include=FALSE}
 #Define stars object to match with ERA5 bounding box.
@@ -553,8 +556,6 @@ corner4rb = ggplot(data = world) +
 
 grid.arrange(big, arrangeGrob(corner1lt, corner2rt, corner3lb, corner4rb), ncol=2, widths=c(2.2,1))
 ```
-
-ERA5 is forecast reanalysis data processed by the _European Centre for Medium-Range Weather Forecasts_ ECMWF with wind speeds time series in square cells of 0.25 decimal degrees covering the whole planet. It was extracted a raster of `r (nlat)` rows by `r nlon` columns in format NetCDF. Cell centers represent ERA5 stations, with IDs from 1 (lon=-79, lat=12.5) to 3381 (lon=-67, lat=-4.5). Map in figure \@ref(fig:plotera5stations) shows ERA5 stations.
 
 
 ```{r, include=FALSE}

@@ -159,7 +159,7 @@ on chapters.
 
 # Introduction
 
-_Extreme value models_ are used for estimating engineering design forces of _extreme events_ like earthquakes, winds, rainfall, floods, etc, [@Beirlant2004]. Structures designed with these forces, holding a balance between safety and cost, will survive while being requested by an extreme event from a natural phenomenon [@Castillo2005]. 
+_Extreme value models_ are used for estimating engineering design forces of _extreme events_ like earthquakes, winds, rainfall, floods, etcetera [@Beirlant2004]. Structures designed with these forces, holding a balance between safety and cost, will survive while being requested by an extreme event from a natural phenomenon [@Castillo2005]. 
 
 This research presents an application of extreme value analysis to estimate wind velocities for infrastructure design. Consequently, the main interest are probable future extreme events that structures need to be able to resist [@Smith2004].
 
@@ -170,6 +170,7 @@ The development of this research (focused in non-hurricane data), covers three m
 Due to the specific characteristics of the study area where there is lack of historical wind measurements, it became necessary to look for alternative data sources: ISD, and ERA5 forecast data. This resulted in a downscaling issue that was confronted from a graphic comparison of all sources by matching stations, in the search of adequate _downscaling support_ for the use of complementary data. Prior to the comparison process, ISD and IDEAM data sources were standardized to represent 3-second wind gust, 10 meters of anemometer height, and terrain open space roughness.
 
 The _temporal analysis_ method used to calculate the return levels at each station from the historical wind time series, is the Peaks Over Threshold POT using a non-homogeneous bi-dimensional Poisson Process PP recommended by [@Asce2017] and developed in [@Pintar2015]. Main components of POT-PP model are de-clustering, thresholding, intensity function fitting, hazard curve, and return levels calculation. At each station with non-thunderstorm data, this model starts with a process of de-clustering choosing a suitable threshold level to leave for the analysis only the most extreme available values, and then, fit to the data an intensity function using maximum likelihood to find optimal parameters with the best goodness of fit. With the fitted model, and using the hazard curve, it was possible to calculate extreme wind velocities or return levels for required MRIs.
+
 
 The integration of all these results allow to generate non-hurricane continuous maps of extreme winds velocities (using _Kriging_ as _spatial analysis_ method), which are combined with _existing wind extreme hurricane studies_ to be used as input loads for the design of structures of different risk categories, i.e., less risky/important structures for short MRIs (700 and 1700 years), and highly important structures for the longest MRI of 3000 years.
 

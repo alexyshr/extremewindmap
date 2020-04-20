@@ -327,9 +327,9 @@ Next block of code shows the use of CDSAPI (Python) to download ERA5 variable _1
       '10fg_1979_1991_netcdf_.25x.25.nc')
 ```
 
-Next Table \@ref(tab:pythonera5), shows all Python scripts used to download variables _10fg - 10 meters wind gust_ and _fsr - forecast surface roughness_, for the study area, along the period 1979 to 2019. Last file in the table, hold a summary of commands to manipulate NetCDF files.
+Table \@ref(tab:pythonera5) shows all Python scripts used to download the variables _10fg_ (10 meters wind gust) and _fsr_ (forecast surface roughness) for the study area along the period 1979 to 2019. Last file in the table holds a summary of commands to manipulate NetCDF files.
 
-After downloading separate NetCDF files, there are different tools available, to manipulate them, for instance, Climate Data Operators - CDO <https://code.mpimet.mpg.de/projects/cdo/>, NetCDF command line utilies <https://www.unidata.ucar.edu/software/netcdf/docs/netcdf_working_with_netcdf_files.html>, and NetCDF operator - NCO <http://nco.sourceforge.net/>.
+After downloading separate NetCDF files, there are different tools available, to manipulate them, for instance, Climate Data Operators - CDO <https://code.mpimet.mpg.de/projects/cdo/>, NetCDF command line utilities <https://www.unidata.ucar.edu/software/netcdf/docs/netcdf_working_with_netcdf_files.html>, and NetCDF operator - NCO <http://nco.sourceforge.net/>.
 
 ```{r pythonera5, echo=FALSE, message=FALSE, warning=FALSE, paged.print=TRUE, results="asis"}
 library(knitr)
@@ -531,15 +531,15 @@ Consider following recommendations
 * Use _call_ command described in last step, once for each station time series file.
 * Review content of log file load_vv_aut_10.logdos, to detect and correct possible loading errors.
 
-Using previous procedure, following ISD and IDEAM information were loaded to the database, see Table \@ref(tab:tabledatasources2): 
+Following ISD and IDEAM information were loaded to the database using previous procedure, see Table \@ref(tab:tabledatasources2): 
 
 * VV_AUT_10
 * ALL_VVMX_AUT_60
 * ISD_LITE
 
-Previous listed tables have **stacked** stations information, namely, with the same number of columns, the records of the first station occupy a certain number of rows, and the station identifier is repeated in each row, and below them, increasing the number of rows, the information of other stations is stored.
+The previously listed tables have **stacked** stations information, namely, with the same number of columns, the records of the first station occupy a certain number of rows, and the station identifier is repeated in each row, and below them, increasing the number of rows, the information of other stations is stored.
 
-Previous stacked tables were transform to **unstacked** versions, namely, one column for each station identifier. Stacked table _ALL\_VVMX\_AUT\_60_ was transformed to unstacked table _IDEAM\_VVMX\_60_, using next chunk of SQL code.
+Stacked tables were transform to **unstacked** versions, namely, one column for each station identifier. Stacked table _ALL\_VVMX\_AUT\_60_ was transformed to unstacked table _IDEAM\_VVMX\_60_, using next chunk of SQL code.
 
 ```{sql results='hide', vspaceecho='0.4cm', echo = TRUE, eval=FALSE, size="scriptsize"}
     CREATE table ideam_vvmx_60 AS
@@ -655,7 +655,7 @@ It is possible to load data from a backup file to the database, using a TOC text
       pg_restore.exe -l -f dump-Fc-a-E_winddata_2020_03.TOC dump-Fc-a-E_winddata_2020_03.dump
 ```
 
-The content of default TOC file (dump-Fc-a-E_winddata_2020_03.TOC), as result from previous command is shown below
+The content of default TOC file (dump-Fc-a-E_winddata_2020_03.TOC) as result from previous command is shown below
 
 ```{bash results='hide', vspaceecho='0.4cm', echo = TRUE, eval=FALSE, size="scriptsize"}
       ; Archive created at 2020-03-25 15:38:55
@@ -939,7 +939,7 @@ Below is the content of a time series file (VV\_AUT\_2\@48015050.data). It has t
       ...
 ```
 
-Next code, from IDEAM variable VV_AUT_2 (wind velocity each two seconds), read all twelve time series text files from folder _./data/manual/VV_AUT_2/_, calculate hourly mean, apply a 3-s gust correction factor of 1.52, and roughness corrections factors stored in the column _fc_zo_ of _stationssample_ data-frame, nonetheless, this code is not efficient in terms of memory management, because it loads all times series to memory, using the object _ldf_, and load all standardized time series to memory, using object _ldf\_hourlymean_.
+Next code from IDEAM variable VV_AUT_2 (wind velocity each two seconds), read all twelve time series text files from folder _./data/manual/VV_AUT_2/_, calculate hourly mean, apply a 3-s gust correction factor of 1.52, and roughness corrections factors stored in the column _fc_zo_ of _stationssample_ data-frame, nonetheless, this code is not efficient in terms of memory management because it loads all times series to memory using the object _ldf_, and load all standardized time series to memory using object _ldf\_hourlymean_.
 
 ```{r results='hide', vspaceecho='0.4cm', echo = TRUE, eval=FALSE, size="scriptsize"}
     path_vv_aut_2 = "./data/manual/VV_AUT_2/"
@@ -995,7 +995,7 @@ Next code, from IDEAM variable VV_AUT_2 (wind velocity each two seconds), read a
 ```
 
 
-Next code, from ISD data source stored in unstacked PostgreSQL table _isd_lite_unstack_, twelve stations are loaded (using WHERECLAUSE to filter), and roughness correction factor is applied. Listed ISD stations, are equivalent to previous IDEAM stations, reason why correction factor values are identical. An efficient use of memory is made here due to the use of lazy `tibble` data-frames from PostgreSQL database, see Annex \@ref(dbstoring) _[Database Storing](#dbstoring)_.
+Next code from ISD data source stored in unstacked PostgreSQL table _isd_lite_unstack_, load twelve stations (using WHERECLAUSE to filter) and apply roughness correction factors. Correction factor values are identical because listed ISD stations are equivalent to the stations listed in the code above. An efficient management of memory is made in the code due to the use of lazy `tibble` data-frames from PostgreSQL database, see Annex \@ref(dbstoring) _[Database Storing](#dbstoring)_.
 
 
 ```{r echo=TRUE, vspaceecho='0.4cm', size="scriptsize"}
@@ -1048,7 +1048,7 @@ Next code, from ISD data source stored in unstacked PostgreSQL table _isd_lite_u
 ```
 
 
-Finally, recommended option to apply correction factors is shown using variable `VV_AUT_10` (instantaneous wind velocity each ten seconds) from IDEAM data-source. It is based in an Excel file with all correction factors by each station, and time series in text files. In column total correction factor $F_{total}$, next Table \@ref(tab:cf), integrates correction factors due to surface roughness $F_{e}$, and gust $F_{gust}$. As it is described in _[Data Standardization](#rmd-standardization)_, @Lettau1969 is applied to calculate $F_e$, using roughness $Z_o$, gradient height $Z_g$, empirical exponent $\alpha$, and exposure coefficient $K_z$. For $F_{gust}$, Durst curve is used, see _[Averaging Time 3-s Gust](#rmd-gust)_. Despite it is not using lazy `tibble` data-frames in PostgreSQL, next code uses efficiently memory resources, as it loads only one file time series to memory in a serial iterative process. 
+Finally, recommended option to apply correction factors is shown using variable `VV_AUT_10` (instantaneous wind velocity each ten seconds) from IDEAM data-source. It is based in an Excel file with all correction factors by each station, and time series in text files. In column total correction factor $F_{total}$ of Table \@ref(tab:cf), integrates correction factors due to surface roughness $F_{e}$, and gust $F_{gust}$. As it is described in _[Data Standardization](#rmd-standardization)_, @Lettau1969 is applied to calculate $F_e$, using roughness $Z_o$, gradient height $Z_g$, empirical exponent $\alpha$, and exposure coefficient $K_z$. For $F_{gust}$, Durst curve is used, see _[Averaging Time 3-s Gust](#rmd-gust)_. Despite it is not using lazy `tibble` data-frames in PostgreSQL, next code uses efficiently memory resources, as it loads only one file time series to memory in a serial iterative process. 
 
 
 ```{r cf, echo=FALSE, message=FALSE, warning=FALSE, paged.print=TRUE, results="asis"}
@@ -1110,8 +1110,7 @@ kable(correctionfactors, linesep = "", align=rep('l', 9), escape = FALSE, format
         #Get correction factor by Roughness
           fexpo = fc$fexpo[fc$station_id == as.integer(station_id)]  
         #Keep the record of stations without correction factors in Excel file
-          if (length(fexpo) == 0) {
-              mymissing = c(mymissing, station$station_id[1])
+          if (length(fexpo) == 0) {mymissing = c(mymissing, station$station_id[1])
               cat(paste("Station ", station$station_id[1], "not found in correction factors file", "\n"))}      
         #Get correction factor by gust
         #All stations are reported in Excel file for gust correction factor
@@ -1133,7 +1132,7 @@ kable(correctionfactors, linesep = "", align=rep('l', 9), escape = FALSE, format
 
 ## Downscaling Support
 
-Next Table \ref{tab:codeds} shows specific code used to compare all data sources. Complete R code report can be found in Annex \@ref(rcode) - Research R Code - Digital Files, Table \ref{tab:code}.  
+Table \ref{tab:codeds} shows specific code used to compare all data sources. Complete R code report can be found in Annex \@ref(rcode) - Research R Code - Digital Files, Table \ref{tab:code}.  
 
 ```{r codeds, echo=FALSE, message=FALSE, warning=FALSE, paged.print=TRUE, results="asis"}
 library(knitr)
@@ -1171,7 +1170,7 @@ For this procedure, needed R files are VV_AUT_2_1.r, VV_AUT_2_2.r, and VV_AUT_2_
 
 2. Verify files and variables according to descriptions and recommendations of following list (from 1 to 5), then execute file **VV_AUT_2_1.r**. 
 
-Files to run quality data comparison are inside the folder *.../downscaling/qualitydata/*. Main file to run this process is _VV_AUT_2_1.r_, and inside it, next list of variables and code need to be configured.
+Files to run quality data comparison are inside the folder *.../downscaling/qualitydata/*. Main file to run this process is _VV_AUT_2_1.r_, and inside it, next list of variables and code need to be configured:
 
 1. _stationssample_
 
@@ -1229,7 +1228,7 @@ Files names must follow this convention **VV_AUT_2@\*.data**, where _\*_ is the 
       ...
 ```      
 
-First line must always have next content *Fecha|Valor*, representing two column names, first column _Fecha_, has the date time in the format "YYYY-MM-DD HH:MM:SS", time zone UTC, and second column _Valor_, must have the non-standardized wind velocity in kilometers per hour. Separation of each column value must be *|* character.
+The first line must contain the text *Fecha|Valor* representing two column names, first column _Fecha_ has the date time in the format "YYYY-MM-DD HH:MM:SS" (time zone UTC), and second column _Valor_ must have the non-standardized wind velocity in kilometers per hour. Separation of each column value must be the *|* character.
 
 3. _con1_
 
@@ -1273,7 +1272,7 @@ For this procedure, needed R file is VV_AUT_10.r, see Table \ref{tab:codeds}.
 
 2. Verify files and variables according to descriptions and recommendations of following list (from 1 to 6), then execute file **VV_AUT_10.r**. 
 
-Inside the folder *.../downscaling/nonqualitydata/*, it is possible to find files to run non-quality data comparison. Main file to run this process is _VV_AUT_10.r_, and inside it, next list of variables and code need to be configured.
+Inside the folder *.../downscaling/nonqualitydata/*, it is possible to find files to run non-quality data comparison. Main file to run this process is _VV_AUT_10.r_, and inside it, next list of variables and code need to be configured:
 
 
 1. _con1_
@@ -1336,7 +1335,7 @@ Non standardized time series text files for IDEAM data VV_AUT_10 - instantaneous
       ...
 ```
 
-Content of each file must follow structure shown below. First line must always have next content *Fecha|Valor*, representing two column names, first column _Fecha_, has the date time in the format "YYYY-MM-DD HH:MM:SS", time zone UTC, and second column _Valor_, must have the non-standardized wind velocity in kilometers per hour. Separation of each column value must be *|* character.
+Content of each file must follow structure shown below. The first line must contain the text *Fecha|Valor*, representing two column names, first column _Fecha_, has the date time in the format "YYYY-MM-DD HH:MM:SS" (time zone UTC), and second column _Valor_ must have the non-standardized wind velocity in kilometers per hour. Separation of each column value must be the *|* character.
 
 ```{bash results='hide', vspaceecho='0.4cm', echo=TRUE, eval=FALSE, size="scriptsize"}
       Fecha|Valor
@@ -1359,7 +1358,7 @@ Variable _somePDFPath_ holds the name of the output PDF file with non-quality da
 
 ### ISD
 
-Next Table \ref{tab:codeisd} shows specific POT-PP R code used for ISD stations. Complete R code report can be found in Annex \@ref(rcode) - Research R Code - Digital Files, Table \ref{tab:code}.  
+Table \ref{tab:codeisd} shows specific POT-PP R code used for ISD stations. Complete R code report can be found in Table \ref{tab:code} of Annex \@ref(rcode).  
 
 ```{r codeisd, echo=FALSE, message=FALSE, warning=FALSE, paged.print=TRUE, results="asis"}
 library(knitr)
@@ -1420,7 +1419,7 @@ Files names must follow this convention **raw_data_station_\*.txt**, where _\*_ 
       ...
 ```      
 
-First line must always have next content _"date_time" "mph" "thunder_flag"_, representing three column names, separated by spaces. First column _"date_time"_, has the date time in the format "YYYY/MM/DD HH:MM:SS", time zone UTC. Second column _kph_, must have the standardized wind velocity in kilometers per hour. Third column _"thunder_flag"_, must have a flag with one of two possible values _"nt"_ or _"t"_, representing _non-thunderstorm_ or _thunderstorm_ classification respectively, for the current wind value. For current research, third column always had the flag _"nt"_, for all rows, all stations. Separation of each column value must be _space_ character. Values corresponding to _"date_time"_ and _"thunder_flag"_ must be enclosed by double quotes.
+The first line must contain the text _"date_time" "mph" "thunder_flag"_, representing three column names separated by spaces. First column _"date_time"_ has the date time in the format "YYYY/MM/DD HH:MM:SS" (time zone UTC). Second column _kph_ must have the standardized wind velocity in kilometers per hour. Third column _"thunder_flag"_ must have a flag with one of two possible values _"nt"_ or _"t"_, representing _non-thunderstorm_ or _thunderstorm_ classification respectively for the current wind value. For current research third column always had the flag _"nt"_ (all stations, all rows). Separation of each column value must be _space_ character. Values corresponding to _"date_time"_ and _"thunder_flag"_ must be enclosed by double quotes.
 
 2. _estaciones_ 
 
@@ -1521,7 +1520,7 @@ Main output file of POT-PP analysis is _fitted_model_result.xlsx_, which contain
 
 To create non-hurricane maps using Kriging, from columns 43 to 53 of file _fitted_model_result.xlsx_, use R files inside folder *.../code/pot\_pp/isd/maps/*, see Table \ref{tab:codeisd}. For instance, to create non-hurricane map with return levels for 10 years MRI, use file _rl_10_nh.r_, for 50 MRI use _rl_50_nh.r_, and in the same way for other return periods. Once GeoTIFF images have been created with previous R files, use _plot_maps.r_ to plot maps using `ggplot2` R package.
 
-Inside files _rl\_\*\_nh.r_ next types of geostatistical related analysis are coded, mainly using `gstat`, `sf`, and `stars` R packages, see [@Pebesma2019], [@Pebesma2019a], and [@Pebesma2019b] respectively.
+Inside files _rl\_\*\_nh.r_ different types of geostatistical related analysis are coded, mainly using `gstat`, `sf`, and `stars` R packages, see [@Pebesma2019], [@Pebesma2019a], and [@Pebesma2019b] respectively:
 
 * Experimental semivariogram
 * Directional semivariograms
@@ -1544,7 +1543,7 @@ Inside files _rl\_\*\_nh.r_ next types of geostatistical related analysis are co
 
 1. Run the procedure previously described in this manual, to execute POT-PP in ISD stations. File _fitted_model_result.xlsx_ will be created with all return levels for different return periods.
 
-2. From file _fitted_model_result.xlsx_, create file _rlisd.xlsx_ with 20 columns according to next  Table \@ref(tab:rlisd).  See Table \ref{tab:returnlevels} for columns descriptions. Keep same number of records in _rlisd.xlsx_ compared with _fitted_model_result.xlsx_.
+2. From file _fitted_model_result.xlsx_, create file _rlisd.xlsx_ with 20 columns according to Table \@ref(tab:rlisd).  See Table \ref{tab:returnlevels} for columns descriptions. Keep same number of records in _rlisd.xlsx_ compared with _fitted_model_result.xlsx_.
 
 
 ```{r rlisd, echo=FALSE, message=FALSE, warning=FALSE, paged.print=TRUE, results="asis"}
@@ -1568,7 +1567,7 @@ kable(rawdatastationidfitted, linesep = "", align=rep('l', 4),
        add_header_above(c("File fitted_model_result.xlsx" = 2, "File rlisd.xlsx" = 2))
 ```
 
-3. Enable access to PostgreSQL database with ISD stations information. See Annex \@ref(dbstoring) _[Database Storing](#dbstoring)_. Connection information to the spatial database is shown in next Table \@ref(tab:db).
+3. Enable access to PostgreSQL database with ISD stations information. See Annex \@ref(dbstoring) _[Database Storing](#dbstoring)_. Connection information to the spatial database is shown in Table \@ref(tab:db).
 
 ```{r db, echo=FALSE, message=FALSE, warning=FALSE, paged.print=TRUE, results="asis"}
 library(knitr)
@@ -1590,7 +1589,7 @@ kable(rawdatastationidfitted, linesep = "", align=rep('l', 2),
 
 4. Be sure that _rlisd.xlsx_ file is stored in same folder as _rl_700_nh.r_ file, this is, *.../code/pot\_pp/isd/maps/*
 
-5. For desired MRI, run file _rl\_\*\_nh.r_, where \* correspond to one of next MRI years (10, 20, 50, 100, 250, 500, 700, 1000, 1700, 3000), but it is important to take into account, that despite code with multiple geostatistical analysis are inside the file, you as _spatial analysis expert_, must review and interpret each partial result, and chose the best semivariance model and prediction map to use as final wind map.
+5. Run file _rl\_\*\_nh.r_, where \* corresponds to the desired MRI year (10, 20, 50, 100, 250, 500, 700, 1000, 1700, 3000). For all the different geostatistical analysis implemented inside the file, the _spatial analysis expert_ must review and interpret each partial result, and chose the best semivariance model and prediction map to use as final wind map.
 
 6. Repeat previous step for all typical MRI
 
