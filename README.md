@@ -59,5 +59,3 @@ when complete IDEAM data-source and storm data classification are available.
 
 A complete R tool was implemented to solve the whole process, which is based in copyrighted
 code for de-clustering and thresholding generously given by Dr Adam L. Pintar adam.pintar@nist.gov - National Institute of Standards and Technology NIST, U.S Department of Commerce.
-
-Thesis document: https://github.com/alexyshr/extremewindmap/blob/master/_book/thesisoneside_final.pdf
