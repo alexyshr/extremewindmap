@@ -1,0 +1,11 @@
+# Preliminary Content {-}
+
+## Acknowledgments {-}
+
+  Special thanks to Prof. Dr. **Edzer Pebesma**, first, for all the contributions to the open source community, considering that main work in this thesis was done using his R packages, especially `sf`, `stars` and `gstat`, and second, for all high level knowledge transmitted through the subjects _Spatial Data Science with R_ and _Analysis of Spatio-Temporal Data_, which were the motivation and basis to carry out the investigation.\par
+  Special thanks to Prof. Dr. **Juan C Reyes** for his contribution in selecting the research topic, and great contributions in information, methodology and support.\par
+  Gratitude is extended to Dr. **Christoph Brox**, for being a support in difficult moments as the surgery and COVID-19 crisis, and in the same way to **Karsten Höwelhans**.\par
+  The author is thankful to:\par
+  Prof. Dr. **Edzer Pebesma**, Prof. Dr. **Juan C. Reyes**, and Prof. Dr. **Sara Ribero**, for supervising this work and spending their valuable time for discussions and feedback, it was really a huge advantage to have that support always available, and a pleasure to work beside them. Dr. **Adam Pintar**, for sharing its related POT-PP R Code, and for devoting much of his time to reviewing and commenting on my progress. The outstanding help of Dr. **Joaquín Huerta Guijarro**, for being receptive, friendly, and decidedly available to help. **European Union** 'Erasmus Mundus Grant', their funding allows me to fulfill this dream to go further with academic and professionals dreams. Engineer **Juan David Sandoval** for its helpful contributions. **Ligia Avellaneda** and **Nicolle Chaely**, mother and daughter of the author, for your love, prayers, and prized advice. Family members as **Elsa Manrique**, **Barbara Avellaneda**, and **Kevin Martinez**, for their really important source of motivation and accompaniment. To all the beautiful people that shared with the author different activities at **San Antonius Church of Münster**, with special mention of father **Alejandro Serrano Palacios** for his outstanding help and friendship which is permanently appreciated, and **choir friends**.
+
+`r if(!knitr:::is_latex_output()) '## Abstract {-}'`
