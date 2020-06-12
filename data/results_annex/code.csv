@@ -7,9 +7,9 @@ code,Folder with R code. ALL CODE CREATED BY DR. ADAM PINTAR IS NOT PUBLISHED.,f
   |    |-plot\_t\_nt.r,"Plot graphics with thunderstorm and non-thunderstorm data, in simultaneous.",ftp://ftp.geocorp.co/windthesis/code/pot_pp/plot_t_nt.r
   |    |-stats\_graphs\_dnt.r,Statistics and graphics for non-thunderstorm de-clustered data.,ftp://ftp.geocorp.co/windthesis/code/pot_pp/statistics_and_graphics_declustered_nt.r
   |    |-stats\_graphs\_dt.r,Statistics and graphics for thunderstorm de-clustered data.,ftp://ftp.geocorp.co/windthesis/code/pot_pp/statistics_and_graphics_declustered_t.r
-  |    |-stats\_raw\_data.r,Statistics for raw data.,ftp://ftp.geocorp.co/windthesis/code/pot_pp/statistics_raw_data.r
-  |    |-stats\_raw\_data\_nt.r,Statistics for non-thunderstorm raw data.,ftp://ftp.geocorp.co/windthesis/code/pot_pp/statistics_raw_data_nt.r
-  |    |-stats\_raw\_data\_t.r,Statistics for thunderstorm raw data.,ftp://ftp.geocorp.co/windthesis/code/pot_pp/statistics_raw_data_t.r
+  |    |-stats\_raw\_data.r,"For all raw data (thunderstorm and non-thunderstorm), it creates the Excel file raw\_data\_station\_ID\_statistics.xlsx with statistics by years, weeks, months, and gaps (sheets all_years, all_weeks, all_months, and all_gaps respectively). In addition it prints the raw data time series graphic.",ftp://ftp.geocorp.co/windthesis/code/pot_pp/statistics_raw_data.r
+  |    |-stats\_raw\_data\_nt.r,"For non-thunderstorm raw data, it generates sheets with statistics by years (nt_years), weeks (nt_weeks), months (nt_months), and gaps (nt_gaps) into the Excel file raw\_data\_station\_ID\_statistics.xlsx. In addition it prints the non-thunderstorm raw data time series graphic.",ftp://ftp.geocorp.co/windthesis/code/pot_pp/statistics_raw_data_nt.r
+  |    |-stats\_raw\_data\_t.r,"For thunderstorm raw data, it generates sheets with statistics by years (t_years), weeks (t_weeks), months (t_months), and gaps (t_gaps) into the Excel file raw\_data\_station\_ID\_statistics.xlsx. In addition it prints the thunderstorm raw data time series graphic.",ftp://ftp.geocorp.co/windthesis/code/pot_pp/statistics_raw_data_t.r
   |    |-tnt\_csv\_1perday.r,Create CSV (thunderstorm and non-thunderstorm) with one data (the maximum) per day.,ftp://ftp.geocorp.co/windthesis/code/pot_pp/write_t_nt_csv_one_data_per_day.r
   |    |-era5,Folder with specific code for ERA5 data.,ftp://ftp.geocorp.co/windthesis/code/pot_pp/era5/
   |    |    |-pot\_pp\_era5.r,POT-PP for ERA5 data. Based in Dr Adam Pintar code.,ftp://ftp.geocorp.co/windthesis/code/pot_pp/era5/pot_pp_era5.r

@@ -347,7 +347,7 @@ points(x, y, col="black", pch=20, cex = 1)
 ```
 
 
-The procedure to choose the best thresholds pairs, one for thunderstorm, and other for non-thunderstorm, is based in the W transformation. POT-PP needs selection of the best threshold pairs $b_t$ and $b_{nt}$ (see Figure \@ref(fig:plotdomainpp)) that produces the optimal fit. Measurement of this threshold fitting is done through $W$ statistic. If wind variable $y$, in a POT-PP approach, has a $CDF = U = F(y)$, then $F(y)$ is distributed as uniform between 0 and 1 _uniform(0,1)_, meaning that the transformation $W = -log(1-U)$ is an exponential random variable with mean one (1).
+The procedure to choose the best thresholds pairs, one for thunderstorm, and other for non-thunderstorm, is based on the W transformation. POT-PP needs selection of the best threshold pairs $b_t$ and $b_{nt}$ (see Figure \@ref(fig:plotdomainpp)) that produces the optimal fit. Measurement of this threshold fitting is done through $W$ statistic. If wind variable $y$, in a POT-PP approach, has a $CDF = U = F(y)$, then $F(y)$ is distributed as uniform between 0 and 1 _uniform(0,1)_, meaning that the transformation $W = -log(1-U)$ is an exponential random variable with mean one (1).
 
 \begin{equation}
   \mathrm{
@@ -404,7 +404,7 @@ In this study, used intensity functions are:
   (\#eq:ppspecificintensityfunction)
 \end{equation}
 
-As is shown in \@ref(fig:fitif), the fitting process involve finding the best group of parameters of the intensity function, in such a way that the red curve (PDF of the PP, based in intensity function) be as tight as possible to the shape of the data histogram. As is described in _[POT-PP](#pot-pp)_, optimal parameters to do the fitting process of the intensity function are calculated using *maximum likelihood*.
+As is shown in \@ref(fig:fitif), the fitting process involve finding the best group of parameters of the intensity function, in such a way that the red curve (PDF of the PP, based on intensity function) be as tight as possible to the shape of the data histogram. As is described in _[POT-PP](#pot-pp)_, optimal parameters to do the fitting process of the intensity function are calculated using *maximum likelihood*.
 
 
 ```{r fitif, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="POT - PP Intensity Function Fitting Process", size="footnotesize", fig.width= 2, fig.height= 2, fig.align="center"}

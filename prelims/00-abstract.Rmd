@@ -6,6 +6,6 @@ Regarding input data, not only time series of field measurements from IDEAM meth
 
 Due to the limitation in the classification of thunderstorm and non-thunderstorm data, it was not possible to take real advantage of POT-PP method, which was limited/restricted from non-homogeneous to homogeneous and from non-stationary to stationary, being equivalent to use the most common POT - generalized Pareto approach. Non-hurricane maps were created for data sources ISD and ERA5, using Kriging as spatial interpolation method. After the integration with previous hurricane studies, the results of ERA5 showed the most reliable final maps, despite limitations in the input data to guarantee downscaling support. ISD final map showed very high wind values, which are unlikely. These shortcomings may be corrected when complete IDEAM data-source and storm data classification are available.
 
-A complete R tool was implemented to solve the whole process, which is based in copyrighted code for de-clustering and thresholding generously given by Dr Adam L. Pintar adam.pintar@nist.gov - National Institute of Standards and Technology NIST, U.S Department of Commerce.
+A complete R tool was implemented to solve the whole process, which is based on copyrighted code for de-clustering and thresholding generously given by Dr Adam L. Pintar adam.pintar@nist.gov - National Institute of Standards and Technology NIST, U.S Department of Commerce.
 
 

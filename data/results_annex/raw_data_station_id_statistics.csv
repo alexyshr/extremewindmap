@@ -7,8 +7,25 @@ nt_years,Non-thunderstorm time series statistics by year
 nt_months,Non-thunderstorm time series statistics by month
 nt_weeks,Non-thunderstorm time series statistics by week
 nt_gaps30days,Non-thunderstorm gaps of 30 days of more
-IMP.VALS,Main statistics of dataset after de-clustering and thresholding
+IMP.VALS,"Main statistics of dataset after de-clustering and thresholding:
+- t.series: thunderstorm time series.
+- nt.series: non-thunderstorm time series
+- t.series.dt: date-time object of t.series
+- nt.series.dt: date-time object of nt.series
+- t.length.time: total number of days of t.series
+- nt.length.time: total number of days of nt.series
+- total.time: total number of days of raw data (t + nt)
+- n.thunders.per.year: average number of thunderstorm per year
+- n.nthunders.per.year: average number of non-thunderstorm per year"
 declu_nt_years,"Non-thunderstorm time series statistics by year, after de-clustering and thresholding"
 declu_nt_months,"Non-thunderstorm time series statistics by month, after de-clustering and thresholding"
 declu_nt_weeks,"Non-thunderstorm time series statistics by week, after de-clustering and thresholding"
 declu_nt_gaps30days,"Non-thunderstorm gaps of 30 days of more,  after de-clustering and thresholding"
+t_years,Thunderstorm time series statistics by year
+t_months,Thunderstorm time series statistics by month
+t_weeks,Thunderstorm time series statistics by week
+t_gaps30days,Thunderstorm gaps of 30 days of more
+declu_t_years,"Thunderstorm time series statistics by year, after de-clustering and thresholding"
+declu_t_months,"Thunderstorm time series statistics by month, after de-clustering and thresholding"
+declu_t_weeks,"Thunderstorm time series statistics by week, after de-clustering and thresholding"
+declu_t_gaps30days,"Thunderstorm gaps of 30 days of more,  after de-clustering and thresholding"

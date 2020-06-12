@@ -1,0 +1,64 @@
+Change descriptions of table 
+Table B.5: Content of the output Excel Book ’fitted_
+model_result.xlsx’ (sheet pp_pintar). One file by dataset
+(ISD, ERA5).
+(return_levels.csv)
+
+
+change estaciones by stations (including 01 estaciones.txt)
+
+label of stations text file. mph by kph
+
+
+
+return_levels.csv
+change descriptions of 10 to 20 including the intensity function and Yn ecuation in NIST report
+
+
+change code for raw_data_station_id_fitted.csv (I added one column in position 2): Written By
+
+modify the elements of the table repreenting the matriz ZZZ (to be written to fitted_model_result.xlsx)
+# 1: id. - Ya
+# 2: t_thresh. - Ya 
+# 3: t_mu_location - Ya
+# 4: t_psi_scale - Ya
+# 5: t_average_events_per_year - Ya
+# 6: t_average_time_per_year(At) - Ya (Days)
+-# 7: t_gamma_Pot-Poisson-GPD (Need to be calculated using Pot-Poisson-GPD)
+# 8: nt_thresh - Ya
+# 9: nt_mu_location - Ya
+# 10: nt_psi_scale - Ya
+# 11: nt_average_events_per_year - Ya
+# 12: nt_average_time_per_year(Ant) - Ya
+-# 13: nt_gamma_Pot-Poisson-GPD (Need to be calculated using Pot-Poisson-GPD)
+# 14: distance_w - ya
+# 15: station ID - ya
+#Thunderstorm ONLY
+ # 16-26 10-20: t_MRI_poissonprocessintfunc.
+ # 27-37 21-31: t_MRI_gumbeltailintfunc.
+ # 38-48 32-42: t_MRI_gumbelquantilefunc.
+ -# 49-59: t_MRI_POT-Poisson-GPD. (Need to be calculated using Pot-Poisson-GPD)
+#Non-thunderstorm ONLY
+ # 60-70 43-53: nt_MRI_poissonprocessintfunc.
+ # 71-81 54-64: nt_MRI_gumbeltailintfunc.
+ # 82-92 65-75: nt_MRI_gumbelquantilefunc.
+ -# 93-103: nt_MRI_POT-Poisson-GPD. (Need to be calculated using Pot-Poisson-GPD)
+#Thunderstorm and Non-thunderstorm simultaneously
+ # 104-114 76-86: tnt_MRI_poissonprocessintfunc.
+
+
+change name plot_t.r to rl_plot_t.r
+
+Verify:
+- At y Ant are in days for time dependency (t and nt)
+- At y Ant are 1 when no time dependency (t or nt)
+- Columnns t_gamma_Pot-Poisson-GPD and nt_gamma_Pot-Poisson-GPD are there to do calculations with Pot-Poisson-GPD.
+- Put how was calculated nt_average_events_per_year (key procedure in declustering - distance between non thunderstorm events considered same cluster)
+- Write in manual the trick for Equivalent POT-Poisson-GPD of POT-PP
+- Write in manual: For Yn
+this ecuation is the solution of the integral in time and magnitude using the 
+Poisson Process Intensity Function equation 16 page 39 NIST Report 500-301 (same equation page 28, but not depending of time)
+
+
+***After contract in Ais
+--- Raw data files need to have 'kph' instead of 'mph' (text files were changed)
