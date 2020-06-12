@@ -13,15 +13,14 @@ title: 'Spatio-temporal analysis of extreme wind velocities for infrastructure d
 knit: "bookdown::render_book"
 site: bookdown::bookdown_site
 output: 
-  thesisdown::thesis_pdf: default
+#  thesisdown::thesis_pdf: default
   #  citation_package: natbib
-  #thesisdown::thesis_gitbook: default
+  thesisdown::thesis_gitbook: default
   #thesisdown::thesis_word: default
   #thesisdown::thesis_epub: default
 #If you are creating a PDF you'll need to write your preliminary content (e.g., abstract, acknowledgments) here or
 #use code similar to line 22-23 for the .RMD files. If you are NOT producing a PDF, you can delete or silence lines 21-32 in this YAML header.
-abstract: |
-  `r if(knitr:::is_latex_output()) paste(readLines("00-abstract.Rmd"), collapse = '\n  ')`
+abstract: '`r if(knitr:::is_latex_output()) paste(readLines(here::here("prelims", "00-abstract.Rmd")), collapse = "\n  ")`'
 #If you'd rather include the preliminary content in files instead of inline
 #like below, use a command like that for the abstract above.  Note that a tab is 
 #needed on the line after the `|`.
@@ -125,9 +124,11 @@ knitr::knit_hooks$set(source = function(x, options) {
 # installed and loaded. This thesisdown package includes
 # the template files for the thesis.
 if(!require(devtools))
-  install.packages("devtools", repos = "http://cran.rstudio.com")
+  install.packages("devtools", repos = "https://cran.rstudio.com")
 if(!require(thesisdown))
   devtools::install_github("ismayc/thesisdown")
+if(!require(here))
+  install.packages("here", repos = "https://cran.rstudio.com")
 library(thesisdown)
 ```
 
@@ -154,6 +155,12 @@ Do not include 00(two-hyphens)prelim.Rmd and 00-abstract.Rmd in the YAML file--t
 <!-- The {.unnumbered} option here means that the introduction will be "Chapter 0." You can also use {-} for no numbers
 on chapters.
 -->
+
+```{r eval=!knitr::is_latex_output(), child=here::here("prelims", "00--prelim.Rmd")}
+```
+
+```{r eval=!knitr::is_latex_output(), child=here::here("prelims", "00-abstract.Rmd")}
+```
 
 <!--# Introduction {.unnumbered}-->
 
