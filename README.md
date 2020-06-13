@@ -57,5 +57,5 @@ final maps, despite limitations in the input data to guarantee downscaling suppo
 map showed very high wind values, which are unlikely. These shortcomings may be corrected
 when complete IDEAM data-source and storm data classification are available.
 
-A complete R tool was implemented to solve the whole process, which is based in copyrighted
+A complete R tool was implemented to solve the whole process, which is based on copyrighted
 code for de-clustering and thresholding generously given by Dr Adam L. Pintar adam.pintar@nist.gov - National Institute of Standards and Technology NIST, U.S Department of Commerce.

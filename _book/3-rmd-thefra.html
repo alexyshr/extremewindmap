@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 3 Theoretical Framework | Spatio-temporal analysis of extreme wind velocities for infrastructure design</title>
+  <meta name="description" content="Chapter 3 Theoretical Framework | Spatio-temporal analysis of extreme wind velocities for infrastructure design" />
+  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 3 Theoretical Framework | Spatio-temporal analysis of extreme wind velocities for infrastructure design" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 3 Theoretical Framework | Spatio-temporal analysis of extreme wind velocities for infrastructure design" />
+  
+  
+  
+
+<meta name="author" content="Alexys Herleym Rodríguez Avellaneda" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="2-rmd-data.html"/>
+<link rel="next" href="4-rmd-method.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+true
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Spatio-temporal analysis of extreme wind velocities for infrastructure design</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="rmd-thefra" class="section level1">
+<h1><span class="header-section-number">Chapter 3</span> Theoretical Framework</h1>
+<!-- Required to number equations in HTML files -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
+<div id="probability-concepts" class="section level2">
+<h2><span class="header-section-number">3.1</span> Probability Concepts</h2>
+<div id="probability-density-function-pdf" class="section level3">
+<h3><span class="header-section-number">3.1.1</span> Probability Density Function PDF</h3>
+<p>PDF defines the probability that a continuous variable falls between two points. In PDF the probability is related to the area below the curve (integral) between two points, as for continuous probability distributions the probability at a single point is zero. The term density is related to the quantity of probability defined below each part of the curve, the higher the values of the curve, the higher the density and, consequently, the probability.</p>
+<p><span class="math display" id="eq:pdf">\[\begin{equation}
+\mathrm{
+        \int_a^b f(x)dx = Pr[a \leq X \leq b]
+       }
+  \tag{3.1}
+\end{equation}\]</span></p>
+<p>Equation <a href="3-rmd-thefra.html#eq:gumbelpdf">(3.2)</a> is the Gumbel PDF.</p>
+<!--
+\begin{equation}
+  \mathrm{
+    f(x)=\frac{1}{\beta}
+    e^{\left(-\frac{x-\mu}{\beta}\right)}
+    e^{\left(
+            -e^{\left(\frac{x-\mu}{\beta}\right)}
+      \right)}
+  }
+  (\#eq:gumbelpdf)
+\end{equation}
+-->
+<p><span class="math display" id="eq:gumbelpdf">\[\begin{equation}
+  \mathrm{
+          f(x)=\frac{1}{\beta}
+          \exp\left\{
+            -\frac{x-\mu}{\beta}
+          \right\}
+          \exp\left\{
+            -\exp\left\{
+              -\left(
+                \frac{x-\mu}{\beta}
+              \right)
+            \right\}
+          \right\},
+          \quad -\infty &lt; x &lt; \infty
+         }
+  \tag{3.2}
+\end{equation}\]</span></p>
+<p>where <span class="math inline">\(\exp\left\{.\right\}\)</span> is <span class="math inline">\(\mathrm{e}^{\left\{.\right\}}\)</span>, <span class="math inline">\(\beta\)</span> the scale parameter, and <span class="math inline">\(\mu\)</span> the location parameter. Location (<span class="math inline">\(\mu\)</span>) has the effect to shift the PDF to left or right along ‘x’ axis, thus, if location value is changed the effect is a movement to the left (small value for location), or to the right (big value for location). Scale has the effect to stretch (<span class="math inline">\(\beta &gt; 1\)</span>) of compress (<span class="math inline">\(0 &lt; \beta&lt; 1\)</span>) the PDF, if scale parameter is close to zero it approaches a spike.</p>
+<p>Figure <a href="3-rmd-thefra.html#fig:plotgumbelpdffunction">3.1</a> shows PDF with location (<span class="math inline">\(\mu\)</span>) = 100 and scale (<span class="math inline">\(\beta\)</span>) = 40, using Equation <a href="3-rmd-thefra.html#eq:gumbelpdf">(3.2)</a>. Figure <a href="3-rmd-thefra.html#fig:plotgumbelpdf">3.2</a> shows PDF with location (<span class="math inline">\(\mu\)</span>) = 100 and scale (<span class="math inline">\(\beta\)</span>) = 40, using function <code>dgumbel</code> of the package <code>RcmdrMisc</code>.</p>
+
+<div class="figure" style="text-align: center"><span id="fig:plotgumbelpdffunction"></span>
+<img src="thesis_files/figure-html/plotgumbelpdffunction-1.png" alt="Gumbel PDF" width="384" />
+<p class="caption">
+Figure 3.1: Gumbel PDF
+</p>
+</div>
+
+
+<div class="figure" style="text-align: center"><span id="fig:plotgumbelpdf"></span>
+<img src="thesis_files/figure-html/plotgumbelpdf-1.png" alt="Gumbel PDF - dgumbel function" width="384" />
+<p class="caption">
+Figure 3.2: Gumbel PDF - dgumbel function
+</p>
+</div>
+
+</div>
+<div id="cumulative-distribution-function-cdf" class="section level3">
+<h3><span class="header-section-number">3.1.2</span> Cumulative Distribution Function CDF</h3>
+<p>CDF is the probability of taking a value less than or equal to x. That is</p>
+<p><span class="math display" id="eq:cdf1">\[\begin{equation}
+\mathrm{
+        F(x) = Pr[X &lt; x] = \alpha
+       }
+  \tag{3.3}
+\end{equation}\]</span></p>
+<p>For a continuous variable, CDF can be expressed as the integral of its PDF.</p>
+<p><span class="math display" id="eq:cdf2">\[\begin{equation}
+\mathrm{
+        F(x) = \int_{-\infty}^x f(x)dx
+       }
+  \tag{3.4}
+\end{equation}\]</span></p>
+<p>Equation <a href="3-rmd-thefra.html#eq:gumbelcdf">(3.5)</a> is the Gumbel CDF.</p>
+<p><span class="math display" id="eq:gumbelcdf">\[\begin{equation}
+\mathrm{
+        F(x) = \exp\left\{-\exp\left[-\left(\frac{x-\mu}{\beta}\right)\right]\right\}, 
+        \quad -\infty &lt; x &lt; \infty
+        }
+  \tag{3.5}
+\end{equation}\]</span></p>
+<p>Figure <a href="3-rmd-thefra.html#fig:plotgumbelcdffunction">3.3</a> shows Gumbel CDF with location (<span class="math inline">\(\mu\)</span>) = 100 and scale (<span class="math inline">\(\beta\)</span>) = 40, using Equation <a href="3-rmd-thefra.html#eq:gumbelcdf">(3.5)</a>. As previously done with PDF, similar result can be achieved using function <code>pgumbel</code> of package <code>RcmdrMisc</code>.</p>
+
+<div class="figure" style="text-align: center"><span id="fig:plotgumbelcdffunction"></span>
+<img src="thesis_files/figure-html/plotgumbelcdffunction-1.png" alt="Gumbel CDF" width="384" />
+<p class="caption">
+Figure 3.3: Gumbel CDF
+</p>
+</div>
+
+</div>
+<div id="percent-point-function-ppf" class="section level3">
+<h3><span class="header-section-number">3.1.3</span> Percent Point Function PPF</h3>
+<p>PPF is the inverse of CDF, also called the <em>quantile</em> function. This is, from a specific probability get the corresponding value x of the variable.</p>
+<p><span class="math display" id="eq:ppf">\[\begin{equation}
+\mathrm{
+        x = G(\alpha) = G(F(x))
+       }
+  \tag{3.6}
+\end{equation}\]</span></p>
+<p>Equation <a href="3-rmd-thefra.html#eq:gumbelppf">(3.7)</a> is the Gumbel PPF.</p>
+<p><span class="math display" id="eq:gumbelppf">\[\begin{equation}
+\mathrm{
+        G(\alpha) = \mu-\beta ln(-ln(\alpha))
+        \quad 0 &lt; \alpha &lt; 1
+        }
+  \tag{3.7}
+\end{equation}\]</span></p>
+<p>Figure <a href="3-rmd-thefra.html#fig:plotgumbelppffunction">3.4</a> shows Gumbel PPF, using Equation <a href="3-rmd-thefra.html#eq:gumbelppf">(3.7)</a>. Similar result can be achieved using function <code>qgumbel</code> of package <code>RcmdrMisc</code>.</p>
+
+<div class="figure" style="text-align: center"><span id="fig:plotgumbelppffunction"></span>
+<img src="thesis_files/figure-html/plotgumbelppffunction-1.png" alt="Gumbel PPF" width="384" />
+<p class="caption">
+Figure 3.4: Gumbel PPF
+</p>
+</div>
+
+</div>
+<div id="hf" class="section level3">
+<h3><span class="header-section-number">3.1.4</span> Hazard Function HF</h3>
+<p>Figure <a href="3-rmd-thefra.html#fig:plotgumbelhffunction">3.5</a> shows Gumbel HF, using Equation <a href="3-rmd-thefra.html#eq:gumbelhf">(3.9)</a>.</p>
+
+<div class="figure" style="text-align: center"><span id="fig:plotgumbelhffunction"></span>
+<img src="thesis_files/figure-html/plotgumbelhffunction-1.png" alt="Gumbel HF" width="384" />
+<p class="caption">
+Figure 3.5: Gumbel HF
+</p>
+</div>
+
+<p>HF is the ratio between PDF and SF. SF is the survival function <span class="math inline">\(S(x) = 1 - F(x)\)</span>, which defines the probability that a variable takes a value greater than x, <span class="math inline">\(S(x) = Pr[X &gt; x] = 1 - F(x)\)</span>.</p>
+<p><span class="math display" id="eq:hf">\[\begin{equation}
+\mathrm{
+        h(x) = \frac{f(x)}{S(x)} = \frac{f(x)}{1-F(x)}
+       }
+  \tag{3.8}
+\end{equation}\]</span></p>
+<p>Equation <a href="3-rmd-thefra.html#eq:gumbelhf">(3.9)</a> is the Gumbel HF.</p>
+<p><span class="math display" id="eq:gumbelhf">\[\begin{equation}
+\mathrm{
+        h(x)= \frac{1}{\beta}\frac{\exp(-(x-\mu)/\beta)}{\exp(\exp(-(x-\mu)/\beta))-1}
+       }
+  \tag{3.9}
+\end{equation}\]</span></p>
+</div>
+</div>
+<div id="statistical-concepts-for-extreme-analysis" class="section level2">
+<h2><span class="header-section-number">3.2</span> Statistical Concepts for Extreme Analysis</h2>
+<p>In order to approach the extreme value analysis, some statistical concepts are needed to understand the theoretical framework behind this knowledge area. This section introduces the concepts annual exceedance probability, mean recurrence interval MRI, exposure time, and compound probability for any given exposure time and MRI. As a hypothetical example, a simulated database of extreme wind speed will be used. This database is supposed to have 10.000 years of wind speeds.</p>
+<div id="annual-exceedance-probability-p_e" class="section level3">
+<h3><span class="header-section-number">3.2.1</span> Annual Exceedance Probability <span class="math inline">\(P_e\)</span></h3>
+<p>Using the previously described database, a question arises to calculate the probability to exceed the highest probable damage caused to any structure by the action of the winds from this simulated database. It is possible to conclude that there is only one event greater or equal (in this case equal) to the highest probable causing damage in 10.000 years, and it is the <em>highest wind</em>. If the database is sorted by wind magnitude in descending order, i.e. small winds to the right of the list as shown in Figure <a href="3-rmd-thefra.html#fig:winddatabase">3.6</a>, the question is solved calculating the annual exceedance probability <em>Pe</em> with Equation <a href="3-rmd-thefra.html#eq:pedatabase">(3.10)</a>.</p>
+
+<div class="figure" style="text-align: center"><span id="fig:winddatabase"></span>
+<img src="thesis_files/figure-html/winddatabase-1.png" alt="Sorted Wind Velocities by Magnitude" width="288" />
+<p class="caption">
+Figure 3.6: Sorted Wind Velocities by Magnitude
+</p>
+</div>
+
+<p>The annual exceedance probability <span class="math inline">\(P_e\)</span> equals to the ratio between <em>event index after descending sorting</em> and <em>years of simulations</em>. The highest wind will be the first in the sorted list.</p>
+<p><span class="math display" id="eq:pedatabase">\[\begin{equation}
+\mathrm{
+        P_e = \frac{\textrm{Event index after descending sorting}}{\textrm{Years of simulations}}= \frac{1}{10.000}=0.001=0.01\%
+       }
+  \tag{3.10}
+\end{equation}\]</span></p>
+<p>Same exercise can be done with all winds to construct the annual exceedance probability curve, that in this case will represent the probability to equal or exceed different probable damage due to wind.</p>
+</div>
+<div id="mean-recurrence-interval-mri" class="section level3">
+<h3><span class="header-section-number">3.2.2</span> Mean Recurrence Interval MRI</h3>
+<p>Continuing with the previous section, if the inverse of the exceedance probability is taken, the return period (in years) is obtained. The return period or Mean Recurrence Interval MRI is associated with a specific return level (wind extreme velocity). MRI is the numbers of years (N) needed to obtain 63% of change that the corresponding return level will occur at least one time in that period. The return level is expected to be exceeded on average once every N-years.</p>
+<p>The formula to calculate the annual exceedance probability of the return level depends on the MRI value as shown below:</p>
+<p><span class="math display" id="eq:pe">\[\begin{equation}
+\mathrm{
+        P_e = 
+        \begin{cases}
+          \begin{split}
+                &amp;1-\exp\left(-\frac{1}{MRI}\right),\;\textrm{for MRI &lt; 10 years}
+                \\
+                &amp;\frac{1}{MRI},\;\textrm{for MRI }\geq\textrm{ 10years}      
+          \end{split}
+        \end{cases}
+       }
+  \tag{3.11}
+\end{equation}\]</span></p>
+<p>For a specific wind extreme event A, the probability that the event will occur in a period equal to MRI years is 63%. If we analyze for the same period a strongest wind extreme event B, its occurrence probability will be less than 63%. If the purpose of this research is to design infrastructure considering wind loads, the structure will be more resistant to wind if we design with stronger winds, this is high MRIs, and low annual exceedance probability. Common approach for infrastructure design, considering any type of load (earthquake, wind, etc.) is to choose high MRI according to the importance/use/risk/type of the structure. For highly important structures, like hospitals or coliseums, where the risk of collapse must be diminished, the MRI used to design is higher in comparison to common structures (for instance a normal house), which implies less risks for its use and importance.</p>
+</div>
+<div id="compound-exceedance-probability-pn" class="section level3">
+<h3><span class="header-section-number">3.2.3</span> Compound Exceedance Probability Pn</h3>
+
+<div class="figure" style="text-align: center"><span id="fig:compoundprobability"></span>
+<img src="thesis_files/figure-html/compoundprobability-1.png" alt="Compound Probability" width="480" />
+<p class="caption">
+Figure 3.7: Compound Probability
+</p>
+</div>
+
+<p>It is possible to calculate a compound probability <span class="math inline">\(P_n\)</span>, where <span class="math inline">\(n\)</span> is the exposure period. The exposure period is the usage time of the structures that have been designed with an extreme wind speed. <span class="math inline">\(P_n\)</span> is the probability that the extreme wind speed will be equaled or exceeded at least one time in <span class="math inline">\(n\)</span> years, and in this sense it is a probability of occurrence:</p>
+<p><span class="math display" id="eq:pn">\[\begin{equation}
+\mathrm{
+        P_n = 1-\left(1-\frac{1}{MRI}\right)^n,\;\textrm{occurrence probability}
+       }
+  \tag{3.12}
+\end{equation}\]</span></p>
+<p>As a complementary probability, it is possible to calculate the compound non-occurrence probability as <span class="math inline">\(\left(1-\frac{1}{MRI}\right)^n\)</span></p>
+<p>If it is considering exposure time as a multiple of return period, the resulting Figure <a href="3-rmd-thefra.html#fig:compoundprobability">3.7</a>, shows that:</p>
+<ul>
+<li>When exposure time is 69% of the return period, then probability (occurrence and non-occurrence) will be 50%</li>
+<li>As was stated previously, when exposure time is equal to return period, then the probability that the extreme wind speed (return level) occur is 63%, and 37% for the non-occurrence probability.</li>
+<li>If exposure time is 4.5 times the return period, there is a 99% of change that the return level will occur.</li>
+</ul>
+<p>The example discussed here was presented as an instrument to introduce important concepts, nonetheless, there are specialized approaches to deal with extreme value analysis which will be discussed in <em><a href="3-rmd-thefra.html#extremeoverview">Extreme Value Analysis Overview</a></em>.</p>
+</div>
+</div>
+<div id="extremeoverview" class="section level2">
+<h2><span class="header-section-number">3.3</span> Extreme Value Analysis Overview</h2>
+<p>Analysis of extreme values is related with statistical inference to calculate probabilities of extreme events. Main methods to analyze extreme data are <em>sample maxima</em>, and <em>Peaks Over Threshold POT</em>. The sample maxima method also known as epochal or block maxima, is the classical approach and uses the most extreme value for a specific frame of time, typically one year. POT is based on the selection of a single threshold value to do the analysis only with values above the threshold. There are different POT approaches depending on how the time and magnitude dimensions are analyzed, the most common one uses generalized Pareto for wind velocities and Poisson process for time (POT-Poisson-GPD), and the most flexible one uses Poisson process simultaneously for both dimensions (POT-PP).</p>
+<p>In both methods (Epochal and POT), the main step is to fit wind velocities to an appropriate probability distribution model. Epochal uses a generalized extreme value distribution GEV, a family of distributions which include extreme value type I - Gumbel, extreme value type II - Fréchet, and Weibull. Gumbel is the most common used GEV. POT uses a generalized Pareto distribution (POT-Poisson-GPD), or an intensity function (POT-PP).</p>
+<p>Distribution models are fitted based on the estimation of its parameters, commonly called location, scale, and shape, nonetheless each model has its own parameters names. There are different methods to estimate parameters, among them: (a) method of modified moments <span class="citation">(Kubler, <a href="references.html#ref-Kubler1994" role="doc-biblioref">1994</a>)</span>, and L moments <span class="citation">(Hosking &amp; Wallis, <a href="references.html#ref-Hosking1997" role="doc-biblioref">1997</a>)</span>, (b) method of maximum likelihood MLE <span class="citation">(Harris &amp; Stocker, <a href="references.html#ref-Harris1994" role="doc-biblioref">1998</a>)</span>, (c) probability plot correlation coefficient, and (d) elemental percentiles (for GPD and GEV).</p>
+<p>Once candidate parameters are available, it is necessary to assess the goodness of fit of the selected model using tests like Kolmogorov-Smirnov (KS), or Anderson-Darling. Here a visual assessment is also useful using a probability plot or a kernel density plot with the fitted PDF overlaid.</p>
+<p>The main use of the fitted model is the estimation of mean return intervals MRI, and extreme wind speeds (return levels),</p>
+<p><span class="math display" id="eq:mri">\[\begin{equation}
+\mathrm{
+        MRI=\frac{1}{1-F(y)}
+       }
+  \tag{3.13}
+\end{equation}\]</span></p>
+<p>with <span class="math inline">\(F(y)\)</span> as the CDF. If <span class="math inline">\(1-F(y)\)</span> is the annual exceedance probability, MRI is its inverse; see <span class="citation">(Simiu &amp; Scanlan, <a href="references.html#ref-Simiu1996" role="doc-biblioref">1996</a>)</span> for more details about MRI. If <span class="math inline">\(y\)</span> is solved from Equation <a href="3-rmd-thefra.html#eq:mri">(3.13)</a> using a given MRI of N-years, its value represents the <span class="math inline">\(Y_N\)</span> wind speed return level. Refer to each specific method bellow for specific solutions to <span class="math inline">\(Y_N\)</span>.</p>
+<p>The CRAN Task View “Extreme Value Analysis” <a href="https://cran.r-project.org/web/views/ExtremeValue.html" class="uri">https://cran.r-project.org/web/views/ExtremeValue.html</a> shows available <strong>R</strong> for block maxima, POT by GPD, and external indexes estimation approaches. Most important to consider are <code>evd</code>, <code>extremes</code>, <code>evir</code>, <code>POT</code>, <code>extremeStat</code>, <code>ismev</code>, and <code>Renext</code>.</p>
+<div id="epochal-sample-maxima" class="section level3">
+<h3><span class="header-section-number">3.3.1</span> Epochal (Sample Maxima)</h3>
+<p>To work with random variables of sample maximum values, used probability distribution function PDF is GEV:</p>
+<p><span class="math display" id="eq:epochalpdf">\[\begin{equation}
+\mathrm{
+        H(y) = \exp\left\{-\left[1+\xi\frac{x-\mu}{\psi}\right]_+^{-\frac{1}{\xi}}\right\}
+       }
+  \tag{3.14}
+\end{equation}\]</span></p>
+<p>Where <span class="math inline">\(\xi\neq0\)</span>, <span class="math inline">\([...]_+ = max([...],0)\)</span>, <span class="math inline">\(\mu\)</span> is the location parameter, <span class="math inline">\(\psi &gt; 0\)</span> is a scale parameter, and <span class="math inline">\(\xi\)</span> is a shape parameter. GEV combines in one unique family the Gumbel (medium-tailed) distribution (limit <span class="math inline">\(\xi\rightarrow0\)</span>), Fréchet (long-tailed) distribution (<span class="math inline">\(\xi&gt;0\)</span>), and Weibull (short-tailed) distribution (<span class="math inline">\(\xi&lt;0\)</span>).</p>
+</div>
+<div id="pot-poisson-gpd" class="section level3">
+<h3><span class="header-section-number">3.3.2</span> Peaks Over Threshold using GPD and 1D Poisson Process POT-Poisson-GPD</h3>
+<p>In this model, (a) the magnitude of the observations above the threshold are assumed to be independent random variables with the same generalized Pareto as probability distribution, <span class="math inline">\(\sigma\)</span> as scale, and <span class="math inline">\(\xi\)</span> as tail length, and (b) corresponding times are assumed to follow a one dimensional homogeneous Poisson process with <span class="math inline">\(\gamma\)</span> as parameter.</p>
+<p>With the condition of exceeding some high threshold <span class="math inline">\(b\)</span>, as a consequence <span class="math inline">\(y = (x-b) &gt; 0\)</span>, the CDF of <span class="math inline">\(y\)</span> is the generalized Pareto distribution GPD:</p>
+<p><span class="math display" id="eq:gpd">\[\begin{equation}
+\mathrm{
+        F(y) = 1 - \left[1-\xi\frac{y}{\sigma}\right]^{-\frac{1}{\xi}}_+,
+       }
+  \tag{3.15}
+\end{equation}\]</span></p>
+<p>where <span class="math inline">\([...]_+ = max([...],0)\)</span>, <span class="math inline">\(b\)</span> is the threshold. In both GPD (magnitude), and <span class="math inline">\(1D\)</span> Poisson process (time), it is not possible to differentiate between thunderstorm and non-thunderstorm wind types. <span class="citation">Pickands (<a href="references.html#ref-Pickands1971" role="doc-biblioref">1971</a>)</span> found a rigorous connection between epochal (GEV) and limits results of POT-Poisson-GPD, as parameter shape <span class="math inline">\(\xi\)</span> in Equations <a href="3-rmd-thefra.html#eq:epochalpdf">(3.14)</a> and <a href="3-rmd-thefra.html#eq:gpd">(3.15)</a> are exactly the same. The long-tailed case when <span class="math inline">\(\xi&gt;0\)</span>, GPD behaves as usual Pareto distribution, for <span class="math inline">\(\xi = 0\)</span> (taking the limit <span class="math inline">\(\xi\rightarrow0\)</span>) it behaves as exponential distribution, and <span class="math inline">\(\xi&lt;0\)</span> the distribution has a finite upper endpoint at <span class="math inline">\(-\frac{\sigma}{\xi}\)</span>.</p>
+<p>The equation to calculate return levels (RL) <span class="math inline">\(Y_N\)</span> corresponding to the N-years return period in POT-Poisson-GPD is:</p>
+<p><span class="math display" id="eq:yngpd">\[\begin{equation}
+\mathrm{
+        Y_N =G\left(y, 1-\frac{1}{\lambda\,N}\right)
+       }
+  \tag{3.16}
+\end{equation}\]</span></p>
+<p>where <span class="math inline">\(G\)</span> is the quantile function (PPF), and the value of the probability passed to the <span class="math inline">\(G\)</span> function, has to be modified with the <span class="math inline">\(\lambda\)</span> parameter. <span class="math inline">\(\lambda\)</span> is the number of wind speed events over the threshold per year.</p>
+</div>
+<div id="method-pot-pp" class="section level3">
+<h3><span class="header-section-number">3.3.3</span> Peaks Over Threshold Using a 2D Poisson Process POT-PP</h3>
+<p>According to <span class="citation">(Pintar et al., <a href="references.html#ref-Pintar2015" role="doc-biblioref">2015</a>)</span> the stochastic Poisson Process PP is mainly defined by its intensity function. As the intensity function is not uniform over the domain, the PP considered here is non-homogeneous, and due to the intensity function dependency of magnitude and time, it is also bi-dimensional. PP was described for the first time in <span class="citation">(Pickands, <a href="references.html#ref-Pickands1971" role="doc-biblioref">1971</a>)</span>, then extended in <span class="citation">(Smith, <a href="references.html#ref-Smith1989" role="doc-biblioref">1989</a>)</span>.</p>
+<p>Generic Equation <a href="3-rmd-thefra.html#eq:ppgenericintensityfunction">(3.17)</a> shows the intensity function, which is defined in the domain <span class="math inline">\(D = D_t\,{\cup}\,D_{nt}\)</span>, and allow to fit the PP at each station to the observed data <span class="math inline">\(\{t_i, y_i\}_{i=1}^I\)</span>, for all the times (<span class="math inline">\(t_i\)</span>) of threshold crossing observations, and its corresponding wind speeds magnitudes (<span class="math inline">\(y_i\)</span>). Thus, only data above the threshold (POT) are used.</p>
+<p><span class="math display" id="eq:ppgenericintensityfunction">\[\begin{equation}
+  \mathrm{
+    \lambda\left(y,t\right)
+    \begin{cases}
+      \begin{split}
+            &amp;\lambda_t(y),\;\textrm{for t in thunderstorm period}
+            \\
+            &amp;\lambda_{nt}(y),\;\textrm{for t in non-thunderstorm period}      
+      \end{split}
+    \end{cases}
+  }
+  \tag{3.17}
+\end{equation}\]</span></p>
+<p>The specific intensity function of the PP is defined in <span class="citation">(Smith, <a href="references.html#ref-Smith2004" role="doc-biblioref">2004</a>)</span> and is shown in Equation <a href="3-rmd-thefra.html#eq:ppintensityfunction">(3.18)</a>:</p>
+<p><span class="math display" id="eq:ppintensityfunction">\[\begin{equation}
+  \mathrm{
+    \frac{1}{\psi_t}\left(1+\zeta_t\frac{y-\omega_t}{\psi_t}\right)_+^{-\frac{1}{\zeta_t}-1}
+  }
+  \tag{3.18}
+\end{equation}\]</span></p>
+<p>where, at a given time <span class="math inline">\(t\)</span>, parameter <span class="math inline">\(shape = \zeta_t\)</span> controls the tail length of the intensity function, and the other two parameters <span class="math inline">\(\omega_t\)</span> and <span class="math inline">\(\psi_t\)</span> define the location and scale of the intensity function.</p>
+<p>Figure <a href="3-rmd-thefra.html#fig:plotdomainpp">3.8</a> represent the domain <span class="math inline">\(D\)</span> of PP. In time, the domain represents the station service period from first sample <span class="math inline">\(t_1\)</span> to last sample <span class="math inline">\(t_4\)</span>. <span class="math inline">\(D\)</span> is the union of all thunderstorm periods <span class="math inline">\(D_t\)</span> (from <span class="math inline">\(t_2\)</span> to <span class="math inline">\(t_3\)</span>), and all non-thunderstorm periods <span class="math inline">\(D_{nt}\)</span> (periods <span class="math inline">\(t_1\)</span> to <span class="math inline">\(t_2\)</span> and <span class="math inline">\(t_3\)</span> to <span class="math inline">\(t_4\)</span>). In magnitude, only thunderstorm data above its threshold <span class="math inline">\(b_t\)</span>, and only non-thunderstorm data above its threshold <span class="math inline">\(b_{nt}\)</span> are used.</p>
+<p>Thunderstorms and non-thunderstorms are modeled independently:</p>
+<ol style="list-style-type: decimal">
+<li>Observations in domain <span class="math inline">\(D\)</span> follow a Poisson distribution with mean <span class="math inline">\(\int_D\lambda(t,y)\,dt\,dy\)</span></li>
+<li>For each disjoint sub-domain <span class="math inline">\(D_1\)</span> or <span class="math inline">\(D_2\)</span> inside <span class="math inline">\(D\)</span>, the observations in <span class="math inline">\(D_1\)</span> or <span class="math inline">\(D_2\)</span> are independent random variables.</li>
+</ol>
+<div class="figure" style="text-align: center"><span id="fig:plotdomainpp"></span>
+<img src="thesis_files/figure-html/plotdomainpp-1.png" alt="Domain off Poisson Process - PP" width="336" />
+<p class="caption">
+Figure 3.8: Domain off Poisson Process - PP
+</p>
+</div>
+<p>Visual representation of the intensity function for PP can be seen in Figure <a href="3-rmd-thefra.html#fig:plotdomain3dpp">3.9</a>. In vertical axis, two surfaces were drawn representing independent intensity functions for thunderstorm <span class="math inline">\(\lambda_t(y)\)</span> and for non-thunderstorm <span class="math inline">\(\lambda_{nt}(y)\)</span>. The volume under each surface for its corresponding time periods and peak over threshold velocities, is the mean of PP.</p>
+<div class="figure" style="text-align: center"><span id="fig:plotdomain3dpp"></span>
+<img src="figure/domain3d.PNG" alt="Volume Under Surfaces: Mean of PP" width="195" />
+<p class="caption">
+Figure 3.9: Volume Under Surfaces: Mean of PP
+</p>
+</div>
+<p>To fit the intensity function to the data, the method of maximum likelihood is used to estimate its parameters, <span class="math inline">\(scale = \psi\)</span>, <span class="math inline">\(location = \omega\)</span>, and <span class="math inline">\(shape = \zeta\)</span>, the selected vector of parameters <span class="math inline">\(\eta\)</span> are the <span class="math inline">\(\hat\eta = (\hat\psi, \hat\omega, \hat\zeta)\)</span> values that maximizes the function:</p>
+<p><span class="math display" id="eq:pplikelihood">\[\begin{equation}
+  \mathrm{
+          L(\eta)=\left( 
+                        \prod_{i=1}^I\lambda\left(y_i,t_i\right)  
+                  \right)
+                  \exp\left\{
+                            -\int_{{D}}\lambda\left(y,t\right)dy\,dt
+                     \right\}.
+         }
+  \tag{3.19}
+\end{equation}\]</span></p>
+<p>The values of <span class="math inline">\(\hat\eta\)</span> need to be calculated using a numerical approach, because there is not analytical solution available.</p>
+<p>Once the PP is fitted to the data, the model will provide extreme wind velocities (return levels), for different return periods (mean recurrence intervals).</p>
+<p>A <span class="math inline">\(Y_N\)</span> extreme wind velocity, called the return level (RL) belonging to the N-years return period, has an expected frequency to occur or to be exceeded (annual exceedance probability) <span class="math inline">\(P_e = \frac{1}{N}\)</span>, and also has a probability that the event does not occur (annual non-exceedance probability) <span class="math inline">\(P_{ne}=1-\frac{1}{N}\)</span>. <span class="math inline">\(Y_N\)</span> will be the resulting value of the <span class="math inline">\(G\)</span> (PPF or quantile) function using a probability equal to <span class="math inline">\(P_{ne}\)</span>. <span class="math inline">\(Y_N=quantile(y, p=P_{ne})=G(y,p=P_{ne})=PPF(y,p=P_{ne})\)</span>. <span class="math inline">\(Y_N\)</span> can be understood as the wind extreme value expected to be exceeded on average once every N years.</p>
+<p>For PP <span class="math inline">\(Y_N\)</span> is defined in terms of the intensity function as the solution to the equation</p>
+<p><span class="math display" id="eq:pprl">\[\begin{equation}
+  \mathrm{
+          \int_{Y_N}^{\infty}\int_0^1\lambda\left( y,t\right)dydt = A_t\int_{Y_N}^{\infty}\lambda_t\left( y\right)\,dy + A_{nt}\int_{Y_N}^{\infty}\lambda_{nt}\left( y\right)\,dy = \frac{1}{N}
+         }
+  \tag{3.20}
+\end{equation}\]</span></p>
+<p>where <span class="math inline">\(A_t\)</span>, is the multiplication of the average number of thunderstorm per year and the average length of a thunderstorm, taken to be 1 hour as defined in <span class="citation">(Pintar et al., <a href="references.html#ref-Pintar2015" role="doc-biblioref">2015</a>)</span>, and <span class="math inline">\(A_{nt} = 365 - A_t\)</span>. The average length of a non-thunderstorm event is variable, and it is adjusted for each station to guarantee that <span class="math inline">\(A_{nt} + A_t = 365\)</span>. Value 365 is used only, if operations with time in the dataset are performed in days.</p>
+<p>The same thunderstorm event in considered to occur if the time lag distance between successive thunderstorm samples is small than six hours, and for non-thunderstorm this time is 4 days. For PP, all the measurements belonging to the same event (thunderstorm or non-thunderstorm), need to be de-clustered to leave only one maximum value. In other words, the number of thunderstorm in the time series is one plus the number of time lag distances greater than 6 hours, and above 4 days for non-thunderstorm.</p>
+</div>
+</div>
+<div id="windloadsrequirements" class="section level2">
+<h2><span class="header-section-number">3.4</span> Wind Loads Requirements</h2>
+<p>As the output maps of this research will be used as input loads for infrastructure design, the methodology used for its creation, need to be consistent with Colombian official wind loads requirements. Colombian structure design code, from now the <em>design standard</em>, was created and is maintained by the Colombian Association of Seismic Engineering - AIS.</p>
+<p>The design standard is mainly based on <em>minimum design loads and associated criteria for buildings and other structures ASCE7-16</em> standard <span class="citation">(ASCE, <a href="references.html#ref-Asce2017" role="doc-biblioref">2017</a>)</span>. The ASCE7-16 standard defines the minimum requirements for design wind loads in pages 733 to 747. Wind speeds requirements of ASCE7-16 are based on the combination of independent non-hurricane analysis, and hurricane wind speeds simulations models. The focus of this research will be the analysis of non-hurricane wind data, however, existing results of hurricane studies will be used to present final maps with both components. In ASCE7-16, for non-hurricane wind speed, the procedure is mainly based on <span class="citation">(Pintar et al., <a href="references.html#ref-Pintar2015" role="doc-biblioref">2015</a>)</span>.</p>
+<p>ASCE7-16 (page 734), requires the calculation of wind extreme return levels for specific return periods according to the risk category of the structure to be designed, as follows: risk category I - 300 years, risk category II - 700 years, risk category III - 1700 years, risk category IV - 3000 years. In addition, extreme wind speeds for those MRI need to correspond to 3 seconds gust speeds at 33 ft. (10 meters) above the ground and exposure category C. Below is a description of the risk categories:</p>
+<ul>
+<li>Risk IV - This are ‘indispensable buildings’ that involve substantial risk. These structures that can handle toxic or explosive substances.</li>
+<li>Risk III - There is substantial risk because these structures that can handle toxic or explosive substances, can cause a serious economic impact, or massive interruption of activities if they fail.</li>
+<li>Risk II - Category ‘by default’, and correspond to structures not classified in others categories.</li>
+<li>Risk I - This structures represent low risk for life of people.</li>
+</ul>
+<p>To standardize wind speeds to gust speeds ASCE7-16 proposes the curve Durst, see <span class="citation">(C. S. Durst, <a href="references.html#ref-Durst1960" role="doc-biblioref">1960</a>)</span>, and Figure <a href="3-rmd-thefra.html#fig:durstcurve">3.10</a>. Durst curve is only valid for open terrain conditions, and it shows in axis <span class="math inline">\(y\)</span> the gust factor <span class="math inline">\(\frac{V_t}{V_{3600}}\)</span>, a ratio between any wind gust (maximum speeds) averaged at <span class="math inline">\(t\)</span> seconds, <span class="math inline">\(V_t\)</span>, and the hourly averaged wind speed <span class="math inline">\(V_{3600}\)</span>, and in the axis <span class="math inline">\(x\)</span> the duration <span class="math inline">\(t\)</span> of the gust in seconds. Be aware that curve values in Figure <a href="3-rmd-thefra.html#fig:durstcurve">3.10</a> are approximated values taken visually from the original curve.</p>
+<div class="figure" style="text-align: center"><span id="fig:durstcurve"></span>
+<img src="thesis_files/figure-html/durstcurve-1.png" alt="Durst Curve" width="480" />
+<p class="caption">
+Figure 3.10: Durst Curve
+</p>
+</div>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="2-rmd-data.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="4-rmd-method.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": [["thesis.pdf", "PDF"], ["thesis.epub", "EPUB"], ["thesis.docx", "Word"]],
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

@@ -1,6 +1,6 @@
 FolderTree,Description,Ftp
 code,Folder with R code. ALL CODE CREATED BY DR. ADAM PINTAR IS NOT PUBLISHED.,ftp://ftp.geocorp.co/windthesis/code/
-\;\;|-pot\_pp,Folder with POT-PP R code. Based in Dr Adam Pintar code (respected copyright).,ftp://ftp.geocorp.co/windthesis/code/pot_pp/
+\;\;|-pot\_pp,Folder with POT-PP R code. Based on Dr Adam Pintar code (respected copyright).,ftp://ftp.geocorp.co/windthesis/code/pot_pp/
 \;\;\;\;|-function\_lib.r,POT-PP Functions. Author of de-clustering and thresholding functions is Dr Adam Pintar.,ftp://ftp.geocorp.co/windthesis/code/pot_pp/function_lib.r
 \;\;\;\;|-plot\_nt.r,Plot non-thunderstorm graphics.,ftp://ftp.geocorp.co/windthesis/code/pot_pp/plot_nt.r
 \;\;\;\;|-plot\_t.r,Plot thunderstorm graphics.,ftp://ftp.geocorp.co/windthesis/code/pot_pp/plot_t.r
@@ -12,7 +12,7 @@ code,Folder with R code. ALL CODE CREATED BY DR. ADAM PINTAR IS NOT PUBLISHED.,f
 \;\;\;\;|-stats\_raw\_data\_t.r,Statistics for thunderstorm raw data.,ftp://ftp.geocorp.co/windthesis/code/pot_pp/statistics_raw_data_t.r
 \;\;\;\;|-tnt\_csv\_1perday.r,Create CSV (thunderstorm and non-thunderstorm) with one data (the maximum) per day.,ftp://ftp.geocorp.co/windthesis/code/pot_pp/write_t_nt_csv_one_data_per_day.r
 \;\;\;\;|-era5,Folder with specific code for ERA5 data.,ftp://ftp.geocorp.co/windthesis/code/pot_pp/era5/
-\;\;\;\;\;\;|-pot\_pp\_era5.r,POT-PP for ERA5 data. Based in Dr Adam Pintar code.,ftp://ftp.geocorp.co/windthesis/code/pot_pp/era5/pot_pp_era5.r
+\;\;\;\;\;\;|-pot\_pp\_era5.r,POT-PP for ERA5 data. Based on Dr Adam Pintar code.,ftp://ftp.geocorp.co/windthesis/code/pot_pp/era5/pot_pp_era5.r
 \;\;\;\;\;\;|-maps,Folder with specific code to calculate return levels and plot maps for ERA5 data.,ftp://ftp.geocorp.co/windthesis/code/pot_pp/era5/maps/
 \;\;\;\;\;\;\;\;|-return\_levels.r,Calculate return levels for ERA5 data.,ftp://ftp.geocorp.co/windthesis/code/pot_pp/era5/maps/return_levels.r
 \;\;\;\;\;\;\;\;|-plot\_maps.r,Join return levels to cells and plot ERA5 maps.,ftp://ftp.geocorp.co/windthesis/code/pot_pp/era5/maps/plot_maps.r

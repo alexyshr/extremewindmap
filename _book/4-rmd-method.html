@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 4 Methodology | Spatio-temporal analysis of extreme wind velocities for infrastructure design</title>
+  <meta name="description" content="Chapter 4 Methodology | Spatio-temporal analysis of extreme wind velocities for infrastructure design" />
+  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 4 Methodology | Spatio-temporal analysis of extreme wind velocities for infrastructure design" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 4 Methodology | Spatio-temporal analysis of extreme wind velocities for infrastructure design" />
+  
+  
+  
+
+<meta name="author" content="Alexys Herleym Rodríguez Avellaneda" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="3-rmd-thefra.html"/>
+<link rel="next" href="5-rmd-results.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+true
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Spatio-temporal analysis of extreme wind velocities for infrastructure design</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="rmd-method" class="section level1">
+<h1><span class="header-section-number">Chapter 4</span> Methodology</h1>
+<p>This research is focus in non-hurricane data, with three main elements: <em>data</em>, <em>temporal analysis</em> with POT-PP, and <em>spatial analysis</em> to do spatial interpolation and create return levels RL maps for MRIs of 700, 1700, and 3000 years. Core steps (1, and 3 to 7) need to be done in an iterative process station by station as is shown in Figure <a href="4-rmd-method.html#fig:mainmethodology">4.1</a>.</p>
+<div class="figure" style="text-align: center"><span id="fig:mainmethodology"></span>
+<img src="figure/main_methodology.png" alt="Iterative Process in Methodology" width="115" />
+<p class="caption">
+Figure 4.1: Iterative Process in Methodology
+</p>
+</div>
+<p>Figure <a href="4-rmd-method.html#fig:methodology">4.2</a> shows the methodological scheme where the main elements mentioned are highlighted using shaded boxes. Steps 1 to 8 are the most representative, but step 2 is a data verification process that can be done once (in bulk) for all stations.</p>
+<div class="figure" style="text-align: center"><span id="fig:methodology"></span>
+<img src="figure/methodology.png" alt="Methodology" width="300" />
+<p class="caption">
+Figure 4.2: Methodology
+</p>
+</div>
+<p>Once the iterative cycle ends and the RL are calculated in all the stations, continuous surfaces will be created, one for 700 years, next for 1700 years, and finally for 3000 years. An additional element, is the integration with existing hurricane studies to produce final maps, that will be used as input loads for infrastructure design, and will be part of the design standard</p>
+<div id="rmd-standardization" class="section level2">
+<h2><span class="header-section-number">4.1</span> Data Standardization</h2>
+<p>Analysis of extreme wind speeds requires data standardization as initial step. All input data must be standardized to represent three important conditions: a) anemometer height of 10 meters, b) open space terrain roughness (exposition C), and c) averaging time of 3-seconds wind gust. <span class="citation">ASCE (<a href="references.html#ref-Asce2017" role="doc-biblioref">2017</a>)</span> defines exposition C as areas with few obstructions, and exposition D refers to perfect open space.</p>
+<p>Parallel to the standardization activity described below, it is also important to consider for all stations involved in the analysis:</p>
+<ul>
+<li><p><em>Separating</em>: As far as possible, identify each record of the time series, as thunderstorm (t) or non-thunderstorm (nt)</p></li>
+<li><p><em>Filtering</em>: Remove wind speeds above <span class="math inline">\(200 \frac{km}{h}\)</span> and data pertaining to hurricane events, because the procedure with hurricane requires a different approach and need to be done independently</p></li>
+</ul>
+<div id="anemometer-height-10-m" class="section level3">
+<h3><span class="header-section-number">4.1.1</span> Anemometer Height (10 m)</h3>
+<p>According to the protocol for field data collection and location of methodological stations <span class="citation">(IDEAM, <a href="references.html#ref-ideam2005" role="doc-biblioref">2005</a>)</span>, the anemometer (wind sensor) in installed always to a fixed height of 10 meters from the surface, as is shown in Figure <a href="4-rmd-method.html#fig:anemometer">4.3</a>; therefore, no height correction is needed.</p>
+<div class="figure" style="text-align: center"><span id="fig:anemometer"></span>
+<img src="thesis_files/figure-html/anemometer-1.png" alt="Anemometer height: 10 meters" width="288" />
+<p class="caption">
+Figure 4.3: Anemometer height: 10 meters
+</p>
+</div>
+</div>
+<div id="rmd-roughness" class="section level3">
+<h3><span class="header-section-number">4.1.2</span> Surface Roughness at Open Terrain</h3>
+<p>Due to the effects that the terrain has on wind speed, a correction should be applied if the station is located in a geographical space considered “not open terrain”. When terrain is open, the roughness corresponds to 0.03 meters. There are some alternative methodologies to calculate the roughness; for example, <span class="citation">(Masters, Vickery, Bacon, &amp; Rappaport, <a href="references.html#ref-Masters2010" role="doc-biblioref">2010</a>)</span> uses the station data, but the separation of the measurements should not exceed one minute (something difficult to obtain), <span class="citation">(Lettau, <a href="references.html#ref-Lettau1969" role="doc-biblioref">1969</a>)</span> uses the empirical Equation <a href="4-rmd-method.html#eq:zo">(4.1)</a> (recommended in ASCE7-16 page 743, equation C26.7-1) to calculate roughness <span class="math inline">\(z_o\)</span>, which was used here,</p>
+<p><span class="math display" id="eq:zo">\[\begin{equation}
+\mathrm{
+        z_0= 0.5\;H_{ob}\;\frac{S_{ob}}{A_{ob}}
+       }
+  \tag{4.1}
+\end{equation}\]</span></p>
+<p>where <span class="math inline">\(H_{ob}\)</span> is the average height of the obstacles, <span class="math inline">\(S_{ob}\)</span> is the average vertical area perpendicular to the wind of the obstacles, and <span class="math inline">\(A_{ob}\)</span> is the average area of the terrain occupied by each obstruction. The empirical exponent <span class="math inline">\(\alpha\)</span>, gradient height <span class="math inline">\(z_g\)</span>, and exposure coefficient <span class="math inline">\(K_z\)</span>, are used to calculate the correction factor <span class="math inline">\(F_{exposition}\)</span>, for <span class="math inline">\(z_0\)</span> units are in meters.</p>
+<p><span class="math display" id="eq:alpha">\[\begin{equation}
+\mathrm{
+        \alpha =  5.65*z_0^{-0.133}
+       }
+  \tag{4.2}
+\end{equation}\]</span></p>
+<p><span class="math display" id="eq:zg">\[\begin{equation}
+\mathrm{
+        z_g=450*z_0^{0.125}
+       }
+  \tag{4.3}
+\end{equation}\]</span></p>
+<p><span class="math display" id="eq:kz">\[\begin{equation}
+\mathrm{
+        K_z= 2.01*\left(\frac{z}{z_g}\right)
+       }
+  \tag{4.4}
+\end{equation}\]</span></p>
+<p><span class="math display" id="eq:fexpo">\[\begin{equation}
+\mathrm{
+        F_{exposition} = \frac{0.951434}{K_z}
+       }
+  \tag{4.5}
+\end{equation}\]</span></p>
+<p>According to <span class="citation">(NIST, <a href="references.html#ref-nist2012" role="doc-biblioref">2012</a>)</span>, calculation of roughness needs to be weighted according to the predominance of wind magnitude in eight directions (north, south, east, west, north-east, north-west, south-east, and south-west) around the station location. The calculation in each direction can be done using a detailed aerial photo or satellite image of the station, including a radius of 800 meters. Figure <a href="4-rmd-method.html#fig:compassrose">4.4</a> shows the wind percentages in mentioned directions for a generic station. Figure <a href="4-rmd-method.html#fig:lettaustation2">4.5</a> shows the satellite image for <em>Vanguardia</em> ISD station (USAF:802340), located in <em>Villavicencio</em> airport, with four (south, north, east, and west) 45 degree sectors highlighted</p>
+<div class="figure" style="text-align: center"><span id="fig:compassrose"></span>
+<img src="thesis_files/figure-html/compassrose-1.png" alt="Wind Rose with Wind Percentages" width="672" />
+<p class="caption">
+Figure 4.4: Wind Rose with Wind Percentages
+</p>
+</div>
+
+<div class="figure" style="text-align: center"><span id="fig:lettaustation2"></span>
+<img src="thesis_files/figure-html/lettaustation2-1.png" alt="Digital Imagery for 'Vanguardia' ISD Station (USAF:802340)" width="153.6" />
+<p class="caption">
+Figure 4.5: Digital Imagery for ‘Vanguardia’ ISD Station (USAF:802340)
+</p>
+</div>
+
+<p>Figure <a href="4-rmd-method.html#fig:lettauexamples2">4.6</a> shows extreme conditions for roughness, open space in left image (ISD Station 804070) with roughness value of 0.03, closed space in center image (ISD Station 803000) with roughness value of 0.1, and a typical example where mentioned Lettau procedure is needed because roughness is different in each direction, in right image. Lettau Equation <a href="4-rmd-method.html#eq:zo">(4.1)</a> need to be applied to each direction and then the final <span class="math inline">\(z_o\)</span> value is the weighted average, using historical wind percentage. See Figure <a href="4-rmd-method.html#fig:lettauvalues">4.7</a> showing the strokes made to calculate the different areas for two Colombian stations, in red the area occupied by the obstacles, and in blue the perpendicular area <span class="citation">(Triana, <a href="references.html#ref-triana2019" role="doc-biblioref">2019</a>)</span>. Information about wind percentage per direction at each station were obtained from <span class="citation">(IDEAM, <a href="references.html#ref-ideam1999" role="doc-biblioref">1999</a>)</span>.</p>
+<div class="figure" style="text-align: center"><span id="fig:lettauexamples2"></span>
+<img src="thesis_files/figure-html/lettauexamples2-1.png" alt="Roughness. Open (L), Closed (C), and Lettau (R)." width="672" />
+<p class="caption">
+Figure 4.6: Roughness. Open (L), Closed (C), and Lettau (R).
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:lettauvalues"></span>
+<img src="figure/lettauvalues.png" alt="Lettau Calculation" width="142" />
+<p class="caption">
+Figure 4.7: Lettau Calculation
+</p>
+</div>
+</div>
+<div id="rmd-gust" class="section level3">
+<h3><span class="header-section-number">4.1.3</span> Averaging Time: 3-s Gust</h3>
+<p>To transform hourly mean wind velocity <span class="math inline">\(V_{3600}\)</span>, to 3-s gust velocity <span class="math inline">\(V_3\)</span>, ASCE7-16 recommends the use of <span class="citation">(C. S. Durst, <a href="references.html#ref-Durst1960" role="doc-biblioref">1960</a>)</span>. In curve Durst the axis <span class="math inline">\(x\)</span> represents the duration <span class="math inline">\(t\)</span> of the gust, what is done is to look there for the value 3 seconds, and read the corresponding gust factor <span class="math inline">\(\frac{V_t}{V_{3600}}\)</span> in axis <span class="math inline">\(Y\)</span>. For instance, using variable <span class="math inline">\(V_{3600}\)</span> from IDEAM data source, the gust factor for 3-s gust is 1.51.</p>
+<p><span class="math display" id="eq:vt">\[\begin{equation}
+\mathrm{
+        V_t = V_{3\,\textrm{seconds}} = \textrm{(gust factor)}\,V_{3600}
+       }
+  \tag{4.6}
+\end{equation}\]</span></p>
+<p>It is valid only for open terrain conditions. Durst curve shows in axis <span class="math inline">\(y\)</span> the gust factor <span class="math inline">\(\frac{V_t}{V_{3600}}\)</span>, a ratio between any wind gust averaged at <span class="math inline">\(t\)</span> seconds, <span class="math inline">\(V_t\)</span>, and the hourly averaged wind speed <span class="math inline">\(V_{3600}\)</span>, and in the axis <span class="math inline">\(x\)</span> the duration <span class="math inline">\(t\)</span> of the gust in seconds.</p>
+</div>
+</div>
+<div id="ds" class="section level2">
+<h2><span class="header-section-number">4.2</span> Downscaling Support</h2>
+<p>Where it is necessary to complement the local/regional wind analysis, with data from ISD (output data of a model for extreme winds), and ERA5 reanalysis dataset (large scale forecast data), it is required to probe by means of <em>comparisons</em> (exploratory data analysis and/or statistical measures) that those sources (modeled and forecast) are similar to IDEAM field measurements.</p>
+<p>The proposed mechanism in the search for downscaling support is, (a) the creation of <em>common time series graphs</em>, where time series from all data sources are expected to be similar, and (b) the elaboration of <em>scatter plots graphics</em>, which are generated matching two sources in time (sorted in ascending order by wind velocity). By visual inspection is possible to evaluate data similarity between sources, when all the points fall very close to a 45-degree line. In both cases, the strategy for station matching, could be one of the following:</p>
+<ol style="list-style-type: decimal">
+<li><p><em>Manual matching</em>, doing a detailed analysis station by station (only for ISD and IDEAM). While it is true that ISD is based on IDEAM, their names and locations are somewhat different, for this reason, it is necessary to read information available from each source, and decide station by station, about its correspondence.</p></li>
+<li><p><em>Intersection matching</em>, between ISD and IDEAM point stations and ERA5 cells. All ISD and IDEAM stations falling inside a ERA5 cell, will be compared between them.</p></li>
+</ol>
+</div>
+<div id="pot-pp" class="section level2">
+<h2><span class="header-section-number">4.3</span> Temporal Analysis (POT-PP)</h2>
+<p>Similar to how the adjustment of statistical data to a normal distribution is done to make inferences, in extreme value analysis only some part of the data (those that are extreme - over a high threshold - POT) needs to be fitted to a PP considering extreme deviations from the mean. While in the first case (normal distribution) the inferences are for events similar to the samples, in this case, when working with extreme value theory, the inferences will be for more extreme events than any previously observed or measured.</p>
+<p>In summary, POT means only to work with extreme values, and PP means to adjust data to a PDF, which depends on an intensity function <span class="math inline">\(\lambda(t,y)\)</span>, where <span class="math inline">\(t\)</span> is time, <span class="math inline">\(y\)</span> is wind extreme velocity. As shown in Figure <a href="3-rmd-thefra.html#fig:plotdomainpp">3.8</a>, in a POT-PP approach with domain <span class="math inline">\(D\)</span>, all the observations follow a Poisson distribution with mean <span class="math inline">\(\int_D\lambda(t,y)\,dt\,dy\)</span>. Main advantage of POT-PP is that it is designed to consider storm and not-storm events independently (for each disjoint sub-domain <span class="math inline">\(D_1\)</span> or <span class="math inline">\(D_2\)</span> inside <span class="math inline">\(D\)</span>, the observations in <span class="math inline">\(D_1\)</span> or <span class="math inline">\(D_2\)</span> are independent random variables), but in the end use them both for the inferences,</p>
+<p><span class="math display" id="eq:pppdf">\[\begin{equation}
+  \mathrm{
+          PDF = f(t,y|\eta) = \frac{\lambda(t,y)}{\int_D\lambda(t,y)\,dt\,dy}
+        }
+  \tag{4.7}
+\end{equation}\]</span></p>
+<div id="decluster" class="section level3">
+<h3><span class="header-section-number">4.3.1</span> De-clustering</h3>
+<p>To make the assumptions of PP more justifiable, it is important to have only one sample per event: the highest one. For instance, if a hypothetical storm started at 11:30 in the morning and ended at 12:30 in the afternoon, and the time series for that event has thirty wind measurements (one each two minutes), it is necessary to leave only the stronger or maximum value; this process is called de-clustering. In Figure <a href="4-rmd-method.html#fig:declustering">4.8</a>, two thunderstorm clusters are shown, and only red samples are used to fit the PP. POT-PP defines that all the adjacent observations separated by six hours (6) or less in the case of thunderstorm events, and four (4) days or less, in the case of non-thunderstorm events, belong to the same cluster.</p>
+
+<div class="figure" style="text-align: center"><span id="fig:declustering"></span>
+<img src="thesis_files/figure-html/declustering-1.png" alt="De-clustering in PP" width="192" />
+<p class="caption">
+Figure 4.8: De-clustering in PP
+</p>
+</div>
+
+</div>
+<div id="thresholding" class="section level3">
+<h3><span class="header-section-number">4.3.2</span> Thresholding</h3>
+<p>As the POT model requires to work only with the most extreme values in the time series, it is necessary to select a threshold to filter out small values. Bias is high when a low threshold is selected (many exceedances) because the asymptotic support is weak; opposite situation happens for high thresholds where variance is potentially high. According to <span class="citation">(Davison &amp; Smith, <a href="references.html#ref-Davison1990" role="doc-biblioref">1990</a>)</span>, it is necessary to select a threshold value, consistent with model structure. Figure <a href="3-rmd-thefra.html#fig:plotdomainpp">3.8</a> represents the thresholding process in a generic dataset, where only points above (red squares) the dotted horizontal line (the threshold) will be used for the model.</p>
+
+<div class="figure" style="text-align: center"><span id="fig:thresholding"></span>
+<img src="thesis_files/figure-html/thresholding-1.png" alt="POT - Thresholding" width="192" />
+<p class="caption">
+Figure 4.9: POT - Thresholding
+</p>
+</div>
+
+<p>The procedure to choose the best thresholds pairs, one for thunderstorm, and other for non-thunderstorm, is based on the W transformation. POT-PP needs selection of the best threshold pairs <span class="math inline">\(b_t\)</span> and <span class="math inline">\(b_{nt}\)</span> (see Figure <a href="3-rmd-thefra.html#fig:plotdomainpp">3.8</a>) that produces the optimal fit. Measurement of this threshold fitting is done through <span class="math inline">\(W\)</span> statistic. If wind variable <span class="math inline">\(y\)</span>, in a POT-PP approach, has a <span class="math inline">\(CDF = U = F(y)\)</span>, then <span class="math inline">\(F(y)\)</span> is distributed as uniform between 0 and 1 <em>uniform(0,1)</em>, meaning that the transformation <span class="math inline">\(W = -log(1-U)\)</span> is an exponential random variable with mean one (1).</p>
+<p><span class="math display" id="eq:ppcdf">\[\begin{equation}
+  \mathrm{
+            CDF = U= F(y) = P(y \leq Y) = \frac{\int_b^Y\lambda(y,t)\,dy}{\int_b^\infty\lambda(y,t)\,dy} 
+         }
+  \tag{4.8}
+\end{equation}\]</span></p>
+<p>W-statistic is done comparing the ordered result of applying <span class="math inline">\(W = -log(1-U)\)</span> to the data (the axis <span class="math inline">\(y\)</span> in Figure <a href="4-rmd-method.html#fig:wstatistics">4.10</a>) with the theoretical quantiles of an exponential variable with uniform distribution between 0 and 1 (axis <span class="math inline">\(x\)</span> in same figure). W-statistic is the highest vertical distance between the 45º line and the points in the graphic. The best thresholds pairs return the minimum value for W-statistics after testing, in an iterative process, with many threshold pairs combinations.</p>
+
+<div class="figure" style="text-align: center"><span id="fig:wstatistics"></span>
+<img src="thesis_files/figure-html/wstatistics-1.png" alt="POT - Thresholding W Statistic" width="240" />
+<p class="caption">
+Figure 4.10: POT - Thresholding W Statistic
+</p>
+</div>
+
+</div>
+<div id="exclude-no-data-periods" class="section level3">
+<h3><span class="header-section-number">4.3.3</span> Exclude No-Data Periods</h3>
+<p>PP requires to remove long periods of time when stations were not recording or failing. Proposed time in <span class="citation">(Pintar et al., <a href="references.html#ref-Pintar2015" role="doc-biblioref">2015</a>)</span> is 180 days, namely, to remove all the gaps from the time series larger than six months.</p>
+</div>
+<div id="fit-intensity-function" class="section level3">
+<h3><span class="header-section-number">4.3.4</span> Fit Intensity Function</h3>
+<p>Probability density function PDF, and cumulative distribution function CDF, of the PP, depend of the intensity function, and are shown in Equation <a href="4-rmd-method.html#eq:pppdf">(4.7)</a>, and Equation <a href="4-rmd-method.html#eq:ppcdf">(4.8)</a>, respectively.</p>
+<p>To facilitate the estimation of the parameters for the PP intensity function, parameter <span class="math inline">\(shape = \zeta_t\)</span> is taken to be zero in Equation <a href="3-rmd-thefra.html#eq:ppintensityfunction">(3.18)</a>, then doing the limit, the resulting intensity function is the same as the GEV type I or Gumbel distribution,</p>
+<p><span class="math display" id="eq:ppusedif">\[\begin{equation}
+  \mathrm{
+          \frac{1}{\psi_t}\exp\left\{\frac{-(y-\omega_t)}{\psi_t}\right\}
+         }
+  \tag{4.9}
+\end{equation}\]</span></p>
+<p>In this study, used intensity functions are:</p>
+<p><span class="math display" id="eq:ppspecificintensityfunction">\[\begin{equation}
+  \mathrm{
+    \lambda\left(y,t\right)=
+    \begin{cases}
+      \begin{split}
+            &amp;\frac{1}{\psi_s}\exp\left(\frac{-(y-\omega_s)}{\psi_s}\right),\;\textrm{for t in thunderstorm period}
+            \\
+            &amp;\frac{1}{\psi_{nt}}\exp\left(\frac{-(y-\omega_{nt})}{\psi_{nt}}\right),\;\textrm{for t in non-thunderstorm period}    
+      \end{split}
+    \end{cases}
+  }
+  \tag{4.10}
+\end{equation}\]</span></p>
+<p>As is shown in <a href="4-rmd-method.html#fig:fitif">4.11</a>, the fitting process involve finding the best group of parameters of the intensity function, in such a way that the red curve (PDF of the PP, based on intensity function) be as tight as possible to the shape of the data histogram. As is described in <em><a href="4-rmd-method.html#pot-pp">POT-PP</a></em>, optimal parameters to do the fitting process of the intensity function are calculated using <em>maximum likelihood</em>.</p>
+
+<div class="figure" style="text-align: center"><span id="fig:fitif"></span>
+<img src="thesis_files/figure-html/fitif-1.png" alt="POT - PP Intensity Function Fitting Process" width="192" />
+<p class="caption">
+Figure 4.11: POT - PP Intensity Function Fitting Process
+</p>
+</div>
+
+</div>
+<div id="hazard-curve-and-return-levels-rl" class="section level3">
+<h3><span class="header-section-number">4.3.5</span> Hazard Curve and Return Levels RL</h3>
+<p>A hazard curve is shown in Figure <a href="4-rmd-method.html#fig:hc">4.12</a>, where axis <span class="math inline">\(x\)</span> represents annual exceedance probability <span class="math inline">\(P_e = \frac{1}{N}\)</span>, and axis <span class="math inline">\(y\)</span> represents the return level RL <span class="math inline">\(Y_N\)</span> for the corresponding N-years return period. It is possible to obtain the extreme return wind velocity level for any given return period going from axis <span class="math inline">\(x\)</span> to axis <span class="math inline">\(y\)</span> through the curve.</p>
+
+<div class="figure" style="text-align: center"><span id="fig:hc"></span>
+<img src="thesis_files/figure-html/hc-1.png" alt="POT - PP Hazard Curve" width="192" />
+<p class="caption">
+Figure 4.12: POT - PP Hazard Curve
+</p>
+</div>
+
+<p>In this research POT-PP includes only time series classified as non-thunderstorm, and this implies that the intensity function to be used (Equation <a href="4-rmd-method.html#eq:ppspecificintensityfunction">(4.10)</a>) does not differentiate between wind types (thunderstorm and non-thunderstorm), i.e., the intensity function is not a function of time t.</p>
+<p>Hazard curve can be created solving <span class="math inline">\(Y_N\)</span> in Equation <a href="3-rmd-thefra.html#eq:pprl">(3.20)</a> for a specific value of N in years (MRI). As a bad estimation caused by the deficiencies in the available information for the case study, the average duration time of non-thunderstorm events by year is considered to be one year, i.e., the parameter <span class="math inline">\(A_{nt}\)</span> in Equation <a href="3-rmd-thefra.html#eq:pprl">(3.20)</a> is equal to one, and <span class="math inline">\(A_t\)</span> is equal to zero (units in years).</p>
+<p>Considering that the intensity function is not a function of time, equation <a href="4-rmd-method.html#eq:pprv">(4.11)</a> can be used replacing directly the parameters of the intensity function (PP) and the return periods (N), to create the hazard curve and get RL:</p>
+<p><span class="math display" id="eq:pprv">\[\begin{equation}
+  \mathrm{
+Y_N=\frac{\psi}{\zeta}\left[-log\left(\frac{N-1}{N}\right)\right]^{-\zeta}-\frac{\psi}{\zeta}+\omega
+        }
+  \tag{4.11}
+\end{equation}\]</span></p>
+<p>As for this research <span class="math inline">\(\zeta = 0\)</span> in selected intensity function (Equation <a href="4-rmd-method.html#eq:ppspecificintensityfunction">(4.10)</a>), return levels <span class="math inline">\(Y_N\)</span> can be calculated with the Gumbel quantile function using <span class="math inline">\((1-\frac{1}{N})\)</span> as probability. This alternative approach is only valid when the analysis of POT-PP includes only one type of event (thunderstorm or non-thunderstorm). The connection between the intensity function of PP and the Gumbel function (variant of the GEV) is described in <span class="citation">(Johnson, Kotz, &amp; Balakrishnan, <a href="references.html#ref-Johnson1995" role="doc-biblioref">1995</a>, p. 75)</span></p>
+</div>
+</div>
+<div id="si" class="section level2">
+<h2><span class="header-section-number">4.4</span> Spatial Interpolation</h2>
+<p>Probabilistic (Kriging) and deterministic (IDW, local polynomials) techniques are used to create maps for return levels with same return period. Interpolation with Kriging requires verification of minimum technical requirements to ensure proper use of the method, particularly:</p>
+<ul>
+<li><p>Structural analysis, which includes data normality check, for example with Kolmogorov Smirnov or Shapiro Wilk goodness of fit tests, and if needed, data transformation to ensure data normality, e.g. using Box-Cox, and in addition, trend analysis to verify the need for trend modeling in subsequent steps.</p></li>
+<li><p>Semivariance Analysis: Use of available tools like cloud semivariogram, experimental semivariogram, directional semivariograms to verify isotropy or anisotropy, and different theoretical semivariograms, to ensure the best model for spatial autocorrelation, as a preliminary step to interpolation.</p></li>
+<li><p>Kriging Predictions: Use of different types of Kriging predictors, like simple, ordinary, universal, based on the results of the structural analysis.</p></li>
+<li><p>Cross Validation: Use of statistics like root mean square, average standard error, mean standardized, and root mean square standardized, that allow to measure the quality of the predictions and the magnitude of the errors.</p></li>
+</ul>
+<p>Possible advantage of deterministic methods, is a better assessment of the local variability of spatial autocorrelation. It can also be considered with IDW or local polynomials a detailed assessment of structural analysis and cross validation. At the end of the spatial interpolation analysis all the predictions can be compared to select the most suitable result.</p>
+<p>Main references in this research related to this matter, using <em>R software</em> are <span class="citation">(E. Pebesma &amp; Graeler, <a href="references.html#ref-Pebesma2019" role="doc-biblioref">2019</a>)</span>, <span class="citation">(Pebesma, <a href="references.html#ref-Pebesma2004" role="doc-biblioref">2004</a>)</span>, and <span class="citation">(Gräler, Pebesma, &amp; Heuvelink, <a href="references.html#ref-Graeler2016" role="doc-biblioref">2016</a>)</span>. For the implementation of spatial statistics using vector or raster format, see <span class="citation">(E. Pebesma, <a href="references.html#ref-Pebesma2019a" role="doc-biblioref">2019</a><a href="references.html#ref-Pebesma2019a" role="doc-biblioref">a</a>)</span>, <span class="citation">(E. Pebesma, <a href="references.html#ref-Pebesma2019b" role="doc-biblioref">2019</a><a href="references.html#ref-Pebesma2019b" role="doc-biblioref">b</a>)</span>, and <span class="citation">(Pebesma, <a href="references.html#ref-Pebesma2018" role="doc-biblioref">2018</a>)</span>.</p>
+</div>
+<div id="integration" class="section level2">
+<h2><span class="header-section-number">4.5</span> Integration with Hurricane Data</h2>
+<p>ASCE7-16 proposes the equation C26.5-2 for combination of statistically independent events, of non-hurricane and hurricane wind speed data.</p>
+<p><span class="math display" id="eq:combination">\[\begin{equation}
+  \mathrm{
+          P_e(y&gt;Y_N) = 1 - P_{NH}(y&lt;Y_N)P_{H}(y&lt;Y_N)
+        }
+  \tag{4.12}
+\end{equation}\]</span></p>
+<p>where <span class="math inline">\(P_e(y&gt;Y_N)\)</span> is the annual exceedance probability for the combined wind hazards, <span class="math inline">\(P_{NH}(y&lt;Y_N)\)</span> is the annual non-exceedance probability for non-hurricane winds, and <span class="math inline">\(P_{H}(y&lt;Y_N)\)</span> is the annual non-exceedance probability for hurricane winds.</p>
+<p>To understand Equation <a href="4-rmd-method.html#eq:combination">(4.12)</a>, it is important to remember that to calculate return level <span class="math inline">\(Y_N\)</span>, for a given N-year return period, the exceedance probability <span class="math inline">\(\frac{1}{N}\)</span> of <span class="math inline">\(Y_N\)</span> is calculated. Then, the non-exceedance probability for <span class="math inline">\(Y_N\)</span> is <span class="math inline">\(\left(1-\frac{1}{N}\right)\)</span>. The procedure consists in the creation of a new hazard curve, calculating all <span class="math inline">\(P_e(y&gt;Y_N)\)</span> values for different <span class="math inline">\(Y_N\)</span> return levels, combining hazard curves from non-thunderstorm and thunderstorm data.</p>
+<p>Equation <a href="4-rmd-method.html#eq:combination">(4.12)</a> can be expressed only in terms of exceedance probabilities, <span class="math inline">\(P_{e} = 1 - (1 -P_{nh}) (1 - P_{h})\)</span>, where <span class="math inline">\(P_{nh}\)</span> is the the annual exceedance probability for non-hurricane winds, and <span class="math inline">\(P_{h}\)</span> is the annual exceedance probability for hurricane winds. A graphical explanation of the procedure to calculate the combined <span class="math inline">\(P_e\)</span> for the return level <span class="math inline">\(30\frac{Km}{h}\)</span>, is shown in Figure <a href="4-rmd-method.html#fig:combinedhc">4.13</a>. For each cell in the study area, it is necessary to calculate a new combined hazard curve, this is, all the <span class="math inline">\(P_e\)</span> values corresponding all different return levels (Figure <a href="4-rmd-method.html#fig:combinedhc">4.13</a>).</p>
+<div class="figure" style="text-align: center"><span id="fig:combinedhc"></span>
+<img src="thesis_files/figure-html/combinedhc-1.png" alt="Integration of Hurricane and Non-Hurricane Data" width="480" />
+<p class="caption">
+Figure 4.13: Integration of Hurricane and Non-Hurricane Data
+</p>
+</div>
+<p>The procedure followed in this research to generate the final maps, requires that hurricane and non-hurricane wind maps have already been generated in raster format for main return periods (10, 20, 50, 100, 250, 500, 700, 1000, 1700, 3000, and 7000 years). As many maps as possible are required for different return periods to estimate detailed enough hazard curves from return values (cell values).</p>
+<p>The main elements of the implemented algorithm are: (a) select the cell size for the integrated map as the <em>maximum</em> cell size of the input maps (hurricane and non-hurricane), (b) create an empty final raster with cell size from previous step, (c) recreate input maps using zonal statistics, where zone is the empty raster, to leave only the <em>maximum</em> value of the input cells that fall within each cell in zone, (c) for each available tile in integrated map, recreate non-hurricane and hurricane hazard curves (using result from previous step), (d) use Equation <a href="4-rmd-method.html#eq:combination">(4.12)</a> to calculate the integrated return level for each tile of the final map, and (e) create a final raster for each main return period.</p>
+<p>An alternative approach for non-hurricane and hurricane data integration is apply Equation <a href="4-rmd-method.html#eq:combination">(4.12)</a> with non-hurricane hazard curves obtained at each station (before spatial interpolation) in combination with hurricane hazard curves from existing studies (obtained at same location of non-hurricane stations), and finally apply a spatial interpolation process. Main disadvantage of this procedure is that no non-hurricanes wind maps will be generated. Main advantage is that the computation time and the complexity of the integration algorithm are comparatively low, since the integration is only done in the location of the stations and not in all cells.</p>
+<p>For the selection of the method to apply in this section, it is recommended to analyze among other aspects: (a) differences in the spatial resolution (e.g. cell size) of both types of studies need to be evaluated, because it can impact the quality of the final product, (b) prediction errors resulting from spatial interpolation can be amplified at specific cells locations, (c) creation of the algorithm, i.e. use of <code>st_apply</code> function of <code>stars</code> package <span class="citation">(E. Pebesma, <a href="references.html#ref-Pebesma2019b" role="doc-biblioref">2019</a><a href="references.html#ref-Pebesma2019b" role="doc-biblioref">b</a>)</span> (apply functions to raster dimensions) to avoid cell-by-cell calculations, and (d) computer processing time.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="3-rmd-thefra.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="5-rmd-results.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": [["thesis.pdf", "PDF"], ["thesis.epub", "EPUB"], ["thesis.docx", "Word"]],
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

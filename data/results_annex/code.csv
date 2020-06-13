@@ -1,23 +1,23 @@
 FolderTree,Description,Ftp
 code,Folder with R code. ALL CODE CREATED BY DR. ADAM PINTAR IS NOT PUBLISHED.,ftp://ftp.geocorp.co/windthesis/code/
-  |-pot\_pp,Folder with POT-PP R code. Based in Dr Adam Pintar code (respected copyright).,ftp://ftp.geocorp.co/windthesis/code/pot_pp/
+  |-pot\_pp,Folder with POT-PP R code. Based on Dr Adam Pintar code (respected copyright).,ftp://ftp.geocorp.co/windthesis/code/pot_pp/
   |    |-function\_lib.r,POT-PP Functions. Author of de-clustering and thresholding functions is Dr Adam Pintar.,ftp://ftp.geocorp.co/windthesis/code/pot_pp/function_lib.r
   |    |-plot\_nt.r,Plot non-thunderstorm graphics.,ftp://ftp.geocorp.co/windthesis/code/pot_pp/plot_nt.r
   |    |-plot\_t.r,Plot thunderstorm graphics.,ftp://ftp.geocorp.co/windthesis/code/pot_pp/plot_t.r
   |    |-plot\_t\_nt.r,"Plot graphics with thunderstorm and non-thunderstorm data, in simultaneous.",ftp://ftp.geocorp.co/windthesis/code/pot_pp/plot_t_nt.r
   |    |-stats\_graphs\_dnt.r,Statistics and graphics for non-thunderstorm de-clustered data.,ftp://ftp.geocorp.co/windthesis/code/pot_pp/statistics_and_graphics_declustered_nt.r
   |    |-stats\_graphs\_dt.r,Statistics and graphics for thunderstorm de-clustered data.,ftp://ftp.geocorp.co/windthesis/code/pot_pp/statistics_and_graphics_declustered_t.r
-  |    |-stats\_raw\_data.r,"For all raw data (thunderstorm and non-thunderstorm), it creates the Excel file raw\_data\_station\_ID\_statistics.xlsx with statistics by years, weeks, months, and gaps (sheets all_years, all_weeks, all_months, and all_gaps respectively). In addition it prints the raw data time series graphic.",ftp://ftp.geocorp.co/windthesis/code/pot_pp/statistics_raw_data.r
-  |    |-stats\_raw\_data\_nt.r,"For non-thunderstorm raw data, it generates sheets with statistics by years (nt_years), weeks (nt_weeks), months (nt_months), and gaps (nt_gaps) into the Excel file raw\_data\_station\_ID\_statistics.xlsx. In addition it prints the non-thunderstorm raw data time series graphic.",ftp://ftp.geocorp.co/windthesis/code/pot_pp/statistics_raw_data_nt.r
-  |    |-stats\_raw\_data\_t.r,"For thunderstorm raw data, it generates sheets with statistics by years (t_years), weeks (t_weeks), months (t_months), and gaps (t_gaps) into the Excel file raw\_data\_station\_ID\_statistics.xlsx. In addition it prints the thunderstorm raw data time series graphic.",ftp://ftp.geocorp.co/windthesis/code/pot_pp/statistics_raw_data_t.r
+  |    |-stats\_raw\_data.r,"For all raw data (thunderstorm and non-thunderstorm), it creates the Excel file raw\_data\_station\_ID\_statistics.xlsx with statistics by years, weeks, months, and gaps (sheets all\_years, all\_weeks, all\_months, and all\_gaps respectively). In addition it prints the raw data time series graphic.",ftp://ftp.geocorp.co/windthesis/code/pot_pp/statistics_raw_data.r
+  |    |-stats\_raw\_data\_nt.r,"For non-thunderstorm raw data, it generates sheets with statistics by years (nt\_years), weeks (nt\_weeks), months (nt\_months), and gaps (nt\_gaps) into the Excel file raw\_data\_station\_ID\_statistics.xlsx. In addition it prints the non-thunderstorm raw data time series graphic.",ftp://ftp.geocorp.co/windthesis/code/pot_pp/statistics_raw_data_nt.r
+  |    |-stats\_raw\_data\_t.r,"For thunderstorm raw data, it generates sheets with statistics by years (t\_years), weeks (t\_weeks), months (t\_months), and gaps (t\_gaps) into the Excel file raw\_data\_station\_ID\_statistics.xlsx. In addition it prints the thunderstorm raw data time series graphic.",ftp://ftp.geocorp.co/windthesis/code/pot_pp/statistics_raw_data_t.r
   |    |-tnt\_csv\_1perday.r,Create CSV (thunderstorm and non-thunderstorm) with one data (the maximum) per day.,ftp://ftp.geocorp.co/windthesis/code/pot_pp/write_t_nt_csv_one_data_per_day.r
   |    |-era5,Folder with specific code for ERA5 data.,ftp://ftp.geocorp.co/windthesis/code/pot_pp/era5/
-  |    |    |-pot\_pp\_era5.r,POT-PP for ERA5 data. Based in Dr Adam Pintar code.,ftp://ftp.geocorp.co/windthesis/code/pot_pp/era5/pot_pp_era5.r
+  |    |    |-pot\_pp\_era5.r,POT-PP for ERA5 data. Based on Dr Adam Pintar code.,ftp://ftp.geocorp.co/windthesis/code/pot_pp/era5/pot_pp_era5.r
   |    |    |-maps,Folder with specific code to calculate return levels and plot maps for ERA5 data.,ftp://ftp.geocorp.co/windthesis/code/pot_pp/era5/maps/
   |    |    |    |-return\_levels.r,Calculate return levels for ERA5 data.,ftp://ftp.geocorp.co/windthesis/code/pot_pp/era5/maps/return_levels.r
   |    |    |    |-plot\_maps.r,Join return levels to cells and plot ERA5 maps.,ftp://ftp.geocorp.co/windthesis/code/pot_pp/era5/maps/plot_maps.r
   |    |-isd,Folder with specific code for ISD data.,ftp://ftp.geocorp.co/windthesis/code/pot_pp/isd/
-  |    |    |-pot\_pp\_isd.r,POT-PP for ISD data. Based in Dr Adam Pintar code.,ftp://ftp.geocorp.co/windthesis/code/pot_pp/isd/pot_pp_isd.r
+  |    |    |-pot\_pp\_isd.r,POT-PP for ISD data. Based on Dr Adam Pintar code.,ftp://ftp.geocorp.co/windthesis/code/pot_pp/isd/pot_pp_isd.r
   |    |    |-maps,"Folder with code to calculate return levels, do spatial interpolation, and plot maps. ISD data.",ftp://ftp.geocorp.co/windthesis/code/pot_pp/isd/maps/
   |    |    |    |-rl\_10\_nh.r,"Calculate return levels and do spatial interpolation. MRI 10, non-hurricane data.",ftp://ftp.geocorp.co/windthesis/code/pot_pp/isd/maps/return_levels_10_nh.r
   |    |    |    |-rl\_20\_nh.r,"Calculate return levels and do spatial interpolation. MRI 20, non-hurricane data.",ftp://ftp.geocorp.co/windthesis/code/pot_pp/isd/maps/return_levels_20_nh.r

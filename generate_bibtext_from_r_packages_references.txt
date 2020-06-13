@@ -5,3 +5,5 @@ library(knitr)
 write_bib(c("tidyverse", "tibble"), file = "tidyverse.bib")
 
 
+library(knitr)
+write_bib(c("bookdown", "thesisdown"), file = "bookdd.bib")

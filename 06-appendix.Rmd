@@ -188,16 +188,17 @@ library(kableExtra)
 rawdatastationidfitted <-read.csv("./data/results_annex/raw_data_station_id_fitted.csv",header=TRUE, stringsAsFactors = F) 
 
 
-kable(rawdatastationidfitted, linesep = "", align=rep('l', 3), #format = "markdown",
-       col.names = c("Excel Sheet Name","Description","Important"),
+kable(rawdatastationidfitted, linesep = "", align=rep('l', 4), #format = "markdown",
+       col.names = c("Excel Sheet Name","Written By", "Description","Important"),
        caption = "Content of the output Excel Book 'raw\\_data\\_station\\_*\\_fitted.xlsx', where '*' is replaced by the Station ID. One file by station.",
        caption.short = "Content of raw\\_data\\_station\\_*\\_fitted.xlsx",
        longtable = TRUE,
        booktabs = TRUE) %>%
        row_spec(0, align = "l") %>%
        column_spec(1,width = "1.5in") %>%
-       column_spec(2,width = "3in") %>%
-       column_spec(3,width = "1.5in") %>%
+       column_spec(2,width = "1in") %>%
+       column_spec(3,width = "2in") %>%
+       column_spec(4,width = "1.5in") %>%
        kable_styling(font_size = 8, latex_options=c("scale_down")) #%>%
 ```
 
