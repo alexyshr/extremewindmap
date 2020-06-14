@@ -83,7 +83,7 @@ biblio-style: "apalike"
 #Download your specific csl file and refer to it in the line below.
 csl: csl/apa.csl
 link-citations: true
-toc: true
+#toc: true
 toc-depth: 2
 lot: true
 lof: true
