@@ -778,11 +778,11 @@ The formula to calculate the annual exceedance probability of the return level d
 \begin{equation}
         P_e = 
         \begin{cases}
-          \begin{split}
+          \begin{aligned}
                 &1-\exp\left(-\frac{1}{MRI}\right),\;\textrm{for MRI < 10 years}
                 \\
-                &\frac{1}{MRI},\;\textrm{for MRI }\geq\textrm{ 10years}      
-          \end{split}
+                &\frac{1}{MRI},\;\textrm{for MRI }\geq\textrm{ 10 years}      
+          \end{aligned}
         \end{cases}
   \label{eq:pe}
 \end{equation}
@@ -876,11 +876,11 @@ Generic Equation \eqref{eq:ppgenericintensityfunction} shows the intensity funct
 \begin{equation}
     \lambda\left(y,t\right)
     \begin{cases}
-      \begin{split}
+      \begin{aligned}
             &\lambda_t(y),\;\textrm{for t in thunderstorm period}
             \\
             &\lambda_{nt}(y),\;\textrm{for t in non-thunderstorm period}      
-      \end{split}
+      \end{aligned}
     \end{cases}
   \label{eq:ppgenericintensityfunction}
 \end{equation}
@@ -1023,11 +1023,11 @@ Due to the effects that the terrain has on wind speed, a correction should be ap
 \end{equation}
 where \(H_{ob}\) is the average height of the obstacles, \(S_{ob}\) is the average vertical area perpendicular to the wind of the obstacles, and \(A_{ob}\) is the average area of the terrain occupied by each obstruction. The empirical exponent \(\alpha\), gradient height \(z_g\), and exposure coefficient \(K_z\), are used to calculate the correction factor \(F_{exposition}\), for \(z_0\) units are in meters.
 \begin{equation}
-        \alpha =  5.65z_0^{-0.133}
+        \alpha =  5.65\;z_0^{-0.133}
   \label{eq:alpha}
 \end{equation}
 \begin{equation}
-        z_g=450z_0^{0.125}
+        z_g=450\;z_0^{0.125}
   \label{eq:zg}
 \end{equation}
 \begin{equation}
@@ -1177,11 +1177,11 @@ In this study, used intensity functions are:
 \begin{equation}
     \lambda\left(y,t\right)=
     \begin{cases}
-      \begin{split}
+      \begin{aligned}
             &\frac{1}{\psi_s}\exp\left(\frac{-(y-\omega_s)}{\psi_s}\right),\;\textrm{for t in thunderstorm period}
             \\
             &\frac{1}{\psi_{nt}}\exp\left(\frac{-(y-\omega_{nt})}{\psi_{nt}}\right),\;\textrm{for t in non-thunderstorm period}    
-      \end{split}
+      \end{aligned}
     \end{cases}
   \label{eq:ppspecificintensityfunction}
 \end{equation}

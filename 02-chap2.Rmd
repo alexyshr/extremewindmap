@@ -273,11 +273,11 @@ The formula to calculate the annual exceedance probability of the return level d
 \begin{equation}
         P_e = 
         \begin{cases}
-          \begin{split}
+          \begin{aligned}
                 &1-\exp\left(-\frac{1}{MRI}\right),\;\textrm{for MRI < 10 years}
                 \\
-                &\frac{1}{MRI},\;\textrm{for _MRI_ }\geq\textrm{ 10 years}      
-          \end{split}
+                &\frac{1}{MRI},\;\textrm{for MRI }\geq\textrm{ 10 years}      
+          \end{aligned}
         \end{cases}
   (\#eq:pe)
 \end{equation}
@@ -410,11 +410,11 @@ Generic Equation \@ref(eq:ppgenericintensityfunction) shows the intensity functi
 \begin{equation}
     \lambda\left(y,t\right)
     \begin{cases}
-      \begin{split}
+      \begin{aligned}
             &\lambda_t(y),\;\textrm{for t in thunderstorm period}
             \\
             &\lambda_{nt}(y),\;\textrm{for t in non-thunderstorm period}      
-      \end{split}
+      \end{aligned}
     \end{cases}
   (\#eq:ppgenericintensityfunction)
 \end{equation}

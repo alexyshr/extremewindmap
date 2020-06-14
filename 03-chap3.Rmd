@@ -375,11 +375,11 @@ In this study, used intensity functions are:
 \begin{equation}
     \lambda\left(y,t\right)=
     \begin{cases}
-      \begin{split}
+      \begin{aligned}
             &\frac{1}{\psi_s}\exp\left(\frac{-(y-\omega_s)}{\psi_s}\right),\;\textrm{for t in thunderstorm period}
             \\
             &\frac{1}{\psi_{nt}}\exp\left(\frac{-(y-\omega_{nt})}{\psi_{nt}}\right),\;\textrm{for t in non-thunderstorm period}    
-      \end{split}
+      \end{aligned}
     \end{cases}
   (\#eq:ppspecificintensityfunction)
 \end{equation}

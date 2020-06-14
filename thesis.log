@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/W32TeX) (preloaded format=pdflatex 2020.3.30)  13 JUN 2020 14:14
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/W32TeX) (preloaded format=pdflatex 2020.3.30)  14 JUN 2020 19:21
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -997,10 +997,6 @@ Package pdftex.def Info: thesis_files/figure-latex/winddatabase-1.pdf  used on
 input line 760.
 (pdftex.def)             Requested size: 216.80946pt x 72.2698pt.
 [17 <./thesis_files/figure-latex/winddatabase-1.pdf>]
-
-Package amsmath Warning: Cannot use `split' here;
-(amsmath)                trying to recover with `aligned' on input line 785.
-
 <thesis_files/figure-latex/compoundprobability-1.pdf, id=942, 361.35pt x 180.67
 5pt>
 File: thesis_files/figure-latex/compoundprobability-1.pdf Graphic file (type pd
@@ -1009,12 +1005,7 @@ f)
 Package pdftex.def Info: thesis_files/figure-latex/compoundprobability-1.pdf  u
 sed on input line 797.
 (pdftex.def)             Requested size: 361.34912pt x 180.67455pt.
-[18 <./thesis_files/figure-latex/compoundprobability-1.pdf>] [19] [20]
-
-Package amsmath Warning: Cannot use `split' here;
-(amsmath)                trying to recover with `aligned' on input line 883.
-
-[21]
+[18 <./thesis_files/figure-latex/compoundprobability-1.pdf>] [19] [20] [21]
 <thesis_files/figure-latex/plotdomainpp-1.pdf, id=1004, 252.945pt x 144.54pt>
 File: thesis_files/figure-latex/plotdomainpp-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/plotdomainpp-1.pdf>
@@ -1115,10 +1106,6 @@ nput line 1153.
 (pdftex.def)             Requested size: 180.67455pt x 180.67455pt.
 [32 <./thesis_files/figure-latex/thresholding-1.pdf> <./thesis_files/figure-lat
 ex/wstatistics-1.pdf>]
-
-Package amsmath Warning: Cannot use `split' here;
-(amsmath)                trying to recover with `aligned' on input line 1184.
-
 <thesis_files/figure-latex/fitif-1.pdf, id=1187, 144.54pt x 144.54pt>
 File: thesis_files/figure-latex/fitif-1.pdf Graphic file (type pdf)
 <use thesis_files/figure-latex/fitif-1.pdf>
@@ -3284,7 +3271,7 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 5840.
 Here is how much of TeX's memory you used:
  13464 strings out of 482913
  210783 string characters out of 5957399
- 834970 words of memory out of 5000000
+ 834823 words of memory out of 5000000
  27818 multiletter control sequences out of 15000+600000
  616554 words of font info for 100 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
@@ -3323,7 +3310,7 @@ r/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt12.pfb><c:/Users
 /alexyshr/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt8.pfb><c
 :/Users/alexyshr/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtti
 10.pfb>
-Output written on thesis.pdf (124 pages, 26549704 bytes).
+Output written on thesis.pdf (124 pages, 26549913 bytes).
 PDF statistics:
  2507 PDF objects out of 2984 (max. 8388607)
  2215 compressed objects within 23 object streams
