@@ -64,3 +64,5 @@ Poisson Process Intensity Function equation 16 page 39 NIST Report 500-301 (same
 --- Raw data files need to have 'kph' instead of 'mph' (text files were changed)
 
 Put a summary of the meaning of the variables names in R code (eJ: rl_plot_nt.r)
+
+Review in the document related to As and Ans (365). Etc

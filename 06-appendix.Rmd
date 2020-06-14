@@ -380,7 +380,7 @@ In Linux, next NCO commands will extract variable p0001 from file.nc to p0001.nc
 
 # Database Storing {#dbstoring}
 
-To optimize memory usage when running R code, some information related to IDEAM and ISD data sources, like stations and wind time series, were stored in **PostgreSQL database**, thanks to the possibility of lazy evaluation with **tidyverse** R package `dplyr`, see [@Wickham2014], and [@Wickham2019], which do not load the entire dataset in memory from the beginning, this is, _"it delays the actual operation until necessary and loads data onto R from the database only when we need it"_ [@databasesinr]. In parallel, it was used throughout the investigation, the **tidyverse** R package `tibble`, which allow lazy and surly data-frames in R, namely _"they do less ..., and complain more"_ [@Mueller2019]. As a reference, there is an R package called `tidyverse`, which installs and loads all related packages (`ggplot2`, `tibble`, `tidyr`, `readr`, and `dplyr`), see [@Wickham2019a], and [@Wickham2019b].
+To optimize memory usage when running R code, some information related to IDEAM and ISD data sources, like stations and wind time series, were stored in **PostgreSQL database**, thanks to the possibility of lazy evaluation with **tidyverse** R package `dplyr` [@Wickham2014; @Wickham2019], which do not load the entire dataset in memory from the beginning, this is, _"it delays the actual operation until necessary and loads data onto R from the database only when we need it"_ [@databasesinr]. In parallel, it was used throughout the investigation, the **tidyverse** R package `tibble`, which allow lazy and surly data-frames in R, namely _"they do less ..., and complain more"_ [@Mueller2019]. As a reference, there is an R package called `tidyverse` which installs and loads all related packages `ggplot2`, `tibble`, `tidyr`, `readr` and `dplyr` [@Wickham2019a; @Wickham2019b].
 
 ## Loading Time Series from Text Files to PostgreSQL
 
@@ -1521,7 +1521,7 @@ Main output file of POT-PP analysis is _fitted_model_result.xlsx_, which contain
 
 To create non-hurricane maps using Kriging, from columns 43 to 53 of file _fitted_model_result.xlsx_, use R files inside folder *.../code/pot\_pp/isd/maps/*, see Table \ref{tab:codeisd}. For instance, to create non-hurricane map with return levels for 10 years MRI, use file _rl_10_nh.r_, for 50 MRI use _rl_50_nh.r_, and in the same way for other return periods. Once GeoTIFF images have been created with previous R files, use _plot_maps.r_ to plot maps using `ggplot2` R package.
 
-Inside files _rl\_\*\_nh.r_ different types of geostatistical related analysis are coded, mainly using `gstat`, `sf`, and `stars` R packages, see [@Pebesma2019], [@Pebesma2019a], and [@Pebesma2019b] respectively:
+Inside files _rl\_\*\_nh.r_ different types of geostatistical related analysis are coded, mainly using `gstat` [@Pebesma2019], `sf` [@Pebesma2019a], and `stars` [@Pebesma2019b] R packages.
 
 * Experimental semivariogram
 * Directional semivariograms

@@ -35,11 +35,10 @@ MathJax.Hub.Config({
 PDF defines the probability that a continuous variable falls between two points. In PDF the probability is related to the area below the curve (integral) between two points, as for continuous probability distributions the probability at a single point is zero. The term density is related to the quantity of probability defined below each part of the curve, the higher the values of the curve, the higher the density and, consequently, the probability.
 
 \begin{equation}
-\mathrm{
         \int_a^b f(x)dx = Pr[a \leq X \leq b]
-       }
   (\#eq:pdf)
 \end{equation}
+
 
 Equation \@ref(eq:gumbelpdf) is the Gumbel PDF.
 
@@ -57,7 +56,6 @@ Equation \@ref(eq:gumbelpdf) is the Gumbel PDF.
 -->
 
 \begin{equation}
-  \mathrm{
           f(x)=\frac{1}{\beta}
           \exp\left\{
             -\frac{x-\mu}{\beta}
@@ -70,9 +68,9 @@ Equation \@ref(eq:gumbelpdf) is the Gumbel PDF.
             \right\}
           \right\},
           \quad -\infty < x < \infty
-         }
   (\#eq:gumbelpdf)
 \end{equation}
+
 
 where $\exp\left\{.\right\}$ is $\mathrm{e}^{\left\{.\right\}}$, $\beta$ the scale parameter, and $\mu$ the location parameter. Location ($\mu$) has the effect to shift the PDF to left or right along 'x' axis, thus, if location value is changed the effect is a movement to the left (small value for location), or to the right (big value for location). Scale has the effect to stretch ($\beta > 1$) of compress  ($0 < \beta< 1$) the PDF, if scale parameter is close to zero it approaches a spike.
 
@@ -112,18 +110,14 @@ plot(.x, dfG, col="red", lty=4, xlab="Velocities Km/h", ylab="Density Function -
 CDF is the probability of taking a value less than or equal to x. That is
 
 \begin{equation}
-\mathrm{
         F(x) = Pr[X < x] = \alpha
-       }
   (\#eq:cdf1)
 \end{equation}
 
 For a continuous variable, CDF can be expressed as the integral of its PDF.
 
 \begin{equation}
-\mathrm{
         F(x) = \int_{-\infty}^x f(x)dx
-       }
   (\#eq:cdf2)
 \end{equation}
 
@@ -131,10 +125,8 @@ For a continuous variable, CDF can be expressed as the integral of its PDF.
 Equation \@ref(eq:gumbelcdf) is the Gumbel CDF.
 
 \begin{equation}
-\mathrm{
         F(x) = \exp\left\{-\exp\left[-\left(\frac{x-\mu}{\beta}\right)\right]\right\}, 
         \quad -\infty < x < \infty
-        }
   (\#eq:gumbelcdf)
 \end{equation}
 
@@ -161,9 +153,7 @@ plot(.x, .y, col="green", lty=4, xlab="Velocities Km/h", ylab="Probability", cex
 PPF is the inverse of CDF, also called the _quantile_ function. This is, from a specific probability get the corresponding value x of the variable.
 
 \begin{equation}
-\mathrm{
         x = G(\alpha) = G(F(x))
-       }
   (\#eq:ppf)
 \end{equation}
 
@@ -171,10 +161,8 @@ PPF is the inverse of CDF, also called the _quantile_ function. This is, from a 
 Equation \@ref(eq:gumbelppf) is the Gumbel PPF.
 
 \begin{equation}
-\mathrm{
         G(\alpha) = \mu-\beta ln(-ln(\alpha))
         \quad 0 < \alpha < 1
-        }
   (\#eq:gumbelppf)
 \end{equation}
 
@@ -220,9 +208,7 @@ plot(.x, .y, col="green", lty=4, xlab="Velocities Km/h", ylab="Hazard", cex.axis
 HF is the ratio between PDF and SF. SF is the survival function $S(x) = 1 - F(x)$, which defines the probability that a variable takes a value greater than x, $S(x) = Pr[X > x] = 1 - F(x)$.
 
 \begin{equation}
-\mathrm{
         h(x) = \frac{f(x)}{S(x)} = \frac{f(x)}{1-F(x)}
-       }
   (\#eq:hf)
 \end{equation}
 
@@ -231,9 +217,7 @@ Equation \@ref(eq:gumbelhf) is the Gumbel HF.
 
 
 \begin{equation}
-\mathrm{
         h(x)= \frac{1}{\beta}\frac{\exp(-(x-\mu)/\beta)}{\exp(\exp(-(x-\mu)/\beta))-1}
-       }
   (\#eq:gumbelhf)
 \end{equation}
 
@@ -274,9 +258,7 @@ axis(1, labels=FALSE, tick=TRUE, col.axis="black", lwd.ticks=0)
 The annual exceedance probability $P_e$ equals to the ratio between _event index after descending sorting_ and _years of simulations_. The highest wind will be the first in the sorted list.
 
 \begin{equation}
-\mathrm{
         P_e = \frac{\textrm{Event index after descending sorting}}{\textrm{Years of simulations}}= \frac{1}{10.000}=0.001=0.01\%
-       }
   (\#eq:pedatabase)
 \end{equation}
 
@@ -289,16 +271,14 @@ Continuing with the previous section, if the inverse of the exceedance probabili
 The formula to calculate the annual exceedance probability of the return level depends on the MRI value as shown below:
 
 \begin{equation}
-\mathrm{
         P_e = 
         \begin{cases}
           \begin{split}
                 &1-\exp\left(-\frac{1}{MRI}\right),\;\textrm{for MRI < 10 years}
                 \\
-                &\frac{1}{MRI},\;\textrm{for MRI }\geq\textrm{ 10years}      
+                &\frac{1}{MRI},\;\textrm{for _MRI_ }\geq\textrm{ 10 years}      
           \end{split}
         \end{cases}
-       }
   (\#eq:pe)
 \end{equation}
 
@@ -348,9 +328,7 @@ text(x=0.85,  y=1800, labels = "chance event\nwill occur", cex=0.7)
 It is possible to calculate a compound probability $P_n$, where $n$ is the exposure period. The exposure period is the usage time of the structures that have been designed with an extreme wind speed. $P_n$ is the probability that the extreme wind speed will be equaled or exceeded at least one time in $n$ years, and in this sense it is a probability of occurrence:
 
 \begin{equation}
-\mathrm{
         P_n = 1-\left(1-\frac{1}{MRI}\right)^n,\;\textrm{occurrence probability}
-       }
   (\#eq:pn)
 \end{equation}
 
@@ -379,9 +357,7 @@ Once candidate parameters are available, it is necessary to assess the goodness 
 The main use of the fitted model is the estimation of mean return intervals MRI, and extreme wind speeds (return levels),
 
 \begin{equation}
-\mathrm{
         MRI=\frac{1}{1-F(y)}
-       }
   (\#eq:mri)
 \end{equation}
 
@@ -394,14 +370,12 @@ The CRAN Task View "Extreme Value Analysis" <https://cran.r-project.org/web/view
 To work with random variables of sample maximum values, used probability distribution function PDF is GEV:
 
 \begin{equation}
-\mathrm{
         H(y) = \exp\left\{-\left[1+\xi\frac{x-\mu}{\psi}\right]_+^{-\frac{1}{\xi}}\right\}
-       }
   (\#eq:epochalpdf)
 \end{equation}
 
 
-Where $\xi\neq0$, $[...]_+ = max([...],0)$, $\mu$ is the location parameter, $\psi > 0$ is a scale parameter, and $\xi$ is a shape parameter. GEV combines in one unique family the Gumbel (medium-tailed) distribution (limit $\xi\rightarrow0$), Fréchet (long-tailed) distribution ($\xi>0$), and Weibull (short-tailed) distribution ($\xi<0$).
+where $\xi\neq0$, $[...]_+ = max([...],0)$, $\mu$ is the location parameter, $\psi > 0$ is a scale parameter, and $\xi$ is a shape parameter. GEV combines in one unique family the Gumbel (medium-tailed) distribution (limit $\xi\rightarrow0$), Fréchet (long-tailed) distribution ($\xi>0$), and Weibull (short-tailed) distribution ($\xi<0$).
 
 ### Peaks Over Threshold using GPD and 1D Poisson Process POT-Poisson-GPD {#pot-poisson-gpd}
 
@@ -410,9 +384,7 @@ In this model, (a) the magnitude of the observations above the threshold are ass
 With the condition of exceeding some high threshold $b$, as a consequence $y = (x-b) > 0$, the CDF of $y$ is the generalized Pareto distribution GPD:
 
 \begin{equation}
-\mathrm{
         F(y) = 1 - \left[1-\xi\frac{y}{\sigma}\right]^{-\frac{1}{\xi}}_+,
-       }
   (\#eq:gpd)
 \end{equation}
 
@@ -422,9 +394,7 @@ where $[...]_+ = max([...],0)$, $b$ is the threshold. In both GPD (magnitude), a
 The equation to calculate return levels (RL) $Y_N$ corresponding to the N-years return period in POT-Poisson-GPD is:
 
 \begin{equation}
-\mathrm{
         Y_N =G\left(y, 1-\frac{1}{\lambda\,N}\right)
-       }
   (\#eq:yngpd)
 \end{equation}
 
@@ -433,12 +403,11 @@ where $G$ is the quantile function (PPF), and the value of the probability passe
  
 ### Peaks Over Threshold Using a 2D Poisson Process POT-PP {#method-pot-pp}
 
-According to [@Pintar2015] the stochastic Poisson Process PP is mainly defined by its intensity function. As the intensity function is not uniform over the domain, the PP considered here is non-homogeneous, and due to the intensity function dependency of magnitude and time, it is also bi-dimensional. PP was described for the first time in [@Pickands1971], then extended in [@Smith1989]. 
+According to @Pintar2015, the stochastic Poisson Process PP is mainly defined by its intensity function. As the intensity function is not uniform over the domain, the PP considered here is non-homogeneous, and due to the intensity function dependency of magnitude and time, it is also bi-dimensional. PP was described for the first time in @Pickands1971, then extended in @Smith1989. 
 
 Generic Equation \@ref(eq:ppgenericintensityfunction) shows the intensity function, which is defined in the domain $D = D_t\,{\cup}\,D_{nt}$, and allow to fit the PP at each station to the observed data $\{t_i, y_i\}_{i=1}^I$, for all the times ($t_i$) of threshold crossing observations, and its corresponding wind speeds magnitudes ($y_i$). Thus, only data above the threshold (POT) are used.
 
 \begin{equation}
-  \mathrm{
     \lambda\left(y,t\right)
     \begin{cases}
       \begin{split}
@@ -447,20 +416,17 @@ Generic Equation \@ref(eq:ppgenericintensityfunction) shows the intensity functi
             &\lambda_{nt}(y),\;\textrm{for t in non-thunderstorm period}      
       \end{split}
     \end{cases}
-  }
   (\#eq:ppgenericintensityfunction)
 \end{equation}
 
 The specific intensity function of the PP is defined in [@Smith2004] and is shown in Equation \@ref(eq:ppintensityfunction):
 
 \begin{equation}
-  \mathrm{
     \frac{1}{\psi_t}\left(1+\zeta_t\frac{y-\omega_t}{\psi_t}\right)_+^{-\frac{1}{\zeta_t}-1}
-  }
   (\#eq:ppintensityfunction)
 \end{equation}  
         
-where, at a given time $t$, parameter $shape = \zeta_t$ controls the tail length of the intensity function, and the other two parameters $\omega_t$ and $\psi_t$ define the location and scale of the intensity function.
+where, at a given time $t$ parameter $shape = \zeta_t$ controls the tail length of the intensity function, and the other two parameters $\omega_t$ and $\psi_t$ define the location and scale of the intensity function.
 
 Figure \@ref(fig:plotdomainpp) represent the domain $D$ of PP. In time, the domain represents the station service period from first sample $t_1$ to last sample $t_4$. $D$ is the union of all thunderstorm periods $D_t$ (from $t_2$ to $t_3$), and all non-thunderstorm periods $D_{nt}$ (periods $t_1$ to $t_2$ and $t_3$ to $t_4$). In magnitude, only thunderstorm data above its threshold $b_t$, and only non-thunderstorm data above its threshold $b_{nt}$ are used. 
 
@@ -532,14 +498,12 @@ include_graphics(path = "figure/domain3d.PNG")
 To fit the intensity function to the data, the method of maximum likelihood is used to estimate its parameters, $scale = \psi$, $location = \omega$, and $shape = \zeta$, the selected vector of parameters $\eta$ are the $\hat\eta = (\hat\psi, \hat\omega, \hat\zeta)$ values that maximizes the function:
 
 \begin{equation}
-  \mathrm{
           L(\eta)=\left( 
                         \prod_{i=1}^I\lambda\left(y_i,t_i\right)  
                   \right)
                   \exp\left\{
                             -\int_{{D}}\lambda\left(y,t\right)dy\,dt
                      \right\}.
-         }
   (\#eq:pplikelihood)
 \end{equation}
 
@@ -553,9 +517,7 @@ A $Y_N$ extreme wind velocity, called the return level (RL) belonging to the N-y
 For PP $Y_N$ is defined in terms of the intensity function as the solution to the equation
 
 \begin{equation}
-  \mathrm{
           \int_{Y_N}^{\infty}\int_0^1\lambda\left( y,t\right)dydt = A_t\int_{Y_N}^{\infty}\lambda_t\left( y\right)\,dy + A_{nt}\int_{Y_N}^{\infty}\lambda_{nt}\left( y\right)\,dy = \frac{1}{N}
-         }
   (\#eq:pprl)
 \end{equation}
 
@@ -576,7 +538,7 @@ ASCE7-16 (page 734), requires the calculation of wind extreme return levels for 
 * Risk II - Category 'by default', and correspond to structures not classified in others categories.
 * Risk I - This structures represent low risk for life of people.
 
-To standardize wind speeds to gust speeds ASCE7-16 proposes the curve Durst, see [@Durst1960], and Figure \@ref(fig:durstcurve). Durst curve is only valid for open terrain conditions, and it shows in axis $y$ the gust factor $\frac{V_t}{V_{3600}}$, a ratio between any wind gust (maximum speeds) averaged at $t$ seconds, $V_t$, and the hourly averaged wind speed $V_{3600}$, and in the axis $x$ the duration $t$ of the gust in seconds. Be aware that curve values in Figure \@ref(fig:durstcurve) are approximated values taken visually from the original curve. 
+To standardize wind speeds to gust speeds ASCE7-16 proposes the curve Durst [@Durst1960], and Figure \@ref(fig:durstcurve). Durst curve is only valid for open terrain conditions, and it shows in axis $y$ the gust factor $\frac{V_t}{V_{3600}}$, a ratio between any wind gust (maximum speeds) averaged at $t$ seconds, $V_t$, and the hourly averaged wind speed $V_{3600}$, and in the axis $x$ the duration $t$ of the gust in seconds. Be aware that curve values in Figure \@ref(fig:durstcurve) are approximated values taken visually from the original curve. 
 
 
 ```{r durstcurve, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="Durst Curve", fig.height=2.5, fig.width=5}

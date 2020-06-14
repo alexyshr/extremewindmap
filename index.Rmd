@@ -13,9 +13,9 @@ title: 'Spatio-temporal analysis of extreme wind velocities for infrastructure d
 knit: "bookdown::render_book"
 site: bookdown::bookdown_site
 output: 
-  #thesisdown::thesis_pdf: default
+  thesisdown::thesis_pdf: default
   #  citation_package: natbib
-  thesisdown::thesis_gitbook: default
+  #thesisdown::thesis_gitbook: default
   #thesisdown::thesis_word: default
   #thesisdown::thesis_epub: default
 #If you are creating a PDF you'll need to write your preliminary content (e.g., abstract, acknowledgments) here or
@@ -176,7 +176,7 @@ The development of this research (focused in non-hurricane data), covers three m
 
 Due to the specific characteristics of the study area where there is lack of historical wind measurements, it became necessary to look for alternative data sources: ISD, and ERA5 forecast data. This resulted in a downscaling issue that was confronted from a graphic comparison of all sources by matching stations, in the search of adequate _downscaling support_ for the use of complementary data. Prior to the comparison process, ISD and IDEAM data sources were standardized to represent 3-second wind gust, 10 meters of anemometer height, and terrain open space roughness.
 
-The _temporal analysis_ method used to calculate the return levels at each station from the historical wind time series, is the Peaks Over Threshold POT using a non-homogeneous bi-dimensional Poisson Process PP recommended by [@Asce2017] and developed in [@Pintar2015]. Main components of POT-PP model are de-clustering, thresholding, intensity function fitting, hazard curve, and return levels calculation. At each station with non-thunderstorm data, this model starts with a process of de-clustering choosing a suitable threshold level to leave for the analysis only the most extreme available values, and then, fit to the data an intensity function using maximum likelihood to find optimal parameters with the best goodness of fit. With the fitted model, and using the hazard curve, it was possible to calculate extreme wind velocities or return levels for required MRIs.
+The _temporal analysis_ method used to calculate the return levels at each station from the historical wind time series, is the Peaks Over Threshold POT using a non-homogeneous bi-dimensional Poisson Process PP recommended by @Asce2017 and developed in @Pintar2015. Main components of POT-PP model are de-clustering, thresholding, intensity function fitting, hazard curve, and return levels calculation. At each station with non-thunderstorm data, this model starts with a process of de-clustering choosing a suitable threshold level to leave for the analysis only the most extreme available values, and then, fit to the data an intensity function using maximum likelihood to find optimal parameters with the best goodness of fit. With the fitted model, and using the hazard curve, it was possible to calculate extreme wind velocities or return levels for required MRIs.
 
 
 The integration of all these results allow to generate non-hurricane continuous maps of extreme winds velocities (using _Kriging_ as _spatial analysis_ method), which are combined with _existing wind extreme hurricane studies_ to be used as input loads for the design of structures of different risk categories, i.e., less risky/important structures for short MRIs (700 and 1700 years), and highly important structures for the longest MRI of 3000 years.
@@ -191,15 +191,15 @@ According to @Coles2003, there are four main elements needed for a good analysis
 
 In general, there are two approaches to deal with extreme value analysis [@Pintar2015], the classical approach, and peaks over threshold POT. In this research, POT is selected over classical approach to be able to use more samples for statistical estimation.
 
-The classical approach or traditional method, as well known as _sample maxima_ or _yearly maxima_ is associated to a generalized extreme value distribution GEV [@Fisher1928; @Gnedenko1943]. GEV is a family of limit probability distributions including Gumbel, Fréchet and Weibull, unified in [@Mises1954; @Jenkinson1955]. The GEV family _describes all limiting distributions of the centered and normalized sample maximum_ [@Coles2003].
+The classical approach or traditional method, as well known as _sample maxima_ or _yearly maxima_ is associated to a generalized extreme value distribution GEV [@Fisher1928; @Gnedenko1943]. GEV is a family of limit probability distributions including Gumbel, Fréchet and Weibull, unified in @Mises1954 and @Jenkinson1955. The GEV family _describes all limiting distributions of the centered and normalized sample maximum_ [@Coles2003].
 
 POT models the values above a chosen high level, and in general, the POT method has two approaches [@Smith2004]: (a) exceedances over threshold associated to a Generalized Pareto Distribution GPD, onwards _POT-Poisson-GPD_; and (b) the exceedances over threshold associated to a non-homogeneous non-stationary bi-dimensional Poisson process POT-PP (a point process approach). POT-PP is considering to be more flexible than generalized Pareto approach [@Coles2001], so for this study, POT-PP method is selected.
 
 Selection of threshold level is relevant in POT. A low threshold (more exceedances) implies less variance and weak asymptotic support, but high bias. A high threshold (fewer exceedances) implies more variance and stronger asymptotic support, but low bias.
 
-POT-Poisson-GPD models wind magnitudes over the threshold as a GPD, and time as a separated Poisson process [@PickandsIII1975]. This method was used for the first time as statistical application in [@Davison1990]. The generalized Pareto family describes all possible limiting distributions of the distributions scaled above the threshold [@Coles2003].
+POT-Poisson-GPD models wind magnitudes over the threshold as a GPD, and time as a separated Poisson process [@PickandsIII1975]. This method was used for the first time as statistical application in @Davison1990. The generalized Pareto family describes all possible limiting distributions of the distributions scaled above the threshold [@Coles2003].
 
-In POT-PP time and magnitude above the threshold are modeled using a two-dimensional Poisson process [@Pickands1971]. This method was applied for the first time in [@Smith1989].
+In POT-PP time and magnitude above the threshold are modeled using a two-dimensional Poisson process [@Pickands1971]. This method was applied for the first time in @Smith1989.
 
 There are many techniques to estimate the parameters of extreme value models, i.e. graphical methods, estimators based on moments, order statistics, and likelihood based [@Coles2003]. @Smith1985 supported the use of likelihood methods due to _asymptotic normality_ guaranteed when shape parameter is greater than 0.5, excluding light tailed distributions with finite end point. In addition, likelihood method is easy to evaluate and solve numerically, and the calculation of standard errors and confidence intervals is possible using asymptotic theory.
 
@@ -238,7 +238,7 @@ Specific objectives are:
 
 Main question of this research is directed to calculate future wind extreme velocities (return levels) for infrastructure design, then the research is:
 
-**What wind extreme velocities need to be used as load design forces for structures of different use category, in the study area?**
+**What wind extreme velocities need to be used as load design forces for structures of different use category in the study area?**
 
 ## Case Study
 
@@ -252,7 +252,7 @@ Historically, hurricanes have only affected the Colombian Caribbean coast in a n
 
 ## Outline
 
-Main sections of thesis document are 1) Introduction, 2) Data, 3) Theoretical Framework, 4) Methodology, 5) Results and Discussion, 5) Conclusions, and 6) Annexes, from A to E.
+Main sections of thesis document are 1) Introduction, 2) Data, 3) Theoretical Framework, 4) Methodology, 5) Results and Discussion, 5) Conclusions, and 6) Annexes (from A to E).
 
 After introduction, in second section _[Data](#rmd-data)_, main information about data sources IDEAM, ISD, and ERA5 are described, including at the end additional details for ERA5 in Annex \@ref(datadownload). Annex \@ref(dbstoring) explains reasons for using PostgreSQL engine, and the database backup and restoration process.
 
@@ -262,6 +262,6 @@ The _[Methodology](#rmd-method)_ chapter includes the processes needed to meet t
 
 _[Results and Discussion](#rmd-results)_ section shows, (1) all results for data standardization and comparison to support the downscaling issue, (2) all POT-PP results for one ISD station, (3) all output maps for ISD and ERA5 data sources including discussions of those finals results. These discussions are complemented by the _[Conclusions](#conclusions)_ section.
 
-To finalize the document, a series of appendices were created to facilitate the reproducibility of the research. Appendix \@ref(rcode) contains _research R code_. It is necessary to considering that the code provided by _Dr. Adam L. Pintar_ to do the de-clustering and thresholding in POT-PP is not there because its publication and distribution is not authorized. Appendix \@ref(results) contains all _results in digital format_. Appendix \@ref(datadownload) compliments the information needed to _download ERA5_ data. Appendix \@ref(dbstoring) shows the use of PostgreSQL for data storage, and provides instructions for backup and restoring. Because the document for the thesis was done using package ´thesisdown´ (which is based on ´bookdown´) the most important _document R code_ to create the thesis document, mainly graphics, is shown in Appendix \@ref(docrcode). Finally, in Appendix F \@ref(manual), a _user manual_ is presented, in order to provide instruction to apply the same methodology in a different case study.
+To finalize the document a series of appendices were created to facilitate the reproducibility of the research. Appendix \@ref(rcode) contains _research R code_. It is necessary to consider that the code provided by _Dr. Adam L. Pintar_ to do the de-clustering and thresholding in POT-PP is not there because its publication and distribution is not authorized. Appendix \@ref(results) contains all _results in digital format_. Appendix \@ref(datadownload) compliments the information needed to _download ERA5_ data. Appendix \@ref(dbstoring) shows the use of PostgreSQL for data storage and provides instructions for backup and restoring. Because the document for the thesis was done using package `thesisdown` [@Solomon2019], which is based on `bookdown` [@Xie2020], the most important _document R code_ to create the document (mainly graphics) is shown in Appendix \@ref(docrcode). Finally, in Appendix \@ref(manual) a _user manual_ is presented in order to provide instructions to apply the same methodology in a different case study.
 
 

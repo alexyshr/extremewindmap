@@ -467,9 +467,9 @@ kable_styling(font_size = 10, latex_options="scale_down")
 
 ### Raw Data, De-clustering, and Thresholding
 
-As storm information is not available for any of the data sources, all the data for the station was classified as *non-thunderstorm*. According to _[POT-PP](#pot-pp)_ method described in _[Methodology](#rmd-method)_, the first process applied to original time series _raw data_, is _[De-clustering](#decluster)_, and then, _[Thresholding](#thresholding)_. 
+As storm information is not available for any of the data sources, all the data for the station was classified as *non-thunderstorm*. According to _[POT-PP](#pot-pp)_ method described in _[Methodology](#rmd-method)_, the first process applied to original time series _raw data_, is _[de-clustering](#decluster)_, and then, _[thresholding](#thresholding)_. 
 
-Non-thunderstorm raw data for ISD station 801120 has `r sum(years_all$count)` records, from `r index(years_all)[1]` to `r index(years_all)[length(years_all$count)]`, corresponding to a total amount time in days of `r format(imp.vals$nt.length.time, scientific=F, digits = 0)`, and to an average number of events per year of `r round(imp.vals$n.nthunders.per.year, 1)`, which means that the average duration of an event is `r round(365/imp.vals$n.nthunders.per.year, 1)` days (average size in days of a cluster). After _[De-clustering](#decluster)_ and _[Thresholding](#thresholding)_ processes, the number of records decreases to `r sum(years_declu_nt$count)`. Time series graphics are related in Figure \@ref(fig:ts), showing the data before (left) and after (right) applying the mentioned processes. Detailed yearly statistics are reported in Table \@ref(tab:years801120), also including summary for before (left), and after (right). 
+Non-thunderstorm raw data for ISD station 801120 has `r sum(years_all$count)` records, from `r index(years_all)[1]` to `r index(years_all)[length(years_all$count)]`, corresponding to a total amount time in days of `r format(imp.vals$nt.length.time, scientific=F, digits = 0)`, and to an average number of events per year of `r round(imp.vals$n.nthunders.per.year, 1)`, which means that the average duration of an event is `r round(365/imp.vals$n.nthunders.per.year, 1)` days (average size in days of a cluster). After _[de-clustering](#decluster)_ and _[thresholding](#thresholding)_ processes, the number of records decreases to `r sum(years_declu_nt$count)`. Time series graphics are related in Figure \@ref(fig:ts), showing the data before (left) and after (right) applying the mentioned processes. Detailed yearly statistics are reported in Table \@ref(tab:years801120), also including summary for before (left), and after (right). 
 
 ```{r years801120, echo=FALSE, message=FALSE, warning=FALSE, paged.print=TRUE, results="asis"}
 #years_declu_nt
@@ -763,7 +763,7 @@ Maps in this section correspond to: (a) existing hurricane maps from previous st
 
 ### Existing Hurricane Maps
 
-The Colombian consulting firm _Ingeniar Ltda_, following the methodology described in [@hurricanemaps], and [@hurricanemaps2], has provided raster wind maps for return periods 10, 20, 50, 100, 250, 500, 700, 1000, 1700, 3000, and 7000 years, resulting from the probabilistic study of winds due to hurricanes in the Colombian Caribbean Sea and the surrounding continental zone. Figure \@ref(fig:ingeniarmaps) shows three of mentioned maps.
+The Colombian consulting firm _Ingeniar Ltda_, following the methodology described in @hurricanemaps, and @hurricanemaps2, has provided raster wind maps for return periods 10, 20, 50, 100, 250, 500, 700, 1000, 1700, 3000, and 7000 years, resulting from the probabilistic study of winds due to hurricanes in the Colombian Caribbean Sea and the surrounding continental zone. Figure \@ref(fig:ingeniarmaps) shows three of mentioned maps.
 
 
 ```{r ingeniarmaps, echo=FALSE, fig.cap="Ingeniar Hurricane Wind Maps", message=FALSE, warning=FALSE, fig.height=1.75, fig.width=6.5}
@@ -908,7 +908,7 @@ plot_grid(c700, c1700, c3000, legend, ncol=4, rel_widths=c(1, 1, 1, 0.13))
 Using POT-PP to calculate RL in ISD stations, continuous maps covering the study area were created using _[Spatial Interpolation Techniques](#si)_ as described in _[Methodology](#rmd-method)_.
 
 
-```{r isdnhmaps, echo=FALSE, fig.cap="ISD Non-Hurricane Wind Maps", message=FALSE, warning=FALSE, fig.height=2.7, fig.width=6.5}
+```{r isdnhmaps, echo=FALSE, fig.cap="ISD Non-Hurricane Wind Maps", message=FALSE, warning=FALSE, fig.height=2.8, fig.width=6.5}
 #
 #ISD Non-Hurricane Wind Maps
 #
@@ -1190,7 +1190,7 @@ plot_grid(c700, c1700, c3000, legend, ncol=4, rel_widths=c(1, 1, 1, 0.1))
 
 Following the procedure described in _[Integration with Hurricane Data](#integration)_, final wind maps were created, combining existing data for hurricane studies, and non-hurricane maps produced in this study.
 
-```{r isdcbmaps, echo=FALSE, fig.cap="ISD Hurricane & Non-Hurricane Wind Maps", message=FALSE, warning=FALSE, fig.height=2.7, fig.width=6.5}
+```{r isdcbmaps, echo=FALSE, fig.cap="ISD Hurricane & Non-Hurricane Wind Maps", message=FALSE, warning=FALSE, fig.height=2.8, fig.width=6.5}
 #
 #ISD Hurricane & Non-Hurricane Wind Maps
 #
@@ -1328,7 +1328,7 @@ plot_grid(c700, c1700, c3000, legend, ncol=4, rel_widths=c(1, 1, 1, 0.1))
 ```
 
 
-```{r era5cbmaps, echo=FALSE, fig.cap="ERA5 Hurricane & Non-Hurricane Wind Maps", message=FALSE, warning=FALSE, fig.height=2.7, fig.width=6.5}
+```{r era5cbmaps, echo=FALSE, fig.cap="ERA5 Hurricane & Non-Hurricane Wind Maps", message=FALSE, warning=FALSE, fig.height=2.8, fig.width=6.5}
 #
 #ERA5 Hurricane & Non-Hurricane Wind Maps
 #

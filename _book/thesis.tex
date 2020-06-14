@@ -231,7 +231,7 @@ WGS84 \> World Geodetic System 1984
 
 \Abstract{
 This research aims to create non-hurricane non-tornadic maps of extreme wind speeds for the \emph{mean recurrence intervals} MRIs 700, 1700, and 3000 years, covering the Colombian territory. For infrastructure design, these maps are combined with existing hurricane wind speed studies, to be used as input loads due to wind.
-For each station with non-thunderstorm wind speeds time histories in the input data, following (Pintar, Simiu, Lombardo, \& Levitan, \protect\hyperlink{ref-Pintar2015}{2015}), extreme wind speeds corresponding to each MRI are calculated using a \emph{Peaks Over Threshold Poisson Process POT-PP} extreme value model, then wind velocities with the same MRI are \emph{spatially interpolated} to generate continuous maps for the whole study area. The annual exceedance probability for all velocity values in 700, 1700 and 3000 years MRIs output maps are respectively 1/700, 1/1700 and 1/3000.
+For each station with non-thunderstorm wind speeds time histories in the input data, following Pintar, Simiu, Lombardo, \& Levitan (\protect\hyperlink{ref-Pintar2015}{2015}), extreme wind speeds corresponding to each MRI are calculated using a \emph{Peaks Over Threshold Poisson Process POT-PP} extreme value model, then wind velocities with the same MRI are \emph{spatially interpolated} to generate continuous maps for the whole study area. The annual exceedance probability for all velocity values in 700, 1700 and 3000 years MRIs output maps are respectively 1/700, 1/1700 and 1/3000.
 Regarding input data, not only time series of field measurements from IDEAM methodological stations are used, but also post-processed information coming from the Integrated Surface Database ISD, and ERA5 forecast reanalysis data. This condition demanded a comparison of the different data sources, in order to verify the feasibility in the use of ISD and ERA5, this is downscaling support. The result of the comparison showed little similarity between the different sources, but taking into account that complete and adequate measured data from IDEAM was not available. Before to apply POT-PP, ISD and IDEAM data sources were standardized to meet the requirement of three seconds (3-s) wind gust speed, ten (10) meters anemometer height, and terrain open space condition.
 Due to the limitation in the classification of thunderstorm and non-thunderstorm data, it was not possible to take real advantage of POT-PP method, which was limited/restricted from non-homogeneous to homogeneous and from non-stationary to stationary, being equivalent to use the most common POT - generalized Pareto approach. Non-hurricane maps were created for data sources ISD and ERA5, using Kriging as spatial interpolation method. After the integration with previous hurricane studies, the results of ERA5 showed the most reliable final maps, despite limitations in the input data to guarantee downscaling support. ISD final map showed very high wind values, which are unlikely. These shortcomings may be corrected when complete IDEAM data-source and storm data classification are available.
 A complete R tool was implemented to solve the whole process, which is based on copyrighted code for de-clustering and thresholding generously given by Dr Adam L. Pintar \href{mailto:adam.pintar@nist.gov}{\nolinkurl{adam.pintar@nist.gov}} - National Institute of Standards and Technology NIST, U.S Department of Commerce.
@@ -302,7 +302,7 @@ A complete R tool was implemented to solve the whole process, which is based on 
   \listoffigures
   \begin{abstract}
     This research aims to create non-hurricane non-tornadic maps of extreme wind speeds for the \emph{mean recurrence intervals} MRIs 700, 1700, and 3000 years, covering the Colombian territory. For infrastructure design, these maps are combined with existing hurricane wind speed studies, to be used as input loads due to wind.
-    For each station with non-thunderstorm wind speeds time histories in the input data, following (Pintar, Simiu, Lombardo, \& Levitan, \protect\hyperlink{ref-Pintar2015}{2015}), extreme wind speeds corresponding to each MRI are calculated using a \emph{Peaks Over Threshold Poisson Process POT-PP} extreme value model, then wind velocities with the same MRI are \emph{spatially interpolated} to generate continuous maps for the whole study area. The annual exceedance probability for all velocity values in 700, 1700 and 3000 years MRIs output maps are respectively 1/700, 1/1700 and 1/3000.
+    For each station with non-thunderstorm wind speeds time histories in the input data, following Pintar, Simiu, Lombardo, \& Levitan (\protect\hyperlink{ref-Pintar2015}{2015}), extreme wind speeds corresponding to each MRI are calculated using a \emph{Peaks Over Threshold Poisson Process POT-PP} extreme value model, then wind velocities with the same MRI are \emph{spatially interpolated} to generate continuous maps for the whole study area. The annual exceedance probability for all velocity values in 700, 1700 and 3000 years MRIs output maps are respectively 1/700, 1/1700 and 1/3000.
     Regarding input data, not only time series of field measurements from IDEAM methodological stations are used, but also post-processed information coming from the Integrated Surface Database ISD, and ERA5 forecast reanalysis data. This condition demanded a comparison of the different data sources, in order to verify the feasibility in the use of ISD and ERA5, this is downscaling support. The result of the comparison showed little similarity between the different sources, but taking into account that complete and adequate measured data from IDEAM was not available. Before to apply POT-PP, ISD and IDEAM data sources were standardized to meet the requirement of three seconds (3-s) wind gust speed, ten (10) meters anemometer height, and terrain open space condition.
     Due to the limitation in the classification of thunderstorm and non-thunderstorm data, it was not possible to take real advantage of POT-PP method, which was limited/restricted from non-homogeneous to homogeneous and from non-stationary to stationary, being equivalent to use the most common POT - generalized Pareto approach. Non-hurricane maps were created for data sources ISD and ERA5, using Kriging as spatial interpolation method. After the integration with previous hurricane studies, the results of ERA5 showed the most reliable final maps, despite limitations in the input data to guarantee downscaling support. ISD final map showed very high wind values, which are unlikely. These shortcomings may be corrected when complete IDEAM data-source and storm data classification are available.
     A complete R tool was implemented to solve the whole process, which is based on copyrighted code for de-clustering and thresholding generously given by Dr Adam L. Pintar \href{mailto:adam.pintar@nist.gov}{\nolinkurl{adam.pintar@nist.gov}} - National Institute of Standards and Technology NIST, U.S Department of Commerce.
@@ -360,7 +360,7 @@ The development of this research (focused in non-hurricane data), covers three m
 
 Due to the specific characteristics of the study area where there is lack of historical wind measurements, it became necessary to look for alternative data sources: ISD, and ERA5 forecast data. This resulted in a downscaling issue that was confronted from a graphic comparison of all sources by matching stations, in the search of adequate \emph{downscaling support} for the use of complementary data. Prior to the comparison process, ISD and IDEAM data sources were standardized to represent 3-second wind gust, 10 meters of anemometer height, and terrain open space roughness.
 
-The \emph{temporal analysis} method used to calculate the return levels at each station from the historical wind time series, is the Peaks Over Threshold POT using a non-homogeneous bi-dimensional Poisson Process PP recommended by (ASCE, \protect\hyperlink{ref-Asce2017}{2017}) and developed in (Pintar et al., \protect\hyperlink{ref-Pintar2015}{2015}). Main components of POT-PP model are de-clustering, thresholding, intensity function fitting, hazard curve, and return levels calculation. At each station with non-thunderstorm data, this model starts with a process of de-clustering choosing a suitable threshold level to leave for the analysis only the most extreme available values, and then, fit to the data an intensity function using maximum likelihood to find optimal parameters with the best goodness of fit. With the fitted model, and using the hazard curve, it was possible to calculate extreme wind velocities or return levels for required MRIs.
+The \emph{temporal analysis} method used to calculate the return levels at each station from the historical wind time series, is the Peaks Over Threshold POT using a non-homogeneous bi-dimensional Poisson Process PP recommended by ASCE (\protect\hyperlink{ref-Asce2017}{2017}) and developed in Pintar et al. (\protect\hyperlink{ref-Pintar2015}{2015}). Main components of POT-PP model are de-clustering, thresholding, intensity function fitting, hazard curve, and return levels calculation. At each station with non-thunderstorm data, this model starts with a process of de-clustering choosing a suitable threshold level to leave for the analysis only the most extreme available values, and then, fit to the data an intensity function using maximum likelihood to find optimal parameters with the best goodness of fit. With the fitted model, and using the hazard curve, it was possible to calculate extreme wind velocities or return levels for required MRIs.
 
 The integration of all these results allow to generate non-hurricane continuous maps of extreme winds velocities (using \emph{Kriging} as \emph{spatial analysis} method), which are combined with \emph{existing wind extreme hurricane studies} to be used as input loads for the design of structures of different risk categories, i.e., less risky/important structures for short MRIs (700 and 1700 years), and highly important structures for the longest MRI of 3000 years.
 
@@ -375,15 +375,15 @@ According to Coles (\protect\hyperlink{ref-Coles2003}{2003}), there are four mai
 
 In general, there are two approaches to deal with extreme value analysis (Pintar et al., \protect\hyperlink{ref-Pintar2015}{2015}), the classical approach, and peaks over threshold POT. In this research, POT is selected over classical approach to be able to use more samples for statistical estimation.
 
-The classical approach or traditional method, as well known as \emph{sample maxima} or \emph{yearly maxima} is associated to a generalized extreme value distribution GEV (Fisher \& Tippett, \protect\hyperlink{ref-Fisher1928}{1928}; Gnedenko, \protect\hyperlink{ref-Gnedenko1943}{1943}). GEV is a family of limit probability distributions including Gumbel, Fréchet and Weibull, unified in (Jenkinson, \protect\hyperlink{ref-Jenkinson1955}{1955}; Mises, \protect\hyperlink{ref-Mises1954}{1954}). The GEV family \emph{describes all limiting distributions of the centered and normalized sample maximum} (Coles, \protect\hyperlink{ref-Coles2003}{2003}).
+The classical approach or traditional method, as well known as \emph{sample maxima} or \emph{yearly maxima} is associated to a generalized extreme value distribution GEV (Fisher \& Tippett, \protect\hyperlink{ref-Fisher1928}{1928}; Gnedenko, \protect\hyperlink{ref-Gnedenko1943}{1943}). GEV is a family of limit probability distributions including Gumbel, Fréchet and Weibull, unified in Mises (\protect\hyperlink{ref-Mises1954}{1954}) and Jenkinson (\protect\hyperlink{ref-Jenkinson1955}{1955}). The GEV family \emph{describes all limiting distributions of the centered and normalized sample maximum} (Coles, \protect\hyperlink{ref-Coles2003}{2003}).
 
 POT models the values above a chosen high level, and in general, the POT method has two approaches (Smith, \protect\hyperlink{ref-Smith2004}{2004}): (a) exceedances over threshold associated to a Generalized Pareto Distribution GPD, onwards \emph{POT-Poisson-GPD}; and (b) the exceedances over threshold associated to a non-homogeneous non-stationary bi-dimensional Poisson process POT-PP (a point process approach). POT-PP is considering to be more flexible than generalized Pareto approach (Coles, \protect\hyperlink{ref-Coles2001}{2001}), so for this study, POT-PP method is selected.
 
 Selection of threshold level is relevant in POT. A low threshold (more exceedances) implies less variance and weak asymptotic support, but high bias. A high threshold (fewer exceedances) implies more variance and stronger asymptotic support, but low bias.
 
-POT-Poisson-GPD models wind magnitudes over the threshold as a GPD, and time as a separated Poisson process (Pickands III \& others, \protect\hyperlink{ref-PickandsIII1975}{1975}). This method was used for the first time as statistical application in (Davison \& Smith, \protect\hyperlink{ref-Davison1990}{1990}). The generalized Pareto family describes all possible limiting distributions of the distributions scaled above the threshold (Coles, \protect\hyperlink{ref-Coles2003}{2003}).
+POT-Poisson-GPD models wind magnitudes over the threshold as a GPD, and time as a separated Poisson process (Pickands III \& others, \protect\hyperlink{ref-PickandsIII1975}{1975}). This method was used for the first time as statistical application in Davison \& Smith (\protect\hyperlink{ref-Davison1990}{1990}). The generalized Pareto family describes all possible limiting distributions of the distributions scaled above the threshold (Coles, \protect\hyperlink{ref-Coles2003}{2003}).
 
-In POT-PP time and magnitude above the threshold are modeled using a two-dimensional Poisson process (Pickands, \protect\hyperlink{ref-Pickands1971}{1971}). This method was applied for the first time in (Smith, \protect\hyperlink{ref-Smith1989}{1989}).
+In POT-PP time and magnitude above the threshold are modeled using a two-dimensional Poisson process (Pickands, \protect\hyperlink{ref-Pickands1971}{1971}). This method was applied for the first time in Smith (\protect\hyperlink{ref-Smith1989}{1989}).
 
 There are many techniques to estimate the parameters of extreme value models, i.e.~graphical methods, estimators based on moments, order statistics, and likelihood based (Coles, \protect\hyperlink{ref-Coles2003}{2003}). Smith (\protect\hyperlink{ref-Smith1985}{1985}) supported the use of likelihood methods due to \emph{asymptotic normality} guaranteed when shape parameter is greater than 0.5, excluding light tailed distributions with finite end point. In addition, likelihood method is easy to evaluate and solve numerically, and the calculation of standard errors and confidence intervals is possible using asymptotic theory.
 
@@ -428,7 +428,7 @@ Specific objectives are:
 
 Main question of this research is directed to calculate future wind extreme velocities (return levels) for infrastructure design, then the research is:
 
-\textbf{What wind extreme velocities need to be used as load design forces for structures of different use category, in the study area?}
+\textbf{What wind extreme velocities need to be used as load design forces for structures of different use category in the study area?}
 
 \hypertarget{case-study}{%
 \section{Case Study}\label{case-study}}
@@ -444,7 +444,7 @@ Historically, hurricanes have only affected the Colombian Caribbean coast in a n
 \hypertarget{outline}{%
 \section{Outline}\label{outline}}
 
-Main sections of thesis document are 1) Introduction, 2) Data, 3) Theoretical Framework, 4) Methodology, 5) Results and Discussion, 5) Conclusions, and 6) Annexes, from A to E.
+Main sections of thesis document are 1) Introduction, 2) Data, 3) Theoretical Framework, 4) Methodology, 5) Results and Discussion, 5) Conclusions, and 6) Annexes (from A to E).
 
 After introduction, in second section \emph{\protect\hyperlink{rmd-data}{Data}}, main information about data sources IDEAM, ISD, and ERA5 are described, including at the end additional details for ERA5 in Annex \ref{datadownload}. Annex \ref{dbstoring} explains reasons for using PostgreSQL engine, and the database backup and restoration process.
 
@@ -454,7 +454,7 @@ The \emph{\protect\hyperlink{rmd-method}{Methodology}} chapter includes the proc
 
 \emph{\protect\hyperlink{rmd-results}{Results and Discussion}} section shows, (1) all results for data standardization and comparison to support the downscaling issue, (2) all POT-PP results for one ISD station, (3) all output maps for ISD and ERA5 data sources including discussions of those finals results. These discussions are complemented by the \emph{\protect\hyperlink{conclusions}{Conclusions}} section.
 
-To finalize the document, a series of appendices were created to facilitate the reproducibility of the research. Appendix \ref{rcode} contains \emph{research R code}. It is necessary to considering that the code provided by \emph{Dr.~Adam L. Pintar} to do the de-clustering and thresholding in POT-PP is not there because its publication and distribution is not authorized. Appendix \ref{results} contains all \emph{results in digital format}. Appendix \ref{datadownload} compliments the information needed to \emph{download ERA5} data. Appendix \ref{dbstoring} shows the use of PostgreSQL for data storage, and provides instructions for backup and restoring. Because the document for the thesis was done using package ´thesisdown´ (which is based on ´bookdown´) the most important \emph{document R code} to create the thesis document, mainly graphics, is shown in Appendix \ref{docrcode}. Finally, in Appendix F \ref{manual}, a \emph{user manual} is presented, in order to provide instruction to apply the same methodology in a different case study.
+To finalize the document a series of appendices were created to facilitate the reproducibility of the research. Appendix \ref{rcode} contains \emph{research R code}. It is necessary to consider that the code provided by \emph{Dr.~Adam L. Pintar} to do the de-clustering and thresholding in POT-PP is not there because its publication and distribution is not authorized. Appendix \ref{results} contains all \emph{results in digital format}. Appendix \ref{datadownload} compliments the information needed to \emph{download ERA5} data. Appendix \ref{dbstoring} shows the use of PostgreSQL for data storage and provides instructions for backup and restoring. Because the document for the thesis was done using package \texttt{thesisdown} (Solomon, \protect\hyperlink{ref-Solomon2019}{2019}), which is based on \texttt{bookdown} (Xie, \protect\hyperlink{ref-Xie2020}{2020}), the most important \emph{document R code} to create the document (mainly graphics) is shown in Appendix \ref{docrcode}. Finally, in Appendix \ref{manual} a \emph{user manual} is presented in order to provide instructions to apply the same methodology in a different case study.
 
 \hypertarget{rmd-data}{%
 \chapter{Data}\label{rmd-data}}
@@ -629,14 +629,11 @@ All data sources had different mechanisms for downloading. For IDEAM, the offici
 
 PDF defines the probability that a continuous variable falls between two points. In PDF the probability is related to the area below the curve (integral) between two points, as for continuous probability distributions the probability at a single point is zero. The term density is related to the quantity of probability defined below each part of the curve, the higher the values of the curve, the higher the density and, consequently, the probability.
 \begin{equation}
-\mathrm{
         \int_a^b f(x)dx = Pr[a \leq X \leq b]
-       }
   \label{eq:pdf}
 \end{equation}
 Equation \eqref{eq:gumbelpdf} is the Gumbel PDF.
 \begin{equation}
-  \mathrm{
           f(x)=\frac{1}{\beta}
           \exp\left\{
             -\frac{x-\mu}{\beta}
@@ -649,7 +646,6 @@ Equation \eqref{eq:gumbelpdf} is the Gumbel PDF.
             \right\}
           \right\},
           \quad -\infty < x < \infty
-         }
   \label{eq:gumbelpdf}
 \end{equation}
 where \(\exp\left\{.\right\}\) is \(\mathrm{e}^{\left\{.\right\}}\), \(\beta\) the scale parameter, and \(\mu\) the location parameter. Location (\(\mu\)) has the effect to shift the PDF to left or right along `x' axis, thus, if location value is changed the effect is a movement to the left (small value for location), or to the right (big value for location). Scale has the effect to stretch (\(\beta > 1\)) of compress (\(0 < \beta< 1\)) the PDF, if scale parameter is close to zero it approaches a spike.
@@ -677,24 +673,18 @@ Figure \ref{fig:plotgumbelpdffunction} shows PDF with location (\(\mu\)) = 100 a
 
 CDF is the probability of taking a value less than or equal to x. That is
 \begin{equation}
-\mathrm{
         F(x) = Pr[X < x] = \alpha
-       }
   \label{eq:cdf1}
 \end{equation}
 For a continuous variable, CDF can be expressed as the integral of its PDF.
 \begin{equation}
-\mathrm{
         F(x) = \int_{-\infty}^x f(x)dx
-       }
   \label{eq:cdf2}
 \end{equation}
 Equation \eqref{eq:gumbelcdf} is the Gumbel CDF.
 \begin{equation}
-\mathrm{
         F(x) = \exp\left\{-\exp\left[-\left(\frac{x-\mu}{\beta}\right)\right]\right\}, 
         \quad -\infty < x < \infty
-        }
   \label{eq:gumbelcdf}
 \end{equation}
 Figure \ref{fig:plotgumbelcdffunction} shows Gumbel CDF with location (\(\mu\)) = 100 and scale (\(\beta\)) = 40, using Equation \eqref{eq:gumbelcdf}. As previously done with PDF, similar result can be achieved using function \texttt{pgumbel} of package \texttt{RcmdrMisc}.
@@ -712,17 +702,13 @@ Figure \ref{fig:plotgumbelcdffunction} shows Gumbel CDF with location (\(\mu\)) 
 
 PPF is the inverse of CDF, also called the \emph{quantile} function. This is, from a specific probability get the corresponding value x of the variable.
 \begin{equation}
-\mathrm{
         x = G(\alpha) = G(F(x))
-       }
   \label{eq:ppf}
 \end{equation}
 Equation \eqref{eq:gumbelppf} is the Gumbel PPF.
 \begin{equation}
-\mathrm{
         G(\alpha) = \mu-\beta ln(-ln(\alpha))
         \quad 0 < \alpha < 1
-        }
   \label{eq:gumbelppf}
 \end{equation}
 Figure \ref{fig:plotgumbelppffunction} shows Gumbel PPF, using Equation \eqref{eq:gumbelppf}. Similar result can be achieved using function \texttt{qgumbel} of package \texttt{RcmdrMisc}.
@@ -750,16 +736,12 @@ Figure \ref{fig:plotgumbelhffunction} shows Gumbel HF, using Equation \eqref{eq:
 
 HF is the ratio between PDF and SF. SF is the survival function \(S(x) = 1 - F(x)\), which defines the probability that a variable takes a value greater than x, \(S(x) = Pr[X > x] = 1 - F(x)\).
 \begin{equation}
-\mathrm{
         h(x) = \frac{f(x)}{S(x)} = \frac{f(x)}{1-F(x)}
-       }
   \label{eq:hf}
 \end{equation}
 Equation \eqref{eq:gumbelhf} is the Gumbel HF.
 \begin{equation}
-\mathrm{
         h(x)= \frac{1}{\beta}\frac{\exp(-(x-\mu)/\beta)}{\exp(\exp(-(x-\mu)/\beta))-1}
-       }
   \label{eq:gumbelhf}
 \end{equation}
 \hypertarget{statistical-concepts-for-extreme-analysis}{%
@@ -782,9 +764,7 @@ Using the previously described database, a question arises to calculate the prob
 
 The annual exceedance probability \(P_e\) equals to the ratio between \emph{event index after descending sorting} and \emph{years of simulations}. The highest wind will be the first in the sorted list.
 \begin{equation}
-\mathrm{
         P_e = \frac{\textrm{Event index after descending sorting}}{\textrm{Years of simulations}}= \frac{1}{10.000}=0.001=0.01\%
-       }
   \label{eq:pedatabase}
 \end{equation}
 Same exercise can be done with all winds to construct the annual exceedance probability curve, that in this case will represent the probability to equal or exceed different probable damage due to wind.
@@ -796,7 +776,6 @@ Continuing with the previous section, if the inverse of the exceedance probabili
 
 The formula to calculate the annual exceedance probability of the return level depends on the MRI value as shown below:
 \begin{equation}
-\mathrm{
         P_e = 
         \begin{cases}
           \begin{split}
@@ -805,7 +784,6 @@ The formula to calculate the annual exceedance probability of the return level d
                 &\frac{1}{MRI},\;\textrm{for MRI }\geq\textrm{ 10years}      
           \end{split}
         \end{cases}
-       }
   \label{eq:pe}
 \end{equation}
 For a specific wind extreme event A, the probability that the event will occur in a period equal to MRI years is 63\%. If we analyze for the same period a strongest wind extreme event B, its occurrence probability will be less than 63\%. If the purpose of this research is to design infrastructure considering wind loads, the structure will be more resistant to wind if we design with stronger winds, this is high MRIs, and low annual exceedance probability. Common approach for infrastructure design, considering any type of load (earthquake, wind, etc.) is to choose high MRI according to the importance/use/risk/type of the structure. For highly important structures, like hospitals or coliseums, where the risk of collapse must be diminished, the MRI used to design is higher in comparison to common structures (for instance a normal house), which implies less risks for its use and importance.
@@ -823,9 +801,7 @@ For a specific wind extreme event A, the probability that the event will occur i
 
 It is possible to calculate a compound probability \(P_n\), where \(n\) is the exposure period. The exposure period is the usage time of the structures that have been designed with an extreme wind speed. \(P_n\) is the probability that the extreme wind speed will be equaled or exceeded at least one time in \(n\) years, and in this sense it is a probability of occurrence:
 \begin{equation}
-\mathrm{
         P_n = 1-\left(1-\frac{1}{MRI}\right)^n,\;\textrm{occurrence probability}
-       }
   \label{eq:pn}
 \end{equation}
 As a complementary probability, it is possible to calculate the compound non-occurrence probability as \(\left(1-\frac{1}{MRI}\right)^n\)
@@ -855,9 +831,7 @@ Once candidate parameters are available, it is necessary to assess the goodness 
 
 The main use of the fitted model is the estimation of mean return intervals MRI, and extreme wind speeds (return levels),
 \begin{equation}
-\mathrm{
         MRI=\frac{1}{1-F(y)}
-       }
   \label{eq:mri}
 \end{equation}
 with \(F(y)\) as the CDF. If \(1-F(y)\) is the annual exceedance probability, MRI is its inverse; see (Simiu \& Scanlan, \protect\hyperlink{ref-Simiu1996}{1996}) for more details about MRI. If \(y\) is solved from Equation \eqref{eq:mri} using a given MRI of N-years, its value represents the \(Y_N\) wind speed return level. Refer to each specific method bellow for specific solutions to \(Y_N\).
@@ -869,12 +843,10 @@ The CRAN Task View ``Extreme Value Analysis'' \url{https://cran.r-project.org/we
 
 To work with random variables of sample maximum values, used probability distribution function PDF is GEV:
 \begin{equation}
-\mathrm{
         H(y) = \exp\left\{-\left[1+\xi\frac{x-\mu}{\psi}\right]_+^{-\frac{1}{\xi}}\right\}
-       }
   \label{eq:epochalpdf}
 \end{equation}
-Where \(\xi\neq0\), \([...]_+ = max([...],0)\), \(\mu\) is the location parameter, \(\psi > 0\) is a scale parameter, and \(\xi\) is a shape parameter. GEV combines in one unique family the Gumbel (medium-tailed) distribution (limit \(\xi\rightarrow0\)), Fréchet (long-tailed) distribution (\(\xi>0\)), and Weibull (short-tailed) distribution (\(\xi<0\)).
+where \(\xi\neq0\), \([...]_+ = max([...],0)\), \(\mu\) is the location parameter, \(\psi > 0\) is a scale parameter, and \(\xi\) is a shape parameter. GEV combines in one unique family the Gumbel (medium-tailed) distribution (limit \(\xi\rightarrow0\)), Fréchet (long-tailed) distribution (\(\xi>0\)), and Weibull (short-tailed) distribution (\(\xi<0\)).
 
 \hypertarget{pot-poisson-gpd}{%
 \subsection{Peaks Over Threshold using GPD and 1D Poisson Process POT-Poisson-GPD}\label{pot-poisson-gpd}}
@@ -883,18 +855,14 @@ In this model, (a) the magnitude of the observations above the threshold are ass
 
 With the condition of exceeding some high threshold \(b\), as a consequence \(y = (x-b) > 0\), the CDF of \(y\) is the generalized Pareto distribution GPD:
 \begin{equation}
-\mathrm{
         F(y) = 1 - \left[1-\xi\frac{y}{\sigma}\right]^{-\frac{1}{\xi}}_+,
-       }
   \label{eq:gpd}
 \end{equation}
 where \([...]_+ = max([...],0)\), \(b\) is the threshold. In both GPD (magnitude), and \(1D\) Poisson process (time), it is not possible to differentiate between thunderstorm and non-thunderstorm wind types. Pickands (\protect\hyperlink{ref-Pickands1971}{1971}) found a rigorous connection between epochal (GEV) and limits results of POT-Poisson-GPD, as parameter shape \(\xi\) in Equations \eqref{eq:epochalpdf} and \eqref{eq:gpd} are exactly the same. The long-tailed case when \(\xi>0\), GPD behaves as usual Pareto distribution, for \(\xi = 0\) (taking the limit \(\xi\rightarrow0\)) it behaves as exponential distribution, and \(\xi<0\) the distribution has a finite upper endpoint at \(-\frac{\sigma}{\xi}\).
 
 The equation to calculate return levels (RL) \(Y_N\) corresponding to the N-years return period in POT-Poisson-GPD is:
 \begin{equation}
-\mathrm{
         Y_N =G\left(y, 1-\frac{1}{\lambda\,N}\right)
-       }
   \label{eq:yngpd}
 \end{equation}
 where \(G\) is the quantile function (PPF), and the value of the probability passed to the \(G\) function, has to be modified with the \(\lambda\) parameter. \(\lambda\) is the number of wind speed events over the threshold per year.
@@ -902,11 +870,10 @@ where \(G\) is the quantile function (PPF), and the value of the probability pas
 \hypertarget{method-pot-pp}{%
 \subsection{Peaks Over Threshold Using a 2D Poisson Process POT-PP}\label{method-pot-pp}}
 
-According to (Pintar et al., \protect\hyperlink{ref-Pintar2015}{2015}) the stochastic Poisson Process PP is mainly defined by its intensity function. As the intensity function is not uniform over the domain, the PP considered here is non-homogeneous, and due to the intensity function dependency of magnitude and time, it is also bi-dimensional. PP was described for the first time in (Pickands, \protect\hyperlink{ref-Pickands1971}{1971}), then extended in (Smith, \protect\hyperlink{ref-Smith1989}{1989}).
+According to Pintar et al. (\protect\hyperlink{ref-Pintar2015}{2015}), the stochastic Poisson Process PP is mainly defined by its intensity function. As the intensity function is not uniform over the domain, the PP considered here is non-homogeneous, and due to the intensity function dependency of magnitude and time, it is also bi-dimensional. PP was described for the first time in Pickands (\protect\hyperlink{ref-Pickands1971}{1971}), then extended in Smith (\protect\hyperlink{ref-Smith1989}{1989}).
 
 Generic Equation \eqref{eq:ppgenericintensityfunction} shows the intensity function, which is defined in the domain \(D = D_t\,{\cup}\,D_{nt}\), and allow to fit the PP at each station to the observed data \(\{t_i, y_i\}_{i=1}^I\), for all the times (\(t_i\)) of threshold crossing observations, and its corresponding wind speeds magnitudes (\(y_i\)). Thus, only data above the threshold (POT) are used.
 \begin{equation}
-  \mathrm{
     \lambda\left(y,t\right)
     \begin{cases}
       \begin{split}
@@ -915,17 +882,14 @@ Generic Equation \eqref{eq:ppgenericintensityfunction} shows the intensity funct
             &\lambda_{nt}(y),\;\textrm{for t in non-thunderstorm period}      
       \end{split}
     \end{cases}
-  }
   \label{eq:ppgenericintensityfunction}
 \end{equation}
 The specific intensity function of the PP is defined in (Smith, \protect\hyperlink{ref-Smith2004}{2004}) and is shown in Equation \eqref{eq:ppintensityfunction}:
 \begin{equation}
-  \mathrm{
     \frac{1}{\psi_t}\left(1+\zeta_t\frac{y-\omega_t}{\psi_t}\right)_+^{-\frac{1}{\zeta_t}-1}
-  }
   \label{eq:ppintensityfunction}
 \end{equation}
-where, at a given time \(t\), parameter \(shape = \zeta_t\) controls the tail length of the intensity function, and the other two parameters \(\omega_t\) and \(\psi_t\) define the location and scale of the intensity function.
+where, at a given time \(t\) parameter \(shape = \zeta_t\) controls the tail length of the intensity function, and the other two parameters \(\omega_t\) and \(\psi_t\) define the location and scale of the intensity function.
 
 Figure \ref{fig:plotdomainpp} represent the domain \(D\) of PP. In time, the domain represents the station service period from first sample \(t_1\) to last sample \(t_4\). \(D\) is the union of all thunderstorm periods \(D_t\) (from \(t_2\) to \(t_3\)), and all non-thunderstorm periods \(D_{nt}\) (periods \(t_1\) to \(t_2\) and \(t_3\) to \(t_4\)). In magnitude, only thunderstorm data above its threshold \(b_t\), and only non-thunderstorm data above its threshold \(b_{nt}\) are used.
 
@@ -954,14 +918,12 @@ Visual representation of the intensity function for PP can be seen in Figure \re
 \end{figure}
 To fit the intensity function to the data, the method of maximum likelihood is used to estimate its parameters, \(scale = \psi\), \(location = \omega\), and \(shape = \zeta\), the selected vector of parameters \(\eta\) are the \(\hat\eta = (\hat\psi, \hat\omega, \hat\zeta)\) values that maximizes the function:
 \begin{equation}
-  \mathrm{
           L(\eta)=\left( 
                         \prod_{i=1}^I\lambda\left(y_i,t_i\right)  
                   \right)
                   \exp\left\{
                             -\int_{{D}}\lambda\left(y,t\right)dy\,dt
                      \right\}.
-         }
   \label{eq:pplikelihood}
 \end{equation}
 The values of \(\hat\eta\) need to be calculated using a numerical approach, because there is not analytical solution available.
@@ -972,9 +934,7 @@ A \(Y_N\) extreme wind velocity, called the return level (RL) belonging to the N
 
 For PP \(Y_N\) is defined in terms of the intensity function as the solution to the equation
 \begin{equation}
-  \mathrm{
           \int_{Y_N}^{\infty}\int_0^1\lambda\left( y,t\right)dydt = A_t\int_{Y_N}^{\infty}\lambda_t\left( y\right)\,dy + A_{nt}\int_{Y_N}^{\infty}\lambda_{nt}\left( y\right)\,dy = \frac{1}{N}
-         }
   \label{eq:pprl}
 \end{equation}
 where \(A_t\), is the multiplication of the average number of thunderstorm per year and the average length of a thunderstorm, taken to be 1 hour as defined in (Pintar et al., \protect\hyperlink{ref-Pintar2015}{2015}), and \(A_{nt} = 365 - A_t\). The average length of a non-thunderstorm event is variable, and it is adjusted for each station to guarantee that \(A_{nt} + A_t = 365\). Value 365 is used only, if operations with time in the dataset are performed in days.
@@ -1000,7 +960,7 @@ ASCE7-16 (page 734), requires the calculation of wind extreme return levels for 
 \item
   Risk I - This structures represent low risk for life of people.
 \end{itemize}
-To standardize wind speeds to gust speeds ASCE7-16 proposes the curve Durst, see (C. S. Durst, \protect\hyperlink{ref-Durst1960}{1960}), and Figure \ref{fig:durstcurve}. Durst curve is only valid for open terrain conditions, and it shows in axis \(y\) the gust factor \(\frac{V_t}{V_{3600}}\), a ratio between any wind gust (maximum speeds) averaged at \(t\) seconds, \(V_t\), and the hourly averaged wind speed \(V_{3600}\), and in the axis \(x\) the duration \(t\) of the gust in seconds. Be aware that curve values in Figure \ref{fig:durstcurve} are approximated values taken visually from the original curve.
+To standardize wind speeds to gust speeds ASCE7-16 proposes the curve Durst (C. S. Durst, \protect\hyperlink{ref-Durst1960}{1960}), and Figure \ref{fig:durstcurve}. Durst curve is only valid for open terrain conditions, and it shows in axis \(y\) the gust factor \(\frac{V_t}{V_{3600}}\), a ratio between any wind gust (maximum speeds) averaged at \(t\) seconds, \(V_t\), and the hourly averaged wind speed \(V_{3600}\), and in the axis \(x\) the duration \(t\) of the gust in seconds. Be aware that curve values in Figure \ref{fig:durstcurve} are approximated values taken visually from the original curve.
 \begin{figure}
 \centering
 \includegraphics{thesis_files/figure-latex/durstcurve-1.pdf}
@@ -1056,39 +1016,29 @@ According to the protocol for field data collection and location of methodologic
 \hypertarget{rmd-roughness}{%
 \subsection{Surface Roughness at Open Terrain}\label{rmd-roughness}}
 
-Due to the effects that the terrain has on wind speed, a correction should be applied if the station is located in a geographical space considered ``not open terrain''. When terrain is open, the roughness corresponds to 0.03 meters. There are some alternative methodologies to calculate the roughness; for example, (Masters, Vickery, Bacon, \& Rappaport, \protect\hyperlink{ref-Masters2010}{2010}) uses the station data, but the separation of the measurements should not exceed one minute (something difficult to obtain), (Lettau, \protect\hyperlink{ref-Lettau1969}{1969}) uses the empirical Equation \eqref{eq:zo} (recommended in ASCE7-16 page 743, equation C26.7-1) to calculate roughness \(z_o\), which was used here,
+Due to the effects that the terrain has on wind speed, a correction should be applied if the station is located in a geographical space considered ``not open terrain''. When terrain is open, the roughness corresponds to 0.03 meters. There are some alternative methodologies to calculate the roughness; for example, Masters, Vickery, Bacon, \& Rappaport (\protect\hyperlink{ref-Masters2010}{2010}) uses the station data, but the separation of the measurements should not exceed one minute (something difficult to obtain), Lettau (\protect\hyperlink{ref-Lettau1969}{1969}) uses the empirical Equation \eqref{eq:zo} (recommended in ASCE7-16 page 743, equation C26.7-1) to calculate roughness \(z_o\), which was used here,
 \begin{equation}
-\mathrm{
         z_0= 0.5\;H_{ob}\;\frac{S_{ob}}{A_{ob}}
-       }
   \label{eq:zo}
 \end{equation}
 where \(H_{ob}\) is the average height of the obstacles, \(S_{ob}\) is the average vertical area perpendicular to the wind of the obstacles, and \(A_{ob}\) is the average area of the terrain occupied by each obstruction. The empirical exponent \(\alpha\), gradient height \(z_g\), and exposure coefficient \(K_z\), are used to calculate the correction factor \(F_{exposition}\), for \(z_0\) units are in meters.
 \begin{equation}
-\mathrm{
-        \alpha =  5.65*z_0^{-0.133}
-       }
+        \alpha =  5.65z_0^{-0.133}
   \label{eq:alpha}
 \end{equation}
 \begin{equation}
-\mathrm{
-        z_g=450*z_0^{0.125}
-       }
+        z_g=450z_0^{0.125}
   \label{eq:zg}
 \end{equation}
 \begin{equation}
-\mathrm{
-        K_z= 2.01*\left(\frac{z}{z_g}\right)
-       }
+        K_z= 2.01\left(\frac{z}{z_g}\right)
   \label{eq:kz}
 \end{equation}
 \begin{equation}
-\mathrm{
         F_{exposition} = \frac{0.951434}{K_z}
-       }
   \label{eq:fexpo}
 \end{equation}
-According to (NIST, \protect\hyperlink{ref-nist2012}{2012}), calculation of roughness needs to be weighted according to the predominance of wind magnitude in eight directions (north, south, east, west, north-east, north-west, south-east, and south-west) around the station location. The calculation in each direction can be done using a detailed aerial photo or satellite image of the station, including a radius of 800 meters. Figure \ref{fig:compassrose} shows the wind percentages in mentioned directions for a generic station. Figure \ref{fig:lettaustation2} shows the satellite image for \emph{Vanguardia} ISD station (USAF:802340), located in \emph{Villavicencio} airport, with four (south, north, east, and west) 45 degree sectors highlighted
+According to NIST (\protect\hyperlink{ref-nist2012}{2012}), calculation of roughness needs to be weighted according to the predominance of wind magnitude in eight directions (north, south, east, west, north-east, north-west, south-east, and south-west) around the station location. The calculation in each direction can be done using a detailed aerial photo or satellite image of the station, including a radius of 800 meters. Figure \ref{fig:compassrose} shows the wind percentages in mentioned directions for a generic station. Figure \ref{fig:lettaustation2} shows the satellite image for \emph{Vanguardia} ISD station (USAF:802340), located in \emph{Villavicencio} airport, with four (south, north, east, and west) 45 degree sectors highlighted
 \begin{figure}
 
 {\centering \includegraphics{thesis_files/figure-latex/compassrose-1} 
@@ -1108,7 +1058,7 @@ According to (NIST, \protect\hyperlink{ref-nist2012}{2012}), calculation of roug
 \end{figure}
 \normalsize
 
-Figure \ref{fig:lettauexamples2} shows extreme conditions for roughness, open space in left image (ISD Station 804070) with roughness value of 0.03, closed space in center image (ISD Station 803000) with roughness value of 0.1, and a typical example where mentioned Lettau procedure is needed because roughness is different in each direction, in right image. Lettau Equation \eqref{eq:zo} need to be applied to each direction and then the final \(z_o\) value is the weighted average, using historical wind percentage. See Figure \ref{fig:lettauvalues} showing the strokes made to calculate the different areas for two Colombian stations, in red the area occupied by the obstacles, and in blue the perpendicular area (Triana, \protect\hyperlink{ref-triana2019}{2019}). Information about wind percentage per direction at each station were obtained from (IDEAM, \protect\hyperlink{ref-ideam1999}{1999}).
+Figure \ref{fig:lettauexamples2} shows extreme conditions for roughness, open space in left image (ISD Station 804070) with roughness value of 0.03, closed space in center image (ISD Station 803000) with roughness value of 0.1, and a typical example where mentioned Lettau procedure is needed because roughness is different in each direction, in right image. Lettau Equation \eqref{eq:zo} need to be applied to each direction and then the final \(z_o\) value is the weighted average, using historical wind percentage. See Figure \ref{fig:lettauvalues} showing the strokes made to calculate the different areas for two Colombian stations, in red the area occupied by the obstacles, and in blue the perpendicular area (Triana, \protect\hyperlink{ref-triana2019}{2019}). Information about wind percentage per direction at each station were obtained from IDEAM (\protect\hyperlink{ref-ideam1999}{1999}).
 \begin{figure}
 
 {\centering \includegraphics{thesis_files/figure-latex/lettauexamples2-1} 
@@ -1128,11 +1078,9 @@ Figure \ref{fig:lettauexamples2} shows extreme conditions for roughness, open sp
 \hypertarget{rmd-gust}{%
 \subsection{Averaging Time: 3-s Gust}\label{rmd-gust}}
 
-To transform hourly mean wind velocity \(V_{3600}\), to 3-s gust velocity \(V_3\), ASCE7-16 recommends the use of (C. S. Durst, \protect\hyperlink{ref-Durst1960}{1960}). In curve Durst the axis \(x\) represents the duration \(t\) of the gust, what is done is to look there for the value 3 seconds, and read the corresponding gust factor \(\frac{V_t}{V_{3600}}\) in axis \(Y\). For instance, using variable \(V_{3600}\) from IDEAM data source, the gust factor for 3-s gust is 1.51.
+To transform hourly mean wind velocity \(V_{3600}\), to 3-s gust velocity \(V_3\), ASCE7-16 recommends the use of C. S. Durst (\protect\hyperlink{ref-Durst1960}{1960}). In curve Durst the axis \(x\) represents the duration \(t\) of the gust, what is done is to look there for the value 3 seconds, and read the corresponding gust factor \(\frac{V_t}{V_{3600}}\) in axis \(Y\). For instance, using variable \(V_{3600}\) from IDEAM data source, the gust factor for 3-s gust is 1.51.
 \begin{equation}
-\mathrm{
         V_t = V_{3\,\textrm{seconds}} = \textrm{(gust factor)}\,V_{3600}
-       }
   \label{eq:vt}
 \end{equation}
 It is valid only for open terrain conditions. Durst curve shows in axis \(y\) the gust factor \(\frac{V_t}{V_{3600}}\), a ratio between any wind gust averaged at \(t\) seconds, \(V_t\), and the hourly averaged wind speed \(V_{3600}\), and in the axis \(x\) the duration \(t\) of the gust in seconds.
@@ -1140,7 +1088,7 @@ It is valid only for open terrain conditions. Durst curve shows in axis \(y\) th
 \hypertarget{ds}{%
 \section{Downscaling Support}\label{ds}}
 
-Where it is necessary to complement the local/regional wind analysis, with data from ISD (output data of a model for extreme winds), and ERA5 reanalysis dataset (large scale forecast data), it is required to probe by means of \emph{comparisons} (exploratory data analysis and/or statistical measures) that those sources (modeled and forecast) are similar to IDEAM field measurements.
+where it is necessary to complement the local/regional wind analysis, with data from ISD (output data of a model for extreme winds), and ERA5 reanalysis dataset (large scale forecast data), it is required to probe by means of \emph{comparisons} (exploratory data analysis and/or statistical measures) that those sources (modeled and forecast) are similar to IDEAM field measurements.
 
 The proposed mechanism in the search for downscaling support is, (a) the creation of \emph{common time series graphs}, where time series from all data sources are expected to be similar, and (b) the elaboration of \emph{scatter plots graphics}, which are generated matching two sources in time (sorted in ascending order by wind velocity). By visual inspection is possible to evaluate data similarity between sources, when all the points fall very close to a 45-degree line. In both cases, the strategy for station matching, could be one of the following:
 \begin{enumerate}
@@ -1157,9 +1105,7 @@ Similar to how the adjustment of statistical data to a normal distribution is do
 
 In summary, POT means only to work with extreme values, and PP means to adjust data to a PDF, which depends on an intensity function \(\lambda(t,y)\), where \(t\) is time, \(y\) is wind extreme velocity. As shown in Figure \ref{fig:plotdomainpp}, in a POT-PP approach with domain \(D\), all the observations follow a Poisson distribution with mean \(\int_D\lambda(t,y)\,dt\,dy\). Main advantage of POT-PP is that it is designed to consider storm and not-storm events independently (for each disjoint sub-domain \(D_1\) or \(D_2\) inside \(D\), the observations in \(D_1\) or \(D_2\) are independent random variables), but in the end use them both for the inferences,
 \begin{equation}
-  \mathrm{
           PDF = f(t,y|\eta) = \frac{\lambda(t,y)}{\int_D\lambda(t,y)\,dt\,dy}
-        }
   \label{eq:pppdf}
 \end{equation}
 \hypertarget{decluster}{%
@@ -1181,7 +1127,7 @@ To make the assumptions of PP more justifiable, it is important to have only one
 \hypertarget{thresholding}{%
 \subsection{Thresholding}\label{thresholding}}
 
-As the POT model requires to work only with the most extreme values in the time series, it is necessary to select a threshold to filter out small values. Bias is high when a low threshold is selected (many exceedances) because the asymptotic support is weak; opposite situation happens for high thresholds where variance is potentially high. According to (Davison \& Smith, \protect\hyperlink{ref-Davison1990}{1990}), it is necessary to select a threshold value, consistent with model structure. Figure \ref{fig:plotdomainpp} represents the thresholding process in a generic dataset, where only points above (red squares) the dotted horizontal line (the threshold) will be used for the model.
+As the POT model requires to work only with the most extreme values in the time series, it is necessary to select a threshold to filter out small values. Bias is high when a low threshold is selected (many exceedances) because the asymptotic support is weak; opposite situation happens for high thresholds where variance is potentially high. According to Davison \& Smith (\protect\hyperlink{ref-Davison1990}{1990}), it is necessary to select a threshold value, consistent with model structure. Figure \ref{fig:plotdomainpp} represents the thresholding process in a generic dataset, where only points above (red squares) the dotted horizontal line (the threshold) will be used for the model.
 
 \footnotesize
 \begin{figure}
@@ -1196,12 +1142,10 @@ As the POT model requires to work only with the most extreme values in the time 
 
 The procedure to choose the best thresholds pairs, one for thunderstorm, and other for non-thunderstorm, is based on the W transformation. POT-PP needs selection of the best threshold pairs \(b_t\) and \(b_{nt}\) (see Figure \ref{fig:plotdomainpp}) that produces the optimal fit. Measurement of this threshold fitting is done through \(W\) statistic. If wind variable \(y\), in a POT-PP approach, has a \(CDF = U = F(y)\), then \(F(y)\) is distributed as uniform between 0 and 1 \emph{uniform(0,1)}, meaning that the transformation \(W = -log(1-U)\) is an exponential random variable with mean one (1).
 \begin{equation}
-  \mathrm{
             CDF = U= F(y) = P(y \leq Y) = \frac{\int_b^Y\lambda(y,t)\,dy}{\int_b^\infty\lambda(y,t)\,dy} 
-         }
   \label{eq:ppcdf}
 \end{equation}
-W-statistic is done comparing the ordered result of applying \(W = -log(1-U)\) to the data (the axis \(y\) in Figure \ref{fig:wstatistics}) with the theoretical quantiles of an exponential variable with uniform distribution between 0 and 1 (axis \(x\) in same figure). W-statistic is the highest vertical distance between the 45º line and the points in the graphic. The best thresholds pairs return the minimum value for W-statistics after testing, in an iterative process, with many threshold pairs combinations.
+W-statistic is done comparing the ordered result of applying \(W = -log(1-U)\) to the data (the axis \(y\) in Figure \ref{fig:wstatistics}) with the theoretical quantiles of an exponential variable with uniform distribution between 0 and 1 (axis \(x\) in same figure). W-statistic is the highest vertical distance between the 45º line and the points in the graphic. The best thresholds pairs return the minimum value for W-statistics after testing, in an iterative process with many threshold pairs combinations.
 
 \footnotesize
 \begin{figure}
@@ -1217,7 +1161,7 @@ W-statistic is done comparing the ordered result of applying \(W = -log(1-U)\) t
 \hypertarget{exclude-no-data-periods}{%
 \subsection{Exclude No-Data Periods}\label{exclude-no-data-periods}}
 
-PP requires to remove long periods of time when stations were not recording or failing. Proposed time in (Pintar et al., \protect\hyperlink{ref-Pintar2015}{2015}) is 180 days, namely, to remove all the gaps from the time series larger than six months.
+PP requires to remove long periods of time when stations were not recording or failing. Proposed time in Pintar et al. (\protect\hyperlink{ref-Pintar2015}{2015}) is 180 days, namely, to remove all the gaps from the time series larger than six months.
 
 \hypertarget{fit-intensity-function}{%
 \subsection{Fit Intensity Function}\label{fit-intensity-function}}
@@ -1226,14 +1170,11 @@ Probability density function PDF, and cumulative distribution function CDF, of t
 
 To facilitate the estimation of the parameters for the PP intensity function, parameter \(shape = \zeta_t\) is taken to be zero in Equation \eqref{eq:ppintensityfunction}, then doing the limit, the resulting intensity function is the same as the GEV type I or Gumbel distribution,
 \begin{equation}
-  \mathrm{
           \frac{1}{\psi_t}\exp\left\{\frac{-(y-\omega_t)}{\psi_t}\right\}
-         }
   \label{eq:ppusedif}
 \end{equation}
 In this study, used intensity functions are:
 \begin{equation}
-  \mathrm{
     \lambda\left(y,t\right)=
     \begin{cases}
       \begin{split}
@@ -1242,7 +1183,6 @@ In this study, used intensity functions are:
             &\frac{1}{\psi_{nt}}\exp\left(\frac{-(y-\omega_{nt})}{\psi_{nt}}\right),\;\textrm{for t in non-thunderstorm period}    
       \end{split}
     \end{cases}
-  }
   \label{eq:ppspecificintensityfunction}
 \end{equation}
 As is shown in \ref{fig:fitif}, the fitting process involve finding the best group of parameters of the intensity function, in such a way that the red curve (PDF of the PP, based on intensity function) be as tight as possible to the shape of the data histogram. As is described in \emph{\protect\hyperlink{pot-pp}{POT-PP}}, optimal parameters to do the fitting process of the intensity function are calculated using \emph{maximum likelihood}.
@@ -1280,12 +1220,10 @@ Hazard curve can be created solving \(Y_N\) in Equation \eqref{eq:pprl} for a sp
 
 Considering that the intensity function is not a function of time, equation \eqref{eq:pprv} can be used replacing directly the parameters of the intensity function (PP) and the return periods (N), to create the hazard curve and get RL:
 \begin{equation}
-  \mathrm{
 Y_N=\frac{\psi}{\zeta}\left[-log\left(\frac{N-1}{N}\right)\right]^{-\zeta}-\frac{\psi}{\zeta}+\omega
-        }
   \label{eq:pprv}
 \end{equation}
-As for this research \(\zeta = 0\) in selected intensity function (Equation \eqref{eq:ppspecificintensityfunction}), return levels \(Y_N\) can be calculated with the Gumbel quantile function using \((1-\frac{1}{N})\) as probability. This alternative approach is only valid when the analysis of POT-PP includes only one type of event (thunderstorm or non-thunderstorm). The connection between the intensity function of PP and the Gumbel function (variant of the GEV) is described in (Johnson, Kotz, \& Balakrishnan, \protect\hyperlink{ref-Johnson1995}{1995}, p. 75)
+As for this research \(\zeta = 0\) in selected intensity function (Equation \eqref{eq:ppspecificintensityfunction}), return levels \(Y_N\) can be calculated with the Gumbel quantile function using \((1-\frac{1}{N})\) as probability. This alternative approach is only valid when the analysis of POT-PP includes only one type of event (thunderstorm or non-thunderstorm). The connection between the intensity function of PP and the Gumbel function (variant of the GEV) is described in Johnson, Kotz, \& Balakrishnan (\protect\hyperlink{ref-Johnson1995}{1995}), p.~75.
 
 \hypertarget{si}{%
 \section{Spatial Interpolation}\label{si}}
@@ -1303,23 +1241,21 @@ Probabilistic (Kriging) and deterministic (IDW, local polynomials) techniques ar
 \end{itemize}
 Possible advantage of deterministic methods, is a better assessment of the local variability of spatial autocorrelation. It can also be considered with IDW or local polynomials a detailed assessment of structural analysis and cross validation. At the end of the spatial interpolation analysis all the predictions can be compared to select the most suitable result.
 
-Main references in this research related to this matter, using \emph{R software} are (E. Pebesma \& Graeler, \protect\hyperlink{ref-Pebesma2019}{2019}), (Pebesma, \protect\hyperlink{ref-Pebesma2004}{2004}), and (Gräler, Pebesma, \& Heuvelink, \protect\hyperlink{ref-Graeler2016}{2016}). For the implementation of spatial statistics using vector or raster format, see (E. Pebesma, \protect\hyperlink{ref-Pebesma2019a}{2019}\protect\hyperlink{ref-Pebesma2019a}{a}), (E. Pebesma, \protect\hyperlink{ref-Pebesma2019b}{2019}\protect\hyperlink{ref-Pebesma2019b}{b}), and (Pebesma, \protect\hyperlink{ref-Pebesma2018}{2018}).
+Main references in this research related to this matter using \emph{R software} are E. Pebesma \& Graeler (\protect\hyperlink{ref-Pebesma2019}{2019}), Pebesma (\protect\hyperlink{ref-Pebesma2004}{2004}), and Gräler, Pebesma, \& Heuvelink (\protect\hyperlink{ref-Graeler2016}{2016}). For the implementation of spatial statistics using vector or raster format, see E. Pebesma (\protect\hyperlink{ref-Pebesma2019a}{2019}\protect\hyperlink{ref-Pebesma2019a}{a}), E. Pebesma (\protect\hyperlink{ref-Pebesma2019b}{2019}\protect\hyperlink{ref-Pebesma2019b}{b}) and Pebesma (\protect\hyperlink{ref-Pebesma2018}{2018}).
 
 \hypertarget{integration}{%
 \section{Integration with Hurricane Data}\label{integration}}
 
 ASCE7-16 proposes the equation C26.5-2 for combination of statistically independent events, of non-hurricane and hurricane wind speed data.
 \begin{equation}
-  \mathrm{
           P_e(y>Y_N) = 1 - P_{NH}(y<Y_N)P_{H}(y<Y_N)
-        }
   \label{eq:combination}
 \end{equation}
 where \(P_e(y>Y_N)\) is the annual exceedance probability for the combined wind hazards, \(P_{NH}(y<Y_N)\) is the annual non-exceedance probability for non-hurricane winds, and \(P_{H}(y<Y_N)\) is the annual non-exceedance probability for hurricane winds.
 
 To understand Equation \eqref{eq:combination}, it is important to remember that to calculate return level \(Y_N\), for a given N-year return period, the exceedance probability \(\frac{1}{N}\) of \(Y_N\) is calculated. Then, the non-exceedance probability for \(Y_N\) is \(\left(1-\frac{1}{N}\right)\). The procedure consists in the creation of a new hazard curve, calculating all \(P_e(y>Y_N)\) values for different \(Y_N\) return levels, combining hazard curves from non-thunderstorm and thunderstorm data.
 
-Equation \eqref{eq:combination} can be expressed only in terms of exceedance probabilities, \(P_{e} = 1 - (1 -P_{nh}) (1 - P_{h})\), where \(P_{nh}\) is the the annual exceedance probability for non-hurricane winds, and \(P_{h}\) is the annual exceedance probability for hurricane winds. A graphical explanation of the procedure to calculate the combined \(P_e\) for the return level \(30\frac{Km}{h}\), is shown in Figure \ref{fig:combinedhc}. For each cell in the study area, it is necessary to calculate a new combined hazard curve, this is, all the \(P_e\) values corresponding all different return levels (Figure \ref{fig:combinedhc}).
+Equation \eqref{eq:combination} can be expressed only in terms of exceedance probabilities, \(P_{e} = 1 - (1 -P_{nh}) (1 - P_{h})\), where \(P_{nh}\) is the the annual exceedance probability for non-hurricane winds, and \(P_{h}\) is the annual exceedance probability for hurricane winds. A graphical explanation of the procedure to calculate the combined \(P_e\) for the return level \(30\frac{km}{h}\), is shown in Figure \ref{fig:combinedhc}. For each cell in the study area, it is necessary to calculate a new combined hazard curve, this is, all the \(P_e\) values corresponding all different return levels (Figure \ref{fig:combinedhc}).
 \begin{figure}
 
 {\centering \includegraphics{thesis_files/figure-latex/combinedhc-1} 
@@ -1495,9 +1431,9 @@ Gust factor for $V_3$ & 1.03\\
 \hypertarget{raw-data-de-clustering-and-thresholding}{%
 \subsection{Raw Data, De-clustering, and Thresholding}\label{raw-data-de-clustering-and-thresholding}}
 
-As storm information is not available for any of the data sources, all the data for the station was classified as \emph{non-thunderstorm}. According to \emph{\protect\hyperlink{pot-pp}{POT-PP}} method described in \emph{\protect\hyperlink{rmd-method}{Methodology}}, the first process applied to original time series \emph{raw data}, is \emph{\protect\hyperlink{decluster}{De-clustering}}, and then, \emph{\protect\hyperlink{thresholding}{Thresholding}}.
+As storm information is not available for any of the data sources, all the data for the station was classified as \emph{non-thunderstorm}. According to \emph{\protect\hyperlink{pot-pp}{POT-PP}} method described in \emph{\protect\hyperlink{rmd-method}{Methodology}}, the first process applied to original time series \emph{raw data}, is \emph{\protect\hyperlink{decluster}{de-clustering}}, and then, \emph{\protect\hyperlink{thresholding}{thresholding}}.
 
-Non-thunderstorm raw data for ISD station 801120 has 2931 records, from 1986-12-06 12:00:00 to 2019-03-01 12:00:00, corresponding to a total amount time in days of 11739, and to an average number of events per year of 18.9, which means that the average duration of an event is 19.3 days (average size in days of a cluster). After \emph{\protect\hyperlink{decluster}{De-clustering}} and \emph{\protect\hyperlink{thresholding}{Thresholding}} processes, the number of records decreases to 181. Time series graphics are related in Figure \ref{fig:ts}, showing the data before (left) and after (right) applying the mentioned processes. Detailed yearly statistics are reported in Table \ref{tab:years801120}, also including summary for before (left), and after (right).
+Non-thunderstorm raw data for ISD station 801120 has 2931 records, from 1986-12-06 12:00:00 to 2019-03-01 12:00:00, corresponding to a total amount time in days of 11739, and to an average number of events per year of 18.9, which means that the average duration of an event is 19.3 days (average size in days of a cluster). After \emph{\protect\hyperlink{decluster}{de-clustering}} and \emph{\protect\hyperlink{thresholding}{thresholding}} processes, the number of records decreases to 181. Time series graphics are related in Figure \ref{fig:ts}, showing the data before (left) and after (right) applying the mentioned processes. Detailed yearly statistics are reported in Table \ref{tab:years801120}, also including summary for before (left), and after (right).
 
 \begingroup\fontsize{9}{11}\selectfont
 \begin{longtable}[t]{>{\raggedright\arraybackslash}p{0.3in}>{\raggedright\arraybackslash}p{0.3in}>{\raggedright\arraybackslash}p{0.3in}>{\raggedright\arraybackslash}p{0.3in}>{\raggedright\arraybackslash}p{0.3in}>{\raggedright\arraybackslash}p{0.3in}>{\raggedright\arraybackslash}p{0.3in}>{\raggedright\arraybackslash}p{0.3in}>{\raggedright\arraybackslash}p{0.3in}}
@@ -1687,7 +1623,7 @@ Maps in this section correspond to: (a) existing hurricane maps from previous st
 \hypertarget{existing-hurricane-maps}{%
 \subsection{Existing Hurricane Maps}\label{existing-hurricane-maps}}
 
-The Colombian consulting firm \emph{Ingeniar Ltda}, following the methodology described in (CIMNE, \protect\hyperlink{ref-hurricanemaps}{2015}), and (CIMNE, \protect\hyperlink{ref-hurricanemaps2}{2017}), has provided raster wind maps for return periods 10, 20, 50, 100, 250, 500, 700, 1000, 1700, 3000, and 7000 years, resulting from the probabilistic study of winds due to hurricanes in the Colombian Caribbean Sea and the surrounding continental zone. Figure \ref{fig:ingeniarmaps} shows three of mentioned maps.
+The Colombian consulting firm \emph{Ingeniar Ltda}, following the methodology described in CIMNE (\protect\hyperlink{ref-hurricanemaps}{2015}), and CIMNE (\protect\hyperlink{ref-hurricanemaps2}{2017}), has provided raster wind maps for return periods 10, 20, 50, 100, 250, 500, 700, 1000, 1700, 3000, and 7000 years, resulting from the probabilistic study of winds due to hurricanes in the Colombian Caribbean Sea and the surrounding continental zone. Figure \ref{fig:ingeniarmaps} shows three of mentioned maps.
 \begin{figure}
 \centering
 \includegraphics{thesis_files/figure-latex/ingeniarmaps-1.pdf}
@@ -1966,6 +1902,9 @@ Smith, R. L. (1989). Extreme value analysis of environmental time series: An app
 \leavevmode\hypertarget{ref-Smith2004}{}%
 Smith, R. L. (2004). Extreme values in finance, telecommunications, and the environment (chapman \& hall/crc monographs on statistics and applied probability). In B. F. inkenstädt \& H. Rootzén (Eds.), (pp. 1--78). Chapman; Hall/CRC. Retrieved from \url{https://www.amazon.com/Telecommunications-Environment-Monographs-Statistics-Probability/dp/1584884118?SubscriptionId=AKIAIOBINVZYXZQZ2U3A\&tag=chimbori05-20\&linkCode=xm2\&camp=2025\&creative=165953\&creativeASIN=1584884118}
 
+\leavevmode\hypertarget{ref-Solomon2019}{}%
+Solomon, N. (2019). \emph{Thesisdown: An updated r markdown thesis template using the bookdown package}.
+
 \leavevmode\hypertarget{ref-Stephenson2002}{}%
 Stephenson, A. G. (2002). Evd: Extreme value distributions. \emph{R News}, \emph{2}(2), 0. Retrieved from \url{https://CRAN.R-project.org/doc/Rnews/}
 
@@ -1990,6 +1929,9 @@ Wickham, H., François, R., Henry, L., \& Müller, K. (2019). \emph{Dplyr: A gra
 \leavevmode\hypertarget{ref-Wuertz2017}{}%
 Wuertz, D., Setz, T., \& Chalabi, Y. (2017). \emph{FExtremes: Rmetrics - modelling extreme events in finance}. Retrieved from \url{https://CRAN.R-project.org/package=fExtremes}
 
+\leavevmode\hypertarget{ref-Xie2020}{}%
+Xie, Y. (2020). \emph{Bookdown: Authoring books and technical documents with r markdown}. Retrieved from \url{https://CRAN.R-project.org/package=bookdown}
+
 \noindent
 
 \setlength{\parindent}{-0.20in}
@@ -2010,7 +1952,7 @@ Wuertz, D., Setz, T., \& Chalabi, Y. (2017). \emph{FExtremes: Rmetrics - modelli
 \multicolumn{1}{l}{Folder Tree - Ftp Links} & \multicolumn{1}{l}{Description}\\
 \midrule
 \href{ftp://ftp.geocorp.co/windthesis/code/}{code} & Folder with R code. ALL CODE CREATED BY DR. ADAM PINTAR IS NOT PUBLISHED.\\
-\href{ftp://ftp.geocorp.co/windthesis/code/pot_pp/}{  |-pot\_pp} & Folder with POT-PP R code. Based in Dr Adam Pintar code (respected copyright).\\
+\href{ftp://ftp.geocorp.co/windthesis/code/pot_pp/}{  |-pot\_pp} & Folder with POT-PP R code. Based on Dr Adam Pintar code (respected copyright).\\
 \href{ftp://ftp.geocorp.co/windthesis/code/pot_pp/function_lib.r}{  |    |-function\_lib.r} & POT-PP Functions. Author of de-clustering and thresholding functions is Dr Adam Pintar.\\
 \href{ftp://ftp.geocorp.co/windthesis/code/pot_pp/plot_nt.r}{  |    |-plot\_nt.r} & Plot non-thunderstorm graphics.\\
 \href{ftp://ftp.geocorp.co/windthesis/code/pot_pp/plot_t.r}{  |    |-plot\_t.r} & Plot thunderstorm graphics.\\
@@ -2022,12 +1964,12 @@ Wuertz, D., Setz, T., \& Chalabi, Y. (2017). \emph{FExtremes: Rmetrics - modelli
 \href{ftp://ftp.geocorp.co/windthesis/code/pot_pp/statistics_raw_data_t.r}{  |    |-stats\_raw\_data\_t.r} & For thunderstorm raw data, it generates sheets with statistics by years (t\_years), weeks (t\_weeks), months (t\_months), and gaps (t\_gaps) into the Excel file raw\_data\_station\_ID\_statistics.xlsx. In addition it prints the thunderstorm raw data time series graphic.\\
 \href{ftp://ftp.geocorp.co/windthesis/code/pot_pp/write_t_nt_csv_one_data_per_day.r}{  |    |-tnt\_csv\_1perday.r} & Create CSV (thunderstorm and non-thunderstorm) with one data (the maximum) per day.\\
 \href{ftp://ftp.geocorp.co/windthesis/code/pot_pp/era5/}{  |    |-era5} & Folder with specific code for ERA5 data.\\
-\href{ftp://ftp.geocorp.co/windthesis/code/pot_pp/era5/pot_pp_era5.r}{  |    |    |-pot\_pp\_era5.r} & POT-PP for ERA5 data. Based in Dr Adam Pintar code.\\
+\href{ftp://ftp.geocorp.co/windthesis/code/pot_pp/era5/pot_pp_era5.r}{  |    |    |-pot\_pp\_era5.r} & POT-PP for ERA5 data. Based on Dr Adam Pintar code.\\
 \href{ftp://ftp.geocorp.co/windthesis/code/pot_pp/era5/maps/}{  |    |    |-maps} & Folder with specific code to calculate return levels and plot maps for ERA5 data.\\
 \href{ftp://ftp.geocorp.co/windthesis/code/pot_pp/era5/maps/return_levels.r}{  |    |    |    |-return\_levels.r} & Calculate return levels for ERA5 data.\\
 \href{ftp://ftp.geocorp.co/windthesis/code/pot_pp/era5/maps/plot_maps.r}{  |    |    |    |-plot\_maps.r} & Join return levels to cells and plot ERA5 maps.\\
 \href{ftp://ftp.geocorp.co/windthesis/code/pot_pp/isd/}{  |    |-isd} & Folder with specific code for ISD data.\\
-\href{ftp://ftp.geocorp.co/windthesis/code/pot_pp/isd/pot_pp_isd.r}{  |    |    |-pot\_pp\_isd.r} & POT-PP for ISD data. Based in Dr Adam Pintar code.\\
+\href{ftp://ftp.geocorp.co/windthesis/code/pot_pp/isd/pot_pp_isd.r}{  |    |    |-pot\_pp\_isd.r} & POT-PP for ISD data. Based on Dr Adam Pintar code.\\
 \href{ftp://ftp.geocorp.co/windthesis/code/pot_pp/isd/maps/}{  |    |    |-maps} & Folder with code to calculate return levels, do spatial interpolation, and plot maps. ISD data.\\
 \href{ftp://ftp.geocorp.co/windthesis/code/pot_pp/isd/maps/return_levels_10_nh.r}{  |    |    |    |-rl\_10\_nh.r} & Calculate return levels and do spatial interpolation. MRI 10, non-hurricane data.\\
 \href{ftp://ftp.geocorp.co/windthesis/code/pot_pp/isd/maps/return_levels_20_nh.r}{  |    |    |    |-rl\_20\_nh.r} & Calculate return levels and do spatial interpolation. MRI 20, non-hurricane data.\\
@@ -2388,7 +2330,7 @@ In Linux, next NCO commands will extract variable p0001 from file.nc to p0001.nc
 \hypertarget{dbstoring}{%
 \chapter{Database Storing}\label{dbstoring}}
 
-To optimize memory usage when running R code, some information related to IDEAM and ISD data sources, like stations and wind time series, were stored in \textbf{PostgreSQL database}, thanks to the possibility of lazy evaluation with \textbf{tidyverse} R package \texttt{dplyr}, see (Wickham, \protect\hyperlink{ref-Wickham2014}{2014}), and (Wickham et al., \protect\hyperlink{ref-Wickham2019}{2019}), which do not load the entire dataset in memory from the beginning, this is, \emph{``it delays the actual operation until necessary and loads data onto R from the database only when we need it''} (Berhane, \protect\hyperlink{ref-databasesinr}{2016}). In parallel, it was used throughout the investigation, the \textbf{tidyverse} R package \texttt{tibble}, which allow lazy and surly data-frames in R, namely \emph{``they do less \ldots, and complain more''} (Müller \& Wickham, \protect\hyperlink{ref-Mueller2019}{2019}). As a reference, there is an R package called \texttt{tidyverse}, which installs and loads all related packages (\texttt{ggplot2}, \texttt{tibble}, \texttt{tidyr}, \texttt{readr}, and \texttt{dplyr}), see (Wickham, \protect\hyperlink{ref-Wickham2019a}{2019}), and (Wickham, Averick, et al., \protect\hyperlink{ref-Wickham2019b}{2019}).
+To optimize memory usage when running R code, some information related to IDEAM and ISD data sources, like stations and wind time series, were stored in \textbf{PostgreSQL database}, thanks to the possibility of lazy evaluation with \textbf{tidyverse} R package \texttt{dplyr} (Wickham, \protect\hyperlink{ref-Wickham2014}{2014}; Wickham et al., \protect\hyperlink{ref-Wickham2019}{2019}), which do not load the entire dataset in memory from the beginning, this is, \emph{``it delays the actual operation until necessary and loads data onto R from the database only when we need it''} (Berhane, \protect\hyperlink{ref-databasesinr}{2016}). In parallel, it was used throughout the investigation, the \textbf{tidyverse} R package \texttt{tibble}, which allow lazy and surly data-frames in R, namely \emph{``they do less \ldots, and complain more''} (Müller \& Wickham, \protect\hyperlink{ref-Mueller2019}{2019}). As a reference, there is an R package called \texttt{tidyverse} which installs and loads all related packages \texttt{ggplot2}, \texttt{tibble}, \texttt{tidyr}, \texttt{readr} and \texttt{dplyr} (Wickham, \protect\hyperlink{ref-Wickham2019a}{2019}; Wickham, Averick, et al., \protect\hyperlink{ref-Wickham2019b}{2019}).
 
 \hypertarget{loading-time-series-from-text-files-to-postgresql}{%
 \section{Loading Time Series from Text Files to PostgreSQL}\label{loading-time-series-from-text-files-to-postgresql}}
@@ -5410,7 +5352,7 @@ Table \ref{tab:codeisd} shows specific POT-PP R code used for ISD stations. Comp
 \multicolumn{1}{l}{Folder Tree - Ftp Links} & \multicolumn{1}{l}{Description}\\
 \midrule
 \href{ftp://ftp.geocorp.co/windthesis/code/}{code} & Folder with R code. ALL CODE CREATED BY DR. ADAM PINTAR IS NOT PUBLISHED.\\
-\href{ftp://ftp.geocorp.co/windthesis/code/pot_pp/}{\;\;|-pot\_pp} & Folder with POT-PP R code. Based in Dr Adam Pintar code (respected copyright).\\
+\href{ftp://ftp.geocorp.co/windthesis/code/pot_pp/}{\;\;|-pot\_pp} & Folder with POT-PP R code. Based on Dr Adam Pintar code (respected copyright).\\
 \href{ftp://ftp.geocorp.co/windthesis/code/pot_pp/function_lib.r}{\;\;\;\;|-function\_lib.r} & POT-PP Functions. Author of de-clustering and thresholding functions is Dr Adam Pintar.\\
 \href{ftp://ftp.geocorp.co/windthesis/code/pot_pp/plot_nt.r}{\;\;\;\;|-plot\_nt.r} & Plot non-thunderstorm graphics.\\
 \href{ftp://ftp.geocorp.co/windthesis/code/pot_pp/plot_t.r}{\;\;\;\;|-plot\_t.r} & Plot thunderstorm graphics.\\
@@ -5422,7 +5364,7 @@ Table \ref{tab:codeisd} shows specific POT-PP R code used for ISD stations. Comp
 \href{ftp://ftp.geocorp.co/windthesis/code/pot_pp/statistics_raw_data_t.r}{\;\;\;\;|-stats\_raw\_data\_t.r} & Statistics for thunderstorm raw data.\\
 \href{ftp://ftp.geocorp.co/windthesis/code/pot_pp/write_t_nt_csv_one_data_per_day.r}{\;\;\;\;|-tnt\_csv\_1perday.r} & Create CSV (thunderstorm and non-thunderstorm) with one data (the maximum) per day.\\
 \href{ftp://ftp.geocorp.co/windthesis/code/pot_pp/isd/}{\;\;\;\;|-isd} & Folder with specific code for ISD data.\\
-\href{ftp://ftp.geocorp.co/windthesis/code/pot_pp/isd/pot_pp_isd.r}{\;\;\;\;\;\;|-pot\_pp\_isd.r} & POT-PP for ISD data. Based in Dr Adam Pintar code.\\
+\href{ftp://ftp.geocorp.co/windthesis/code/pot_pp/isd/pot_pp_isd.r}{\;\;\;\;\;\;|-pot\_pp\_isd.r} & POT-PP for ISD data. Based on Dr Adam Pintar code.\\
 \href{ftp://ftp.geocorp.co/windthesis/code/pot_pp/isd/maps/}{\;\;\;\;\;\;|-maps} & Folder with code to calculate return levels, do spatial interpolation, and plot maps. ISD data.\\
 \href{ftp://ftp.geocorp.co/windthesis/code/pot_pp/isd/maps/return_levels_10_nh.r}{\;\;\;\;\;\;\;\;|-rl\_10\_nh.r} & Calculate return levels and do spatial interpolation. MRI 10, non-hurricane data.\\
 \href{ftp://ftp.geocorp.co/windthesis/code/pot_pp/isd/maps/return_levels_20_nh.r}{\;\;\;\;\;\;\;\;|-rl\_20\_nh.r} & Calculate return levels and do spatial interpolation. MRI 20, non-hurricane data.\\
@@ -5633,7 +5575,7 @@ Main output file of POT-PP analysis is \emph{fitted\_model\_result.xlsx}, which 
 
 To create non-hurricane maps using Kriging, from columns 43 to 53 of file \emph{fitted\_model\_result.xlsx}, use R files inside folder \emph{\ldots/code/pot\_pp/isd/maps/}, see Table \ref{tab:codeisd}. For instance, to create non-hurricane map with return levels for 10 years MRI, use file \emph{rl\_10\_nh.r}, for 50 MRI use \emph{rl\_50\_nh.r}, and in the same way for other return periods. Once GeoTIFF images have been created with previous R files, use \emph{plot\_maps.r} to plot maps using \texttt{ggplot2} R package.
 
-Inside files \emph{rl\_*\_nh.r} different types of geostatistical related analysis are coded, mainly using \texttt{gstat}, \texttt{sf}, and \texttt{stars} R packages, see (E. Pebesma \& Graeler, \protect\hyperlink{ref-Pebesma2019}{2019}), (E. Pebesma, \protect\hyperlink{ref-Pebesma2019a}{2019}\protect\hyperlink{ref-Pebesma2019a}{a}), and (E. Pebesma, \protect\hyperlink{ref-Pebesma2019b}{2019}\protect\hyperlink{ref-Pebesma2019b}{b}) respectively:
+Inside files \emph{rl\_*\_nh.r} different types of geostatistical related analysis are coded, mainly using \texttt{gstat} (E. Pebesma \& Graeler, \protect\hyperlink{ref-Pebesma2019}{2019}), \texttt{sf} (E. Pebesma, \protect\hyperlink{ref-Pebesma2019a}{2019}\protect\hyperlink{ref-Pebesma2019a}{a}), and \texttt{stars} (E. Pebesma, \protect\hyperlink{ref-Pebesma2019b}{2019}\protect\hyperlink{ref-Pebesma2019b}{b}) R packages.
 \begin{itemize}
 \tightlist
 \item
@@ -5749,7 +5691,7 @@ password & user1\\
 \multicolumn{1}{l}{Folder Tree - Ftp Links} & \multicolumn{1}{l}{Description}\\
 \midrule
 \href{ftp://ftp.geocorp.co/windthesis/code/}{code} & Folder with R code. ALL CODE CREATED BY DR. ADAM PINTAR IS NOT PUBLISHED.\\
-\href{ftp://ftp.geocorp.co/windthesis/code/pot_pp/}{\;\;|-pot\_pp} & Folder with POT-PP R code. Based in Dr Adam Pintar code (respected copyright).\\
+\href{ftp://ftp.geocorp.co/windthesis/code/pot_pp/}{\;\;|-pot\_pp} & Folder with POT-PP R code. Based on Dr Adam Pintar code (respected copyright).\\
 \href{ftp://ftp.geocorp.co/windthesis/code/pot_pp/function_lib.r}{\;\;\;\;|-function\_lib.r} & POT-PP Functions. Author of de-clustering and thresholding functions is Dr Adam Pintar.\\
 \href{ftp://ftp.geocorp.co/windthesis/code/pot_pp/plot_nt.r}{\;\;\;\;|-plot\_nt.r} & Plot non-thunderstorm graphics.\\
 \href{ftp://ftp.geocorp.co/windthesis/code/pot_pp/plot_t.r}{\;\;\;\;|-plot\_t.r} & Plot thunderstorm graphics.\\
@@ -5761,7 +5703,7 @@ password & user1\\
 \href{ftp://ftp.geocorp.co/windthesis/code/pot_pp/statistics_raw_data_t.r}{\;\;\;\;|-stats\_raw\_data\_t.r} & Statistics for thunderstorm raw data.\\
 \href{ftp://ftp.geocorp.co/windthesis/code/pot_pp/write_t_nt_csv_one_data_per_day.r}{\;\;\;\;|-tnt\_csv\_1perday.r} & Create CSV (thunderstorm and non-thunderstorm) with one data (the maximum) per day.\\
 \href{ftp://ftp.geocorp.co/windthesis/code/pot_pp/era5/}{\;\;\;\;|-era5} & Folder with specific code for ERA5 data.\\
-\href{ftp://ftp.geocorp.co/windthesis/code/pot_pp/era5/pot_pp_era5.r}{\;\;\;\;\;\;|-pot\_pp\_era5.r} & POT-PP for ERA5 data. Based in Dr Adam Pintar code.\\
+\href{ftp://ftp.geocorp.co/windthesis/code/pot_pp/era5/pot_pp_era5.r}{\;\;\;\;\;\;|-pot\_pp\_era5.r} & POT-PP for ERA5 data. Based on Dr Adam Pintar code.\\
 \href{ftp://ftp.geocorp.co/windthesis/code/pot_pp/era5/maps/}{\;\;\;\;\;\;|-maps} & Folder with specific code to calculate return levels and plot maps for ERA5 data.\\
 \href{ftp://ftp.geocorp.co/windthesis/code/pot_pp/era5/maps/return_levels.r}{\;\;\;\;\;\;\;\;|-return\_levels.r} & Calculate return levels for ERA5 data.\\
 \href{ftp://ftp.geocorp.co/windthesis/code/pot_pp/era5/maps/plot_maps.r}{\;\;\;\;\;\;\;\;|-plot\_maps.r} & Join return levels to cells and plot ERA5 maps.\\
