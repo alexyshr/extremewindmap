@@ -66,3 +66,7 @@ Poisson Process Intensity Function equation 16 page 39 NIST Report 500-301 (same
 Put a summary of the meaning of the variables names in R code (eJ: rl_plot_nt.r)
 
 Review in the document related to As and Ans (365). Etc
+
+
+La leyenda de la Figura 5.4 no se ve bien. (modifz eracomparisonideam_188_78_plotxts.rds)
+

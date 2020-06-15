@@ -454,7 +454,7 @@ The \emph{\protect\hyperlink{rmd-method}{Methodology}} chapter includes the proc
 
 \emph{\protect\hyperlink{rmd-results}{Results and Discussion}} section shows, (1) all results for data standardization and comparison to support the downscaling issue, (2) all POT-PP results for one ISD station, (3) all output maps for ISD and ERA5 data sources including discussions of those finals results. These discussions are complemented by the \emph{\protect\hyperlink{conclusions}{Conclusions}} section.
 
-To finalize the document a series of appendices were created to facilitate the reproducibility of the research. Appendix \ref{rcode} contains \emph{research R code}. It is necessary to consider that the code provided by \emph{Dr.~Adam L. Pintar} to do the de-clustering and thresholding in POT-PP is not there because its publication and distribution is not authorized. Appendix \ref{results} contains all \emph{results in digital format}. Appendix \ref{datadownload} compliments the information needed to \emph{download ERA5} data. Appendix \ref{dbstoring} shows the use of PostgreSQL for data storage and provides instructions for backup and restoring. Because the document for the thesis was done using package \texttt{thesisdown} (Solomon, \protect\hyperlink{ref-Solomon2019}{2019}), which is based on \texttt{bookdown} (Xie, \protect\hyperlink{ref-Xie2020}{2020}), the most important \emph{document R code} to create the document (mainly graphics) is shown in Appendix \ref{docrcode}. Finally, in Appendix \ref{manual} a \emph{user manual} is presented in order to provide instructions to apply the same methodology in a different case study.
+To finalize the document a series of appendices were created to facilitate the reproducibility of the research. Appendix \ref{rcode} contains \emph{research R code}. It is necessary to consider that the code provided by \emph{Dr.~Adam L. Pintar} to do the de-clustering and thresholding in POT-PP is not there because its publication and distribution is not authorized. Appendix \ref{results} contains all \emph{results in digital format}. Appendix \ref{datadownload} compliments the information needed to \emph{download ERA5} data. Appendix \ref{dbstoring} shows the use of PostgreSQL for data storage and provides instructions for backup and restoring. Because the document for the thesis was done using package \texttt{thesisdown} (Ismay \& Solomon, \protect\hyperlink{ref-Ismay2020}{2020}), which is based on \texttt{bookdown} (Xie, \protect\hyperlink{ref-Xie2016}{2016}, \protect\hyperlink{ref-Xie2020}{2020}), the most important \emph{document R code} to create the document (mainly graphics) is shown in Appendix \ref{docrcode}. Finally, in Appendix \ref{manual} a \emph{user manual} is presented in order to provide instructions to apply the same methodology in a different case study.
 
 \hypertarget{rmd-data}{%
 \chapter{Data}\label{rmd-data}}
@@ -1827,6 +1827,9 @@ IDEAM. (1999, June). Aeronautical information. Annual wind regime. Web Page. Ret
 \leavevmode\hypertarget{ref-ideam2005}{}%
 IDEAM. (2005). \emph{Protocolo toma de datos de campo y emplazamiento de estaciones meteorológicas}.
 
+\leavevmode\hypertarget{ref-Ismay2020}{}%
+Ismay, C., \& Solomon, N. (2020). \emph{Thesisdown: An updated r markdown thesis template using the bookdown package}.
+
 \leavevmode\hypertarget{ref-JanetE.HeffernanwithRport2018}{}%
 Janet E. Heffernan with R port, O. S. functions written by, \& Alec G. Stephenson., R. documentation provided by. (2018). \emph{Ismev: An introduction to statistical modeling of extreme values}. Retrieved from \url{https://CRAN.R-project.org/package=ismev}
 
@@ -1902,9 +1905,6 @@ Smith, R. L. (1989). Extreme value analysis of environmental time series: An app
 \leavevmode\hypertarget{ref-Smith2004}{}%
 Smith, R. L. (2004). Extreme values in finance, telecommunications, and the environment (chapman \& hall/crc monographs on statistics and applied probability). In B. F. inkenstädt \& H. Rootzén (Eds.), (pp. 1--78). Chapman; Hall/CRC. Retrieved from \url{https://www.amazon.com/Telecommunications-Environment-Monographs-Statistics-Probability/dp/1584884118?SubscriptionId=AKIAIOBINVZYXZQZ2U3A\&tag=chimbori05-20\&linkCode=xm2\&camp=2025\&creative=165953\&creativeASIN=1584884118}
 
-\leavevmode\hypertarget{ref-Solomon2019}{}%
-Solomon, N. (2019). \emph{Thesisdown: An updated r markdown thesis template using the bookdown package}.
-
 \leavevmode\hypertarget{ref-Stephenson2002}{}%
 Stephenson, A. G. (2002). Evd: Extreme value distributions. \emph{R News}, \emph{2}(2), 0. Retrieved from \url{https://CRAN.R-project.org/doc/Rnews/}
 
@@ -1928,6 +1928,9 @@ Wickham, H., François, R., Henry, L., \& Müller, K. (2019). \emph{Dplyr: A gra
 
 \leavevmode\hypertarget{ref-Wuertz2017}{}%
 Wuertz, D., Setz, T., \& Chalabi, Y. (2017). \emph{FExtremes: Rmetrics - modelling extreme events in finance}. Retrieved from \url{https://CRAN.R-project.org/package=fExtremes}
+
+\leavevmode\hypertarget{ref-Xie2016}{}%
+Xie, Y. (2016). \emph{Bookdown: Authoring books and technical documents with R markdown}. Boca Raton, Florida: Chapman; Hall/CRC. Retrieved from \url{https://github.com/rstudio/bookdown}
 
 \leavevmode\hypertarget{ref-Xie2020}{}%
 Xie, Y. (2020). \emph{Bookdown: Authoring books and technical documents with r markdown}. Retrieved from \url{https://CRAN.R-project.org/package=bookdown}
@@ -2678,8 +2681,7 @@ Simple feature collection with 100 features and 3 fields
 geometry type:  POINT
 dimension:      XY
 bbox:           xmin: -81.711 ymin: -5.894 xmax: 0 ymax: 13.357
-epsg (SRID):    4326
-proj4string:    +proj=longlat +datum=WGS84 +no_defs
+geographic CRS: WGS 84
 # A tibble: 100 x 4
       id usaf   station_name                  geometry
    <int> <chr>  <chr>                      <POINT [°]>

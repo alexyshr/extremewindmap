@@ -7,3 +7,12 @@ write_bib(c("tidyverse", "tibble"), file = "tidyverse.bib")
 
 library(knitr)
 write_bib(c("bookdown", "thesisdown"), file = "bookdd.bib")
+
+If you change name of the repository in GitHub
+
+1) Open Git Bash
+2) Change to the local folder of the repository
+3) Run the command: 
+git remote set-url origin https://github.com/alexyshr/extremewindmap.git
+4) check the change:
+git remote -v
