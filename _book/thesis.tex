@@ -1821,6 +1821,12 @@ Harris, J. W., \& Stocker, H. (1998). Maximum likelihood method. In \emph{Handbo
 \leavevmode\hypertarget{ref-Hosking1997}{}%
 Hosking, J. R. M., \& Wallis, J. R. (1997). \emph{Regional frequency analysis}. Cambridge University Press. \url{http://doi.org/10.1017/cbo9780511529443}
 
+\leavevmode\hypertarget{ref-Hufkens2020}{}%
+Hufkens, K. (2020). \emph{Ecmwfr: Interface to 'ecmwf' and 'cds' data web services}. Retrieved from \url{https://CRAN.R-project.org/package=ecmwfr}
+
+\leavevmode\hypertarget{ref-Hufkens2019}{}%
+Hufkens, K., Stauffer, R., \& Campitelli, E. (2019). The ecwmfr package: An interface to ecmwf api endpoints. \url{http://doi.org/10.5281/zenodo.2647541}
+
 \leavevmode\hypertarget{ref-ideam1999}{}%
 IDEAM. (1999, June). Aeronautical information. Annual wind regime. Web Page. Retrieved from \url{http://bart.ideam.gov.co/cliciu/rosas/viento.htm}
 
@@ -2234,9 +2240,48 @@ isd\_combined\_4326\_7000\_st.tif & ISD final wind map (hurricane + non-hurrican
 \hypertarget{datadownload}{%
 \chapter{ERA5 Data Download}\label{datadownload}}
 
-The European Center for Medium-Range Weather Forecasts - ECMWF had implemented the Climate Data Storage - CDS \url{https://cds.climate.copernicus.eu/}, where all its datasets can be downloaded, however there is a straightforward way to get ERA5 data through Python library CDSAPI. Before to use CDSAPI, it is necessary to research about names and meanings of ERA5 variables using the official \emph{data documentation} web page \url{https://confluence.ecmwf.int/display/CKB/ERA5\%3A+data+documentation}, or the \emph{parameter database} \url{https://apps.ecmwf.int/codes/grib/param-db}, that includes all ECWMF data sources, not only ERA5.
+The European Center for Medium-Range Weather Forecasts - ECMWF had implemented the Climate Data Storage - CDS where all its datasets can be downloaded. It is necessary to research about names and meanings of ERA5 variables using the official \emph{data documentation} web page \url{https://confluence.ecmwf.int/display/CKB/ERA5\%3A+data+documentation}, or the \emph{parameter database} \url{https://apps.ecmwf.int/codes/grib/param-db}, that includes all ECWMF data sources, not only ERA5.
 
-Next block of code shows the use of CDSAPI (Python) to download ERA5 variable \emph{10fg - 10 meters wind gust}, from 1979 to 1991 for Colombia area. The most important keywords there, allow to define ERA5 data source and product type, variable name \emph{`variable'}, format NetCDF \emph{`format'}, area of interest \emph{`area'}, using WGS88 coordinates in the format \emph{north, west, south, east}, cell size \emph{`grid'} in decimal degrees, and all the keywords related to time \emph{`year'}, \emph{`month'}, \emph{`day'}, \emph{`time'}.
+To download the data from CDS there are three main options: (1) Using the CDS web page \url{https://cds.climate.copernicus.eu/}, (2) using the \texttt{CDSAPI} with Python, and (3) using \texttt{ecmwfr} R package as interface to ECMWF and CDS API and Web Services (Hufkens, \protect\hyperlink{ref-Hufkens2020}{2020}; Hufkens, Stauffer, \& Campitelli, \protect\hyperlink{ref-Hufkens2019}{2019}).
+
+Next block of code shows the use of \texttt{ecmwfr} R package to download ERA5 variable \emph{10fg - 10 meters wind gust}, from 1979 to 1991 for Colombia area. The most important keywords there, allow to define ERA5 data source and product type, variable name \emph{`variable'}, format NetCDF \emph{`format'}, area of interest \emph{`area'}, using WGS88 coordinates in the format \emph{north, west, south, east}, cell size \emph{`grid'} in decimal degrees, and all the keywords related to time \emph{`year'}, \emph{`month'}, \emph{`day'}, \emph{`time'}. To be able to process the data request it is necessary to provide the user (a number) and key as specified below.
+
+\scriptsize
+
+\vspace{0.4cm}
+\begin{Shaded}
+\begin{Highlighting}[]
+  \KeywordTok{require}\NormalTok{(ecmwfr)}
+  
+  \CommentTok{#Change user and key}
+  \KeywordTok{wf_set_key}\NormalTok{(}\DataTypeTok{user =} \StringTok{"26208"}\NormalTok{, }\DataTypeTok{key =} \StringTok{"*-*-*-*"}\NormalTok{, }\DataTypeTok{service=}\StringTok{"cds"}\NormalTok{)}
+  
+\NormalTok{  request <-}\StringTok{ }\KeywordTok{list}\NormalTok{(}
+    \DataTypeTok{product_type =} \StringTok{"reanalysis"}\NormalTok{,}
+    \DataTypeTok{format =} \StringTok{"netcdf"}\NormalTok{,}
+    \DataTypeTok{variable =} \StringTok{"10m_wind_gust_since_previous_post_processing"}\NormalTok{,}
+    \DataTypeTok{year =} \KeywordTok{c}\NormalTok{(}\StringTok{"1979"}\NormalTok{, }\StringTok{"1980"}\NormalTok{, }\StringTok{"1981"}\NormalTok{, }\StringTok{"1982"}\NormalTok{, }\StringTok{"1983"}\NormalTok{, }\StringTok{"1984"}\NormalTok{, }
+             \StringTok{"1985"}\NormalTok{, }\StringTok{"1986"}\NormalTok{, }\StringTok{"1987"}\NormalTok{, }\StringTok{"1988"}\NormalTok{, }\StringTok{"1989"}\NormalTok{, }\StringTok{"1990"}\NormalTok{, }\StringTok{"1991"}\NormalTok{),}
+    \DataTypeTok{month =} \KeywordTok{c}\NormalTok{(}\StringTok{"01"}\NormalTok{, }\StringTok{"02"}\NormalTok{, }\StringTok{"03"}\NormalTok{, }\StringTok{"04"}\NormalTok{, }\StringTok{"05"}\NormalTok{, }\StringTok{"06"}\NormalTok{, }\StringTok{"07"}\NormalTok{, }\StringTok{"08"}\NormalTok{, }\StringTok{"09"}\NormalTok{, }\StringTok{"10"}\NormalTok{, }\StringTok{"11"}\NormalTok{, }\StringTok{"12"}\NormalTok{),}
+    \DataTypeTok{time =} \KeywordTok{c}\NormalTok{(}\StringTok{"00:00"}\NormalTok{, }\StringTok{"01:00"}\NormalTok{, }\StringTok{"02:00"}\NormalTok{, }\StringTok{"03:00"}\NormalTok{, }\StringTok{"04:00"}\NormalTok{, }\StringTok{"05:00"}\NormalTok{, }\StringTok{"06:00"}\NormalTok{, }\StringTok{"07:00"}\NormalTok{, }
+             \StringTok{"08:00"}\NormalTok{, }\StringTok{"09:00"}\NormalTok{, }\StringTok{"10:00"}\NormalTok{, }\StringTok{"11:00"}\NormalTok{, }\StringTok{"12:00"}\NormalTok{, }\StringTok{"13:00"}\NormalTok{, }\StringTok{"14:00"}\NormalTok{, }\StringTok{"15:00"}\NormalTok{, }
+             \StringTok{"16:00"}\NormalTok{, }\StringTok{"17:00"}\NormalTok{, }\StringTok{"18:00"}\NormalTok{, }\StringTok{"19:00"}\NormalTok{, }\StringTok{"20:00"}\NormalTok{, }\StringTok{"21:00"}\NormalTok{, }\StringTok{"22:00"}\NormalTok{, }\StringTok{"23:00"}\NormalTok{),}
+    \DataTypeTok{day =} \KeywordTok{c}\NormalTok{(}\StringTok{"01"}\NormalTok{, }\StringTok{"02"}\NormalTok{, }\StringTok{"03"}\NormalTok{, }\StringTok{"04"}\NormalTok{, }\StringTok{"05"}\NormalTok{, }\StringTok{"06"}\NormalTok{, }\StringTok{"07"}\NormalTok{, }\StringTok{"08"}\NormalTok{, }\StringTok{"09"}\NormalTok{, }\StringTok{"10"}\NormalTok{, }
+            \StringTok{"11"}\NormalTok{, }\StringTok{"12"}\NormalTok{, }\StringTok{"13"}\NormalTok{, }\StringTok{"14"}\NormalTok{, }\StringTok{"15"}\NormalTok{, }\StringTok{"16"}\NormalTok{, }\StringTok{"17"}\NormalTok{, }\StringTok{"18"}\NormalTok{, }\StringTok{"19"}\NormalTok{, }\StringTok{"20"}\NormalTok{, }
+            \StringTok{"21"}\NormalTok{, }\StringTok{"22"}\NormalTok{, }\StringTok{"23"}\NormalTok{, }\StringTok{"24"}\NormalTok{, }\StringTok{"25"}\NormalTok{, }\StringTok{"26"}\NormalTok{, }\StringTok{"27"}\NormalTok{, }\StringTok{"28"}\NormalTok{, }\StringTok{"29"}\NormalTok{, }\StringTok{"30"}\NormalTok{, }\StringTok{"31"}\NormalTok{),}
+    \DataTypeTok{area =} \KeywordTok{c}\NormalTok{(}\FloatTok{12.5}\NormalTok{, }\FloatTok{-79.1}\NormalTok{, }\FloatTok{-4.5}\NormalTok{, }\FloatTok{-66.8}\NormalTok{),}
+    \DataTypeTok{grid =} \KeywordTok{c}\NormalTok{(}\FloatTok{0.25}\NormalTok{, }\FloatTok{0.25}\NormalTok{),}
+    \DataTypeTok{dataset_short_name =} \StringTok{"reanalysis-era5-single-levels,"}\NormalTok{,}
+    \DataTypeTok{target =} \StringTok{"10fg_1979_1991.nc"}
+\NormalTok{  )}
+  
+\NormalTok{  tmp<-}\KeywordTok{capture.output}\NormalTok{(pth<-}\KeywordTok{wf_request}\NormalTok{(request))}
+  \KeywordTok{file.copy}\NormalTok{(pth, }\StringTok{'10fg_1979_1991.nc'}\NormalTok{, }\DataTypeTok{overwrite =} \OtherTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+\normalsize
+
+To use the CDSAPI of Python to download the same previous dataset, use next block of code. The module \texttt{cdsapi} must be installed beforehand.
 
 \scriptsize
 
@@ -2257,7 +2302,7 @@ Next block of code shows the use of CDSAPI (Python) to download ERA5 variable \e
               \StringTok{'19'}\NormalTok{,}\StringTok{'20'}\NormalTok{,}\StringTok{'21'}\NormalTok{,}\StringTok{'22'}\NormalTok{,}\StringTok{'23'}\NormalTok{,}\StringTok{'24'}\NormalTok{,}\StringTok{'25'}\NormalTok{,}\StringTok{'26'}\NormalTok{,}\StringTok{'27'}\NormalTok{,}\StringTok{'28'}\NormalTok{,}\StringTok{'29'}\NormalTok{,}\StringTok{'30'}\NormalTok{,}\StringTok{'31'}\NormalTok{],}
        \StringTok{'area'}\NormalTok{:[}\FloatTok{12.5}\NormalTok{, }\FloatTok{-79.1}\NormalTok{, }\FloatTok{-4.5}\NormalTok{, }\FloatTok{-66.8}\NormalTok{], }\CommentTok{# North, West, South, East.}
        \StringTok{'grid'}\NormalTok{:[}\FloatTok{0.25}\NormalTok{,}\FloatTok{0.25}\NormalTok{]\},}
-      \StringTok{'10fg_1979_1991_netcdf_.25x.25.nc'}\NormalTok{)}
+      \StringTok{'10fg_1979_1991.nc'}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 \normalsize
@@ -2380,7 +2425,7 @@ Below is the partial content of a time series file (VV\_AUT\_10@31095030.data). 
 \end{enumerate}
 \begingroup\fontsize{8}{10}\selectfont
 \begin{longtable}[t]{>{\raggedright\arraybackslash}p{0.8in}>{\raggedright\arraybackslash}p{0.8in}}
-\caption[PostgreSQL Database Credentials]{\label{tab:unnamed-chunk-12}PostgreSQL Database Credentials}\\
+\caption[PostgreSQL Database Credentials]{\label{tab:unnamed-chunk-13}PostgreSQL Database Credentials}\\
 \toprule
 \multicolumn{1}{l}{Credential} & \multicolumn{1}{l}{Value}\\
 \midrule
