@@ -384,7 +384,7 @@ In this study, used intensity functions are:
   (\#eq:ppspecificintensityfunction)
 \end{equation}
 
-As is shown in \@ref(fig:fitif), the fitting process involve finding the best group of parameters of the intensity function, in such a way that the red curve (PDF of the PP, based on intensity function) be as tight as possible to the shape of the data histogram. As is described in _[POT-PP](#pot-pp)_, optimal parameters to do the fitting process of the intensity function are calculated using *maximum likelihood*.
+As is shown in \@ref(fig:fitif), the fitting process involve finding the best group of parameters of the intensity function, in such a way that the red curve (PDF of the PP, based on intensity function) be as tight as possible to the shape of the data histogram. As is described in _[POT-PP](#pot-pp)_, optimal parameters to do the fitting process of the intensity function are calculated using *maximum likelihood* with equation \@ref(eq:pplikelihood). The R code provided by Dr. Adam Pintar solve the score equations for the limit of the Poission process likelihood as the shape parameter goes to zero,  see personalized functions `FindStartVals` and `FindPsi` based on `stars::uniroot`.
 
 
 ```{r fitif, echo=FALSE, message=FALSE, warning=FALSE, fig.cap="POT - PP Intensity Function Fitting Process", size="footnotesize", fig.width= 2, fig.height= 2, fig.align="center"}

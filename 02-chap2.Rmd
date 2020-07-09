@@ -405,7 +405,7 @@ where $G$ is the quantile function (PPF), and the value of the probability passe
 
 According to @Pintar2015, the stochastic Poisson Process PP is mainly defined by its intensity function. As the intensity function is not uniform over the domain, the PP considered here is non-homogeneous, and due to the intensity function dependency of magnitude and time, it is also bi-dimensional. PP was described for the first time in @Pickands1971, then extended in @Smith1989. 
 
-Generic Equation \@ref(eq:ppgenericintensityfunction) shows the intensity function, which is defined in the domain $D = D_t\,{\cup}\,D_{nt}$, and allow to fit the PP at each station to the observed data $\{t_i, y_i\}_{i=1}^I$, for all the times ($t_i$) of threshold crossing observations, and its corresponding wind speeds magnitudes ($y_i$). Thus, only data above the threshold (POT) are used.
+Generic Equation \@ref(eq:ppgenericintensityfunction) shows the intensity function, which is defined in the domain $D = D_t\,{\cup}\,D_{nt}$, and allow to fit the PP at each station to the observed data $\{t_i, y_i\}_{i=1}^I$, for all the times ($t_i$) of threshold crossing observations, its corresponding wind speeds magnitudes ($y_i$), and with $I$ as the total number of observations. Thus, only data above the threshold (POT) are used.
 
 \begin{equation}
     \lambda\left(y,t\right)
@@ -495,7 +495,8 @@ Visual representation of the intensity function for PP can be seen in Figure \@r
 include_graphics(path = "figure/domain3d.PNG")
 ```
 
-To fit the intensity function to the data, the method of maximum likelihood is used to estimate its parameters, $scale = \psi$, $location = \omega$, and $shape = \zeta$, the selected vector of parameters $\eta$ are the $\hat\eta = (\hat\psi, \hat\omega, \hat\zeta)$ values that maximizes the function:
+To fit the intensity function to the data the method of maximum likelihood is used to estimate its parameters. Equation \@ref(eq:pplikelihood) is not the joint probability density function of the $I$ observations, but that can be used as likelihood because being proportional they have exactlty the same inflection points. All possible vectors of parameters are represented by $\eta$, but those selected as the Poisson process parameters ($scale = \psi$, $location = \omega$, and $shape = \zeta$) are the $\hat\eta = (\hat\psi, \hat\omega, \hat\zeta)$ values that maximizes $L(\eta)$.
+
 
 \begin{equation}
           L(\eta)=\left( 

@@ -872,7 +872,7 @@ where \(G\) is the quantile function (PPF), and the value of the probability pas
 
 According to Pintar et al. (\protect\hyperlink{ref-Pintar2015}{2015}), the stochastic Poisson Process PP is mainly defined by its intensity function. As the intensity function is not uniform over the domain, the PP considered here is non-homogeneous, and due to the intensity function dependency of magnitude and time, it is also bi-dimensional. PP was described for the first time in Pickands (\protect\hyperlink{ref-Pickands1971}{1971}), then extended in Smith (\protect\hyperlink{ref-Smith1989}{1989}).
 
-Generic Equation \eqref{eq:ppgenericintensityfunction} shows the intensity function, which is defined in the domain \(D = D_t\,{\cup}\,D_{nt}\), and allow to fit the PP at each station to the observed data \(\{t_i, y_i\}_{i=1}^I\), for all the times (\(t_i\)) of threshold crossing observations, and its corresponding wind speeds magnitudes (\(y_i\)). Thus, only data above the threshold (POT) are used.
+Generic Equation \eqref{eq:ppgenericintensityfunction} shows the intensity function, which is defined in the domain \(D = D_t\,{\cup}\,D_{nt}\), and allow to fit the PP at each station to the observed data \(\{t_i, y_i\}_{i=1}^I\), for all the times (\(t_i\)) of threshold crossing observations, its corresponding wind speeds magnitudes (\(y_i\)), and with \(I\) as the total number of observations. Thus, only data above the threshold (POT) are used.
 \begin{equation}
     \lambda\left(y,t\right)
     \begin{cases}
@@ -916,7 +916,7 @@ Visual representation of the intensity function for PP can be seen in Figure \re
 
 \caption{Volume Under Surfaces: Mean of PP}\label{fig:plotdomain3dpp}
 \end{figure}
-To fit the intensity function to the data, the method of maximum likelihood is used to estimate its parameters, \(scale = \psi\), \(location = \omega\), and \(shape = \zeta\), the selected vector of parameters \(\eta\) are the \(\hat\eta = (\hat\psi, \hat\omega, \hat\zeta)\) values that maximizes the function:
+To fit the intensity function to the data the method of maximum likelihood is used to estimate its parameters. Equation \eqref{eq:pplikelihood} is not the joint probability density function of the \(I\) observations, but that can be used as likelihood because being proportional they have exactlty the same inflection points. All possible vectors of parameters are represented by \(\eta\), but those selected as the Poisson process parameters (\(scale = \psi\), \(location = \omega\), and \(shape = \zeta\)) are the \(\hat\eta = (\hat\psi, \hat\omega, \hat\zeta)\) values that maximizes \(L(\eta)\).
 \begin{equation}
           L(\eta)=\left( 
                         \prod_{i=1}^I\lambda\left(y_i,t_i\right)  
@@ -1185,7 +1185,7 @@ In this study, used intensity functions are:
     \end{cases}
   \label{eq:ppspecificintensityfunction}
 \end{equation}
-As is shown in \ref{fig:fitif}, the fitting process involve finding the best group of parameters of the intensity function, in such a way that the red curve (PDF of the PP, based on intensity function) be as tight as possible to the shape of the data histogram. As is described in \emph{\protect\hyperlink{pot-pp}{POT-PP}}, optimal parameters to do the fitting process of the intensity function are calculated using \emph{maximum likelihood}.
+As is shown in \ref{fig:fitif}, the fitting process involve finding the best group of parameters of the intensity function, in such a way that the red curve (PDF of the PP, based on intensity function) be as tight as possible to the shape of the data histogram. As is described in \emph{\protect\hyperlink{pot-pp}{POT-PP}}, optimal parameters to do the fitting process of the intensity function are calculated using \emph{maximum likelihood} with equation \eqref{eq:pplikelihood}. The R code provided by Dr.~Adam Pintar solve the score equations for the limit of the Poission process likelihood as the shape parameter goes to zero, see personalized functions \texttt{FindStartVals} and \texttt{FindPsi} based on \texttt{stars::uniroot}.
 
 \footnotesize
 \begin{figure}
@@ -2380,7 +2380,7 @@ Below is the partial content of a time series file (VV\_AUT\_10@31095030.data). 
 \end{enumerate}
 \begingroup\fontsize{8}{10}\selectfont
 \begin{longtable}[t]{>{\raggedright\arraybackslash}p{0.8in}>{\raggedright\arraybackslash}p{0.8in}}
-\caption[PostgreSQL Database Credentials]{\label{tab:unnamed-chunk-11}PostgreSQL Database Credentials}\\
+\caption[PostgreSQL Database Credentials]{\label{tab:unnamed-chunk-12}PostgreSQL Database Credentials}\\
 \toprule
 \multicolumn{1}{l}{Credential} & \multicolumn{1}{l}{Value}\\
 \midrule
@@ -3092,18 +3092,31 @@ This appendix includes all of the R chunks of code that were hidden throughout t
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{#Load ERA5 NetCDF dataset - variable fg10}
-\NormalTok{ncname <-}\StringTok{ "outfile_nc4c_zip9"}
-\NormalTok{filename <-}\StringTok{ }\KeywordTok{paste}\NormalTok{(}\StringTok{"./data/"}\NormalTok{, ncname, }\StringTok{".nc"}\NormalTok{, }\DataTypeTok{sep =} \StringTok{""}\NormalTok{)}
-\NormalTok{ncin <-}\StringTok{ }\KeywordTok{nc_open}\NormalTok{(filename)}
-\NormalTok{lon <-}\StringTok{ }\KeywordTok{ncvar_get}\NormalTok{(ncin, }\StringTok{"longitude"}\NormalTok{)}
+\NormalTok{ ncname <-}\StringTok{ "outfile_nc4c_zip9"}
+\NormalTok{ filename <-}\StringTok{ }\KeywordTok{paste}\NormalTok{(}\StringTok{"./data/"}\NormalTok{, ncname, }\StringTok{".nc"}\NormalTok{, }\DataTypeTok{sep =} \StringTok{""}\NormalTok{)}
+\CommentTok{# ncin <- nc_open(filename)}
+\CommentTok{# lon <- ncvar_get(ncin, "longitude")}
+\CommentTok{# nlon = dim(lon)}
+\CommentTok{# lat <- ncvar_get(ncin, "latitude")}
+\CommentTok{# nlat = dim(lat)}
+\CommentTok{# ntime <-  dim(ncvar_get(ncin, "time"))}
+\CommentTok{# variablename <- "fg10"}
+\CommentTok{# fg10.units <- ncatt_get(ncin, variablename, "units")}
+\CommentTok{# fg10.units}
+\CommentTok{# lonlat.unstack <- expand.grid(lon=as.numeric(lon), lat=as.numeric(lat))}
+
+\CommentTok{#Load using stars}
+\NormalTok{lon <-}\StringTok{ }\KeywordTok{read_ncdf}\NormalTok{(filename, }\DataTypeTok{var =} \KeywordTok{c}\NormalTok{(}\StringTok{"longitude"}\NormalTok{))}
 \NormalTok{nlon =}\StringTok{ }\KeywordTok{dim}\NormalTok{(lon)}
-\NormalTok{lat <-}\StringTok{ }\KeywordTok{ncvar_get}\NormalTok{(ncin, }\StringTok{"latitude"}\NormalTok{)}
+\NormalTok{lat <-}\StringTok{ }\KeywordTok{read_ncdf}\NormalTok{(filename, }\DataTypeTok{var =} \KeywordTok{c}\NormalTok{(}\StringTok{"latitude"}\NormalTok{))}
 \NormalTok{nlat =}\StringTok{ }\KeywordTok{dim}\NormalTok{(lat)}
-\NormalTok{ntime <-}\StringTok{  }\KeywordTok{dim}\NormalTok{(}\KeywordTok{ncvar_get}\NormalTok{(ncin, }\StringTok{"time"}\NormalTok{))}
+\NormalTok{ntime <-}\StringTok{  }\KeywordTok{dim}\NormalTok{(}\KeywordTok{read_ncdf}\NormalTok{(filename, }\DataTypeTok{var =} \KeywordTok{c}\NormalTok{(}\StringTok{"time"}\NormalTok{)))}
+
 \NormalTok{variablename <-}\StringTok{ "fg10"}
-\NormalTok{fg10.units <-}\StringTok{ }\KeywordTok{ncatt_get}\NormalTok{(ncin, variablename, }\StringTok{"units"}\NormalTok{)}
-\NormalTok{fg10.units}
-\NormalTok{lonlat.unstack <-}\StringTok{ }\KeywordTok{expand.grid}\NormalTok{(}\DataTypeTok{lon=}\KeywordTok{as.numeric}\NormalTok{(lon), }\DataTypeTok{lat=}\KeywordTok{as.numeric}\NormalTok{(lat))}
+\NormalTok{fg10_}\DecValTok{1}\NormalTok{ =}\StringTok{ }\KeywordTok{read_ncdf}\NormalTok{(filename, }\DataTypeTok{var =} \KeywordTok{c}\NormalTok{(variablename), }\DataTypeTok{ncsub =} \KeywordTok{cbind}\NormalTok{(}\DataTypeTok{start =} \KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{1}\NormalTok{,}\DecValTok{1}\NormalTok{), }\DataTypeTok{count =} \KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{1}\NormalTok{,}\DecValTok{1}\NormalTok{)))}
+\NormalTok{fg10.units =}\StringTok{ }\KeywordTok{units}\NormalTok{(fg10_}\DecValTok{1}\OperatorTok{$}\NormalTok{fg10)}
+
+\NormalTok{lonlat.unstack <-}\StringTok{ }\KeywordTok{expand.grid}\NormalTok{(}\DataTypeTok{lon=}\KeywordTok{as.numeric}\NormalTok{(lon}\OperatorTok{$}\NormalTok{longitude), }\DataTypeTok{lat=}\KeywordTok{as.numeric}\NormalTok{(lat}\OperatorTok{$}\NormalTok{latitude))}
 \CommentTok{#Create ERA5 centers (point with lat, lon, and value, as cell index)}
 \NormalTok{era5colpoints =}\StringTok{ }\KeywordTok{st_as_sf}\NormalTok{(lonlat.unstack, }\DataTypeTok{coords=}\DecValTok{1}\OperatorTok{:}\DecValTok{2}\NormalTok{, }\DataTypeTok{crs=}\KeywordTok{st_crs}\NormalTok{(}\DecValTok{4326}\NormalTok{))}
 \NormalTok{era5colpoints}\OperatorTok{$}\NormalTok{value =}\StringTok{ }\DecValTok{1}\OperatorTok{:}\NormalTok{(nlon}\OperatorTok{*}\NormalTok{nlat)}

@@ -342,18 +342,31 @@ plot.xts(statisd_xts, main = "Station ID: 802590\nWind Velocity [m/s]", major.ti
 
 ```{r loadera5, include=FALSE}
 #Load ERA5 NetCDF dataset - variable fg10
-ncname <- "outfile_nc4c_zip9"
-filename <- paste("./data/", ncname, ".nc", sep = "")
-ncin <- nc_open(filename)
-lon <- ncvar_get(ncin, "longitude")
+ ncname <- "outfile_nc4c_zip9"
+ filename <- paste("./data/", ncname, ".nc", sep = "")
+# ncin <- nc_open(filename)
+# lon <- ncvar_get(ncin, "longitude")
+# nlon = dim(lon)
+# lat <- ncvar_get(ncin, "latitude")
+# nlat = dim(lat)
+# ntime <-  dim(ncvar_get(ncin, "time"))
+# variablename <- "fg10"
+# fg10.units <- ncatt_get(ncin, variablename, "units")
+# fg10.units
+# lonlat.unstack <- expand.grid(lon=as.numeric(lon), lat=as.numeric(lat))
+
+#Load using stars
+lon <- read_ncdf(filename, var = c("longitude"))
 nlon = dim(lon)
-lat <- ncvar_get(ncin, "latitude")
+lat <- read_ncdf(filename, var = c("latitude"))
 nlat = dim(lat)
-ntime <-  dim(ncvar_get(ncin, "time"))
+ntime <-  dim(read_ncdf(filename, var = c("time")))
+
 variablename <- "fg10"
-fg10.units <- ncatt_get(ncin, variablename, "units")
-fg10.units
-lonlat.unstack <- expand.grid(lon=as.numeric(lon), lat=as.numeric(lat))
+fg10_1 = read_ncdf(filename, var = c(variablename), ncsub = cbind(start = c(1,1,1), count = c(1,1,1)))
+fg10.units = units(fg10_1$fg10)
+
+lonlat.unstack <- expand.grid(lon=as.numeric(lon$longitude), lat=as.numeric(lat$latitude))
 ```
 
 
@@ -559,25 +572,66 @@ grid.arrange(big, arrangeGrob(corner1lt, corner2rt, corner3lb, corner4rb), ncol=
 
 
 ```{r, include=FALSE}
-t.units <- ncatt_get(ncin, "time", "units")
-t.units
-time.array <-  ncvar_get(ncin, "time")
-nt = dim(time.array)
-nt
-head(time.array, 1)
-tail(time.array, 1)
-tustr <- strsplit(t.units$value, " ")
+#Get time serie from station 1 -Using ncdf4
+# t.units <- ncatt_get(ncin, "time", "units")
+# t.units
+# time.array <-  ncvar_get(ncin, "time")
+# nt = dim(time.array)
+# nt
+# tustr <- strsplit(t.units$value, " ")
+# 
+# #Our data is in Gregorian Calendar: "hours"      "since"      "1900-01-01" "00:00:00.0"
+# anio_mes_dia = unlist(tustr)[3]
+# 
+# #Note that the dates are converted first to seconds!
+# timestamp = as_datetime(c(time.array*60*60),origin=anio_mes_dia)
+# timestamp_string <- as.character(timestamp)
+# 
+# statera5_xts = na.omit(xts(x= ncvar_get(ncin, 'fg10', start=c(1,1,1), count=c(1,1,ntime)), order.by = timestamp))
+# 
+# colnames(statera5_xts) = paste0("ERA5_", "1")
 
+#Get time serie from station 1 -Using stars
+
+time.array = read_ncdf(filename, var = c("time"))$time
+t.units <- as.character(units(time.array)$numerator)
+time.array = as.matrix(time.array)
+nt = dim(time.array)
+tustr <- strsplit(t.units, " ")
 #Our data is in Gregorian Calendar: "hours"      "since"      "1900-01-01" "00:00:00.0"
 anio_mes_dia = unlist(tustr)[3]
-
 #Note that the dates are converted first to seconds!
 timestamp = as_datetime(c(time.array*60*60),origin=anio_mes_dia)
 timestamp_string <- as.character(timestamp)
-
-statera5_xts = na.omit(xts(x= ncvar_get(ncin, 'fg10', start=c(1,1,1), count=c(1,1,ntime)), order.by = timestamp))
+fg10_1 = read_ncdf(filename, var = c(variablename), ncsub = cbind(start = c(1,1,1), count = c(1,1,ntime)))
+statera5_xts = na.omit(xts(as.matrix(fg10_1$fg10), order.by = timestamp))
 
 colnames(statera5_xts) = paste0("ERA5_", "1")
+```
+
+```{r, include=FALSE}
+#calculate the taw periodogram from statera5_xts
+plot(spectrum(statera5_xts))
+
+#Calculate dayly mean and plot to so see if there is seasonal trend
+statera5 = as.data.frame(statera5_xts)
+#statera5$mytime = rownames(statera5)
+statera5$mytime = timestamp
+statera5$jday = as.numeric(format(statera5$mytime, '%j'))
+Jday = 1:366
+wind = as.matrix(statera5[1])
+daymeans = sapply(split(wind, statera5$jday), mean)
+plot(daymeans ~ Jday)
+lines(lowess(daymeans ~ Jday, f = 0.1))
+
+# subtract the trend:
+meanwind = lowess(daymeans ~ Jday, f = 0.1)$y[statera5$jday]
+velocity = apply(wind, 2, function(x) { x - meanwind })
+
+#stl - Seasonal Decomposition of Time Series by Loess
+#stl(statera5_xts, "per")
+statera5.ts = ts(statera5[,1], frequency = 8760)
+spectrum(statera5.ts, spans = c(3,5))
 ```
 
 ## Data Download and Data Organization

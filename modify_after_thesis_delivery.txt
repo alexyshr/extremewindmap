@@ -70,3 +70,30 @@ Review in the document related to As and Ans (365). Etc
 
 La leyenda de la Figura 5.4 no se ve bien. (modifz eracomparisonideam_188_78_plotxts.rds)
 
+
+Review the meaning of 3D intensity function. delete that graphic??
+
+Review the sentence "To fit the intensity function to the data " in th PDF
+
+It is nos possible to have only "t" in any dataset???. Verify this and put in the manual. If you do no have t and nt classification, put all as nt (do not use all data as t)
+
+
+I added 20 new columns to fitted_model_result.xlsx with percentajes of probabilities of storm and non-storm related to the calculation of return value/level (Yn) when the dataset is composed of thunderstorm and non-thunderstorm at the same time. First ten columns 115-125 report the percentaje of thunderstorm probability, and second ten columns 126-136 repor the percentaje of non-thunderstorm probability. Whit this colums is possible to know how much percentage probability does storm bring and how much percentage of probability does non-storm bring to calculate the return level Yn. prob = At*integral + Ant * Integral (Yn is the suscript of the integral). First ten columns contain At*integral, and next ten columns contains Ant*integral.
+
+Put in the manual: It is not possible to leave only t in time series. It can be nt only or (t and nt), but not t only.
+
+Put in theoretical framework:
+- According to Coles(2001): in case of having available complete time series (no gaps) and values above certain threshold, the POT approach is more efficient than block maxima method
+
+Put in theoretical framewor:
+selection of threshold is a trade-off between bias (low threshold) and variance (high threshold)
+
+threshold selection in coles (2001): (a) exploratory approach previous to the actual model fitting and is based on the mean residual life plot, and (b) assess the stability of the parameters estimates using a range of different thresholds
+
+selection of the thresholds is the most important part of extreme valua analysis using partial duration series, see  Scarrott and MacDonald provide a quite good overview of approaches for threshold estimation in their 2012 article A review of extreme value threshold estimation and uncertainty quantification (REVSTAT 10(1): 33–59) https://www.ine.pt/revstat/pdf/rs120102.pdf
+
+The typical POT approach uses the GP distribution
+
+talk about as, ans time units Yn. Dependence of location parameter of time units!
+
+change 'at' and 'ant' by 'as' and 'ans'
