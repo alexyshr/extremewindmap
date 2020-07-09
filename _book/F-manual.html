@@ -262,80 +262,80 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 
 
-<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb45-1" title="1"><span class="co"># List of packages required for this analysis</span></a>
-<a class="sourceLine" id="cb45-2" title="2">  pkg &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;actuar&quot;</span>, <span class="st">&quot;bbmle&quot;</span>, <span class="st">&quot;bookdown&quot;</span>, <span class="st">&quot;cowplot&quot;</span>, <span class="st">&quot;devtools&quot;</span>, <span class="st">&quot;DiagrammeR&quot;</span>, <span class="st">&quot;dplyr&quot;</span>, <span class="st">&quot;evd&quot;</span>, <span class="st">&quot;evir&quot;</span>, <span class="st">&quot;evmix&quot;</span>, <span class="st">&quot;extRemes&quot;</span>, <span class="st">&quot;extremeStat&quot;</span>, </a>
-<a class="sourceLine" id="cb45-3" title="3">  <span class="st">&quot;fitdistrplus&quot;</span>, <span class="st">&quot;geoR&quot;</span>, <span class="st">&quot;ggmap&quot;</span>, <span class="st">&quot;ggplot2&quot;</span>, <span class="st">&quot;ggrepel&quot;</span>, <span class="st">&quot;ggspatial&quot;</span>, <span class="st">&quot;grid&quot;</span>, <span class="st">&quot;gridExtra&quot;</span>, <span class="st">&quot;gstat&quot;</span>, <span class="st">&quot;ismev&quot;</span>, <span class="st">&quot;kableExtra&quot;</span>, <span class="st">&quot;knitr&quot;</span>, <span class="st">&quot;lattice&quot;</span>, </a>
-<a class="sourceLine" id="cb45-4" title="4">  <span class="st">&quot;lmom&quot;</span>, <span class="st">&quot;lmomco&quot;</span>, <span class="st">&quot;lubridate&quot;</span>, <span class="st">&quot;magick&quot;</span>, <span class="st">&quot;maptools&quot;</span>, <span class="st">&quot;mapview&quot;</span>, <span class="st">&quot;MASS&quot;</span>, <span class="st">&quot;ncdf4&quot;</span>, <span class="st">&quot;openair&quot;</span>, <span class="st">&quot;plot3D&quot;</span>, <span class="st">&quot;plotly&quot;</span>, <span class="st">&quot;POT&quot;</span>, <span class="st">&quot;quantmod&quot;</span>, <span class="st">&quot;raster&quot;</span>, </a>
-<a class="sourceLine" id="cb45-5" title="5">  <span class="st">&quot;RcmdrMisc&quot;</span>, <span class="st">&quot;RColorBrewer&quot;</span>, <span class="st">&quot;Renext&quot;</span>, <span class="st">&quot;rgdal&quot;</span>, <span class="st">&quot;rgl&quot;</span>, <span class="st">&quot;rnaturaleearth&quot;</span>, <span class="st">&quot;rnaturaleearthdata&quot;</span>, <span class="st">&quot;RPostgreSQL&quot;</span>, <span class="st">&quot;RStoolbox&quot;</span>, <span class="st">&quot;sf&quot;</span>, <span class="st">&quot;shape&quot;</span>, </a>
-<a class="sourceLine" id="cb45-6" title="6">  <span class="st">&quot;sp&quot;</span>, <span class="st">&quot;SpatialExtremes&quot;</span>, <span class="st">&quot;stars&quot;</span>, <span class="st">&quot;thesisdown&quot;</span>, <span class="st">&quot;tibble&quot;</span>, <span class="st">&quot;tidyr&quot;</span>, <span class="st">&quot;viridis&quot;</span>, <span class="st">&quot;xls&quot;</span>, <span class="st">&quot;xlsx&quot;</span>, <span class="st">&quot;xts&quot;</span>)</a>
-<a class="sourceLine" id="cb45-7" title="7"><span class="co"># Check if packages are not installed and assign the</span></a>
-<a class="sourceLine" id="cb45-8" title="8"><span class="co"># names of the packages not installed to the variable new.pkg</span></a>
-<a class="sourceLine" id="cb45-9" title="9">  new.pkg &lt;-<span class="st"> </span>pkg[<span class="op">!</span>(pkg <span class="op">%in%</span><span class="st"> </span><span class="kw">installed.packages</span>())]</a>
-<a class="sourceLine" id="cb45-10" title="10"><span class="co"># If there are any packages in the list that aren&#39;t installed,</span></a>
-<a class="sourceLine" id="cb45-11" title="11"><span class="co"># install them</span></a>
-<a class="sourceLine" id="cb45-12" title="12">  <span class="cf">if</span> (<span class="kw">length</span>(new.pkg))</a>
-<a class="sourceLine" id="cb45-13" title="13">    <span class="kw">install.packages</span>(new.pkg, <span class="dt">repos =</span> <span class="st">&quot;http://cran.rstudio.com&quot;</span>)</a>
-<a class="sourceLine" id="cb45-14" title="14"><span class="co">#Load packages</span></a>
-<a class="sourceLine" id="cb45-15" title="15">  <span class="kw">library</span>(actuar)</a>
-<a class="sourceLine" id="cb45-16" title="16">  <span class="kw">library</span>(bbmle)</a>
-<a class="sourceLine" id="cb45-17" title="17">  <span class="kw">library</span>(bookdown)</a>
-<a class="sourceLine" id="cb45-18" title="18">  <span class="kw">library</span>(cowplot)</a>
-<a class="sourceLine" id="cb45-19" title="19">  <span class="kw">library</span>(devtools)</a>
-<a class="sourceLine" id="cb45-20" title="20">  <span class="kw">library</span>(DiagrammeR)</a>
-<a class="sourceLine" id="cb45-21" title="21">  <span class="kw">library</span>(dplyr)</a>
-<a class="sourceLine" id="cb45-22" title="22">  <span class="kw">library</span>(evd)</a>
-<a class="sourceLine" id="cb45-23" title="23">  <span class="kw">library</span>(evir)</a>
-<a class="sourceLine" id="cb45-24" title="24">  <span class="kw">library</span>(evmix)</a>
-<a class="sourceLine" id="cb45-25" title="25">  <span class="kw">library</span>(extRemes)</a>
-<a class="sourceLine" id="cb45-26" title="26">  <span class="kw">library</span>(extremeStat)</a>
-<a class="sourceLine" id="cb45-27" title="27">  <span class="kw">library</span>(fitdistrplus)</a>
-<a class="sourceLine" id="cb45-28" title="28">  <span class="kw">library</span>(geoR)</a>
-<a class="sourceLine" id="cb45-29" title="29">  <span class="kw">library</span>(ggmap)</a>
-<a class="sourceLine" id="cb45-30" title="30">  <span class="kw">library</span>(ggplot2)</a>
-<a class="sourceLine" id="cb45-31" title="31">  <span class="kw">library</span>(ggrepel)</a>
-<a class="sourceLine" id="cb45-32" title="32">  <span class="kw">library</span>(ggspatial)</a>
-<a class="sourceLine" id="cb45-33" title="33">  <span class="kw">library</span>(grid)</a>
-<a class="sourceLine" id="cb45-34" title="34">  <span class="kw">library</span>(gridExtra)</a>
-<a class="sourceLine" id="cb45-35" title="35">  <span class="kw">library</span>(gstat)</a>
-<a class="sourceLine" id="cb45-36" title="36">  <span class="kw">library</span>(ismev)</a>
-<a class="sourceLine" id="cb45-37" title="37">  <span class="kw">library</span>(kableExtra)</a>
-<a class="sourceLine" id="cb45-38" title="38">  <span class="kw">library</span>(knitr)</a>
-<a class="sourceLine" id="cb45-39" title="39">  <span class="kw">library</span>(lattice)</a>
-<a class="sourceLine" id="cb45-40" title="40">  <span class="kw">library</span>(lmom)</a>
-<a class="sourceLine" id="cb45-41" title="41">  <span class="kw">library</span>(lmomco)</a>
-<a class="sourceLine" id="cb45-42" title="42">  <span class="kw">library</span>(lubridate)</a>
-<a class="sourceLine" id="cb45-43" title="43">  <span class="kw">library</span>(magick)</a>
-<a class="sourceLine" id="cb45-44" title="44">  <span class="kw">library</span>(maptools)</a>
-<a class="sourceLine" id="cb45-45" title="45">  <span class="kw">library</span>(mapview)</a>
-<a class="sourceLine" id="cb45-46" title="46">  <span class="kw">library</span>(MASS)</a>
-<a class="sourceLine" id="cb45-47" title="47">  <span class="kw">library</span>(ncdf4)</a>
-<a class="sourceLine" id="cb45-48" title="48">  <span class="kw">library</span>(openair)</a>
-<a class="sourceLine" id="cb45-49" title="49">  <span class="kw">library</span>(plot3D)</a>
-<a class="sourceLine" id="cb45-50" title="50">  <span class="kw">library</span>(plotly)</a>
-<a class="sourceLine" id="cb45-51" title="51">  <span class="kw">library</span>(POT)</a>
-<a class="sourceLine" id="cb45-52" title="52">  <span class="kw">library</span>(quantmod)</a>
-<a class="sourceLine" id="cb45-53" title="53">  <span class="kw">library</span>(raster)</a>
-<a class="sourceLine" id="cb45-54" title="54">  <span class="kw">library</span>(RcmdrMisc)</a>
-<a class="sourceLine" id="cb45-55" title="55">  <span class="kw">library</span>(RColorBrewer)</a>
-<a class="sourceLine" id="cb45-56" title="56">  <span class="kw">library</span>(Renext)</a>
-<a class="sourceLine" id="cb45-57" title="57">  <span class="kw">library</span>(rgdal)</a>
-<a class="sourceLine" id="cb45-58" title="58">  <span class="kw">library</span>(rgl)</a>
-<a class="sourceLine" id="cb45-59" title="59">  <span class="kw">library</span>(rnaturaleearth)</a>
-<a class="sourceLine" id="cb45-60" title="60">  <span class="kw">library</span>(rnaturaleearthdata)</a>
-<a class="sourceLine" id="cb45-61" title="61">  <span class="kw">library</span>(RPostgreSQL)</a>
-<a class="sourceLine" id="cb45-62" title="62">  <span class="kw">library</span>(RStoolbox)</a>
-<a class="sourceLine" id="cb45-63" title="63">  <span class="kw">library</span>(sf)</a>
-<a class="sourceLine" id="cb45-64" title="64">  <span class="kw">library</span>(shape)</a>
-<a class="sourceLine" id="cb45-65" title="65">  <span class="kw">library</span>(sp)</a>
-<a class="sourceLine" id="cb45-66" title="66">  <span class="kw">library</span>(SpatialExtremes)</a>
-<a class="sourceLine" id="cb45-67" title="67">  <span class="kw">library</span>(stars)</a>
-<a class="sourceLine" id="cb45-68" title="68">  <span class="kw">library</span>(thesisdown)</a>
-<a class="sourceLine" id="cb45-69" title="69">  <span class="kw">library</span>(tibble)</a>
-<a class="sourceLine" id="cb45-70" title="70">  <span class="kw">library</span>(tidyr)</a>
-<a class="sourceLine" id="cb45-71" title="71">  <span class="kw">library</span>(viridis)</a>
-<a class="sourceLine" id="cb45-72" title="72">  <span class="kw">library</span>(xls)</a>
-<a class="sourceLine" id="cb45-73" title="73">  <span class="kw">library</span>(xlsx)</a>
-<a class="sourceLine" id="cb45-74" title="74">  <span class="kw">library</span>(xts</a></code></pre></div>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb46-1" title="1"><span class="co"># List of packages required for this analysis</span></a>
+<a class="sourceLine" id="cb46-2" title="2">  pkg &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;actuar&quot;</span>, <span class="st">&quot;bbmle&quot;</span>, <span class="st">&quot;bookdown&quot;</span>, <span class="st">&quot;cowplot&quot;</span>, <span class="st">&quot;devtools&quot;</span>, <span class="st">&quot;DiagrammeR&quot;</span>, <span class="st">&quot;dplyr&quot;</span>, <span class="st">&quot;evd&quot;</span>, <span class="st">&quot;evir&quot;</span>, <span class="st">&quot;evmix&quot;</span>, <span class="st">&quot;extRemes&quot;</span>, <span class="st">&quot;extremeStat&quot;</span>, </a>
+<a class="sourceLine" id="cb46-3" title="3">  <span class="st">&quot;fitdistrplus&quot;</span>, <span class="st">&quot;geoR&quot;</span>, <span class="st">&quot;ggmap&quot;</span>, <span class="st">&quot;ggplot2&quot;</span>, <span class="st">&quot;ggrepel&quot;</span>, <span class="st">&quot;ggspatial&quot;</span>, <span class="st">&quot;grid&quot;</span>, <span class="st">&quot;gridExtra&quot;</span>, <span class="st">&quot;gstat&quot;</span>, <span class="st">&quot;ismev&quot;</span>, <span class="st">&quot;kableExtra&quot;</span>, <span class="st">&quot;knitr&quot;</span>, <span class="st">&quot;lattice&quot;</span>, </a>
+<a class="sourceLine" id="cb46-4" title="4">  <span class="st">&quot;lmom&quot;</span>, <span class="st">&quot;lmomco&quot;</span>, <span class="st">&quot;lubridate&quot;</span>, <span class="st">&quot;magick&quot;</span>, <span class="st">&quot;maptools&quot;</span>, <span class="st">&quot;mapview&quot;</span>, <span class="st">&quot;MASS&quot;</span>, <span class="st">&quot;ncdf4&quot;</span>, <span class="st">&quot;openair&quot;</span>, <span class="st">&quot;plot3D&quot;</span>, <span class="st">&quot;plotly&quot;</span>, <span class="st">&quot;POT&quot;</span>, <span class="st">&quot;quantmod&quot;</span>, <span class="st">&quot;raster&quot;</span>, </a>
+<a class="sourceLine" id="cb46-5" title="5">  <span class="st">&quot;RcmdrMisc&quot;</span>, <span class="st">&quot;RColorBrewer&quot;</span>, <span class="st">&quot;Renext&quot;</span>, <span class="st">&quot;rgdal&quot;</span>, <span class="st">&quot;rgl&quot;</span>, <span class="st">&quot;rnaturaleearth&quot;</span>, <span class="st">&quot;rnaturaleearthdata&quot;</span>, <span class="st">&quot;RPostgreSQL&quot;</span>, <span class="st">&quot;RStoolbox&quot;</span>, <span class="st">&quot;sf&quot;</span>, <span class="st">&quot;shape&quot;</span>, </a>
+<a class="sourceLine" id="cb46-6" title="6">  <span class="st">&quot;sp&quot;</span>, <span class="st">&quot;SpatialExtremes&quot;</span>, <span class="st">&quot;stars&quot;</span>, <span class="st">&quot;thesisdown&quot;</span>, <span class="st">&quot;tibble&quot;</span>, <span class="st">&quot;tidyr&quot;</span>, <span class="st">&quot;viridis&quot;</span>, <span class="st">&quot;xls&quot;</span>, <span class="st">&quot;xlsx&quot;</span>, <span class="st">&quot;xts&quot;</span>)</a>
+<a class="sourceLine" id="cb46-7" title="7"><span class="co"># Check if packages are not installed and assign the</span></a>
+<a class="sourceLine" id="cb46-8" title="8"><span class="co"># names of the packages not installed to the variable new.pkg</span></a>
+<a class="sourceLine" id="cb46-9" title="9">  new.pkg &lt;-<span class="st"> </span>pkg[<span class="op">!</span>(pkg <span class="op">%in%</span><span class="st"> </span><span class="kw">installed.packages</span>())]</a>
+<a class="sourceLine" id="cb46-10" title="10"><span class="co"># If there are any packages in the list that aren&#39;t installed,</span></a>
+<a class="sourceLine" id="cb46-11" title="11"><span class="co"># install them</span></a>
+<a class="sourceLine" id="cb46-12" title="12">  <span class="cf">if</span> (<span class="kw">length</span>(new.pkg))</a>
+<a class="sourceLine" id="cb46-13" title="13">    <span class="kw">install.packages</span>(new.pkg, <span class="dt">repos =</span> <span class="st">&quot;http://cran.rstudio.com&quot;</span>)</a>
+<a class="sourceLine" id="cb46-14" title="14"><span class="co">#Load packages</span></a>
+<a class="sourceLine" id="cb46-15" title="15">  <span class="kw">library</span>(actuar)</a>
+<a class="sourceLine" id="cb46-16" title="16">  <span class="kw">library</span>(bbmle)</a>
+<a class="sourceLine" id="cb46-17" title="17">  <span class="kw">library</span>(bookdown)</a>
+<a class="sourceLine" id="cb46-18" title="18">  <span class="kw">library</span>(cowplot)</a>
+<a class="sourceLine" id="cb46-19" title="19">  <span class="kw">library</span>(devtools)</a>
+<a class="sourceLine" id="cb46-20" title="20">  <span class="kw">library</span>(DiagrammeR)</a>
+<a class="sourceLine" id="cb46-21" title="21">  <span class="kw">library</span>(dplyr)</a>
+<a class="sourceLine" id="cb46-22" title="22">  <span class="kw">library</span>(evd)</a>
+<a class="sourceLine" id="cb46-23" title="23">  <span class="kw">library</span>(evir)</a>
+<a class="sourceLine" id="cb46-24" title="24">  <span class="kw">library</span>(evmix)</a>
+<a class="sourceLine" id="cb46-25" title="25">  <span class="kw">library</span>(extRemes)</a>
+<a class="sourceLine" id="cb46-26" title="26">  <span class="kw">library</span>(extremeStat)</a>
+<a class="sourceLine" id="cb46-27" title="27">  <span class="kw">library</span>(fitdistrplus)</a>
+<a class="sourceLine" id="cb46-28" title="28">  <span class="kw">library</span>(geoR)</a>
+<a class="sourceLine" id="cb46-29" title="29">  <span class="kw">library</span>(ggmap)</a>
+<a class="sourceLine" id="cb46-30" title="30">  <span class="kw">library</span>(ggplot2)</a>
+<a class="sourceLine" id="cb46-31" title="31">  <span class="kw">library</span>(ggrepel)</a>
+<a class="sourceLine" id="cb46-32" title="32">  <span class="kw">library</span>(ggspatial)</a>
+<a class="sourceLine" id="cb46-33" title="33">  <span class="kw">library</span>(grid)</a>
+<a class="sourceLine" id="cb46-34" title="34">  <span class="kw">library</span>(gridExtra)</a>
+<a class="sourceLine" id="cb46-35" title="35">  <span class="kw">library</span>(gstat)</a>
+<a class="sourceLine" id="cb46-36" title="36">  <span class="kw">library</span>(ismev)</a>
+<a class="sourceLine" id="cb46-37" title="37">  <span class="kw">library</span>(kableExtra)</a>
+<a class="sourceLine" id="cb46-38" title="38">  <span class="kw">library</span>(knitr)</a>
+<a class="sourceLine" id="cb46-39" title="39">  <span class="kw">library</span>(lattice)</a>
+<a class="sourceLine" id="cb46-40" title="40">  <span class="kw">library</span>(lmom)</a>
+<a class="sourceLine" id="cb46-41" title="41">  <span class="kw">library</span>(lmomco)</a>
+<a class="sourceLine" id="cb46-42" title="42">  <span class="kw">library</span>(lubridate)</a>
+<a class="sourceLine" id="cb46-43" title="43">  <span class="kw">library</span>(magick)</a>
+<a class="sourceLine" id="cb46-44" title="44">  <span class="kw">library</span>(maptools)</a>
+<a class="sourceLine" id="cb46-45" title="45">  <span class="kw">library</span>(mapview)</a>
+<a class="sourceLine" id="cb46-46" title="46">  <span class="kw">library</span>(MASS)</a>
+<a class="sourceLine" id="cb46-47" title="47">  <span class="kw">library</span>(ncdf4)</a>
+<a class="sourceLine" id="cb46-48" title="48">  <span class="kw">library</span>(openair)</a>
+<a class="sourceLine" id="cb46-49" title="49">  <span class="kw">library</span>(plot3D)</a>
+<a class="sourceLine" id="cb46-50" title="50">  <span class="kw">library</span>(plotly)</a>
+<a class="sourceLine" id="cb46-51" title="51">  <span class="kw">library</span>(POT)</a>
+<a class="sourceLine" id="cb46-52" title="52">  <span class="kw">library</span>(quantmod)</a>
+<a class="sourceLine" id="cb46-53" title="53">  <span class="kw">library</span>(raster)</a>
+<a class="sourceLine" id="cb46-54" title="54">  <span class="kw">library</span>(RcmdrMisc)</a>
+<a class="sourceLine" id="cb46-55" title="55">  <span class="kw">library</span>(RColorBrewer)</a>
+<a class="sourceLine" id="cb46-56" title="56">  <span class="kw">library</span>(Renext)</a>
+<a class="sourceLine" id="cb46-57" title="57">  <span class="kw">library</span>(rgdal)</a>
+<a class="sourceLine" id="cb46-58" title="58">  <span class="kw">library</span>(rgl)</a>
+<a class="sourceLine" id="cb46-59" title="59">  <span class="kw">library</span>(rnaturaleearth)</a>
+<a class="sourceLine" id="cb46-60" title="60">  <span class="kw">library</span>(rnaturaleearthdata)</a>
+<a class="sourceLine" id="cb46-61" title="61">  <span class="kw">library</span>(RPostgreSQL)</a>
+<a class="sourceLine" id="cb46-62" title="62">  <span class="kw">library</span>(RStoolbox)</a>
+<a class="sourceLine" id="cb46-63" title="63">  <span class="kw">library</span>(sf)</a>
+<a class="sourceLine" id="cb46-64" title="64">  <span class="kw">library</span>(shape)</a>
+<a class="sourceLine" id="cb46-65" title="65">  <span class="kw">library</span>(sp)</a>
+<a class="sourceLine" id="cb46-66" title="66">  <span class="kw">library</span>(SpatialExtremes)</a>
+<a class="sourceLine" id="cb46-67" title="67">  <span class="kw">library</span>(stars)</a>
+<a class="sourceLine" id="cb46-68" title="68">  <span class="kw">library</span>(thesisdown)</a>
+<a class="sourceLine" id="cb46-69" title="69">  <span class="kw">library</span>(tibble)</a>
+<a class="sourceLine" id="cb46-70" title="70">  <span class="kw">library</span>(tidyr)</a>
+<a class="sourceLine" id="cb46-71" title="71">  <span class="kw">library</span>(viridis)</a>
+<a class="sourceLine" id="cb46-72" title="72">  <span class="kw">library</span>(xls)</a>
+<a class="sourceLine" id="cb46-73" title="73">  <span class="kw">library</span>(xlsx)</a>
+<a class="sourceLine" id="cb46-74" title="74">  <span class="kw">library</span>(xts</a></code></pre></div>
 
 <div id="data-standardization-1" class="section level2">
 <h2><span class="header-section-number">F.1</span> Data Standardization</h2>
@@ -343,115 +343,115 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>There is one text file for each station time series in IDEAM variables VV_AUT_2 (instantaneous wind velocity each two seconds), and VV_AUT_10 (instantaneous wind velocity each ten seconds), see <a href="2-rmd-data.html#tab:tabledatasources2">2.2</a>. There are twelve files corresponding to twelve different stations. File names follow the format <em>VV_AUT_2@*.data</em>, where * is replaced by the station identifier, as can be seen below. Same format applies to files in variable VV_AUT_10.</p>
 
 
-<div class="sourceCode" id="cb46"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb46-1" title="1">      <span class="ex">VV_AUT_2@48015050.data</span></a>
-<a class="sourceLine" id="cb46-2" title="2">      <span class="ex">VV_AUT_2@52055230.data</span></a>
-<a class="sourceLine" id="cb46-3" title="3">      <span class="ex">VV_AUT_2@26125061.data</span></a>
-<a class="sourceLine" id="cb46-4" title="4">      <span class="ex">...</span></a></code></pre></div>
+<div class="sourceCode" id="cb47"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb47-1" title="1">      <span class="ex">VV_AUT_2@48015050.data</span></a>
+<a class="sourceLine" id="cb47-2" title="2">      <span class="ex">VV_AUT_2@52055230.data</span></a>
+<a class="sourceLine" id="cb47-3" title="3">      <span class="ex">VV_AUT_2@26125061.data</span></a>
+<a class="sourceLine" id="cb47-4" title="4">      <span class="ex">...</span></a></code></pre></div>
 
 <p>Below is the content of a time series file (VV_AUT_2@48015050.data). It has two columns (Fecha and Valor) separated by character |.</p>
 
 
-<div class="sourceCode" id="cb47"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb47-1" title="1">      <span class="ex">Fecha</span><span class="kw">|</span><span class="ex">Valor</span></a>
-<a class="sourceLine" id="cb47-2" title="2">      <span class="ex">2019-01-04</span> 00:00:00<span class="kw">|</span><span class="ex">0.2</span></a>
-<a class="sourceLine" id="cb47-3" title="3">      <span class="ex">2019-01-04</span> 00:02:00<span class="kw">|</span><span class="ex">0.4</span></a>
-<a class="sourceLine" id="cb47-4" title="4">      <span class="ex">2019-01-04</span> 00:04:00<span class="kw">|</span><span class="ex">0.4</span></a>
-<a class="sourceLine" id="cb47-5" title="5">      <span class="ex">...</span></a></code></pre></div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb48-1" title="1">      <span class="ex">Fecha</span><span class="kw">|</span><span class="ex">Valor</span></a>
+<a class="sourceLine" id="cb48-2" title="2">      <span class="ex">2019-01-04</span> 00:00:00<span class="kw">|</span><span class="ex">0.2</span></a>
+<a class="sourceLine" id="cb48-3" title="3">      <span class="ex">2019-01-04</span> 00:02:00<span class="kw">|</span><span class="ex">0.4</span></a>
+<a class="sourceLine" id="cb48-4" title="4">      <span class="ex">2019-01-04</span> 00:04:00<span class="kw">|</span><span class="ex">0.4</span></a>
+<a class="sourceLine" id="cb48-5" title="5">      <span class="ex">...</span></a></code></pre></div>
 
 <p>Next code from IDEAM variable VV_AUT_2 (wind velocity each two seconds), read all twelve time series text files from folder <em>./data/manual/VV_AUT_2/</em>, calculate hourly mean, apply a 3-s gust correction factor of 1.52, and roughness corrections factors stored in the column <em>fc_zo</em> of <em>stationssample</em> data-frame, nonetheless, this code is not efficient in terms of memory management because it loads all times series to memory using the object <em>ldf</em>, and load all standardized time series to memory using object <em>ldf_hourlymean</em>.</p>
 
 
-<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb48-1" title="1">    path_vv_aut_<span class="dv">2</span> =<span class="st"> &quot;./data/manual/VV_AUT_2/&quot;</span></a>
-<a class="sourceLine" id="cb48-2" title="2">    filenames =<span class="st"> </span><span class="kw">list.files</span>(path_vv_aut_<span class="dv">2</span>, <span class="dt">pattern =</span> <span class="st">&quot;VV_AUT_2@&quot;</span>)</a>
-<a class="sourceLine" id="cb48-3" title="3">    <span class="co">#Be aware that ldf is a list of dataframes and you need to do [[]], to go inside it</span></a>
-<a class="sourceLine" id="cb48-4" title="4">    <span class="co">#Create a list dataframes in ldf</span></a>
-<a class="sourceLine" id="cb48-5" title="5">    <span class="co">#To access each station time series, you need to use ldf[[integer]]</span></a>
-<a class="sourceLine" id="cb48-6" title="6">    ldf =<span class="st"> </span><span class="kw">lapply</span>(filenames, <span class="cf">function</span>(x) {</a>
-<a class="sourceLine" id="cb48-7" title="7">      dat =<span class="st"> </span><span class="kw">read.table</span>(<span class="kw">paste0</span>(path_vv_aut_<span class="dv">2</span>, x), <span class="dt">header=</span><span class="ot">TRUE</span>, <span class="dt">sep=</span><span class="st">&quot;|&quot;</span>, <span class="dt">stringsAsFactors=</span><span class="ot">FALSE</span>)</a>
-<a class="sourceLine" id="cb48-8" title="8">      <span class="co"># Add column names</span></a>
-<a class="sourceLine" id="cb48-9" title="9">        <span class="kw">names</span>(dat) =<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;fecha&#39;</span>, <span class="st">&#39;valor&#39;</span>)</a>
-<a class="sourceLine" id="cb48-10" title="10">      <span class="co">#Take control of possible bad original values</span></a>
-<a class="sourceLine" id="cb48-11" title="11">        dat<span class="op">$</span>valor[dat<span class="op">$</span>valor <span class="op">&gt;</span><span class="st"> </span><span class="dv">300</span>] =<span class="st"> </span><span class="ot">NA</span></a>
-<a class="sourceLine" id="cb48-12" title="12">        dat<span class="op">$</span>valor[dat<span class="op">$</span>valor <span class="op">&lt;</span><span class="st"> </span><span class="dv">1</span>] =<span class="st"> </span><span class="ot">NA</span></a>
-<a class="sourceLine" id="cb48-13" title="13">      <span class="co">#Get station id from file name</span></a>
-<a class="sourceLine" id="cb48-14" title="14">        dat<span class="op">$</span>station_id =<span class="st"> </span><span class="kw">substring</span>(x,<span class="dv">10</span>,<span class="kw">nchar</span>(x)<span class="op">-</span><span class="dv">5</span>) </a>
-<a class="sourceLine" id="cb48-15" title="15">      <span class="co">#Add datetime object</span></a>
-<a class="sourceLine" id="cb48-16" title="16">        dat<span class="op">$</span>mydatetime =<span class="st"> </span><span class="kw">as.POSIXct</span>(dat<span class="op">$</span>fecha,<span class="dt">format=</span><span class="st">&quot;%Y-%m-%d %H:%M:%S&quot;</span>, <span class="dt">tz=</span><span class="st">&quot;UTC&quot;</span>)</a>
-<a class="sourceLine" id="cb48-17" title="17">        <span class="kw">return</span>(dat)})  </a>
-<a class="sourceLine" id="cb48-18" title="18">    <span class="co">#Stations IDs and Roughness corrections factors</span></a>
-<a class="sourceLine" id="cb48-19" title="19">      stationssample =<span class="st"> </span><span class="kw">data.frame</span>(</a>
-<a class="sourceLine" id="cb48-20" title="20">        <span class="dt">ideam_id =</span> <span class="kw">as.character</span>(</a>
-<a class="sourceLine" id="cb48-21" title="21">          <span class="kw">c</span>(<span class="dv">48015050</span>, <span class="dv">52055230</span>, <span class="dv">26125061</span>, <span class="dv">26125710</span>, <span class="dv">23085270</span>, <span class="dv">27015330</span>, </a>
-<a class="sourceLine" id="cb48-22" title="22">            <span class="dv">16015501</span>, <span class="dv">23195502</span>, <span class="dv">13035501</span>, <span class="dv">28025502</span>, <span class="dv">15065180</span>, <span class="dv">29045190</span>)),</a>
-<a class="sourceLine" id="cb48-23" title="23">        <span class="dt">fc_zo =</span> </a>
-<a class="sourceLine" id="cb48-24" title="24">          <span class="kw">c</span>(<span class="fl">1.197230052</span>, <span class="fl">1.219771719</span>, <span class="fl">1.102205474</span> , <span class="fl">1.18154867</span>, <span class="fl">1.113341504</span>, <span class="fl">1.29241596</span>, </a>
-<a class="sourceLine" id="cb48-25" title="25">            <span class="fl">1.102205474</span>, <span class="fl">1.177562503</span>, <span class="fl">1.114968586</span>, <span class="fl">1.184849704</span>, <span class="fl">1.5</span>, <span class="fl">1.224744381</span>),  </a>
-<a class="sourceLine" id="cb48-26" title="26">        <span class="dt">stringsAsFactors=</span><span class="ot">FALSE</span>)</a>
-<a class="sourceLine" id="cb48-27" title="27">    <span class="co">#Calculate hourly mean from original time series, and apply correction factors</span></a>
-<a class="sourceLine" id="cb48-28" title="28">      ldf_hourlymean &lt;-<span class="st"> </span><span class="ot">NULL</span></a>
-<a class="sourceLine" id="cb48-29" title="29">      <span class="cf">for</span>(station <span class="cf">in</span> ldf){</a>
-<a class="sourceLine" id="cb48-30" title="30">        <span class="kw">library</span>(xts)</a>
-<a class="sourceLine" id="cb48-31" title="31">        <span class="kw">library</span>(dplyr)</a>
-<a class="sourceLine" id="cb48-32" title="32">        select &lt;-<span class="st"> </span>dplyr<span class="op">::</span>select</a>
-<a class="sourceLine" id="cb48-33" title="33">        <span class="co">#Create XTS object removing NA values</span></a>
-<a class="sourceLine" id="cb48-34" title="34">          myxts =<span class="st"> </span><span class="kw">na.omit</span>(<span class="kw">xts</span>(<span class="dt">x=</span><span class="kw">select</span>(station, valor), <span class="dt">order.by =</span> station<span class="op">$</span>mydatetime))</a>
-<a class="sourceLine" id="cb48-35" title="35">        <span class="co">#Conversion to 3-s gust using Durst curve</span></a>
-<a class="sourceLine" id="cb48-36" title="36">        <span class="co">#Gust factor from Durst curve equal to 1.52</span></a>
-<a class="sourceLine" id="cb48-37" title="37">          myxts<span class="op">$</span>valor =<span class="st"> </span>myxts<span class="op">$</span>valor <span class="op">*</span><span class="st"> </span><span class="fl">1.52</span>  </a>
-<a class="sourceLine" id="cb48-38" title="38">        <span class="co">#Correction factor by Roughness</span></a>
-<a class="sourceLine" id="cb48-39" title="39">          fczo =<span class="st"> </span>stationssample<span class="op">$</span>fc_zo[stationssample<span class="op">$</span>ideam_id <span class="op">==</span><span class="st"> </span>station<span class="op">$</span>station_id[<span class="dv">1</span>]]</a>
-<a class="sourceLine" id="cb48-40" title="40">          myxts<span class="op">$</span>valor =<span class="st"> </span>myxts<span class="op">$</span>valor <span class="op">*</span><span class="st"> </span>fczo</a>
-<a class="sourceLine" id="cb48-41" title="41">        <span class="co">#Name of time series is the string &quot;X&quot; + Station ID</span></a>
-<a class="sourceLine" id="cb48-42" title="42">          <span class="kw">colnames</span>(myxts) =<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&quot;X&quot;</span>, station<span class="op">$</span>station_id[<span class="dv">1</span>])</a>
-<a class="sourceLine" id="cb48-43" title="43">        <span class="co">#Extract index values of last observation of each hour</span></a>
-<a class="sourceLine" id="cb48-44" title="44">          endhour =<span class="st"> </span><span class="kw">endpoints</span>(myxts,<span class="dt">on=</span><span class="st">&quot;hours&quot;</span>)</a>
-<a class="sourceLine" id="cb48-45" title="45">        <span class="co">#Calculate hourly mean</span></a>
-<a class="sourceLine" id="cb48-46" title="46">          myxtshour =<span class="st"> </span>xts<span class="op">::</span><span class="kw">period.apply</span>(myxts, <span class="dt">INDEX=</span>endhour, <span class="dt">FUN=</span>mean)</a>
-<a class="sourceLine" id="cb48-47" title="47">        <span class="co">#Rounding time series to previous hour</span></a>
-<a class="sourceLine" id="cb48-48" title="48">          <span class="kw">index</span>(myxtshour)=<span class="kw">trunc</span>(<span class="kw">index</span>(myxtshour),<span class="st">&quot;hours&quot;</span>)</a>
-<a class="sourceLine" id="cb48-49" title="49">        <span class="co">#Store all standardized time series in ldf_hourlymean</span></a>
-<a class="sourceLine" id="cb48-50" title="50">          ldf_hourlymean &lt;-<span class="st"> </span><span class="kw">cbind</span>(ldf_hourlymean, myxtshour)}</a></code></pre></div>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb49-1" title="1">    path_vv_aut_<span class="dv">2</span> =<span class="st"> &quot;./data/manual/VV_AUT_2/&quot;</span></a>
+<a class="sourceLine" id="cb49-2" title="2">    filenames =<span class="st"> </span><span class="kw">list.files</span>(path_vv_aut_<span class="dv">2</span>, <span class="dt">pattern =</span> <span class="st">&quot;VV_AUT_2@&quot;</span>)</a>
+<a class="sourceLine" id="cb49-3" title="3">    <span class="co">#Be aware that ldf is a list of dataframes and you need to do [[]], to go inside it</span></a>
+<a class="sourceLine" id="cb49-4" title="4">    <span class="co">#Create a list dataframes in ldf</span></a>
+<a class="sourceLine" id="cb49-5" title="5">    <span class="co">#To access each station time series, you need to use ldf[[integer]]</span></a>
+<a class="sourceLine" id="cb49-6" title="6">    ldf =<span class="st"> </span><span class="kw">lapply</span>(filenames, <span class="cf">function</span>(x) {</a>
+<a class="sourceLine" id="cb49-7" title="7">      dat =<span class="st"> </span><span class="kw">read.table</span>(<span class="kw">paste0</span>(path_vv_aut_<span class="dv">2</span>, x), <span class="dt">header=</span><span class="ot">TRUE</span>, <span class="dt">sep=</span><span class="st">&quot;|&quot;</span>, <span class="dt">stringsAsFactors=</span><span class="ot">FALSE</span>)</a>
+<a class="sourceLine" id="cb49-8" title="8">      <span class="co"># Add column names</span></a>
+<a class="sourceLine" id="cb49-9" title="9">        <span class="kw">names</span>(dat) =<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;fecha&#39;</span>, <span class="st">&#39;valor&#39;</span>)</a>
+<a class="sourceLine" id="cb49-10" title="10">      <span class="co">#Take control of possible bad original values</span></a>
+<a class="sourceLine" id="cb49-11" title="11">        dat<span class="op">$</span>valor[dat<span class="op">$</span>valor <span class="op">&gt;</span><span class="st"> </span><span class="dv">300</span>] =<span class="st"> </span><span class="ot">NA</span></a>
+<a class="sourceLine" id="cb49-12" title="12">        dat<span class="op">$</span>valor[dat<span class="op">$</span>valor <span class="op">&lt;</span><span class="st"> </span><span class="dv">1</span>] =<span class="st"> </span><span class="ot">NA</span></a>
+<a class="sourceLine" id="cb49-13" title="13">      <span class="co">#Get station id from file name</span></a>
+<a class="sourceLine" id="cb49-14" title="14">        dat<span class="op">$</span>station_id =<span class="st"> </span><span class="kw">substring</span>(x,<span class="dv">10</span>,<span class="kw">nchar</span>(x)<span class="op">-</span><span class="dv">5</span>) </a>
+<a class="sourceLine" id="cb49-15" title="15">      <span class="co">#Add datetime object</span></a>
+<a class="sourceLine" id="cb49-16" title="16">        dat<span class="op">$</span>mydatetime =<span class="st"> </span><span class="kw">as.POSIXct</span>(dat<span class="op">$</span>fecha,<span class="dt">format=</span><span class="st">&quot;%Y-%m-%d %H:%M:%S&quot;</span>, <span class="dt">tz=</span><span class="st">&quot;UTC&quot;</span>)</a>
+<a class="sourceLine" id="cb49-17" title="17">        <span class="kw">return</span>(dat)})  </a>
+<a class="sourceLine" id="cb49-18" title="18">    <span class="co">#Stations IDs and Roughness corrections factors</span></a>
+<a class="sourceLine" id="cb49-19" title="19">      stationssample =<span class="st"> </span><span class="kw">data.frame</span>(</a>
+<a class="sourceLine" id="cb49-20" title="20">        <span class="dt">ideam_id =</span> <span class="kw">as.character</span>(</a>
+<a class="sourceLine" id="cb49-21" title="21">          <span class="kw">c</span>(<span class="dv">48015050</span>, <span class="dv">52055230</span>, <span class="dv">26125061</span>, <span class="dv">26125710</span>, <span class="dv">23085270</span>, <span class="dv">27015330</span>, </a>
+<a class="sourceLine" id="cb49-22" title="22">            <span class="dv">16015501</span>, <span class="dv">23195502</span>, <span class="dv">13035501</span>, <span class="dv">28025502</span>, <span class="dv">15065180</span>, <span class="dv">29045190</span>)),</a>
+<a class="sourceLine" id="cb49-23" title="23">        <span class="dt">fc_zo =</span> </a>
+<a class="sourceLine" id="cb49-24" title="24">          <span class="kw">c</span>(<span class="fl">1.197230052</span>, <span class="fl">1.219771719</span>, <span class="fl">1.102205474</span> , <span class="fl">1.18154867</span>, <span class="fl">1.113341504</span>, <span class="fl">1.29241596</span>, </a>
+<a class="sourceLine" id="cb49-25" title="25">            <span class="fl">1.102205474</span>, <span class="fl">1.177562503</span>, <span class="fl">1.114968586</span>, <span class="fl">1.184849704</span>, <span class="fl">1.5</span>, <span class="fl">1.224744381</span>),  </a>
+<a class="sourceLine" id="cb49-26" title="26">        <span class="dt">stringsAsFactors=</span><span class="ot">FALSE</span>)</a>
+<a class="sourceLine" id="cb49-27" title="27">    <span class="co">#Calculate hourly mean from original time series, and apply correction factors</span></a>
+<a class="sourceLine" id="cb49-28" title="28">      ldf_hourlymean &lt;-<span class="st"> </span><span class="ot">NULL</span></a>
+<a class="sourceLine" id="cb49-29" title="29">      <span class="cf">for</span>(station <span class="cf">in</span> ldf){</a>
+<a class="sourceLine" id="cb49-30" title="30">        <span class="kw">library</span>(xts)</a>
+<a class="sourceLine" id="cb49-31" title="31">        <span class="kw">library</span>(dplyr)</a>
+<a class="sourceLine" id="cb49-32" title="32">        select &lt;-<span class="st"> </span>dplyr<span class="op">::</span>select</a>
+<a class="sourceLine" id="cb49-33" title="33">        <span class="co">#Create XTS object removing NA values</span></a>
+<a class="sourceLine" id="cb49-34" title="34">          myxts =<span class="st"> </span><span class="kw">na.omit</span>(<span class="kw">xts</span>(<span class="dt">x=</span><span class="kw">select</span>(station, valor), <span class="dt">order.by =</span> station<span class="op">$</span>mydatetime))</a>
+<a class="sourceLine" id="cb49-35" title="35">        <span class="co">#Conversion to 3-s gust using Durst curve</span></a>
+<a class="sourceLine" id="cb49-36" title="36">        <span class="co">#Gust factor from Durst curve equal to 1.52</span></a>
+<a class="sourceLine" id="cb49-37" title="37">          myxts<span class="op">$</span>valor =<span class="st"> </span>myxts<span class="op">$</span>valor <span class="op">*</span><span class="st"> </span><span class="fl">1.52</span>  </a>
+<a class="sourceLine" id="cb49-38" title="38">        <span class="co">#Correction factor by Roughness</span></a>
+<a class="sourceLine" id="cb49-39" title="39">          fczo =<span class="st"> </span>stationssample<span class="op">$</span>fc_zo[stationssample<span class="op">$</span>ideam_id <span class="op">==</span><span class="st"> </span>station<span class="op">$</span>station_id[<span class="dv">1</span>]]</a>
+<a class="sourceLine" id="cb49-40" title="40">          myxts<span class="op">$</span>valor =<span class="st"> </span>myxts<span class="op">$</span>valor <span class="op">*</span><span class="st"> </span>fczo</a>
+<a class="sourceLine" id="cb49-41" title="41">        <span class="co">#Name of time series is the string &quot;X&quot; + Station ID</span></a>
+<a class="sourceLine" id="cb49-42" title="42">          <span class="kw">colnames</span>(myxts) =<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&quot;X&quot;</span>, station<span class="op">$</span>station_id[<span class="dv">1</span>])</a>
+<a class="sourceLine" id="cb49-43" title="43">        <span class="co">#Extract index values of last observation of each hour</span></a>
+<a class="sourceLine" id="cb49-44" title="44">          endhour =<span class="st"> </span><span class="kw">endpoints</span>(myxts,<span class="dt">on=</span><span class="st">&quot;hours&quot;</span>)</a>
+<a class="sourceLine" id="cb49-45" title="45">        <span class="co">#Calculate hourly mean</span></a>
+<a class="sourceLine" id="cb49-46" title="46">          myxtshour =<span class="st"> </span>xts<span class="op">::</span><span class="kw">period.apply</span>(myxts, <span class="dt">INDEX=</span>endhour, <span class="dt">FUN=</span>mean)</a>
+<a class="sourceLine" id="cb49-47" title="47">        <span class="co">#Rounding time series to previous hour</span></a>
+<a class="sourceLine" id="cb49-48" title="48">          <span class="kw">index</span>(myxtshour)=<span class="kw">trunc</span>(<span class="kw">index</span>(myxtshour),<span class="st">&quot;hours&quot;</span>)</a>
+<a class="sourceLine" id="cb49-49" title="49">        <span class="co">#Store all standardized time series in ldf_hourlymean</span></a>
+<a class="sourceLine" id="cb49-50" title="50">          ldf_hourlymean &lt;-<span class="st"> </span><span class="kw">cbind</span>(ldf_hourlymean, myxtshour)}</a></code></pre></div>
 
 <p>Next code from ISD data source stored in unstacked PostgreSQL table <em>isd_lite_unstack</em>, load twelve stations (using WHERECLAUSE to filter) and apply roughness correction factors. Correction factor values are identical because listed ISD stations are equivalent to the stations listed in the code above. An efficient management of memory is made in the code due to the use of lazy <code>tibble</code> data-frames from PostgreSQL database, see Annex <a href="D-dbstoring.html#dbstoring">D</a> <em><a href="D-dbstoring.html#dbstoring">Database Storing</a></em>.</p>
 
 
-<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb49-1" title="1">    <span class="co">#Stations IDs and Roughness corrections factors</span></a>
-<a class="sourceLine" id="cb49-2" title="2">    stationssample =<span class="st"> </span><span class="kw">data.frame</span>(</a>
-<a class="sourceLine" id="cb49-3" title="3">      <span class="dt">isd_usaf_id=</span> <span class="kw">as.character</span>(</a>
-<a class="sourceLine" id="cb49-4" title="4">        <span class="kw">c</span>(<span class="dv">803980</span>, <span class="dv">803700</span>, <span class="dv">802110</span>, <span class="dv">802100</span>, <span class="dv">801120</span>, <span class="dv">801100</span>, <span class="dv">800970</span>, <span class="dv">800940</span>, <span class="dv">800630</span>, <span class="dv">800360</span>, <span class="dv">800350</span>, <span class="dv">800280</span>)),</a>
-<a class="sourceLine" id="cb49-5" title="5">      <span class="dt">fc_zo =</span> </a>
-<a class="sourceLine" id="cb49-6" title="6">        <span class="kw">c</span>(<span class="fl">1.197230052</span>, <span class="fl">1.219771719</span>, <span class="fl">1.102205474</span> , <span class="fl">1.18154867</span>, <span class="fl">1.113341504</span>, <span class="fl">1.29241596</span>, </a>
-<a class="sourceLine" id="cb49-7" title="7">          <span class="fl">1.102205474</span>, <span class="fl">1.177562503</span>, <span class="fl">1.114968586</span>, <span class="fl">1.184849704</span>, <span class="fl">1.5</span>, <span class="fl">1.224744381</span>),  </a>
-<a class="sourceLine" id="cb49-8" title="8">      <span class="dt">stringsAsFactors=</span><span class="ot">FALSE</span>)</a>
-<a class="sourceLine" id="cb49-9" title="9">    <span class="co">#List of field to read from table, formated with &quot;X&quot; character as column prefix name, </span></a>
-<a class="sourceLine" id="cb49-10" title="10">    <span class="co">#and double quotes</span></a>
-<a class="sourceLine" id="cb49-11" title="11">      originalfields1 =<span class="st"> </span>stationssample<span class="op">$</span>isd_usaf_id</a>
-<a class="sourceLine" id="cb49-12" title="12">      newfields1 =<span class="st"> </span><span class="kw">paste</span> (<span class="st">&quot;X&quot;</span>, originalfields1, <span class="dt">sep=</span><span class="st">&quot;&quot;</span>)</a>
-<a class="sourceLine" id="cb49-13" title="13">      originalfields1 =<span class="st"> </span><span class="kw">paste</span>(<span class="st">&#39;&quot;&#39;</span>, originalfields1, <span class="st">&#39;&quot;&#39;</span>, <span class="dt">sep =</span> <span class="st">&quot;&quot;</span>)</a>
-<a class="sourceLine" id="cb49-14" title="14">      newfields1 =<span class="st"> </span><span class="kw">paste</span>(<span class="st">&#39;&quot;&#39;</span>, newfields1, <span class="st">&#39;&quot;&#39;</span>, <span class="dt">sep =</span> <span class="st">&quot;&quot;</span>)</a>
-<a class="sourceLine" id="cb49-15" title="15">    <span class="co">#Roughness correction factor</span></a>
-<a class="sourceLine" id="cb49-16" title="16">      fczo =<span class="st"> </span>stationssample<span class="op">$</span>fc_zo</a>
-<a class="sourceLine" id="cb49-17" title="17">    <span class="co">#Apply roughness correction factor, and</span></a>
-<a class="sourceLine" id="cb49-18" title="18">    <span class="co">#force to NULL all values below one</span></a>
-<a class="sourceLine" id="cb49-19" title="19">      fiedls_query1 =<span class="st"> </span><span class="kw">paste</span>(<span class="st">&quot;CASE WHEN&quot;</span>, originalfields1, <span class="st">&quot;&lt; 1&quot;</span>, <span class="st">&quot;THEN NULL ELSE&quot;</span>, originalfields1,</a>
-<a class="sourceLine" id="cb49-20" title="20">       <span class="st">&quot;*&quot;</span>, fczo, <span class="st">&quot;END AS&quot;</span>, newfields1, <span class="dt">sep =</span> <span class="st">&quot; &quot;</span>)</a>
-<a class="sourceLine" id="cb49-21" title="21">    <span class="co">#Join datatime field &quot;mydatetime&quot; to the query</span></a>
-<a class="sourceLine" id="cb49-22" title="22">      fiedls_query1 =<span class="st"> </span><span class="kw">c</span>(<span class="kw">paste</span>(<span class="st">&#39;&quot;&#39;</span>, <span class="st">&quot;mydatetime&quot;</span>, <span class="st">&#39;&quot;&#39;</span>, <span class="dt">sep =</span> <span class="st">&quot;&quot;</span>), fiedls_query1)</a>
-<a class="sourceLine" id="cb49-23" title="23">      fiedls_query1 =<span class="st"> </span><span class="kw">paste</span> (fiedls_query1, <span class="st">&quot;&quot;</span>, <span class="dt">sep=</span> <span class="st">&quot;&quot;</span>, <span class="dt">collapse=</span><span class="st">&quot;, &quot;</span>)</a>
-<a class="sourceLine" id="cb49-24" title="24">    <span class="co">#Construct WHERECLAUSE</span></a>
-<a class="sourceLine" id="cb49-25" title="25">      wherestring1 =<span class="st"> </span>stationssample<span class="op">$</span>isd_usaf_id</a>
-<a class="sourceLine" id="cb49-26" title="26">      wherestring1 =<span class="st"> </span><span class="kw">paste</span>(<span class="st">&#39;&quot;&#39;</span>, wherestring1, <span class="st">&#39;&quot;&#39;</span>, <span class="dt">sep =</span> <span class="st">&quot;&quot;</span>)</a>
-<a class="sourceLine" id="cb49-27" title="27">      <span class="co">#Only take values greater than one and not null</span></a>
-<a class="sourceLine" id="cb49-28" title="28">      wherestring1 =<span class="st"> </span><span class="kw">paste</span>(wherestring1, <span class="st">&quot;&gt;= 1 AND&quot;</span>, wherestring1, <span class="st">&quot;IS NOT NULL&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot; &quot;</span>)</a>
-<a class="sourceLine" id="cb49-29" title="29">      wherestring1 =<span class="st"> </span><span class="kw">paste</span>(wherestring1, <span class="dt">collapse =</span> <span class="st">&quot;) OR (&quot;</span> , <span class="dt">sep =</span> <span class="st">&quot; &quot;</span>)</a>
-<a class="sourceLine" id="cb49-30" title="30">      wherestring1 =<span class="st"> </span><span class="kw">paste</span>(<span class="st">&quot;(&quot;</span>, wherestring1, <span class="st">&quot;)&quot;</span>, <span class="dt">sep =</span><span class="st">&quot;&quot;</span>)</a>
-<a class="sourceLine" id="cb49-31" title="31">    <span class="co">#Final query</span></a>
-<a class="sourceLine" id="cb49-32" title="32">      query1 =<span class="st"> </span><span class="kw">paste</span>(<span class="st">&quot;select&quot;</span>, fiedls_query1, <span class="st">&quot;from isd_lite_unstack&quot;</span>, <span class="st">&quot;where&quot;</span>, wherestring1, <span class="dt">sep=</span><span class="st">&quot; &quot;</span>)</a>
-<a class="sourceLine" id="cb49-33" title="33">    <span class="co">#View content of query1, but first split SQL command to show inside PDF document</span></a>
-<a class="sourceLine" id="cb49-34" title="34">      mycat &lt;-<span class="st"> </span><span class="cf">function</span>(text){</a>
-<a class="sourceLine" id="cb49-35" title="35">        text2 =<span class="st"> </span><span class="kw">gsub</span>(<span class="dt">pattern =</span> <span class="st">&quot;CASE&quot;</span>, <span class="dt">replacement =</span> <span class="st">&quot;</span><span class="ch">\n</span><span class="st"> CASE&quot;</span>, <span class="dt">x =</span> text)</a>
-<a class="sourceLine" id="cb49-36" title="36">        text3 =<span class="st"> </span><span class="kw">gsub</span>(<span class="dt">pattern =</span> <span class="st">&quot;from&quot;</span>, <span class="dt">replacement =</span> <span class="st">&quot;</span><span class="ch">\n</span><span class="st"> from&quot;</span>, <span class="dt">x =</span> text2)</a>
-<a class="sourceLine" id="cb49-37" title="37">        <span class="kw">cat</span>(<span class="kw">gsub</span>(<span class="dt">pattern =</span> <span class="st">&quot;OR&quot;</span>, <span class="dt">replacement =</span> <span class="st">&quot;</span><span class="ch">\n</span><span class="st"> OR&quot;</span>, <span class="dt">x =</span> text3))}</a>
-<a class="sourceLine" id="cb49-38" title="38">      <span class="kw">mycat</span>(query1)        </a></code></pre></div>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb50-1" title="1">    <span class="co">#Stations IDs and Roughness corrections factors</span></a>
+<a class="sourceLine" id="cb50-2" title="2">    stationssample =<span class="st"> </span><span class="kw">data.frame</span>(</a>
+<a class="sourceLine" id="cb50-3" title="3">      <span class="dt">isd_usaf_id=</span> <span class="kw">as.character</span>(</a>
+<a class="sourceLine" id="cb50-4" title="4">        <span class="kw">c</span>(<span class="dv">803980</span>, <span class="dv">803700</span>, <span class="dv">802110</span>, <span class="dv">802100</span>, <span class="dv">801120</span>, <span class="dv">801100</span>, <span class="dv">800970</span>, <span class="dv">800940</span>, <span class="dv">800630</span>, <span class="dv">800360</span>, <span class="dv">800350</span>, <span class="dv">800280</span>)),</a>
+<a class="sourceLine" id="cb50-5" title="5">      <span class="dt">fc_zo =</span> </a>
+<a class="sourceLine" id="cb50-6" title="6">        <span class="kw">c</span>(<span class="fl">1.197230052</span>, <span class="fl">1.219771719</span>, <span class="fl">1.102205474</span> , <span class="fl">1.18154867</span>, <span class="fl">1.113341504</span>, <span class="fl">1.29241596</span>, </a>
+<a class="sourceLine" id="cb50-7" title="7">          <span class="fl">1.102205474</span>, <span class="fl">1.177562503</span>, <span class="fl">1.114968586</span>, <span class="fl">1.184849704</span>, <span class="fl">1.5</span>, <span class="fl">1.224744381</span>),  </a>
+<a class="sourceLine" id="cb50-8" title="8">      <span class="dt">stringsAsFactors=</span><span class="ot">FALSE</span>)</a>
+<a class="sourceLine" id="cb50-9" title="9">    <span class="co">#List of field to read from table, formated with &quot;X&quot; character as column prefix name, </span></a>
+<a class="sourceLine" id="cb50-10" title="10">    <span class="co">#and double quotes</span></a>
+<a class="sourceLine" id="cb50-11" title="11">      originalfields1 =<span class="st"> </span>stationssample<span class="op">$</span>isd_usaf_id</a>
+<a class="sourceLine" id="cb50-12" title="12">      newfields1 =<span class="st"> </span><span class="kw">paste</span> (<span class="st">&quot;X&quot;</span>, originalfields1, <span class="dt">sep=</span><span class="st">&quot;&quot;</span>)</a>
+<a class="sourceLine" id="cb50-13" title="13">      originalfields1 =<span class="st"> </span><span class="kw">paste</span>(<span class="st">&#39;&quot;&#39;</span>, originalfields1, <span class="st">&#39;&quot;&#39;</span>, <span class="dt">sep =</span> <span class="st">&quot;&quot;</span>)</a>
+<a class="sourceLine" id="cb50-14" title="14">      newfields1 =<span class="st"> </span><span class="kw">paste</span>(<span class="st">&#39;&quot;&#39;</span>, newfields1, <span class="st">&#39;&quot;&#39;</span>, <span class="dt">sep =</span> <span class="st">&quot;&quot;</span>)</a>
+<a class="sourceLine" id="cb50-15" title="15">    <span class="co">#Roughness correction factor</span></a>
+<a class="sourceLine" id="cb50-16" title="16">      fczo =<span class="st"> </span>stationssample<span class="op">$</span>fc_zo</a>
+<a class="sourceLine" id="cb50-17" title="17">    <span class="co">#Apply roughness correction factor, and</span></a>
+<a class="sourceLine" id="cb50-18" title="18">    <span class="co">#force to NULL all values below one</span></a>
+<a class="sourceLine" id="cb50-19" title="19">      fiedls_query1 =<span class="st"> </span><span class="kw">paste</span>(<span class="st">&quot;CASE WHEN&quot;</span>, originalfields1, <span class="st">&quot;&lt; 1&quot;</span>, <span class="st">&quot;THEN NULL ELSE&quot;</span>, originalfields1,</a>
+<a class="sourceLine" id="cb50-20" title="20">       <span class="st">&quot;*&quot;</span>, fczo, <span class="st">&quot;END AS&quot;</span>, newfields1, <span class="dt">sep =</span> <span class="st">&quot; &quot;</span>)</a>
+<a class="sourceLine" id="cb50-21" title="21">    <span class="co">#Join datatime field &quot;mydatetime&quot; to the query</span></a>
+<a class="sourceLine" id="cb50-22" title="22">      fiedls_query1 =<span class="st"> </span><span class="kw">c</span>(<span class="kw">paste</span>(<span class="st">&#39;&quot;&#39;</span>, <span class="st">&quot;mydatetime&quot;</span>, <span class="st">&#39;&quot;&#39;</span>, <span class="dt">sep =</span> <span class="st">&quot;&quot;</span>), fiedls_query1)</a>
+<a class="sourceLine" id="cb50-23" title="23">      fiedls_query1 =<span class="st"> </span><span class="kw">paste</span> (fiedls_query1, <span class="st">&quot;&quot;</span>, <span class="dt">sep=</span> <span class="st">&quot;&quot;</span>, <span class="dt">collapse=</span><span class="st">&quot;, &quot;</span>)</a>
+<a class="sourceLine" id="cb50-24" title="24">    <span class="co">#Construct WHERECLAUSE</span></a>
+<a class="sourceLine" id="cb50-25" title="25">      wherestring1 =<span class="st"> </span>stationssample<span class="op">$</span>isd_usaf_id</a>
+<a class="sourceLine" id="cb50-26" title="26">      wherestring1 =<span class="st"> </span><span class="kw">paste</span>(<span class="st">&#39;&quot;&#39;</span>, wherestring1, <span class="st">&#39;&quot;&#39;</span>, <span class="dt">sep =</span> <span class="st">&quot;&quot;</span>)</a>
+<a class="sourceLine" id="cb50-27" title="27">      <span class="co">#Only take values greater than one and not null</span></a>
+<a class="sourceLine" id="cb50-28" title="28">      wherestring1 =<span class="st"> </span><span class="kw">paste</span>(wherestring1, <span class="st">&quot;&gt;= 1 AND&quot;</span>, wherestring1, <span class="st">&quot;IS NOT NULL&quot;</span>, <span class="dt">sep =</span> <span class="st">&quot; &quot;</span>)</a>
+<a class="sourceLine" id="cb50-29" title="29">      wherestring1 =<span class="st"> </span><span class="kw">paste</span>(wherestring1, <span class="dt">collapse =</span> <span class="st">&quot;) OR (&quot;</span> , <span class="dt">sep =</span> <span class="st">&quot; &quot;</span>)</a>
+<a class="sourceLine" id="cb50-30" title="30">      wherestring1 =<span class="st"> </span><span class="kw">paste</span>(<span class="st">&quot;(&quot;</span>, wherestring1, <span class="st">&quot;)&quot;</span>, <span class="dt">sep =</span><span class="st">&quot;&quot;</span>)</a>
+<a class="sourceLine" id="cb50-31" title="31">    <span class="co">#Final query</span></a>
+<a class="sourceLine" id="cb50-32" title="32">      query1 =<span class="st"> </span><span class="kw">paste</span>(<span class="st">&quot;select&quot;</span>, fiedls_query1, <span class="st">&quot;from isd_lite_unstack&quot;</span>, <span class="st">&quot;where&quot;</span>, wherestring1, <span class="dt">sep=</span><span class="st">&quot; &quot;</span>)</a>
+<a class="sourceLine" id="cb50-33" title="33">    <span class="co">#View content of query1, but first split SQL command to show inside PDF document</span></a>
+<a class="sourceLine" id="cb50-34" title="34">      mycat &lt;-<span class="st"> </span><span class="cf">function</span>(text){</a>
+<a class="sourceLine" id="cb50-35" title="35">        text2 =<span class="st"> </span><span class="kw">gsub</span>(<span class="dt">pattern =</span> <span class="st">&quot;CASE&quot;</span>, <span class="dt">replacement =</span> <span class="st">&quot;</span><span class="ch">\n</span><span class="st"> CASE&quot;</span>, <span class="dt">x =</span> text)</a>
+<a class="sourceLine" id="cb50-36" title="36">        text3 =<span class="st"> </span><span class="kw">gsub</span>(<span class="dt">pattern =</span> <span class="st">&quot;from&quot;</span>, <span class="dt">replacement =</span> <span class="st">&quot;</span><span class="ch">\n</span><span class="st"> from&quot;</span>, <span class="dt">x =</span> text2)</a>
+<a class="sourceLine" id="cb50-37" title="37">        <span class="kw">cat</span>(<span class="kw">gsub</span>(<span class="dt">pattern =</span> <span class="st">&quot;OR&quot;</span>, <span class="dt">replacement =</span> <span class="st">&quot;</span><span class="ch">\n</span><span class="st"> OR&quot;</span>, <span class="dt">x =</span> text3))}</a>
+<a class="sourceLine" id="cb50-38" title="38">      <span class="kw">mycat</span>(query1)        </a></code></pre></div>
 <pre><code>select &quot;mydatetime&quot;, 
  CASE WHEN &quot;803980&quot; &lt; 1 THEN NULL ELSE &quot;803980&quot; * 1.197230052 END AS &quot;X803980&quot;, 
  CASE WHEN &quot;803700&quot; &lt; 1 THEN NULL ELSE &quot;803700&quot; * 1.219771719 END AS &quot;X803700&quot;, 
@@ -478,20 +478,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
  OR (&quot;800350&quot; &gt;= 1 AND &quot;800350&quot; IS NOT NULL) 
  OR (&quot;800280&quot; &gt;= 1 AND &quot;800280&quot; IS NOT NULL)</code></pre>
 
-<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb51-1" title="1">    <span class="co">#Connect to Database</span></a>
-<a class="sourceLine" id="cb51-2" title="2">      <span class="kw">library</span>(<span class="st">&#39;RPostgreSQL&#39;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb52-1" title="1">    <span class="co">#Connect to Database</span></a>
+<a class="sourceLine" id="cb52-2" title="2">      <span class="kw">library</span>(<span class="st">&#39;RPostgreSQL&#39;</span>)</a></code></pre></div>
 <pre><code>Loading required package: DBI</code></pre>
 
-<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb53-1" title="1">      pg =<span class="st"> </span><span class="kw">dbDriver</span>(<span class="st">&quot;PostgreSQL&quot;</span>)</a>
-<a class="sourceLine" id="cb53-2" title="2">      con1 =<span class="st"> </span><span class="kw">dbConnect</span>(pg, <span class="dt">user=</span><span class="st">&quot;user1&quot;</span>, <span class="dt">password=</span><span class="st">&quot;user1&quot;</span>, <span class="dt">host=</span><span class="st">&quot;localhost&quot;</span>, <span class="dt">port=</span><span class="dv">5432</span>, <span class="dt">dbname=</span><span class="st">&quot;winddata&quot;</span>)</a>
-<a class="sourceLine" id="cb53-3" title="3">    <span class="co">#Create tibble dataframe with applied correction factors</span></a>
-<a class="sourceLine" id="cb53-4" title="4">      isdlite =<span class="st"> </span><span class="kw">tbl</span>(con1, <span class="kw">sql</span>(query1))</a>
-<a class="sourceLine" id="cb53-5" title="5">      <span class="kw">class</span>(isdlite)</a></code></pre></div>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb54-1" title="1">      pg =<span class="st"> </span><span class="kw">dbDriver</span>(<span class="st">&quot;PostgreSQL&quot;</span>)</a>
+<a class="sourceLine" id="cb54-2" title="2">      con1 =<span class="st"> </span><span class="kw">dbConnect</span>(pg, <span class="dt">user=</span><span class="st">&quot;user1&quot;</span>, <span class="dt">password=</span><span class="st">&quot;user1&quot;</span>, <span class="dt">host=</span><span class="st">&quot;localhost&quot;</span>, <span class="dt">port=</span><span class="dv">5432</span>, <span class="dt">dbname=</span><span class="st">&quot;winddata&quot;</span>)</a>
+<a class="sourceLine" id="cb54-3" title="3">    <span class="co">#Create tibble dataframe with applied correction factors</span></a>
+<a class="sourceLine" id="cb54-4" title="4">      isdlite =<span class="st"> </span><span class="kw">tbl</span>(con1, <span class="kw">sql</span>(query1))</a>
+<a class="sourceLine" id="cb54-5" title="5">      <span class="kw">class</span>(isdlite)</a></code></pre></div>
 <pre><code>[1] &quot;tbl_PostgreSQLConnection&quot; &quot;tbl_dbi&quot;                 
 [3] &quot;tbl_sql&quot;                  &quot;tbl_lazy&quot;                
 [5] &quot;tbl&quot;                     </code></pre>
 
-<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb55-1" title="1">      <span class="kw">select</span>(isdlite, <span class="kw">paste0</span>(<span class="st">&quot;X&quot;</span>, stationssample<span class="op">$</span>isd_usaf_id[<span class="dv">6</span><span class="op">:</span><span class="dv">12</span>]))        </a></code></pre></div>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb56-1" title="1">      <span class="kw">select</span>(isdlite, <span class="kw">paste0</span>(<span class="st">&quot;X&quot;</span>, stationssample<span class="op">$</span>isd_usaf_id[<span class="dv">6</span><span class="op">:</span><span class="dv">12</span>]))        </a></code></pre></div>
 <pre><code># Source:   lazy query [?? x 7]
 # Database: postgres 10.0.5 [user1@localhost:5432/winddata]
    X801100 X800970 X800940 X800630 X800360 X800350 X800280
@@ -513,55 +513,55 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 
 
-<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb57-1" title="1">      <span class="kw">library</span>(xlsx)</a>
-<a class="sourceLine" id="cb57-2" title="2">    <span class="co">#Read file with correction factors</span></a>
-<a class="sourceLine" id="cb57-3" title="3">      fc &lt;-<span class="kw">read.xlsx</span>(<span class="dt">file=</span><span class="st">&quot;./data/manual/correction_factors_isd_ideam.xlsx&quot;</span>, <span class="dt">sheetName=</span><span class="st">&quot;fc&quot;</span>, <span class="dt">header=</span><span class="ot">TRUE</span>, </a>
-<a class="sourceLine" id="cb57-4" title="4">                     <span class="dt">stringsAsFactors =</span> F)</a>
-<a class="sourceLine" id="cb57-5" title="5">    <span class="co">#In next folder all text files time series from variable VV_AUT_10 are stored</span></a>
-<a class="sourceLine" id="cb57-6" title="6">      path_vv_aut_<span class="dv">10</span> =<span class="st"> &quot;./data/manual/VV_AUT_10/&quot;</span></a>
-<a class="sourceLine" id="cb57-7" title="7">    <span class="co">#Read files inside previous folder, with pattern VV_AUT_10@ in the name</span></a>
-<a class="sourceLine" id="cb57-8" title="8">      filenames =<span class="st"> </span><span class="kw">list.files</span>(path_vv_aut_<span class="dv">10</span>, <span class="dt">pattern =</span> <span class="st">&quot;VV_AUT_10@&quot;</span>)</a>
-<a class="sourceLine" id="cb57-9" title="9">    <span class="co">#Variable to hold station IDs without roughness correction factor</span></a>
-<a class="sourceLine" id="cb57-10" title="10">      mymissing =<span class="st"> </span><span class="ot">NULL</span></a>
-<a class="sourceLine" id="cb57-11" title="11">    <span class="co">#Do a loop for each &#39;filename&#39; inside &#39;filenames&#39; variable</span></a>
-<a class="sourceLine" id="cb57-12" title="12">      <span class="cf">for</span>(filename <span class="cf">in</span> filenames){</a>
-<a class="sourceLine" id="cb57-13" title="13">        <span class="co">#Read current filename from disk into memory, variable &#39;dat&#39;</span></a>
-<a class="sourceLine" id="cb57-14" title="14">          dat =<span class="st"> </span><span class="kw">read.table</span>(<span class="kw">paste0</span>(path_vv_aut_<span class="dv">10</span>, filename), <span class="dt">header=</span><span class="ot">TRUE</span>, <span class="dt">sep=</span><span class="st">&quot;|&quot;</span>, <span class="dt">stringsAsFactors=</span><span class="ot">FALSE</span>)</a>
-<a class="sourceLine" id="cb57-15" title="15">        <span class="co"># Modify column names</span></a>
-<a class="sourceLine" id="cb57-16" title="16">          <span class="kw">names</span>(dat) =<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;fecha&#39;</span>, <span class="st">&#39;valor&#39;</span>)</a>
-<a class="sourceLine" id="cb57-17" title="17">        <span class="co">#Take control of possible bad original values</span></a>
-<a class="sourceLine" id="cb57-18" title="18">          dat<span class="op">$</span>valor[dat<span class="op">$</span>valor <span class="op">&gt;</span><span class="st"> </span><span class="dv">300</span>] =<span class="st"> </span><span class="ot">NA</span></a>
-<a class="sourceLine" id="cb57-19" title="19">          dat<span class="op">$</span>valor[dat<span class="op">$</span>valor <span class="op">&lt;</span><span class="st"> </span><span class="dv">1</span>] =<span class="st"> </span><span class="ot">NA</span></a>
-<a class="sourceLine" id="cb57-20" title="20">        <span class="co">#Get station id from current file name</span></a>
-<a class="sourceLine" id="cb57-21" title="21">          station_id =<span class="st"> </span><span class="kw">substring</span>(filename, <span class="dv">11</span>, <span class="kw">nchar</span>(filename)<span class="op">-</span><span class="dv">5</span>)  <span class="co">#this is for vv_aut_2</span></a>
-<a class="sourceLine" id="cb57-22" title="22">        <span class="co">#Add datetime object</span></a>
-<a class="sourceLine" id="cb57-23" title="23">          dat<span class="op">$</span>mydatetime =<span class="st"> </span><span class="kw">as.POSIXct</span>(dat<span class="op">$</span>fecha,<span class="dt">format=</span><span class="st">&quot;%Y-%m-%d %H:%M:%S&quot;</span>, <span class="dt">tz=</span><span class="st">&quot;UTC&quot;</span>)</a>
-<a class="sourceLine" id="cb57-24" title="24">        <span class="kw">library</span>(xts)</a>
-<a class="sourceLine" id="cb57-25" title="25">        <span class="kw">library</span>(dplyr)</a>
-<a class="sourceLine" id="cb57-26" title="26">        select &lt;-<span class="st"> </span>dplyr<span class="op">::</span>select</a>
-<a class="sourceLine" id="cb57-27" title="27">        <span class="co">#Create XTS object removing NA values</span></a>
-<a class="sourceLine" id="cb57-28" title="28">          myxts =<span class="st"> </span><span class="kw">na.omit</span>(<span class="kw">xts</span>(<span class="dt">x=</span><span class="kw">select</span>(dat, valor), <span class="dt">order.by =</span> dat<span class="op">$</span>mydatetime))</a>
-<a class="sourceLine" id="cb57-29" title="29">        <span class="co">#Get correction factor by Roughness</span></a>
-<a class="sourceLine" id="cb57-30" title="30">          fexpo =<span class="st"> </span>fc<span class="op">$</span>fexpo[fc<span class="op">$</span>station_id <span class="op">==</span><span class="st"> </span><span class="kw">as.integer</span>(station_id)]  </a>
-<a class="sourceLine" id="cb57-31" title="31">        <span class="co">#Keep the record of stations without correction factors in Excel file</span></a>
-<a class="sourceLine" id="cb57-32" title="32">          <span class="cf">if</span> (<span class="kw">length</span>(fexpo) <span class="op">==</span><span class="st"> </span><span class="dv">0</span>) {mymissing =<span class="st"> </span><span class="kw">c</span>(mymissing, station<span class="op">$</span>station_id[<span class="dv">1</span>])</a>
-<a class="sourceLine" id="cb57-33" title="33">              <span class="kw">cat</span>(<span class="kw">paste</span>(<span class="st">&quot;Station &quot;</span>, station<span class="op">$</span>station_id[<span class="dv">1</span>], <span class="st">&quot;not found in correction factors file&quot;</span>, <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>))}      </a>
-<a class="sourceLine" id="cb57-34" title="34">        <span class="co">#Get correction factor by gust</span></a>
-<a class="sourceLine" id="cb57-35" title="35">        <span class="co">#All stations are reported in Excel file for gust correction factor</span></a>
-<a class="sourceLine" id="cb57-36" title="36">          fgust =<span class="st"> </span>fc<span class="op">$</span>fgust[fc<span class="op">$</span>station_id <span class="op">==</span><span class="st"> </span><span class="kw">as.integer</span>(station<span class="op">$</span>station_id[<span class="dv">1</span>])]            </a>
-<a class="sourceLine" id="cb57-37" title="37">        <span class="co">#Apply correction factors</span></a>
-<a class="sourceLine" id="cb57-38" title="38">          myxts<span class="op">$</span>valor =<span class="st"> </span>myxts<span class="op">$</span>valor <span class="op">*</span><span class="st"> </span>fexpo <span class="op">*</span><span class="st"> </span>fgust</a>
-<a class="sourceLine" id="cb57-39" title="39">        <span class="co">#Name of time series is the string &quot;X&quot; + Station ID</span></a>
-<a class="sourceLine" id="cb57-40" title="40">          <span class="kw">colnames</span>(myxts) =<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&quot;X&quot;</span>, station<span class="op">$</span>station_id[<span class="dv">1</span>])</a>
-<a class="sourceLine" id="cb57-41" title="41">        <span class="co">#Extract index values of last observation of each hour</span></a>
-<a class="sourceLine" id="cb57-42" title="42">          endhour =<span class="st"> </span><span class="kw">endpoints</span>(myxts,<span class="dt">on=</span><span class="st">&quot;hours&quot;</span>)</a>
-<a class="sourceLine" id="cb57-43" title="43">        <span class="co">#Calculate hourly mean</span></a>
-<a class="sourceLine" id="cb57-44" title="44">          myxtshour =<span class="st"> </span>xts<span class="op">::</span><span class="kw">period.apply</span>(myxts, <span class="dt">INDEX=</span>endhour, <span class="dt">FUN=</span>mean)</a>
-<a class="sourceLine" id="cb57-45" title="45">        <span class="co">#Rounding time series to previous hour</span></a>
-<a class="sourceLine" id="cb57-46" title="46">          <span class="kw">index</span>(myxtshour)=<span class="kw">trunc</span>(<span class="kw">index</span>(myxtshour),<span class="st">&quot;hours&quot;</span>)</a>
-<a class="sourceLine" id="cb57-47" title="47">        <span class="co">#Hourly corrected time series are ready!</span></a>
-<a class="sourceLine" id="cb57-48" title="48">        <span class="co">#Proceed to apply next step in methodology: POT-PP</span></a>
-<a class="sourceLine" id="cb57-49" title="49">        <span class="co">#...}  </span></a></code></pre></div>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb58-1" title="1">      <span class="kw">library</span>(xlsx)</a>
+<a class="sourceLine" id="cb58-2" title="2">    <span class="co">#Read file with correction factors</span></a>
+<a class="sourceLine" id="cb58-3" title="3">      fc &lt;-<span class="kw">read.xlsx</span>(<span class="dt">file=</span><span class="st">&quot;./data/manual/correction_factors_isd_ideam.xlsx&quot;</span>, <span class="dt">sheetName=</span><span class="st">&quot;fc&quot;</span>, <span class="dt">header=</span><span class="ot">TRUE</span>, </a>
+<a class="sourceLine" id="cb58-4" title="4">                     <span class="dt">stringsAsFactors =</span> F)</a>
+<a class="sourceLine" id="cb58-5" title="5">    <span class="co">#In next folder all text files time series from variable VV_AUT_10 are stored</span></a>
+<a class="sourceLine" id="cb58-6" title="6">      path_vv_aut_<span class="dv">10</span> =<span class="st"> &quot;./data/manual/VV_AUT_10/&quot;</span></a>
+<a class="sourceLine" id="cb58-7" title="7">    <span class="co">#Read files inside previous folder, with pattern VV_AUT_10@ in the name</span></a>
+<a class="sourceLine" id="cb58-8" title="8">      filenames =<span class="st"> </span><span class="kw">list.files</span>(path_vv_aut_<span class="dv">10</span>, <span class="dt">pattern =</span> <span class="st">&quot;VV_AUT_10@&quot;</span>)</a>
+<a class="sourceLine" id="cb58-9" title="9">    <span class="co">#Variable to hold station IDs without roughness correction factor</span></a>
+<a class="sourceLine" id="cb58-10" title="10">      mymissing =<span class="st"> </span><span class="ot">NULL</span></a>
+<a class="sourceLine" id="cb58-11" title="11">    <span class="co">#Do a loop for each &#39;filename&#39; inside &#39;filenames&#39; variable</span></a>
+<a class="sourceLine" id="cb58-12" title="12">      <span class="cf">for</span>(filename <span class="cf">in</span> filenames){</a>
+<a class="sourceLine" id="cb58-13" title="13">        <span class="co">#Read current filename from disk into memory, variable &#39;dat&#39;</span></a>
+<a class="sourceLine" id="cb58-14" title="14">          dat =<span class="st"> </span><span class="kw">read.table</span>(<span class="kw">paste0</span>(path_vv_aut_<span class="dv">10</span>, filename), <span class="dt">header=</span><span class="ot">TRUE</span>, <span class="dt">sep=</span><span class="st">&quot;|&quot;</span>, <span class="dt">stringsAsFactors=</span><span class="ot">FALSE</span>)</a>
+<a class="sourceLine" id="cb58-15" title="15">        <span class="co"># Modify column names</span></a>
+<a class="sourceLine" id="cb58-16" title="16">          <span class="kw">names</span>(dat) =<span class="st"> </span><span class="kw">c</span>(<span class="st">&#39;fecha&#39;</span>, <span class="st">&#39;valor&#39;</span>)</a>
+<a class="sourceLine" id="cb58-17" title="17">        <span class="co">#Take control of possible bad original values</span></a>
+<a class="sourceLine" id="cb58-18" title="18">          dat<span class="op">$</span>valor[dat<span class="op">$</span>valor <span class="op">&gt;</span><span class="st"> </span><span class="dv">300</span>] =<span class="st"> </span><span class="ot">NA</span></a>
+<a class="sourceLine" id="cb58-19" title="19">          dat<span class="op">$</span>valor[dat<span class="op">$</span>valor <span class="op">&lt;</span><span class="st"> </span><span class="dv">1</span>] =<span class="st"> </span><span class="ot">NA</span></a>
+<a class="sourceLine" id="cb58-20" title="20">        <span class="co">#Get station id from current file name</span></a>
+<a class="sourceLine" id="cb58-21" title="21">          station_id =<span class="st"> </span><span class="kw">substring</span>(filename, <span class="dv">11</span>, <span class="kw">nchar</span>(filename)<span class="op">-</span><span class="dv">5</span>)  <span class="co">#this is for vv_aut_2</span></a>
+<a class="sourceLine" id="cb58-22" title="22">        <span class="co">#Add datetime object</span></a>
+<a class="sourceLine" id="cb58-23" title="23">          dat<span class="op">$</span>mydatetime =<span class="st"> </span><span class="kw">as.POSIXct</span>(dat<span class="op">$</span>fecha,<span class="dt">format=</span><span class="st">&quot;%Y-%m-%d %H:%M:%S&quot;</span>, <span class="dt">tz=</span><span class="st">&quot;UTC&quot;</span>)</a>
+<a class="sourceLine" id="cb58-24" title="24">        <span class="kw">library</span>(xts)</a>
+<a class="sourceLine" id="cb58-25" title="25">        <span class="kw">library</span>(dplyr)</a>
+<a class="sourceLine" id="cb58-26" title="26">        select &lt;-<span class="st"> </span>dplyr<span class="op">::</span>select</a>
+<a class="sourceLine" id="cb58-27" title="27">        <span class="co">#Create XTS object removing NA values</span></a>
+<a class="sourceLine" id="cb58-28" title="28">          myxts =<span class="st"> </span><span class="kw">na.omit</span>(<span class="kw">xts</span>(<span class="dt">x=</span><span class="kw">select</span>(dat, valor), <span class="dt">order.by =</span> dat<span class="op">$</span>mydatetime))</a>
+<a class="sourceLine" id="cb58-29" title="29">        <span class="co">#Get correction factor by Roughness</span></a>
+<a class="sourceLine" id="cb58-30" title="30">          fexpo =<span class="st"> </span>fc<span class="op">$</span>fexpo[fc<span class="op">$</span>station_id <span class="op">==</span><span class="st"> </span><span class="kw">as.integer</span>(station_id)]  </a>
+<a class="sourceLine" id="cb58-31" title="31">        <span class="co">#Keep the record of stations without correction factors in Excel file</span></a>
+<a class="sourceLine" id="cb58-32" title="32">          <span class="cf">if</span> (<span class="kw">length</span>(fexpo) <span class="op">==</span><span class="st"> </span><span class="dv">0</span>) {mymissing =<span class="st"> </span><span class="kw">c</span>(mymissing, station<span class="op">$</span>station_id[<span class="dv">1</span>])</a>
+<a class="sourceLine" id="cb58-33" title="33">              <span class="kw">cat</span>(<span class="kw">paste</span>(<span class="st">&quot;Station &quot;</span>, station<span class="op">$</span>station_id[<span class="dv">1</span>], <span class="st">&quot;not found in correction factors file&quot;</span>, <span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>))}      </a>
+<a class="sourceLine" id="cb58-34" title="34">        <span class="co">#Get correction factor by gust</span></a>
+<a class="sourceLine" id="cb58-35" title="35">        <span class="co">#All stations are reported in Excel file for gust correction factor</span></a>
+<a class="sourceLine" id="cb58-36" title="36">          fgust =<span class="st"> </span>fc<span class="op">$</span>fgust[fc<span class="op">$</span>station_id <span class="op">==</span><span class="st"> </span><span class="kw">as.integer</span>(station<span class="op">$</span>station_id[<span class="dv">1</span>])]            </a>
+<a class="sourceLine" id="cb58-37" title="37">        <span class="co">#Apply correction factors</span></a>
+<a class="sourceLine" id="cb58-38" title="38">          myxts<span class="op">$</span>valor =<span class="st"> </span>myxts<span class="op">$</span>valor <span class="op">*</span><span class="st"> </span>fexpo <span class="op">*</span><span class="st"> </span>fgust</a>
+<a class="sourceLine" id="cb58-39" title="39">        <span class="co">#Name of time series is the string &quot;X&quot; + Station ID</span></a>
+<a class="sourceLine" id="cb58-40" title="40">          <span class="kw">colnames</span>(myxts) =<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&quot;X&quot;</span>, station<span class="op">$</span>station_id[<span class="dv">1</span>])</a>
+<a class="sourceLine" id="cb58-41" title="41">        <span class="co">#Extract index values of last observation of each hour</span></a>
+<a class="sourceLine" id="cb58-42" title="42">          endhour =<span class="st"> </span><span class="kw">endpoints</span>(myxts,<span class="dt">on=</span><span class="st">&quot;hours&quot;</span>)</a>
+<a class="sourceLine" id="cb58-43" title="43">        <span class="co">#Calculate hourly mean</span></a>
+<a class="sourceLine" id="cb58-44" title="44">          myxtshour =<span class="st"> </span>xts<span class="op">::</span><span class="kw">period.apply</span>(myxts, <span class="dt">INDEX=</span>endhour, <span class="dt">FUN=</span>mean)</a>
+<a class="sourceLine" id="cb58-45" title="45">        <span class="co">#Rounding time series to previous hour</span></a>
+<a class="sourceLine" id="cb58-46" title="46">          <span class="kw">index</span>(myxtshour)=<span class="kw">trunc</span>(<span class="kw">index</span>(myxtshour),<span class="st">&quot;hours&quot;</span>)</a>
+<a class="sourceLine" id="cb58-47" title="47">        <span class="co">#Hourly corrected time series are ready!</span></a>
+<a class="sourceLine" id="cb58-48" title="48">        <span class="co">#Proceed to apply next step in methodology: POT-PP</span></a>
+<a class="sourceLine" id="cb58-49" title="49">        <span class="co">#...}  </span></a></code></pre></div>
 
 </div>
 <div id="downscaling-support" class="section level2">
@@ -583,17 +583,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ol>
 
 
-<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb58-1" title="1">    stationssample =<span class="st"> </span><span class="kw">data.frame</span>(</a>
-<a class="sourceLine" id="cb58-2" title="2">      <span class="dt">isd_usaf_id=</span> <span class="kw">as.character</span>(</a>
-<a class="sourceLine" id="cb58-3" title="3">        <span class="kw">c</span>(<span class="dv">803980</span>, <span class="dv">803700</span>, <span class="dv">802110</span>, <span class="dv">802100</span>, <span class="dv">801120</span>, <span class="dv">801100</span>, </a>
-<a class="sourceLine" id="cb58-4" title="4">          <span class="dv">800970</span>, <span class="dv">800940</span>, <span class="dv">800630</span>, <span class="dv">800360</span>, <span class="dv">800350</span>, <span class="dv">800280</span>)), </a>
-<a class="sourceLine" id="cb58-5" title="5">      <span class="dt">ideam_id =</span> <span class="kw">as.character</span>(</a>
-<a class="sourceLine" id="cb58-6" title="6">        <span class="kw">c</span>(<span class="dv">48015050</span>, <span class="dv">52055230</span>, <span class="dv">26125061</span>, <span class="dv">26125710</span>, <span class="dv">23085270</span>, <span class="dv">27015330</span>, </a>
-<a class="sourceLine" id="cb58-7" title="7">          <span class="dv">16015501</span>, <span class="dv">23195502</span>, <span class="dv">13035501</span>, <span class="dv">28025502</span>, <span class="dv">15065180</span>, <span class="dv">29045190</span>)),</a>
-<a class="sourceLine" id="cb58-8" title="8">      <span class="dt">fc_zo =</span> </a>
-<a class="sourceLine" id="cb58-9" title="9">        <span class="kw">c</span>(<span class="fl">1.197230052</span>, <span class="fl">1.219771719</span>, <span class="fl">1.102205474</span> , <span class="fl">1.18154867</span>, <span class="fl">1.113341504</span>, <span class="fl">1.29241596</span>, </a>
-<a class="sourceLine" id="cb58-10" title="10">          <span class="fl">1.102205474</span>, <span class="fl">1.177562503</span>, <span class="fl">1.114968586</span>, <span class="fl">1.184849704</span>, <span class="fl">1.5</span>, <span class="fl">1.224744381</span>),  </a>
-<a class="sourceLine" id="cb58-11" title="11">      <span class="dt">stringsAsFactors=</span><span class="ot">FALSE</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb59-1" title="1">    stationssample =<span class="st"> </span><span class="kw">data.frame</span>(</a>
+<a class="sourceLine" id="cb59-2" title="2">      <span class="dt">isd_usaf_id=</span> <span class="kw">as.character</span>(</a>
+<a class="sourceLine" id="cb59-3" title="3">        <span class="kw">c</span>(<span class="dv">803980</span>, <span class="dv">803700</span>, <span class="dv">802110</span>, <span class="dv">802100</span>, <span class="dv">801120</span>, <span class="dv">801100</span>, </a>
+<a class="sourceLine" id="cb59-4" title="4">          <span class="dv">800970</span>, <span class="dv">800940</span>, <span class="dv">800630</span>, <span class="dv">800360</span>, <span class="dv">800350</span>, <span class="dv">800280</span>)), </a>
+<a class="sourceLine" id="cb59-5" title="5">      <span class="dt">ideam_id =</span> <span class="kw">as.character</span>(</a>
+<a class="sourceLine" id="cb59-6" title="6">        <span class="kw">c</span>(<span class="dv">48015050</span>, <span class="dv">52055230</span>, <span class="dv">26125061</span>, <span class="dv">26125710</span>, <span class="dv">23085270</span>, <span class="dv">27015330</span>, </a>
+<a class="sourceLine" id="cb59-7" title="7">          <span class="dv">16015501</span>, <span class="dv">23195502</span>, <span class="dv">13035501</span>, <span class="dv">28025502</span>, <span class="dv">15065180</span>, <span class="dv">29045190</span>)),</a>
+<a class="sourceLine" id="cb59-8" title="8">      <span class="dt">fc_zo =</span> </a>
+<a class="sourceLine" id="cb59-9" title="9">        <span class="kw">c</span>(<span class="fl">1.197230052</span>, <span class="fl">1.219771719</span>, <span class="fl">1.102205474</span> , <span class="fl">1.18154867</span>, <span class="fl">1.113341504</span>, <span class="fl">1.29241596</span>, </a>
+<a class="sourceLine" id="cb59-10" title="10">          <span class="fl">1.102205474</span>, <span class="fl">1.177562503</span>, <span class="fl">1.114968586</span>, <span class="fl">1.184849704</span>, <span class="fl">1.5</span>, <span class="fl">1.224744381</span>),  </a>
+<a class="sourceLine" id="cb59-11" title="11">      <span class="dt">stringsAsFactors=</span><span class="ot">FALSE</span>)</a></code></pre></div>
 
 <p>Inside file <em>VV_AUT_2_1.r</em>, all needed correction factors are hard coded in variable <em>stationssample</em>. If a more suitable calculation of correction factors is done, those values can be updated inside this data-frame.</p>
 <ol start="2" style="list-style-type: decimal">
@@ -601,36 +601,36 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ol>
 
 
-<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb59-1" title="1">      path_vv_aut_<span class="dv">2</span> =<span class="st"> &quot;./data/manual/VV_AUT_2/&quot;</span></a></code></pre></div>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb60-1" title="1">      path_vv_aut_<span class="dv">2</span> =<span class="st"> &quot;./data/manual/VV_AUT_2/&quot;</span></a></code></pre></div>
 
 <p>Inside folder <em>path_vv_aut_2</em>, non-standardized time series text files must be stored (one file per station history). Be aware that all wind velocities must not be standardized. Twelve files are inside this folder, see complete list below.</p>
 
 
-<div class="sourceCode" id="cb60"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb60-1" title="1">      <span class="ex">VV_AUT_2@13035501.data</span></a>
-<a class="sourceLine" id="cb60-2" title="2">      <span class="ex">VV_AUT_2@15065180.data</span></a>
-<a class="sourceLine" id="cb60-3" title="3">      <span class="ex">VV_AUT_2@16015501.data</span></a>
-<a class="sourceLine" id="cb60-4" title="4">      <span class="ex">VV_AUT_2@23085270.data</span></a>
-<a class="sourceLine" id="cb60-5" title="5">      <span class="ex">VV_AUT_2@23195502.data</span></a>
-<a class="sourceLine" id="cb60-6" title="6">      <span class="ex">VV_AUT_2@26125061.data</span></a>
-<a class="sourceLine" id="cb60-7" title="7">      <span class="ex">VV_AUT_2@26125710.data</span></a>
-<a class="sourceLine" id="cb60-8" title="8">      <span class="ex">VV_AUT_2@27015330.data</span></a>
-<a class="sourceLine" id="cb60-9" title="9">      <span class="ex">VV_AUT_2@28025502.data</span></a>
-<a class="sourceLine" id="cb60-10" title="10">      <span class="ex">VV_AUT_2@29045190.data</span></a>
-<a class="sourceLine" id="cb60-11" title="11">      <span class="ex">VV_AUT_2@48015050.data</span></a>
-<a class="sourceLine" id="cb60-12" title="12">      <span class="ex">VV_AUT_2@52055230.data</span></a></code></pre></div>
+<div class="sourceCode" id="cb61"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb61-1" title="1">      <span class="ex">VV_AUT_2@13035501.data</span></a>
+<a class="sourceLine" id="cb61-2" title="2">      <span class="ex">VV_AUT_2@15065180.data</span></a>
+<a class="sourceLine" id="cb61-3" title="3">      <span class="ex">VV_AUT_2@16015501.data</span></a>
+<a class="sourceLine" id="cb61-4" title="4">      <span class="ex">VV_AUT_2@23085270.data</span></a>
+<a class="sourceLine" id="cb61-5" title="5">      <span class="ex">VV_AUT_2@23195502.data</span></a>
+<a class="sourceLine" id="cb61-6" title="6">      <span class="ex">VV_AUT_2@26125061.data</span></a>
+<a class="sourceLine" id="cb61-7" title="7">      <span class="ex">VV_AUT_2@26125710.data</span></a>
+<a class="sourceLine" id="cb61-8" title="8">      <span class="ex">VV_AUT_2@27015330.data</span></a>
+<a class="sourceLine" id="cb61-9" title="9">      <span class="ex">VV_AUT_2@28025502.data</span></a>
+<a class="sourceLine" id="cb61-10" title="10">      <span class="ex">VV_AUT_2@29045190.data</span></a>
+<a class="sourceLine" id="cb61-11" title="11">      <span class="ex">VV_AUT_2@48015050.data</span></a>
+<a class="sourceLine" id="cb61-12" title="12">      <span class="ex">VV_AUT_2@52055230.data</span></a></code></pre></div>
 
 <p>Files names must follow this convention <strong>VV_AUT_2@*.data</strong>, where <em>*</em> is the IDEAM station ID. Content of each file must follow structure shown below.</p>
 
 
-<div class="sourceCode" id="cb61"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb61-1" title="1">      <span class="ex">Fecha</span><span class="kw">|</span><span class="ex">Valor</span></a>
-<a class="sourceLine" id="cb61-2" title="2">      <span class="ex">2015-05-30</span> 17:20:00<span class="kw">|</span><span class="ex">0.2</span></a>
-<a class="sourceLine" id="cb61-3" title="3">      <span class="ex">2015-05-30</span> 17:22:00<span class="kw">|</span><span class="ex">0.1</span></a>
-<a class="sourceLine" id="cb61-4" title="4">      <span class="ex">2015-05-30</span> 17:26:00<span class="kw">|</span><span class="ex">0.1</span></a>
-<a class="sourceLine" id="cb61-5" title="5">      <span class="ex">2015-05-30</span> 17:28:00<span class="kw">|</span><span class="ex">0.2</span></a>
-<a class="sourceLine" id="cb61-6" title="6">      <span class="ex">2015-05-30</span> 17:30:00<span class="kw">|</span><span class="ex">0.4</span></a>
-<a class="sourceLine" id="cb61-7" title="7">      <span class="ex">2015-05-30</span> 17:32:00<span class="kw">|</span><span class="ex">0.2</span></a>
-<a class="sourceLine" id="cb61-8" title="8">      <span class="ex">2015-05-30</span> 17:34:00<span class="kw">|</span><span class="ex">0.2</span></a>
-<a class="sourceLine" id="cb61-9" title="9">      <span class="ex">...</span></a></code></pre></div>
+<div class="sourceCode" id="cb62"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb62-1" title="1">      <span class="ex">Fecha</span><span class="kw">|</span><span class="ex">Valor</span></a>
+<a class="sourceLine" id="cb62-2" title="2">      <span class="ex">2015-05-30</span> 17:20:00<span class="kw">|</span><span class="ex">0.2</span></a>
+<a class="sourceLine" id="cb62-3" title="3">      <span class="ex">2015-05-30</span> 17:22:00<span class="kw">|</span><span class="ex">0.1</span></a>
+<a class="sourceLine" id="cb62-4" title="4">      <span class="ex">2015-05-30</span> 17:26:00<span class="kw">|</span><span class="ex">0.1</span></a>
+<a class="sourceLine" id="cb62-5" title="5">      <span class="ex">2015-05-30</span> 17:28:00<span class="kw">|</span><span class="ex">0.2</span></a>
+<a class="sourceLine" id="cb62-6" title="6">      <span class="ex">2015-05-30</span> 17:30:00<span class="kw">|</span><span class="ex">0.4</span></a>
+<a class="sourceLine" id="cb62-7" title="7">      <span class="ex">2015-05-30</span> 17:32:00<span class="kw">|</span><span class="ex">0.2</span></a>
+<a class="sourceLine" id="cb62-8" title="8">      <span class="ex">2015-05-30</span> 17:34:00<span class="kw">|</span><span class="ex">0.2</span></a>
+<a class="sourceLine" id="cb62-9" title="9">      <span class="ex">...</span></a></code></pre></div>
 
 <p>The first line must contain the text <em>Fecha|Valor</em> representing two column names, first column <em>Fecha</em> has the date time in the format “YYYY-MM-DD HH:MM:SS” (time zone UTC), and second column <em>Valor</em> must have the non-standardized wind velocity in kilometers per hour. Separation of each column value must be the <em>|</em> character.</p>
 <ol start="3" style="list-style-type: decimal">
@@ -638,7 +638,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ol>
 
 
-<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb62-1" title="1">      con1 =<span class="st"> </span><span class="kw">dbConnect</span>(pg, <span class="dt">user=</span><span class="st">&quot;user1&quot;</span>, <span class="dt">password=</span><span class="st">&quot;user1&quot;</span>, <span class="dt">host=</span><span class="st">&quot;localhost&quot;</span>, <span class="dt">port=</span><span class="dv">5432</span>, <span class="dt">dbname=</span><span class="st">&quot;winddata&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb63-1" title="1">      con1 =<span class="st"> </span><span class="kw">dbConnect</span>(pg, <span class="dt">user=</span><span class="st">&quot;user1&quot;</span>, <span class="dt">password=</span><span class="st">&quot;user1&quot;</span>, <span class="dt">host=</span><span class="st">&quot;localhost&quot;</span>, <span class="dt">port=</span><span class="dv">5432</span>, <span class="dt">dbname=</span><span class="st">&quot;winddata&quot;</span>)</a></code></pre></div>
 
 <p>In variable <em>con1</em> all PostgreSQL database credentials are defined. Tables to use are <em>isd_all_stations</em>, and <em>ideam_all_stations</em>, corresponding to ISD and IDEAM stations catalogs, and <em>isd_lite_unstack</em> corresponding to ISD unstacked time series. Verify values in <em>con1</em> according to current database configuration.</p>
 <ol start="4" style="list-style-type: decimal">
@@ -646,21 +646,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ol>
 
 
-<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb63-1" title="1">      <span class="kw">source</span>(<span class="st">&#39;VV_AUT_2_2.r&#39;</span>)</a>
-<a class="sourceLine" id="cb63-2" title="2">      ...</a>
-<a class="sourceLine" id="cb63-3" title="3">      <span class="kw">source</span>(<span class="st">&#39;VV_AUT_2_3.r&#39;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb64-1" title="1">      <span class="kw">source</span>(<span class="st">&#39;VV_AUT_2_2.r&#39;</span>)</a>
+<a class="sourceLine" id="cb64-2" title="2">      ...</a>
+<a class="sourceLine" id="cb64-3" title="3">      <span class="kw">source</span>(<span class="st">&#39;VV_AUT_2_3.r&#39;</span>)</a></code></pre></div>
 
 <p>Inside files <em>VV_AUT_2_2.r</em> and <em>VV_AUT_2_3.r</em> all code to read ERA5 dataset is defined. The most important line there, defines the location of NetCDF file <em>outfile_nc4c_zip9.nc</em> with variable <em>fg10</em> (3-s wind gust). Be sure that <em>ncname</em> (shown below) variable is pointing to the right place where NetCDF file is stored.</p>
 
 
-<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb64-1" title="1">      (ncname &lt;-<span class="st"> &quot;../data/outfile_nc4c_zip9&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb65-1" title="1">      (ncname &lt;-<span class="st"> &quot;../data/outfile_nc4c_zip9&quot;</span>)</a></code></pre></div>
 
 <ol start="5" style="list-style-type: decimal">
 <li><em>somePDFPath</em></li>
 </ol>
 
 
-<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb65-1" title="1">      somePDFPath =<span class="st"> </span><span class="kw">paste</span>(<span class="kw">paste</span>(<span class="st">&quot;isdideamera5&quot;</span>, i, statideam, <span class="dt">sep =</span> <span class="st">&quot;_&quot;</span>), <span class="st">&quot;pdf&quot;</span>, <span class="dt">sep=</span><span class="st">&quot;.&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb66-1" title="1">      somePDFPath =<span class="st"> </span><span class="kw">paste</span>(<span class="kw">paste</span>(<span class="st">&quot;isdideamera5&quot;</span>, i, statideam, <span class="dt">sep =</span> <span class="st">&quot;_&quot;</span>), <span class="st">&quot;pdf&quot;</span>, <span class="dt">sep=</span><span class="st">&quot;.&quot;</span>)</a></code></pre></div>
 
 <p>Variable <em>somePDFPath</em> holds the name of the PDF file with the quality data comparison between IDEAM, ISD and ERA5. After execution, there will be a file for each station provided in data frame <em>stationssample</em>. Inside each PDF file, comparison time series graphics are provided, as well as scatter plots. Using graphics inside this file, it is possible to visually define if exist downscaling support to use model or forecast data (ISD and ERA5), by the comparison against measure data (IDEAM). See Table <a href="#tab:resultsstructure"><strong>??</strong></a> in Annex <em><a href="B-results.html#results">Results - Digital Files</a></em>, for a description of all digital output files of this research.</p>
 </div>
@@ -678,7 +678,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ol>
 
 
-<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb66-1" title="1">      con1 =<span class="st"> </span><span class="kw">dbConnect</span>(pg, <span class="dt">user=</span><span class="st">&quot;user1&quot;</span>, <span class="dt">password=</span><span class="st">&quot;user1&quot;</span>, <span class="dt">host=</span><span class="st">&quot;localhost&quot;</span>, <span class="dt">port=</span><span class="dv">5432</span>, <span class="dt">dbname=</span><span class="st">&quot;winddata&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb67-1" title="1">      con1 =<span class="st"> </span><span class="kw">dbConnect</span>(pg, <span class="dt">user=</span><span class="st">&quot;user1&quot;</span>, <span class="dt">password=</span><span class="st">&quot;user1&quot;</span>, <span class="dt">host=</span><span class="st">&quot;localhost&quot;</span>, <span class="dt">port=</span><span class="dv">5432</span>, <span class="dt">dbname=</span><span class="st">&quot;winddata&quot;</span>)</a></code></pre></div>
 
 <p>In variable <em>con1</em> all PostgreSQL database credentials are defined. Tables to use are <em>isd_all_stations</em>, and <em>ideam_all_stations</em>, corresponding to ISD and IDEAM stations catalogs, and <em>isd_lite_unstack</em> corresponding to ISD unstacked time series. Verify values in <em>con1</em> according to current database configuration.</p>
 <ol start="2" style="list-style-type: decimal">
@@ -686,17 +686,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ol>
 
 
-<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb67-1" title="1">    stationssample =<span class="st"> </span><span class="kw">data.frame</span>(</a>
-<a class="sourceLine" id="cb67-2" title="2">      <span class="dt">isd_usaf_id=</span> <span class="kw">as.character</span>(</a>
-<a class="sourceLine" id="cb67-3" title="3">        <span class="kw">c</span>(<span class="dv">803980</span>, <span class="dv">803700</span>, <span class="dv">802110</span>, <span class="dv">802100</span>, <span class="dv">801120</span>, <span class="dv">801100</span>, </a>
-<a class="sourceLine" id="cb67-4" title="4">          <span class="dv">800970</span>, <span class="dv">800940</span>, <span class="dv">800630</span>, <span class="dv">800360</span>, <span class="dv">800350</span>, <span class="dv">800280</span>)), </a>
-<a class="sourceLine" id="cb67-5" title="5">      <span class="dt">ideam_id =</span> <span class="kw">as.character</span>(</a>
-<a class="sourceLine" id="cb67-6" title="6">        <span class="kw">c</span>(<span class="dv">48015050</span>, <span class="dv">52055230</span>, <span class="dv">26125061</span>, <span class="dv">26125710</span>, <span class="dv">23085270</span>, <span class="dv">27015330</span>, </a>
-<a class="sourceLine" id="cb67-7" title="7">          <span class="dv">16015501</span>, <span class="dv">23195502</span>, <span class="dv">13035501</span>, <span class="dv">28025502</span>, <span class="dv">15065180</span>, <span class="dv">29045190</span>)),</a>
-<a class="sourceLine" id="cb67-8" title="8">      <span class="dt">fc_zo =</span> </a>
-<a class="sourceLine" id="cb67-9" title="9">        <span class="kw">c</span>(<span class="fl">1.197230052</span>, <span class="fl">1.219771719</span>, <span class="fl">1.102205474</span> , <span class="fl">1.18154867</span>, <span class="fl">1.113341504</span>, <span class="fl">1.29241596</span>, </a>
-<a class="sourceLine" id="cb67-10" title="10">          <span class="fl">1.102205474</span>, <span class="fl">1.177562503</span>, <span class="fl">1.114968586</span>, <span class="fl">1.184849704</span>, <span class="fl">1.5</span>, <span class="fl">1.224744381</span>),  </a>
-<a class="sourceLine" id="cb67-11" title="11">      <span class="dt">stringsAsFactors=</span><span class="ot">FALSE</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb68-1" title="1">    stationssample =<span class="st"> </span><span class="kw">data.frame</span>(</a>
+<a class="sourceLine" id="cb68-2" title="2">      <span class="dt">isd_usaf_id=</span> <span class="kw">as.character</span>(</a>
+<a class="sourceLine" id="cb68-3" title="3">        <span class="kw">c</span>(<span class="dv">803980</span>, <span class="dv">803700</span>, <span class="dv">802110</span>, <span class="dv">802100</span>, <span class="dv">801120</span>, <span class="dv">801100</span>, </a>
+<a class="sourceLine" id="cb68-4" title="4">          <span class="dv">800970</span>, <span class="dv">800940</span>, <span class="dv">800630</span>, <span class="dv">800360</span>, <span class="dv">800350</span>, <span class="dv">800280</span>)), </a>
+<a class="sourceLine" id="cb68-5" title="5">      <span class="dt">ideam_id =</span> <span class="kw">as.character</span>(</a>
+<a class="sourceLine" id="cb68-6" title="6">        <span class="kw">c</span>(<span class="dv">48015050</span>, <span class="dv">52055230</span>, <span class="dv">26125061</span>, <span class="dv">26125710</span>, <span class="dv">23085270</span>, <span class="dv">27015330</span>, </a>
+<a class="sourceLine" id="cb68-7" title="7">          <span class="dv">16015501</span>, <span class="dv">23195502</span>, <span class="dv">13035501</span>, <span class="dv">28025502</span>, <span class="dv">15065180</span>, <span class="dv">29045190</span>)),</a>
+<a class="sourceLine" id="cb68-8" title="8">      <span class="dt">fc_zo =</span> </a>
+<a class="sourceLine" id="cb68-9" title="9">        <span class="kw">c</span>(<span class="fl">1.197230052</span>, <span class="fl">1.219771719</span>, <span class="fl">1.102205474</span> , <span class="fl">1.18154867</span>, <span class="fl">1.113341504</span>, <span class="fl">1.29241596</span>, </a>
+<a class="sourceLine" id="cb68-10" title="10">          <span class="fl">1.102205474</span>, <span class="fl">1.177562503</span>, <span class="fl">1.114968586</span>, <span class="fl">1.184849704</span>, <span class="fl">1.5</span>, <span class="fl">1.224744381</span>),  </a>
+<a class="sourceLine" id="cb68-11" title="11">      <span class="dt">stringsAsFactors=</span><span class="ot">FALSE</span>)</a></code></pre></div>
 
 <p>Inside file <em>VV_AUT_2_1.r</em>, all needed correction factors are hard coded in variable <em>stationssample</em>. If a more suitable calculation of correction factors is done, those values can be updated inside this data-frame.</p>
 <ol start="3" style="list-style-type: decimal">
@@ -704,7 +704,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ol>
 
 
-<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb68-1" title="1">      ncname &lt;-<span class="st"> &quot;../data/outfile_nc4c_zip9&quot;</span></a></code></pre></div>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb69-1" title="1">      ncname &lt;-<span class="st"> &quot;../data/outfile_nc4c_zip9&quot;</span></a></code></pre></div>
 
 <p>Variable <em>ncname</em>, defines the location of NetCDF file <em>outfile_nc4c_zip9.nc</em> with variable <em>fg10</em> (3-s wind gust). Be sure that <em>ncname</em> variable is pointing to the right place where mentioned NetCDF file is stored.</p>
 <ol start="4" style="list-style-type: decimal">
@@ -712,8 +712,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ol>
 
 
-<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb69-1" title="1">      fc &lt;-<span class="kw">read.xlsx</span>(<span class="dt">file=</span><span class="st">&quot;correction_factors_isd_ideam.xlsx&quot;</span>, <span class="dt">sheetName=</span><span class="st">&quot;fc&quot;</span>, <span class="dt">header=</span><span class="ot">TRUE</span>, </a>
-<a class="sourceLine" id="cb69-2" title="2">                     <span class="dt">stringsAsFactors =</span> F)</a></code></pre></div>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb70-1" title="1">      fc &lt;-<span class="kw">read.xlsx</span>(<span class="dt">file=</span><span class="st">&quot;correction_factors_isd_ideam.xlsx&quot;</span>, <span class="dt">sheetName=</span><span class="st">&quot;fc&quot;</span>, <span class="dt">header=</span><span class="ot">TRUE</span>, </a>
+<a class="sourceLine" id="cb70-2" title="2">                     <span class="dt">stringsAsFactors =</span> F)</a></code></pre></div>
 
 <p>Variable <em>fc</em> must point to Excel file where correction factors and dependent variables are stored for each analyzed ISD and IDEAM station. This file must have columns <em>Station ID</em>, roughness <span class="math inline">\(Z_o\)</span>, <em>Source</em>, gradient height <span class="math inline">\(Z_g\)</span>, empirical exponent <span class="math inline">\(\alpha\)</span>, exposure coefficient <span class="math inline">\(K_z\)</span>, exposition correction factor <span class="math inline">\(F_e\)</span>, gust correction factor <span class="math inline">\(F_{gust}\)</span>, and total correction factor <span class="math inline">\(F_{total}\)</span>, as is shown in Table <a href="#tab:cf"><strong>??</strong></a>. For a detailed explanation, see <em><a href="4-rmd-method.html#rmd-standardization">Data Standardization</a></em>.</p>
 <ol start="5" style="list-style-type: decimal">
@@ -721,32 +721,32 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ol>
 
 
-<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb70-1" title="1">      path_vv_aut_<span class="dv">10</span> =<span class="st"> &quot;./data/manual/VV_AUT_10/&quot;</span></a></code></pre></div>
+<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb71-1" title="1">      path_vv_aut_<span class="dv">10</span> =<span class="st"> &quot;./data/manual/VV_AUT_10/&quot;</span></a></code></pre></div>
 
 <p>Non standardized time series text files for IDEAM data VV_AUT_10 - instantaneous wind velocity each ten (10) minutes, must be stored inside folder <em>path_vv_aut_10</em>, one file per station history. Be aware that all wind velocities must not be standardized. There are a total of 204 stations, that is 204 files. The file name follows the format <em>VV_AUT_10@*.data</em>, where * is replaced by the station identifier, as can be seen below.</p>
 
 
-<div class="sourceCode" id="cb71"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb71-1" title="1">      <span class="ex">VV_AUT_10@31095030.data</span></a>
-<a class="sourceLine" id="cb71-2" title="2">      <span class="ex">VV_AUT_10@29065130.data</span></a>
-<a class="sourceLine" id="cb71-3" title="3">      <span class="ex">VV_AUT_10@29065140.data</span></a>
-<a class="sourceLine" id="cb71-4" title="4">      <span class="ex">...</span></a></code></pre></div>
+<div class="sourceCode" id="cb72"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb72-1" title="1">      <span class="ex">VV_AUT_10@31095030.data</span></a>
+<a class="sourceLine" id="cb72-2" title="2">      <span class="ex">VV_AUT_10@29065130.data</span></a>
+<a class="sourceLine" id="cb72-3" title="3">      <span class="ex">VV_AUT_10@29065140.data</span></a>
+<a class="sourceLine" id="cb72-4" title="4">      <span class="ex">...</span></a></code></pre></div>
 
 <p>Content of each file must follow structure shown below. The first line must contain the text <em>Fecha|Valor</em>, representing two column names, first column <em>Fecha</em>, has the date time in the format “YYYY-MM-DD HH:MM:SS” (time zone UTC), and second column <em>Valor</em> must have the non-standardized wind velocity in kilometers per hour. Separation of each column value must be the <em>|</em> character.</p>
 
 
-<div class="sourceCode" id="cb72"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb72-1" title="1">      <span class="ex">Fecha</span><span class="kw">|</span><span class="ex">Valor</span></a>
-<a class="sourceLine" id="cb72-2" title="2">      <span class="ex">2008-10-29</span> 10:30:00<span class="kw">|</span><span class="ex">0.9</span></a>
-<a class="sourceLine" id="cb72-3" title="3">      <span class="ex">2008-10-29</span> 10:40:00<span class="kw">|</span><span class="ex">1.4</span></a>
-<a class="sourceLine" id="cb72-4" title="4">      <span class="ex">2008-10-29</span> 10:50:00<span class="kw">|</span><span class="ex">1.2</span></a>
-<a class="sourceLine" id="cb72-5" title="5">      <span class="ex">...</span></a></code></pre></div>
+<div class="sourceCode" id="cb73"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb73-1" title="1">      <span class="ex">Fecha</span><span class="kw">|</span><span class="ex">Valor</span></a>
+<a class="sourceLine" id="cb73-2" title="2">      <span class="ex">2008-10-29</span> 10:30:00<span class="kw">|</span><span class="ex">0.9</span></a>
+<a class="sourceLine" id="cb73-3" title="3">      <span class="ex">2008-10-29</span> 10:40:00<span class="kw">|</span><span class="ex">1.4</span></a>
+<a class="sourceLine" id="cb73-4" title="4">      <span class="ex">2008-10-29</span> 10:50:00<span class="kw">|</span><span class="ex">1.2</span></a>
+<a class="sourceLine" id="cb73-5" title="5">      <span class="ex">...</span></a></code></pre></div>
 
 <ol start="6" style="list-style-type: decimal">
 <li><em>somePDFPath</em></li>
 </ol>
 
 
-<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb73-1" title="1">      somePDFPath =<span class="st"> </span><span class="kw">paste</span>(<span class="kw">paste</span>(<span class="st">&quot;isdideamera5&quot;</span>, i, era5_intersect_ideam[<span class="st">&quot;ideam_station&quot;</span>,i], <span class="dt">sep =</span> <span class="st">&quot;_&quot;</span>), </a>
-<a class="sourceLine" id="cb73-2" title="2">                          <span class="st">&quot;pdf&quot;</span>, <span class="dt">sep=</span><span class="st">&quot;.&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb74-1" title="1">      somePDFPath =<span class="st"> </span><span class="kw">paste</span>(<span class="kw">paste</span>(<span class="st">&quot;isdideamera5&quot;</span>, i, era5_intersect_ideam[<span class="st">&quot;ideam_station&quot;</span>,i], <span class="dt">sep =</span> <span class="st">&quot;_&quot;</span>), </a>
+<a class="sourceLine" id="cb74-2" title="2">                          <span class="st">&quot;pdf&quot;</span>, <span class="dt">sep=</span><span class="st">&quot;.&quot;</span>)</a></code></pre></div>
 
 <p>Variable <em>somePDFPath</em> holds the name of the output PDF file with non-quality data comparison between IDEAM, ISD and ERA5. After execution, there will be a file for each match between ERA5 cells and ISD and/or IDEAM intersecting stations. Inside each PDF file, comparison time series graphics will be generated, as well as scatter plots. Using graphics inside this file, it is possible to visually define if exist downscaling support to use model or forecast data (ISD and ERA5), by the comparison against measure data (IDEAM). See Table <a href="#tab:resultsstructure"><strong>??</strong></a> <em><a href="B-results.html#results">Results - Digital Files</a></em>, for a description of all digital output files of this research.</p>
 </div>
@@ -769,24 +769,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ol>
 
 
-<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb74-1" title="1">      inputpath=<span class="st">&quot;./raw_data/&quot;</span></a></code></pre></div>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb75-1" title="1">      inputpath=<span class="st">&quot;./raw_data/&quot;</span></a></code></pre></div>
 
 <p>Inside this folder <em>inputpath</em>, standardized time series text files must be stored, one file per station history. Be aware that all wind velocities must be already standardized, see <em><a href="4-rmd-method.html#rmd-standardization">Data Standardization</a></em> section in <em><a href="4-rmd-method.html#rmd-method">Methodology</a></em>. Below, an example of the content of this folder is shown.</p>
 
 
-<div class="sourceCode" id="cb75"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb75-1" title="1">      <span class="ex">raw_data_station_800740.txt</span></a>
-<a class="sourceLine" id="cb75-2" title="2">      <span class="ex">raw_data_station_800770.txt</span></a>
-<a class="sourceLine" id="cb75-3" title="3">      <span class="ex">...</span></a></code></pre></div>
+<div class="sourceCode" id="cb76"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb76-1" title="1">      <span class="ex">raw_data_station_800740.txt</span></a>
+<a class="sourceLine" id="cb76-2" title="2">      <span class="ex">raw_data_station_800770.txt</span></a>
+<a class="sourceLine" id="cb76-3" title="3">      <span class="ex">...</span></a></code></pre></div>
 
 <p>Files names must follow this convention <strong>raw_data_station_*.txt</strong>, where <em>*</em> must be replaced by the station ID. Its content must follow structure shown below.</p>
 
 
-<div class="sourceCode" id="cb76"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb76-1" title="1">      <span class="st">&quot;date_time&quot;</span> <span class="st">&quot;kph&quot;</span> <span class="st">&quot;thunder_flag&quot;</span></a>
-<a class="sourceLine" id="cb76-2" title="2">      <span class="st">&quot;1950/06/22 12:00:00 GMT&quot;</span>  <span class="ex">122.60934</span> <span class="st">&quot;nt&quot;</span></a>
-<a class="sourceLine" id="cb76-3" title="3">      <span class="st">&quot;1951/06/13 12:00:00 GMT&quot;</span>   <span class="ex">203.9521</span> <span class="st">&quot;nt&quot;</span></a>
-<a class="sourceLine" id="cb76-4" title="4">      <span class="st">&quot;1951/08/02 12:00:00 GMT&quot;</span>  <span class="ex">30.553136</span> <span class="st">&quot;nt&quot;</span></a>
-<a class="sourceLine" id="cb76-5" title="5">      <span class="st">&quot;1963/02/26 12:00:00 GMT&quot;</span>  <span class="ex">26.585196</span> <span class="st">&quot;nt&quot;</span></a>
-<a class="sourceLine" id="cb76-6" title="6">      <span class="ex">...</span></a></code></pre></div>
+<div class="sourceCode" id="cb77"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb77-1" title="1">      <span class="st">&quot;date_time&quot;</span> <span class="st">&quot;kph&quot;</span> <span class="st">&quot;thunder_flag&quot;</span></a>
+<a class="sourceLine" id="cb77-2" title="2">      <span class="st">&quot;1950/06/22 12:00:00 GMT&quot;</span>  <span class="ex">122.60934</span> <span class="st">&quot;nt&quot;</span></a>
+<a class="sourceLine" id="cb77-3" title="3">      <span class="st">&quot;1951/06/13 12:00:00 GMT&quot;</span>   <span class="ex">203.9521</span> <span class="st">&quot;nt&quot;</span></a>
+<a class="sourceLine" id="cb77-4" title="4">      <span class="st">&quot;1951/08/02 12:00:00 GMT&quot;</span>  <span class="ex">30.553136</span> <span class="st">&quot;nt&quot;</span></a>
+<a class="sourceLine" id="cb77-5" title="5">      <span class="st">&quot;1963/02/26 12:00:00 GMT&quot;</span>  <span class="ex">26.585196</span> <span class="st">&quot;nt&quot;</span></a>
+<a class="sourceLine" id="cb77-6" title="6">      <span class="ex">...</span></a></code></pre></div>
 
 <p>The first line must contain the text <em>“date_time” “mph” “thunder_flag”</em>, representing three column names separated by spaces. First column <em>“date_time”</em> has the date time in the format “YYYY/MM/DD HH:MM:SS” (time zone UTC). Second column <em>kph</em> must have the standardized wind velocity in kilometers per hour. Third column <em>“thunder_flag”</em> must have a flag with one of two possible values <em>“nt”</em> or <em>“t”</em>, representing <em>non-thunderstorm</em> or <em>thunderstorm</em> classification respectively for the current wind value. For current research third column always had the flag <em>“nt”</em> (all stations, all rows). Separation of each column value must be <em>space</em> character. Values corresponding to <em>“date_time”</em> and <em>“thunder_flag”</em> must be enclosed by double quotes.</p>
 <ol start="2" style="list-style-type: decimal">
@@ -794,15 +794,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ol>
 
 
-<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb77-1" title="1">      estaciones &lt;-<span class="st"> </span><span class="kw">read.delim</span>(<span class="kw">paste0</span>(inputpath, <span class="st">&quot;01 estaciones.txt&quot;</span>), </a>
-<a class="sourceLine" id="cb77-2" title="2">        <span class="dt">header =</span> <span class="ot">FALSE</span>, <span class="dt">sep =</span> <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb78-1" title="1">      estaciones &lt;-<span class="st"> </span><span class="kw">read.delim</span>(<span class="kw">paste0</span>(inputpath, <span class="st">&quot;01 estaciones.txt&quot;</span>), </a>
+<a class="sourceLine" id="cb78-2" title="2">        <span class="dt">header =</span> <span class="ot">FALSE</span>, <span class="dt">sep =</span> <span class="st">&quot;</span><span class="ch">\t</span><span class="st">&quot;</span>)</a></code></pre></div>
 
 <p>Variable <em>estaciones</em>, must point to a text file, named <em>‘01 estaciones.txt’</em>, and stored inside <em>inputpath</em> folder, with the IDs of ISD stations to be processed. Each line of the file must have one ISD station ID. This file must have the list of stations to process, one station per row. If the intention is to run the process for only one station, the content of this file must have a single line, with the corresponding station ID. The code repeats the POT-PP procedure for each line of this file. Below, an example of its content is shown.</p>
 
 
-<div class="sourceCode" id="cb78"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb78-1" title="1">      <span class="ex">800740</span></a>
-<a class="sourceLine" id="cb78-2" title="2">      <span class="ex">800770</span></a>
-<a class="sourceLine" id="cb78-3" title="3">      <span class="ex">...</span></a></code></pre></div>
+<div class="sourceCode" id="cb79"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb79-1" title="1">      <span class="ex">800740</span></a>
+<a class="sourceLine" id="cb79-2" title="2">      <span class="ex">800770</span></a>
+<a class="sourceLine" id="cb79-3" title="3">      <span class="ex">...</span></a></code></pre></div>
 
 <p>Be aware that for each line in this file <em>01 estaciones.txt</em>, one text file with wind historical time series information, named <strong>raw_data_station_*.txt</strong>, where <em>*</em> represents the same station ID, must be stored inside <em>inputpath</em> folder. See first element, lines up, in this list of variables.</p>
 <ol start="3" style="list-style-type: decimal">
@@ -810,7 +810,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ol>
 
 
-<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb79-1" title="1">      outputpath =<span class="st"> &quot;./isd/&quot;</span></a></code></pre></div>
+<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb80-1" title="1">      outputpath =<span class="st"> &quot;./isd/&quot;</span></a></code></pre></div>
 
 <p>Variable <em>outputpath</em>, should point to the folder where all output files will be stored, after running POT-PP process. The following list describes the main files to be generated, where <em>*</em> will be replaced by correspondent station ID.</p>
 <ul>
@@ -828,28 +828,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Main file <strong>pot_pp_isd.r</strong>, runs supplemental code using the R command <em>source</em>. Be sure that all R code files listed in next chunk of code, are pointing to the right location. See Table  with the description of POT-PP ERA5 complementary R files. In the Table  of the Annex <a href="A-rcode.html#rcode">A</a> it is possible to see all R files related to this research.</p>
 
 
-<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb80-1" title="1">    <span class="co">#Library of POT-PP functions, including Dr Adam Pintar R Code (not </span></a>
-<a class="sourceLine" id="cb80-2" title="2">    <span class="co">#published because this is copyrighted)</span></a>
-<a class="sourceLine" id="cb80-3" title="3">      <span class="kw">source</span>(<span class="st">&#39;./code/function_lib.R&#39;</span>)</a>
-<a class="sourceLine" id="cb80-4" title="4">    <span class="co">#Raw Data (whole dataset) Statistics and Send to CSV </span></a>
-<a class="sourceLine" id="cb80-5" title="5">      <span class="kw">source</span>(<span class="st">&#39;./code/stats_raw_data.r&#39;</span>)</a>
-<a class="sourceLine" id="cb80-6" title="6">    <span class="co">#Non Thunderstorm - Create Raw Data Statistics and Send to CSV </span></a>
-<a class="sourceLine" id="cb80-7" title="7">      <span class="kw">source</span>(<span class="st">&#39;./code/stats_raw_data_nt.r&#39;</span>)</a>
-<a class="sourceLine" id="cb80-8" title="8">    <span class="co">#Thunderstorm - Create Raw Data Statistics and Send to CSV</span></a>
-<a class="sourceLine" id="cb80-9" title="9">      <span class="kw">source</span>(<span class="st">&#39;./code/stats_raw_data_t.r&#39;</span>)</a>
-<a class="sourceLine" id="cb80-10" title="10">    <span class="co">#Write &quot;t&quot; to csv, but changing to one data per day (the maximum)</span></a>
-<a class="sourceLine" id="cb80-11" title="11">    <span class="co">#Write &quot;nt&quot; to csv, but changing to one data per day (the maximum)</span></a>
-<a class="sourceLine" id="cb80-12" title="12">      <span class="kw">source</span>(<span class="st">&#39;./code/tnt_csv_1perday.r&#39;</span>)</a>
-<a class="sourceLine" id="cb80-13" title="13">    <span class="co">#Statistics and graphics for de-clustered non-thunderstorm</span></a>
-<a class="sourceLine" id="cb80-14" title="14">      <span class="kw">source</span>(<span class="st">&#39;./code/stats_graphs_dnt.r&#39;</span>)</a>
-<a class="sourceLine" id="cb80-15" title="15">    <span class="co">#Statistics and graphics for de-clustered thunderstorm</span></a>
-<a class="sourceLine" id="cb80-16" title="16">      <span class="kw">source</span>(<span class="st">&#39;./code/stats_graphs_dt.r&#39;</span>)</a>
-<a class="sourceLine" id="cb80-17" title="17">    <span class="co">#Plots for thunderstorm</span></a>
-<a class="sourceLine" id="cb80-18" title="18">      <span class="kw">source</span>(<span class="st">&#39;./code/plot_t.r&#39;</span>)</a>
-<a class="sourceLine" id="cb80-19" title="19">    <span class="co">#Plots for non-thunderstorm</span></a>
-<a class="sourceLine" id="cb80-20" title="20">      <span class="kw">source</span>(<span class="st">&#39;./code/plot_nt.r&#39;</span>)</a>
-<a class="sourceLine" id="cb80-21" title="21">    <span class="co">#Plots for non-thunderstorm and thunderstorm</span></a>
-<a class="sourceLine" id="cb80-22" title="22">      <span class="kw">source</span>(<span class="st">&#39;./code/plot_t_nt.r&#39;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb81-1" title="1">    <span class="co">#Library of POT-PP functions, including Dr Adam Pintar R Code (not </span></a>
+<a class="sourceLine" id="cb81-2" title="2">    <span class="co">#published because this is copyrighted)</span></a>
+<a class="sourceLine" id="cb81-3" title="3">      <span class="kw">source</span>(<span class="st">&#39;./code/function_lib.R&#39;</span>)</a>
+<a class="sourceLine" id="cb81-4" title="4">    <span class="co">#Raw Data (whole dataset) Statistics and Send to CSV </span></a>
+<a class="sourceLine" id="cb81-5" title="5">      <span class="kw">source</span>(<span class="st">&#39;./code/stats_raw_data.r&#39;</span>)</a>
+<a class="sourceLine" id="cb81-6" title="6">    <span class="co">#Non Thunderstorm - Create Raw Data Statistics and Send to CSV </span></a>
+<a class="sourceLine" id="cb81-7" title="7">      <span class="kw">source</span>(<span class="st">&#39;./code/stats_raw_data_nt.r&#39;</span>)</a>
+<a class="sourceLine" id="cb81-8" title="8">    <span class="co">#Thunderstorm - Create Raw Data Statistics and Send to CSV</span></a>
+<a class="sourceLine" id="cb81-9" title="9">      <span class="kw">source</span>(<span class="st">&#39;./code/stats_raw_data_t.r&#39;</span>)</a>
+<a class="sourceLine" id="cb81-10" title="10">    <span class="co">#Write &quot;t&quot; to csv, but changing to one data per day (the maximum)</span></a>
+<a class="sourceLine" id="cb81-11" title="11">    <span class="co">#Write &quot;nt&quot; to csv, but changing to one data per day (the maximum)</span></a>
+<a class="sourceLine" id="cb81-12" title="12">      <span class="kw">source</span>(<span class="st">&#39;./code/tnt_csv_1perday.r&#39;</span>)</a>
+<a class="sourceLine" id="cb81-13" title="13">    <span class="co">#Statistics and graphics for de-clustered non-thunderstorm</span></a>
+<a class="sourceLine" id="cb81-14" title="14">      <span class="kw">source</span>(<span class="st">&#39;./code/stats_graphs_dnt.r&#39;</span>)</a>
+<a class="sourceLine" id="cb81-15" title="15">    <span class="co">#Statistics and graphics for de-clustered thunderstorm</span></a>
+<a class="sourceLine" id="cb81-16" title="16">      <span class="kw">source</span>(<span class="st">&#39;./code/stats_graphs_dt.r&#39;</span>)</a>
+<a class="sourceLine" id="cb81-17" title="17">    <span class="co">#Plots for thunderstorm</span></a>
+<a class="sourceLine" id="cb81-18" title="18">      <span class="kw">source</span>(<span class="st">&#39;./code/plot_t.r&#39;</span>)</a>
+<a class="sourceLine" id="cb81-19" title="19">    <span class="co">#Plots for non-thunderstorm</span></a>
+<a class="sourceLine" id="cb81-20" title="20">      <span class="kw">source</span>(<span class="st">&#39;./code/plot_nt.r&#39;</span>)</a>
+<a class="sourceLine" id="cb81-21" title="21">    <span class="co">#Plots for non-thunderstorm and thunderstorm</span></a>
+<a class="sourceLine" id="cb81-22" title="22">      <span class="kw">source</span>(<span class="st">&#39;./code/plot_t_nt.r&#39;</span>)</a></code></pre></div>
 
 <div id="isd-maps" class="section level4">
 <h4><span class="header-section-number">F.3.1.1</span> ISD Maps</h4>
@@ -1284,13 +1284,13 @@ Figure F.1: ERA5 Cells and Stations
 </ol>
 
 
-<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb81-1" title="1">      inputpathnetcdf =<span class="st"> &quot;./data/&quot;</span></a></code></pre></div>
+<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb82-1" title="1">      inputpathnetcdf =<span class="st"> &quot;./data/&quot;</span></a></code></pre></div>
 
 <p>Inside this folder <em>inputpathnetcdf</em>, file <em>“outfile_nc4c_zip9.nc”</em>, with variable 3-s wind gust <em>fg10</em>, must be stored. Be aware that ERA5 dataset does not need any type of standardization, as it comes standardized from source. See Annex <a href="C-datadownload.html#datadownload">C</a> for a detailed procedure to download ERA5 information from Climate Data Storage - CDS <a href="https://cds.climate.copernicus.eu/" class="uri">https://cds.climate.copernicus.eu/</a>.
 2. <em>outputpath</em></p>
 
 
-<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb82-1" title="1">      outputpath =<span class="st"> &quot;./era5/&quot;</span></a></code></pre></div>
+<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb83-1" title="1">      outputpath =<span class="st"> &quot;./era5/&quot;</span></a></code></pre></div>
 
 <p>Variable <em>outputpath</em>, should point to the folder where all output files will be stored, after running POT-PP process. Following list describes main files to be generated, where <em>*</em> will be replaced by correspondent station ID.</p>
 <ul>
@@ -1308,28 +1308,28 @@ Figure F.1: ERA5 Cells and Stations
 <p>Main file <strong>pot_pp_era5.r</strong>, runs supplemental code using the R command <em>source</em>. Be sure that all R code files listed in next chunk of code, are pointing to the right location. See Table  with the description of POT-PP ERA5 complementary R files. In Annex <a href="A-rcode.html#rcode">A</a> - Research R Code - Digital Files, Table  it is possible to see all R files related to this research.</p>
 
 
-<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb83-1" title="1">    <span class="co">#Library of POT-PP functions, including Dr Adam Pintar R Code (not </span></a>
-<a class="sourceLine" id="cb83-2" title="2">    <span class="co">#published because this is copyrighted)</span></a>
-<a class="sourceLine" id="cb83-3" title="3">      <span class="kw">source</span>(<span class="st">&#39;./code/function_lib.R&#39;</span>)</a>
-<a class="sourceLine" id="cb83-4" title="4">    <span class="co">#Raw Data (whole dataset) Statistics and Send to CSV </span></a>
-<a class="sourceLine" id="cb83-5" title="5">      <span class="kw">source</span>(<span class="st">&#39;./code/stats_raw_data.r&#39;</span>)</a>
-<a class="sourceLine" id="cb83-6" title="6">    <span class="co">#Non Thunderstorm - Create Raw Data Statistics and Send to CSV </span></a>
-<a class="sourceLine" id="cb83-7" title="7">      <span class="kw">source</span>(<span class="st">&#39;./code/stats_raw_data_nt.r&#39;</span>)</a>
-<a class="sourceLine" id="cb83-8" title="8">    <span class="co">#Thunderstorm - Create Raw Data Statistics and Send to CSV</span></a>
-<a class="sourceLine" id="cb83-9" title="9">      <span class="kw">source</span>(<span class="st">&#39;./code/stats_raw_data_t.r&#39;</span>)</a>
-<a class="sourceLine" id="cb83-10" title="10">    <span class="co">#Write &quot;t&quot; to csv, but changing to one data per day (the maximum)</span></a>
-<a class="sourceLine" id="cb83-11" title="11">    <span class="co">#Write &quot;nt&quot; to csv, but changing to one data per day (the maximum)</span></a>
-<a class="sourceLine" id="cb83-12" title="12">      <span class="kw">source</span>(<span class="st">&#39;./code/tnt_csv_1perday.r&#39;</span>)</a>
-<a class="sourceLine" id="cb83-13" title="13">    <span class="co">#Statistics and graphics for de-clustered non-thunderstorm</span></a>
-<a class="sourceLine" id="cb83-14" title="14">      <span class="kw">source</span>(<span class="st">&#39;./code/stats_graphs_dnt.r&#39;</span>)</a>
-<a class="sourceLine" id="cb83-15" title="15">    <span class="co">#Statistics and graphics for de-clustered thunderstorm</span></a>
-<a class="sourceLine" id="cb83-16" title="16">      <span class="kw">source</span>(<span class="st">&#39;./code/stats_graphs_dt.r&#39;</span>)</a>
-<a class="sourceLine" id="cb83-17" title="17">    <span class="co">#Plots for thunderstorm</span></a>
-<a class="sourceLine" id="cb83-18" title="18">      <span class="kw">source</span>(<span class="st">&#39;./code/plot_t.r&#39;</span>)</a>
-<a class="sourceLine" id="cb83-19" title="19">    <span class="co">#Plots for non-thunderstorm</span></a>
-<a class="sourceLine" id="cb83-20" title="20">      <span class="kw">source</span>(<span class="st">&#39;./code/plot_nt.r&#39;</span>)</a>
-<a class="sourceLine" id="cb83-21" title="21">    <span class="co">#Plots for non-thunderstorm and thunderstorm</span></a>
-<a class="sourceLine" id="cb83-22" title="22">      <span class="kw">source</span>(<span class="st">&#39;./code/plot_t_nt.r&#39;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb84-1" title="1">    <span class="co">#Library of POT-PP functions, including Dr Adam Pintar R Code (not </span></a>
+<a class="sourceLine" id="cb84-2" title="2">    <span class="co">#published because this is copyrighted)</span></a>
+<a class="sourceLine" id="cb84-3" title="3">      <span class="kw">source</span>(<span class="st">&#39;./code/function_lib.R&#39;</span>)</a>
+<a class="sourceLine" id="cb84-4" title="4">    <span class="co">#Raw Data (whole dataset) Statistics and Send to CSV </span></a>
+<a class="sourceLine" id="cb84-5" title="5">      <span class="kw">source</span>(<span class="st">&#39;./code/stats_raw_data.r&#39;</span>)</a>
+<a class="sourceLine" id="cb84-6" title="6">    <span class="co">#Non Thunderstorm - Create Raw Data Statistics and Send to CSV </span></a>
+<a class="sourceLine" id="cb84-7" title="7">      <span class="kw">source</span>(<span class="st">&#39;./code/stats_raw_data_nt.r&#39;</span>)</a>
+<a class="sourceLine" id="cb84-8" title="8">    <span class="co">#Thunderstorm - Create Raw Data Statistics and Send to CSV</span></a>
+<a class="sourceLine" id="cb84-9" title="9">      <span class="kw">source</span>(<span class="st">&#39;./code/stats_raw_data_t.r&#39;</span>)</a>
+<a class="sourceLine" id="cb84-10" title="10">    <span class="co">#Write &quot;t&quot; to csv, but changing to one data per day (the maximum)</span></a>
+<a class="sourceLine" id="cb84-11" title="11">    <span class="co">#Write &quot;nt&quot; to csv, but changing to one data per day (the maximum)</span></a>
+<a class="sourceLine" id="cb84-12" title="12">      <span class="kw">source</span>(<span class="st">&#39;./code/tnt_csv_1perday.r&#39;</span>)</a>
+<a class="sourceLine" id="cb84-13" title="13">    <span class="co">#Statistics and graphics for de-clustered non-thunderstorm</span></a>
+<a class="sourceLine" id="cb84-14" title="14">      <span class="kw">source</span>(<span class="st">&#39;./code/stats_graphs_dnt.r&#39;</span>)</a>
+<a class="sourceLine" id="cb84-15" title="15">    <span class="co">#Statistics and graphics for de-clustered thunderstorm</span></a>
+<a class="sourceLine" id="cb84-16" title="16">      <span class="kw">source</span>(<span class="st">&#39;./code/stats_graphs_dt.r&#39;</span>)</a>
+<a class="sourceLine" id="cb84-17" title="17">    <span class="co">#Plots for thunderstorm</span></a>
+<a class="sourceLine" id="cb84-18" title="18">      <span class="kw">source</span>(<span class="st">&#39;./code/plot_t.r&#39;</span>)</a>
+<a class="sourceLine" id="cb84-19" title="19">    <span class="co">#Plots for non-thunderstorm</span></a>
+<a class="sourceLine" id="cb84-20" title="20">      <span class="kw">source</span>(<span class="st">&#39;./code/plot_nt.r&#39;</span>)</a>
+<a class="sourceLine" id="cb84-21" title="21">    <span class="co">#Plots for non-thunderstorm and thunderstorm</span></a>
+<a class="sourceLine" id="cb84-22" title="22">      <span class="kw">source</span>(<span class="st">&#39;./code/plot_t_nt.r&#39;</span>)</a></code></pre></div>
 
 
 </div>

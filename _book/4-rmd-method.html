@@ -429,7 +429,7 @@ Figure 4.10: POT - Thresholding W Statistic
     \end{cases}
   \tag{4.10}
 \end{equation}\]</span></p>
-<p>As is shown in <a href="4-rmd-method.html#fig:fitif">4.11</a>, the fitting process involve finding the best group of parameters of the intensity function, in such a way that the red curve (PDF of the PP, based on intensity function) be as tight as possible to the shape of the data histogram. As is described in <em><a href="4-rmd-method.html#pot-pp">POT-PP</a></em>, optimal parameters to do the fitting process of the intensity function are calculated using <em>maximum likelihood</em>.</p>
+<p>As is shown in <a href="4-rmd-method.html#fig:fitif">4.11</a>, the fitting process involve finding the best group of parameters of the intensity function, in such a way that the red curve (PDF of the PP, based on intensity function) be as tight as possible to the shape of the data histogram. As is described in <em><a href="4-rmd-method.html#pot-pp">POT-PP</a></em>, optimal parameters to do the fitting process of the intensity function are calculated using <em>maximum likelihood</em> with equation <a href="3-rmd-thefra.html#eq:pplikelihood">(3.19)</a>. The R code provided by Dr. Adam Pintar solve the score equations for the limit of the Poission process likelihood as the shape parameter goes to zero, see personalized functions <code>FindStartVals</code> and <code>FindPsi</code> based on <code>stars::uniroot</code>.</p>
 
 <div class="figure" style="text-align: center"><span id="fig:fitif"></span>
 <img src="thesis_files/figure-html/fitif-1.png" alt="POT - PP Intensity Function Fitting Process" width="192" />
